@@ -1,6 +1,6 @@
 ﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
 
-## Budget Execution is an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
+## Badger is an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
 
 ## Features
 
