@@ -1,6 +1,6 @@
 ﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Badger.png)
 
-## Badger is the WPF-based version of the BudgetExecution tool: an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
+## Badger is the WPF-based version of the Budget Execution data analysis [tool](https://github.com/KarmaScripter/BudgetExecution?tab=readme-ov-file): an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
 
 ## Badger Features
 
