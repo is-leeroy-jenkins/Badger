@@ -3,9 +3,24 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <StartupObject>Badger.App</StartupObject>
+    <ApplicationIcon>Resources\Images\NinjaImages\BudExNinjaGrey.ico</ApplicationIcon>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <DocumentationFile>Badger.xml</DocumentationFile>
+    <PackageIcon>Badger.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/KarmaScripter/Badger.git</RepositoryUrl>
+    <PackageTags>Data Analysis;Budget;Federal;Government;Data Visualization;WPF;</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +28,16 @@
     <EmbeddedResource Remove="Resources\Images - Copy\**" />
     <None Remove="Resources\Images - Copy\**" />
     <Page Remove="Resources\Images - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="BudExNinja.png" />
+    <None Remove="Windows\Dialogs\ErrorDialog.png" />
+    <None Remove="Windows\Main\Badger.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Images\NinjaImages\BudExNinjaGrey.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +69,27 @@
     <Folder Include="Clients\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BudExNinja.png" />
+    <Resource Include="Windows\Dialogs\ErrorDialog.png" />
+    <Resource Include="Windows\Main\Badger.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Misc\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Images\NinjaImages\png\Badger.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

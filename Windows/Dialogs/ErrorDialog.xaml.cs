@@ -103,7 +103,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Dialogs.ErrorDialog" /> class.
+        /// <see cref="T:Badger.ErrorDialog" /> class.
         /// </summary>
         public ErrorDialog( )
         {
@@ -113,7 +113,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Dialogs.ErrorDialog" />
+        /// <see cref="T:Badger.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="exception"> The exception. </param>
@@ -121,14 +121,14 @@
             : this( )
         {
             _exception = exception;
-            _errorMessage = exception.ToLogString( Exception?.Message );
+            _errorMessage = exception.ToLogString( exception.Message );
             _titleText = "There has been an error!";
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Dialogs.ErrorDialog" /> class.
+        /// <see cref="T:Badger.ErrorDialog" /> class.
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="title">The title.</param>
@@ -136,14 +136,14 @@
             : this( )
         {
             _exception = exception;
-            _errorMessage = exception.ToLogString( Exception?.Message );
+            _errorMessage = exception.ToLogString( exception.Message );
             _titleText = title;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Dialogs.ErrorDialog" />
+        /// <see cref="T:Badger.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="errorMessage"> The message. </param>
@@ -158,7 +158,7 @@
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Dialogs.ErrorDialog" /> class.
+        /// <see cref="T:Badger.ErrorDialog" /> class.
         /// </summary>
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>

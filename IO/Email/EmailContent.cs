@@ -260,7 +260,7 @@ namespace Badger
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected new void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             var _error = new ErrorDialog( ex );
             _error?.SetText( );
