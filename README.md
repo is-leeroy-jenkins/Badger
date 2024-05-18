@@ -1,8 +1,8 @@
-﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
+﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Badger.png)
 
-## Badger is an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
+## Badger is the WPF-based version of the BudgetExecution tool: an open source data analysis application for Analysts in the US EPA developed in C# and released under the MIT license.
 
-## Features
+## Badger Features
 
 - Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
 - Charting and reporting.
