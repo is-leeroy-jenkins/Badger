@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger"
         mc:Ignorable="d"
-        Title="Badger Error" Height="450" Width="700" Background="#FF141414" BorderBrush="Red" Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" Icon="/Windows/Dialogs/ErrorDialog.png" WindowStartupLocation="CenterScreen">
+        Title="Error" Height="450" Width="700" Background="#FF141414" BorderBrush="Red" Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" Icon="/Windows/Dialogs/Error.png" WindowStartupLocation="CenterScreen">
     <Grid>
     </Grid>
 </Window>

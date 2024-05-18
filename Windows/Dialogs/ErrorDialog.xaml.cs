@@ -257,7 +257,7 @@
                 }
                 else
                 {
-                    action.Invoke( );
+                    //action.Invoke( );
                 }
             }
             catch( Exception _ex )

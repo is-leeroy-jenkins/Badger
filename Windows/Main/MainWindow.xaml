@@ -1,11 +1,15 @@
-﻿<Window x:Class="Badger.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="Badger.MainWindow"
         mc:Ignorable="d"
-        Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Main/Badger.png">
-    <Grid Background="#FF141414">
+        Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4" 
+        Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" 
+        Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Main/Badger.png">
+    <Grid>
+        <syncfusion:SfHubTile HorizontalAlignment="Left" Height="92" Header="Header Text" Margin="119,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="114"/>
     </Grid>
 </Window>

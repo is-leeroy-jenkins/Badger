@@ -17,6 +17,8 @@
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class MainWindow : Window
     {
         public MainWindow( )
