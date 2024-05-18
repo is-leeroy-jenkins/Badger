@@ -10,6 +10,17 @@
         Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" 
         Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Main/Badger.png">
     <Grid>
-        <syncfusion:SfHubTile HorizontalAlignment="Left" Height="92" Header="Header Text" Margin="119,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="114"/>
+        <syncfusion:SfHubTile x:Name="DataGridTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="119,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Data Grid"/>
+        <syncfusion:SfHubTile x:Name="VisualizationTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="372,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Charts"/>
+        <syncfusion:SfHubTile x:Name="SQLiteTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="119,333,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="SQLite "/>
+        <syncfusion:SfHubTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="372,333,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="SQL CE"/>
+        <syncfusion:SfHubTile x:Name="CalendarTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="729,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Calendar"/>
+        <syncfusion:SfHubTile x:Name="GuidanceTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="729,333,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Guidance"/>
+        <syncfusion:SfHubTile x:Name="MessageTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="1025,333,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Message"/>
+        <syncfusion:SfHubTile x:Name="ProgramProjectTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="1025,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Program Projects"/>
+        <syncfusion:SfHubTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="119,505,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="SQL Server"/>
+        <syncfusion:SfHubTile x:Name="MapTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="1025,505,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Map"/>
+        <syncfusion:SfHubTile x:Name="ExcelDataTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="729,505,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Excel Data"/>
+        <syncfusion:SfHubTile x:Name="AccessTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="372,505,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Access"/>
     </Grid>
 </Window>
