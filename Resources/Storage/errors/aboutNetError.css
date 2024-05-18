@@ -1,0 +1,157 @@
+@import url("common.css");
+
+body
+{
+	align-items: center;
+	box-sizing: padding-box;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 48px;
+}
+
+ul, ol
+{
+	margin: 0;
+	-webkit-margin-start: 1em;
+	padding: 0;
+}
+
+ul > li, ol > li
+{
+	margin-bottom: .5em;
+}
+
+ul
+{
+	list-style: disc;
+}
+
+#errorPageContainer
+{
+	max-width: 512px;
+	min-width: 320px;
+	position: relative;
+}
+
+#errorTitleText
+{
+	background: url("aboutNetError_info.svg") left 0 no-repeat;
+	background-size: 1.2em;
+	-webkit-margin-start: -2em;
+	-webkit-padding-start: 2em;
+}
+
+#errorTitleText:-webkit-dir(rtl)
+{
+	background-position: right 0;
+}
+
+#errorTitleText[sslv3=true]
+{
+	background-image: url("aboutNetError_alert.svg");
+}
+
+#errorTryAgain
+{
+	margin-top: 1.2em;
+	min-width: 150px
+}
+
+#errorContainer
+{
+	display: none;
+}
+
+@media (max-width: 675px)
+{
+	#errorTitleText
+	{
+		background-image: none;
+		-webkit-margin-start: 0;
+		-webkit-padding-start: 0;
+		padding-top: 0;
+	}
+}
+
+/* Pressing the retry button will cause the cursor to flicker from a pointer to
+ * not-allowed. Override the disabled cursor behaviour since we will never show
+ * the button disabled as the initial state. */
+button:disabled
+{
+	cursor: pointer;
+}
+
+div#certificateErrorReporting
+{
+	display: none;
+	float: right;
+	/* Align with the "Try Again" button */
+	-webkit-margin-end: 24px;
+	margin-top: 24px;
+}
+
+div#certificateErrorReporting a
+{
+	text-decoration: none;
+}
+
+div#certificateErrorReporting a:hover
+{
+	text-decoration: underline;
+}
+
+span.downArrow
+{
+	display: inline-block;
+	font-size: 0.6em;
+	-webkit-margin-start: 0.5em;
+	transform: scaleY(0.7);
+	vertical-align: middle;
+}
+
+div#certificateErrorReportingPanel
+{
+	/* Hidden until the link is clicked */
+	background-color: white;
+	border: 1px lightgray solid;
+	box-shadow: 0 0 4px #ddd;
+	/* Don't use top padding because the default p style has top padding, and it
+	 * makes the overall div look uneven */
+	display: none;
+	font-size: 0.9em;
+	margin-top: 10px;
+	padding: 0 12px 12px 12px;
+	position: absolute;
+	width: 75%;
+}
+
+div#certificateErrorReportingPanel:-webkit-dir(ltr)
+{
+	left: 34%;
+}
+
+div#certificateErrorReportingPanel:-webkit-dir(rtl)
+{
+	right: 0;
+}
+
+#errorStatePanel
+{
+	align-content: space-between;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+span#hostname
+{
+	font-weight: bold;
+}
+
+#automaticallyReportInFuture
+{
+	cursor: pointer;
+}
