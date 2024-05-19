@@ -1,7 +1,7 @@
 ﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Badger.png)
 
 ## Badger is an open source data analysis application for Analysts in the US EPA developed in C# using WPF and released under the MIT license
-#### - The winforms version of Badger (BudgetExecution) can be found [here](https://github.com/KarmaScripter/BudgetExecution/tree/main?tab=readme-ov-file) 
+####
 
 ## Badger Features
 
@@ -15,6 +15,7 @@
 - Easy access to environmental program project descriptions and statutory authority.
 - Quick budget and accouting calculations directly on bound data.
 - Easily add agency/region/division-specific branding.
+- The winforms version of Badger is BugdetExecution and it can be found [here](https://github.com/KarmaScripter/BudgetExecution/tree/main?tab=readme-ov-file) 
 
 ## Providers
 
