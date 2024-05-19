@@ -66,15 +66,15 @@
 
 ### Datagrids to easily query financial data.
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Datagrid.PNG)
 
 ### Excel-like interface over a relational database.
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/ExcelUserInterface.PNG)
 
 ### Maps for congressional earmark reporting and pollution site monitoring.
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Map.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Map.PNG)
 
 ### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 
@@ -82,16 +82,16 @@
 
 ### Budget Calculator for quick accounting transactions and budget calculations on the data.
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Calculator.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Calculator.PNG)
 
 ### Federal fiscal year utilities compatable with full-time equivalency metrics.
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/FiscalYear.PNG)
 
 ### Environmental program definitions and statutory authorities bound directly to financial data
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/EnvironmentalPrograms.PNG)
 
 ### Data Visualization
 
-![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
+![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Charts.PNG)
