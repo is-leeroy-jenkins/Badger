@@ -77,6 +77,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="LinqStatistics">
+      <HintPath>Libraries\LinqStatistics.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="logo.png" />
     <Resource Include="Windows\Dialogs\Error.png" />
     <Resource Include="Windows\Dialogs\ErrorDialog.png" />
