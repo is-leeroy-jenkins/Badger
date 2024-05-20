@@ -53,7 +53,6 @@
     <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-    <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="21.1.41" />
@@ -72,13 +71,7 @@
 
   <ItemGroup>
     <Folder Include="Controls\Button\" />
-    <Folder Include="Controls\Layout\" />
-    <Folder Include="Controls\Label\" />
-    <Folder Include="Controls\ListBox\" />
-    <Folder Include="Controls\ComboBox\" />
-    <Folder Include="Controls\Ribbon\" />
-    <Folder Include="Controls\Spreadsheet\" />
-    <Folder Include="Controls\Tile\" />
+    <Folder Include="Controls\NewFolder\" />
     <Folder Include="Controls\ToolStrip\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Clients\" />
