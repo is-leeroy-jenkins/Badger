@@ -7,16 +7,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <StartupObject>Badger.App</StartupObject>
-    <ApplicationIcon>Resources\Images\FormImages\AppIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\FormImages\Application.ico</ApplicationIcon>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <DocumentationFile>Badger.xml</DocumentationFile>
-    <PackageIcon>Badger.png</PackageIcon>
+    <PackageIcon>Application.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/KarmaScripter/Badger.git</RepositoryUrl>
     <PackageTags>Data Analysis;Budget;Federal;Government;Data Visualization;WPF;</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -47,10 +48,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Images\FormImages\AppIcon.ico" />
+    <Content Include="Resources\Images\FormImages\Application.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
     <PackageReference Include="EPPlus" Version="7.0.8" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
@@ -61,13 +63,19 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
+    <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
+    <PackageReference Include="ModernWPF" Version="2.0.0-alpha97" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="21.1.41" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
@@ -103,14 +111,12 @@
     <Resource Include="Badger.png" />
     <Resource Include="Windows\Calendar\Badger.png" />
     <Resource Include="Windows\Chart\Badger.png" />
-    <Resource Include="Windows\DataGrid\Badger.png" />
+    <Resource Include="Windows\Grid\Badger.png" />
     <Resource Include="Windows\Dialogs\SplashNotification.png" />
     <Resource Include="Windows\Document\Badger.png" />
     <Resource Include="Windows\Excel\Badger.png" />
     <Resource Include="Windows\GeoMap\Badger.png" />
-    <Resource Include="Windows\Main\Application.png" />
     <Resource Include="Windows\Main\Badger.png" />
-    <Resource Include="Windows\Main\ExcelDataTile.png" />
     <Resource Include="Windows\Pivot\Badger.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="Windows\Splash\Badger.png" />
@@ -122,6 +128,10 @@
       <PackagePath>\</PackagePath>
     </None>
     <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Images\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
