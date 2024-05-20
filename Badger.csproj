@@ -31,9 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="logo.png" />
-    <None Remove="Windows\Dialogs\Error.png" />
-    <None Remove="Windows\Dialogs\ErrorDialog.png" />
+    <None Remove="Badger.png" />
+    <None Remove="Windows\Dialogs\SplashNotification.png" />
+    <None Remove="Windows\Main\Application.png" />
     <None Remove="Windows\Main\Badger.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
     <None Remove="Windows\Splash\Badger.png" />
@@ -84,7 +84,6 @@
     <Folder Include="Clients\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
-    <Folder Include="Windows\DataGrid\" />
     <Folder Include="Windows\Chart\" />
     <Folder Include="Windows\Excel\" />
     <Folder Include="Windows\DocViewer\" />
@@ -98,9 +97,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="logo.png" />
-    <Resource Include="Windows\Dialogs\Error.png" />
-    <Resource Include="Windows\Dialogs\ErrorDialog.png" />
+    <Resource Include="Windows\DataGrid\Badger.png" />
+    <Resource Include="Windows\Dialogs\SplashNotification.png" />
+    <Resource Include="Windows\Main\Application.png" />
     <Resource Include="Windows\Main\Badger.png" />
     <Resource Include="Windows\Main\ExcelDataTile.png" />
     <Resource Include="Windows\Splash\Badger.png" />

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger"
         mc:Ignorable="d"
-        Title="Message" Height="450" Width="750" Background="#FF141414" BorderBrush="#FF0078D4" FontFamily="Global User Interface" FontSize="9" BorderThickness="1,1,1,1" Icon="/Windows/Dialogs/Badger.png" WindowStartupLocation="CenterScreen">
+        Title="Message" Height="450" Width="750" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9" BorderThickness="1,1,1,1" Icon="/Windows/Dialogs/SplashNotification.png" WindowStartupLocation="CenterScreen" Foreground="#FF6ABDFC">
     <Grid>
         
     </Grid>
