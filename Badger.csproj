@@ -41,6 +41,7 @@
     <None Remove="Windows\GeoMap\Badger.png" />
     <None Remove="Windows\Main\Application.png" />
     <None Remove="Windows\Main\Badger.png" />
+    <None Remove="Windows\Main\DataTile.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
     <None Remove="Windows\Pivot\Badger.png" />
     <None Remove="Windows\ProgramProject\AppropriationTile.png" />
@@ -111,12 +112,13 @@
     <Resource Include="Badger.png" />
     <Resource Include="Windows\Calendar\Badger.png" />
     <Resource Include="Windows\Chart\Badger.png" />
-    <Resource Include="Windows\Grid\Badger.png" />
+    <Resource Include="Windows\DataGrid\Badger.png" />
     <Resource Include="Windows\Dialogs\SplashNotification.png" />
     <Resource Include="Windows\Document\Badger.png" />
     <Resource Include="Windows\Excel\Badger.png" />
     <Resource Include="Windows\GeoMap\Badger.png" />
     <Resource Include="Windows\Main\Badger.png" />
+    <Resource Include="Windows\Main\DataTile.png" />
     <Resource Include="Windows\Pivot\Badger.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="Windows\Splash\Badger.png" />

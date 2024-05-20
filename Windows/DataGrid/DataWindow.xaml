@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Badger"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="Badger.DataWindow"
         mc:Ignorable="d"
-        Title="Data Grid" Height="730" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" 
-        FontSize="9" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen">
+        Title="Budget Execution" Height="730" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" 
+        FontSize="9" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid>
-        <syncfusion:SfDataGrid HorizontalAlignment="Left" Height="468" Margin="81,0,0,0" VerticalAlignment="Center" Width="910"/>
+        <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="468" Margin="81,0,0,0" VerticalAlignment="Center" Width="910"/>
     </Grid>
 </Window>
