@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4" 
         Foreground="#FF6ABDFC" FontSize="9" 
-        Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Main/Application.png">
+        Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Main/Badger.png">
     <Grid>
         <syncfusion:SfHubTile x:Name="DataGridTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="119,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Data Grid"/>
         <syncfusion:SfHubTile x:Name="VisualizationTile" HorizontalAlignment="Left" Height="80" Header="Header Text" Margin="372,169,0,0" Title="Title Text" VerticalAlignment="Top" Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Charts"/>

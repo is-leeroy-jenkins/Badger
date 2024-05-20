@@ -1,0 +1,13 @@
+﻿<Window x:Class="Badger.CalendarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger"
+        mc:Ignorable="d"
+        Title="Fiscal Year Data" Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9" 
+        Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/Calendar/Badger.png">
+    <Grid>
+        
+    </Grid>
+</Window>

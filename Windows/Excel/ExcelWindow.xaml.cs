@@ -55,11 +55,11 @@ namespace Badger
     using System.Windows.Shapes;
 
     /// <summary>
-    /// Interaction logic for DataGrid.xaml
+    /// Interaction logic for ExcelWindow.xaml
     /// </summary>
-    public partial class DataGridWindow : Window
+    public partial class ExcelWindow : Window
     {
-        public DataGridWindow( )
+        public ExcelWindow( )
         {
             InitializeComponent( );
         }

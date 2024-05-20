@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <StartupObject>Badger.App</StartupObject>
-    <ApplicationIcon>Resources\Images\FormImages\AppIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\NinjaImages\BudExNinjaGrey.ico</ApplicationIcon>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <DocumentationFile>Badger.xml</DocumentationFile>
     <PackageIcon>Badger.png</PackageIcon>
@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <None Remove="Badger.png" />
-    <None Remove="Windows\Calendar\Badger.png" />
     <None Remove="Windows\Chart\Badger.png" />
     <None Remove="Windows\Dialogs\SplashNotification.png" />
     <None Remove="Windows\Document\Badger.png" />
@@ -42,12 +41,11 @@
     <None Remove="Windows\Main\Badger.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
     <None Remove="Windows\Pivot\Badger.png" />
-    <None Remove="Windows\ProgramProject\AppropriationTile.png" />
     <None Remove="Windows\Splash\Badger.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Images\FormImages\AppIcon.ico" />
+    <Content Include="Resources\Images\NinjaImages\BudExNinjaGrey.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -91,6 +89,7 @@
     <Folder Include="Clients\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+    <Folder Include="Windows\Calendar\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -101,7 +100,6 @@
 
   <ItemGroup>
     <Resource Include="Badger.png" />
-    <Resource Include="Windows\Calendar\Badger.png" />
     <Resource Include="Windows\Chart\Badger.png" />
     <Resource Include="Windows\DataGrid\Badger.png" />
     <Resource Include="Windows\Dialogs\SplashNotification.png" />
@@ -112,7 +110,6 @@
     <Resource Include="Windows\Main\Badger.png" />
     <Resource Include="Windows\Main\ExcelDataTile.png" />
     <Resource Include="Windows\Pivot\Badger.png" />
-    <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="Windows\Splash\Badger.png" />
   </ItemGroup>
 
@@ -122,10 +119,6 @@
       <PackagePath>\</PackagePath>
     </None>
     <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\Images\FormImages\Badger.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
