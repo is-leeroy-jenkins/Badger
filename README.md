@@ -62,8 +62,8 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-# Overview 
-- ### Functionality provided by Budget Execution while Badger is underdevelopment.
+## Overview 
+- #### Functionality provided by Budget Execution while Badger is underdevelopment.
 
 
 ## Easily query financial data.
