@@ -3,14 +3,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution" Height="730"
-        Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
-        Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True">
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Badger.DataWindow"
+        mc:Ignorable="d" Title="Budget Execution" Height="730" Width="1350" Background="#FF141414"
+        BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF9CD3FD"
+        WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid>
-
         <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="472"
-                               Margin="54,74,0,0" VerticalAlignment="Top" Width="910" />
-        <syncfusion:SfCircularProgressBar HorizontalAlignment="Left" Height="207"
-                                          Margin="1052,74,0,0" Progress="75" VerticalAlignment="Top" Width="211" />
+                Margin="54,74,0,0" VerticalAlignment="Top" Width="910" />
+        <syncfusion:ButtonAdv Content="ButtonAdv" HorizontalAlignment="Left" Height="92"
+                Label="ButtonAdv" Margin="1035,123,0,0" VerticalAlignment="Top" Width="225"
+                RenderTransformOrigin="0.5,0.5" Background="#FF282828" BorderBrush="#FF0070D4"
+                IsMultiLine="False" Foreground="#FF6ABDFC">
+            <syncfusion:ButtonAdv.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </syncfusion:ButtonAdv.RenderTransform>
+        </syncfusion:ButtonAdv>
+        <syncfusion:SfTextBoxExt HorizontalAlignment="Left" Height="34" Margin="1077,591,0,0"
+                TextWrapping="Wrap" Text="SfTextBoxExt" VerticalAlignment="Top"
+                Watermark="Enter a Value" Width="183" />
+        <syncfusion:ComboBoxAdv AllowMultiSelect="True" DefaultText="ComboBox Items"
+                Margin="228,595,917,67">
+            <syncfusion:ComboBoxItemAdv Content="Item 1" />
+            <syncfusion:ComboBoxItemAdv Content="Item 2" />
+            <syncfusion:ComboBoxItemAdv Content="Item 3" />
+            <syncfusion:ComboBoxItemAdv Content="Item 4" />
+            <syncfusion:ComboBoxItemAdv Content="Item 5" />
+        </syncfusion:ComboBoxAdv>
     </Grid>
 </Window>

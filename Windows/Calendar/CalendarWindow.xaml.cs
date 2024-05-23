@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -54,9 +55,12 @@ namespace Badger
     using System.Windows.Media.Imaging;
     using System.Windows.Shapes;
 
+    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for CalendarWindow.xaml
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     public partial class CalendarWindow : Window
     {
         public CalendarWindow( )

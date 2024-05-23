@@ -49,7 +49,7 @@
         <syncfusion:SfHubTile x:Name="AccessTile" HorizontalAlignment="Left" Height="80"
                               Header="Header Text" Margin="372,505,0,0" Title="Title Text" VerticalAlignment="Top"
                               Width="180" Background="#FF282828" BorderBrush="#FF0078D4" ToolTip="Access" />
-        <local:Tile x:Name="TestTile" HorizontalAlignment="Left" Height="92" Header="Header Text" Margin="119,252,0,0"
+        <local:ButtonTile x:Name="TestTile" HorizontalAlignment="Left" Height="92" Header="Header Text" Margin="119,252,0,0"
                     Title="Title Text" VerticalAlignment="Top" Width="180" />
     </Grid>
 </Window>
