@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -54,11 +55,19 @@ namespace Badger
     using System.Windows.Media.Imaging;
     using System.Windows.Shapes;
 
+    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for DataGrid.xaml
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     public partial class DataWindow : Window
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataWindow" /> class.
+        /// </summary>
         public DataWindow( )
         {
             InitializeComponent( );
