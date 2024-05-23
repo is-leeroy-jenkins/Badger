@@ -39,7 +39,6 @@
     <None Remove="Windows\Document\Badger.png" />
     <None Remove="Windows\Excel\Badger.png" />
     <None Remove="Windows\GeoMap\Badger.png" />
-    <None Remove="Windows\Main\Application.png" />
     <None Remove="Windows\Main\Badger.png" />
     <None Remove="Windows\Main\DataTile.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
@@ -87,23 +86,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\Button\" />
     <Folder Include="Controls\Layout\" />
     <Folder Include="Controls\Label\" />
     <Folder Include="Controls\ListBox\" />
-    <Folder Include="Controls\ComboBox\" />
-    <Folder Include="Controls\Chart\" />
-    <Folder Include="Controls\Calculator\" />
-    <Folder Include="Controls\Calendar\" />
-    <Folder Include="Controls\Editor\" />
-    <Folder Include="Controls\Pivot\" />
-    <Folder Include="Controls\TabControl\" />
-    <Folder Include="Controls\RichTextBox\" />
-    <Folder Include="Controls\TextBox\" />
     <Folder Include="Controls\ToolTip\" />
     <Folder Include="Controls\Ribbon\" />
-    <Folder Include="Controls\Spreadsheet\" />
-    <Folder Include="Controls\ToolStrip\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Clients\" />
     <Folder Include="Libraries\" />

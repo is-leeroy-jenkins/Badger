@@ -102,9 +102,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 25, 
-            G = 76, 
-            B = 120
+            R = 17,
+            G = 53,
+            B = 84
         };
 
         /// <summary>

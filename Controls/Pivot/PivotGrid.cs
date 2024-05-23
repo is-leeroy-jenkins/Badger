@@ -41,16 +41,14 @@
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.Windows.Controls.PivotGrid;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Chart3D : SfChart3D
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class PivotGrid : PivotGridControl
     {
         /// <summary>
         /// The back color brush
@@ -88,9 +86,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -148,13 +146,20 @@ namespace Badger
             B = 129
         };
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Chart3D"/> class.
+        /// <see cref="T:Badger.PivotGrid" /> class.
         /// </summary>
-        public Chart3D( )
+        public PivotGrid( )
             : base( )
         {
+            // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
         }
 
         /// <summary>

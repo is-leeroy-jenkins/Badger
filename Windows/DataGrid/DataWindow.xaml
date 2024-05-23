@@ -7,32 +7,12 @@
         mc:Ignorable="d" Title="Budget Execution" Height="730" Width="1350" Background="#FF141414"
         BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF9CD3FD"
         WindowStartupLocation="CenterScreen" Topmost="True">
-    <Grid>
-        <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="472"
-                Margin="54,74,0,0" VerticalAlignment="Top" Width="910" />
-        <syncfusion:ButtonAdv Content="ButtonAdv" HorizontalAlignment="Left" Height="92"
-                Label="ButtonAdv" Margin="1035,123,0,0" VerticalAlignment="Top" Width="225"
-                RenderTransformOrigin="0.5,0.5" Background="#FF282828" BorderBrush="#FF0070D4"
-                IsMultiLine="False" Foreground="#FF6ABDFC">
-            <syncfusion:ButtonAdv.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1" />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform />
-                </TransformGroup>
-            </syncfusion:ButtonAdv.RenderTransform>
-        </syncfusion:ButtonAdv>
-        <syncfusion:SfTextBoxExt HorizontalAlignment="Left" Height="34" Margin="1077,591,0,0"
-                TextWrapping="Wrap" Text="SfTextBoxExt" VerticalAlignment="Top"
-                Watermark="Enter a Value" Width="183" />
-        <syncfusion:ComboBoxAdv AllowMultiSelect="True" DefaultText="ComboBox Items"
-                Margin="228,595,917,67">
-            <syncfusion:ComboBoxItemAdv Content="Item 1" />
-            <syncfusion:ComboBoxItemAdv Content="Item 2" />
-            <syncfusion:ComboBoxItemAdv Content="Item 3" />
-            <syncfusion:ComboBoxItemAdv Content="Item 4" />
-            <syncfusion:ComboBoxItemAdv Content="Item 5" />
-        </syncfusion:ComboBoxAdv>
+    <Grid Background="Black" RenderTransformOrigin="0.786,0.411">
+        <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="399"
+                               Margin="54,74,0,0" VerticalAlignment="Top" Width="693" FontSize="9"
+                               HeaderRowHeight="28" BorderBrush="#FF464646" Background="#FF464646"
+                               CurrentCellBorderBrush="#FF9CD3FD" SelectionForegroundBrush="White"
+                               RowHoverHighlightingBrush="#FF113554" GroupRowSelectionBrush="SteelBlue"
+                               RowSelectionBrush="SteelBlue" />
     </Grid>
 </Window>

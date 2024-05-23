@@ -38,16 +38,20 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Badger.Controls.Datagrid
+namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Spreadsheet;
+    using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class Spreadsheet : SfSpreadsheet
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    public class Button : ButtonAdv
     {
         /// <summary>
         /// The back color brush
@@ -85,9 +89,9 @@ namespace Badger.Controls.Datagrid
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -148,12 +152,63 @@ namespace Badger.Controls.Datagrid
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Controls.Datagrid.Spreadsheet" /> class.
+        /// <see cref="T:Badger.Button" /> class.
         /// </summary>
-        public Spreadsheet( )
+        public Button( )
             : base( )
         {
             // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Event Wiring
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
+        }
+
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseEnter( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = new SolidColorBrush( _backHover );
+                Foreground = new SolidColorBrush( _foreHover );
+                BorderBrush = new SolidColorBrush( _borderHover );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseLeave( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = new SolidColorBrush( _backColor );
+                Foreground = new SolidColorBrush( _foreColor );
+                BorderBrush = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

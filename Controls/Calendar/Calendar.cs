@@ -43,11 +43,12 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Edit;
+    using Syncfusion.Windows.Shared;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class Editor : EditControl
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class Calendar : CalendarEdit
     {
         /// <summary>
         /// The back color brush
@@ -85,9 +86,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -148,12 +149,17 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// see cref="Editor"/&gt; class.
+        /// <see cref="T:Badger.Calendar" /> class.
         /// </summary>
-        public Editor( )
+        public Calendar( )
             : base( )
         {
             // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
         }
 
         /// <summary>

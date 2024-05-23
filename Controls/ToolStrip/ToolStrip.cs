@@ -40,20 +40,128 @@
 
 namespace Badger
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Syncfusion.Windows.Tools.Controls;
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Windows.Media;
+using Syncfusion.Windows.Tools.Controls;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class TabControl : TabControlExt
-    {
-        public TabControl( )
-            : base( )
-        {
-        }
-    }
+[ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+[ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+public class ToolStrip : ToolBarAdv
+{
+/// <summary>
+    /// The back color brush
+/// </summary>
+private protected SolidColorBrush _backColorBrush;
+
+/// <summary>
+    /// The border color brush
+/// </summary>
+private protected SolidColorBrush _borderColorBrush;
+
+/// <summary>
+    /// The fore color brush
+/// </summary>
+private protected SolidColorBrush _foreColorBrush;
+
+/// <summary>
+    /// The back hover brush
+/// </summary>
+private protected SolidColorBrush _backHoverBrush;
+
+/// <summary>
+    /// The border hover brush
+/// </summary>
+private protected SolidColorBrush _borderHoverBrush;
+
+/// <summary>
+    /// The fore hover brush
+/// </summary>
+private protected SolidColorBrush _foreHoverBrush;
+
+/// <summary>
+    /// The back color
+/// </summary>
+private protected Color _backColor = new Color( )
+{
+A = 255,
+R = 40,
+G = 40,
+B = 40
+};
+
+/// <summary>
+    /// The back hover color
+/// </summary>
+private protected Color _backHover = new Color( )
+{
+A = 255,
+R = 25,
+G = 76,
+B = 120
+};
+
+/// <summary>
+    /// The fore color
+/// </summary>
+private protected Color _foreColor = new Color( )
+{
+A = 255,
+R = 106,
+G = 189,
+B = 252
+};
+
+/// <summary>
+    /// The fore hover color
+/// </summary>
+private protected Color _foreHover = new Color( )
+{
+A = 255,
+R = 255,
+G = 255,
+B = 255
+};
+
+/// <summary>
+    /// The border color
+/// </summary>
+private Color _borderColor = new Color( )
+{
+A = 255,
+R = 0,
+G = 120,
+B = 212
+};
+
+/// <summary>
+    /// The border hover color
+/// </summary>
+private readonly Color _borderHover = new Color( )
+{
+A = 255,
+R = 50,
+G = 93,
+B = 129
+};
+
+public ToolStrip( )
+: base( )
+{
+// Basic Properties
+FontFamily = new FontFamily( "Segoe UI" );
+FontSize = 9;
+}
+
+/// <summary>
+    /// Fails the specified ex.
+/// </summary>
+/// <param name="ex">The ex.</param>
+private protected void Fail( Exception ex )
+{
+var _error = new ErrorDialog( ex );
+_error?.SetText( );
+_error?.ShowDialog( );
+}
+}
 }

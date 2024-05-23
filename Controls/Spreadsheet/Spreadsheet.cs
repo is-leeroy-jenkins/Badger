@@ -43,11 +43,11 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.PivotGrid;
+    using Syncfusion.UI.Xaml.Spreadsheet;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class PivotGrid : PivotGridControl
+    public class Spreadsheet : SfSpreadsheet
     {
         /// <summary>
         /// The back color brush
@@ -148,11 +148,12 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.PivotGrid" /> class.
+        /// <see cref="T:Badger.Controls.Datagrid.Spreadsheet" /> class.
         /// </summary>
-        public PivotGrid( )
+        public Spreadsheet( )
             : base( )
         {
+            // Basic Properties
         }
 
         /// <summary>

@@ -41,146 +41,17 @@
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Media;
+    using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public abstract class ColorCache
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    public class ComboBox : ComboBoxAdv
     {
-        /// <summary>
-        /// The dark green
-        /// </summary>
-        private protected Color _darkGreen = Colors.ForestGreen;
-
-        /// <summary>
-        /// The light green
-        /// </summary>
-        private protected Color _lightGreen = Colors.LimeGreen;
-
-        /// <summary>
-        /// The red
-        /// </summary>
-        private protected Color _red = Colors.Red;
-
-        /// <summary>
-        /// The white
-        /// </summary>
-        private protected Color _white = Colors.White;
-
-        /// <summary>
-        /// The black
-        /// </summary>
-        private protected Color _black = Colors.Black;
-
-        /// <summary>
-        /// The transparent
-        /// </summary>
-        private protected Color _transparent = Colors.Transparent;
-
-        /// <summary>
-        /// The hover gray
-        /// </summary>
-        private protected Color _hoverGray = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 70,
-            B = 70
-        };
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The dark interior
-        /// </summary>
-        private protected Color _darkInterior = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 70,
-            B = 70
-        };
-
-        /// <summary>
-        /// The dark border
-        /// </summary>
-        private protected Color _darkBorderColor = new Color( )
-        {
-            A = 255,
-            R = 65,
-            G = 65,
-            B = 65
-        };
-
-        private protected Color _blueBorderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The dark background
-        /// </summary>
-        private protected Color _darkBackColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The hover dark blue
-        /// </summary>
-        private protected Color _hoverBlue = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        /// <summary>
-        /// The metro blue
-        /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The blue highlight
-        /// </summary>
-        private protected Color _blueForeColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The notification color
-        /// </summary>
-        private protected Color _notificationBackColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 73,
-            B = 112
-        };
-
-        /// <summary>
-        /// The palette
-        /// </summary>
-        private protected Color[ ] _palette;
-
         /// <summary>
         /// The back color brush
         /// </summary>
@@ -212,10 +83,85 @@ namespace Badger
         private protected SolidColorBrush _foreHoverBrush;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ColorCache"/> class.
+        /// The back color
         /// </summary>
-        protected ColorCache( )
+        private protected Color _backColor = new Color( )
         {
+            A = 255,
+            R = 45,
+            G = 45,
+            B = 45
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 25,
+            G = 76,
+            B = 120
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The border hover color
+        /// </summary>
+        private readonly Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 50,
+            G = 93,
+            B = 129
+        };
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.ComboBox" /> class.
+        /// </summary>
+        public ComboBox( )
+            : base( )
+        {
+            // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
         }
 
         /// <summary>

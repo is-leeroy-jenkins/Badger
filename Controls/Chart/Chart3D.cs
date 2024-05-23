@@ -43,15 +43,12 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Spreadsheet;
+    using Syncfusion.UI.Xaml.Charts;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.UI.Xaml.Spreadsheet.SfSpreadsheetRibbon" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class SpreadsheetRibbon : SfSpreadsheetRibbon
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class Chart3D : SfChart3D
     {
         /// <summary>
         /// The back color brush
@@ -89,9 +86,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -152,12 +149,17 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.SpreadsheetRibbon" /> class.
+        /// <see cref="T:Badger.Chart3D" /> class.
         /// </summary>
-        public SpreadsheetRibbon( ) 
+        public Chart3D( )
             : base( )
         {
             // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
         }
 
         /// <summary>

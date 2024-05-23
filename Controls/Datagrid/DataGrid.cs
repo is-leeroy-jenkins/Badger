@@ -43,11 +43,12 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Shared;
+    using Syncfusion.UI.Xaml.Grid;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class Calendar : CalendarEdit
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class DataGrid : SfDataGrid
     {
         /// <summary>
         /// The back color brush
@@ -85,9 +86,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 70,
+            G = 70,
+            B = 70
         };
 
         /// <summary>
@@ -96,9 +97,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 25,
-            G = 76,
-            B = 120
+            R = 17,
+            G = 53,
+            B = 84
         };
 
         /// <summary>
@@ -148,12 +149,21 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Calendar" /> class.
+        /// <see cref="T:Badger.DataGrid" /> class.
         /// </summary>
-        public Calendar( )
+        public DataGrid( )
             : base( )
         {
             // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            CurrentCellBorderBrush = new SolidColorBrush( _borderHover );
+            GroupRowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
+            RowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
+            RowHoverHighlightingBrush = new SolidColorBrush( _backHover );
         }
 
         /// <summary>

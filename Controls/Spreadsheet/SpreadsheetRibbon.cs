@@ -42,16 +42,16 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
+    using Syncfusion.UI.Xaml.Spreadsheet;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Spreadsheet.SfSpreadsheetRibbon" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class Button : ButtonAdv
+    public class SpreadsheetRibbon : SfSpreadsheetRibbon
     {
         /// <summary>
         /// The back color brush
@@ -152,63 +152,17 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Button" /> class.
+        /// <see cref="T:Badger.SpreadsheetRibbon" /> class.
         /// </summary>
-        public Button( )
+        public SpreadsheetRibbon( ) 
             : base( )
         {
             // Basic Properties
-            _backColorBrush = new SolidColorBrush( _backColor );
-            _borderColorBrush = new SolidColorBrush( _borderColor );
-            _foreColorBrush = new SolidColorBrush( _foreColor );
-            _backHoverBrush = new SolidColorBrush( _backHover );
-            _borderHoverBrush = new SolidColorBrush( _borderHover );
-            _foreHoverBrush = new SolidColorBrush( _foreHover );
-            Background = _backColorBrush;
-            Foreground = _foreColorBrush;
-            BorderBrush = _borderColorBrush;
-        }
-
-        /// <summary> Called when [mouse enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseEnter( object sender, MouseEventArgs e )
-        {
-            try
-            {
-                Background = _backHoverBrush;
-                Foreground = _foreHoverBrush;
-                BorderBrush = _borderHoverBrush;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseLeave( object sender, MouseEventArgs e )
-        {
-            try
-            {
-                Background = _backColorBrush;
-                Foreground = _foreColorBrush;
-                BorderBrush = _borderColorBrush;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
         }
 
         /// <summary>

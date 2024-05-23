@@ -43,14 +43,12 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.RichTextBoxAdv;
+    using Syncfusion.Windows.Controls.Input;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class RichTextBox : SfRichTextBoxAdv
+    public class Calculator : SfCalculator
     {
         /// <summary>
         /// The back color brush
@@ -151,21 +149,17 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.RichTextBox" /> class.
+        /// <see cref="T:Badger.Calculator" /> class.
         /// </summary>
-        public RichTextBox( )
+        public Calculator( )
             : base( )
         {
             // Basic Properties
-            _backColorBrush = new SolidColorBrush( _backColor );
-            _borderColorBrush = new SolidColorBrush( _borderColor );
-            _foreColorBrush = new SolidColorBrush( _foreColor );
-            _backHoverBrush = new SolidColorBrush( _backHover );
-            _borderHoverBrush = new SolidColorBrush( _borderHover );
-            _foreHoverBrush = new SolidColorBrush( _foreHover );
-            Background = _backColorBrush;
-            Foreground = _foreColorBrush;
-            BorderBrush = _borderColorBrush;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 9;
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
         }
 
         /// <summary>
