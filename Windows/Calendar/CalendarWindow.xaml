@@ -6,13 +6,29 @@
         x:Class="Badger.CalendarWindow" mc:Ignorable="d" Title="Fiscal Year Data" Height="750"
         Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
-        Icon="/Windows/Calendar/Badger.png">
+        Icon="/Windows/Calendar/Application.png">
     <Grid>
-        <syncfusion:CalendarEdit x:Name="FirstCalendar" Date="1/1/2020" HorizontalAlignment="Left"
-                                 Height="229" Margin="54,92,0,0" VerticalAlignment="Top" Width="327" />
-        <syncfusion:CalendarEdit x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Left"
-                                 Height="254" Margin="54,367,0,0" VerticalAlignment="Top" Width="327" />
-        <syncfusion:SfChart3D x:Name="CalendarChart" HorizontalAlignment="Left" Margin="429,92,0,0" VerticalAlignment="Top"
-                              Height="513" Width="889" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="118*" />
+            <RowDefinition Height="127*" />
+        </Grid.RowDefinitions>
+        <syncfusion:SfChart3D x:Name="CalendarChart" Margin="0,69,69,0"
+                              RenderTransformOrigin="0.265,0.502" Background="#00000000" BackWallBrush="#FF464646"
+                              BottomWallBrush="#FF464646" RightWallBrush="#FF464646" LeftWallBrush="#FF464646"
+                              TopWallBrush="#FF464646" BorderBrush="Transparent" HorizontalAlignment="Right"
+                              Width="855" Height="560" VerticalAlignment="Top" Grid.RowSpan="2">
+            <syncfusion:SfChart3D.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="0.126" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </syncfusion:SfChart3D.RenderTransform>
+        </syncfusion:SfChart3D>
+        <local:Calendar x:Name="FirstCalendar" Date="1/1/2020" HorizontalAlignment="Left"
+                        Height="190" Margin="55,133,0,0" VerticalAlignment="Top" Width="273" />
+        <local:Calendar x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Left"
+                        Height="196" Margin="55,44,0,0" VerticalAlignment="Top" Width="273" Grid.Row="1" />
     </Grid>
 </Window>

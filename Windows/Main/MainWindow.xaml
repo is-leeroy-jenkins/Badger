@@ -3,57 +3,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:local="clr-namespace:Badger"
-        x:Class="Badger.MainWindow" mc:Ignorable="d" Title="Budget Execution" Height="750"
-        Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
-        Background="#FF141414" WindowStartupLocation="CenterScreen"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Badger.MainWindow"
+        mc:Ignorable="d" Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4"
+        Foreground="#FF6ABDFC" Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/Windows/Main/Application.png">
-    <Grid>
+    <Grid Background="#00000000">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1207*" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="141*" />
+            <ColumnDefinition Width="346*" />
+            <ColumnDefinition Width="329*" />
         </Grid.ColumnDefinitions>
         <local:ButtonTile x:Name="TestTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="119,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="119,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="DataGridTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="119,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="119,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="VisualizationTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="372,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="372,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="SQLiteTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="119,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="119,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="DataGridTile_Copy" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="372,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="372,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="372,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="372,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="119,545,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="119,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="AccessTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="372,545,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
-        <local:ButtonTile x:Name="CalendarTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="729,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" RenderTransformOrigin="2.274,0.816" />
+                Header="Header Text" Margin="372,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" />
         <local:ButtonTile x:Name="ProgramProjectTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="1025,123,0,0" Title="Title Text"
-                          VerticalAlignment="Top" Width="180" />
-        <local:ButtonTile x:Name="GuidanceTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="729,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="37,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="MapTile1" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="1025,252,0,0" Title="Title Text"
-                          VerticalAlignment="Top" Width="180" />
+                Header="Header Text" Margin="37,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="729,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                          Width="180" />
+                Header="Header Text" Margin="37,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="MapTile" HorizontalAlignment="Left" Height="92"
-                          Header="Header Text" Margin="1025,415,0,0" Title="Title Text"
-                          VerticalAlignment="Top" Width="180" />
+                Header="Header Text" Margin="37,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="180" Grid.Column="1" />
     </Grid>
 </Window>

@@ -150,7 +150,7 @@ public ToolStrip( )
 {
 // Basic Properties
 FontFamily = new FontFamily( "Segoe UI" );
-FontSize = 9;
+FontSize = 12;
 }
 
 /// <summary>

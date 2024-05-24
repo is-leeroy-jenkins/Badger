@@ -156,7 +156,7 @@ namespace Badger
         {
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 9;
+            FontSize = 12;
             Background = new SolidColorBrush( Colors.Transparent );
             BorderBrush = new SolidColorBrush( Colors.Transparent );
             TabPanelBackground = new SolidColorBrush( Colors.Transparent );

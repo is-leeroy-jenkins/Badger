@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger"
         mc:Ignorable="d"
-        Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4" 
-        Foreground="#FF6ABDFC" FontSize="9" 
-        Background="#FF141414" WindowStartupLocation="CenterScreen" Icon="/Windows/GeoMap/Badger.png" >
+        Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4"
+        Foreground="#FF6ABDFC" FontSize="9"
+        Background="#FF141414" WindowStartupLocation="CenterScreen"
+        Icon="/Windows/GeoMap/Application.png">
     <Grid>
 
     </Grid>

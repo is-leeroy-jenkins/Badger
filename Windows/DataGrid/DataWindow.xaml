@@ -5,12 +5,11 @@
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Height="730" Width="1350" Background="#FF141414"
-        BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF9CD3FD"
+        BorderBrush="#FF0078D4" Foreground="#FF9CD3FD"
         WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid Background="Black" RenderTransformOrigin="0.786,0.411">
         <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="399"
-                               Margin="54,74,0,0" VerticalAlignment="Top" Width="693" FontSize="9"
-                               HeaderRowHeight="28" BorderBrush="#FF464646" Background="#FF464646"
+                               Margin="54,74,0,0" VerticalAlignment="Top" Width="693" HeaderRowHeight="28" BorderBrush="#FF464646" Background="#FF464646"
                                CurrentCellBorderBrush="#FF9CD3FD" SelectionForegroundBrush="White"
                                RowHoverHighlightingBrush="#FF113554" GroupRowSelectionBrush="SteelBlue"
                                RowSelectionBrush="SteelBlue" />
