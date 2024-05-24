@@ -1,6 +1,6 @@
 ﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Images/GitHubImages/Badger.png)
 
-## Badger is an open source data analysis application for Analysts in the US EPA developed in C# using WPF and released under the MIT license
+## Badger is an open source data analysis application for EPA Analysts developed in C# using WPF and released under the MIT license
 ####
 
 ## Badger Features
@@ -19,9 +19,9 @@
 
 ## Providers
 
-- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [more here](https://sqlite.org/index.html) 
-- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
-- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
+- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. 
+- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine.
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
@@ -109,19 +109,18 @@
 
 - SQLite
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
+![more here](https://sqlite.org/index.html) 
 
 - MS Access
 
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
+![more here](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
 - SQL Compact Edition
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
+  
+![more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
 
 - SQL Server Express
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
+![more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 
 
 
