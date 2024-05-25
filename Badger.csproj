@@ -101,7 +101,7 @@
     <Folder Include="Controls\ToolTip\" />
     <Folder Include="Controls\Ribbon\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Clients\" />
+    <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
   </ItemGroup>
