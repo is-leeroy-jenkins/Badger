@@ -62,65 +62,80 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Overview 
-- #### Functionality provided by Budget Execution while Badger is underdevelopment.
-
-
-## Easily query financial data.
+## Easily analyze financial data.
 - #### Datagrids
+- #### Pivot Tables
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
-## UI with a familiar look & feel.
+## User Interface with a familiar look & feel.
 - #### Excel-like interface over a relational database
+- #### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## Congressional earmark reporting and pollution site monitoring.
-- ### Maps
+## Geospatial Information (GIS) Mapping.
+- #### Congressional earmark reporting
+- #### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+## Baby
+- #### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
-
-## Budget Calculator for quick accounting transactions and budget calculations on the data.
+## Budget Calculator 
+- #### For quick & dirty accounting and budget calculations on bound data.
+- #### Easy access to the full functionality of CALC.EXE
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## Federal fiscal year utilities compatable with full-time equivalency metrics.
-
+## Federal Fiscal Year Calendar
+- #### Calculations using full-time equivalency metrics.
+- #### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## Environmental program definitions and statutory authorities bound directly to financial data
+## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
+- #### Create ad-hoc web information
+- #### HTML5, CSS, and Javascript
+  
+![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
+   
+## Environmental Program Anaylsis
+- #### Definitions and statutory authorities
+- #### Information bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Data Visualization
-
+- #### 3D Charting
+- #### Pivot Charts
+- #### Plotting from ScottPlot
+  
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## View environmental laws & guidance via DocViewer
-
+## DocViewer
+- #### Library of legal documentation used in evnironmental data analysis.
+- #### Interact with, view and access PDFs outside the application
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
 
-## SQL Editors for multiple providers
+## SQL Editors
 
 - SQLite
 
-![more here](https://sqlite.org/index.html) 
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 - MS Access
 
-![more here](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
 - SQL Compact Edition
-  
-![more here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
 - SQL Server Express
-![more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
+
+![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
 
 
