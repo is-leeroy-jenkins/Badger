@@ -147,9 +147,9 @@ namespace Badger
         private readonly Color _borderHover = new Color( )
         {
             A = 255,
-            R = 255,
-            G = 255,
-            B = 255
+            R = 106,
+            G = 189,
+            B = 252
         };
 
         /// <inheritdoc />

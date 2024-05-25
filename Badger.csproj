@@ -41,6 +41,7 @@
     <None Remove="Windows\Main\Badger.png" />
     <None Remove="Windows\Main\DataTile.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
+    <None Remove="Windows\Notification\SplashNotification.png" />
     <None Remove="Windows\ProgramProject\AppropriationTile.png" />
   </ItemGroup>
 
@@ -118,6 +119,7 @@
     <Resource Include="Windows\Dialogs\SplashNotification.png" />
     <Resource Include="Windows\GeoMap\Application.png" />
     <Resource Include="Windows\Main\Application.png" />
+    <Resource Include="Windows\Notification\SplashNotification.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
   </ItemGroup>
 
