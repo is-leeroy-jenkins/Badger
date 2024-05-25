@@ -68,53 +68,53 @@
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ## User Interface with a familiar look & feel.
-- #### Excel-like interface over a relational database
-- #### Import and export spreadsheet data
+- ##### Excel-like interface over a relational database
+- ##### Import and export spreadsheet data
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
 ## Geospatial Information (GIS) Mapping.
-- #### Congressional earmark reporting
-- #### Monitor pollution site remediation costs
+- ##### Congressional earmark reporting
+- ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 ## Baby
-- #### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
-- #### For quick & dirty accounting and budget calculations on bound data.
-- #### Easy access to the full functionality of CALC.EXE
+- ##### Quick & dirty accounting and budget calculations directly on bound data.
+- ##### Easy access to the full functionality of the widows calculator
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 ## Federal Fiscal Year Calendar
-- #### Calculations using full-time equivalency metrics.
-- #### Ad-hoc analysis of variable periods of availability.
+- ##### Calculations using full-time equivalency metrics.
+- ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
 ## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
-- #### Create ad-hoc web information
-- #### HTML5, CSS, and Javascript
+- ##### Create ad-hoc web information
+- ##### HTML5, CSS, and Javascript
   
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
    
 ## Environmental Program Anaylsis
-- #### Definitions and statutory authorities
-- #### Information bound directly to financial data
+- ##### Definitions and statutory authorities
+- ##### Information bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Data Visualization
-- #### 3D Charting
-- #### Pivot Charts
-- #### Plotting from ScottPlot
+- ##### 3D Charting
+- ##### Pivot Charts
+- ##### Plotting from ScottPlot
   
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
 ## DocViewer
-- #### Library of legal documentation used in evnironmental data analysis.
-- #### Interact with, view and access PDFs outside the application
+- ##### Library of legal documentation used in evnironmental data analysis.
+- ##### Interact with, view and access PDFs outside the application
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
