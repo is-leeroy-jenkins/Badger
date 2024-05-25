@@ -5,9 +5,9 @@
 
 ## Badger Features
 
-- Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
+- Mutliple data providers.
 - Charting and reporting.
-- Its own internal web browser with searches optimized for researching data in the government domain with [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Its own internal web browser with searches optimized for researching data in the government domain with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for 100 actively used environmental budget data tables.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-like user interface over real databases.
@@ -92,8 +92,8 @@
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## Ad-hoc web development with  [Orca](https://github.com/KarmaScripter/Orca)
-- ##### Create ad-hoc web information
+## [Orca](https://github.com/KarmaScripter/Orca)
+- ##### Ad-hoc web development
 - ##### HTML5, CSS, and Javascript
   
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
