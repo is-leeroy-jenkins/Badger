@@ -66,7 +66,9 @@
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="21.1.41" />
@@ -75,6 +77,7 @@
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
