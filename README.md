@@ -7,7 +7,7 @@
 
 - Mutliple data providers.
 - Charting and reporting.
-- Its own internal web browser with searches optimized for researching data in the government domain with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Internal web browser with searches optimized for researching data in the government domain with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
 - Pre-defined schema for 100 actively used environmental budget data tables.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-like user interface over real databases.
