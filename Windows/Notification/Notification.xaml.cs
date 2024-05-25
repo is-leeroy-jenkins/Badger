@@ -162,7 +162,6 @@ namespace Badger
             _message = message;
         }
 
-
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
