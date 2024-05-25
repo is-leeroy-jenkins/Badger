@@ -10,6 +10,7 @@
     xmlns:shared="clr-namespace:Syncfusion.Windows.Converters;assembly=Syncfusion.SfInput.WPF"
     xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     mc:Ignorable="d">
 
     <ResourceDictionary.MergedDictionaries>
@@ -42,7 +43,7 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <colorpalette:ColorItem
+                            <syncfusion:ColorItem
                                 x:Name="PART_Item0"
                                 Grid.Row="0"
                                 Grid.Column="0"
@@ -69,7 +70,7 @@
                                     <Rectangle Grid.Row="1" Fill="#DDD9E2" />
                                     <Rectangle Grid.Column="1" Fill="#EAE2C0" />
                                 </Grid>
-                            </colorpalette:ColorItem>
+                            </syncfusion:ColorItem>
                             <colorpalette:ColorItem
                                 x:Name="PART_Item1"
                                 Grid.Row="0"
@@ -2281,7 +2282,7 @@
                                 Height="{TemplateBinding ColorItemWidth}"
                                 Margin="{TemplateBinding ColorItemMargin}"
                                 Background="#FFD49887" />
-                            <colorpalette:ColorItem
+                            <syncfusion:ColorItem
                                 Grid.Row="3"
                                 Grid.Column="3"
                                 Width="{TemplateBinding ColorItemWidth}"
@@ -2295,7 +2296,7 @@
                                 Height="{TemplateBinding ColorItemWidth}"
                                 Margin="{TemplateBinding ColorItemMargin}"
                                 Background="#FF3B1D14" />
-                            <colorpalette:ColorItem
+                            <syncfusion:ColorItem
                                 Grid.Row="3"
                                 Grid.Column="5"
                                 Width="{TemplateBinding ColorItemWidth}"
@@ -2303,7 +2304,7 @@
                                 Margin="{TemplateBinding ColorItemMargin}"
                                 Background="#FF27130D" />
 
-                            <colorpalette:ColorItem
+                            <syncfusion:ColorItem
                                 Grid.Row="4"
                                 Grid.Column="0"
                                 Width="{TemplateBinding ColorItemWidth}"

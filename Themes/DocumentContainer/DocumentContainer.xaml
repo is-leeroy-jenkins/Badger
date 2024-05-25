@@ -266,14 +266,14 @@
                             Style="{StaticResource PoorHeaderButtonStyle}"
                             Visibility="{Binding Path=CloseButtonVisible, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tools_controls:QuickTabSwicthPreviewControl}}, Converter={StaticResource BooleanToVisibility}}">
                             <Path
-                                        x:Name="closeButtonPath"
-                                        Width="6"
-                                        Height="6"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        StrokeThickness="1"
-                                        SnapsToDevicePixels="False"
-                                        Stretch="Fill">
+                                x:Name="closeButtonPath"
+                                Width="6"
+                                Height="6"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                StrokeThickness="1"
+                                SnapsToDevicePixels="False"
+                                Stretch="Fill">
                                 <Path.Data>
                                     <PathGeometry>M1 11L6 6M6 6L11 1M6 6L11 11M6 6L1 1</PathGeometry>
                                 </Path.Data>
@@ -436,14 +436,14 @@
                         BorderThickness="0"
                         CornerRadius="{StaticResource Dark.CornerRadius2}">
                         <Path
-                                    x:Name="MaximizeButtonPath"
-                                    Width="9"
-                                    Height="8"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    StrokeThickness="1"
-                                    SnapsToDevicePixels="False"
-                                    Stretch="Fill" >
+                            x:Name="MaximizeButtonPath"
+                            Width="9"
+                            Height="8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            StrokeThickness="1"
+                            SnapsToDevicePixels="False"
+                            Stretch="Fill" >
                             <Path.Data>
                                 <PathGeometry>M1 1V11H11V1H1Z</PathGeometry>
                             </Path.Data>
@@ -493,14 +493,14 @@
                         BorderThickness="0"
                         CornerRadius="{StaticResource Dark.CornerRadius2}">
                         <Path
-                                    x:Name="MinimizeButtonPath"
-                                    Width="10"
-                                    Height="1"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    StrokeThickness="1"
-                                    SnapsToDevicePixels="False"
-                                    Stretch="Fill" >
+                            x:Name="MinimizeButtonPath"
+                            Width="10"
+                            Height="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            StrokeThickness="1"
+                            SnapsToDevicePixels="False"
+                            Stretch="Fill" >
                             <Path.Data>
                                 <PathGeometry>M0 1H10</PathGeometry>
                             </Path.Data>
@@ -550,14 +550,14 @@
                         BorderThickness="0"
                         CornerRadius="{StaticResource Dark.CornerRadius2}">
                         <Path
-                                    x:Name="RestoreButtonPath"
-                                    Width="8"
-                                    Height="8"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    StrokeThickness="1"
-                                    SnapsToDevicePixels="False"
-                                    Stretch="Fill">
+                            x:Name="RestoreButtonPath"
+                            Width="8"
+                            Height="8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            StrokeThickness="1"
+                            SnapsToDevicePixels="False"
+                            Stretch="Fill">
                             <Path.Data>
                                 <PathGeometry>M9 9H11V1H3V3M1 11V3H9V11H1Z</PathGeometry>
                             </Path.Data>
@@ -607,14 +607,14 @@
                         BorderThickness="0"
                         CornerRadius="{StaticResource Dark.CornerRadius2}">
                         <Path
-                                    x:Name="CloseButtonPath"
-                                    Width="9"
-                                    Height="8"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    StrokeThickness="1"
-                                    SnapsToDevicePixels="False"
-                                    Stretch="Fill" >
+                            x:Name="CloseButtonPath"
+                            Width="9"
+                            Height="8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            StrokeThickness="1"
+                            SnapsToDevicePixels="False"
+                            Stretch="Fill" >
                             <Path.Data>
                                 <PathGeometry>M1 11L6 6M6 6L11 1M6 6L11 11M6 6L1 1</PathGeometry>
                             </Path.Data>
@@ -683,8 +683,7 @@
                                 DockPanel.Dock="Right"
                                 Foreground="{StaticResource IconColor}"
                                 Style="{TemplateBinding CloseButtonStyle}"
-                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=CloseButtonTooltipText}"
-                                Visibility="{tools_controls:ContainerButtonVisibility}" />
+                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=CloseButtonTooltipText}" />
                             <Button
                                 Name="btnMaximize"
                                 Width="16"
@@ -698,8 +697,7 @@
                                 DockPanel.Dock="Right"
                                 Foreground="{StaticResource IconColor}"
                                 Style="{TemplateBinding MaximizeButtonStyle}"
-                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Maximize}"
-                                Visibility="{tools_controls:ContainerButtonVisibility}" />
+                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Maximize}" />
                             <Button
                                 Name="btnRestore"
                                 Width="16"
@@ -713,8 +711,7 @@
                                 DockPanel.Dock="Right"
                                 Foreground="{StaticResource IconColor}"
                                 Style="{TemplateBinding RestoreButtonStyle}"
-                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Restore}"
-                                Visibility="{tools_controls:ContainerButtonVisibility}" />
+                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Restore}"/>
                             <Button
                                 Name="btnMinimize"
                                 Width="16"
@@ -728,8 +725,7 @@
                                 DockPanel.Dock="Right"
                                 Foreground="{StaticResource IconColor}"
                                 Style="{TemplateBinding MinimizeButtonStyle}"
-                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Minimize}"
-                                Visibility="{tools_controls:ContainerButtonVisibility}" />
+                                ToolTip="{tools_controls:ToolsLocalizationResourceExtension ResourceName=Minimize}"/>
                             <Border
                                 Name="IconBorder"
                                 Width="{Binding Path=IconSize, Converter={StaticResource SizeToDoubleConverter}, ConverterParameter=width, RelativeSource={RelativeSource TemplatedParent}}"
@@ -761,7 +757,6 @@
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Path=Content.(tools_controls:DocumentContainer.MDIWindowState), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tools_controls:MDIWindow}}}" Value="Minimized">
                             <Setter TargetName="btnMinimize" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="btnRestore" Property="Visibility" Value="{tools_controls:ContainerButtonVisibility}" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -808,9 +803,9 @@
                                     Name="Viewer"
                                     Focusable="False"
                                     HorizontalScrollBarVisibility="{TemplateBinding IsEnabledScroll,
-                                                                                    Converter={StaticResource BoolToScrollBarVisibility}}"
+                                    Converter={StaticResource BoolToScrollBarVisibility}}"
                                     VerticalScrollBarVisibility="{TemplateBinding IsEnabledScroll,
-                                                                                  Converter={StaticResource BoolToScrollBarVisibility}}">
+                                    Converter={StaticResource BoolToScrollBarVisibility}}">
                                     <tools_controls:MDILayoutPanel x:Name="PART_Layouter" ClipToBounds="True" />
                                 </ScrollViewer>
                             </DockPanel>
@@ -904,7 +899,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            
+
                             CornerRadius="0"/>
                         <Border
                             Name="Border3D"
@@ -923,7 +918,6 @@
                                     Name="PART_DocumentHeader"
                                     tools_controls:DocumentContainerHelper.IsMDIHeader="True"
                                     Background="{TemplateBinding HeaderBrush}"
-                                    ContextMenuService.PlacementTarget="{tools_controls:FindWindow}"
                                     DockPanel.Dock="Top" BorderThickness="{StaticResource Dark.BorderThickness}"
                                     FocusManager.IsFocusScope="True"
                                     Foreground="{TemplateBinding Foreground}">
@@ -980,9 +974,9 @@
         </Setter>
         <Style.Triggers>
             <!--<Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                <Setter Property="HeaderBrush" Value="{StaticResource ContentBackgroundHovered}" />
-                <Setter Property="Foreground" Value="{StaticResource HoveredForeground}" />
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
+            <Setter Property="HeaderBrush" Value="{StaticResource ContentBackgroundHovered}" />
+            <Setter Property="Foreground" Value="{StaticResource HoveredForeground}" />
             </Trigger>-->
             <Trigger Property="IsActive" Value="True">
                 <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
