@@ -62,9 +62,9 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Easily analyze financial data.
-- #### Datagrids
-- #### Pivot Tables
+## Financial Data Analysis
+- ##### Datagrids
+- ##### Pivot Tables
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ## User Interface with a familiar look & feel.
