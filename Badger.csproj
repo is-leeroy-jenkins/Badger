@@ -75,6 +75,12 @@
     <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Metro.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office2010Black.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office2016DarkGray.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office2019DarkGray.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="24.1.41" />
