@@ -13,40 +13,52 @@
             <ColumnDefinition Width="329*" />
         </Grid.ColumnDefinitions>
         <local:ButtonTile x:Name="TestTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="119,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="119,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="DataGridTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="119,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="119,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="VisualizationTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="372,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="372,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="SQLiteTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="119,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="119,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="DataGridTile_Copy" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="372,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="372,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="372,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="372,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="119,545,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="119,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="AccessTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="372,545,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" />
+                          Header="Header Text" Margin="372,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
         <local:ButtonTile x:Name="ProgramProjectTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="37,123,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" Grid.Column="1" />
+                          Header="Header Text" Margin="37,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="MapTile1" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="37,252,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" Grid.Column="1" />
+                          Header="Header Text" Margin="37,252,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="37,415,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" Grid.Column="1" />
+                          Header="Header Text" Margin="37,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" Grid.Column="1" />
         <local:ButtonTile x:Name="MapTile" HorizontalAlignment="Left" Height="92"
-                Header="Header Text" Margin="37,545,0,0" Title="Title Text" VerticalAlignment="Top"
-                Width="180" Grid.Column="1" />
+                          Header="Header Text" Margin="37,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" Grid.Column="1" />
+        <local:ButtonTile Grid.Column="1" HorizontalAlignment="Left" Height="92"
+                          Header="Header Text" Margin="293,123,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
+        <local:ButtonTile Grid.Column="1" HorizontalAlignment="Left" Height="88"
+                          Header="Header Text" Margin="293,256,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
+        <local:ButtonTile Grid.Column="1" HorizontalAlignment="Left" Height="92"
+                          Header="Header Text" Margin="293,415,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
+        <local:ButtonTile Grid.Column="1" HorizontalAlignment="Left" Height="92"
+                          Header="Header Text" Margin="293,545,0,0" Title="Title Text" VerticalAlignment="Top"
+                          Width="180" />
     </Grid>
 </Window>
