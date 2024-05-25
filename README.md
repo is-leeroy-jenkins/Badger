@@ -79,6 +79,7 @@
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Get Baby or learn more [here](https://github.com/KarmaScripter/Baby?tab=readme-ov-file)
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
