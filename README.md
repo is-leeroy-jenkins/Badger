@@ -80,8 +80,8 @@
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
-- ##### Quickly do ad-hoc searches with customized pop-up input.
-- ##### Get Baby or learn more [here](https://github.com/KarmaScripter/Baby?tab=readme-ov-file)
+- ##### Ad-hoc searches with customized pop-up input.
+- ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
