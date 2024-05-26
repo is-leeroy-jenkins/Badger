@@ -1,12 +1,21 @@
-﻿<Window x:Class="Badger.SplashMessage"
+﻿<Window x:Name="Message" x:Class="Badger.SplashMessage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger"
-        mc:Ignorable="d"
-        Title="Message" Height="450" Width="700" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontFamily="Global User Interface" FontSize="9" Icon="/Windows/Splash/Badger.png">
-    <Grid Background="#FF141414">
-
+        xmlns:local="clr-namespace:Badger" mc:Ignorable="d" Title="Message" Height="322" Width="615"
+        Background="#FF002336" BorderBrush="#FF6ABAD4" Foreground="#FF6ABAD4" WindowStyle="None" BorderThickness="1,1,1,1"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="547*" />
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="18" Margin="1,1,0,0" VerticalAlignment="Top"
+               Width="20" Source="/Windows/Splash/SplashNotification.png" />
+        <Label x:Name="TitleLabel" Content="Message" HorizontalAlignment="Left" Margin="36,1,0,0" VerticalAlignment="Top"
+               Width="552" OpacityMask="Black" Foreground="White"
+               SnapsToDevicePixels="True" Padding="5,1,5,5" />
+        <Label x:Name="MessageLabel" Content="Label" HorizontalAlignment="Left" Margin="85,84,0,0" VerticalAlignment="Top"
+               Height="41" Width="466" Foreground="#FF6ABAD4" />
     </Grid>
 </Window>

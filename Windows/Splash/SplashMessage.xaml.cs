@@ -87,7 +87,7 @@ namespace Badger
         /// <summary>
         /// The message
         /// </summary>
-        private string _message;
+        private string _text;
 
         /// <summary>
         /// The update status
@@ -127,24 +127,6 @@ namespace Badger
             private set
             {
                 _withoutActivation = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the message.
-        /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
-        public string Message
-        {
-            get
-            {
-                return _message;
-            }
-            private set
-            {
-                _message = value;
             }
         }
 
@@ -194,16 +176,21 @@ namespace Badger
         public SplashMessage( )
         {
             InitializeComponent( );
+
+            // Event Wiring
+            Loaded += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.SplashMessage" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        public SplashMessage( string message )
+        public SplashMessage( string message ) 
+            : this( )
         {
-            InitializeComponent( );
-            _message = message;
+            _text = message;
         }
 
         /// <summary>
@@ -279,6 +266,54 @@ namespace Badger
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -302,6 +337,9 @@ namespace Badger
         {
             try
             {
+                MessageLabel.Content = _text;
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

@@ -43,6 +43,7 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
+    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -52,8 +53,105 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class Notification : Window
     {
+        /// <summary>
+        /// The back color brush
+        /// </summary>
+        private protected SolidColorBrush _backColorBrush;
+
+        /// <summary>
+        /// The border color brush
+        /// </summary>
+        private protected SolidColorBrush _borderColorBrush;
+
+        /// <summary>
+        /// The fore color brush
+        /// </summary>
+        private protected SolidColorBrush _foreColorBrush;
+
+        /// <summary>
+        /// The back hover brush
+        /// </summary>
+        private protected SolidColorBrush _backHoverBrush;
+
+        /// <summary>
+        /// The border hover brush
+        /// </summary>
+        private protected SolidColorBrush _borderHoverBrush;
+
+        /// <summary>
+        /// The fore hover brush
+        /// </summary>
+        private protected SolidColorBrush _foreHoverBrush;
+
+        /// <summary>
+        /// The back color
+        /// </summary>
+        private protected Color _backColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
+        /// The border hover color
+        /// </summary>
+        private readonly Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
         /// <summary>
         /// The time
         /// </summary>
@@ -63,16 +161,6 @@ namespace Badger
         /// The seconds
         /// </summary>
         private int _seconds;
-
-        /// <summary>
-        /// The allow focus
-        /// </summary>
-        private bool _allowFocus;
-
-        /// <summary>
-        /// The without activation
-        /// </summary>
-        private bool _withoutActivation;
 
         /// <summary>
         /// The message
@@ -102,44 +190,6 @@ namespace Badger
             }
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether [allow focus].
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if [allow focus]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool AllowFocus
-        {
-            get
-            {
-                return _allowFocus;
-            }
-            private set
-            {
-                _allowFocus = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether [shown without activation].
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if [shown without activation]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool ShownWithoutActivation
-        {
-            get
-            {
-                return _withoutActivation;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -148,6 +198,14 @@ namespace Badger
         public Notification( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Timer Settings
+            _time = 0;
+            _seconds = 5;
+
+            // Wire Events
+            MouseLeftButtonDown += OnClick;
         }
 
         /// <inheritdoc />
@@ -160,6 +218,52 @@ namespace Badger
             : this( )
         {
             _message = message;
+        }
+
+        /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                MessageLabel.MouseLeftButtonDown += OnClick;
+                MessageLabel.MouseRightButtonDown += OnClick;
+                Image.MouseLeftButtonDown += OnClick;
+                Image.MouseRightButtonDown += OnClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -203,6 +307,70 @@ namespace Badger
                 }
 
                 form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeLabels( );
+                MessageLabel.Content = _message;
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
             }
             catch( Exception _ex )
             {

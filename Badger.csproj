@@ -43,6 +43,7 @@
     <None Remove="Windows\Main\ExcelDataTile.png" />
     <None Remove="Windows\Notification\SplashNotification.png" />
     <None Remove="Windows\ProgramProject\AppropriationTile.png" />
+    <None Remove="Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -105,6 +106,7 @@
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+    <Folder Include="Windows\Editors\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -121,6 +123,7 @@
     <Resource Include="Windows\Main\Application.png" />
     <Resource Include="Windows\Notification\SplashNotification.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
+    <Resource Include="Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
