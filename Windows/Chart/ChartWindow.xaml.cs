@@ -61,6 +61,9 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class ChartWindow : Window
     {
         /// <summary>
@@ -159,9 +162,107 @@ namespace Badger
             B = 252
         };
 
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.ChartWindow" /> class.
+        /// </summary>
         public ChartWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            Width = 1350;
+            Height = 730;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "Budget Execution";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

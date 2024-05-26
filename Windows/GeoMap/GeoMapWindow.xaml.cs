@@ -60,6 +60,8 @@ namespace Badger
     /// Interaction logic for GeoMapWindow.xaml
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class GeoMapWindow : Window
     {
         /// <summary>
@@ -139,7 +141,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -150,7 +152,7 @@ namespace Badger
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _borderHover = new Color( )
         {
             A = 255,
             R = 106,
@@ -158,6 +160,16 @@ namespace Badger
             B = 252
         };
 
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.GeoMapWindow" /> class.
+        /// </summary>
         public GeoMapWindow( )
         {
             InitializeComponent( );
@@ -167,6 +179,15 @@ namespace Badger
             // Basic Properties
             Width = 1350;
             Height = 730;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "Budget Execution";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

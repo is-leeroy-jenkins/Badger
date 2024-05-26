@@ -53,6 +53,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class SplashMessage : Window
     {
         /// <summary>
@@ -91,9 +94,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 0,
+            G = 35,
+            B = 54
         };
 
         /// <summary>
@@ -132,7 +135,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -143,7 +146,7 @@ namespace Badger
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _borderHover = new Color( )
         {
             A = 255,
             R = 106,
@@ -152,44 +155,49 @@ namespace Badger
         };
 
         /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
         /// The busy
         /// </summary>
-        private bool _busy;
+        private protected bool _busy;
 
         /// <summary>
         /// The time
         /// </summary>
-        private int _time;
+        private protected int _time;
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private protected int _seconds;
 
         /// <summary>
         /// The allow focus
         /// </summary>
-        private bool _allowFocus;
+        private protected bool _allowFocus;
 
         /// <summary>
         /// The without activation
         /// </summary>
-        private bool _withoutActivation;
+        private protected bool _withoutActivation;
 
         /// <summary>
         /// The lines
         /// </summary>
-        private IList<string> _lines;
+        private protected IList<string> _lines;
 
         /// <summary>
         /// The message
         /// </summary>
-        private string _text;
+        private protected string _text;
 
         /// <summary>
         /// The update status
         /// </summary>
-        private Action _statusUpdate;
+        private protected Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow focus].
@@ -210,10 +218,12 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether [shown without activation].
+        /// Gets or sets a value indicating
+        /// whether [shown without activation].
         /// </summary>
         /// <value>
-        ///   <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
+        ///   <c>true</c> if [shown without activation];
+        /// otherwise, <c>false</c>.
         /// </value>
         public bool ShownWithoutActivation
         {
@@ -257,11 +267,21 @@ namespace Badger
         {
             get
             {
-                return _busy;
-            }
-            private set
-            {
-                _busy = value;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -273,6 +293,22 @@ namespace Badger
         public SplashMessage( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "Budget Execution";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
 
             // Event Wiring
             Loaded += OnLoad;

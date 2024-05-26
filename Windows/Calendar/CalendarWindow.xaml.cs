@@ -63,6 +63,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class CalendarWindow : Window
     {
         /// <summary>
@@ -161,6 +162,11 @@ namespace Badger
             B = 252
         };
 
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -175,6 +181,15 @@ namespace Badger
             // Basic Properties
             Width = 1350;
             Height = 730;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "Budget Execution";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
