@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="MetroButton.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,42 +30,41 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroButton.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.Controls.Label" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class MetroButton : ButtonAdv
+    public class MetroLabel : Label
     {
         /// <summary>
         /// The back color brush
         /// </summary>
         private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
 
         /// <summary>
         /// The fore color brush
@@ -78,11 +77,6 @@ namespace Badger
         private protected SolidColorBrush _backHoverBrush;
 
         /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
         /// The fore hover brush
         /// </summary>
         private protected SolidColorBrush _foreHoverBrush;
@@ -90,24 +84,7 @@ namespace Badger
         /// <summary>
         /// The back color
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 24,
-            G = 49,
-            B = 89
-        };
+        private protected Color _backColor = Colors.Transparent;
 
         /// <summary>
         /// The fore color
@@ -117,7 +94,7 @@ namespace Badger
             A = 255,
             R = 106,
             G = 189,
-            B = 252
+            B = 212
         };
 
         /// <summary>
@@ -131,50 +108,22 @@ namespace Badger
             B = 255
         };
 
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Button" /> class.
+        /// <see cref="T:Badger.MetroLabel" /> class.
         /// </summary>
-        public MetroButton( )
+        public MetroLabel( ) 
             : base( )
         {
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Width = 140;
-            Height = 50;
-            IconHeight = 16;
-            IconWidth = 16;
-            SizeMode = SizeMode.Normal;
-            HorizontalContentAlignment = HorizontalAlignment.Center;
-            VerticalContentAlignment = VerticalAlignment.Center;
+            Width = 100;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            VerticalAlignment = VerticalAlignment.Center;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            BorderThickness = new Thickness( 1 );
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
@@ -192,9 +141,8 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( _backHover );
-                BorderBrush = new SolidColorBrush( _borderHover );
+                Background = new SolidColorBrush( _backColor );
+                Foreground = new SolidColorBrush( _foreHover );
             }
             catch( Exception _ex )
             {
@@ -215,7 +163,6 @@ namespace Badger
             {
                 Background = new SolidColorBrush( _backColor );
                 Foreground = new SolidColorBrush( _foreColor );
-                BorderBrush = new SolidColorBrush( _borderColor );
             }
             catch( Exception _ex )
             {

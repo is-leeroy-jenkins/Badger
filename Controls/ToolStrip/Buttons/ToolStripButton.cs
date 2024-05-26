@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-26-2024
 // ******************************************************************************************
-// <copyright file="MetroButton.cs" company="Terry D. Eppler">
+// <copyright file="ToolStripButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroButton.cs
+//   ToolStripButton.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,137 +43,49 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
 
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
+    ///  <seealso cref="T:Badger.MetroButton" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class MetroButton : ButtonAdv
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class ToolStripButton : MetroTile
     {
-        /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 24,
-            G = 49,
-            B = 89
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
         /// <summary>
         /// The border hover color
         /// </summary>
-        private protected Color _borderHover = new Color( )
+        private readonly Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 1,
+            G = 35,
+            B = 54
         };
 
-        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Button" /> class.
+        /// <see cref="ToolStripButton"/> class.
         /// </summary>
-        public MetroButton( )
+        /// <inheritdoc />
+        public ToolStripButton( )
             : base( )
         {
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Width = 140;
-            Height = 50;
-            IconHeight = 16;
-            IconWidth = 16;
-            SizeMode = SizeMode.Normal;
+            Width = 55;
+            Height = 35;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            BorderBrush = new SolidColorBrush( _backColor );
             BorderThickness = new Thickness( 1 );
 
             // Event Wiring
@@ -193,7 +105,7 @@ namespace Badger
             try
             {
                 Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( _backHover );
+                Foreground = new SolidColorBrush( Colors.White );
                 BorderBrush = new SolidColorBrush( _borderHover );
             }
             catch( Exception _ex )
@@ -215,23 +127,12 @@ namespace Badger
             {
                 Background = new SolidColorBrush( _backColor );
                 Foreground = new SolidColorBrush( _foreColor );
-                BorderBrush = new SolidColorBrush( _borderColor );
+                BorderBrush = new SolidColorBrush( _backColor );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -99,9 +99,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -313,7 +313,14 @@ namespace Badger
             try
             {
                 ThrowIf.Null( action, nameof( action ) );
-                Dispatcher.BeginInvoke( action );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
             }
             catch( Exception _ex )
             {

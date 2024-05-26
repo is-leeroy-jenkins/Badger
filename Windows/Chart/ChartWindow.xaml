@@ -5,12 +5,45 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Badger"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="Badger.ChartWindow"
-    mc:Ignorable="d"
-    Title="Budget Execution" Height="730" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4"
-    FontSize="9" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Icon="/Windows/Chart/Badger.png">
+    mc:Ignorable="d" Title="Visualization" Height="730" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Icon="/Windows/Chart/Application.png"
+    BorderThickness="1,1,1,1">
     <Grid>
 
-        <syncfusion:SfChart3D x:Name="Chart" HorizontalAlignment="Left" Margin="62,58,0,0" VerticalAlignment="Top" Height="526" Width="1200" FontSize="9"/>
-
+        <syncfusion:SfChart3D x:Name="Chart" HorizontalAlignment="Left" Margin="62,58,0,0" VerticalAlignment="Top" Height="526" Width="1200" BackWallBrush="#FF4B4B4B" BottomWallBrush="#FF4B4B4B" LeftWallBrush="#FF4B4B4B"
+                              RightWallBrush="#FF4B4B4B" TopWallBrush="#FF4B4B4B" Background="#FF141414" />
+        <ToolBar x:Name="ToolStrip" HorizontalAlignment="Center" Height="45" Margin="0,657,0,0"
+                VerticalAlignment="Top" Width="1330" BorderThickness="1,1,1,1"
+                Background="#FF282828" Foreground="#FF282828" Band="-2">
+            <syncfusion:MenuItemSeparator Foreground="#FF0078D4" />
+            <local:MetroLabel Content="Date &amp; Time" HorizontalAlignment="Stretch" Height="30"
+                    Foreground="#FF6ABDFC" />
+            <syncfusion:MenuItemSeparator Foreground="#FF0078D4" />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                    ImageSource="/Windows/Main/FirstButton.png" Tag="FirstButton"
+                    ToolTip="First Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                    ImageSource="/Windows/Main/PreviousButton.png" Tag="PreviousButton"
+                    ToolTip="Previous Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton Foreground="#FF282828" ImageSource="/Windows/Main/NextButton.png"
+                    Tag="NextButton" ToolTip="Next Record" BorderBrush="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                    ImageSource="/Windows/Main/LastButton.png" Tag="LastButton"
+                    ToolTip="Last Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/EditButton.png" Tag="EditButton"
+                    ToolTip="SQL Editing" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/DeleteButton.png" Tag="DeleteButton"
+                    ToolTip="Delete Record" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/RefreshButton.png" Tag="RefreshButton"
+                    ToolTip="Refresh" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/SaveButton.png" Tag="SaveButton"
+                    ToolTip="Save Changes" BorderBrush="#FF282828" Foreground="#FF282828" />
+        </ToolBar>
     </Grid>
 </Window>

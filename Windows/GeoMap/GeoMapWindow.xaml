@@ -1,15 +1,46 @@
-﻿<Window x:Class="Badger.GeoMapWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger"
-        mc:Ignorable="d"
-        Title="Budget Execution" Height="750" Width="1350" BorderBrush="#FF0078D4"
-        Foreground="#FF6ABDFC" FontSize="9"
+        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        x:Class="Badger.GeoMapWindow" mc:Ignorable="d" Title="Budget Execution" Height="750"
+        Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/Windows/GeoMap/Application.png">
     <Grid>
-
+        <ToolBar x:Name="ToolStrip" HorizontalAlignment="Center" Height="45" Margin="0,657,0,0"
+                 VerticalAlignment="Top" Width="1330" BorderThickness="1,1,1,1"
+                 Background="#FF282828" Foreground="#FF282828" Band="-2">
+            <syncfusion:MenuItemSeparator Foreground="#FF0078D4" />
+            <local:MetroLabel Content="Date &amp; Time" HorizontalAlignment="Stretch" Height="30"
+                              Foreground="#FF6ABDFC" />
+            <syncfusion:MenuItemSeparator Foreground="#FF0078D4" />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                                   ImageSource="/Windows/Main/FirstButton.png" Tag="FirstButton"
+                                   ToolTip="First Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                                   ImageSource="/Windows/Main/PreviousButton.png" Tag="PreviousButton"
+                                   ToolTip="Previous Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton Foreground="#FF282828" ImageSource="/Windows/Main/NextButton.png"
+                                   Tag="NextButton" ToolTip="Next Record" BorderBrush="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton BorderBrush="#FF282828" Foreground="#FF282828"
+                                   ImageSource="/Windows/Main/LastButton.png" Tag="LastButton"
+                                   ToolTip="Last Record" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/EditButton.png" Tag="EditButton"
+                                   ToolTip="SQL Editing" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/DeleteButton.png" Tag="DeleteButton"
+                                   ToolTip="Delete Record" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/RefreshButton.png" Tag="RefreshButton"
+                                   ToolTip="Refresh" BorderBrush="#FF282828" Foreground="#FF282828" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton ImageSource="/Windows/Main/SaveButton.png" Tag="SaveButton"
+                                   ToolTip="Save Changes" BorderBrush="#FF282828" Foreground="#FF282828" />
+        </ToolBar>
     </Grid>
 </Window>

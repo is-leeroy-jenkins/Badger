@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
 //     Created:                 12-24-2023
 // 
@@ -45,7 +45,10 @@ namespace Badger
     using System.IO;
     using System.Runtime.Serialization.Json;
     using System.Text;
+    using System.Windows;
+    using System.Windows.Controls;
     using System.Xml.Serialization;
+    using MahApps.Metro.Controls;
 
     /// <summary>
     /// 
@@ -85,7 +88,9 @@ namespace Badger
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="type">The type.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// string
+        /// </returns>
         public static string SerializeToXml<T>( this T type )
         {
             try
@@ -101,6 +106,56 @@ namespace Badger
             {
                 Fail( _ex );
                 return default( string );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <param name="action">The action.</param>
+        public static void InvokeIf( this Control control, Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( control.Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    control.BeginInvoke( action );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="window">The window.</param>
+        /// <param name="action">The action.</param>
+        public static void InvokeIf( this Window window, Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( window.Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    window.Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
