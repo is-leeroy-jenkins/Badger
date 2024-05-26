@@ -64,6 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class DataWindow : Window
     {
         /// <summary>
@@ -143,7 +144,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -154,7 +155,7 @@ namespace Badger
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _borderHover = new Color( )
         {
             A = 255,
             R = 106,
@@ -163,24 +164,59 @@ namespace Badger
         };
 
         /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
         /// The busy
         /// </summary>
-        private bool _busy;
+        private protected bool _busy;
 
         /// <summary>
         /// The time
         /// </summary>
-        private int _time;
+        private protected int _time;
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private protected int _seconds;
 
         /// <summary>
         /// The update status
         /// </summary>
-        private Action _statusUpdate;
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
