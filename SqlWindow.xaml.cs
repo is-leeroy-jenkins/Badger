@@ -160,9 +160,23 @@ namespace Badger
             B = 252
         };
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.SqlWindow" /> class.
+        /// </summary>
         public SqlWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            Width = 1350;
+            Height = 730;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
         }
         
         /// <summary>

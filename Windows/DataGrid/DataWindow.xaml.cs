@@ -190,6 +190,8 @@ namespace Badger
         public DataWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Width = 1350;

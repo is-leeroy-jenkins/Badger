@@ -161,6 +161,15 @@ namespace Badger
         public GeoMapWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            Width = 1350;
+            Height = 730;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
         }
         
         /// <summary>
