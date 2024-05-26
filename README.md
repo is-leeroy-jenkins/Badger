@@ -109,7 +109,7 @@
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-## Data Visualization
+## Visualization Tools
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
@@ -117,7 +117,7 @@
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## DocViewer
+## Document Viewer
 - ##### Library of legal documentation used in evnironmental data analysis.
 - ##### Interact with, view and access PDFs outside the application
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
