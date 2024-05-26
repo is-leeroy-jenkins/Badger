@@ -98,6 +98,7 @@
 
 ## [Orca](https://github.com/KarmaScripter/Orca)
 - ##### Ad-hoc web development
+- ##### Network communications
 - ##### HTML5, CSS, and Javascript
   
 ![](https://github.com/KarmaScripter/Orca/blob/main/etc/github/Overview.gif)
