@@ -54,6 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class Notification : Window
     {
         /// <summary>
@@ -165,7 +166,7 @@ namespace Badger
         /// <summary>
         /// The message
         /// </summary>
-        private string _message;
+        private string _text;
 
         /// <summary>
         /// The update status
@@ -178,15 +179,15 @@ namespace Badger
         /// <value>
         /// The message.
         /// </value>
-        public string Message
+        public string Text
         {
             get
             {
-                return _message;
+                return _text;
             }
             private set
             {
-                _message = value;
+                _text = value;
             }
         }
 
@@ -217,7 +218,7 @@ namespace Badger
         public Notification( string message ) 
             : this( )
         {
-            _message = message;
+            _text = message;
         }
 
         /// <summary>
@@ -340,7 +341,7 @@ namespace Badger
             try
             {
                 InitializeLabels( );
-                MessageLabel.Content = _message;
+                MessageLabel.Content = _text;
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -350,6 +351,11 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [activated].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnActivated( object sender, EventArgs e )
         {
             try
