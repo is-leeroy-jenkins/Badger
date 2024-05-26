@@ -3,10 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Badger.DataWindow"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="DataWindow1"
+        x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Height="730" Width="1350" Background="#FF141414"
         BorderBrush="#FF0078D4" Foreground="#FF9CD3FD"
-        WindowStartupLocation="CenterScreen" Topmost="True">
+        WindowStartupLocation="CenterScreen" Topmost="True" BorderThickness="1,1,1,1">
     <Grid Background="Black" RenderTransformOrigin="0.786,0.411">
         <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="399"
                                Margin="54,74,0,0" VerticalAlignment="Top" Width="693" HeaderRowHeight="28" BorderBrush="#FF464646" Background="#FF464646"
