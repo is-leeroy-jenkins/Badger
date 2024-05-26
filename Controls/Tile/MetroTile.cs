@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-24-2024
+//     Created:                 05-26-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-24-2024
+//     Last Modified On:        05-26-2024
 // ******************************************************************************************
-// <copyright file="Calendar.cs" company="Terry D. Eppler">
+// <copyright file="MetroTile.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Calendar.cs
+//   MetroTile.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,15 +43,18 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
+    using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Shared;
+    using Syncfusion.Windows.Controls.Notification;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class Calendar : CalendarEdit
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class MetroTile : SfHubTile
     {
         /// <summary>
         /// The back color brush
@@ -89,9 +92,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -100,9 +103,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 24,
-            G = 49,
-            B = 89
+            R = 17,
+            G = 53,
+            B = 84
         };
 
         /// <summary>
@@ -130,12 +133,12 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private readonly Color _borderColor = new Color( )
+        private Color _borderColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 120,
-            B = 212
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -144,51 +147,80 @@ namespace Badger
         private readonly Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 106,
+            G = 189,
+            B = 252
         };
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Calendar" /> class.
+        /// <see cref="T:Badger.Tile" /> class.
         /// </summary>
-        public Calendar( )
+        public MetroTile( )
             : base( )
         {
             // Basic Properties
-            BorderThickness = new Thickness( 0 );
+            _backColorBrush = new SolidColorBrush( _backColor );
+            _borderColorBrush = new SolidColorBrush( _borderColor );
+            _foreColorBrush = new SolidColorBrush( _foreColor );
+            _backHoverBrush = new SolidColorBrush( _backHover );
+            _borderHoverBrush = new SolidColorBrush( _borderHover );
+            _foreHoverBrush = new SolidColorBrush( _foreHover );
+            Width = 1350;
+            Height = 730;
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            Background = new SolidColorBrush( _backColor );
-            BlackoutDatesBackground = new SolidColorBrush( _backColor );
-            BlackoutDatesCrossBrush = new SolidColorBrush( _backColor );
-            BlackoutDatesForeground = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            HeaderBackground = new SolidColorBrush( _backColor );
-            HeaderForeground = new SolidColorBrush( _foreColor );
-            MouseOverBackground = new SolidColorBrush( Colors.SteelBlue );
-            MouseOverForeground = new SolidColorBrush( Colors.White );
-            NotCurrentMonthForeground = new SolidColorBrush( _foreColor );
-            SelectedDayCellBackground = new SolidColorBrush( Colors.SteelBlue );
-            SelectedDayCellForeground = new SolidColorBrush( Colors.White );
-            SelectedDayCellBorderBrush = new SolidColorBrush( Colors.SteelBlue );
-            SelectedDayCellHoverBackground = new SolidColorBrush( Colors.SteelBlue );
-            TodayCellBackground = new SolidColorBrush( Colors.SteelBlue );
-            TodayCellForeground = new SolidColorBrush( Colors.White );
-            TodayCellSelectedBackground = new SolidColorBrush( Colors.SteelBlue );
-            TodayCellSelectedBorderBrush = new SolidColorBrush( Colors.White );
-            WeekNumberBackground = new SolidColorBrush( _backColor );
-            WeekNumberBorderBrush = new SolidColorBrush( _backColor );
-            WeekNumberForeground = new SolidColorBrush( _foreColor );
-            WeekNumberHoverBackground = new SolidColorBrush( _backHover );
-            WeekNumberHoverForeground = new SolidColorBrush( Colors.White );
-            WeekNumberHoverBorderBrush = new SolidColorBrush( Colors.White );
-            WeekNumberSelectionBackground = new SolidColorBrush( Colors.SteelBlue );
-            WeekNumberSelectionForeground = new SolidColorBrush( Colors.White );
-            WeekNumberSelectionBorderBrush = new SolidColorBrush( Colors.SteelBlue );
+            FontSize = 12d;
+            BorderThickness = new Thickness( 1 );
+            Background = _backColorBrush;
+            Foreground = _foreColorBrush;
+            BorderBrush = _borderColorBrush;
+
+            // Wire Events
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
+        }
+
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseEnter( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = _backHoverBrush;
+                Foreground = _foreHoverBrush;
+                BorderBrush = _borderHoverBrush;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseLeave( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = _backColorBrush;
+                Foreground = _foreColorBrush;
+                BorderBrush = _borderColorBrush;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

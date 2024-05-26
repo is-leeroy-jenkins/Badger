@@ -162,7 +162,7 @@ namespace Badger
         /// <summary>
         /// The tiles
         /// </summary>
-        private protected IList<ButtonTile> _tiles;
+        private protected IList<MetroTile> _tiles;
 
         /// <summary>
         /// The path
@@ -227,6 +227,81 @@ namespace Badger
         public MainWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            Width = 1350;
+            Height = 730;
+            ResizeMode = ResizeMode.CanResize;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "SQL Editor";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -586,19 +661,19 @@ namespace Badger
         /// Gets the tiles.
         /// </summary>
         /// <returns></returns>
-        private IEnumerable<ButtonTile> GetTiles( )
+        private IEnumerable<MetroTile> GetTiles( )
         {
             try
             {
-                var _tiles = new List<ButtonTile>( );
+                _tiles = new List<MetroTile>( );
                 return _tiles?.Any( ) == true
                     ? _tiles
-                    : Enumerable.Empty<ButtonTile>( );
+                    : Enumerable.Empty<MetroTile>( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<ButtonTile> );
+                return default( IEnumerable<MetroTile> );
             }
         }
 
@@ -606,12 +681,14 @@ namespace Badger
         /// Called when [loaded].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/>
+        /// instance containing the event data.</param>
         /// <returns></returns>
         private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
+                App.ActiveWindows.Add( Name, this );
             }
             catch( Exception _ex )
             {

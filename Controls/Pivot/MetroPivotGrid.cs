@@ -48,7 +48,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class PivotGrid : PivotGridControl
+    public class MetroPivotGrid : PivotGridControl
     {
         /// <summary>
         /// The back color brush
@@ -151,7 +151,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.PivotGrid" /> class.
         /// </summary>
-        public PivotGrid( )
+        public MetroPivotGrid( )
             : base( )
         {
             // Basic Properties

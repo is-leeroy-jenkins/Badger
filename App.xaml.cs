@@ -52,8 +52,17 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class App : Application
     {
+        /// <summary>
+        /// Gets or sets the windows.
+        /// </summary>
+        /// <value>
+        /// The windows.
+        /// </value>
+        public static IDictionary<string, Window> ActiveWindows { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -64,6 +73,7 @@ namespace Badger
             var _key = ConfigurationManager.AppSettings[ "UI" ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ActiveWindows = new Dictionary<string, Window>( );
         }
     }
 }

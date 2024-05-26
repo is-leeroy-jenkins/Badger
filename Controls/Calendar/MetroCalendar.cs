@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 05-24-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        05-24-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
+// <copyright file="Calendar.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
-//
+//    Copyright ©  2024  Terry Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   Calendar.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,15 +42,16 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
+    using Syncfusion.Windows.Shared;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ComboBox : ComboBoxAdv
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class MetroCalendar : CalendarEdit
     {
         /// <summary>
         /// The back color brush
@@ -99,9 +100,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 25,
-            G = 76,
-            B = 120
+            R = 24,
+            G = 49,
+            B = 89
         };
 
         /// <summary>
@@ -129,7 +130,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -151,17 +152,43 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ComboBox" /> class.
+        /// <see cref="T:Badger.Calendar" /> class.
         /// </summary>
-        public ComboBox( )
+        public MetroCalendar( )
             : base( )
         {
             // Basic Properties
+            BorderThickness = new Thickness( 0 );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            BlackoutDatesBackground = new SolidColorBrush( _backColor );
+            BlackoutDatesCrossBrush = new SolidColorBrush( _backColor );
+            BlackoutDatesForeground = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            HeaderBackground = new SolidColorBrush( _backColor );
+            HeaderForeground = new SolidColorBrush( _foreColor );
+            MouseOverBackground = new SolidColorBrush( Colors.SteelBlue );
+            MouseOverForeground = new SolidColorBrush( Colors.White );
+            NotCurrentMonthForeground = new SolidColorBrush( _foreColor );
+            SelectedDayCellBackground = new SolidColorBrush( Colors.SteelBlue );
+            SelectedDayCellForeground = new SolidColorBrush( Colors.White );
+            SelectedDayCellBorderBrush = new SolidColorBrush( Colors.SteelBlue );
+            SelectedDayCellHoverBackground = new SolidColorBrush( Colors.SteelBlue );
+            TodayCellBackground = new SolidColorBrush( Colors.SteelBlue );
+            TodayCellForeground = new SolidColorBrush( Colors.White );
+            TodayCellSelectedBackground = new SolidColorBrush( Colors.SteelBlue );
+            TodayCellSelectedBorderBrush = new SolidColorBrush( Colors.White );
+            WeekNumberBackground = new SolidColorBrush( _backColor );
+            WeekNumberBorderBrush = new SolidColorBrush( _backColor );
+            WeekNumberForeground = new SolidColorBrush( _foreColor );
+            WeekNumberHoverBackground = new SolidColorBrush( _backHover );
+            WeekNumberHoverForeground = new SolidColorBrush( Colors.White );
+            WeekNumberHoverBorderBrush = new SolidColorBrush( Colors.White );
+            WeekNumberSelectionBackground = new SolidColorBrush( Colors.SteelBlue );
+            WeekNumberSelectionForeground = new SolidColorBrush( Colors.White );
+            WeekNumberSelectionBorderBrush = new SolidColorBrush( Colors.SteelBlue );
         }
 
         /// <summary>

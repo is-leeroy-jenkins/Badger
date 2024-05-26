@@ -35,12 +35,14 @@
     <None Remove="Application.png" />
     <None Remove="Windows\Calendar\Application.png" />
     <None Remove="Windows\Dialogs\SplashNotification.png" />
+    <None Remove="Windows\Editors\Application.png" />
     <None Remove="Windows\GeoMap\Application.png" />
     <None Remove="Windows\GeoMap\Badger.png" />
     <None Remove="Windows\Main\Application.png" />
     <None Remove="Windows\Main\Badger.png" />
     <None Remove="Windows\Main\DataTile.png" />
     <None Remove="Windows\Main\ExcelDataTile.png" />
+    <None Remove="Windows\Main\ExcelTile.png" />
     <None Remove="Windows\Notification\SplashNotification.png" />
     <None Remove="Windows\ProgramProject\AppropriationTile.png" />
     <None Remove="Windows\Splash\SplashNotification.png" />
@@ -106,7 +108,6 @@
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
-    <Folder Include="Windows\Editors\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -119,8 +120,10 @@
     <Resource Include="Application.png" />
     <Resource Include="Windows\Calendar\Application.png" />
     <Resource Include="Windows\Dialogs\SplashNotification.png" />
+    <Resource Include="Windows\Editors\Application.png" />
     <Resource Include="Windows\GeoMap\Application.png" />
     <Resource Include="Windows\Main\Application.png" />
+    <Resource Include="Windows\Main\ExcelTile.png" />
     <Resource Include="Windows\Notification\SplashNotification.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="Windows\Splash\SplashNotification.png" />

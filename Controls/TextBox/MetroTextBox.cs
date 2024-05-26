@@ -50,7 +50,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class TextBox : SfTextBoxExt
+    public class MetroTextBox : SfTextBoxExt
     {
         /// <summary>
         /// The back color brush
@@ -153,7 +153,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.TextBox" /> class.
         /// </summary>
-        public TextBox( )
+        public MetroTextBox( )
             : base( )
         {
             _backColorBrush = new SolidColorBrush( _backColor );

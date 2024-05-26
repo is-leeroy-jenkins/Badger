@@ -26,9 +26,9 @@
                 </TransformGroup>
             </syncfusion:SfChart3D.RenderTransform>
         </syncfusion:SfChart3D>
-        <local:Calendar x:Name="FirstCalendar" Date="1/1/2020" HorizontalAlignment="Left"
+        <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" HorizontalAlignment="Left"
                         Height="190" Margin="55,133,0,0" VerticalAlignment="Top" Width="273" />
-        <local:Calendar x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Left"
+        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Left"
                         Height="196" Margin="55,44,0,0" VerticalAlignment="Top" Width="273" Grid.Row="1" />
     </Grid>
 </Window>

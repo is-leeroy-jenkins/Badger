@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-24-2024
+//     Created:                 05-26-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-24-2024
+//     Last Modified On:        05-26-2024
 // ******************************************************************************************
-// <copyright file="Chart3D.cs" company="Terry D. Eppler">
+// <copyright file="MetroCalculator.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Chart3D.cs
+//   MetroCalculator.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,12 +43,18 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.Windows.Controls.Input;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Controls.Input.SfCalculator" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Chart3D : SfChart3D
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class MetroCalculator : SfCalculator
     {
         /// <summary>
         /// The back color brush
@@ -86,9 +92,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 20,
-            G = 20,
-            B = 20
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -149,20 +155,16 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Chart3D" /> class.
+        /// <see cref="T:Badger.Calculator" /> class.
         /// </summary>
-        public Chart3D( )
+        public MetroCalculator( )
             : base( )
         {
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( Colors.Transparent );
-            BorderBrush = new SolidColorBrush( Colors.Transparent );
-            BackWallBrush = new SolidColorBrush( _backColor );
-            TopWallBrush = new SolidColorBrush( _backColor );
-            LeftWallBrush = new SolidColorBrush( _backColor );
-            RightWallBrush = new SolidColorBrush( _backColor );
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
         }
 
