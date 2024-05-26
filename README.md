@@ -7,7 +7,7 @@
 
 - Mutliple data providers.
 - Charting and reporting.
-- Internal web browser with queries optimized for searching .gov domains with [Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Internal web browser,[Baby](https://github.com/KarmaScripter/Baby/blob/main/README.md),  with queries optimized for searching .gov domains.
 - Pre-defined schema for moret than 100 environmental data models.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-ish UI on top of a real databases.
@@ -62,14 +62,15 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
-## Financial Data Analysis
+## Data Tools
 - ##### Datagrids
 - ##### Pivot Tables
+- ##### Plotting
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 ## User Interface with a familiar look & feel.
-- ##### Excel-like interface over a relational database
-- ##### Import and export spreadsheet data
+- ##### Excel-ish UI over a real database.
+- ##### Import and export spreadsheet data.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
 ## Geospatial Information (GIS) Mapping.
@@ -79,17 +80,19 @@
 
 ## Baby
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Quickly do ad-hoc searches with customized pop-up input.
 - ##### Get Baby or learn more [here](https://github.com/KarmaScripter/Baby?tab=readme-ov-file)
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
 ## Budget Calculator 
-- ##### Quick & dirty accounting and budget calculations directly on bound data.
-- ##### Easy access to the full functionality of the widows calculator
+- ##### Ad-hoc calculations directly on bound data.
+- ##### Quick access to the full functionality of the widows 10 calculator.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## Federal Fiscal Year Calendar
-- ##### Calculations using full-time equivalency metrics.
+## Federal Calendar
+- ##### Calculation based on the federal fiscal year beginning Oct 1.
+- ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
@@ -101,14 +104,14 @@
    
 ## Environmental Program Anaylsis
 - ##### Definitions and statutory authorities
-- ##### Information bound directly to financial data
+- ##### Legal information bound directly to financial data
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Data Visualization
 - ##### 3D Charting
 - ##### Pivot Charts
-- ##### Plotting from ScottPlot
+- ##### Plotting & Graphs
   
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
