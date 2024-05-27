@@ -77,6 +77,8 @@
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="Notifications.Wpf" Version="0.1.1" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
@@ -111,6 +113,7 @@
     <Folder Include="Controls\ToolTip\" />
     <Folder Include="Controls\Ribbon\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="IO\Excel\" />
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />

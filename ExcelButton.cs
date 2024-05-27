@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
+//     Created:                 05-27-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        05-27-2024
 // ******************************************************************************************
 // <copyright file="ExcelButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -44,32 +44,29 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media.Imaging;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Badger.ToolStripButton" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ExportButton : ToolStripButton
+    public class ExcelButton : ToolStripButton
     {
         /// <summary>
-        /// The excel button
+        /// The first button
         /// </summary>
-        private protected readonly string _exportButton =
-            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\ExportButton.png";
+        private protected readonly string _excelButton =
+            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\ExcelButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExportButton"/> class.
+        /// <see cref="BrowseButton"/> class.
         /// </summary>
         /// <inheritdoc />
-        public ExportButton( )
+        public ExcelButton( )
             : base( )
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _exportButton ) );
+            ImageSource = new BitmapImage( new Uri( _excelButton ) );
         }
     }
 }

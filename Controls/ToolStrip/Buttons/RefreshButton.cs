@@ -66,7 +66,7 @@ namespace Badger
         public RefreshButton( )
             : base( )
         {
-            Width = 75;
+            Width = 64;
             Height = 35;
             ImageSource = new BitmapImage( new Uri( _refreshButton ) );
         }

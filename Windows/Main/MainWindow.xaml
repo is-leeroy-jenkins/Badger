@@ -14,72 +14,61 @@
             <ColumnDefinition Width="56*" />
         </Grid.ColumnDefinitions>
         <local:MetroTile x:Name="TestTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="119,206,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="119,206,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="DataTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="119,77,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="119,77,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="ChartTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="372,77,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="372,77,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="SqliteTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="119,395,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="119,395,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="PivotTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="372,206,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="372,206,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="372,395,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="372,395,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="119,525,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="119,525,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="AccessTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="372,525,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" />
+                Header="Header Text" Margin="372,525,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" />
         <local:MetroTile x:Name="ProgramProjectTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="37,77,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.Column="1" />
+                Header="Header Text" Margin="37,77,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="EmailTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="37,206,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.Column="1" />
+                Header="Header Text" Margin="37,206,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="37,395,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.Column="1" />
+                Header="Header Text" Margin="37,395,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="MapTile" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="37,525,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.Column="1" />
+                Header="Header Text" Margin="37,525,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="DocumentTile" Grid.Column="1" HorizontalAlignment="Left"
-                         Height="100" Header="Header Text" Margin="293,77,0,0" Title="Title Text"
-                         VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
+                Height="100" Header="Header Text" Margin="293,77,0,0" Title="Title Text"
+                VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
         <local:MetroTile x:Name="CalendarTile" Grid.Column="1" HorizontalAlignment="Left"
-                         Height="100" Header="Header Text" Margin="293,210,0,0" Title="Title Text"
-                         VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
+                Height="100" Header="Header Text" Margin="293,210,0,0" Title="Title Text"
+                VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
         <local:MetroTile x:Name="EditorTile" Grid.Column="1" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="293,395,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.ColumnSpan="2" />
+                Header="Header Text" Margin="293,395,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.ColumnSpan="2" />
         <local:MetroTile x:Name="BabyTile" Grid.Column="1" HorizontalAlignment="Left" Height="100"
-                         Header="Header Text" Margin="293,525,0,0" Title="Title Text" VerticalAlignment="Top"
-                         Width="200" Grid.ColumnSpan="2" />
-        <local:ToolBar x:Name="MainToolBar" Height="45" Margin="10,685,10,10" Grid.ColumnSpan="3">
+                Header="Header Text" Margin="293,525,0,0" Title="Title Text" VerticalAlignment="Top"
+                Width="200" Grid.ColumnSpan="2" />
+        <local:ToolBar Height="45" Margin="3,685,3,3" Grid.ColumnSpan="3">
             <syncfusion:MenuItemSeparator />
-            <local:ToolStripLabel Content="Date &amp; Time" />
+            <local:StatusLabel />
             <syncfusion:MenuItemSeparator />
             <local:FirstButton />
             <local:PreviousButton />
             <local:NextButton />
             <local:LastButton />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripTextBox />
-            <syncfusion:MenuItemSeparator />
-            <local:LookupButton />
-            <local:RefreshButton />
-            <local:EditButton />
-            <local:DeleteButton />
-            <local:SaveButton />
-            <local:ExportButton />
-            <local:MenuButton />
-            <local:ExitButton />
         </local:ToolBar>
     </Grid>
 </Window>

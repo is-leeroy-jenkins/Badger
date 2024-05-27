@@ -42,14 +42,25 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Badger.ToolStripButton" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class BrowseButton : ToolStripButton
     {
+        /// <summary>
+        /// The first button
+        /// </summary>
+        private protected readonly string _browseButton =
+            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\BrowseButton.png";
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BrowseButton"/> class.
@@ -58,8 +69,9 @@ namespace Badger
         public BrowseButton( )
             : base( )
         {
-            Width = 75;
+            Width = 64;
             Height = 35;
+            ImageSource = new BitmapImage( new Uri( _browseButton ) );
         }
     }
 }

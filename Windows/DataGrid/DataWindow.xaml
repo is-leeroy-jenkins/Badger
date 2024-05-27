@@ -8,11 +8,37 @@
         Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF9CD3FD"
         WindowStartupLocation="CenterScreen" Topmost="True" BorderThickness="1,1,1,1"
         Margin="1,1,1,0">
-    <Grid Background="Black" RenderTransformOrigin="0.786,0.411">
+    <Grid Background="#00141400" RenderTransformOrigin="0.786,0.411">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1121*" />
+            <ColumnDefinition Width="89*" />
+            <ColumnDefinition Width="138*" />
+        </Grid.ColumnDefinitions>
         <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="399"
                 Margin="54,74,0,0" VerticalAlignment="Top" Width="693" HeaderRowHeight="28"
                 BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
                 SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
                 GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue" />
+        <local:ToolBar Height="42" Margin="10,660,8,10" Grid.ColumnSpan="3">
+            <syncfusion:MenuItemSeparator />
+            <local:StatusLabel />
+            <syncfusion:MenuItemSeparator />
+            <local:FirstButton />
+            <local:PreviousButton />
+            <local:NextButton />
+            <local:LastButton />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripTextBox />
+            <local:LookupButton />
+            <syncfusion:MenuItemSeparator />
+            <local:RefreshButton />
+            <local:EditButton />
+            <local:DeleteButton />
+            <local:SaveButton />
+            <local:BrowseButton />
+            <local:ExportButton />
+            <local:MenuButton HorizontalAlignment="Right" />
+            <local:ExitButton HorizontalAlignment="Right" />
+        </local:ToolBar>
     </Grid>
 </Window>

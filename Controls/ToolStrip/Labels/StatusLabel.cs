@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
+//     Created:                 05-27-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        05-27-2024
 // ******************************************************************************************
-// <copyright file="ExcelButton.cs" company="Terry D. Eppler">
+// <copyright file="StatusLabel.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelButton.cs
+//   StatusLabel.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,34 +42,28 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media.Imaging;
+    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.ToolStripButton" />
+    /// <seealso cref="T:Badger.ToolStripLabel" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ExportButton : ToolStripButton
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class StatusLabel : ToolStripLabel
     {
         /// <summary>
-        /// The excel button
-        /// </summary>
-        private protected readonly string _exportButton =
-            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\ExportButton.png";
-
-        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExportButton"/> class.
+        /// <see cref="StatusLabel"/> class.
         /// </summary>
-        /// <inheritdoc />
-        public ExportButton( )
+        public StatusLabel( )
             : base( )
         {
-            Width = 64;
-            Height = 35;
-            ImageSource = new BitmapImage( new Uri( _exportButton ) );
+            Width = 100;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12;
         }
     }
 }
