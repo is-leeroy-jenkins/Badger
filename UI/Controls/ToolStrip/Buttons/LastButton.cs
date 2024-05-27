@@ -70,6 +70,7 @@ namespace Badger
             Width = 64;
             Height = 35;
             ImageSource = new BitmapImage( new Uri( _lastButton ) );
+            ToolTip = "Last";
         }
     }
 }
