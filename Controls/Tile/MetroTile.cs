@@ -133,7 +133,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 40,
@@ -144,7 +144,7 @@ namespace Badger
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _borderHover = new Color( )
         {
             A = 255,
             R = 106,
@@ -188,7 +188,7 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMouseEnter( object sender, MouseEventArgs e )
+        private protected virtual void OnMouseEnter( object sender, MouseEventArgs e )
         {
             try
             {
@@ -209,7 +209,7 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMouseLeave( object sender, MouseEventArgs e )
+        private protected virtual void OnMouseLeave( object sender, MouseEventArgs e )
         {
             try
             {

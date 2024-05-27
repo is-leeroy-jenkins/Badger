@@ -55,17 +55,29 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public class ToolStripButton : MetroTile
     {
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _darkHover = new Color( )
         {
             A = 255,
-            R = 1,
-            G = 35,
-            B = 54
+            R = 9,
+            G = 65,
+            B = 112
+        };
+
+        /// <summary>
+        /// The dark back
+        /// </summary>
+        private protected Color _darkBack = new Color( )
+        {
+            A = 255,
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -79,13 +91,13 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Width = 55;
+            Width = 75;
             Height = 35;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
+            Background = new SolidColorBrush( _darkBack );
+            Foreground = new SolidColorBrush( _darkBack );
+            BorderBrush = new SolidColorBrush( _darkBack );
             BorderThickness = new Thickness( 1 );
 
             // Event Wiring
@@ -93,19 +105,20 @@ namespace Badger
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [mouse enter]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private void OnMouseEnter( object sender, MouseEventArgs e )
+        private protected override void OnMouseEnter( object sender, MouseEventArgs e )
         {
             try
             {
-                Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( Colors.White );
+                Background = new SolidColorBrush( _darkHover );
+                Foreground = new SolidColorBrush( _darkBack );
                 BorderBrush = new SolidColorBrush( _borderHover );
             }
             catch( Exception _ex )
@@ -114,20 +127,21 @@ namespace Badger
             }
         }
 
+        /// <inheritdoc />
         /// <summary> Called when [mouse leave]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
-        /// <see cref="EventArgs"/>
+        /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private void OnMouseLeave( object sender, MouseEventArgs e )
+        private protected override void OnMouseLeave( object sender, MouseEventArgs e )
         {
             try
             {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreColor );
-                BorderBrush = new SolidColorBrush( _backColor );
+                Background = new SolidColorBrush( _darkBack );
+                Foreground = new SolidColorBrush( _darkBack );
+                BorderBrush = new SolidColorBrush( _darkBack );
             }
             catch( Exception _ex )
             {

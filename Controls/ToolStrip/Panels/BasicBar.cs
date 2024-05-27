@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 05-26-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        05-26-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
+// <copyright file="ToolBar.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
-//
+//    Copyright ©  2024  Terry Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   ToolBar.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,18 +43,15 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Drawing;
-    using Syncfusion.Windows.Controls.Input;
-    using Color = System.Windows.Media.Color;
+    using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroTextBox : SfTextBoxExt
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public class BasicBar : ToolBarAdv
     {
         /// <summary>
         /// The back color brush
@@ -74,7 +71,7 @@ namespace Badger
         /// <summary>
         /// The back hover brush
         /// </summary>
-        private protected SolidColorBrush _dropDownBrush;
+        private protected SolidColorBrush _backHoverBrush;
 
         /// <summary>
         /// The border hover brush
@@ -92,20 +89,20 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
         /// The back hover color
         /// </summary>
-        private protected Color _dropColor = new Color( )
+        private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 0,
-            B = 0
+            R = 17,
+            G = 53,
+            B = 84
         };
 
         /// <summary>
@@ -133,23 +130,12 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The selection color
-        /// </summary>
-        private Color _selectionColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -158,30 +144,22 @@ namespace Badger
         private protected Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 106,
+            G = 189,
+            B = 252
         };
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.TextBox" /> class.
+        /// <see cref="T:Badger.ToolBar" /> class.
         /// </summary>
-        public MetroTextBox( )
+        public BasicBar( )
             : base( )
         {
-            Width = 200;
-            Height = 24;
+            // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            DropDownBackground = new SolidColorBrush( _dropColor );
-            SelectionBrush = new SolidColorBrush( _selectionColor );
-            SelectionTextBrush = new SolidColorBrush( Colors.White );
-            SelectionBackgroundColor = new SolidColorBrush( _selectionColor );
+            FontSize = 12;
         }
 
         /// <summary>

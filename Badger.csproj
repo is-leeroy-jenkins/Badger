@@ -108,8 +108,6 @@
 
   <ItemGroup>
     <Folder Include="Controls\Layout\" />
-    <Folder Include="Controls\ToolStrip\ComboBoxes\" />
-    <Folder Include="Controls\ToolStrip\TextBoxes\" />
     <Folder Include="Controls\ToolTip\" />
     <Folder Include="Controls\Ribbon\" />
     <Folder Include="Interfaces\" />
@@ -132,14 +130,16 @@
     <Resource Include="Windows\Editors\Application.png" />
     <Resource Include="Windows\GeoMap\Application.png" />
     <Resource Include="Windows\Main\Application.png" />
-    <Resource Include="Windows\Main\DeleteButton.png" />
-    <Resource Include="Windows\Main\EditButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\DeleteButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\EditButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\FirstButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\LastButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\NextButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\PreviousButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\RefreshButton.png" />
+    <Resource Include="Controls\ToolStrip\Buttons\SaveButton.png" />
     <Resource Include="Windows\Main\FirstButton.png" />
-    <Resource Include="Windows\Main\LastButton.png" />
-    <Resource Include="Windows\Main\NextButton.png" />
     <Resource Include="Windows\Main\PreviousButton.png" />
-    <Resource Include="Windows\Main\RefreshButton.png" />
-    <Resource Include="Windows\Main\SaveButton.png" />
     <Resource Include="Windows\Notification\SplashNotification.png" />
     <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="Windows\Splash\SplashNotification.png" />

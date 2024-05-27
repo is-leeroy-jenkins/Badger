@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-26-2024
 // ******************************************************************************************
-// <copyright file="ToolBar.cs" company="Terry D. Eppler">
+// <copyright file="LastButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ToolBar.cs
+//   LastButton.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,35 +42,35 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
+    using System.Windows.Media.Imaging;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Badger.ToolStripButton" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class ToolBar : ToolBarAdv
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public class LastButton : ToolStripButton
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// The last button
+        /// </summary>
+        private protected readonly string _lastButton =
+            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\LastButton.png";
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ToolBar" /> class.
+        /// <see cref="LastButton"/> class.
         /// </summary>
-        public ToolBar( )
+        /// <inheritdoc />
+        public LastButton( )
             : base( )
         {
-            // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            Width = 75;
+            Height = 35;
+            ImageSource = new BitmapImage( new Uri( _lastButton ) );
         }
     }
 }
