@@ -33,27 +33,6 @@
 
   <ItemGroup>
     <None Remove="Application.png" />
-    <None Remove="Windows\Calendar\Application.png" />
-    <None Remove="Windows\Chart\Application.png" />
-    <None Remove="Windows\Dialogs\SplashNotification.png" />
-    <None Remove="Windows\Editors\Application.png" />
-    <None Remove="Windows\GeoMap\Application.png" />
-    <None Remove="Windows\GeoMap\Badger.png" />
-    <None Remove="Windows\Main\Application.png" />
-    <None Remove="Windows\Main\Badger.png" />
-    <None Remove="Windows\Main\DataTile.png" />
-    <None Remove="Windows\Main\DeleteButton.png" />
-    <None Remove="Windows\Main\EditButton.png" />
-    <None Remove="Windows\Main\ExcelDataTile.png" />
-    <None Remove="Windows\Main\FirstButton.png" />
-    <None Remove="Windows\Main\LastButton.png" />
-    <None Remove="Windows\Main\NextButton.png" />
-    <None Remove="Windows\Main\PreviousButton.png" />
-    <None Remove="Windows\Main\RefreshButton.png" />
-    <None Remove="Windows\Main\SaveButton.png" />
-    <None Remove="Windows\Notification\SplashNotification.png" />
-    <None Remove="Windows\ProgramProject\AppropriationTile.png" />
-    <None Remove="Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,7 +41,7 @@
 
   <ItemGroup>
     <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
-    <PackageReference Include="EPPlus" Version="7.0.8" />
+    <PackageReference Include="EPPlus" Version="7.1.2" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
     <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
@@ -77,7 +56,6 @@
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-    <PackageReference Include="Notifications.Wpf" Version="0.1.1" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.1.41" />
@@ -105,13 +83,11 @@
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
+    <PackageReference Include="ToastNotifications" Version="2.5.1" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\Layout\" />
-    <Folder Include="Controls\ToolTip\" />
-    <Folder Include="Controls\Ribbon\" />
     <Folder Include="Interfaces\" />
     <Folder Include="IO\Excel\" />
     <Folder Include="Minions\" />
@@ -126,30 +102,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Misc\Application.png" />
-    <Resource Include="Windows\Calendar\Application.png" />
-    <Resource Include="Windows\Chart\Application.png" />
-    <Resource Include="Windows\Dialogs\SplashNotification.png" />
-    <Resource Include="Windows\Editors\Application.png" />
-    <Resource Include="Windows\GeoMap\Application.png" />
-    <Resource Include="Windows\Main\Application.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\DeleteButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\EditButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\FirstButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\LastButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\NextButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\PreviousButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\RefreshButton.png" />
-    <Resource Include="Controls\ToolStrip\Buttons\SaveButton.png" />
-    <Resource Include="Windows\Main\FirstButton.png" />
-    <Resource Include="Windows\Main\PreviousButton.png" />
-    <Resource Include="Windows\Notification\SplashNotification.png" />
-    <Resource Include="Windows\ProgramProject\AppropriationTile.png" />
-    <Resource Include="Windows\Splash\SplashNotification.png" />
+    <Resource Include="Other\Application.png" />
+    <Resource Include="UI\Windows\Calendar\Application.png" />
+    <Resource Include="UI\Windows\Chart\Application.png" />
+    <Resource Include="UI\Windows\Dialogs\SplashNotification.png" />
+    <Resource Include="UI\Windows\Editors\Application.png" />
+    <Resource Include="UI\Windows\GeoMap\Application.png" />
+    <Resource Include="UI\Windows\Main\Application.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\DeleteButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\EditButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\FirstButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\LastButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\NextButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\PreviousButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\RefreshButton.png" />
+    <Resource Include="UI\Controls\ToolStrip\Buttons\SaveButton.png" />
+    <Resource Include="UI\Windows\Main\FirstButton.png" />
+    <Resource Include="UI\Windows\Main\PreviousButton.png" />
+    <Resource Include="UI\Windows\Notification\SplashNotification.png" />
+    <Resource Include="UI\Windows\ProgramProject\AppropriationTile.png" />
+    <Resource Include="UI\Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Misc\LICENSE.txt">
+    <None Update="Other\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
