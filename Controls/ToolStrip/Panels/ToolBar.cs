@@ -61,7 +61,7 @@ namespace Badger
         public ToolBar( )
             : base( )
         {
-            Height = 45;
+            Height = 42;
             Width = 1300;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
