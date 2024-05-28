@@ -263,7 +263,7 @@ namespace Badger
         /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
-            var _error = new ErrorDialog( ex );
+            var _error = new ErrorWindow( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

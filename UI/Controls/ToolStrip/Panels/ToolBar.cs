@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-27-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-27-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="ToolBar.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -40,6 +40,8 @@
 
 namespace Badger
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
     using Syncfusion.Windows.Shared;
@@ -411,103 +413,52 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            Items.Clear( );
-            Height = 42;
+            Height = 40;
             Width = 1330;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
 
             // Create Items
+            Items.Clear( );
             _firstSeparator = new MenuItemSeparator( );
+            Items.Add( _firstSeparator );
             _label = new StatusLabel( );
+            Items.Add( _label );
             _secondSeparator = new MenuItemSeparator( );
+            Items.Add( _secondSeparator );
             _firstButton = new FirstButton( );
+            Items.Add( _firstButton );
             _previousButton = new PreviousButton( );
+            Items.Add( _previousButton );
             _nextButton = new NextButton( );
+            Items.Add( _nextButton );
             _lastButton = new LastButton( );
+            Items.Add( _lastButton );
             _thirdSeparator = new MenuItemSeparator( );
+            Items.Add( _thirdSeparator );
             _textBox = new ToolStripTextBox( );
+            Items.Add( _textBox );
             _fouthSeparator = new MenuItemSeparator( );
+            Items.Add( _fouthSeparator );
             _lookupButton = new LookupButton( );
+            Items.Add( _lookupButton );
             _refreshButton = new RefreshButton( );
+            Items.Add( _refreshButton );
             _editButton = new EditButton( );
+            Items.Add( _editButton );
             _deleteButton = new DeleteButton( );
+            Items.Add( _deleteButton );
             _saveButton = new SaveButton( );
+            Items.Add( _saveButton );
             _exportButton = new ExportButton( );
+            Items.Add( _exportButton );
             _browseButton = new BrowseButton( );
+            Items.Add( _browseButton );
             _menuButton = new MenuButton( );
+            Items.Add( _menuButton );
             _exitButton = new ExitButton( );
-        }
-
-        /// <summary>
-        /// Creates the items.
-        /// </summary>
-        private void CreateItems( )
-        {
-            try
-            {
-                // Create Items
-                _firstSeparator = new MenuItemSeparator( );
-                _label = new StatusLabel( );
-                _secondSeparator = new MenuItemSeparator( );
-                _firstButton = new FirstButton( );
-                _previousButton = new PreviousButton( );
-                _nextButton = new NextButton( );
-                _lastButton = new LastButton( );
-                _thirdSeparator = new MenuItemSeparator( );
-                _textBox = new ToolStripTextBox( );
-                _fouthSeparator = new MenuItemSeparator( );
-                _lookupButton = new LookupButton( );
-                _refreshButton = new RefreshButton( );
-                _editButton = new EditButton( );
-                _deleteButton = new DeleteButton( );
-                _saveButton = new SaveButton( );
-                _exportButton = new ExportButton( );
-                _browseButton = new BrowseButton( );
-                _menuButton = new MenuButton( );
-                _exitButton = new ExitButton( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the items.
-        /// </summary>
-        private void PopulateItems( )
-        {
-            try
-            {
-                // Populate Items
-                Items.Clear( );
-                Items.Add( _firstSeparator );
-                Items.Add( _label );
-                Items.Add( _secondSeparator );
-                Items.Add( _firstButton );
-                Items.Add( _previousButton );
-                Items.Add( _nextButton );
-                Items.Add( _lastButton );
-                Items.Add( _thirdSeparator );
-                Items.Add( _textBox );
-                Items.Add( _fouthSeparator );
-                Items.Add( _lookupButton );
-                Items.Add( _refreshButton );
-                Items.Add( _editButton );
-                Items.Add( _deleteButton );
-                Items.Add( _saveButton );
-                Items.Add( _exportButton );
-                Items.Add( _browseButton );
-                Items.Add( _browseButton );
-                Items.Add( _menuButton );
-                Items.Add( _exitButton );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            Items.Add( _exitButton );
         }
     }
 }

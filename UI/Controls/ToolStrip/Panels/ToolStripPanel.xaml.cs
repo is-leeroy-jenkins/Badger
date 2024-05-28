@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="ToolStrip.xaml.cs" company="Terry D. Eppler">
+// <copyright file="ToolStripPanel.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,12 +34,13 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ToolStrip.xaml.cs
+//   ToolStripPanel.xaml.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
@@ -211,7 +212,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ToolStripControl" /> class.
         /// </summary>
-        public ToolStripPanel( ) 
+        public ToolStripPanel( )
             : base( )
         {
             InitializeComponent( );

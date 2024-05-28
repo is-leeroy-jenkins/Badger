@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="DataGrid1"
+        x:Name="DataGrid1"
         x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution" Height="730"
         Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF9CD3FD"
         WindowStartupLocation="CenterScreen" Topmost="True" BorderThickness="1,1,1,1"

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-27-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-27-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -40,7 +40,11 @@
 
 namespace Badger
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
 
@@ -238,6 +242,10 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Event Wiring
+            Closing += OnClosing;
+            Loaded += OnLoaded;
         }
 
         /// <summary>
@@ -285,7 +293,7 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeTiles( )
         {
             try
             {
@@ -308,6 +316,30 @@ namespace Badger
                 if( Dispatcher.CheckAccess( ) )
                 {
                     action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
                 }
                 else
                 {
@@ -644,9 +676,8 @@ namespace Badger
             {
                 var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
                 var _dataTable = _data.DataTable;
-
-                //var _report = new ExcelReport( _dataTable );
-                //_report.SaveDialog( );
+                var _report = new ExcelReport( _dataTable );
+                _report.SaveDialog( );
                 var _message = "The Excel File has been created!";
                 SendNotification( _message );
             }
@@ -673,6 +704,34 @@ namespace Badger
             {
                 Fail( _ex );
                 return default( IEnumerable<MetroTile> );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( object state )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -714,12 +773,37 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [closed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                if( App.ActiveWindows?.Count > 0 )
+                {
+                    App.ActiveWindows.Clear( );
+                }
+
+                Opacity = 1;
+                FadeOutAsync( this );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
-            var _error = new ErrorDialog( ex );
+            var _error = new ErrorWindow( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

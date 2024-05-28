@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <StartupObject>Badger.App</StartupObject>
     <ApplicationIcon>Resources\Images\FormImages\Application.ico</ApplicationIcon>
@@ -23,22 +23,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Resources\Images - Copy\**" />
-    <EmbeddedResource Remove="Resources\Images - Copy\**" />
-    <None Remove="Resources\Images - Copy\**" />
-    <Page Remove="Resources\Images - Copy\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Application.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Resources\Images\FormImages\Application.ico" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
     <PackageReference Include="EPPlus" Version="7.1.2" />
@@ -102,7 +86,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Other\Application.png" />
     <Resource Include="UI\Windows\Calendar\Application.png" />
     <Resource Include="UI\Windows\Chart\Application.png" />
     <Resource Include="UI\Windows\Dialogs\SplashNotification.png" />
@@ -122,6 +105,147 @@
     <Resource Include="UI\Windows\Notification\SplashNotification.png" />
     <Resource Include="UI\Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="UI\Windows\Splash\SplashNotification.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Documents\FederalTrustFundAccountingGuide.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FederalTrustFundAccountingGuide.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2021.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AdviceOfAllowanceFiscalYear2021.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2022.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AdviceOfAllowanceFiscalYear2022.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2023.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\AntiDeficiencyAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AntiDeficiencyAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\BudgetControlAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BudgetControlAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\CleanWaterAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CleanWaterAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\DataAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\DeobligationRecertificationGuidance.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DeobligationRecertificationGuidance.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmergencyResponseMissionAssignmentGuidance.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\FederalAccountSymbolsAndTitlesBook.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FederalAccountSymbolsAndTitlesBook.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\FederalGovernmentStandardsForInternalControls.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FederalGovernmentStandardsForInternalControls.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\FundsControlManual.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FundsControlManual.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Documents\CleanAirAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CleanAirAct.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Documents\FederalTrustFundAccountingGuide.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalTrustFundAccountingGuide.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2021.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\AntiDeficiencyAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AntiDeficiencyAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\BudgetControlAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BudgetControlAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\CleanWaterAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CleanWaterAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\DataAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\DeobligationRecertificationGuidance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeobligationRecertificationGuidance.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmergencyResponseMissionAssignmentGuidance.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalAccountSymbolsAndTitlesBook.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalGovernmentStandardsForInternalControls.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\FundsControlManual.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FundsControlManual.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Documents\CleanAirAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CleanAirAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

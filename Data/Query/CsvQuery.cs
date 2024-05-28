@@ -240,7 +240,7 @@ namespace Badger
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {sheetName} Does Not Exist!";
-                        var _message = new MessageDialog( _msg );
+                        var _message = new MessageWindow( _msg );
                         _message?.ShowDialog( );
                     }
                 }
@@ -283,7 +283,7 @@ namespace Badger
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {filePath} Does Not Exist!";
-                        var _message = new MessageDialog( _msg );
+                        var _message = new MessageWindow( _msg );
                         _message?.ShowDialog( );
                     }
                 }

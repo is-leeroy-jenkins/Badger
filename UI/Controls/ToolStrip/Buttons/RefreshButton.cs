@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="RefreshButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -40,6 +40,7 @@
 
 namespace Badger
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media.Imaging;
 
@@ -49,13 +50,14 @@ namespace Badger
     /// <seealso cref="T:Badger.ToolStripButton" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class RefreshButton : ToolStripButton
     {
         /// <summary>
         /// The refresh button
         /// </summary>
         private protected readonly string _refreshButton =
-            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\RefreshButton.png";
+            @"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\RefreshButton.png";
 
         /// <summary>
         /// Initializes a new instance of the

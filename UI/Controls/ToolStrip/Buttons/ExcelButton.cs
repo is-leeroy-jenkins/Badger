@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-27-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-27-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="ExcelButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -40,6 +40,7 @@
 
 namespace Badger
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media.Imaging;
 
@@ -47,13 +48,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ExcelButton : ToolStripButton
     {
         /// <summary>
         /// The first button
         /// </summary>
         private protected readonly string _excelButton =
-            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\ExcelButton.png";
+            @"Resources\Images\ToolStripImages\ExcelButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -65,7 +67,7 @@ namespace Badger
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _excelButton ) );
+            ImageSource = new BitmapImage( new Uri( _excelButton, UriKind.Relative ) );
         }
     }
 }

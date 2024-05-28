@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-26-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-26-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="EditButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -40,6 +40,7 @@
 
 namespace Badger
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media.Imaging;
 
@@ -50,13 +51,15 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class EditButton : ToolStripButton
     {
         /// <summary>
         /// The edit button
         /// </summary>
         private protected readonly string _editButton =
-            $@"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\EditButton.png";
+            @"Resources\Images\ToolStripImages\EditButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -68,7 +71,7 @@ namespace Badger
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _editButton ) );
+            ImageSource = new BitmapImage( new Uri( _editButton, UriKind.Relative ) );
             ToolTip = "Edit";
         }
     }

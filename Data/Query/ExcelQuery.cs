@@ -230,7 +230,7 @@ namespace Badger
                     var _name = _dialog.FileName;
                     workBook.Save( _name );
                     const string SUCCESSFUL = "Save Successful!";
-                    var _message = new MessageDialog( SUCCESSFUL );
+                    var _message = new MessageWindow( SUCCESSFUL );
                     _message?.ShowDialog( );
                 }
             }
@@ -334,7 +334,7 @@ namespace Badger
                    && !SheetExists( sheetName, _schema ) )
                 {
                     const string MSG = "Sheet Does Not Exist!";
-                    var _message = new MessageDialog( MSG );
+                    var _message = new MessageWindow( MSG );
                     _message?.ShowDialog( );
                 }
                 else
@@ -378,7 +378,7 @@ namespace Badger
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {fileName} Does Not Exist!";
-                        var _message = new MessageDialog( _msg );
+                        var _message = new MessageWindow( _msg );
                         _message?.ShowDialog( );
                     }
                 }

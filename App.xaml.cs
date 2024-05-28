@@ -40,6 +40,7 @@
 
 namespace Badger
 {
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
@@ -50,9 +51,9 @@ namespace Badger
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
     public partial class App : Application
     {
         /// <summary>
