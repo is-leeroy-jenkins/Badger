@@ -51,13 +51,16 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class SaveButton : ToolStripButton
     {
         /// <summary>
         /// The save button
         /// </summary>
         private protected readonly string _saveButton =
-            @"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\SaveButton.png";
+            @"Resources\Assets\ToolStripImages\SaveButton.png";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveButton"/> class.
@@ -68,7 +71,8 @@ namespace Badger
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _saveButton ) );
+            ImageSource = new BitmapImage( new Uri( _saveButton, UriKind.Relative ) );
+            ToolTip = "Save";
         }
     }
 }

@@ -50,13 +50,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class LookupButton : ToolStripButton
     {
         /// <summary>
         /// The next button
         /// </summary>
         private protected readonly string _lookupButton =
-            @"Resources\Images\ToolStripImages\LookupButton.png";
+            @"\Resources\Assets\ToolStripImages\LookupButton.png";
 
         /// <summary>
         /// Initializes a new instance of the

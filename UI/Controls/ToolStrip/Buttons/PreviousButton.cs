@@ -52,13 +52,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class PreviousButton : ToolStripButton
     {
         /// <summary>
         /// The previous button
         /// </summary>
         private protected readonly string _previousButton =
-            @"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\PreviousButton.png";
+            @"\Resources\Assets\ToolStripImages\PreviousButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -70,7 +71,7 @@ namespace Badger
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _previousButton ) );
+            ImageSource = new BitmapImage( new Uri( _previousButton, UriKind.Relative ) );
             ToolTip = "Previous";
         }
     }

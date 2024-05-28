@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="MenuButton.cs" company="Terry D. Eppler">
+// <copyright file="BackButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MenuButton.cs
+//   BackButton.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,30 +44,29 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media.Imaging;
 
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class MenuButton : ToolStripButton
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class BackButton : ToolStripButton
     {
         /// <summary>
-        /// The next button
+        /// The excel button
         /// </summary>
-        private protected readonly string _menuButton =
-            @"\Resources\Assets\ToolStripImages\MenuButton.png";
+        private protected readonly string _backButton =
+            @"Resources\Assets\ToolStripImages\BackButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MenuButton"/> class.
+        /// <see cref="ExportButton"/> class.
         /// </summary>
         /// <inheritdoc />
-        public MenuButton( )
+        public BackButton( )
+            : base( )
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _menuButton, UriKind.Relative ) );
-            ToolTip = "Menu";
+            ImageSource = new BitmapImage( new Uri( _backButton, UriKind.Relative ) );
+            ToolTip = "Undo";
         }
     }
 }

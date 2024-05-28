@@ -118,67 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AddColumnButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\AddColumnButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddRecordButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\AddRecordButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BackButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\BackButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BrowseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\BrowseButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DecreaseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\DecreaseButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeleteButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\DeleteButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EditButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\EditButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExcelButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\ExcelButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExitButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\ExitButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExportButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\ExportButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FirstButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\FirstButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IncreaseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\IncreaseButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LastButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\LastButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LookUpButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\LookUpButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MapTile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\MapTile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MenuButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\MenuButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NextButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\NextButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PreviousButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\PreviousButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PrintButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\PrintButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RefreshButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\RefreshButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SaveButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\ToolStripImages\SaveButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ItCodeGuidance.pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>ItCodeGuidance.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

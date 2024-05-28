@@ -76,13 +76,13 @@ namespace Badger
         /// The next button
         /// </summary>
         private protected readonly string _nextButton =
-            @"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\NextButton.png";
+            @"\Resources\Assets\ToolStripImages\NextButton.png";
 
         public NextButton( )
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _nextButton ) );
+            ImageSource = new BitmapImage( new Uri( _nextButton, UriKind.Relative ) );
             ToolTip = "Next";
         }
     }

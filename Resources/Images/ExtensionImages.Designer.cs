@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sherpa.Resources.Images {
+namespace Badger {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Sherpa.Resources.Images {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sherpa.Resources.Images.ExtensionImages", typeof(ExtensionImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Badger.ExtensionImages", typeof(ExtensionImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

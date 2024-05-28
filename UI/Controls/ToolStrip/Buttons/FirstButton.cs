@@ -59,7 +59,7 @@ namespace Badger
         /// The first button
         /// </summary>
         private protected readonly string _firstButton =
-            @"Resources\Images\ToolStripImages\FirstButton.png";
+            @"\Resources\Assets\ToolStripImages\FirstButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -69,9 +69,6 @@ namespace Badger
         public FirstButton( )
             : base( )
         {
-            Name = "FirstButton";
-            Width = 64;
-            Height = 35;
             ImageSource = new BitmapImage( new Uri( _firstButton, UriKind.Relative ) );
             ToolTip = "First";
         }

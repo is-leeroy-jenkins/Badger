@@ -53,13 +53,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class ExportButton : ToolStripButton
     {
         /// <summary>
         /// The excel button
         /// </summary>
         private protected readonly string _exportButton =
-            @"Resources\Images\ToolStripImages\ExportButton.png";
+            @"\Resources\Assets\ToolStripImages\ExportButton.png";
 
         /// <summary>
         /// Initializes a new instance of the

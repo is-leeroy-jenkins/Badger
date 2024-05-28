@@ -42,6 +42,8 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing.Imaging;
+    using System.IO;
     using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
@@ -53,14 +55,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class DeleteButton : ToolStripButton
     {
-        /// <summary>
-        /// The delete button
-        /// </summary>
-        private protected readonly string _deleteButton =
-            @"Resources\Images\ToolStripImages\DeleteButton.png";
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DeleteButton"/> class.
@@ -69,10 +66,32 @@ namespace Badger
         public DeleteButton( )
             : base( )
         {
-            Width = 64;
-            Height = 35;
-            ImageSource = new BitmapImage( new Uri( _deleteButton, UriKind.Relative ) );
+            SetImage( );
             ToolTip = "Delete";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void SetImage( )
+        {
+            try
+            {
+                var image = ToolStripImages.DeleteButton;
+                using var memoryStream = new MemoryStream( );
+                image.Save( memoryStream, ImageFormat.Png );
+                memoryStream.Position = 0;
+                var bitmapImage = new BitmapImage( );
+                bitmapImage.BeginInit( );
+                bitmapImage.StreamSource = memoryStream;
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit( );
+                ImageSource = bitmapImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

@@ -51,13 +51,15 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class RefreshButton : ToolStripButton
     {
         /// <summary>
         /// The refresh button
         /// </summary>
         private protected readonly string _refreshButton =
-            @"C:\Users\terry\source\repos\Badger\Resources\Images\ToolStripImages\RefreshButton.png";
+            @"\Resources\Assets\ToolStripImages\RefreshButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -69,7 +71,8 @@ namespace Badger
         {
             Width = 64;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _refreshButton ) );
+            ImageSource = new BitmapImage( new Uri( _refreshButton, UriKind.Relative ) );
+            ToolTip = "Refresh";
         }
     }
 }

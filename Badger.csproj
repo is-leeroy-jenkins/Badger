@@ -394,6 +394,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WaterInfrastructureImprovementsForTheNation.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Images\ToolStripImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ToolStripImages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -616,6 +621,10 @@
     <EmbeddedResource Update="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>WaterInfrastructureImprovementsForTheNation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\ToolStripImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToolStripImages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

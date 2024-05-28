@@ -254,6 +254,7 @@ namespace Badger
         {
             try
             {
+                DataTile.Click += OnDataTileClick;
             }
             catch( Exception _ex )
             {

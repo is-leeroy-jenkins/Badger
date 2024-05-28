@@ -58,7 +58,7 @@ namespace Badger
         /// The last button
         /// </summary>
         private protected readonly string _lastButton =
-            @"Resources\Images\ToolStripImages\LastButton.png";
+            @"\Resources\Assets\ToolStripImages\LastButton.png";
 
         /// <summary>
         /// Initializes a new instance of the

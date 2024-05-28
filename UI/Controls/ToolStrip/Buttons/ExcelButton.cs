@@ -55,7 +55,7 @@ namespace Badger
         /// The first button
         /// </summary>
         private protected readonly string _excelButton =
-            @"Resources\Images\ToolStripImages\ExcelButton.png";
+            @"\Resources\Assets\ToolStripImages\ExcelButton.png";
 
         /// <summary>
         /// Initializes a new instance of the
@@ -68,6 +68,7 @@ namespace Badger
             Width = 64;
             Height = 35;
             ImageSource = new BitmapImage( new Uri( _excelButton, UriKind.Relative ) );
+            ToolTip = "Excel";
         }
     }
 }

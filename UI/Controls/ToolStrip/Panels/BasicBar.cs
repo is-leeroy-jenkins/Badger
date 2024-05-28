@@ -160,7 +160,7 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Height = 42;
+            Height = 40;
             Width = 1330;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );

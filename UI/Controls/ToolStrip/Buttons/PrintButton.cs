@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="MenuButton.cs" company="Terry D. Eppler">
+// <copyright file="PrintButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MenuButton.cs
+//   PrintButton.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,32 +42,46 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing.Imaging;
+    using System.IO;
     using System.Windows.Media.Imaging;
+    using Resources.Images;
 
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Badger.ToolStripButton" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class MenuButton : ToolStripButton
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    public class PrintButton : ToolStripButton
     {
         /// <summary>
-        /// The next button
+        /// The file path
         /// </summary>
-        private protected readonly string _menuButton =
-            @"\Resources\Assets\ToolStripImages\MenuButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MenuButton"/> class.
+        /// <see cref="PrintButton"/> class.
         /// </summary>
         /// <inheritdoc />
-        public MenuButton( )
+        public PrintButton( )
+            : base( )
         {
-            Width = 64;
-            Height = 35;
-            ImageSource = new BitmapImage( new Uri( _menuButton, UriKind.Relative ) );
-            ToolTip = "Menu";
+            _filePath = @"Resources/Assets/ToolStripImages/PrintButton.png";
+            _uri = new Uri( _filePath, UriKind.Relative );
+            ImageSource = new BitmapImage( _uri );
+            ToolTip = "Edit";
         }
     }
 }

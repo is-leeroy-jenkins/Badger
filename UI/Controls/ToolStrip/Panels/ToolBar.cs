@@ -44,7 +44,6 @@ namespace Badger
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Shared;
 
     /// <summary>
     ///
@@ -59,19 +58,9 @@ namespace Badger
     public class ToolBar : BasicBar
     {
         /// <summary>
-        /// The first separator
-        /// </summary>
-        private protected MenuItemSeparator _firstSeparator;
-
-        /// <summary>
         /// The status label
         /// </summary>
-        private protected StatusLabel _label;
-
-        /// <summary>
-        /// The second separator
-        /// </summary>
-        private protected MenuItemSeparator _secondSeparator;
+        private protected StatusLabel _statusLabel;
 
         /// <summary>
         /// The first button
@@ -94,19 +83,9 @@ namespace Badger
         private protected LastButton _lastButton;
 
         /// <summary>
-        /// The third separator
-        /// </summary>
-        private protected MenuItemSeparator _thirdSeparator;
-
-        /// <summary>
         /// The text box
         /// </summary>
         private protected ToolStripTextBox _textBox;
-
-        /// <summary>
-        /// The fouth separator
-        /// </summary>
-        private protected MenuItemSeparator _fouthSeparator;
 
         /// <summary>
         /// The lookup button
@@ -129,9 +108,24 @@ namespace Badger
         private protected DeleteButton _deleteButton;
 
         /// <summary>
+        /// The increase button
+        /// </summary>
+        private protected IncreaseButton _increaseButton;
+
+        /// <summary>
+        /// The decrease button
+        /// </summary>
+        private protected DecreaseButton _decreaseButton;
+
+        /// <summary>
         /// The save button
         /// </summary>
         private protected SaveButton _saveButton;
+
+        /// <summary>
+        /// The browse button
+        /// </summary>
+        private protected BrowseButton _browseButton;
 
         /// <summary>
         /// The export button
@@ -144,9 +138,9 @@ namespace Badger
         private protected ExitButton _exitButton;
 
         /// <summary>
-        /// The browse button
+        /// The map button
         /// </summary>
-        private protected BrowseButton _browseButton;
+        private protected PrintButton _printButton;
 
         /// <summary>
         /// The menu button
@@ -157,22 +151,22 @@ namespace Badger
         /// The buttons
         /// </summary>
         private protected IList<object> _items;
-
+        
         /// <summary>
         /// Gets the label.
         /// </summary>
         /// <value>
         /// The label.
         /// </value>
-        public StatusLabel Label
+        public StatusLabel StatusLabel
         {
             get
             {
-                return _label;
+                return _statusLabel;
             }
             private protected set
             {
-                _label = value;
+                _statusLabel = value;
             }
         }
 
@@ -404,6 +398,42 @@ namespace Badger
             }
         }
 
+        public IncreaseButton IncreaseButton
+        {
+            get
+            {
+                return _increaseButton;
+            }
+            private protected set
+            {
+                _increaseButton = value;
+            }
+        }
+
+        public DecreaseButton DecreaseButton
+        {
+            get
+            {
+                return _decreaseButton;
+            }
+            private protected set
+            {
+                _decreaseButton = value;
+            }
+        }
+
+        public PrintButton PrintButton
+        {
+            get
+            {
+                return _printButton;
+            }
+            private protected set
+            {
+                _printButton = value;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolBar"/> class.
@@ -413,12 +443,11 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            Height = 40;
+            Height = 42;
             Width = 1330;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-
         }
     }
 }
