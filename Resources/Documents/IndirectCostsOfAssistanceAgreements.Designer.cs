@@ -59,5 +59,15 @@ namespace Badger.Resources.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IndirectCostsOfAssistanceAgreements_pdf {
+            get {
+                object obj = ResourceManager.GetObject("IndirectCostsOfAssistanceAgreements.pdf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

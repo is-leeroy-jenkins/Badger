@@ -59,5 +59,15 @@ namespace Badger.Resources.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WaterInfrastructureFinanceAndInnovationAct_pdf {
+            get {
+                object obj = ResourceManager.GetObject("WaterInfrastructureFinanceAndInnovationAct.pdf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

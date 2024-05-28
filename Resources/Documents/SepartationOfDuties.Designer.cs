@@ -59,5 +59,15 @@ namespace Badger.Resources.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SepartationOfDuties_pdf {
+            get {
+                object obj = ResourceManager.GetObject("SepartationOfDuties.pdf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

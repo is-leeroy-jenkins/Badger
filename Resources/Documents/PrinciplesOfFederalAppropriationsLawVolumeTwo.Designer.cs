@@ -59,5 +59,15 @@ namespace Badger.Resources.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PrinciplesOfFederalAppropriationsLawVolumeTwo_pdf {
+            get {
+                object obj = ResourceManager.GetObject("PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

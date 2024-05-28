@@ -59,5 +59,15 @@ namespace Badger.Resources.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ObjectClassManual_pdf {
+            get {
+                object obj = ResourceManager.GetObject("ObjectClassManual.pdf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
