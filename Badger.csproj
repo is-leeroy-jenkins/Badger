@@ -25,6 +25,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ItCodeGuidance.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ItCodeGuidance.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +119,101 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="GovernmentAuditingStandards.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GovernmentAuditingStandards.resx</DependentUpon>
+    </Compile>
+    <Compile Update="GovernmentInvoicingUserGuide.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GovernmentInvoicingUserGuide.resx</DependentUpon>
+    </Compile>
+    <Compile Update="IncidentManagementHandbook.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IncidentManagementHandbook.resx</DependentUpon>
+    </Compile>
+    <Compile Update="IndirectCostsOfAssistanceAgreements.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IndirectCostsOfAssistanceAgreements.resx</DependentUpon>
+    </Compile>
+    <Compile Update="InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InflationReductionActAdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
+    </Compile>
+    <Compile Update="JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JobsActAdviceOfAllowanceFiscalYear2022.resx</DependentUpon>
+    </Compile>
+    <Compile Update="JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JobsActAdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx</DependentUpon>
+    </Compile>
+    <Compile Update="MoneyAndFinance.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MoneyAndFinance.resx</DependentUpon>
+    </Compile>
+    <Compile Update="NonDirectAllocableCosts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NonDirectAllocableCosts.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ObjectClassManual.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ObjectClassManual.resx</DependentUpon>
+    </Compile>
+    <Compile Update="OfficialTravel.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OfficialTravel.resx</DependentUpon>
+    </Compile>
+    <Compile Update="OilPollutionAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OilPollutionAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PollutionPreventionAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PollutionPreventionAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PreparationSubmissionAndExecutionOfTheBudget.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PreparationSubmissionAndExecutionOfTheBudget.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PrinciplesOfFederalAppropriationsLawVolumeOne.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PrinciplesOfFederalAppropriationsLawVolumeTwo.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PurchaseCardPolicy.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PurchaseCardPolicy.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ResourceConservationAndRecoveryAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceConservationAndRecoveryAct.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Documents\FederalTrustFundAccountingGuide.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -186,9 +289,95 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CleanAirAct.resx</DependentUpon>
     </Compile>
+    <Compile Update="SafeDrinkingWaterAct.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SafeDrinkingWaterAct.resx</DependentUpon>
+    </Compile>
+    <Compile Update="SepartationOfDuties.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SepartationOfDuties.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="GovernmentAuditingStandards.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GovernmentAuditingStandards.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="GovernmentInvoicingUserGuide.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GovernmentInvoicingUserGuide.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="IncidentManagementHandbook.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncidentManagementHandbook.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="IndirectCostsOfAssistanceAgreements.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IndirectCostsOfAssistanceAgreements.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="InflationReductionActAdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobsActAdviceOfAllowanceFiscalYear2022.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobsActAdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MoneyAndFinance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MoneyAndFinance.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NonDirectAllocableCosts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NonDirectAllocableCosts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ObjectClassManual.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ObjectClassManual.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="OfficialTravel.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OfficialTravel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="OilPollutionAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OilPollutionAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PollutionPreventionAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PollutionPreventionAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PreparationSubmissionAndExecutionOfTheBudget.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PreparationSubmissionAndExecutionOfTheBudget.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PrinciplesOfFederalAppropriationsLawVolumeOne.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PrinciplesOfFederalAppropriationsLawVolumeTwo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PurchaseCardPolicy.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PurchaseCardPolicy.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ResourceConservationAndRecoveryAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceConservationAndRecoveryAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Documents\FederalTrustFundAccountingGuide.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FederalTrustFundAccountingGuide.Designer.cs</LastGenOutput>
@@ -248,6 +437,14 @@
     <EmbeddedResource Update="Resources\Documents\CleanAirAct.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CleanAirAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SafeDrinkingWaterAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SafeDrinkingWaterAct.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SepartationOfDuties.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SepartationOfDuties.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
