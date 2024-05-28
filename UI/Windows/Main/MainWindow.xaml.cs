@@ -244,7 +244,6 @@ namespace Badger
             BorderBrush = new SolidColorBrush( _borderColor );
 
             // Event Wiring
-            Closing += OnClosing;
             Loaded += OnLoaded;
         }
 
@@ -765,31 +764,6 @@ namespace Badger
             try
             {
                 OpenDataWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [closed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                if( App.ActiveWindows?.Count > 0 )
-                {
-                    App.ActiveWindows.Clear( );
-                }
-
-                Opacity = 1;
-                FadeOutAsync( this );
-                Close( );
             }
             catch( Exception _ex )
             {

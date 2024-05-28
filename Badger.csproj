@@ -7,7 +7,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <StartupObject>Badger.App</StartupObject>
-    <ApplicationIcon>Resources\Images\FormImages\Application.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Assets\FormImages\Application.ico</ApplicationIcon>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <DocumentationFile>Badger.xml</DocumentationFile>
     <PackageIcon>Application.png</PackageIcon>
@@ -23,6 +23,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Assets\FormImages\Application.ico" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
     <PackageReference Include="EPPlus" Version="7.1.2" />
@@ -88,7 +92,6 @@
   <ItemGroup>
     <Resource Include="UI\Windows\Calendar\Application.png" />
     <Resource Include="UI\Windows\Chart\Application.png" />
-    <Resource Include="UI\Windows\Dialogs\SplashNotification.png" />
     <Resource Include="UI\Windows\Editors\Application.png" />
     <Resource Include="UI\Windows\GeoMap\Application.png" />
     <Resource Include="UI\Windows\Main\Application.png" />
@@ -257,15 +260,15 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Images\FormImages\Application.png">
+    <None Update="Resources\Assets\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Images\FormImages\Badger.png">
+    <None Update="Resources\Assets\FormImages\Badger.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Images\NinjaImages\png\Badger.png">
+    <None Update="Resources\Assets\NinjaImages\png\Badger.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

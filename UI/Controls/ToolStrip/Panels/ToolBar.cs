@@ -419,46 +419,6 @@ namespace Badger
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
 
-            // Create Items
-            Items.Clear( );
-            _firstSeparator = new MenuItemSeparator( );
-            Items.Add( _firstSeparator );
-            _label = new StatusLabel( );
-            Items.Add( _label );
-            _secondSeparator = new MenuItemSeparator( );
-            Items.Add( _secondSeparator );
-            _firstButton = new FirstButton( );
-            Items.Add( _firstButton );
-            _previousButton = new PreviousButton( );
-            Items.Add( _previousButton );
-            _nextButton = new NextButton( );
-            Items.Add( _nextButton );
-            _lastButton = new LastButton( );
-            Items.Add( _lastButton );
-            _thirdSeparator = new MenuItemSeparator( );
-            Items.Add( _thirdSeparator );
-            _textBox = new ToolStripTextBox( );
-            Items.Add( _textBox );
-            _fouthSeparator = new MenuItemSeparator( );
-            Items.Add( _fouthSeparator );
-            _lookupButton = new LookupButton( );
-            Items.Add( _lookupButton );
-            _refreshButton = new RefreshButton( );
-            Items.Add( _refreshButton );
-            _editButton = new EditButton( );
-            Items.Add( _editButton );
-            _deleteButton = new DeleteButton( );
-            Items.Add( _deleteButton );
-            _saveButton = new SaveButton( );
-            Items.Add( _saveButton );
-            _exportButton = new ExportButton( );
-            Items.Add( _exportButton );
-            _browseButton = new BrowseButton( );
-            Items.Add( _browseButton );
-            _menuButton = new MenuButton( );
-            Items.Add( _menuButton );
-            _exitButton = new ExitButton( );
-            Items.Add( _exitButton );
         }
     }
 }
