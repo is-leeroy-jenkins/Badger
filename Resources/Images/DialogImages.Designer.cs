@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Badger {
+namespace Badger.Resources.Images {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Badger {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Badger.DialogImages", typeof(DialogImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Badger.Resources.Images.DialogImages", typeof(DialogImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -196,6 +196,36 @@ namespace Badger {
         internal static System.Drawing.Bitmap Error {
             get {
                 object obj = ResourceManager.GetObject("Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Error_16 {
+            get {
+                object obj = ResourceManager.GetObject("Error_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Error_64 {
+            get {
+                object obj = ResourceManager.GetObject("Error_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ErrorDialog {
+            get {
+                object obj = ResourceManager.GetObject("ErrorDialog", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

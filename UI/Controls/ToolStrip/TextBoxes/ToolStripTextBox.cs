@@ -47,6 +47,8 @@ namespace Badger
     /// </summary>
     /// <seealso cref="Badger.MetroTextBox" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolStripTextBox : MetroTextBox
     {
         /// <summary>
@@ -57,6 +59,8 @@ namespace Badger
         public ToolStripTextBox( )
             : base( )
         {
+            Height = 30;
+            Width = 200;
         }
     }
 }

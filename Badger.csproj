@@ -33,6 +33,74 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="UI\Windows\Chart\Application.png" />
+    <None Remove="UI\Windows\Chart\BrowseButton.png" />
+    <None Remove="UI\Windows\Chart\DeleteButton.png" />
+    <None Remove="UI\Windows\Chart\EditButton.png" />
+    <None Remove="UI\Windows\Chart\LastButton.png" />
+    <None Remove="UI\Windows\Chart\LookUpButton.png" />
+    <None Remove="UI\Windows\Chart\MenuButton.png" />
+    <None Remove="UI\Windows\Chart\NextButton.png" />
+    <None Remove="UI\Windows\Chart\PreviousButton.png" />
+    <None Remove="UI\Windows\Chart\RefreshButton.png" />
+    <None Remove="UI\Windows\Chart\SaveButton.png" />
+    <None Remove="UI\Windows\Datagrid\BackButton.png" />
+    <None Remove="UI\Windows\Datagrid\BrowseButton.png" />
+    <None Remove="UI\Windows\Datagrid\EditButton.png" />
+    <None Remove="UI\Windows\Datagrid\FirstButton.png" />
+    <None Remove="UI\Windows\Datagrid\LastButton.png" />
+    <None Remove="UI\Windows\Datagrid\LookUpButton.png" />
+    <None Remove="UI\Windows\Datagrid\MenuButton.png" />
+    <None Remove="UI\Windows\Datagrid\NextButton.png" />
+    <None Remove="UI\Windows\Datagrid\PreviousButton.png" />
+    <None Remove="UI\Windows\Datagrid\RefreshButton.png" />
+    <None Remove="UI\Windows\Datagrid\SaveButton.png" />
+    <None Remove="UI\Windows\Document\Application.png" />
+    <None Remove="UI\Windows\Excel\Application.png" />
+    <None Remove="UI\Windows\Excel\BrowseButton.png" />
+    <None Remove="UI\Windows\Excel\DeleteButton.png" />
+    <None Remove="UI\Windows\Excel\EditButton.png" />
+    <None Remove="UI\Windows\Excel\ExportButton.png" />
+    <None Remove="UI\Windows\Excel\FirstButton.png" />
+    <None Remove="UI\Windows\Excel\LastButton.png" />
+    <None Remove="UI\Windows\Excel\LookUpButton.png" />
+    <None Remove="UI\Windows\Excel\MenuButton.png" />
+    <None Remove="UI\Windows\Excel\NextButton.png" />
+    <None Remove="UI\Windows\Excel\PreviousButton.png" />
+    <None Remove="UI\Windows\Excel\RefreshButton.png" />
+    <None Remove="UI\Windows\Excel\SaveButton.png" />
+    <None Remove="UI\Windows\Main\AccessTile.png" />
+    <None Remove="UI\Windows\Main\BrowserTile.png" />
+    <None Remove="UI\Windows\Main\CalendarTile.png" />
+    <None Remove="UI\Windows\Main\DataTile.png" />
+    <None Remove="UI\Windows\Main\EmailTile.png" />
+    <None Remove="UI\Windows\Main\ExcelTile.png" />
+    <None Remove="UI\Windows\Main\GuidanceTile.png" />
+    <None Remove="UI\Windows\Main\MapTile.png" />
+    <None Remove="UI\Windows\Main\OutlookTile.png" />
+    <None Remove="UI\Windows\Main\PivotTile.png" />
+    <None Remove="UI\Windows\Main\ProgramTile.png" />
+    <None Remove="UI\Windows\Main\SqlCeTile.png" />
+    <None Remove="UI\Windows\Main\SqlEditorTile.png" />
+    <None Remove="UI\Windows\Main\SQLiteTile.png" />
+    <None Remove="UI\Windows\Main\SqlServerTile.png" />
+    <None Remove="UI\Windows\Main\VisualizationTile.png" />
+    <None Remove="UI\Windows\Map\Application.png" />
+    <None Remove="UI\Windows\Map\BrowseButton.png" />
+    <None Remove="UI\Windows\Map\DeleteButton.png" />
+    <None Remove="UI\Windows\Map\EditButton.png" />
+    <None Remove="UI\Windows\Map\ExportButton.png" />
+    <None Remove="UI\Windows\Map\FirstButton.png" />
+    <None Remove="UI\Windows\Map\LastButton.png" />
+    <None Remove="UI\Windows\Map\LookUpButton.png" />
+    <None Remove="UI\Windows\Map\MenuButton.png" />
+    <None Remove="UI\Windows\Map\NextButton.png" />
+    <None Remove="UI\Windows\Map\PreviousButton.png" />
+    <None Remove="UI\Windows\Map\RefreshButton.png" />
+    <None Remove="UI\Windows\Map\SaveButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -100,25 +168,105 @@
   <ItemGroup>
     <Resource Include="UI\Windows\Calendar\Application.png" />
     <Resource Include="UI\Windows\Chart\Application.png" />
+    <Resource Include="UI\Windows\Chart\BrowseButton.png" />
+    <Resource Include="UI\Windows\Chart\DeleteButton.png" />
+    <Resource Include="UI\Windows\Chart\EditButton.png" />
+    <Resource Include="UI\Windows\Chart\LastButton.png" />
+    <Resource Include="UI\Windows\Chart\LookUpButton.png" />
+    <Resource Include="UI\Windows\Chart\MenuButton.png" />
+    <Resource Include="UI\Windows\Chart\NextButton.png" />
+    <Resource Include="UI\Windows\Chart\PreviousButton.png" />
+    <Resource Include="UI\Windows\Chart\RefreshButton.png" />
+    <Resource Include="UI\Windows\Chart\SaveButton.png" />
+    <Resource Include="UI\Windows\Datagrid\BackButton.png" />
+    <Resource Include="UI\Windows\Datagrid\BrowseButton.png" />
+    <Resource Include="UI\Windows\Datagrid\EditButton.png" />
+    <Resource Include="UI\Windows\Datagrid\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\LastButton.png" />
+    <Resource Include="UI\Windows\Datagrid\LookUpButton.png" />
+    <Resource Include="UI\Windows\Datagrid\MenuButton.png" />
+    <Resource Include="UI\Windows\Datagrid\NextButton.png" />
+    <Resource Include="UI\Windows\Datagrid\PreviousButton.png" />
+    <Resource Include="UI\Windows\Datagrid\RefreshButton.png" />
+    <Resource Include="UI\Windows\Datagrid\SaveButton.png" />
+    <Resource Include="UI\Windows\Document\Application.png" />
     <Resource Include="UI\Windows\Editors\Application.png" />
-    <Resource Include="UI\Windows\GeoMap\Application.png" />
+    <Resource Include="UI\Windows\Excel\Application.png" />
+    <Resource Include="UI\Windows\Excel\BrowseButton.png" />
+    <Resource Include="UI\Windows\Excel\DeleteButton.png" />
+    <Resource Include="UI\Windows\Excel\EditButton.png" />
+    <Resource Include="UI\Windows\Excel\ExportButton.png" />
+    <Resource Include="UI\Windows\Excel\FirstButton.png" />
+    <Resource Include="UI\Windows\Excel\LastButton.png" />
+    <Resource Include="UI\Windows\Excel\LookUpButton.png" />
+    <Resource Include="UI\Windows\Excel\MenuButton.png" />
+    <Resource Include="UI\Windows\Excel\NextButton.png" />
+    <Resource Include="UI\Windows\Excel\PreviousButton.png" />
+    <Resource Include="UI\Windows\Excel\RefreshButton.png" />
+    <Resource Include="UI\Windows\Excel\SaveButton.png" />
+    <Resource Include="UI\Windows\Main\AccessTile.png" />
+    <Resource Include="UI\Windows\Main\BrowserTile.png" />
+    <Resource Include="UI\Windows\Main\CalendarTile.png" />
+    <Resource Include="UI\Windows\Main\EmailTile.png" />
+    <Resource Include="UI\Windows\Main\ExcelTile.png" />
+    <Resource Include="UI\Windows\Main\GuidanceTile.png" />
+    <Resource Include="UI\Windows\Main\MapTile.png" />
+    <Resource Include="UI\Windows\Main\OutlookTile.png" />
+    <Resource Include="UI\Windows\Main\PivotTile.png" />
+    <Resource Include="UI\Windows\Main\ProgramTile.png" />
+    <Resource Include="UI\Windows\Main\SqlCeTile.png" />
+    <Resource Include="UI\Windows\Main\SqlEditorTile.png" />
+    <Resource Include="UI\Windows\Main\SQLiteTile.png" />
+    <Resource Include="UI\Windows\Main\SqlServerTile.png" />
+    <Resource Include="UI\Windows\Map\Application.png" />
     <Resource Include="UI\Windows\Main\Application.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\DeleteButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\EditButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\FirstButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\LastButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\NextButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\PreviousButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\RefreshButton.png" />
-    <Resource Include="UI\Controls\ToolStrip\Buttons\SaveButton.png" />
+    <Resource Include="UI\Windows\Main\DataTile.png" />
     <Resource Include="UI\Windows\Main\FirstButton.png" />
     <Resource Include="UI\Windows\Main\PreviousButton.png" />
+    <Resource Include="UI\Windows\Main\VisualizationTile.png" />
+    <Resource Include="UI\Windows\Map\BrowseButton.png" />
+    <Resource Include="UI\Windows\Map\DeleteButton.png" />
+    <Resource Include="UI\Windows\Map\EditButton.png" />
+    <Resource Include="UI\Windows\Map\ExportButton.png" />
+    <Resource Include="UI\Windows\Map\FirstButton.png" />
+    <Resource Include="UI\Windows\Map\LastButton.png" />
+    <Resource Include="UI\Windows\Map\LookUpButton.png" />
+    <Resource Include="UI\Windows\Map\MenuButton.png" />
+    <Resource Include="UI\Windows\Map\NextButton.png" />
+    <Resource Include="UI\Windows\Map\PreviousButton.png" />
+    <Resource Include="UI\Windows\Map\RefreshButton.png" />
+    <Resource Include="UI\Windows\Map\SaveButton.png" />
     <Resource Include="UI\Windows\Notification\SplashNotification.png" />
     <Resource Include="UI\Windows\ProgramProject\AppropriationTile.png" />
     <Resource Include="UI\Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\Images\DialogImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DialogImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Images\ExtensionImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExtensionImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Images\LoaderImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoaderImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Images\MenuImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MenuImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Images\ProviderImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProviderImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Documents\GovernmentAuditingStandards.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -399,9 +547,39 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ToolStripImages.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Images\TileImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TileImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Images\WindowImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WindowImages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Images\DialogImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\ExtensionImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExtensionImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\LoaderImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoaderImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\MenuImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\ProviderImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProviderImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Documents\GovernmentAuditingStandards.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GovernmentAuditingStandards.Designer.cs</LastGenOutput>
@@ -625,6 +803,14 @@
     <EmbeddedResource Update="Resources\Images\ToolStripImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ToolStripImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\TileImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TileImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images\WindowImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WindowImages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

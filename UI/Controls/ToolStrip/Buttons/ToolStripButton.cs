@@ -91,6 +91,8 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            Width = 55;
+            Height = 40;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
             Background = new SolidColorBrush( _darkBack );

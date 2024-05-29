@@ -10,23 +10,19 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="388*" />
-            <ColumnDefinition Width="47*" />
-            <ColumnDefinition Width="71*" />
-            <ColumnDefinition Width="76*" />
-            <ColumnDefinition Width="118*" />
         </Grid.ColumnDefinitions>
         <Image x:Name="PictureBox" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top"
-               Width="20" Margin="2,3,0,0" Source="/Resources/Assets/DialogImages/SplashNotification.png" />
-        <RichTextBox x:Name="Message" Margin="63,89,47,123" Grid.ColumnSpan="5"
-                     Background="Transparent" Foreground="White" BorderBrush="#00ABADB3"
-                     BorderThickness="0,0,0,0">
+               Width="20" Margin="2,3,0,0"
+               Source="/Resources/Assets/DialogImages/SplashNotification.png" />
+        <RichTextBox x:Name="TextBox" Margin="63,58,52,60" Background="Transparent"
+                     Foreground="White" BorderBrush="#00ABADB3" BorderThickness="0,0,0,0">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox" />
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Label x:Name="Header" Content="Label" HorizontalAlignment="Left" Margin="49,3,0,0"
-               VerticalAlignment="Top" Width="602" Grid.ColumnSpan="5" Foreground="White" />
+        <Label x:Name="Header" Content="Label" HorizontalAlignment="Left" Margin="123,0,0,0"
+               VerticalAlignment="Top" Width="156" Foreground="White" />
     </Grid>
 </Window>

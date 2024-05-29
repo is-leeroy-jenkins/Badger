@@ -46,12 +46,15 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
+    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for ExcelWindow.xaml
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class ExcelWindow : Window
     {
         /// <summary>

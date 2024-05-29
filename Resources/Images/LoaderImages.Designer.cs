@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Badger {
+namespace Badger.Resources.Images {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Badger {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Badger.LoaderImages", typeof(LoaderImages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Badger.Resources.Images.LoaderImages", typeof(LoaderImages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Badger {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Loading {
+        internal static System.Drawing.Bitmap Loading_gif {
             get {
-                object obj = ResourceManager.GetObject("Loading", resourceCulture);
+                object obj = ResourceManager.GetObject("Loading.gif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Badger {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Processing {
+        internal static System.Drawing.Bitmap Processing_gif {
             get {
-                object obj = ResourceManager.GetObject("Processing", resourceCulture);
+                object obj = ResourceManager.GetObject("Processing.gif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Badger {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Waiting {
+        internal static System.Drawing.Bitmap Waiting_gif {
             get {
-                object obj = ResourceManager.GetObject("Waiting", resourceCulture);
+                object obj = ResourceManager.GetObject("Waiting.gif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

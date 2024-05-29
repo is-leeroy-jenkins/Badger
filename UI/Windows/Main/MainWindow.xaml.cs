@@ -235,7 +235,7 @@ namespace Badger
             Margin = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             BorderThickness = new Thickness( 1 );
-            Title = "SQL Editor";
+            Title = "Budget Execution";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
@@ -255,6 +255,7 @@ namespace Badger
             try
             {
                 DataTile.Click += OnDataTileClick;
+                ChartTile.Click += OnChartTileClick;
             }
             catch( Exception _ex )
             {
@@ -449,7 +450,7 @@ namespace Badger
         {
             try
             {
-                var _docViewer = new DocumentWindow( )
+                var _docViewer = new DocWindow( )
                 {
                     Owner = this
                 };
@@ -765,6 +766,24 @@ namespace Badger
             try
             {
                 OpenDataWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chart tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnChartTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenChartWindow( );
             }
             catch( Exception _ex )
             {

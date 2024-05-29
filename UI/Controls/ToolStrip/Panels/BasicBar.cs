@@ -149,6 +149,17 @@ namespace Badger
             B = 252
         };
 
+        /// <summary>
+        /// The sep color
+        /// </summary>
+        private protected Color _sepColor = new Color( )
+        {
+            A = 0,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the

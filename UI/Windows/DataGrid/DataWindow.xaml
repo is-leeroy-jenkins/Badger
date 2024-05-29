@@ -3,20 +3,62 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Name="DataGrid1" x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution"
+        x:Name="DataView" x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution"
         Height="750" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
         BorderThickness="1,1,1,1" Margin="1,1,1,0">
     <Grid Background="#00141400" RenderTransformOrigin="0.786,0.411">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="939*" />
-            <ColumnDefinition Width="271*" />
-            <ColumnDefinition Width="138*" />
+            <ColumnDefinition Width="169*" />
+            <ColumnDefinition Width="52*" />
+            <ColumnDefinition Width="116*" />
         </Grid.ColumnDefinitions>
-        <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Center" Height="351"
+        <syncfusion:SfDataGrid x:Name="Datagrid" HorizontalAlignment="Center" Height="351"
                                Margin="0,108,0,0" VerticalAlignment="Top" Width="798" HeaderRowHeight="28"
                                BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
                                SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
-                               GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue" />
+                               GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue" Grid.ColumnSpan="2" />
+        <local:ToolStrip x:Name="Toolbar" Margin="3,0,3,3" Grid.ColumnSpan="3" Height="45"
+                         VerticalAlignment="Bottom">
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton"
+                                   ImageSource="/UI/Windows/Datagrid/FirstButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripButton x:Name="PreviousButton"
+                                   ImageSource="/UI/Windows/Datagrid/PreviousButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripButton x:Name="NextButton"
+                                   ImageSource="/UI/Windows/Datagrid/NextButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripButton x:Name="LastButton"
+                                   ImageSource="/UI/Windows/Datagrid/LastButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripComboBox x:Name="ToolBarComboBox" BorderBrush="#FF6ABDFC"
+                    Foreground="#FFFDFDFD" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripTextBox x:Name="ToolBarTextBox" BorderBrush="#FF6ABDFC"
+                    Foreground="White" Height="30" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripButton x:Name="LookupButton"
+                                   ImageSource="/UI/Windows/Datagrid/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton"
+                                   ImageSource="/UI/Windows/Datagrid/RefreshButton.png" />
+            <local:ToolStripButton x:Name="EditButton"
+                                   ImageSource="/UI/Windows/Datagrid/EditButton.png" />
+            <local:ToolStripButton x:Name="SaveButton"
+                                   ImageSource="/UI/Windows/Datagrid/SaveButton.png" />
+            <local:ToolStripButton x:Name="UndoButton" ImageSource="/UI/Windows/Datagrid/BackButton.png" />
+            <local:ToolStripButton x:Name="BrowseButton" ImageSource="/UI/Windows/Datagrid/BrowseButton.png" />
+            <local:ToolStripButton x:Name="MenuButton"
+                                   ImageSource="/UI/Windows/Datagrid/MenuButton.png" />
+        </local:ToolStrip>
     </Grid>
 </Window>

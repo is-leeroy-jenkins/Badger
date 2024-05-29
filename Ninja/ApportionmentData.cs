@@ -198,9 +198,10 @@ namespace Badger
             Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApportionmentData"/> class.
+        /// <see cref="T:Badger.ApportionmentData" /> class.
         /// </summary>
         /// <param name="omb">The omb.</param>
         public ApportionmentData( ApportionmentData omb )
