@@ -55,7 +55,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ToolBar : BasicBar
+    public class ToolStrip : BasicBar
     {
         /// <summary>
         /// The status label
@@ -436,10 +436,10 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolBar"/> class.
+        /// <see cref="ToolStrip"/> class.
         /// </summary>
         /// <inheritdoc />
-        public ToolBar( )
+        public ToolStrip( )
             : base( )
         {
             // Basic Properties

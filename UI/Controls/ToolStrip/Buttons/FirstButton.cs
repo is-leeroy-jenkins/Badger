@@ -53,13 +53,19 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class FirstButton : ToolStripButton
     {
         /// <summary>
-        /// The first button
+        /// The file path
         /// </summary>
-        private protected readonly string _firstButton =
-            @"\Resources\Assets\ToolStripImages\FirstButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -69,8 +75,26 @@ namespace Badger
         public FirstButton( )
             : base( )
         {
-            ImageSource = new BitmapImage( new Uri( _firstButton, UriKind.Relative ) );
+            Width = 55;
+            Height = 35;
             ToolTip = "First";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

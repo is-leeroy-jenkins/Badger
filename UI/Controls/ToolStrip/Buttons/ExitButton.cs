@@ -54,13 +54,18 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class ExitButton : ToolStripButton
     {
         /// <summary>
-        /// The exit button
+        /// The file path
         /// </summary>
-        private protected readonly string _exitButton =
-            @"\Resources\Assets\ToolStripImages\ExitButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -70,10 +75,26 @@ namespace Badger
         public ExitButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _exitButton, UriKind.Relative ) );
             ToolTip = "Exit";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

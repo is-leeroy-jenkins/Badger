@@ -70,20 +70,46 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class NextButton : ToolStripButton
     {
         /// <summary>
-        /// The next button
+        /// The file path
         /// </summary>
-        private protected readonly string _nextButton =
-            @"\Resources\Assets\ToolStripImages\NextButton.png";
+        private protected string _filePath;
 
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="NextButton"/> class.
+        /// </summary>
+        /// <inheritdoc />
         public NextButton( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _nextButton, UriKind.Relative ) );
             ToolTip = "Next";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

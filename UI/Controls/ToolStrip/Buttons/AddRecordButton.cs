@@ -47,13 +47,18 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class AddRecordButton : ToolStripButton
     {
         /// <summary>
-        /// The excel button
+        /// The file path
         /// </summary>
-        private protected readonly string _addRecordButton =
-            @"Resources\Assets\ToolStripImages\AddRecordButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -63,10 +68,26 @@ namespace Badger
         public AddRecordButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _addRecordButton, UriKind.Relative ) );
             ToolTip = "Add New Record";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

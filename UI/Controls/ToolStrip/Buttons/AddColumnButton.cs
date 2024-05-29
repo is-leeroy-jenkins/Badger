@@ -47,13 +47,20 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class AddColumnButton : ToolStripButton
     {
         /// <summary>
-        /// The excel button
+        /// The file path
         /// </summary>
-        private protected readonly string _addColumnButton =
-            @"Resources\Assets\ToolStripImages\AddColumnButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -63,10 +70,26 @@ namespace Badger
         public AddColumnButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _addColumnButton, UriKind.Relative ) );
             ToolTip = "Add Column";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

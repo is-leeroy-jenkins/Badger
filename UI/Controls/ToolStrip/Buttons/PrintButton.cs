@@ -78,10 +78,26 @@ namespace Badger
         public PrintButton( )
             : base( )
         {
-            _filePath = @"Resources/Assets/ToolStripImages/PrintButton.png";
-            _uri = new Uri( _filePath, UriKind.Relative );
-            ImageSource = new BitmapImage( _uri );
-            ToolTip = "Edit";
+            Width = 55;
+            Height = 35;
+            ToolTip = "Print";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

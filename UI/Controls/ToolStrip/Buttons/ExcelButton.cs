@@ -49,13 +49,18 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class ExcelButton : ToolStripButton
     {
         /// <summary>
-        /// The first button
+        /// The file path
         /// </summary>
-        private protected readonly string _excelButton =
-            @"\Resources\Assets\ToolStripImages\ExcelButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -65,10 +70,26 @@ namespace Badger
         public ExcelButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _excelButton, UriKind.Relative ) );
             ToolTip = "Excel";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

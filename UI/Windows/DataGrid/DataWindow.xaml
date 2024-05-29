@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="DataGrid1" x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution"
-        Height="730" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4"
+        Height="750" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
         BorderThickness="1,1,1,1" Margin="1,1,1,0">
     <Grid Background="#00141400" RenderTransformOrigin="0.786,0.411">
@@ -14,28 +14,9 @@
             <ColumnDefinition Width="138*" />
         </Grid.ColumnDefinitions>
         <syncfusion:SfDataGrid x:Name="DataGrid" HorizontalAlignment="Center" Height="351"
-                Margin="0,108,0,0" VerticalAlignment="Top" Width="798" HeaderRowHeight="28"
-                BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
-                SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
-                GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue" />
-        <local:ToolBar Margin="10,664,8,8" Grid.ColumnSpan="3">
-            <syncfusion:MenuItemSeparator />
-            <local:StatusLabel Content="Date &amp; Time" />
-            <syncfusion:MenuItemSeparator />
-            <local:FirstButton ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png" />
-            <local:PreviousButton ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png" />
-            <local:NextButton ImageSource="/Resources/Assets/ToolStripImages/NextButton.png" />
-            <local:LastButton ImageSource="/Resources/Assets/ToolStripImages/LastButton.png" />
-            <local:ToolStripComboBox />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripTextBox />
-            <local:LookupButton ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png" />
-            <local:RefreshButton ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png" />
-            <local:EditButton ImageSource="/Resources/Assets/ToolStripImages/EditButton.png" />
-            <local:SaveButton ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png" />
-            <local:DeleteButton ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png" />
-            <local:BrowseButton ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png" />
-            <local:MenuButton ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png" />
-        </local:ToolBar>
+                               Margin="0,108,0,0" VerticalAlignment="Top" Width="798" HeaderRowHeight="28"
+                               BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
+                               SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
+                               GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue" />
     </Grid>
 </Window>

@@ -6,60 +6,60 @@
         x:Name="Main" x:Class="Badger.MainWindow" mc:Ignorable="d" Title="Budget Execution"
         Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
         Background="#FF141414" WindowStartupLocation="CenterScreen">
-    <Grid Background="#00000000" HorizontalAlignment="Center" Width="1350" Margin="0,0,0,-6">
+    <Grid Background="#00000000" Width="1350" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="729*" />
-            <ColumnDefinition Width="453*" />
-            <ColumnDefinition Width="168*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="239*" />
+            <ColumnDefinition Width="211*" />
         </Grid.ColumnDefinitions>
         <local:MetroTile x:Name="TestTile" HorizontalAlignment="Left" Height="100"
-                Header="Test Tile" Margin="119,206,0,0" Title="For testing purposes"
-                VerticalAlignment="Top" Width="200" />
+                         Header="Test Tile" Margin="119,206,0,0" Title="For testing purposes"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="ChartTile" HorizontalAlignment="Left" Height="100"
-                Header="Visualizations" Margin="119,77,0,0" Title="Charts, Plots, Graphs"
-                VerticalAlignment="Top" Width="200" />
+                         Header="Visualizations" Margin="119,77,0,0" Title="Charts, Plots, Graphs"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="DataTile" HorizontalAlignment="Left" Height="100" Header="Data"
-                Margin="372,77,0,0" Title="Grids, Repos, Pivots" VerticalAlignment="Top" Width="200" />
+                         Margin="372,77,0,0" Title="Grids, Repos, Pivots" VerticalAlignment="Top" Width="139"
+                ImageSource="/Resources/Assets/TileImages/DataTile.png"
+                HorizontalContentAlignment="Left" />
         <local:MetroTile x:Name="SqliteTile" HorizontalAlignment="Left" Height="100" Header="SQLite"
-                Margin="119,395,0,0" Title="Database, SQL editing" VerticalAlignment="Top"
-                Width="200" />
+                         Margin="119,395,0,0" Title="Database, SQL editing" VerticalAlignment="Top"
+                         Width="200" />
         <local:MetroTile x:Name="PivotTile" HorizontalAlignment="Left" Height="100"
-                Header="Analysis" Margin="372,206,0,0" Title="Pivot Grids, Pivot Charts"
-                VerticalAlignment="Top" Width="200" />
+                         Header="Analysis" Margin="372,206,0,0" Title="Pivot Grids, Pivot Charts"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="100"
-                Header="SQL Compact" Margin="372,395,0,0" Title="Database, SQL Editor"
-                VerticalAlignment="Top" Width="200" />
+                         Header="SQL Compact" Margin="372,395,0,0" Title="Database, SQL Editor"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="100"
-                Header="SQL Server" Margin="119,525,0,0" Title="Express Edition, SQL Editing"
-                VerticalAlignment="Top" Width="200" />
+                         Header="SQL Server" Margin="119,525,0,0" Title="Express Edition, SQL Editing"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="AccessTile" HorizontalAlignment="Left" Height="100"
-                Header="MS Access" Margin="372,525,0,0" Title="Database, OLE DB, SQL Editor"
-                VerticalAlignment="Top" Width="200" />
+                         Header="MS Access" Margin="372,525,0,0" Title="Database, OLE DB, SQL Editor"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="ProgramTile" HorizontalAlignment="Left" Height="100"
-                Header="Environ Programs" Margin="37,77,0,0" Title="Desriptions &amp; Authority"
-                VerticalAlignment="Top" Width="200" Grid.Column="1" />
+                         Header="Environ Programs" Margin="37,77,0,0" Title="Desriptions &amp; Authority"
+                         VerticalAlignment="Top" Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="EmailTile" HorizontalAlignment="Left" Height="100" Header="Email"
-                Margin="37,206,0,0" Title="Receive &amp; Send" VerticalAlignment="Top" Width="200"
-                Grid.Column="1" />
+                         Margin="37,206,0,0" Title="Receive &amp; Send" VerticalAlignment="Top" Width="200"
+                         Grid.Column="1" />
         <local:MetroTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="100"
-                Header="Excel Data" Margin="37,395,0,0" Title="UI over db" VerticalAlignment="Top"
-                Width="200" Grid.Column="1" />
+                         Header="Excel Data" Margin="37,395,0,0" Title="UI over db" VerticalAlignment="Top"
+                         Width="200" Grid.Column="1" />
         <local:MetroTile x:Name="Baby" HorizontalAlignment="Left" Height="100" Header="Baby "
-                Margin="37,525,0,0" Title="Web Browser" VerticalAlignment="Top" Width="200"
-                Grid.Column="1" />
+                         Margin="37,525,0,0" Title="Web Browser" VerticalAlignment="Top" Width="200"
+                         Grid.Column="1" />
         <local:MetroTile x:Name="DocumentTile" Grid.Column="1" HorizontalAlignment="Left"
-                Height="100" Header="Guidance" Margin="293,77,0,0" Title="Documentations"
-                VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
+                         Height="100" Header="Guidance" Margin="293,77,0,0" Title="Documentations"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="CalendarTile" Grid.Column="1" HorizontalAlignment="Left"
-                Height="100" Header="Fiscal Year" Margin="293,210,0,0"
-                Title="FTE &amp; Federal Calendar" VerticalAlignment="Top" Width="200"
-                Grid.ColumnSpan="2" />
+                         Height="100" Header="Fiscal Year" Margin="293,210,0,0"
+                         Title="FTE &amp; Federal Calendar" VerticalAlignment="Top" Width="200"
+                         Background="#FF282828" />
         <local:MetroTile x:Name="EditorTile" Grid.Column="1" HorizontalAlignment="Left" Height="100"
-                Header="SQL Editors" Margin="293,395,0,0" Title="SQLite, SQL CE, SQL Server, Access"
-                VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
+                         Header="SQL Editors" Margin="293,395,0,0" Title="SQLite, SQL CE, SQL Server, Access"
+                         VerticalAlignment="Top" Width="200" />
         <local:MetroTile x:Name="MapTile" Grid.Column="1" HorizontalAlignment="Left" Height="100"
-                Header="Geographic Map" Margin="293,525,0,0" Title="GIS Data"
-                VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" />
+                         Header="Geographic Map" Margin="293,525,0,0" Title="GIS Data"
+                         VerticalAlignment="Top" Width="200" />
     </Grid>
 </Window>

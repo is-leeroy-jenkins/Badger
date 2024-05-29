@@ -53,13 +53,18 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class PreviousButton : ToolStripButton
     {
         /// <summary>
-        /// The previous button
+        /// The file path
         /// </summary>
-        private protected readonly string _previousButton =
-            @"\Resources\Assets\ToolStripImages\PreviousButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -69,10 +74,26 @@ namespace Badger
         public PreviousButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _previousButton, UriKind.Relative ) );
             ToolTip = "Previous";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

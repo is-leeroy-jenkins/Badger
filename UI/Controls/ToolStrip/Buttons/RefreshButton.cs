@@ -53,13 +53,18 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class RefreshButton : ToolStripButton
     {
         /// <summary>
-        /// The refresh button
+        /// The file path
         /// </summary>
-        private protected readonly string _refreshButton =
-            @"\Resources\Assets\ToolStripImages\RefreshButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -69,10 +74,26 @@ namespace Badger
         public RefreshButton( )
             : base( )
         {
-            Width = 64;
+            Width = 55;
             Height = 35;
-            ImageSource = new BitmapImage( new Uri( _refreshButton, UriKind.Relative ) );
             ToolTip = "Refresh";
+        }
+
+        /// <summary>
+        /// Loads the image.
+        /// </summary>
+        private void LoadImage( )
+        {
+            try
+            {
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

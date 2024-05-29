@@ -51,13 +51,19 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class DecreaseButton : ToolStripButton
     {
         /// <summary>
-        /// The first button
+        /// The file path
         /// </summary>
-        private protected string _decreaseButton =
-            @"\Resources\Assets\ToolStripImages\DecreaseButton.png";
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -67,18 +73,20 @@ namespace Badger
         public DecreaseButton( )
             : base( )
         {
-            SetImage( );
+            Width = 55;
+            Height = 35;
             ToolTip = "Delete";
         }
 
         /// <summary>
         /// Loads the image.
         /// </summary>
-        private void SetImage( )
+        private void LoadImage( )
         {
             try
             {
-                var _uri = new Uri( _decreaseButton, UriKind.Relative );
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
                 ImageSource = new BitmapImage( _uri );
             }
             catch( Exception _ex )

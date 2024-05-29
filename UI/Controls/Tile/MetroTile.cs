@@ -167,8 +167,8 @@ namespace Badger
             _backHoverBrush = new SolidColorBrush( _backHover );
             _borderHoverBrush = new SolidColorBrush( _borderHover );
             _foreHoverBrush = new SolidColorBrush( _foreHover );
-            Width = 1350;
-            Height = 730;
+            Width = 200;
+            Height = 100;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             BorderThickness = new Thickness( 1 );

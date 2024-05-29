@@ -42,8 +42,6 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing.Imaging;
-    using System.IO;
     using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
@@ -59,6 +57,16 @@ namespace Badger
     public class EditButton : ToolStripButton
     {
         /// <summary>
+        /// The file path
+        /// </summary>
+        private protected string _filePath;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="EditButton"/> class.
         /// </summary>
@@ -66,27 +74,21 @@ namespace Badger
         public EditButton( )
             : base( )
         {
-            SetImage( );
+            Width = 55;
+            Height = 35;
             ToolTip = "Edit";
         }
 
         /// <summary>
         /// Loads the image.
         /// </summary>
-        private void SetImage( )
+        private void LoadImage( )
         {
             try
             {
-                var image = ToolStripImages.EditButton;
-                using var memoryStream = new MemoryStream( );
-                image.Save( memoryStream, ImageFormat.Png );
-                memoryStream.Position = 0;
-                var bitmapImage = new BitmapImage( );
-                bitmapImage.BeginInit( );
-                bitmapImage.StreamSource = memoryStream;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit( );
-                ImageSource = bitmapImage;
+                _filePath = @"Resources/Assets/ToolStripImages/RefreshButton.png";
+                _uri = new Uri( _filePath, UriKind.Relative );
+                ImageSource = new BitmapImage( _uri );
             }
             catch( Exception _ex )
             {
