@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-29-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-29-2024
 // ******************************************************************************************
-// <copyright file="DocumentWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="DocWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DocumentWindow.xaml.cs
+//   DocWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -243,6 +243,7 @@ namespace Badger
         {
             try
             {
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -414,6 +415,22 @@ namespace Badger
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainWindow( )
+        {
+            try
+            {
+                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                _form.Activate( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -423,6 +440,25 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+                OpenMainWindow( );
             }
             catch( Exception _ex )
             {

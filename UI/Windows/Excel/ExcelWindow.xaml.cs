@@ -243,6 +243,7 @@ namespace Badger
         {
             try
             {
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -414,6 +415,22 @@ namespace Badger
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainWindow( )
+        {
+            try
+            {
+                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                _form.Activate( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -423,6 +440,25 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+                OpenMainWindow( );
             }
             catch( Exception _ex )
             {

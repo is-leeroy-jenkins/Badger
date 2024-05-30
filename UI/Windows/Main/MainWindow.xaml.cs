@@ -467,7 +467,7 @@ namespace Badger
         /// <summary>
         /// Opens the excel data form.
         /// </summary>
-        private void OpenExcelForm( )
+        private void OpenExcelWindow( )
         {
             try
             {
@@ -488,10 +488,16 @@ namespace Badger
         /// <summary>
         /// Opens the SQL editor.
         /// </summary>
-        private void OpenSqlEditor( )
+        private void OpenSqlWindow( )
         {
             try
             {
+                var _sqlWindow = new SqlWindow
+                {
+                    Owner = this
+                };
+
+                _sqlWindow.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -503,7 +509,7 @@ namespace Badger
         /// <summary>
         /// Opens the geo mapper.
         /// </summary>
-        private void OpenGeoMapper( )
+        private void OpenMapWindow( )
         {
             try
             {
@@ -594,12 +600,12 @@ namespace Badger
         {
             try
             {
-                var _pivotChart = new PivotWindow
+                var _pivotWindow = new PivotWindow
                 {
                     Owner = this
                 };
 
-                _pivotChart.Show( );
+                _pivotWindow.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -747,7 +753,7 @@ namespace Badger
         {
             try
             {
-                App.ActiveWindows.Add( Name, this );
+                App.ActiveWindows.Add( "MainWindow", this );
             }
             catch( Exception _ex )
             {
@@ -766,6 +772,30 @@ namespace Badger
             try
             {
                 OpenDataWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnExcelTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenExcelWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnMapTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenMapWindow( );
             }
             catch( Exception _ex )
             {

@@ -244,6 +244,7 @@ namespace Badger
         {
             try
             {
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -348,6 +349,59 @@ namespace Badger
                 }
 
                 form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainWindow( )
+        {
+            try
+            {
+                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                _form.Activate( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// 
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+                OpenMainWindow( );
             }
             catch( Exception _ex )
             {

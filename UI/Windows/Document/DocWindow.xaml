@@ -12,32 +12,33 @@
             <ColumnDefinition Width="997*" />
             <ColumnDefinition Width="353*" />
         </Grid.ColumnDefinitions>
-        <local:ToolStrip Height="45" Margin="3,659,3,3" Grid.ColumnSpan="2" Padding="1,1,1,1"
+        <local:ToolStrip x:Name="Toolbar" Height="45" Margin="3,659,3,3" Grid.ColumnSpan="2" Padding="1,1,1,1"
                          BorderThickness="1,1,1,1" Foreground="#FFF3F5F7" Background="#FF141414">
             <syncfusion:MenuItemSeparator />
             <local:ToolStripLabel />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/PreviousButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/FirstButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/LastButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/NextButton.png" />
             <syncfusion:MenuItemSeparator />
             <local:ToolStripComboBox />
             <syncfusion:MenuItemSeparator />
             <local:ToolStripTextBox />
             <syncfusion:MenuItemSeparator />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
-            <local:ToolStripButton />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/LookUpButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/RefreshButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/EditButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/BackButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/DeleteButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/SaveButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/ExportButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Document/BrowseButton.png" />
+            <local:ToolStripButton x:Name="MenuButton"
+                                   ImageSource="/UI/Windows/Document/MenuButton.png" />
             <local:ToolStripButton />
         </local:ToolStrip>
         <PdfViewer:PdfViewerControl x:Name="DocViewer" HorizontalAlignment="Center" Margin="3,3,3,3"
-                                    VerticalAlignment="Top" Height="646" Width="977"
-                                    BorderThickness="1,1,1,1" BorderBrush="#FF0078D4" />
+                                    VerticalAlignment="Top" Height="646" Width="977" BorderThickness="1,1,1,1"
+                                    BorderBrush="#FF0078D4" />
     </Grid>
 </Window>
