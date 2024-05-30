@@ -423,7 +423,7 @@ namespace Badger
             try
             {
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
-                _form.Activate( );
+                _form.Show( );
             }
             catch( Exception _ex )
             {
@@ -458,8 +458,8 @@ namespace Badger
         {
             try
             {
-                Close( );
                 OpenMainWindow( );
+                Close( );
             }
             catch( Exception _ex )
             {

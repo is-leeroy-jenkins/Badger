@@ -11,52 +11,51 @@
             <ColumnDefinition Width="253*" />
             <ColumnDefinition Width="197*" />
         </Grid.ColumnDefinitions>
-        <local:MetroTile x:Name="ChartTile" Height="120" Header="Visualization" Margin="119,77,0,0"
-                         Title="" Width="140" ImageSource="/UI/Windows/Main/VisualizationTile.png"
+        <local:MetroTile x:Name="ChartTile" Height="150" Header="Visualization" Margin="85,77,0,0"
+                         Title="" Width="175" ImageSource="/UI/Windows/Main/VisualizationTile.png"
                          HorizontalAlignment="Left" VerticalAlignment="Top"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                         FontWeight="Bold" />
-        <local:MetroTile x:Name="DataTile" HorizontalAlignment="Left" Height="120"
-                         Header="Data Grids" Margin="356,77,0,0" Title="" VerticalAlignment="Top" Width="140"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <local:MetroTile x:Name="DataTile" HorizontalAlignment="Left" Height="150"
+                         Header="Data Grids" Margin="321,77,0,0" Title="" VerticalAlignment="Top" Width="175"
                          HorizontalContentAlignment="Left" ImageSource="/UI/Windows/Main/DataTile.png" />
-        <local:MetroTile x:Name="SqliteTile" HorizontalAlignment="Left" Height="120" Header="SQLite"
-                         Margin="356,286,0,0" Title="" VerticalAlignment="Top" Width="140"
+        <local:MetroTile x:Name="SqliteTile" HorizontalAlignment="Left" Height="150" Header="SQLite"
+                         Margin="321,286,0,0" Title="" VerticalAlignment="Top" Width="175"
                          ImageSource="/UI/Windows/Main/SQLiteTile.png" />
-        <local:MetroTile x:Name="PivotTile" HorizontalAlignment="Left" Height="120"
-                         Header="Pivot Analysis" Margin="605,77,0,0" Title="" VerticalAlignment="Top"
-                         Width="140" ImageSource="/UI/Windows/Main/PivotTile.png" />
-        <local:MetroTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="120"
-                         Header="SQL Compact" Margin="605,286,0,0" Title="" VerticalAlignment="Top"
-                         Width="140" ImageSource="/UI/Windows/Main/SqlCeTile.png" />
-        <local:MetroTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="120"
-                         Header="SQL Server" Margin="356,485,0,0" Title="" VerticalAlignment="Top"
-                         Width="139" ImageSource="/UI/Windows/Main/SqlServerTile.png" />
-        <local:MetroTile x:Name="AccessTile" HorizontalAlignment="Left" Height="120"
-                         Header="MS Access" Margin="605,485,0,0" Title="" VerticalAlignment="Top" Width="139"
+        <local:MetroTile x:Name="PivotTile" HorizontalAlignment="Left" Height="150"
+                         Header="Pivot Analysis" Margin="568,77,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" ImageSource="/UI/Windows/Main/PivotTile.png" />
+        <local:MetroTile x:Name="SqlCeTile" HorizontalAlignment="Left" Height="150"
+                         Header="SQL Compact" Margin="568,286,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" ImageSource="/UI/Windows/Main/SqlCeTile.png" />
+        <local:MetroTile x:Name="SqlServerTile" HorizontalAlignment="Left" Height="150"
+                         Header="SQL Server" Margin="321,485,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" ImageSource="/UI/Windows/Main/SqlServerTile.png" />
+        <local:MetroTile x:Name="AccessTile" HorizontalAlignment="Left" Height="150"
+                         Header="MS Access" Margin="568,485,0,0" Title="" VerticalAlignment="Top" Width="175"
                          ImageSource="/UI/Windows/Main/AccessTile.png" />
-        <local:MetroTile x:Name="ProgramTile" HorizontalAlignment="Left" Height="120"
-                         Header="EPA Programs" Margin="117,77,0,0" Title="" VerticalAlignment="Top"
-                         Width="139" Grid.Column="1" ImageSource="/UI/Windows/Main/ProgramTile.png" />
-        <local:MetroTile x:Name="EmailTile" HorizontalAlignment="Left" Height="120" Header="Email"
-                         Margin="117,286,0,0" Title="" VerticalAlignment="Top" Width="139" Grid.Column="1"
+        <local:MetroTile x:Name="ProgramTile" HorizontalAlignment="Left" Height="150"
+                         Header="EPA Programs" Margin="57,77,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" Grid.Column="1" ImageSource="/UI/Windows/Main/ProgramTile.png" />
+        <local:MetroTile x:Name="EmailTile" HorizontalAlignment="Left" Height="150" Header="Email"
+                         Margin="57,286,0,0" Title="" VerticalAlignment="Top" Width="175" Grid.Column="1"
                          ImageSource="/UI/Windows/Main/EmailTile.png" />
-        <local:MetroTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="120"
-                         Header="Excel Data" Margin="119,485,0,0" Title="" VerticalAlignment="Top"
-                         Width="140" ImageSource="/UI/Windows/Main/ExcelTile.png" />
-        <local:MetroTile x:Name="Baby" HorizontalAlignment="Left" Height="120" Header="Baby Browser"
-                         Margin="117,485,0,0" Title="" VerticalAlignment="Top" Width="139" Grid.Column="1"
+        <local:MetroTile x:Name="ExcelTile" HorizontalAlignment="Left" Height="150"
+                         Header="Excel Data" Margin="85,485,0,0" Title="" VerticalAlignment="Top" Width="175"
+                         ImageSource="/UI/Windows/Main/ExcelTile.png" />
+        <local:MetroTile x:Name="Baby" HorizontalAlignment="Left" Height="150" Header="Baby Browser"
+                         Margin="57,485,0,0" Title="" VerticalAlignment="Top" Width="175" Grid.Column="1"
                          ImageSource="/UI/Windows/Main/BrowserTile.png" />
         <local:MetroTile x:Name="DocumentTile" Grid.Column="1" HorizontalAlignment="Left"
-                         Height="120" Header="Guidance" Margin="355,77,0,0" Title="" VerticalAlignment="Top"
-                         Width="139" ImageSource="/UI/Windows/Main/GuidanceTile.png" />
-        <local:MetroTile x:Name="CalendarTile" HorizontalAlignment="Left" Height="120"
-                         Header="Fiscal Year" Margin="120,286,0,0" Title="" VerticalAlignment="Top"
-                         Width="140" Background="#FF282828" ImageSource="/UI/Windows/Main/CalendarTile.png" />
-        <local:MetroTile x:Name="EditorTile" Grid.Column="1" HorizontalAlignment="Left" Height="120"
-                         Header="SQL Editors" Margin="355,286,0,0" Title="" VerticalAlignment="Top"
-                         Width="139" ImageSource="/UI/Windows/Main/SqlEditorTile.png" />
-        <local:MetroTile x:Name="MapTile" Grid.Column="1" HorizontalAlignment="Left" Height="120"
-                         Header="GIS Data" Margin="355,485,0,0" Title="" VerticalAlignment="Top" Width="139"
+                         Height="150" Header="Guidance" Margin="295,77,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" ImageSource="/UI/Windows/Main/GuidanceTile.png" />
+        <local:MetroTile x:Name="CalendarTile" HorizontalAlignment="Left" Height="150"
+                         Header="Fiscal Year" Margin="85,286,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" Background="#FF282828" ImageSource="/UI/Windows/Main/CalendarTile.png" />
+        <local:MetroTile x:Name="EditorTile" Grid.Column="1" HorizontalAlignment="Left" Height="150"
+                         Header="SQL Editors" Margin="295,286,0,0" Title="" VerticalAlignment="Top"
+                         Width="175" ImageSource="/UI/Windows/Main/SqlEditorTile.png" />
+        <local:MetroTile x:Name="MapTile" Grid.Column="1" HorizontalAlignment="Left" Height="150"
+                         Header="GIS Data" Margin="295,485,0,0" Title="" VerticalAlignment="Top" Width="175"
                          ImageSource="/UI/Windows/Main/MapTile.png" />
     </Grid>
 </Window>
