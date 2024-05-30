@@ -43,6 +43,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
 
     /// <summary>
@@ -71,8 +72,14 @@ namespace Badger
             : base( )
         {
             // Basic Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12;
             Height = 42;
             Width = 1330;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            GripperVisibility = Visibility.Hidden;
+            OverflowButtonVisibility = Visibility.Hidden;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

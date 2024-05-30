@@ -222,13 +222,14 @@ namespace Badger
 
             // Basic Properties
             Width = 1350;
-            Height = 730;
+            Height = 750;
+            ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Margin = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
+            Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Title = "Budget Execution";
+            Title = "Fiscal Years";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
@@ -244,6 +245,7 @@ namespace Badger
         {
             try
             {
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -415,6 +417,22 @@ namespace Badger
         }
 
         /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainWindow( )
+        {
+            try
+            {
+                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                _form.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -424,6 +442,26 @@ namespace Badger
         {
             try
             {
+                App.ActiveWindows.Add( "CalendarWindow", this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenMainWindow( );
+                Close( );
             }
             catch( Exception _ex )
             {

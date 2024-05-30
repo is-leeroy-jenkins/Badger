@@ -221,8 +221,8 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1370;
-            Height = 730;
+            Width = 1350;
+            Height = 750;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Margin = new Thickness( 1 );
@@ -441,6 +441,7 @@ namespace Badger
         {
             try
             {
+                App.ActiveWindows.Add( "DataWindow", this );
             }
             catch( Exception _ex )
             {

@@ -3,43 +3,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization" Height="730"
+        x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization" Height="750"
         Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="341*" />
+            <ColumnDefinition Width="333*" />
+        </Grid.ColumnDefinitions>
         <syncfusion:SfChart3D x:Name="Chart" HorizontalAlignment="Left" Margin="62,58,0,0"
-                              VerticalAlignment="Top" Height="526" Width="1200" BackWallBrush="#FF4B4B4B"
+                              VerticalAlignment="Top" Height="533" Width="1200" BackWallBrush="#FF4B4B4B"
                               BottomWallBrush="#FF4B4B4B" LeftWallBrush="#FF4B4B4B" RightWallBrush="#FF4B4B4B"
-                              TopWallBrush="#FF4B4B4B" Background="#FF141414" />
-        <local:ToolStrip x:Name="Toolbar" Height="40" Margin="10,662,10,10">
+                              TopWallBrush="#FF4B4B4B" Background="#FF141414" Grid.ColumnSpan="2" />
+        <local:ToolStrip x:Name="Toolbar" Margin="10,677,8,10" Padding="1,1,1,1"
+                         BorderThickness="1,1,1,1" Grid.ColumnSpan="2">
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D300"
                                           Foreground="#006ABDFC" />
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
                                           Foreground="#006ABDFC" />
-            <local:ToolStripButton x:Name="FirstButton" ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png" />
+            <local:ToolStripButton x:Name="FirstButton"
+                                   ImageSource="/UI/Windows/Chart/FirstButton.png" />
             <local:ToolStripButton x:Name="PreviousButton"
                                    ImageSource="/UI/Windows/Chart/PreviousButton.png" />
-            <local:ToolStripButton x:Name="NextButton" ImageSource="/UI/Windows/Chart/NextButton.png" />
-            <local:ToolStripButton x:Name="LastButton" ImageSource="/UI/Windows/Chart/LastButton.png" />
+            <local:ToolStripButton x:Name="NextButton"
+                                   ImageSource="/UI/Windows/Chart/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton"
+                                   ImageSource="/UI/Windows/Chart/LastButton.png" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
                                           Foreground="#006ABDFC" />
             <local:ToolStripComboBox x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
                                      Foreground="White" Margin="3,0,3,0" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
                                           Foreground="#006ABDFC" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox"/>
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
                                           Foreground="#006ABDFC" />
-            <local:ToolStripButton x:Name="LookupButton" ImageSource="/UI/Windows/Chart/LookUpButton.png" />
-            <local:ToolStripButton x:Name="RefreshButton" ImageSource="/UI/Windows/Chart/RefreshButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ImageSource="/UI/Windows/Chart/EditButton.png" />
-            <local:ToolStripButton x:Name="SaveButton" ImageSource="/UI/Windows/Chart/SaveButton.png" />
+            <local:ToolStripButton x:Name="LookupButton"
+                                   ImageSource="/UI/Windows/Chart/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton"
+                                   ImageSource="/UI/Windows/Chart/RefreshButton.png" />
+            <local:ToolStripButton x:Name="EditButton"
+                                   ImageSource="/UI/Windows/Chart/EditButton.png" />
+            <local:ToolStripButton x:Name="SaveButton"
+                                   ImageSource="/UI/Windows/Chart/SaveButton.png" />
             <local:ToolStripButton x:Name="DeleteButton"
                                    ImageSource="/UI/Windows/Chart/DeleteButton.png" />
             <local:ToolStripButton x:Name="BrowseButton"
                                    ImageSource="/UI/Windows/Chart/BrowseButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ImageSource="/UI/Windows/Chart/MenuButton.png" />
+            <local:ToolStripButton x:Name="MenuButton"
+                                   ImageSource="/UI/Windows/Chart/MenuButton.png" />
         </local:ToolStrip>
     </Grid>
 </Window>

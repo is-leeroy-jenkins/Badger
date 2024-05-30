@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Class="Badger.ExcelWindow" mc:Ignorable="d" Title="Excel Data" Height="730" Width="1350"
+        x:Class="Badger.ExcelWindow" mc:Ignorable="d" Title="Excel Data" Height="750" Width="1350"
         Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF6ABDFC"
         WindowStartupLocation="CenterScreen" Icon="/UI/Windows/Excel/Application.png">
     <Grid>
@@ -11,16 +11,11 @@
             <ColumnDefinition Width="443*" />
             <ColumnDefinition Width="7*" />
         </Grid.ColumnDefinitions>
-        <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" HorizontalAlignment="Left" Margin="27,35,0,0"
-                                        VerticalAlignment="Top" Width="1292" Height="122" />
-        <local:ToolStrip x:Name="Toolbar" Margin="10,656,10,13" Grid.ColumnSpan="2">
+        <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" HorizontalAlignment="Left"
+                                        Margin="27,35,0,0" VerticalAlignment="Top" Width="1292" Height="122" />
+        <local:ToolStrip x:Name="Toolbar" Margin="3,682,3,3" Grid.ColumnSpan="2" Height="45">
             <syncfusion:MenuItemSeparator />
             <local:ToolStripLabel />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripComboBox />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripTextBox />
-            <syncfusion:MenuItemSeparator />
             <local:ToolStripButton x:Name="FirstButton"
                                    ImageSource="/UI/Windows/Excel/FirstButton.png" />
             <local:ToolStripButton x:Name="PreviousButton"
@@ -29,6 +24,11 @@
                                    ImageSource="/UI/Windows/Excel/NextButton.png" />
             <local:ToolStripButton x:Name="LastButton"
                                    ImageSource="/UI/Windows/Excel/LastButton.png" />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripComboBox />
+            <syncfusion:MenuItemSeparator />
+            <local:ToolStripTextBox />
+            <syncfusion:MenuItemSeparator />
             <local:ToolStripButton x:Name="LookupButton"
                                    ImageSource="/UI/Windows/Excel/LookUpButton.png" />
             <local:ToolStripButton x:Name="RefreshButton"
@@ -46,7 +46,7 @@
             <local:ToolStripButton x:Name="MenuButton"
                                    ImageSource="/UI/Windows/Excel/MenuButton.png" />
         </local:ToolStrip>
-        <syncfusion:SfSpreadsheet x:Name="Spreadsheet" HorizontalAlignment="Left" Margin="27,162,0,0"
-                                  VerticalAlignment="Top" Height="488" Width="1292" />
+        <syncfusion:SfSpreadsheet x:Name="Spreadsheet" HorizontalAlignment="Left"
+                                  Margin="27,162,0,0" VerticalAlignment="Top" Height="488" Width="1292" />
     </Grid>
 </Window>

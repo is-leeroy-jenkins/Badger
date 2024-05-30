@@ -3,49 +3,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Class="Badger.MapWindow" mc:Ignorable="d" Title="Budget Execution" Height="750"
+        x:Name="MapView" x:Class="Badger.MapWindow" mc:Ignorable="d" Title=" GIS Data" Height="750"
         Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
-        Icon="/UI/Windows/Map/Application.png">
+        Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="713*" />
             <ColumnDefinition Width="637*" />
         </Grid.ColumnDefinitions>
         <syncfusion:SfMap x:Name="Map" Margin="42,85,10,0" Height="378" VerticalAlignment="Top"
-                RenderTransformOrigin="0.555,0.503">
+                          RenderTransformOrigin="0.555,0.503">
             <syncfusion:SfMap.Layers>
                 <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="42,0,50,0" Height="351" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
         <local:MetroChart x:Name="Chart" Grid.Column="1" HorizontalAlignment="Left"
-                Margin="52,46,0,0" VerticalAlignment="Top" Height="448" Width="528" />
+                          Margin="52,46,0,0" VerticalAlignment="Top" Height="448" Width="528" />
         <local:ToolStrip x:Name="Toolbar" Height="42" Margin="3,682,3,3" Grid.ColumnSpan="2">
             <syncfusion:MenuItemSeparator />
-            <local:ToolStripLabel />
+            <local:ToolStripLabel Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton"
+                                   ImageSource="/UI/Windows/Map/FirstButton.png" />
+            <local:ToolStripButton x:Name="PreviousButton"
+                                   ImageSource="/UI/Windows/Map/PreviousButton.png" />
+            <local:ToolStripButton x:Name="NextButton" ImageSource="/UI/Windows/Map/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton" ImageSource="/UI/Windows/Map/LastButton.png" />
             <syncfusion:MenuItemSeparator />
             <local:ToolStripComboBox />
             <syncfusion:MenuItemSeparator />
             <local:ToolStripTextBox />
             <syncfusion:MenuItemSeparator />
-            <local:ToolStripButton x:Name="FirstButton"
-                    ImageSource="/UI/Windows/Map/FirstButton.png" />
-            <local:ToolStripButton x:Name="PreviousButton"
-                    ImageSource="/UI/Windows/Map/PreviousButton.png" />
-            <local:ToolStripButton x:Name="NextButton" ImageSource="/UI/Windows/Map/NextButton.png" />
-            <local:ToolStripButton x:Name="LastButton" ImageSource="/UI/Windows/Map/LastButton.png" />
             <local:ToolStripButton x:Name="LookupButton"
-                    ImageSource="/UI/Windows/Map/LookUpButton.png" />
+                                   ImageSource="/UI/Windows/Map/LookUpButton.png" />
             <local:ToolStripButton x:Name="RefreshButton"
-                    ImageSource="/UI/Windows/Map/RefreshButton.png" />
+                                   ImageSource="/UI/Windows/Map/RefreshButton.png" />
             <local:ToolStripButton x:Name="EditButton" ImageSource="/UI/Windows/Map/EditButton.png" />
             <local:ToolStripButton x:Name="DeleteButton"
-                    ImageSource="/UI/Windows/Map/DeleteButton.png" />
+                                   ImageSource="/UI/Windows/Map/DeleteButton.png" />
+            <local:ToolStripButton ImageSource="/UI/Windows/Map/BackButton.png" />
             <local:ToolStripButton x:Name="SaveButton" ImageSource="/UI/Windows/Map/SaveButton.png" />
             <local:ToolStripButton x:Name="ExportButton"
-                    ImageSource="/UI/Windows/Map/ExportButton.png" />
+                                   ImageSource="/UI/Windows/Map/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton"
-                    ImageSource="/UI/Windows/Map/BrowseButton.png" />
+                                   ImageSource="/UI/Windows/Map/BrowseButton.png" />
             <local:ToolStripButton x:Name="MenuButton" ImageSource="/UI/Windows/Map/MenuButton.png" />
         </local:ToolStrip>
     </Grid>

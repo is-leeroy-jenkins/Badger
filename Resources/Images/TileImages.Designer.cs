@@ -83,16 +83,6 @@ namespace Badger.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CalculatorTile {
-            get {
-                object obj = ResourceManager.GetObject("CalculatorTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap CalendarTile {
             get {
                 object obj = ResourceManager.GetObject("CalendarTile", resourceCulture);
@@ -103,39 +93,9 @@ namespace Badger.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ChromeTile {
-            get {
-                object obj = ResourceManager.GetObject("ChromeTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ClientTile {
-            get {
-                object obj = ResourceManager.GetObject("ClientTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap DataTile {
             get {
                 object obj = ResourceManager.GetObject("DataTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap EdgeTile {
-            get {
-                object obj = ResourceManager.GetObject("EdgeTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,26 +123,6 @@ namespace Badger.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FirefoxTile {
-            get {
-                object obj = ResourceManager.GetObject("FirefoxTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap GmailTile {
-            get {
-                object obj = ResourceManager.GetObject("GmailTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap GuidanceTile {
             get {
                 object obj = ResourceManager.GetObject("GuidanceTile", resourceCulture);
@@ -193,39 +133,9 @@ namespace Badger.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LookupTile {
-            get {
-                object obj = ResourceManager.GetObject("LookupTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap MapTile {
             get {
                 object obj = ResourceManager.GetObject("MapTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MessageTile {
-            get {
-                object obj = ResourceManager.GetObject("MessageTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OutlookTile {
-            get {
-                object obj = ResourceManager.GetObject("OutlookTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,16 +156,6 @@ namespace Badger.Resources.Images {
         internal static System.Drawing.Bitmap ProgramTile {
             get {
                 object obj = ResourceManager.GetObject("ProgramTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SpfxTile {
-            get {
-                object obj = ResourceManager.GetObject("SpfxTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,16 +196,6 @@ namespace Badger.Resources.Images {
         internal static System.Drawing.Bitmap SqlServerTile {
             get {
                 object obj = ResourceManager.GetObject("SqlServerTile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ToolsTile {
-            get {
-                object obj = ResourceManager.GetObject("ToolsTile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

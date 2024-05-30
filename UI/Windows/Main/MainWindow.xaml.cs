@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-30-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-30-2024
 // ******************************************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -228,12 +228,12 @@ namespace Badger
 
             // Basic Properties
             Width = 1350;
-            Height = 730;
+            Height = 750;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Margin = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
+            Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Title = "Budget Execution";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -256,6 +256,18 @@ namespace Badger
             {
                 DataTile.Click += OnDataTileClick;
                 ChartTile.Click += OnChartTileClick;
+                DocumentTile.Click += OnGuidanceTileClick;
+                ExcelTile.Click += OnExcelTileClick;
+                EditorTile.Click += OnEditorTileClick;
+                MapTile.Click += OnMapTileClick;
+                SqlServerTile.Click += OnSqlServerTileClick;
+                CalendarTile.Click += OnCalendarTileClick;
+                EmailTile.Click += OnEmailTileClick;
+                ProgramTile.Click += OnProgramTileClick;
+                PivotTile.Click += OnPivotTileClick;
+                SqliteTile.Click += OnSQLiteTileClick;
+                SqlCeTile.Click += OnSqlCeTileClick;
+                AccessTile.Click += OnAccessTileClick;
             }
             catch( Exception _ex )
             {
@@ -492,7 +504,7 @@ namespace Badger
         {
             try
             {
-                var _sqlWindow = new SqlWindow
+                var _sqlWindow = new EditorWindow
                 {
                     Owner = this
                 };
@@ -575,7 +587,7 @@ namespace Badger
         /// <summary>
         /// Shows the program project dialog.
         /// </summary>
-        private void OpenProgramProjectWindow( )
+        private void OpenProgramWindow( )
         {
             try
             {
@@ -606,6 +618,90 @@ namespace Badger
                 };
 
                 _pivotWindow.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the sqlite window.
+        /// </summary>
+        private void OpenSqliteWindow( )
+        {
+            try
+            {
+                var _programs = new EditorWindow( )
+                {
+                    Owner = this
+                };
+
+                _programs.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the SQL ce window.
+        /// </summary>
+        private void OpenSqlCeWindow( )
+        {
+            try
+            {
+                var _programs = new EditorWindow( )
+                {
+                    Owner = this
+                };
+
+                _programs.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the access window.
+        /// </summary>
+        private void OpenAccessWindow( )
+        {
+            try
+            {
+                var _programs = new EditorWindow( )
+                {
+                    Owner = this
+                };
+
+                _programs.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the SQL server window.
+        /// </summary>
+        private void OpenSqlServerWindow( )
+        {
+            try
+            {
+                var _programs = new EditorWindow( )
+                {
+                    Owner = this
+                };
+
+                _programs.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -814,6 +910,186 @@ namespace Badger
             try
             {
                 OpenChartWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [program tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnProgramTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenProgramWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [editor tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEditorTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenSqlWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [guidance tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGuidanceTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenDocumentViewer( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calendar tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalendarTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenCalendarWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [sq lite tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSQLiteTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenSqliteWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [SQL ce tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSqlCeTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenSqlCeWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [SQL server tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSqlServerTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenSqlServerEditor( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [access tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnAccessTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenAccessWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [pivot tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPivotTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenPivotWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [email tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEmailTileClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenEmailWindow( );
             }
             catch( Exception _ex )
             {

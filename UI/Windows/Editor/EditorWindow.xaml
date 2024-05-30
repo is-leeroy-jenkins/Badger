@@ -1,0 +1,58 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        x:Name="SqlEditor" x:Class="Badger.EditorWindow" mc:Ignorable="d" Title="SQL Editor"
+        Height="750" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
+        WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
+        Icon="/UI/Windows/Editor/Application.png">
+    <Grid x:Name="EditorGrid">
+        <local:ToolStrip x:Name="Toolbar" Height="42" Margin="3,682,3,3">
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" />
+            <local:ToolStripLabel Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton"
+                                   ImageSource="/UI/Windows/Editor/FirstButton.png" />
+            <local:ToolStripButton x:Name="PreviousButton"
+                                   ImageSource="/UI/Windows/Editor/PreviousButton.png" />
+            <local:ToolStripButton x:Name="NextButton"
+                                   ImageSource="/UI/Windows/Editor/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton"
+                                   ImageSource="/UI/Windows/Editor/LastButton.png" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" />
+            <local:ToolStripComboBox x:Name="ToolStripComboBox" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" />
+            <local:ToolStripButton x:Name="LookupButton"
+                                   ImageSource="/UI/Windows/Editor/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton"
+                                   ImageSource="/UI/Windows/Editor/RefreshButton.png" />
+            <local:ToolStripButton x:Name="EditButton"
+                                   ImageSource="/UI/Windows/Editor/EditButton.png" />
+            <local:ToolStripButton x:Name="BackButton"
+                                   ImageSource="/UI/Windows/Editor/BackButton.png" />
+            <local:ToolStripButton x:Name="DeleteButton"
+                                   ImageSource="/UI/Windows/Editor/DeleteButton.png" />
+            <local:ToolStripButton x:Name="SaveButton"
+                                   ImageSource="/UI/Windows/Editor/SaveButton.png" />
+            <local:ToolStripButton x:Name="ExportButton"
+                                   ImageSource="/UI/Windows/Editor/ExportButton.png" />
+            <local:ToolStripButton x:Name="BrowseButton"
+                                   ImageSource="/UI/Windows/Editor/BrowseButton.png" />
+            <local:ToolStripButton x:Name="MenuButton"
+                                   ImageSource="/UI/Windows/Editor/MenuButton.png" />
+        </local:ToolStrip>
+        <syncfusion:EditControl x:Name="Editor" HorizontalAlignment="Left" Margin="72,59,0,0"
+                                Text="Edit Control" VerticalAlignment="Top" Height="571" Width="957"
+                                Background="#FF464646" BorderBrush="#FF0078D4" Foreground="#FFF0F1F3"
+                                CaretBrush="#FFEEFB00" LineNumberAreaBackground="Black"
+                                LineNumberTextForeground="#FF1FB70A" SelectionBackground="#FF183159"
+                                FontFamily="Source Code Pro" BorderThickness="1,1,1,1" OutliningAreaWidth="3"
+                                LineNumberAreaWidth="10" />
+    </Grid>
+</Window>

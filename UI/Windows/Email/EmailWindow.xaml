@@ -1,0 +1,48 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        x:Class="Badger.EmailWindow" mc:Ignorable="d" Title="Email Messages" Height="750"
+        Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FFA0BDFC"
+        Margin="3,3,3,3" Padding="1,1,1,1" Icon="/Application.png"
+        WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
+    <Grid x:Name="EmailGrid">
+        <local:ToolStrip x:Name="Toolbar" Margin="3,677,3,3" Height="45" Padding="1,1,1,1"
+                         BorderThickness="1,1,1,1">
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time"
+                                  Foreground="#FFA0BDD4" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First"
+                                   ImageSource="/FirstButton.png" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous"
+                                   ImageSource="/PreviousButton.png" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next" ImageSource="/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last" ImageSource="/LastButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripComboBox x:Name="ToolStripComboBox" ToolTip="Select"
+                                     BorderBrush="#FF0078D4" Foreground="#FFF8FBFD" Margin="1,1,1,1"
+                                     Padding="1,1,1,1" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                                          Foreground="#006ABDFC" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" ToolTip="Enter Keywords"
+                                    Margin="1,1,1,1" Padding="1,1,1,1" />
+            <syncfusion:MenuItemSeparator BorderBrush="#00D3D3D3" Foreground="#006ABDFC" />
+            <local:ToolStripButton x:Name="LookUpButton" ToolTip="Search"
+                                   ImageSource="/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                                   ImageSource="/RefreshButton.png" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit" ImageSource="/EditButton.png" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                                   ImageSource="/DeleteButton.png" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save" ImageSource="/SaveButton.png" />
+            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
+                                   ImageSource="/ExportButton.png" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                                   ImageSource="/BrowseButton.png" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Menu" ImageSource="/MenuButton.png" />
+        </local:ToolStrip>
+    </Grid>
+</Window>
