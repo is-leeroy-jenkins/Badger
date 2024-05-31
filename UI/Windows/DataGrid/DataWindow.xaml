@@ -13,7 +13,10 @@
                 BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
                 SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
                 GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue"
-                RenderTransformOrigin="0.5,0.5">
+                RenderTransformOrigin="0.5,0.5" AddNewRowPosition="Bottom" AllowDeleting="True"
+                AllowEditing="True" AllowRowHoverHighlighting="True" AllowResizingColumns="True"
+                AllowFiltering="True" ColumnSizer="SizeToHeader" FilterRowPosition="Top"
+                GridCopyOption="IncludeHeaders">
             <syncfusion:SfDataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />

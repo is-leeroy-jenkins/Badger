@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="MetroRichText.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroRichText.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -42,18 +42,16 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.RichTextBoxAdv;
+    using MahApps.Metro.Controls;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MahApps.Metro.Controls.MetroHeader" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class MetroRichText : RichTextBox
+    public class MetroHeaderBox : MetroHeader
     {
         /// <summary>
         /// The back color
@@ -61,9 +59,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -72,9 +70,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 25,
-            G = 76,
-            B = 120
+            R = 1,
+            G = 35,
+            B = 54
         };
 
         /// <summary>
@@ -89,20 +87,9 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -111,43 +98,17 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        private readonly Color _selectColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
-
-        /// <inheritdoc />
-        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.RichTextBox" /> class.
+        /// <see cref="MetroHeaderBox"/> class.
         /// </summary>
-        public MetroRichText( )
+        public MetroHeaderBox( )
             : base( )
         {
-            // Basic Properties
+            // Basic Settings
+            Height = 200;
+            Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Width = 330;
-            Height = 150;
-            BorderThickness = new Thickness( 1 );
-            Padding = new Thickness( 10 );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
-            SelectionBrush = new SolidColorBrush( _selectColor );
         }
 
         /// <summary>

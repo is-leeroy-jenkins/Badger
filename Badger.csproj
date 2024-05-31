@@ -180,6 +180,8 @@
     <PackageReference Include="EPPlus" Version="7.1.2" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="FullControls" Version="3.0.0-beta.15" />
     <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
     <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.68.0" />
@@ -192,6 +194,8 @@
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="Notifications.Wpf" Version="0.1.1" />
+    <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.1.41" />
@@ -219,7 +223,8 @@
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
-    <PackageReference Include="ToastNotifications" Version="2.5.1" />
+    <PackageReference Include="WPF-UI" Version="3.0.4" />
+    <PackageReference Include="Wpf.Themes.ExpressionDark" Version="1.1.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 

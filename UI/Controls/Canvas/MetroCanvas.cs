@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-31-2024
 // ******************************************************************************************
-// <copyright file="MetroRichText.cs" company="Terry D. Eppler">
+// <copyright file="MetroCanvas.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroRichText.cs
+//   MetroCanvas.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,16 +44,12 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Input;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.RichTextBoxAdv;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class MetroRichText : RichTextBox
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class MetroCanvas : Canvas
     {
         /// <summary>
         /// The back color
@@ -61,93 +57,26 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 25,
-            G = 76,
-            B = 120
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 186,
-            G = 207,
-            B = 255
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        private readonly Color _selectColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.RichTextBox" /> class.
+        /// <see cref="T:Badger.MetroCanvas" /> class.
         /// </summary>
-        public MetroRichText( )
+        public MetroCanvas( )
             : base( )
         {
             // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            Width = 330;
-            Height = 150;
-            BorderThickness = new Thickness( 1 );
-            Padding = new Thickness( 10 );
+            Width = 325;
+            Height = 350;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Margin = new Thickness( 3 );
             Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
-            SelectionBrush = new SolidColorBrush( _selectColor );
         }
 
         /// <summary>

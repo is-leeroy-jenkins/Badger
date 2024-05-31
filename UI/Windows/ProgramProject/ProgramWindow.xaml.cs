@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-31-2024
 // ******************************************************************************************
-// <copyright file="ProgramProjectWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="ProgramWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ProgramProjectWindow.xaml.cs
+//   ProgramWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -55,6 +55,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class ProgramWindow : Window
     {
         /// <summary>
@@ -115,9 +116,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 186,
+            G = 207,
+            B = 255
         };
 
         /// <summary>

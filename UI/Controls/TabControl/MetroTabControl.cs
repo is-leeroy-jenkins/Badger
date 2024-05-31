@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-31-2024
 // ******************************************************************************************
-// <copyright file="TabControl.cs" company="Terry D. Eppler">
+// <copyright file="MetroTabControl.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   TabControl.cs
+//   MetroTabControl.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,13 +42,14 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class TabControl : TabControlExt
+    public class MetroTabControl : TabControlExt
     {
         /// <summary>
         /// The back color brush
@@ -97,9 +98,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 17,
-            G = 53,
-            B = 84
+            R = 1,
+            G = 35,
+            B = 54
         };
 
         /// <summary>
@@ -127,7 +128,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -151,23 +152,33 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.TabControl" /> class.
         /// </summary>
-        public TabControl( )
+        public MetroTabControl( )
             : base( )
         {
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( Colors.Transparent );
-            BorderBrush = new SolidColorBrush( Colors.Transparent );
-            TabPanelBackground = new SolidColorBrush( Colors.Transparent );
+            Width = 460;
+            Height = 400;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            HorizontalContentAlignment = HorizontalAlignment.Center;
+            VerticalContentAlignment = VerticalAlignment.Stretch;
+            Margin = new Thickness( 3 );
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
-            NewButtonBackground = new SolidColorBrush( Colors.Transparent );
+            TabPanelBackground = new SolidColorBrush( _backColor );
+            NewButtonBackground = new SolidColorBrush( _backColor );
             TabItemHoverBackground = new SolidColorBrush( _backHover );
             TabItemHoverBorderBrush = new SolidColorBrush( _backHover );
-            TabItemHoverForeground = new SolidColorBrush( Colors.White );
-            TabItemSelectedForeground = new SolidColorBrush( Colors.White );
+            TabItemHoverForeground = new SolidColorBrush( _foreHover );
+            TabItemSelectedForeground = new SolidColorBrush( _foreHover );
             TabItemSelectedBackground = new SolidColorBrush( Colors.SteelBlue );
             TabItemSelectedBorderBrush = new SolidColorBrush( _borderHover );
+            DragMarkerColor = new SolidColorBrush( _backColor );
             CloseButtonType = CloseButtonType.Hide;
         }
 
