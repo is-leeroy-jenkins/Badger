@@ -121,17 +121,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
         private readonly Color _borderColor = new Color( )
@@ -140,17 +129,6 @@ namespace Badger
             R = 0,
             G = 120,
             B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
         };
 
         /// <summary>
@@ -220,17 +198,18 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1350;
+            Width = 1400;
             Height = 750;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Padding = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            BorderThickness = new Thickness( 1 );
-            Title = "Excel Data";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = new Thickness( 1 );
+            Title = "Excel Data";
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

@@ -22,7 +22,7 @@
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last" ImageSource="/LastButton.png" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
                                           Foreground="#006ABDFC" />
-            <local:ToolStripComboBox x:Name="ToolStripComboBox" ToolTip="Select"
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" ToolTip="Select"
                                      BorderBrush="#FF0078D4" Foreground="#FFF8FBFD" Margin="1,1,1,1"
                                      Padding="1,1,1,1" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"

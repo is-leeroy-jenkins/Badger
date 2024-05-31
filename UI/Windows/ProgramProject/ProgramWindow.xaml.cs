@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-29-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-29-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="DocWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="ProgramProjectWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DocWindow.xaml.cs
+//   ProgramProjectWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,14 +48,14 @@ namespace Badger
 
     /// <inheritdoc />
     /// <summary>
-    /// Interaction logic for DocumentWindow.xaml
+    /// Interaction logic for ProgramProjectDialog.xaml
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    public partial class DocWindow : Window
+    public partial class ProgramWindow : Window
     {
         /// <summary>
         /// The back color brush
@@ -93,9 +93,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 20,
-            G = 20,
-            B = 20
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -121,36 +121,14 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
-        private protected Color _borderColor = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
             G = 120,
             B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
         };
 
         /// <summary>
@@ -211,26 +189,28 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DocumentWindow" /> class.
+        /// <see cref="T:Badger.ProgramProjectWindow" /> class.
         /// </summary>
-        public DocWindow( )
+        public ProgramWindow( )
         {
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1350;
+            Width = 1400;
             Height = 750;
+            ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Margin = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
-            Title = "Budget Execution";
+            Title = "Environmental Programs";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -422,7 +402,7 @@ namespace Badger
             try
             {
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
-                _form.Activate( );
+                _form.Show( );
             }
             catch( Exception _ex )
             {
@@ -457,8 +437,8 @@ namespace Badger
         {
             try
             {
-                Close( );
                 OpenMainWindow( );
+                Close( );
             }
             catch( Exception _ex )
             {

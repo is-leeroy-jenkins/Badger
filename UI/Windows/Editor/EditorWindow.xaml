@@ -4,14 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="SqlEditor" x:Class="Badger.EditorWindow" mc:Ignorable="d" Title="SQL Editor"
-        Height="750" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
+        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
         Icon="/UI/Windows/Editor/Application.png">
     <Grid x:Name="EditorGrid">
-        <local:ToolStrip x:Name="Toolbar" Height="42" Margin="3,682,3,3">
+        <local:ToolStrip x:Name="Toolbar" Margin="3,3,3,3" Width="1398" Height="40"
+                         VerticalAlignment="Bottom">
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
-            <local:ToolStripLabel Content="Date &amp; Time" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton"
                                    ImageSource="/UI/Windows/Editor/FirstButton.png" />
             <local:ToolStripButton x:Name="PreviousButton"
@@ -22,7 +23,7 @@
                                    ImageSource="/UI/Windows/Editor/LastButton.png" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
-            <local:ToolStripComboBox x:Name="ToolStripComboBox" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />

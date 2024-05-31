@@ -74,12 +74,15 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Height = 42;
-            Width = 1330;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            Height = 40;
+            Width = 1350;
             GripperVisibility = Visibility.Hidden;
             OverflowButtonVisibility = Visibility.Hidden;
+            HorizontalContentAlignment = HorizontalAlignment.Center;
+            VerticalContentAlignment = VerticalAlignment.Bottom;
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
+            BorderThickness = new Thickness( 0 );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

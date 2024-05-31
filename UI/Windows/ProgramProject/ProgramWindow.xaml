@@ -1,0 +1,57 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        x:Name="ProgramView" x:Class="Badger.ProgramWindow" mc:Ignorable="d"
+        Title="Program Project Data" Height="750" Width="1400" BorderBrush="#FF0078D4"
+        Foreground="#FF6ABDFC" Background="#FF141414" WindowStartupLocation="CenterScreen"
+        Icon="/UI/Windows/ProgramProject/Application.png" Margin="3,3,3,3" Padding="1,1,1,1"
+        BorderThickness="1,1,1,1">
+    <Grid x:Name="ProgramGrid">
+        <local:ToolStrip x:Name="Toolbar" Margin="3,3,3,3" HorizontalContentAlignment="Stretch"
+                         Width="1378" BorderThickness="1,1,1,1"
+                         VerticalAlignment="Bottom">
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" Margin="0,0,0,0" BorderThickness="0,0,0,0"
+                                          Padding="2,0,0,0" HorizontalContentAlignment="Stretch" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                                   ImageSource="/UI/Windows/ProgramProject/FirstButton.png" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                                   ImageSource="/UI/Windows/ProgramProject/PreviousButton.png" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                                   ImageSource="/UI/Windows/ProgramProject/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                                   ImageSource="/UI/Windows/ProgramProject/LastButton.png" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                                   ImageSource="/UI/Windows/ProgramProject/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                                   ImageSource="/UI/Windows/ProgramProject/RefreshButton.png" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                                   ImageSource="/UI/Windows/ProgramProject/EditButton.png" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                                   ImageSource="/UI/Windows/ProgramProject/BackButton.png" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                                   ImageSource="/UI/Windows/ProgramProject/DeleteButton.png" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                                   ImageSource="/UI/Windows/ProgramProject/SaveButton.png" />
+            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
+                                   ImageSource="/UI/Windows/ProgramProject/ExportButton.png" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                                   ImageSource="/UI/Windows/ProgramProject/BrowseButton.png" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu" Padding="1,1,1,1"
+                                   BorderThickness="1,1,1,1" Width="55" Height="35" Margin="3,3,3,3"
+                                   HorizontalAlignment="Center" VerticalContentAlignment="Top"
+                                   ImageSource="/UI/Windows/ProgramProject/MenuButton.png" />
+        </local:ToolStrip>
+    </Grid>
+</Window>

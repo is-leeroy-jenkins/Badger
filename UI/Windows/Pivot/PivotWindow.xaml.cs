@@ -220,18 +220,19 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1350;
+            Width = 1400;
             Height = 750;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             Title = "Pivot Analysis";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

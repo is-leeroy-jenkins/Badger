@@ -42,8 +42,8 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Controls;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.Input;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
@@ -52,7 +52,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroTextBox : SfTextBoxExt
+    public class MetroTextBox : TextBox
     {
         /// <summary>
         /// The back color brush
@@ -176,10 +176,8 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-            DropDownBackground = new SolidColorBrush( _dropColor );
             SelectionBrush = new SolidColorBrush( _selectionColor );
             SelectionTextBrush = new SolidColorBrush( Colors.White );
-            SelectionBackgroundColor = new SolidColorBrush( _selectionColor );
         }
 
         /// <summary>

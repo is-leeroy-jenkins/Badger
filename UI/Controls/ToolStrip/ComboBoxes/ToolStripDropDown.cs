@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="ToolStripComboBox.cs" company="Terry D. Eppler">
+// <copyright file="ToolStripDropDown.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ToolStripComboBox.cs
+//   ToolStripDropDown.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,14 +48,16 @@ namespace Badger
     /// </summary>
     /// <seealso cref="Badger.MetroTextBox" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class ToolStripComboBox : MetroComboBox
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class ToolStripDropDown : MetroDropDown
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripComboBox"/> class.
+        /// <see cref="ToolStripDropDown"/> class.
         /// </summary>
         /// <inheritdoc />
-        public ToolStripComboBox( )
+        public ToolStripDropDown( )
         {
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;

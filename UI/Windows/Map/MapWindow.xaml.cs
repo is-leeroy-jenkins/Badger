@@ -121,17 +121,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
         private protected Color _borderColor = new Color( )
@@ -140,17 +129,6 @@ namespace Badger
             R = 0,
             G = 120,
             B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
         };
 
         /// <summary>
@@ -220,13 +198,14 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1350;
+            Width = 1400;
             Height = 750;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             Title = "GIS Data";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -244,6 +223,7 @@ namespace Badger
         {
             try
             {
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {

@@ -4,50 +4,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="MapView" x:Class="Badger.MapWindow" mc:Ignorable="d" Title=" GIS Data" Height="750"
-        Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
+        Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="12"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="713*" />
-            <ColumnDefinition Width="637*" />
-        </Grid.ColumnDefinitions>
-        <syncfusion:SfMap x:Name="Map" Margin="42,85,10,0" Height="378" VerticalAlignment="Top"
-                          RenderTransformOrigin="0.555,0.503">
+        <syncfusion:SfMap x:Name="Map" Margin="10,85,670,0" RenderTransformOrigin="0.555,0.503"
+                          Height="401" VerticalAlignment="Top">
             <syncfusion:SfMap.Layers>
-                <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="42,0,50,0" Height="351" />
+                <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="265,0,242,0" Height="352"
+                                         RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:MetroChart x:Name="Chart" Grid.Column="1" HorizontalAlignment="Left"
-                          Margin="52,46,0,0" VerticalAlignment="Top" Height="448" Width="528" />
-        <local:ToolStrip x:Name="Toolbar" Height="42" Margin="3,682,3,3" Grid.ColumnSpan="2">
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripLabel Content="Date &amp; Time" />
-            <local:ToolStripButton x:Name="FirstButton"
+        <local:MetroChart x:Name="Chart" Margin="0,85,53,135" HorizontalAlignment="Right"
+                          Width="653" />
+        <local:ToolStrip x:Name="Toolbar" Height="40" Margin="3,0,0,3" VerticalAlignment="Bottom"
+                         BorderThickness="1,1,1,1">
+            <syncfusion:MenuItemSeparator Margin="15,6,0,6" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                                    ImageSource="/UI/Windows/Map/FirstButton.png" />
-            <local:ToolStripButton x:Name="PreviousButton"
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
                                    ImageSource="/UI/Windows/Map/PreviousButton.png" />
-            <local:ToolStripButton x:Name="NextButton" ImageSource="/UI/Windows/Map/NextButton.png" />
-            <local:ToolStripButton x:Name="LastButton" ImageSource="/UI/Windows/Map/LastButton.png" />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripComboBox />
-            <syncfusion:MenuItemSeparator />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                                   ImageSource="/UI/Windows/Map/NextButton.png" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                                   ImageSource="/UI/Windows/Map/LastButton.png" />
+            <syncfusion:MenuItemSeparator Margin="15,6,0,6" />
+            <local:ToolStripDropDown />
+            <syncfusion:MenuItemSeparator Margin="15,6,0,6" />
             <local:ToolStripTextBox />
-            <syncfusion:MenuItemSeparator />
-            <local:ToolStripButton x:Name="LookupButton"
+            <syncfusion:MenuItemSeparator Margin="15,6,0,6" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
                                    ImageSource="/UI/Windows/Map/LookUpButton.png" />
-            <local:ToolStripButton x:Name="RefreshButton"
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
                                    ImageSource="/UI/Windows/Map/RefreshButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ImageSource="/UI/Windows/Map/EditButton.png" />
-            <local:ToolStripButton x:Name="DeleteButton"
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                                   ImageSource="/UI/Windows/Map/EditButton.png" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
                                    ImageSource="/UI/Windows/Map/DeleteButton.png" />
-            <local:ToolStripButton ImageSource="/UI/Windows/Map/BackButton.png" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                                   ImageSource="/UI/Windows/Map/BackButton.png" />
             <local:ToolStripButton x:Name="SaveButton" ImageSource="/UI/Windows/Map/SaveButton.png" />
-            <local:ToolStripButton x:Name="ExportButton"
+            <local:ToolStripButton x:Name="ExportButton" ToolTip="Save"
                                    ImageSource="/UI/Windows/Map/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton"
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                                    ImageSource="/UI/Windows/Map/BrowseButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ImageSource="/UI/Windows/Map/MenuButton.png" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                                   ImageSource="/UI/Windows/Map/MenuButton.png" />
         </local:ToolStrip>
     </Grid>
 </Window>

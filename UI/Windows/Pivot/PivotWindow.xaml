@@ -4,16 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="PivotView" x:Class="Badger.PivotWindow" mc:Ignorable="d" Title="Pivot Data"
-        Height="750" Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
+        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Margin="1,1,1,1"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Pivot/Application.png" MinWidth="200"
         MinHeight="100">
     <Grid>
-        <local:ToolStrip x:Name="Toolbar" Height="42" Margin="3,682,3,3" Padding="1,1,1,1"
+        <local:ToolStrip x:Name="Toolbar" Margin="3,3,3,3" Padding="1,1,1,1"
                          BorderThickness="1,1,1,1" GripperVisibility="Hidden"
-                         OverflowButtonVisibility="Hidden">
+                         OverflowButtonVisibility="Hidden" HorizontalAlignment="Center" Width="1398"
+                         Height="40" VerticalAlignment="Bottom">
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton"
                                    ImageSource="/UI/Windows/Pivot/FirstButton.png" />
@@ -24,13 +25,13 @@
             <local:ToolStripButton x:Name="LastButton"
                                    ImageSource="/UI/Windows/Pivot/LastButton.png" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" />
-            <local:ToolStripComboBox x:Name="ToolStripComboBox" Margin="1,1,1,1" Padding="1,1,1,1" />
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" Margin="1,1,1,1" Padding="1,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" Margin="15,6,0,6" />
             <local:ToolStripButton x:Name="LookupButton"
                                    ImageSource="/UI/Windows/Pivot/LookUpButton.png" />
             <local:ToolStripButton x:Name="RefreshButton"
@@ -52,7 +53,7 @@
         </local:ToolStrip>
         <syncfusion:PivotGridControl x:Name="PivotGrid" AllowSelection="True"
                                      HorizontalAlignment="Left" Height="570" Margin="41,45,0,0" ShowGroupingBar="True"
-                                     ShowSubTotals="True" SortOption="All" VerticalAlignment="Top" Width="1258"
+                                     ShowSubTotals="True" SortOption="All" VerticalAlignment="Top" Width="1323"
                                      BorderBrush="#FF0078D4" Background="#FF282828" CurrentCellBorder="#FFC1B2B2"
                                      FieldListBorderBrush="#FF0078D4" Foreground="#FFA0BDFC"
                                      GroupingBarBackground="#FF4B4B4B" GroupingBarItemBorderBrush="#FF0078D4"

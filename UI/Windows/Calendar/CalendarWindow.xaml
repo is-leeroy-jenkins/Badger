@@ -4,23 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="Calendar" x:Class="Badger.CalendarWindow" mc:Ignorable="d" Title="Fiscal Year Data"
-        Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
+        Height="750" Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1"
         Margin="1,1,1,1">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="673*" />
-            <ColumnDefinition Width="675*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="118*" />
-            <RowDefinition Height="127*" />
-        </Grid.RowDefinitions>
+    <Grid Height="732" VerticalAlignment="Top">
         <syncfusion:SfChart3D x:Name="CalendarChart" Margin="0,72,77,104"
                               RenderTransformOrigin="0.265,0.502" Background="#00000000" BackWallBrush="#FF464646"
                               BottomWallBrush="#FF464646" RightWallBrush="#FF464646" LeftWallBrush="#FF464646"
-                              TopWallBrush="#FF464646" BorderBrush="Transparent" Grid.RowSpan="2"
-                              HorizontalAlignment="Right" Width="825" Padding="0,-1,0,0" Grid.ColumnSpan="2">
+                              TopWallBrush="#FF464646" BorderBrush="Transparent" HorizontalAlignment="Right"
+                              Width="825" Padding="0,-1,0,0" Grid.ColumnSpan="3">
             <syncfusion:SfChart3D.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -31,12 +23,13 @@
             </syncfusion:SfChart3D.RenderTransform>
         </syncfusion:SfChart3D>
         <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" HorizontalAlignment="Left"
-                             Height="220" Margin="55,83,0,0" VerticalAlignment="Top" Width="306" />
-        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Left"
-                             Height="201" Margin="55,51,0,0" VerticalAlignment="Top" Width="306" Grid.Row="1"
+                             Height="220" Margin="55,322,0,0" VerticalAlignment="Top" Width="306" />
+        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" HorizontalAlignment="Right"
+                             Height="201" Margin="0,51,1037,0" VerticalAlignment="Top" Width="306"
                              ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1" />
-        <local:ToolStrip x:Name="Toolbar" Grid.Row="1" Margin="3,329,3,3" Grid.ColumnSpan="2" Padding="1,1,1,1"
-                         BorderThickness="1,1,1,1" Height="42">
+        <local:ToolStrip x:Name="Toolbar" Margin="0,682,10,0" Padding="1,1,1,1"
+                         BorderThickness="1,1,1,1" Height="40" VerticalAlignment="Top"
+                         HorizontalAlignment="Right" Width="1388">
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
             <local:ToolStripLabel Content="Date &amp; Time" />
@@ -50,7 +43,7 @@
                                    ImageSource="/UI/Windows/Calendar/LastButton.png" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
-            <local:ToolStripComboBox x:Name="ToolStripComboBox" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                                           Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
