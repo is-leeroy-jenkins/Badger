@@ -71,6 +71,7 @@
     <None Remove="UI\Windows\Datagrid\PreviousButton.png" />
     <None Remove="UI\Windows\Datagrid\RefreshButton.png" />
     <None Remove="UI\Windows\Datagrid\SaveButton.png" />
+    <None Remove="UI\Windows\Datagrid\Waiting.gif" />
     <None Remove="UI\Windows\Document\Application.png" />
     <None Remove="UI\Windows\Document\BackButton.png" />
     <None Remove="UI\Windows\Document\BrowseButton.png" />
@@ -258,6 +259,7 @@
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
     <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\Waiting.gif" />
     <Resource Include="UI\Windows\Editor\BackButton.png" />
     <Resource Include="UI\Windows\Editor\BrowseButton.png" />
     <Resource Include="UI\Windows\Editor\DeleteButton.png" />

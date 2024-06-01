@@ -2,73 +2,76 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Name="DataView" x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution"
-        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4"
-        Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
-        BorderThickness="1,1,1,1" Margin="1,1,1,0">
-    <Grid Background="#00141400" RenderTransformOrigin="0.786,0.411">
-        <syncfusion:SfDataGrid x:Name="Datagrid" HorizontalAlignment="Left" Height="433"
-                Margin="69,76,0,0" VerticalAlignment="Top" Width="831" HeaderRowHeight="28"
-                BorderBrush="#FF464646" Background="#FF464646" CurrentCellBorderBrush="#FF9CD3FD"
-                SelectionForegroundBrush="White" RowHoverHighlightingBrush="#FF113554"
-                GroupRowSelectionBrush="SteelBlue" RowSelectionBrush="SteelBlue"
-                RenderTransformOrigin="0.5,0.5" AddNewRowPosition="Bottom" AllowDeleting="True"
-                AllowEditing="True" AllowRowHoverHighlighting="True" AllowResizingColumns="True"
-                AllowFiltering="True" ColumnSizer="SizeToHeader" FilterRowPosition="Top"
-                GridCopyOption="IncludeHeaders">
-            <syncfusion:SfDataGrid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform AngleX="-0.301" />
-                    <RotateTransform />
-                    <TranslateTransform X="-0.923" />
-                </TransformGroup>
-            </syncfusion:SfDataGrid.RenderTransform>
-        </syncfusion:SfDataGrid>
-        <local:ToolStrip x:Name="Toolbar" HorizontalAlignment="Center" Width="1398" Height="40"
-                VerticalAlignment="Bottom" Margin="3,3,3,3">
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="DataView"
+        x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution" Height="750"
+        Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF9CD3FD"
+        WindowStartupLocation="CenterScreen" Topmost="True" BorderThickness="1,1,1,1"
+        Margin="1,1,1,0">
+    <Grid Background="#00141400" RenderTransformOrigin="0.786,0.411" Margin="10,0,0,0">
+        <local:ToolStrip x:Name="Toolbar" HorizontalAlignment="Left" Width="1398" Height="40"
+                         VerticalAlignment="Bottom" Margin="0,0,0,3" Grid.ColumnSpan="2">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="100"
-                    Background="{x:Null}" />
+                                  Background="{x:Null}" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/Datagrid/FirstButton.png" Height="35" Margin="3,3,3,3"
-                    Padding="1,1,1,1" />
+                                   ImageSource="/UI/Windows/Datagrid/FirstButton.png" Height="35" Margin="3,3,3,3"
+                                   Padding="1,1,1,1" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/Datagrid/PreviousButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/PreviousButton.png" Height="35" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/Datagrid/NextButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/NextButton.png" Height="35" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/Datagrid/LastButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/LastButton.png" Height="35" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripDropDown x:Name="ToolBarComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="#FFFDFDFD" />
+                                     Foreground="#FFFDFDFD" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripTextBox x:Name="ToolBarTextBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Height="30" />
+                                    Foreground="White" Height="30" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" />
+                                          Foreground="#006ABDFC" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Datagrid/LookUpButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/LookUpButton.png" Height="35" />
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Datagrid/RefreshButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/RefreshButton.png" Height="35" />
             <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="35" />
             <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Datagrid/SaveButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/SaveButton.png" Height="35" />
             <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo"
-                    ImageSource="/UI/Windows/Datagrid/BackButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/BackButton.png" Height="35" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Datagrid/BrowseButton.png" Height="35" />
+                                   ImageSource="/UI/Windows/Datagrid/BrowseButton.png" Height="35" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Datagrid/MenuButton.png" />
+                                   ImageSource="/UI/Windows/Datagrid/MenuButton.png" />
         </local:ToolStrip>
+        <mah:MetroTabControl Margin="0,10,10,48">
+            <TabItem Header="TabItem" Background="#FF141414" BorderBrush="#FF141414">
+                <Grid Background="#FF141414">
+                    <local:MetroDataGrid HorizontalAlignment="Left" Height="375" Margin="55,95,0,0"
+                                         VerticalAlignment="Top" Width="901" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FF141014" Margin="29,0,2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="1337*" />
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Left" Height="544" Margin="314,65,0,0"
+                           VerticalAlignment="Top" Width="700"
+                           Source="/UI/Windows/Datagrid/Waiting.gif" Grid.Column="1" />
+                </Grid>
+            </TabItem>
+        </mah:MetroTabControl>
     </Grid>
 </Window>

@@ -49,6 +49,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroTabControl : TabControlExt
     {
         /// <summary>
@@ -87,9 +89,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -168,16 +170,16 @@ namespace Badger
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             TabPanelBackground = new SolidColorBrush( _backColor );
             NewButtonBackground = new SolidColorBrush( _backColor );
-            TabItemHoverBackground = new SolidColorBrush( _backHover );
-            TabItemHoverBorderBrush = new SolidColorBrush( _backHover );
-            TabItemHoverForeground = new SolidColorBrush( _foreHover );
-            TabItemSelectedForeground = new SolidColorBrush( _foreHover );
-            TabItemSelectedBackground = new SolidColorBrush( Colors.SteelBlue );
-            TabItemSelectedBorderBrush = new SolidColorBrush( _borderHover );
+            TabItemHoverBackground = new SolidColorBrush( _backColor );
+            TabItemHoverBorderBrush = new SolidColorBrush( _backColor );
+            TabItemHoverForeground = new SolidColorBrush( _backColor );
+            TabItemSelectedForeground = new SolidColorBrush( _backColor );
+            TabItemSelectedBackground = new SolidColorBrush( _backColor );
+            TabItemSelectedBorderBrush = new SolidColorBrush( _backColor );
             DragMarkerColor = new SolidColorBrush( _backColor );
             CloseButtonType = CloseButtonType.Hide;
         }
