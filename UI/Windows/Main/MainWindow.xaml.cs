@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-30-2024
+//     Created:                 06-02-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-30-2024
+//     Last Modified On:        06-02-2024
 // ******************************************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -17,12 +17,24 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
+    <IsPublishable>False</IsPublishable>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Misc\**" />
+    <EmbeddedResource Remove="Misc\**" />
+    <None Remove="Misc\**" />
+    <Page Remove="Misc\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="ItCodeGuidance.Designer.cs" />
@@ -207,28 +219,53 @@
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-    <PackageReference Include="Notifications.Wpf" Version="0.1.1" />
     <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SQLite" Version="3.13.0" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Calculate.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.ExcelChartToImageConverter.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Gantt.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfInput.WPF" Version="21.1.41" />
+    <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfSpreadsheet.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfSpreadsheetHelper.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Themes.Metro.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Office2010Black.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Themes.Office2016DarkGray.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office2013DarkGray.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office2019Black.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Office2019DarkGray.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Office365.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
@@ -236,6 +273,8 @@
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
+    <PackageReference Include="ToastNotifications" Version="2.5.1" />
+    <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
     <PackageReference Include="WPF-UI" Version="3.0.4" />
     <PackageReference Include="Wpf.Themes.ExpressionDark" Version="1.1.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
@@ -252,42 +291,6 @@
   <ItemGroup>
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSkinManager.WPF">
-      <HintPath>Libraries\Syncfusion.SfSkinManager.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.FluentDark.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.FluentDark.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.MaterialDarkBlue.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.MaterialDarkBlue.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Metro.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Metro.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2010Black.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office2010Black.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2013DarkGray.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office2013DarkGray.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2016DarkGray.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office2016DarkGray.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2019Black.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office2019Black.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2019DarkGray.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office2019DarkGray.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office365.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Office365.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Windows11Dark.WPF">
-      <HintPath>Libraries\Syncfusion.Themes.Windows11Dark.WPF.dll</HintPath>
     </Reference>
   </ItemGroup>
 
