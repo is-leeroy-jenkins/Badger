@@ -215,15 +215,14 @@ namespace Badger
             // Basic Properties
             Width = 178;
             Height = 378;
-            WindowStyle = WindowStyle.None;
-            ResizeMode = ResizeMode.NoResize;
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Margin = new Thickness( 1 );
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
