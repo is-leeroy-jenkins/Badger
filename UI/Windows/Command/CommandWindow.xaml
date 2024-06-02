@@ -1,0 +1,51 @@
+﻿<Window x:Name="MenuView" x:Class="Badger.CommandWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger" mc:Ignorable="d" Title="Menu" Height="273" Width="238"
+        Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1" ResizeMode="NoResize"
+        Topmost="True" Foreground="#FFA0BDFC" Icon="/UI/Controls/CommandWindow/MenuDialog.png"
+        BorderThickness="1,1,1,1">
+    <Grid Height="470" VerticalAlignment="Top" Margin="4,4,0,0" HorizontalAlignment="Left"
+          Width="225">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52.222" />
+            <RowDefinition Height="52.222" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <local:MetroTile x:Name="FileButton" Height="35" Header="" Margin="30,0,0,0"
+                         Title="    File Browser" VerticalAlignment="Center" BorderBrush="#FF414141"
+                         HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="FolderButton" Height="35" Header="" Margin="30,0,0,0"
+                         Title="    Folder Browser" VerticalAlignment="Center" BorderBrush="#FF414141"
+                         Grid.Row="1" HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="ControlPanelButton" Height="35" Header="" Margin="30,5,0,0"
+                         Title="    Control Panel" VerticalAlignment="Top" BorderBrush="#FF414141"
+                         Grid.Row="2" HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="TaskManagerButton" Height="35" Header="" Margin="30,0,0,0"
+                         Title="    Task Manager" VerticalAlignment="Center" BorderBrush="#FF414141"
+                         Grid.Row="3" HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="CalculatorButton" Height="35" Header="" Margin="30,6,0,0"
+                         Title="     Calculator" VerticalAlignment="Top" BorderBrush="#FF414141" Grid.Row="4"
+                         HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="CalendarButton" Height="35" Header="" Margin="28,5,0,0"
+                         Title="    Calendar" VerticalAlignment="Top" BorderBrush="#FF414141" Grid.Row="5"
+                         HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="ChromeButton" Height="35" Header="" Margin="30,0,0,0"
+                         Title="    Chrome Browser" VerticalAlignment="Center" BorderBrush="#FF414141"
+                         Grid.Row="6" HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="EdgeButton" Height="35" Header="" Margin="30,6,0,0"
+                         Title="    Edge Browser" VerticalAlignment="Top" BorderBrush="#FF414141"
+                         Grid.Row="7" HorizontalAlignment="Left" Width="165" />
+        <local:MetroTile x:Name="FirefoxButton" Height="35" Header="" Title="    Firefox Browser"
+                         VerticalAlignment="Top" BorderBrush="#FF414141" Grid.Row="8"
+                         HorizontalAlignment="Left" Width="165" Margin="30,7,0,0" />
+    </Grid>
+</Window>

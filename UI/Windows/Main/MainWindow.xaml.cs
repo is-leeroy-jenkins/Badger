@@ -217,7 +217,6 @@ namespace Badger
 
             // Event Wiring
             Loaded += OnLoaded;
-            MouseRightButtonDown += OnRightClick;
         }
 
         /// <summary>
@@ -1063,30 +1062,6 @@ namespace Badger
             try
             {
                 OpenEmailWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnRightClick( object sender, MouseButtonEventArgs e )
-        {
-            try
-            {
-                var _point = e.GetPosition( this );
-                var _menu = new ContextMenu
-                {
-                    Owner = this
-                };
-
-                _menu.ShowDialog( );
             }
             catch( Exception _ex )
             {

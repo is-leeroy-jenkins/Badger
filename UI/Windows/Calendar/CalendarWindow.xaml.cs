@@ -221,7 +221,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1350;
+            Width = 1400;
             Height = 750;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );

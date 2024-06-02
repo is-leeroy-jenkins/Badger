@@ -1,28 +1,24 @@
-﻿<Window x:Class="Badger.MessageWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Title="Message" Height="250" Width="560" Background="#FF01334E" BorderBrush="#FFA0BDFC" BorderThickness="1,1,1,1"
-        Icon="/Resources/Assets/DialogImages/SplashNotification.png" WindowStartupLocation="CenterScreen"
-        Foreground="#FFFDFEFF" WindowStyle="None">
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Badger" x:Class="Badger.MessageWindow" mc:Ignorable="d"
+        Title="Message" Height="250" Width="560" Background="#FF01334E" BorderBrush="#FFA0BDFC"
+        BorderThickness="1,1,1,1" WindowStartupLocation="CenterScreen" Foreground="#FFFDFEFF"
+        WindowStyle="None" Icon="/UI/Windows/Message/SplashNotification.png">
     <Grid x:Name="MessageGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="547*" />
-            <ColumnDefinition Width="201*" />
-        </Grid.ColumnDefinitions>
         <Image x:Name="ImageBox" HorizontalAlignment="Left" Height="18" Margin="3,3,0,0"
-               VerticalAlignment="Top" Width="20"
-               Source="/Resources/Assets/DialogImages/SplashNotification.png" />
-        <RichTextBox x:Name="MessageTextBox" Margin="59,78,66,96" Background="Transparent"
-                     Foreground="White" BorderBrush="#00ABADB3" BorderThickness="0,0,0,0"
-                     Grid.ColumnSpan="2">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox" />
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <Label x:Name="Header" Content="Label" HorizontalAlignment="Left" Margin="59,3,0,0" VerticalAlignment="Top"
-               Grid.ColumnSpan="2" Width="537" Foreground="#FFFFFEFE" />
+                VerticalAlignment="Top" Width="20"
+                Source="/UI/Windows/Message/SplashNotification.png" />
+        <Label x:Name="Title" Content="Message" Margin="38,3,0,0" VerticalAlignment="Top"
+                Foreground="#FFFFFEFE" HorizontalAlignment="Left" Width="352" Height="17"
+                Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="MessageText" Content="Message text goes here."
+                HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" Height="125"
+                Width="412" Foreground="#FFFBFDFD" />
+        <local:MetroLabel x:Name="StatusLabel" Content="Date &amp; Time" HorizontalAlignment="Left"
+                Margin="405,0,0,0" VerticalAlignment="Top" Width="145" Height="20"
+                Foreground="#FFF7F9F9" Padding="1,1,1,1" FontSize="9"
+                HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
     </Grid>
 </Window>

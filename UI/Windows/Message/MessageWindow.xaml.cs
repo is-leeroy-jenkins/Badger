@@ -179,12 +179,6 @@ namespace Badger
         /// </summary>
         private protected string _message;
 
-        /// <summary>
-        /// The icon path
-        /// </summary>
-        private protected string
-            _iconPath = @"Resources\Assets\DialogImages\SplashNotification.png";
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -199,13 +193,13 @@ namespace Badger
             Height = 250;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            ImageBox.Source = new BitmapImage( new Uri( _iconPath, UriKind.Relative ) );
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+            Topmost = true;
             ToolTip = "click to clear";
 
             // Event Wiring
@@ -222,6 +216,22 @@ namespace Badger
         public MessageWindow( string message )
             : this( )
         {
+            Title.Content = "Message";
+            MessageText.Content = message;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.MessageWindow" /> class.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="message">The message.</param>
+        public MessageWindow( string title, string message )
+            : this( )
+        {
+            Title.Content = title;
+            MessageText.Content = message;
         }
 
         /// <summary>

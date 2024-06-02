@@ -56,7 +56,6 @@
     <None Remove="FolderItem.png" />
     <None Remove="SplashNotification.png" />
     <None Remove="TaskManagerItem.png" />
-    <None Remove="UI\Controls\ContextMenu\MenuDialog.png" />
     <None Remove="UI\Windows\Calendar\Application.png" />
     <None Remove="UI\Windows\Calendar\BackButton.png" />
     <None Remove="UI\Windows\Calendar\BrowseButton.png" />
@@ -124,6 +123,8 @@
     <None Remove="UI\Windows\Editor\PreviousButton.png" />
     <None Remove="UI\Windows\Editor\RefreshButton.png" />
     <None Remove="UI\Windows\Editor\SaveButton.png" />
+    <None Remove="UI\Windows\Email\Application.png" />
+    <None Remove="UI\Windows\Error\SplashNotification.png" />
     <None Remove="UI\Windows\Excel\Application.png" />
     <None Remove="UI\Windows\Excel\BackButton.png" />
     <None Remove="UI\Windows\Excel\BrowseButton.png" />
@@ -167,6 +168,7 @@
     <None Remove="UI\Windows\Map\PreviousButton.png" />
     <None Remove="UI\Windows\Map\RefreshButton.png" />
     <None Remove="UI\Windows\Map\SaveButton.png" />
+    <None Remove="UI\Windows\Message\SplashNotification.png" />
     <None Remove="UI\Windows\Pivot\Application.png" />
     <None Remove="UI\Windows\Pivot\BackButton.png" />
     <None Remove="UI\Windows\Pivot\BrowseButton.png" />
@@ -231,15 +233,21 @@
     <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.OlapGrid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.OlapShared.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.OCR.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfBarcode.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfGauge.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
@@ -247,6 +255,7 @@
     <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfRadialMenu.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
@@ -258,6 +267,7 @@
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Metro.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Office2010Black.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Office2013DarkGray.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Office2019Black.WPF" Version="24.1.41" />
@@ -295,18 +305,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="UI\Controls\ContextMenu\Application.png" />
-    <Resource Include="UI\Controls\ContextMenu\CalculatorItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\CalendarItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\ChromeItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\ControlPanelItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\EdgeItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\FileItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\FirefoxItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\FolderItem.png" />
-    <Resource Include="UI\Controls\ContextMenu\MenuDialog.png" />
-    <Resource Include="UI\Controls\ContextMenu\SplashNotification.png" />
-    <Resource Include="UI\Controls\ContextMenu\TaskManagerItem.png" />
+    <Resource Include="UI\Windows\Command\Application.png" />
+    <Resource Include="UI\Windows\Command\CalculatorItem.png" />
+    <Resource Include="UI\Windows\Command\CalendarItem.png" />
+    <Resource Include="UI\Windows\Command\ChromeItem.png" />
+    <Resource Include="UI\Windows\Command\ControlPanelItem.png" />
+    <Resource Include="UI\Windows\Command\EdgeItem.png" />
+    <Resource Include="UI\Windows\Command\FileItem.png" />
+    <Resource Include="UI\Windows\Command\FirefoxItem.png" />
+    <Resource Include="UI\Windows\Command\FolderItem.png" />
+    <Resource Include="UI\Windows\Command\MenuDialog.png" />
+    <Resource Include="UI\Windows\Command\SplashNotification.png" />
+    <Resource Include="UI\Windows\Command\TaskManagerItem.png" />
     <Resource Include="UI\Windows\Calendar\BackButton.png" />
     <Resource Include="UI\Windows\Calendar\BrowseButton.png" />
     <Resource Include="UI\Windows\Calendar\DeleteButton.png" />
@@ -387,6 +397,7 @@
     <Resource Include="UI\Windows\Document\RefreshButton.png" />
     <Resource Include="UI\Windows\Document\SaveButton.png" />
     <Resource Include="UI\Windows\Editor\Application.png" />
+    <Resource Include="UI\Windows\Error\SplashNotification.png" />
     <Resource Include="UI\Windows\Excel\Application.png" />
     <Resource Include="UI\Windows\Excel\BackButton.png" />
     <Resource Include="UI\Windows\Excel\BrowseButton.png" />
@@ -430,6 +441,7 @@
     <Resource Include="UI\Windows\Map\PreviousButton.png" />
     <Resource Include="UI\Windows\Map\RefreshButton.png" />
     <Resource Include="UI\Windows\Map\SaveButton.png" />
+    <Resource Include="UI\Windows\Message\SplashNotification.png" />
     <Resource Include="UI\Windows\Notification\SplashNotification.png" />
     <Resource Include="UI\Windows\Pivot\Application.png" />
     <Resource Include="UI\Windows\Pivot\BackButton.png" />

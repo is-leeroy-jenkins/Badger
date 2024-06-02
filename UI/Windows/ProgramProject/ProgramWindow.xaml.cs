@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-31-2024
+//     Created:                 06-02-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2024
+//     Last Modified On:        06-02-2024
 // ******************************************************************************************
 // <copyright file="ProgramWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -59,44 +59,14 @@ namespace Badger
     public partial class ProgramWindow : Window
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>

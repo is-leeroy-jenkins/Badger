@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2024
+//     Created:                 06-02-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2024
+//     Last Modified On:        06-02-2024
 // ******************************************************************************************
-// <copyright file="ContextMenu.xaml.cs" company="Terry D. Eppler">
+// <copyright file="CommandWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ContextMenu.xaml.cs
+//   CommandWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,7 +48,7 @@ namespace Badger
 
     /// <inheritdoc />
     /// <summary>
-    /// Interaction logic for ContextMenu.xaml
+    /// Interaction logic for CommandWindow.xaml
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -56,7 +56,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public partial class ContextMenu : Window
+    public partial class CommandWindow : Window
     {
         /// <summary>
         /// The back color
@@ -207,16 +207,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ContextMenu" /> class.
         /// </summary>
-        public ContextMenu( )
+        public CommandWindow( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 178;
-            Height = 378;
             WindowStyle = WindowStyle.SingleBorderWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
@@ -260,7 +258,7 @@ namespace Badger
                     TaskManagerButton,
                     CalculatorButton,
                     CalendarButton,
-                    ChromButton,
+                    ChromeButton,
                     EdgeButton,
                     FirefoxButton
                 };
@@ -311,7 +309,7 @@ namespace Badger
                     TaskManagerButton,
                     CalculatorButton,
                     CalendarButton,
-                    ChromButton,
+                    ChromeButton,
                     EdgeButton,
                     FirefoxButton
                 };
