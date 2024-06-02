@@ -60,75 +60,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class HolidayFactory : FederalHoliday
     {
-        /// <summary>
-        /// The arguments
-        /// </summary>
-        private IDictionary<string, object> _map;
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        private Source _source;
-
-        /// <summary>
-        /// The record
-        /// </summary>
-        private DataRow _record;
-        
-        /// <summary>
-        /// Gets or sets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public IDictionary<string, object> Map
-        {
-            get
-            {
-                return _map;
-            }
-            private protected set
-            {
-                _map = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private protected set
-            {
-                _source = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record
-        {
-            get
-            {
-                return _record;
-            }
-            private protected set
-            {
-                _record = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -137,12 +68,12 @@ namespace Badger
         /// </summary>
         public HolidayFactory( )
         {
-            _source = Source.FederalHolidays;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HolidayFactory" />
+        /// <see cref="T:Badger.HolidayFactory" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
@@ -159,7 +90,7 @@ namespace Badger
             _columbusDay = DateOnly.Parse( dataRow[ "Columbus" ].ToString( ) );
             _thanksgivingDay = DateOnly.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
             _christmasDay = DateOnly.Parse( dataRow[ "Christmas" ].ToString( ) );
-            _map = Record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <summary>

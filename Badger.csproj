@@ -183,20 +183,20 @@
     <None Remove="UI\Windows\Pivot\PreviousButton.png" />
     <None Remove="UI\Windows\Pivot\RefreshButton.png" />
     <None Remove="UI\Windows\Pivot\SaveButton.png" />
-    <None Remove="UI\Windows\ProgramProject\Application.png" />
-    <None Remove="UI\Windows\ProgramProject\BackButton.png" />
-    <None Remove="UI\Windows\ProgramProject\BrowseButton.png" />
-    <None Remove="UI\Windows\ProgramProject\DeleteButton.png" />
-    <None Remove="UI\Windows\ProgramProject\EditButton.png" />
-    <None Remove="UI\Windows\ProgramProject\ExportButton.png" />
-    <None Remove="UI\Windows\ProgramProject\FirstButton.png" />
-    <None Remove="UI\Windows\ProgramProject\LastButton.png" />
-    <None Remove="UI\Windows\ProgramProject\LookUpButton.png" />
-    <None Remove="UI\Windows\ProgramProject\MenuButton.png" />
-    <None Remove="UI\Windows\ProgramProject\NextButton.png" />
-    <None Remove="UI\Windows\ProgramProject\PreviousButton.png" />
-    <None Remove="UI\Windows\ProgramProject\RefreshButton.png" />
-    <None Remove="UI\Windows\ProgramProject\SaveButton.png" />
+    <None Remove="UI\Windows\Program\Application.png" />
+    <None Remove="UI\Windows\Program\BackButton.png" />
+    <None Remove="UI\Windows\Program\BrowseButton.png" />
+    <None Remove="UI\Windows\Program\DeleteButton.png" />
+    <None Remove="UI\Windows\Program\EditButton.png" />
+    <None Remove="UI\Windows\Program\ExportButton.png" />
+    <None Remove="UI\Windows\Program\FirstButton.png" />
+    <None Remove="UI\Windows\Program\LastButton.png" />
+    <None Remove="UI\Windows\Program\LookUpButton.png" />
+    <None Remove="UI\Windows\Program\MenuButton.png" />
+    <None Remove="UI\Windows\Program\NextButton.png" />
+    <None Remove="UI\Windows\Program\PreviousButton.png" />
+    <None Remove="UI\Windows\Program\RefreshButton.png" />
+    <None Remove="UI\Windows\Program\SaveButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -457,21 +457,21 @@
     <Resource Include="UI\Windows\Pivot\PreviousButton.png" />
     <Resource Include="UI\Windows\Pivot\RefreshButton.png" />
     <Resource Include="UI\Windows\Pivot\SaveButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\Application.png" />
-    <Resource Include="UI\Windows\ProgramProject\AppropriationTile.png" />
-    <Resource Include="UI\Windows\ProgramProject\BackButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\BrowseButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\DeleteButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\EditButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\ExportButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\FirstButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\LastButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\LookUpButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\MenuButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\NextButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\PreviousButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\RefreshButton.png" />
-    <Resource Include="UI\Windows\ProgramProject\SaveButton.png" />
+    <Resource Include="UI\Windows\Program\Application.png" />
+    <Resource Include="UI\Windows\Program\AppropriationTile.png" />
+    <Resource Include="UI\Windows\Program\BackButton.png" />
+    <Resource Include="UI\Windows\Program\BrowseButton.png" />
+    <Resource Include="UI\Windows\Program\DeleteButton.png" />
+    <Resource Include="UI\Windows\Program\EditButton.png" />
+    <Resource Include="UI\Windows\Program\ExportButton.png" />
+    <Resource Include="UI\Windows\Program\FirstButton.png" />
+    <Resource Include="UI\Windows\Program\LastButton.png" />
+    <Resource Include="UI\Windows\Program\LookUpButton.png" />
+    <Resource Include="UI\Windows\Program\MenuButton.png" />
+    <Resource Include="UI\Windows\Program\NextButton.png" />
+    <Resource Include="UI\Windows\Program\PreviousButton.png" />
+    <Resource Include="UI\Windows\Program\RefreshButton.png" />
+    <Resource Include="UI\Windows\Program\SaveButton.png" />
     <Resource Include="UI\Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
