@@ -33,6 +33,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Application.png" />
+    <None Remove="CalculatorItem.png" />
+    <None Remove="CalendarItem.png" />
+    <None Remove="ChromeItem.png" />
+    <None Remove="ControlPanelItem.png" />
+    <None Remove="EdgeItem.png" />
+    <None Remove="FileItem.png" />
+    <None Remove="FirefoxItem.png" />
+    <None Remove="FolderItem.png" />
+    <None Remove="SplashNotification.png" />
+    <None Remove="TaskManagerItem.png" />
+    <None Remove="UI\Controls\ContextMenu\MenuDialog.png" />
     <None Remove="UI\Windows\Calendar\Application.png" />
     <None Remove="UI\Windows\Calendar\BackButton.png" />
     <None Remove="UI\Windows\Calendar\BrowseButton.png" />
@@ -241,9 +253,57 @@
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF">
+      <HintPath>Libraries\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.FluentDark.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.FluentDark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDarkBlue.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.MaterialDarkBlue.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Metro.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Metro.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2010Black.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office2010Black.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2013DarkGray.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office2013DarkGray.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2016DarkGray.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office2016DarkGray.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Black.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office2019Black.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019DarkGray.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office2019DarkGray.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office365.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Office365.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Windows11Dark.WPF">
+      <HintPath>Libraries\Syncfusion.Themes.Windows11Dark.WPF.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="UI\Controls\ContextMenu\Application.png" />
+    <Resource Include="UI\Controls\ContextMenu\CalculatorItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\CalendarItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\ChromeItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\ControlPanelItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\EdgeItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\FileItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\FirefoxItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\FolderItem.png" />
+    <Resource Include="UI\Controls\ContextMenu\MenuDialog.png" />
+    <Resource Include="UI\Controls\ContextMenu\SplashNotification.png" />
+    <Resource Include="UI\Controls\ContextMenu\TaskManagerItem.png" />
     <Resource Include="UI\Windows\Calendar\BackButton.png" />
     <Resource Include="UI\Windows\Calendar\BrowseButton.png" />
     <Resource Include="UI\Windows\Calendar\DeleteButton.png" />

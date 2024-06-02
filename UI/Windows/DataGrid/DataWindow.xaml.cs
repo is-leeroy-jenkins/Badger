@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-29-2024
+//     Created:                 06-01-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-29-2024
+//     Last Modified On:        06-01-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -225,13 +225,12 @@ namespace Badger
             Height = 750;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
+            Padding = new Thickness( 1 );
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Data View";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

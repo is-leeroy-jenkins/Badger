@@ -206,12 +206,10 @@ namespace Badger
             FontSize = 12d;
             WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );
-            Margin = new Thickness( 3 );
+            Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Title = "Environmental Programs";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

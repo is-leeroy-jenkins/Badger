@@ -9,57 +9,42 @@
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Pivot/Application.png" MinWidth="200"
         MinHeight="100">
     <Grid>
-        <local:ToolStrip x:Name="Toolbar" Margin="3,3,3,3" Padding="1,1,1,1"
-                         BorderThickness="1,1,1,1" GripperVisibility="Hidden"
-                         OverflowButtonVisibility="Hidden" HorizontalAlignment="Center" Width="1398"
-                         Height="40" VerticalAlignment="Bottom">
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
-            <local:ToolStripButton x:Name="FirstButton"
-                                   ImageSource="/UI/Windows/Pivot/FirstButton.png" />
-            <local:ToolStripButton x:Name="PreviousButton"
-                                   ImageSource="/UI/Windows/Pivot/PreviousButton.png" />
-            <local:ToolStripButton x:Name="NextButton"
-                                   ImageSource="/UI/Windows/Pivot/NextButton.png" />
-            <local:ToolStripButton x:Name="LastButton"
-                                   ImageSource="/UI/Windows/Pivot/LastButton.png" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" Margin="1,1,1,1" Padding="1,1,1,1" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" Margin="15,6,0,6" />
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,664,0,0" Height="40"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
+            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                    ImageSource="/UI/Windows/Chart/PreviousButton.png" Height="30" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                    ImageSource="/UI/Windows/Chart/NextButton.png" Height="30" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                    ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
+                    Foreground="White" Margin="3,0,3,0" Width="175" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                                          Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripButton x:Name="LookupButton"
-                                   ImageSource="/UI/Windows/Pivot/LookUpButton.png" />
-            <local:ToolStripButton x:Name="RefreshButton"
-                                   ImageSource="/UI/Windows/Pivot/RefreshButton.png" />
-            <local:ToolStripButton x:Name="EditButton"
-                                   ImageSource="/UI/Windows/Pivot/EditButton.png" />
-            <local:ToolStripButton x:Name="DeleteButton"
-                                   ImageSource="/UI/Windows/Pivot/DeleteButton.png" />
-            <local:ToolStripButton x:Name="UndoButton"
-                                   ImageSource="/UI/Windows/Pivot/BackButton.png" />
-            <local:ToolStripButton x:Name="SaveButton"
-                                   ImageSource="/UI/Windows/Pivot/SaveButton.png" />
-            <local:ToolStripButton x:Name="ExportButton"
-                                   ImageSource="/UI/Windows/Pivot/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton"
-                                   ImageSource="/UI/Windows/Pivot/BrowseButton.png" />
-            <local:ToolStripButton x:Name="MenuButton"
-                                   ImageSource="/UI/Windows/Pivot/MenuButton.png" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                    ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                    ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                    ImageSource="/UI/Windows/Chart/EditButton.png" Height="30" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                    ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                    ImageSource="/UI/Windows/Chart/SaveButton.png" Height="30" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                    ImageSource="/UI/Windows/Chart/DeleteButton.png" Height="30" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                    ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                    ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <syncfusion:PivotGridControl x:Name="PivotGrid" AllowSelection="True"
-                                     HorizontalAlignment="Left" Height="570" Margin="41,45,0,0" ShowGroupingBar="True"
-                                     ShowSubTotals="True" SortOption="All" VerticalAlignment="Top" Width="1323"
-                                     BorderBrush="#FF0078D4" Background="#FF282828" CurrentCellBorder="#FFC1B2B2"
-                                     FieldListBorderBrush="#FF0078D4" Foreground="#FFA0BDFC"
-                                     GroupingBarBackground="#FF4B4B4B" GroupingBarItemBorderBrush="#FF0078D4"
-                                     GroupingBarItemBackground="#FF2D2D2D" GroupingButtonHoverBackgroundBrush="#FF183159"
-                                     GroupingButtonCheckedForeground="White" GroupingBarItemForeground="#FFA0BDFC"
-                                     GroupingButtonHoverBorderBrush="#FFA0BDFC" GroupingButtonHoverForeground="#FFF7F6F6"
-                                     Padding="1,0,1,1" FontSize="12" BorderThickness="1,1,1,1" ToolTipEnabled="True" />
     </Grid>
 </Window>

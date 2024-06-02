@@ -12,50 +12,6 @@
         Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1">
     <Grid x:Name="ProgramGrid" RenderTransformOrigin="0.55,0.35" Height="732"
             VerticalAlignment="Top">
-        <local:ToolStrip x:Name="Toolbar" Margin="0,680,0,3" HorizontalContentAlignment="Stretch"
-                BorderThickness="1,1,1,1" HorizontalAlignment="Center" Width="1398"
-                Padding="1,1,1,1">
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="0,0,0,0" BorderThickness="0,0,0,0"
-                    Padding="2,0,0,0" HorizontalContentAlignment="Stretch" />
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
-            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/ProgramProject/FirstButton.png" />
-            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/ProgramProject/PreviousButton.png" />
-            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/ProgramProject/NextButton.png" />
-            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/ProgramProject/LastButton.png" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="15,6,0,6" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/ProgramProject/LookUpButton.png" />
-            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/ProgramProject/RefreshButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/ProgramProject/EditButton.png" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/ProgramProject/BackButton.png" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/ProgramProject/DeleteButton.png" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/ProgramProject/SaveButton.png" />
-            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
-                    ImageSource="/UI/Windows/ProgramProject/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/ProgramProject/BrowseButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu" Padding="1,1,1,1"
-                    BorderThickness="1,1,1,1" Width="55" Height="35" Margin="3,3,3,3"
-                    HorizontalAlignment="Center" VerticalContentAlignment="Top"
-                    ImageSource="/UI/Windows/ProgramProject/MenuButton.png" />
-        </local:ToolStrip>
         <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="383,293,0,0"
                 VerticalAlignment="Top" Height="30" Foreground="#FFBACFFF" Width="124" />
         <ui:HyperlinkButton Content="HyperlinkButton" Margin="228,413,0,0" VerticalAlignment="Top"
@@ -70,5 +26,42 @@
                     Height="20" />
         </syncfusion:SfTextInputLayout>
         <mah:MetroHeader Header="MetroHeader" Margin="902,198,264,366" />
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,664,0,0" Height="40"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
+            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                    ImageSource="/UI/Windows/Chart/PreviousButton.png" Height="30" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                    ImageSource="/UI/Windows/Chart/NextButton.png" Height="30" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                    ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
+                    Foreground="White" Margin="3,0,3,0" Width="175" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                    ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                    ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                    ImageSource="/UI/Windows/Chart/EditButton.png" Height="30" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                    ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                    ImageSource="/UI/Windows/Chart/SaveButton.png" Height="30" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                    ImageSource="/UI/Windows/Chart/DeleteButton.png" Height="30" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                    ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                    ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
+        </local:ToolStrip>
     </Grid>
 </Window>

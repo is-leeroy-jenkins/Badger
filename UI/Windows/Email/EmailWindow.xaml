@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Class="Badger.EmailWindow" mc:Ignorable="d" Title="Email Messages" Height="750"
         Width="1350" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FFA0BDFC"
-        Margin="3,3,3,3" Padding="1,1,1,1" Icon="/Application.png"
+        Margin="3,3,3,3" Padding="1,1,1,1" Icon="/UI/Controls/ContextMenu/Application.png"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
     <Grid x:Name="EmailGrid">
         <local:ToolStrip x:Name="Toolbar" Margin="3,677,3,3" Height="45" Padding="1,1,1,1"

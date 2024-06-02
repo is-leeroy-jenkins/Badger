@@ -61,6 +61,8 @@ namespace Badger
         {
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
+            Height = 30;
+            Width = 150;
         }
     }
 }

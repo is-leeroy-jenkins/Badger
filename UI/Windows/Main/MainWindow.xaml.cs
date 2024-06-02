@@ -46,6 +46,7 @@ namespace Badger
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Input;
     using System.Windows.Media;
 
     /// <inheritdoc />
@@ -59,36 +60,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
         /// <summary>
         /// The back color
         /// </summary>
@@ -235,6 +206,7 @@ namespace Badger
             WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
+            Margin = new Thickness( 1 );
             Title = "Budget Execution";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -245,6 +217,7 @@ namespace Badger
 
             // Event Wiring
             Loaded += OnLoaded;
+            MouseRightButtonDown += OnRightClick;
         }
 
         /// <summary>
@@ -1090,6 +1063,30 @@ namespace Badger
             try
             {
                 OpenEmailWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseButtonEventArgs e )
+        {
+            try
+            {
+                var _point = e.GetPosition( this );
+                var _menu = new ContextMenu
+                {
+                    Owner = this
+                };
+
+                _menu.ShowDialog( );
             }
             catch( Exception _ex )
             {

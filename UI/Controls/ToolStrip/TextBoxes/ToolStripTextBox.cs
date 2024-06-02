@@ -41,6 +41,7 @@
 namespace Badger
 {
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Media;
 
     /// <summary>
     /// 
@@ -59,6 +60,8 @@ namespace Badger
         public ToolStripTextBox( )
             : base( )
         {
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
             Height = 30;
             Width = 200;
         }

@@ -43,46 +43,16 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media;
-    using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroTabControl : TabControlExt
+    public class MetroTabControl : TabControl
     {
-        /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
         /// <summary>
         /// The back color
         /// </summary>
@@ -166,22 +136,12 @@ namespace Badger
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Stretch;
-            Margin = new Thickness( 3 );
+            Margin = new Thickness( 1 );
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            TabPanelBackground = new SolidColorBrush( _backColor );
-            NewButtonBackground = new SolidColorBrush( _backColor );
-            TabItemHoverBackground = new SolidColorBrush( _backColor );
-            TabItemHoverBorderBrush = new SolidColorBrush( _backColor );
-            TabItemHoverForeground = new SolidColorBrush( _backColor );
-            TabItemSelectedForeground = new SolidColorBrush( _backColor );
-            TabItemSelectedBackground = new SolidColorBrush( _backColor );
-            TabItemSelectedBorderBrush = new SolidColorBrush( _backColor );
-            DragMarkerColor = new SolidColorBrush( _backColor );
-            CloseButtonType = CloseButtonType.Hide;
         }
 
         /// <summary>

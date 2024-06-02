@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-01-2024
 // ******************************************************************************************
-// <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="ContextMenu.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,29 +34,29 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ChartWindow.xaml.cs
+//   ContextMenu.xaml.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for ContextMenu.xaml
     /// </summary>
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public partial class ChartWindow : Window
+    public partial class ContextMenu : Window
     {
         /// <summary>
         /// The back color
@@ -125,6 +125,11 @@ namespace Badger
         };
 
         /// <summary>
+        /// The tiles
+        /// </summary>
+        private protected IList<MetroTile> _buttons;
+
+        /// <summary>
         /// The path
         /// </summary>
         private protected object _path;
@@ -148,6 +153,24 @@ namespace Badger
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// Gets the menu items.
+        /// </summary>
+        /// <value>
+        /// The menu items.
+        /// </value>
+        public IList<MetroTile> MenuItems
+        {
+            get
+            {
+                return _buttons;
+            }
+            private protected set
+            {
+                _buttons = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -182,27 +205,26 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ChartWindow" /> class.
+        /// <see cref="T:Badger.ContextMenu" /> class.
         /// </summary>
-        public ChartWindow( )
+        public ContextMenu( )
         {
             InitializeComponent( );
-            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 1400;
-            Height = 750;
+            Width = 178;
+            Height = 378;
+            WindowStyle = WindowStyle.None;
+            ResizeMode = ResizeMode.NoResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Margin = new Thickness( 3 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Budget Execution";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Margin = new Thickness( 1 );
+            WindowStartupLocation = WindowStartupLocation.Manual;
             HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
+            VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -215,7 +237,7 @@ namespace Badger
         {
             try
             {
-                MenuButton.Click += OnMenuButtonClick;
+                FileButton.Click += OnFileButtonClick;
             }
             catch( Exception _ex )
             {
@@ -224,118 +246,47 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes the delegates.
+        /// Gets the buttons.
         /// </summary>
-        private void InitializeDelegates( )
+        /// <returns></returns>
+        private IList<MetroTile> GetButtons( )
         {
             try
             {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the text box.
-        /// </summary>
-        private void InitializeTextBox( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timer.
-        /// </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Window form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
+                return new List<MetroTile>
                 {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
+                    FileButton,
+                    FolderButton,
+                    ControlPanelButton,
+                    TaskManagerButton,
+                    CalculatorButton,
+                    CalendarButton,
+                    ChromButton,
+                    EdgeButton,
+                    FirefoxButton
+                };
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+                return default( IList<MetroTile> );
             }
         }
 
         /// <summary>
-        /// Fades the out asynchronous.
+        /// Shows the splash message.
         /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Window form, int interval = 80 )
+        private void SendMessage( string message )
         {
             try
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
+                ThrowIf.Null( message, nameof( message ) );
+                var _splash = new SplashMessage( message )
                 {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
+                    Owner = this
+                };
 
-                form.Opacity = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the main form.
-        /// </summary>
-        private void OpenMainWindow( )
-        {
-            try
-            {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
-                _form.Show( );
+                _splash.Show( );
             }
             catch( Exception _ex )
             {
@@ -345,7 +296,6 @@ namespace Badger
 
         /// <summary>
         /// Called when [load].
-        ///
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
@@ -354,7 +304,18 @@ namespace Badger
         {
             try
             {
-                App.ActiveWindows.Add( "ChartWindow", this );
+                _buttons = new List<MetroTile>
+                {
+                    FileButton,
+                    FolderButton,
+                    ControlPanelButton,
+                    TaskManagerButton,
+                    CalculatorButton,
+                    CalendarButton,
+                    ChromButton,
+                    EdgeButton,
+                    FirefoxButton
+                };
             }
             catch( Exception _ex )
             {
@@ -363,17 +324,151 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [menu button click].
+        /// Called when [file button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClick( object sender, EventArgs e )
+        private void OnFileButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenMainWindow( );
-                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [folder button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFolderButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [control panel button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnControlPanelButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [task manager button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTaskManagerButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calculator button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalculatorButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calendar button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalendarButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [edge button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEdgeButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chrome button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnChromeButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [firefox button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs" />
+        /// instance containing the event data.</param>
+        private void OnFirefoxButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
