@@ -3,8 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Name="SqlEditor" x:Class="Badger.EditorWindow" mc:Ignorable="d" Title="SQL Editor"
-        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
+        xmlns:fc="http://devpelux.github.io/fullcontrols"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="SqlEditor"
+        x:Class="Badger.EditorWindow" mc:Ignorable="d" Title="SQL Editor" Height="750" Width="1400"
+        Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
         Icon="/UI/Windows/Editor/Application.png">
     <Grid x:Name="EditorGrid" Margin="3,3,3,3">
@@ -14,12 +16,13 @@
             <RowDefinition Height="145*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*" />
-            <ColumnDefinition Width="51*" />
-            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="14*" />
+            <ColumnDefinition Width="75*" />
+            <ColumnDefinition Width="27*" />
+            <ColumnDefinition Width="58*" />
         </Grid.ColumnDefinitions>
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" HorizontalAlignment="Left" Width="1400"
-                Grid.ColumnSpan="3" Grid.Row="2" Margin="0,100,0,1">
+                Grid.ColumnSpan="4" Grid.Row="2" Margin="2,100,0,10">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
@@ -61,30 +64,29 @@
                 LineNumberTextForeground="#FF1FB70A" SelectionBackground="#FF183159"
                 FontFamily="Source Code Pro" BorderThickness="1,1,1,1" OutliningAreaWidth="3"
                 LineNumberAreaWidth="10" Grid.Column="1" Grid.Row="1" Height="420"
-                VerticalAlignment="Center" />
-        <local:MetroListBox Grid.Column="2" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"
-                Margin="0,90,105,0" Height="360" VerticalAlignment="Top" HorizontalAlignment="Right"
-                Width="280" />
-        <local:MetroDropDown Grid.Column="2" HorizontalAlignment="Left" Height="40"
-                Label="Dropdown Button" Margin="89,35,0,0" Grid.Row="1" SizeMode="Normal"
-                VerticalAlignment="Top" Width="270">
+                VerticalAlignment="Center" Grid.ColumnSpan="2" />
+        <local:MetroListBox Grid.Column="3" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"
+                Margin="109,90,135,0" Height="360" VerticalAlignment="Top" />
+        <local:MetroDropDown x:Name="DropDown" Grid.Column="3" HorizontalAlignment="Right"
+                Height="40" Label="Dropdown Button" Margin="0,30,135,0" Grid.Row="1"
+                SizeMode="Normal" VerticalAlignment="Top" Width="220">
             <syncfusion:DropDownMenuGroup>
                 <syncfusion:DropDownMenuItem Header="Menu Item1" />
                 <syncfusion:DropDownMenuItem Header="Menu Item2" />
                 <syncfusion:DropDownMenuItem Header="Menu Item3" />
             </syncfusion:DropDownMenuGroup>
         </local:MetroDropDown>
-        <local:MetroRadioButton x:Name="SQLiteRadioButton" Grid.Column="2" Content="SQLite"
-                HorizontalAlignment="Left" Margin="70,56,0,0" VerticalAlignment="Top" Width="70"
+        <local:MetroRadioButton x:Name="SQLiteRadioButton" Grid.Column="3" Content="SQLite"
+                HorizontalAlignment="Left" Margin="99,56,0,0" VerticalAlignment="Top" Width="70"
                 Tag="SQLite" RenderTransformOrigin="0.286,0.668" />
-        <local:MetroRadioButton x:Name="AccessRadioButton" Grid.Column="2" Content="Access"
-                HorizontalAlignment="Left" Margin="150,56,0,0" VerticalAlignment="Top" Width="64"
+        <local:MetroRadioButton x:Name="AccessRadioButton" Grid.Column="3" Content="Access"
+                HorizontalAlignment="Left" Margin="169,56,0,0" VerticalAlignment="Top" Width="64"
                 Tag="Access" />
-        <local:MetroRadioButton x:Name="SqlServerRadioButton" Grid.Column="2" Content="SQL Server"
-                HorizontalAlignment="Left" Margin="230,56,0,0" VerticalAlignment="Top" Width="70"
+        <local:MetroRadioButton x:Name="SqlServerRadioButton" Grid.Column="3" Content="SQL Server"
+                HorizontalAlignment="Left" Margin="239,56,0,0" VerticalAlignment="Top" Width="84"
                 Tag="SqlServer" />
-        <local:MetroRadioButton x:Name="SQLiteRadioButton_Copy" Grid.Column="2" Content="SQLite"
-                HorizontalAlignment="Left" Margin="310,56,0,0" VerticalAlignment="Top" Width="70"
+        <local:MetroRadioButton x:Name="SQLiteRadioButton_Copy" Grid.Column="3" Content="SQLite"
+                HorizontalAlignment="Left" Margin="329,56,0,0" VerticalAlignment="Top" Width="70"
                 Tag="SQLite" />
     </Grid>
 </Window>
