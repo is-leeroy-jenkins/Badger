@@ -48,6 +48,10 @@ namespace Badger
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
+    using ToastNotifications;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Messages;
+    using ToastNotifications.Position;
 
     /// <inheritdoc />
     /// <summary>
@@ -58,6 +62,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
     public partial class MainWindow : Window
     {
         /// <summary>
@@ -240,6 +245,7 @@ namespace Badger
                 SqliteTile.Click += OnSQLiteTileClick;
                 SqlCeTile.Click += OnSqlCeTileClick;
                 AccessTile.Click += OnAccessTileClick;
+                TestButton.Click += OnTestButtonClick;
             }
             catch( Exception _ex )
             {
@@ -386,6 +392,32 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the notifier.
+        /// </summary>
+        /// <returns></returns>
+        private Notifier CreateNotifier( )
+        {
+            try
+            {
+                var _time = TimeSpan.FromSeconds( 3 );
+                var _max = MaximumNotificationCount.FromCount( 5 );
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _time, _max );
+                return new Notifier( cfg =>
+                {
+                    cfg.LifetimeSupervisor = _lifeTime;
+                    cfg.PositionProvider = _position;
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
         /// Opens the data window.
         /// </summary>
         private void OpenDataWindow( )
@@ -497,6 +529,12 @@ namespace Badger
         {
             try
             {
+                var _form = new MapWindow( )
+                {
+                    Owner = this
+                };
+
+                _form.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -512,6 +550,12 @@ namespace Badger
         {
             try
             {
+                var _form = new EditorWindow( )
+                {
+                    Owner = this
+                };
+
+                _form.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -548,6 +592,12 @@ namespace Badger
         {
             try
             {
+                var _form = new EmailWindow( )
+                {
+                    Owner = this
+                };
+
+                _form.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -708,12 +758,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _notify = new Notification( message )
-                {
-                    Owner = this
-                };
-
-                _notify.Show( );
+                var _notifier = CreateNotifier( );
+                _notifier.ShowInformation( message );
             }
             catch( Exception _ex )
             {
@@ -1062,6 +1108,25 @@ namespace Badger
             try
             {
                 OpenEmailWindow( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [test button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTestButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _fileBrowser = new FileBrowser( );
+                _fileBrowser.ShowDialog( );
             }
             catch( Exception _ex )
             {

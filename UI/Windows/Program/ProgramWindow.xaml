@@ -8,8 +8,7 @@
         xmlns:ui1="http://schemas.modernwpf.com/2019" x:Name="ProgramView"
         x:Class="Badger.ProgramWindow" mc:Ignorable="d" Title="Program Project Data" Height="750"
         Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" Background="#FF141414"
-        WindowStartupLocation="CenterScreen" Icon="/UI/Windows/ProgramProject/Application.png"
-        Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1">
+        WindowStartupLocation="CenterScreen" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1" Icon="/UI/Windows/Program/Application.png">
     <Grid x:Name="ProgramGrid" RenderTransformOrigin="0.55,0.35" Height="732"
           VerticalAlignment="Top">
         <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="383,293,0,0"
@@ -27,7 +26,8 @@
         </syncfusion:SfTextInputLayout>
         <mah:MetroHeader Header="MetroHeader" Margin="902,198,264,366" />
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,670,0,0" Height="40"
-                         VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
+                HorizontalAlignment="Left" Width="1400" VerticalAlignment="Top"
+                VerticalContentAlignment="Center">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />

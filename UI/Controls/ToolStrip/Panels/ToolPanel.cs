@@ -102,9 +102,9 @@ namespace Badger
         private protected Color _borderColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 120,
-            B = 212
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>

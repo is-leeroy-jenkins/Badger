@@ -259,8 +259,8 @@ namespace Badger
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
+        /// <param name="form">The Window.</param>
+        /// <param name="interval">The interval (milliseconds).</param>
         private async void FadeInAsync( Window form, int interval = 80 )
         {
             try
@@ -284,7 +284,7 @@ namespace Badger
         /// Fades the out asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
+        /// <param name="interval">The interval (milliseconds).</param>
         private async void FadeOutAsync( Window form, int interval = 80 )
         {
             try
@@ -353,6 +353,20 @@ namespace Badger
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( object state )
         {
             try
             {

@@ -418,6 +418,20 @@ namespace Badger
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( object state )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainWindow( )

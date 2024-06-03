@@ -40,16 +40,451 @@
 
 namespace Badger
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.IO;
+    using System.Linq;
     using System.Windows;
+    using System.Windows.Media;
 
+    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for FolderBrowser.xaml
     /// </summary>
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class FolderBrowser : Window
     {
+        /// <summary>
+        /// The back color
+        /// </summary>
+        private protected Color _backColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private protected Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The dir paths
+        /// </summary>
+        private IList<string> _dirPaths;
+
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private protected int _count;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The duration
+        /// </summary>
+        private protected double _duration;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected string _data;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedPath;
+
+        /// <summary>
+        /// The selected file
+        /// </summary>
+        private protected string _selectedFile;
+
+        /// <summary>
+        /// The initial directory
+        /// </summary>
+        private protected string _initialDirectory;
+
+        /// <summary>
+        /// The file paths
+        /// </summary>
+        private protected IList<string> _filePaths;
+
+        /// <summary>
+        /// The initial dir paths
+        /// </summary>
+        private protected IList<string> _searchPaths;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.FolderBrowser" /> class.
+        /// </summary>
         public FolderBrowser( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Basic Properties
+            Width = 800;
+            Height = 450;
+            ResizeMode = ResizeMode.CanResize;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
+            BorderThickness = new Thickness( 1 );
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        private void SendNotification( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notify = new Notification( message )
+                {
+                    Owner = this
+                };
+
+                _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        private void SendMessage( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _splash = new SplashMessage( message )
+                {
+                    Owner = this
+                };
+
+                _splash.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( object state )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the ListBox.
+        /// </summary>
+        private protected virtual void PopulateListBox( )
+        {
+            try
+            {
+                if( _dirPaths?.Any( ) == true )
+                {
+                    ListBox.Items.Clear( );
+                    foreach( var _folder in _dirPaths )
+                    {
+                        ListBox.Items.Add( _folder );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the initial dir paths.
+        /// </summary>
+        /// <returns>
+        /// IList(string)
+        /// </returns>
+        private protected IList<string> CreateInitialSearchPaths( )
+        {
+            try
+            {
+                var _current = Environment.CurrentDirectory;
+                var _list = new List<string>
+                {
+                    Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory ),
+                    Environment.GetFolderPath( Environment.SpecialFolder.Personal ),
+                    Environment.GetFolderPath( Environment.SpecialFolder.Recent ),
+                    @"C:\Users\terry\source\repos\Sherpa\Resources\Documents",
+                    _current
+                };
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the ListView paths.
+        /// </summary>
+        /// <returns> </returns>
+        private protected IList<string> GetListViewFolderPaths( )
+        {
+            if( _searchPaths?.Any( ) == true )
+            {
+                try
+                {
+                    _dirPaths = new List<string>( );
+                    foreach( var _dirPath in _searchPaths )
+                    {
+                        var _dirs = Directory.GetDirectories( _dirPath );
+                        for( var _index = 0; _index < _dirs.Length; _index++ )
+                        {
+                            var _dir = _dirs[ _index ];
+                            if( !_dir.Contains( "My " ) )
+                            {
+                                var _name = Path.GetDirectoryName( _dir );
+                                var _dirpath = Path.GetFullPath( _dir );
+                                if( _name != null )
+                                {
+                                    _dirPaths.Add( _dirpath );
+                                }
+
+                                var _second = Directory.GetDirectories( _dirpath );
+                                if( _second?.Any( ) == true )
+                                {
+                                    _dirPaths.AddRange( _second );
+                                }
+
+                                var _subDir = Directory.GetDirectories( _dir );
+                                for( var _i = 0; _i < _subDir.Length; _i++ )
+                                {
+                                    var _directory = _subDir[ _i ];
+                                    if( !string.IsNullOrEmpty( _directory ) )
+                                    {
+                                        var _last = Directory.GetDirectories( _directory );
+                                        if( _last?.Any( ) == true )
+                                        {
+                                            _dirPaths.AddRange( _last );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return _dirPaths?.Any( ) == true
+                        ? _dirPaths
+                        : default( IList<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -1,24 +1,48 @@
-﻿<Window x:Name="FileDialog" x:Class="Badger.FolderBrowser"
+﻿<Window x:Name="BrowserView" x:Class="Badger.FolderBrowser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" mc:Ignorable="d" Title="Search File System" Height="450"
         Width="800" Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4"
-        Foreground="#FFA0BDFC" Background="#FF141414" WindowStartupLocation="CenterScreen">
+        Foreground="#FFA0BDFC" Background="#FF141414" WindowStartupLocation="CenterScreen"
+        Icon="/UI/Windows/Folder/FolderBrowse.png">
     <Grid x:Name="BrowserGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="39*" />
-            <RowDefinition Height="325*" />
-            <RowDefinition Height="68*" />
+            <RowDefinition Height="265*" />
+            <RowDefinition Height="128*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70*" />
             <ColumnDefinition Width="265*" />
             <ColumnDefinition Width="64*" />
         </Grid.ColumnDefinitions>
-        <local:MetroListBox x:Name="ListBox" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Margin="20,0,0,0" Height="275" VerticalAlignment="Center" Grid.Row="1"
-                            HorizontalAlignment="Left" Width="480" />
+        <local:MetroListBox x:Name="ListBox" Grid.Column="1"
+                d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,40,0,40" Grid.Row="1"
+                HorizontalAlignment="Left" Width="190" />
+        <local:MetroTile x:Name="SelectButton" Grid.Column="1" HorizontalAlignment="Left"
+                Height="35" Header="" Margin="400,70,0,0" Grid.Row="2" Title="Select"
+                VerticalAlignment="Top" Width="90" />
+        <local:MetroTile x:Name="BrowseButton" Grid.Column="1" HorizontalAlignment="Left"
+                Height="33" Header="" Margin="25,72,0,0" Grid.Row="2" Title="Browse"
+                VerticalAlignment="Top" Width="90" />
+        <local:MetroTile x:Name="ClearButton" Grid.Column="1" HorizontalAlignment="Left" Height="35"
+                Header="" Margin="210,70,0,0" Grid.Row="2" Title="Clear" VerticalAlignment="Top"
+                Width="90" />
+        <local:MetroLabel x:Name="DateLabel" Grid.Column="2" Content="Date"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="122" Height="26"
+                HorizontalContentAlignment="Right" FontSize="10" />
+        <local:MetroLabel x:Name="DirectoryLabel" Grid.Column="1" Content="Directory:"
+                HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Height="25" Width="190" FontSize="10" VerticalContentAlignment="Bottom" />
+        <local:MetroLabel x:Name="TimeLabel" Content="Time" HorizontalAlignment="Center"
+                Margin="0,100,0,3" Grid.Row="2" Width="130" FontSize="10" />
+        <local:MetroListBox x:Name="ListBox_Copy" Grid.Column="1"
+                d:ItemsSource="{d:SampleData ItemCount=5}" Margin="240,0,0,0" Grid.Row="1"
+                HorizontalAlignment="Left" Width="260" Height="185" VerticalAlignment="Center" />
+        <local:MetroLabel x:Name="SelectedLabel" Grid.Column="1" Content="Files:"
+                HorizontalAlignment="Left" Margin="240,10,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Height="25" Width="260" FontSize="10" VerticalContentAlignment="Bottom" />
     </Grid>
 </Window>

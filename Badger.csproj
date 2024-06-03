@@ -139,6 +139,7 @@
     <None Remove="UI\Windows\Excel\PreviousButton.png" />
     <None Remove="UI\Windows\Excel\RefreshButton.png" />
     <None Remove="UI\Windows\Excel\SaveButton.png" />
+    <None Remove="UI\Windows\Folder\FolderBrowse.png" />
     <None Remove="UI\Windows\Main\AccessTile.png" />
     <None Remove="UI\Windows\Main\BrowserTile.png" />
     <None Remove="UI\Windows\Main\CalendarTile.png" />
@@ -412,6 +413,7 @@
     <Resource Include="UI\Windows\Excel\PreviousButton.png" />
     <Resource Include="UI\Windows\Excel\RefreshButton.png" />
     <Resource Include="UI\Windows\Excel\SaveButton.png" />
+    <Resource Include="UI\Windows\Folder\FolderBrowse.png" />
     <Resource Include="UI\Windows\Main\AccessTile.png" />
     <Resource Include="UI\Windows\Main\BrowserTile.png" />
     <Resource Include="UI\Windows\Main\CalendarTile.png" />

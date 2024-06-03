@@ -1,4 +1,4 @@
-﻿<Window x:Class="Badger.FileBrowser"
+﻿<Window x:Name="BrowserView" x:Class="Badger.FileBrowser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,9 +8,9 @@
         Padding="1,1,1,1" BorderThickness="1,1,1,1" WindowStartupLocation="CenterScreen">
     <Grid x:Name="BrowserGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="49*" />
-            <RowDefinition Height="328*" />
-            <RowDefinition Height="85*" />
+            <RowDefinition Height="17*" />
+            <RowDefinition Height="170*" />
+            <RowDefinition Height="44*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125*" />
@@ -18,7 +18,61 @@
             <ColumnDefinition Width="133*" />
         </Grid.ColumnDefinitions>
         <local:MetroListBox x:Name="ListBox" Grid.Column="1"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5,49,35,0" Grid.RowSpan="2"
-                            Height="320" VerticalAlignment="Top" />
+                d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,5,0,0" Height="295"
+                VerticalAlignment="Top" HorizontalAlignment="Center" Width="420" Grid.Row="1" />
+        <local:MetroLabel x:Name="DateLabel" Grid.Column="2" Content="Date"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Width="125" Height="30"
+                FontSize="10" Padding="1,1,1,1" HorizontalContentAlignment="Right" />
+        <local:MetroTile x:Name="SelectButton" Grid.Column="1" HorizontalAlignment="Left"
+                Height="35" Header="" Margin="335,0,0,0" Grid.Row="2" Title="Select"
+                VerticalAlignment="Center" Width="90" />
+        <local:MetroTile x:Name="BrowseButton" Grid.Column="1" HorizontalAlignment="Left"
+                Height="33" Header="" Margin="5,29,0,0" Grid.Row="2" Title="Browse"
+                VerticalAlignment="Top" Width="90" />
+        <local:MetroTile x:Name="ClearButton" Grid.Column="1" HorizontalAlignment="Left" Height="35"
+                Header="" Margin="165,0,0,0" Grid.Row="2" Title="Clear" VerticalAlignment="Center"
+                Width="90" />
+        <!-- ReSharper disable once Xaml.MissingGridIndex -->
+        <local:MetroLabel x:Name="TimeLabel" Content="Time" HorizontalAlignment="Center"
+                Margin="0,60,0,0" Grid.Row="2" VerticalAlignment="Top" Width="115" Height="22"
+                FontSize="10" Padding="1,1,1,1" VerticalContentAlignment="Bottom" />
+        <local:MetroRadioButton x:Name="PdfRadioButton" Grid.Column="2" Content="PDF (*.pdf)"
+                HorizontalAlignment="Center" Margin="0,6,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Padding="1,1,1,1" Height="24" Width="124" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="AccessRadioButton" Grid.Column="2"
+                Content="MS Access (*.accdb)" HorizontalAlignment="Center" Margin="0,36,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Width="124" Height="24" Padding="1,1,1,1"
+                BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="SQLiteRadioButton" Grid.Column="2" Content="SQLite (*.db)"
+                HorizontalAlignment="Center" Margin="0,65,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Width="124" Height="24" Padding="1,1,1,1" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="LibraryRadioButton" Grid.Column="2"
+                Content="Library (*.dll)" HorizontalAlignment="Center" Margin="0,281,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Width="124" Height="24" Padding="1,1,1,1"
+                BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="SqlServerRadioButton" Grid.Column="2"
+                Content="SQL Server (*.mdf )" HorizontalAlignment="Center" Margin="0,91,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Width="124" Height="24" Padding="1,1,1,1"
+                BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="ExcelRadioButton" Grid.Column="2" Content="Excel (*.xlsx)"
+                HorizontalAlignment="Center" Margin="0,116,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Width="124" Height="24" Padding="1,1,1,1" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="CsvRadioButton" Grid.Column="2" Content="CSV (*.csv)"
+                HorizontalAlignment="Left" Margin="6,141,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Padding="1,1,1,1" Height="24" Width="124" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="TextRadioButton" Grid.Column="2" Content="Text (*.txt)"
+                HorizontalAlignment="Center" Margin="0,170,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Padding="1,1,1,1" Height="24" Width="124" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="PowerPointRadioButton" Grid.Column="2"
+                Content="Power Point (*.pptx )" HorizontalAlignment="Left" Margin="6,201,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Padding="1,1,1,1" Height="24" Width="124"
+                BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="WordRadioButton" Grid.Column="2" Content="Word (*.docx )"
+                HorizontalAlignment="Left" Margin="6,230,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Padding="1,1,1,1" Height="24" Width="124" BorderThickness="1,1,1,1" />
+        <local:MetroRadioButton x:Name="ExecutableRadioButton" Grid.Column="2"
+                Content="Executable (*.exe)" HorizontalAlignment="Left" Margin="6,256,0,0"
+                Grid.Row="1" VerticalAlignment="Top" Padding="1,1,1,1" Height="24" Width="124"
+                BorderThickness="1,1,1,1" />
     </Grid>
 </Window>
