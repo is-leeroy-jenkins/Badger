@@ -4,7 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:fc="http://devpelux.github.io/fullcontrols"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="SqlEditor"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Name="SqlEditor"
         x:Class="Badger.EditorWindow" mc:Ignorable="d" Title="SQL Editor" Height="750" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
@@ -16,10 +17,10 @@
             <RowDefinition Height="145*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="14*" />
-            <ColumnDefinition Width="75*" />
-            <ColumnDefinition Width="27*" />
-            <ColumnDefinition Width="58*" />
+            <ColumnDefinition Width="112*" />
+            <ColumnDefinition Width="600*" />
+            <ColumnDefinition Width="335*" />
+            <ColumnDefinition Width="345*" />
         </Grid.ColumnDefinitions>
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Grid.ColumnSpan="4" Grid.Row="2"
                 Margin="2,100,0,5" HorizontalAlignment="Left" Width="1400" Height="40">
@@ -58,35 +59,39 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <syncfusion:EditControl x:Name="Editor" HorizontalAlignment="Center" Text="Edit Control"
-                Width="744" Background="#FF464646" BorderBrush="#FF0078D4" Foreground="#FFF0F1F3"
-                CaretBrush="#FFEEFB00" LineNumberAreaBackground="Black"
-                LineNumberTextForeground="#FF1FB70A" SelectionBackground="#FF183159"
-                FontFamily="Source Code Pro" BorderThickness="1,1,1,1" OutliningAreaWidth="3"
-                LineNumberAreaWidth="10" Grid.Column="1" Grid.Row="1" Height="420"
-                VerticalAlignment="Center" Grid.ColumnSpan="2" />
-        <local:MetroListBox Grid.Column="3" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}"
-                Margin="109,90,135,0" Height="360" VerticalAlignment="Top" />
-        <local:MetroDropDown x:Name="DropDown" Grid.Column="3" HorizontalAlignment="Right"
-                Height="40" Label="Dropdown Button" Margin="0,30,135,0" Grid.Row="1"
-                SizeMode="Normal" VerticalAlignment="Top" Width="220">
-            <syncfusion:DropDownMenuGroup>
-                <syncfusion:DropDownMenuItem Header="Menu Item1" />
-                <syncfusion:DropDownMenuItem Header="Menu Item2" />
-                <syncfusion:DropDownMenuItem Header="Menu Item3" />
-            </syncfusion:DropDownMenuGroup>
-        </local:MetroDropDown>
+        <syncfusion:EditControl x:Name="Editor" Text="Edit Control" Background="#FF464646"
+                BorderBrush="#FF0078D4" Foreground="#FFF0F1F3" CaretBrush="#FFEEFB00"
+                LineNumberAreaBackground="Black" LineNumberTextForeground="#FF1FB70A"
+                SelectionBackground="#FF183159" FontFamily="Source Code Pro"
+                BorderThickness="1,1,1,1" OutliningAreaWidth="3" LineNumberAreaWidth="10"
+                Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="15,15,0,0"
+                HorizontalAlignment="Left" Width="900" Height="450" VerticalAlignment="Top" />
+        <local:MetroListBox Grid.Column="3" Grid.Row="1" Margin="0,130,45,0"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.CanContentScroll="True" ClipToBounds="True" SnapsToDevicePixels="True"
+                HorizontalAlignment="Right" Width="240" Height="335" VerticalAlignment="Top">
+            <ListBoxItem Height="20" />
+            <ListBoxItem Height="20" />
+        </local:MetroListBox>
         <local:MetroRadioButton x:Name="SQLiteRadioButton" Grid.Column="3" Content="SQLite"
-                HorizontalAlignment="Left" Margin="99,56,0,0" VerticalAlignment="Top" Width="70"
-                Tag="SQLite" RenderTransformOrigin="0.286,0.668" />
+                HorizontalAlignment="Left" Margin="50,56,0,0" VerticalAlignment="Top" Width="60"
+                Tag="SQLite" RenderTransformOrigin="0.286,0.668" Height="30" />
         <local:MetroRadioButton x:Name="AccessRadioButton" Grid.Column="3" Content="Access"
-                HorizontalAlignment="Left" Margin="169,56,0,0" VerticalAlignment="Top" Width="64"
-                Tag="Access" />
+                HorizontalAlignment="Left" Margin="115,56,0,0" VerticalAlignment="Top" Width="65"
+                Tag="Access" Height="30" />
         <local:MetroRadioButton x:Name="SqlServerRadioButton" Grid.Column="3" Content="SQL Server"
-                HorizontalAlignment="Left" Margin="239,56,0,0" VerticalAlignment="Top" Width="84"
-                Tag="SqlServer" />
+                HorizontalAlignment="Left" Margin="185,56,0,0" VerticalAlignment="Top" Width="80"
+                Tag="SqlServer" Height="30" />
         <local:MetroRadioButton x:Name="SQLiteRadioButton_Copy" Grid.Column="3" Content="SQLite"
-                HorizontalAlignment="Left" Margin="329,56,0,0" VerticalAlignment="Top" Width="70"
-                Tag="SQLite" />
+                HorizontalAlignment="Left" Margin="270,56,0,0" VerticalAlignment="Top" Width="70"
+                Tag="SQLite" Height="30" />
+        <local:MetroListBox Grid.Column="3" Grid.Row="1" Margin="0,15,45,0" Height="85"
+                VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right"
+                Width="240">
+            <ListBoxItem Height="20" />
+            <ListBoxItem Height="20" />
+        </local:MetroListBox>
     </Grid>
 </Window>

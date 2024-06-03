@@ -84,7 +84,7 @@ namespace Badger
         /// <summary>
         /// The change date
         /// </summary>
-        private DateOnly _changeDate;
+        private DateTime _changeDate;
 
         /// <summary>
         /// The message
@@ -187,7 +187,7 @@ namespace Badger
         /// <value>
         /// The change date.
         /// </value>
-        public DateOnly ChangeDate
+        public DateTime ChangeDate
         {
             get
             {
@@ -247,7 +247,7 @@ namespace Badger
             _actionType = _record[ "ActionType" ]?.ToString( );
             _oldValue = _record[ "OldValue" ]?.ToString( );
             _newValue = _record[ "NewValue" ]?.ToString( );
-            _changeDate = DateOnly.Parse( _record[ "ChangeDate" ]?.ToString( ) );
+            _changeDate = DateTime.Parse( _record[ "ChangeDate" ]?.ToString( ) );
             _message = _record[ "Message" ]?.ToString( );
         }
 
@@ -269,7 +269,7 @@ namespace Badger
             _actionType = _record[ "ActionType" ]?.ToString( );
             _oldValue = _record[ "OldValue" ]?.ToString( );
             _newValue = _record[ "NewValue" ]?.ToString( );
-            _changeDate = DateOnly.Parse( _record[ "ChangeDate" ]?.ToString( ) );
+            _changeDate = DateTime.Parse( _record[ "ChangeDate" ]?.ToString( ) );
             _message = _record[ "Message" ]?.ToString( );
         }
 
@@ -291,7 +291,7 @@ namespace Badger
             _actionType = dataRow[ "ActionType" ]?.ToString( );
             _oldValue = dataRow[ "OldValue" ]?.ToString( );
             _newValue = dataRow[ "NewValue" ]?.ToString( );
-            _changeDate = DateOnly.Parse( dataRow[ "ChangeDate" ]?.ToString( ) );
+            _changeDate = DateTime.Parse( dataRow[ "ChangeDate" ]?.ToString( ) );
             _message = dataRow[ "Message" ]?.ToString( );
         }
     }

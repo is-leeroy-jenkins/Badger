@@ -156,7 +156,7 @@ namespace Badger
         /// <value>
         /// The processed date.
         /// </value>
-        private protected DateOnly _processedDate;
+        private protected DateTime _processedDate;
 
         /// <summary>
         /// Gets or sets the quarter.

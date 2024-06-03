@@ -440,7 +440,6 @@ namespace Badger
                 {
                     if( ( _dataColumn.Ordinal > 0 )
                        && ( ( _dataColumn.DataType == typeof( DateTime ) )
-                           | ( _dataColumn.DataType == typeof( DateOnly ) )
                            | ( _dataColumn.DataType == typeof( DateTimeOffset ) )
                            | _dataColumn.ColumnName.EndsWith( "Day" )
                            | _dataColumn.ColumnName.EndsWith( "Date" ) ) )

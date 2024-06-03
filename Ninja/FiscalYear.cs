@@ -93,22 +93,22 @@ namespace Badger
         /// <summary>
         /// The start date
         /// </summary>
-        private protected DateOnly _startDate;
+        private protected DateTime _startDate;
 
         /// <summary>
         /// The end date
         /// </summary>
-        private protected DateOnly _endDate;
+        private protected DateTime _endDate;
 
         /// <summary>
         /// The cancellation date
         /// </summary>
-        private protected DateOnly _cancellationDate;
+        private protected DateTime _cancellationDate;
 
         /// <summary>
         /// The expiration date
         /// </summary>
-        private protected DateOnly _expirationDate;
+        private protected DateTime _expirationDate;
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -224,7 +224,7 @@ namespace Badger
         /// <value>
         /// The start date.
         /// </value>
-        public DateOnly StartDate
+        public DateTime StartDate
         {
             get
             {
@@ -242,7 +242,7 @@ namespace Badger
         /// <value>
         /// The end date.
         /// </value>
-        public DateOnly EndDate
+        public DateTime EndDate
         {
             get
             {
@@ -260,7 +260,7 @@ namespace Badger
         /// <value>
         /// The cancellation date.
         /// </value>
-        public DateOnly CancellationDate
+        public DateTime CancellationDate
         {
             get
             {
@@ -278,7 +278,7 @@ namespace Badger
         /// <value>
         /// The expiration date.
         /// </value>
-        public DateOnly ExpirationDate
+        public DateTime ExpirationDate
         {
             get
             {

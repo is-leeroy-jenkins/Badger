@@ -75,7 +75,7 @@ namespace Badger
         /// <summary>
         /// The current date
         /// </summary>
-        private protected DateOnly _currentDate;
+        private protected DateTime _currentDate;
 
         /// <summary>
         /// The current day
@@ -152,7 +152,7 @@ namespace Badger
         /// <value>
         /// The current date.
         /// </value>
-        public DateOnly CurrentDate
+        public DateTime CurrentDate
         {
             get
             {

@@ -59,57 +59,57 @@ namespace Badger
         /// <summary>
         /// The columbus day
         /// </summary>
-        private protected DateOnly _columbusDay;
+        private protected DateTime _columbusDay;
 
         /// <summary>
         /// The veterans day
         /// </summary>
-        private protected DateOnly _veteransDay;
+        private protected DateTime _veteransDay;
 
         /// <summary>
         /// The thanksgiving day
         /// </summary>
-        private protected DateOnly _thanksgivingDay;
+        private protected DateTime _thanksgivingDay;
 
         /// <summary>
         /// The christmas day
         /// </summary>
-        private protected DateOnly _christmasDay;
+        private protected DateTime _christmasDay;
 
         /// <summary>
         /// The new years day
         /// </summary>
-        private protected DateOnly _newYearsDay;
+        private protected DateTime _newYearsDay;
 
         /// <summary>
         /// The martin luther king day
         /// </summary>
-        private protected DateOnly _martinLutherKingDay;
+        private protected DateTime _martinLutherKingDay;
 
         /// <summary>
         /// The presidents day
         /// </summary>
-        private protected DateOnly _presidentsDay;
+        private protected DateTime _presidentsDay;
 
         /// <summary>
         /// The memorial day
         /// </summary>
-        private protected DateOnly _memorialDay;
+        private protected DateTime _memorialDay;
 
         /// <summary>
         /// The juneteenth day
         /// </summary>
-        private protected DateOnly _juneteenthDay;
+        private protected DateTime _juneteenthDay;
 
         /// <summary>
         /// The independence day
         /// </summary>
-        private protected DateOnly _independenceDay;
+        private protected DateTime _independenceDay;
 
         /// <summary>
         /// The labor day
         /// </summary>
-        private protected DateOnly _laborDay;
+        private protected DateTime _laborDay;
         
         /// <summary>
         /// Gets or sets the columbus day.
@@ -117,7 +117,7 @@ namespace Badger
         /// <value>
         /// The columbus day.
         /// </value>
-        public DateOnly ColumbusDay
+        public DateTime ColumbusDay
         {
             get
             {
@@ -135,7 +135,7 @@ namespace Badger
         /// <value>
         /// The veterans day.
         /// </value>
-        public DateOnly VeteransDay
+        public DateTime VeteransDay
         {
             get
             {
@@ -153,7 +153,7 @@ namespace Badger
         /// <value>
         /// The thanksgiving day.
         /// </value>
-        public DateOnly ThanksgivingDay
+        public DateTime ThanksgivingDay
         {
             get
             {
@@ -171,7 +171,7 @@ namespace Badger
         /// <value>
         /// The christmas day.
         /// </value>
-        public DateOnly ChristmasDay
+        public DateTime ChristmasDay
         {
             get
             {
@@ -189,7 +189,7 @@ namespace Badger
         /// <value>
         /// The new years day.
         /// </value>
-        public DateOnly NewYearsDay
+        public DateTime NewYearsDay
         {
             get
             {
@@ -207,7 +207,7 @@ namespace Badger
         /// <value>
         /// The martin luther king day.
         /// </value>
-        public DateOnly MartinLutherKingDay
+        public DateTime MartinLutherKingDay
         {
             get
             {
@@ -225,7 +225,7 @@ namespace Badger
         /// <value>
         /// The presidents day.
         /// </value>
-        public DateOnly PresidentsDay
+        public DateTime PresidentsDay
         {
             get
             {
@@ -243,7 +243,7 @@ namespace Badger
         /// <value>
         /// The memorial day.
         /// </value>
-        public DateOnly MemorialDay
+        public DateTime MemorialDay
         {
             get
             {
@@ -261,7 +261,7 @@ namespace Badger
         /// <value>
         /// The juneteenth day.
         /// </value>
-        public DateOnly JuneteenthDay
+        public DateTime JuneteenthDay
         {
             get
             {
@@ -279,7 +279,7 @@ namespace Badger
         /// <value>
         /// The independence day.
         /// </value>
-        public DateOnly IndependenceDay
+        public DateTime IndependenceDay
         {
             get
             {
@@ -297,7 +297,7 @@ namespace Badger
         /// <value>
         /// The labor day.
         /// </value>
-        public DateOnly LaborDay
+        public DateTime LaborDay
         {
             get
             {

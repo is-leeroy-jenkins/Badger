@@ -301,7 +301,7 @@ namespace Badger
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
-            _lastUpdate = DateOnly.Parse( _record[ "LastUpdate" ]?.ToString( ) ?? "" );
+            _lastUpdate = DateTime.Parse( _record[ "LastUpdate" ]?.ToString( ) ?? "" );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
@@ -341,7 +341,7 @@ namespace Badger
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
-            _lastUpdate = DateOnly.Parse( _record[ "LastUpdate" ]?.ToString( ) ?? "" );
+            _lastUpdate = DateTime.Parse( _record[ "LastUpdate" ]?.ToString( ) ?? "" );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
@@ -381,7 +381,7 @@ namespace Badger
             _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
             _bfy = dataRow[ "BFY" ]?.ToString( );
             _efy = dataRow[ "EFY" ]?.ToString( );
-            _lastUpdate = DateOnly.Parse( dataRow[ "LastUpdate" ]?.ToString( ) ?? "" );
+            _lastUpdate = DateTime.Parse( dataRow[ "LastUpdate" ]?.ToString( ) ?? "" );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );

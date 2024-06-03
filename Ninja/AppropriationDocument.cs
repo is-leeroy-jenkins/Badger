@@ -64,7 +64,7 @@ namespace Badger
         /// <value>
         /// The last document date.
         /// </value>
-        public DateOnly LastActivityDate
+        public DateTime LastActivityDate
         {
             get
             {

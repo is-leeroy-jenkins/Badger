@@ -419,11 +419,6 @@ namespace Badger
                                     _data[ _c ].Value = _dateTime;
                                     break;
                                 }
-                                case DateOnly _dateOnly:
-                                {
-                                    _data[ _c ].Value = _dateOnly;
-                                    break;
-                                }
                                 default:
                                 {
                                     _data[ _c ].Value = _vals[ _c ];

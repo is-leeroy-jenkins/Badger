@@ -74,12 +74,12 @@ namespace Badger
         /// <summary>
         /// The start date
         /// </summary>
-        private protected DateOnly _startDate;
+        private protected DateTime _startDate;
 
         /// <summary>
         /// The end date
         /// </summary>
-        private protected DateOnly _endDate;
+        private protected DateTime _endDate;
 
         /// <summary>
         /// The sub level prefix
@@ -188,7 +188,7 @@ namespace Badger
         /// <value>
         /// The start date.
         /// </value>
-        public DateOnly StartDate
+        public DateTime StartDate
         {
             get
             {
@@ -206,7 +206,7 @@ namespace Badger
         /// <value>
         /// The end date.
         /// </value>
-        public DateOnly EndDate
+        public DateTime EndDate
         {
             get
             {

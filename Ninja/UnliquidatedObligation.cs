@@ -105,8 +105,8 @@ namespace Badger
             _referenceDocumentNumber = _record[ "ReferenceDocumentNumber" ]?.ToString( );
             _vendorCode = _record[ "VendorCode" ]?.ToString( );
             _vendorName = _record[ "VendorName" ]?.ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
+            _lastActivityDate = DateTime.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
             _age = int.Parse( _record[ "Age" ].ToString( ) ?? "0" );
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
@@ -161,8 +161,8 @@ namespace Badger
             _referenceDocumentNumber = _record[ "ReferenceDocumentNumber" ]?.ToString( );
             _vendorCode = _record[ "VendorCode" ].ToString( );
             _vendorName = _record[ "VendorName" ].ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
+            _lastActivityDate = DateTime.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
             _age = int.Parse( _record[ "Age" ].ToString( ) ?? "0" );
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
@@ -217,8 +217,8 @@ namespace Badger
             _referenceDocumentNumber = dataRow[ "ReferenceDocumentNumber" ]?.ToString( );
             _vendorCode = dataRow[ "VendorCode" ]?.ToString( );
             _vendorName = dataRow[ "VendorName" ]?.ToString( );
-            _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( dataRow[ "ProcessedDate" ]?.ToString( ) );
+            _lastActivityDate = DateTime.Parse( dataRow[ "LastActivityDate" ]?.ToString( ) );
             _age = int.Parse( dataRow[ "Age" ].ToString( ) ?? "0" );
             _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );

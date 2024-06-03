@@ -84,8 +84,8 @@ namespace Badger
             _status = _record[ "Status" ].ToString( );
             _inSystem = bool.Parse( _record[ "InSystem" ].ToString( ) );
             _comments = Record[ "Comments" ].ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
-            _lastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ].ToString( ) );
+            _lastActivityDate = DateTime.Parse( Record[ "LastActivityDate" ].ToString( ) );
         }
 
         /// <inheritdoc />
@@ -106,8 +106,8 @@ namespace Badger
             _status = _record[ "Status" ].ToString( );
             _inSystem = bool.Parse( _record[ "InSystem" ].ToString( ) );
             _comments = Record[ "Comments" ].ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
-            _lastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ].ToString( ) );
+            _lastActivityDate = DateTime.Parse( Record[ "LastActivityDate" ].ToString( ) );
         }
 
         /// <inheritdoc />
@@ -130,8 +130,8 @@ namespace Badger
             _status = dataRow[ "Status" ].ToString( );
             _inSystem = bool.Parse( dataRow[ "InSystem" ].ToString( ) );
             _comments = Record[ "Comments" ].ToString( );
-            _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ].ToString( ) );
-            _lastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( dataRow[ "ProcessedDate" ].ToString( ) );
+            _lastActivityDate = DateTime.Parse( dataRow[ "LastActivityDate" ].ToString( ) );
         }
 
         /// <inheritdoc />

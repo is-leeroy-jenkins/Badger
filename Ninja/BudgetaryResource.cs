@@ -18,7 +18,7 @@
         /// <summary>
         /// The last update
         /// </summary>
-        private protected DateOnly _lastUpdate;
+        private protected DateTime _lastUpdate;
 
         /// <summary>
         /// The stat
@@ -126,7 +126,7 @@
         /// <value>
         /// The last update.
         /// </value>
-        public DateOnly LastUpdate
+        public DateTime LastUpdate
         {
             get
             {

@@ -200,7 +200,7 @@ namespace Badger
         /// <value>
         /// The transaction date.
         /// </value>
-        private protected DateOnly _interestDate;
+        private protected DateTime _interestDate;
 
         /// <summary>
         /// Gets or sets the disbursements.
@@ -588,7 +588,7 @@ namespace Badger
         /// <value>
         /// The transaction date.
         /// </value>
-        public DateOnly InterestDate
+        public DateTime InterestDate
         {
             get
             {

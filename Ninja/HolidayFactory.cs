@@ -80,16 +80,16 @@ namespace Badger
         public HolidayFactory( DataRow dataRow )
         {
             _record = dataRow;
-            _newYearsDay = DateOnly.Parse( dataRow[ "NewYears" ].ToString( ) );
-            _martinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKing" ].ToString( ) );
-            _presidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
-            _memorialDay = DateOnly.Parse( dataRow[ "Memorial" ].ToString( ) );
-            _veteransDay = DateOnly.Parse( dataRow[ "Veterans" ].ToString( ) );
-            _laborDay = DateOnly.Parse( dataRow[ "Labor" ].ToString( ) );
-            _independenceDay = DateOnly.Parse( dataRow[ "Independence" ].ToString( ) );
-            _columbusDay = DateOnly.Parse( dataRow[ "Columbus" ].ToString( ) );
-            _thanksgivingDay = DateOnly.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
-            _christmasDay = DateOnly.Parse( dataRow[ "Christmas" ].ToString( ) );
+            _newYearsDay = DateTime.Parse( dataRow[ "NewYears" ].ToString( ) );
+            _martinLutherKingDay = DateTime.Parse( dataRow[ "MartinLutherKing" ].ToString( ) );
+            _presidentsDay = DateTime.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
+            _memorialDay = DateTime.Parse( dataRow[ "Memorial" ].ToString( ) );
+            _veteransDay = DateTime.Parse( dataRow[ "Veterans" ].ToString( ) );
+            _laborDay = DateTime.Parse( dataRow[ "Labor" ].ToString( ) );
+            _independenceDay = DateTime.Parse( dataRow[ "Independence" ].ToString( ) );
+            _columbusDay = DateTime.Parse( dataRow[ "Columbus" ].ToString( ) );
+            _thanksgivingDay = DateTime.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
+            _christmasDay = DateTime.Parse( dataRow[ "Christmas" ].ToString( ) );
             _map = _record?.ToDictionary( );
         }
 

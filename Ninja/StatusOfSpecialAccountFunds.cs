@@ -109,7 +109,7 @@ namespace Badger
             _nplStatusName = _record[ "NplStatusName" ]?.ToString( );
             _transactionType = _record[ "TransactionType" ]?.ToString( );
             _transactionDescription = _record[ "TrasnactionDescription" ]?.ToString( );
-            _interestDate = DateOnly.Parse( _record[ "InterestDate" ]?.ToString( ) );
+            _interestDate = DateTime.Parse( _record[ "InterestDate" ]?.ToString( ) );
             _interest = double.Parse( _record[ "Interest" ]?.ToString( ) ?? "0" );
             _unpaidBalances = double.Parse( _record[ "UnpaidBalances" ]?.ToString( ) );
             _disbursements = double.Parse( _record[ "Disbursements" ]?.ToString( ) );
@@ -183,7 +183,7 @@ namespace Badger
             _nplStatusName = _record[ "NplStatusName" ]?.ToString( );
             _transactionType = _record[ "TransactionType" ]?.ToString( );
             _transactionDescription = _record[ "TrasnactionDescription" ]?.ToString( );
-            _interestDate = DateOnly.Parse( _record[ "InterestDate" ]?.ToString( ) );
+            _interestDate = DateTime.Parse( _record[ "InterestDate" ]?.ToString( ) );
             _interest = double.Parse( _record[ "Interest" ]?.ToString( ) ?? "0" );
             _unpaidBalances = double.Parse( _record[ "UnpaidBalances" ]?.ToString( ) );
             _disbursements = double.Parse( _record[ "Disbursements" ]?.ToString( ) );
@@ -257,7 +257,7 @@ namespace Badger
             _nplStatusName = dataRow[ "NplStatusName" ]?.ToString( );
             _transactionType = dataRow[ "TransactionType" ]?.ToString( );
             _transactionDescription = dataRow[ "TrasnactionDescription" ]?.ToString( );
-            _interestDate = DateOnly.Parse( dataRow[ "InterestDate" ]?.ToString( ) );
+            _interestDate = DateTime.Parse( dataRow[ "InterestDate" ]?.ToString( ) );
             _interest = double.Parse( dataRow[ "Interest" ]?.ToString( ) ?? "0" );
             _unpaidBalances = double.Parse( dataRow[ "UnpaidBalances" ]?.ToString( ) );
             _disbursements = double.Parse( dataRow[ "Disbursements" ]?.ToString( ) );

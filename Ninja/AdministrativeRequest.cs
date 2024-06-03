@@ -99,12 +99,12 @@ namespace Badger
         /// <summary>
         /// The processed date
         /// </summary>
-        private protected DateOnly _processedDate;
+        private protected DateTime _processedDate;
 
         /// <summary>
         /// The last activity date
         /// </summary>
-        private protected DateOnly _lastActivityDate;
+        private protected DateTime _lastActivityDate;
 
         /// <summary>
         /// The in system
@@ -263,7 +263,7 @@ namespace Badger
         /// <value>
         /// The original action date.
         /// </value>
-        public virtual DateOnly ProcessedDate
+        public virtual DateTime ProcessedDate
         {
             get
             {
@@ -281,7 +281,7 @@ namespace Badger
         /// <value>
         /// The last action date.
         /// </value>
-        public virtual DateOnly LastActivityDate
+        public virtual DateTime LastActivityDate
         {
             get
             {

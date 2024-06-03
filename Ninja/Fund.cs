@@ -180,8 +180,8 @@ namespace Badger
             _name = _record[ "Name" ].ToString( );
             _shortName = _record[ "ShortName" ].ToString( );
             _status = _record[ "Status" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _subLevelPrefix = _record[ "SubLevelPrefix" ].ToString( );
             _allocationTransferAgency = _record[ "AllocationTransferAgency" ].ToString( );
             _agencyIdentifier = _record[ "AgencyIdentifier" ].ToString( );
@@ -217,8 +217,8 @@ namespace Badger
             _name = _record[ "Name" ].ToString( );
             _shortName = _record[ "ShortName" ].ToString( );
             _status = _record[ "Status" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _subLevelPrefix = _record[ "SubLevelPrefix" ].ToString( );
             _allocationTransferAgency = _record[ "AllocationTransferAgency" ].ToString( );
             _agencyIdentifier = _record[ "AgencyIdentifier" ].ToString( );
@@ -250,8 +250,8 @@ namespace Badger
             _name = _record[ "Name" ].ToString( );
             _shortName = _record[ "ShortName" ].ToString( );
             _status = _record[ "Status" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _subLevelPrefix = _record[ "SubLevelPrefix" ].ToString( );
             _allocationTransferAgency = _record[ "AllocationTransferAgency" ].ToString( );
             _agencyIdentifier = _record[ "AgencyIdentifier" ].ToString( );
@@ -283,8 +283,8 @@ namespace Badger
             _name = _record[ "Name" ].ToString( );
             _shortName = _record[ "ShortName" ].ToString( );
             _status = _record[ "Status" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _subLevelPrefix = _record[ "SubLevelPrefix" ].ToString( );
             _allocationTransferAgency = _record[ "AllocationTransferAgency" ].ToString( );
             _agencyIdentifier = _record[ "AgencyIdentifier" ].ToString( );
@@ -316,8 +316,8 @@ namespace Badger
             _name = dataRow[ "Name" ].ToString( );
             _shortName = dataRow[ "ShortName" ].ToString( );
             _status = dataRow[ "Status" ].ToString( );
-            _startDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( dataRow[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( dataRow[ "EndDate" ].ToString( ) );
             _subLevelPrefix = dataRow[ "SubLevelPrefix" ].ToString( );
             _allocationTransferAgency = dataRow[ "AllocationTransferAgency" ].ToString( );
             _agencyIdentifier = dataRow[ "AgencyIdentifier" ].ToString( );

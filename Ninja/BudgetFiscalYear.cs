@@ -77,7 +77,7 @@ namespace Badger
         /// <summary>
         /// The federal holidays
         /// </summary>
-        private protected IDictionary<Holiday, DateOnly> _federalHolidays;
+        private protected IDictionary<Holiday, DateTime> _federalHolidays;
         
         /// <summary>
         /// Gets or sets the availability.
@@ -121,7 +121,7 @@ namespace Badger
         /// <value>
         /// The federal holidays.
         /// </value>
-        public IDictionary<Holiday, DateOnly> FederalHolidays
+        public IDictionary<Holiday, DateTime> FederalHolidays
         {
             get
             {
@@ -143,7 +143,7 @@ namespace Badger
             : base( )
         {
             _source = Source.FiscalYears;
-            _currentDate = DateOnly.FromDateTime( DateTime.Today );
+            _currentDate = DateTime.Today;
             _currentYear = DateTime.Now.Year;
             _currentMonth = DateTime.Now.Month;
             _currentDay = DateTime.Now.Day;
@@ -169,9 +169,9 @@ namespace Badger
             _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
             _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
             _expiringYear = _record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( _record[ "CancellationDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
+            _cancellationDate = DateTime.Parse( _record[ "CancellationDate" ].ToString( ) );
             _holidays = new HolidayFactory( _record );
         }
 
@@ -186,7 +186,7 @@ namespace Badger
             : base( query )
         {
             _source = query.Source;
-            _currentDate = DateOnly.FromDateTime( DateTime.Today );
+            _currentDate = DateTime.Today;
             _currentYear = DateTime.Now.Year;
             _currentMonth = DateTime.Now.Month;
             _currentDay = DateTime.Now.Day;
@@ -199,9 +199,9 @@ namespace Badger
             _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
             _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
             _expiringYear = _record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( _record[ "CancellationDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
+            _cancellationDate = DateTime.Parse( _record[ "CancellationDate" ].ToString( ) );
             _holidays = new HolidayFactory( _record );
         }
 
@@ -216,7 +216,7 @@ namespace Badger
             : base( dataBuilder )
         {
             _source = dataBuilder.Source;
-            _currentDate = DateOnly.FromDateTime( DateTime.Today );
+            _currentDate = DateTime.Today;
             _currentYear = DateTime.Now.Year;
             _currentMonth = DateTime.Now.Month;
             _currentDay = DateTime.Now.Day;
@@ -231,10 +231,10 @@ namespace Badger
             _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
             _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
             _expiringYear = _record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _cancellationDate = 
-                DateOnly.Parse( dataBuilder.Record[ "CancellationDate" ].ToString( ) );
+                DateTime.Parse( dataBuilder.Record[ "CancellationDate" ].ToString( ) );
 
             _holidays = new HolidayFactory( _record );
         }
@@ -261,9 +261,9 @@ namespace Badger
             _weekDays = double.Parse( dataRow[ "WeekDays" ].ToString( ) );
             _weekEnds = double.Parse( dataRow[ "WeekEnds" ].ToString( ) );
             _expiringYear = dataRow[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( dataRow[ "CancellationDate" ].ToString( ) );
+            _startDate = DateTime.Parse( dataRow[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( dataRow[ "EndDate" ].ToString( ) );
+            _cancellationDate = DateTime.Parse( dataRow[ "CancellationDate" ].ToString( ) );
             _holidays = new HolidayFactory( dataRow );
         }
 
@@ -297,11 +297,11 @@ namespace Badger
         /// Gets the federal holidays.
         /// </summary>
         /// <returns> </returns>
-        public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
+        public IDictionary<Holiday, DateTime> GetFederalHolidays( )
         {
             try
             {
-                var _data = new Dictionary<Holiday, DateOnly>( );
+                var _data = new Dictionary<Holiday, DateTime>( );
                 var _day = new HolidayFactory( _record );
                 _data.Add( Holiday.NewYears, _day.ChristmasDay );
                 _data.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
@@ -316,12 +316,12 @@ namespace Badger
                 _data.Add( Holiday.Christmas, _day.ChristmasDay );
                 return ( _data?.Any( ) == true )
                     ? _data
-                    : default( IDictionary<Holiday, DateOnly> );
+                    : default( IDictionary<Holiday, DateTime> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IDictionary<Holiday, DateOnly> );
+                return default( IDictionary<Holiday, DateTime> );
             }
         }
 

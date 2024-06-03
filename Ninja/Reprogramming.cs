@@ -197,7 +197,7 @@ namespace Badger
         /// <value>
         /// The processed date.
         /// </value>
-        public DateOnly ProcessedDate
+        public DateTime ProcessedDate
         {
             get
             {
@@ -630,7 +630,7 @@ namespace Badger
             _fromTo = _record[ "FromTo" ]?.ToString( );
             _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0" );
             _resourceType = _record[ "ResourceType" ]?.ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
             _quarter = _record[ "Quarter" ]?.ToString( );
             _reprogrammingNumber = _record[ "ReprogrammingNumber" ]?.ToString( );
             _controlNumber = _record[ "ControlNumber" ]?.ToString( );
@@ -677,7 +677,7 @@ namespace Badger
             _fromTo = _record[ "FromTo" ]?.ToString( );
             _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0" );
             _resourceType = _record[ "ResourceType" ]?.ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
             _quarter = _record[ "Quarter" ]?.ToString( );
             _reprogrammingNumber = _record[ "ReprogrammingNumber" ]?.ToString( );
             _controlNumber = _record[ "ControlNumber" ]?.ToString( );
@@ -724,7 +724,7 @@ namespace Badger
             _fromTo = dataRow[ "FromTo" ]?.ToString( );
             _amount = double.Parse( dataRow[ "Amount" ]?.ToString( ) ?? "0" );
             _resourceType = dataRow[ "ResourceType" ]?.ToString( );
-            _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ]?.ToString( ) );
+            _processedDate = DateTime.Parse( dataRow[ "ProcessedDate" ]?.ToString( ) );
             _quarter = dataRow[ "Quarter" ]?.ToString( );
             _reprogrammingNumber = dataRow[ "ReprogrammingNumber" ]?.ToString( );
             _controlNumber = dataRow[ "ControlNumber" ]?.ToString( );

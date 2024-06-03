@@ -64,7 +64,7 @@ namespace Badger
         /// <summary>
         /// The document date
         /// </summary>
-        private DateOnly _documentDate;
+        private DateTime _documentDate;
 
         /// <summary>
         /// The appropriation code
@@ -135,7 +135,7 @@ namespace Badger
         /// <value>
         /// The document date.
         /// </value>
-        public DateOnly DocumentDate
+        public DateTime DocumentDate
         {
             get
             {

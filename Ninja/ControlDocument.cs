@@ -20,7 +20,7 @@
         /// <summary>
         /// The last activity date
         /// </summary>
-        private protected DateOnly _lastActivityDate;
+        private protected DateTime _lastActivityDate;
 
         /// <summary>
         /// The fund
@@ -45,7 +45,7 @@
         /// <summary>
         /// The processed date
         /// </summary>
-        private protected DateOnly _processedDate;
+        private protected DateTime _processedDate;
 
         /// <summary>
         /// The budgeting controls
@@ -133,7 +133,7 @@
         /// <value>
         /// The document date.
         /// </value>
-        public DateOnly ProcessedDate
+        public DateTime ProcessedDate
         {
             get
             {
@@ -241,7 +241,7 @@
             _fund = _record[ "Fund" ].ToString( );
             _documentNumber = _record[ "DocumnetNumber" ].ToString( );
             _documentType = _record[ "DocumentType" ].ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = _record[ "BudgetingControls" ].ToString( );
             _postingControls = _record[ "PostingControls" ].ToString( );
             _preCommitmentControls = _record[ "PreCommitmentControls" ].ToString( );
@@ -270,7 +270,7 @@
             _fund = _record[ "Fund" ].ToString( );
             _documentNumber = _record[ "DocumnetNumber" ].ToString( );
             _documentType = _record[ "DocumentType" ].ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( _record[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = _record[ "BudgetingControls" ].ToString( );
             _postingControls = _record[ "PostingControls" ].ToString( );
             _preCommitmentControls = _record[ "PreCommitmentControls" ].ToString( );
@@ -298,7 +298,7 @@
             _fund = dataRow[ "Fund" ].ToString( );
             _documentNumber = dataRow[ "DocumnetNumber" ].ToString( );
             _documentType = dataRow[ "DocumentType" ].ToString( );
-            _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ].ToString( ) );
+            _processedDate = DateTime.Parse( dataRow[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = dataRow[ "BudgetingControls" ].ToString( );
             _postingControls = dataRow[ "PostingControls" ].ToString( );
             _preCommitmentControls = dataRow[ "PreCommitmentControls" ].ToString( );

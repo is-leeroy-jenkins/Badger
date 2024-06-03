@@ -69,12 +69,12 @@ namespace Badger
         /// <summary>
         /// The start date
         /// </summary>
-        private DateOnly _startDate;
+        private DateTime _startDate;
 
         /// <summary>
         /// The end date
         /// </summary>
-        private DateOnly _endDate;
+        private DateTime _endDate;
 
         /// <summary>
         /// The rc code
@@ -178,7 +178,7 @@ namespace Badger
         /// <value>
         /// The start date.
         /// </value>
-        public DateOnly StartDate
+        public DateTime StartDate
         {
             get
             {
@@ -196,7 +196,7 @@ namespace Badger
         /// <value>
         /// The end date.
         /// </value>
-        public DateOnly EndDate
+        public DateTime EndDate
         {
             get
             {
@@ -452,8 +452,8 @@ namespace Badger
             _fundName = _record[ "FundName" ]?.ToString( );
             _rpio = _record[ "RPIO" ].ToString( );
             _agreementNumber = _record[ "AgreementNumber" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _rcCode = _record[ "RcCode" ].ToString( );
             _orgCode = _record[ "OrgCode" ].ToString( );
             _divisionName = _record[ "DivisionName" ].ToString( );
@@ -489,8 +489,8 @@ namespace Badger
             _fundName = _record[ "FundName" ]?.ToString( );
             _rpio = _record[ "RPIO" ].ToString( );
             _agreementNumber = _record[ "AgreementNumber" ].ToString( );
-            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
             _rcCode = _record[ "RcCode" ].ToString( );
             _orgCode = _record[ "OrgCode" ].ToString( );
             _divisionName = _record[ "DivisionName" ].ToString( );
@@ -526,8 +526,8 @@ namespace Badger
             _fundName = dataRow[ "FundName" ]?.ToString( );
             _rpio = dataRow[ "RPIO" ].ToString( );
             _agreementNumber = dataRow[ "AgreementNumber" ].ToString( );
-            _startDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
+            _startDate = DateTime.Parse( dataRow[ "StartDate" ].ToString( ) );
+            _endDate = DateTime.Parse( dataRow[ "EndDate" ].ToString( ) );
             _rcCode = dataRow[ "RcCode" ].ToString( );
             _orgCode = dataRow[ "OrgCode" ].ToString( );
             _divisionName = dataRow[ "DivisionName" ].ToString( );

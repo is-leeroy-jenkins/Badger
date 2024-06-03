@@ -83,7 +83,7 @@ namespace Badger
 
         /// <summary> Gets or sets the appropriation creation date. </summary>
         /// <value> The appropriation creation date. </value>
-        public DateOnly AppropriationCreationDate { get; set; }
+        public DateTime AppropriationCreationDate { get; set; }
 
         /// <summary> Gets or sets the appropriation code. </summary>
         /// <value> The appropriation code. </value>

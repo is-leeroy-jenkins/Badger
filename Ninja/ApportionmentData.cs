@@ -87,7 +87,7 @@ namespace Badger
         /// <value>
         /// The approval date.
         /// </value>
-        public DateOnly ApprovalDate { get; set; }
+        public DateTime ApprovalDate { get; set; }
 
         /// <summary>
         /// Gets or sets the line number.

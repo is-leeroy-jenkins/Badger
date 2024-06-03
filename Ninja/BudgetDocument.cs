@@ -60,7 +60,7 @@ namespace Badger
         /// <summary>
         /// The document date
         /// </summary>
-        private DateOnly _documentDate;
+        private DateTime _documentDate;
         
         /// <summary>
         /// Gets or sets the document date.
@@ -68,7 +68,7 @@ namespace Badger
         /// <value>
         /// The document date.
         /// </value>
-        public DateOnly DocumentDate
+        public DateTime DocumentDate
         {
             get
             {
@@ -218,7 +218,7 @@ namespace Badger
             _fundCode = _record[ "FundName" ].ToString( );
             _documentType = _record[ "DocumentType" ].ToString( );
             _documentNumber = _record[ "DocumentNumber" ].ToString( );
-            _documentDate = DateOnly.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
+            _documentDate = DateTime.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _carryoverOut = double.Parse( _record[ "CarryoverOut" ].ToString( ) ?? "0" );
@@ -246,7 +246,7 @@ namespace Badger
             _fundCode = _record[ "FundName" ].ToString( );
             _documentType = _record[ "DocumentType" ].ToString( );
             _documentNumber = _record[ "DocumentNumber" ].ToString( );
-            _documentDate = DateOnly.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
+            _documentDate = DateTime.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _carryoverOut = double.Parse( _record[ "CarryoverOut" ].ToString( ) ?? "0" );
@@ -274,7 +274,7 @@ namespace Badger
             _fundCode = _record[ "FundName" ].ToString( );
             _documentType = _record[ "DocumentType" ].ToString( );
             _documentNumber = _record[ "DocumentNumber" ].ToString( );
-            _documentDate = DateOnly.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
+            _documentDate = DateTime.Parse( _record[ "DocumentDate" ].ToString( ) ?? "" );
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _carryoverOut = double.Parse( _record[ "CarryoverOut" ].ToString( ) ?? "0" );
