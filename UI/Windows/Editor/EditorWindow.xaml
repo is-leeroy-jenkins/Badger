@@ -21,8 +21,8 @@
             <ColumnDefinition Width="27*" />
             <ColumnDefinition Width="58*" />
         </Grid.ColumnDefinitions>
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" HorizontalAlignment="Left" Width="1400"
-                Grid.ColumnSpan="4" Grid.Row="2" Margin="2,100,0,10">
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Grid.ColumnSpan="4" Grid.Row="2"
+                Margin="2,100,0,5" HorizontalAlignment="Left" Width="1400" Height="40">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
