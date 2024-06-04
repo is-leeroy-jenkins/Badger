@@ -86,6 +86,7 @@
     <None Remove="UI\Windows\Datagrid\BackButton.png" />
     <None Remove="UI\Windows\Datagrid\BrowseButton.png" />
     <None Remove="UI\Windows\Datagrid\EditButton.png" />
+    <None Remove="UI\Windows\Datagrid\FilterButton.png" />
     <None Remove="UI\Windows\Datagrid\FirstButton.png" />
     <None Remove="UI\Windows\Datagrid\LastButton.png" />
     <None Remove="UI\Windows\Datagrid\Loading.gif" />
@@ -125,6 +126,18 @@
     <None Remove="UI\Windows\Editor\RefreshButton.png" />
     <None Remove="UI\Windows\Editor\SaveButton.png" />
     <None Remove="UI\Windows\Email\Application.png" />
+    <None Remove="UI\Windows\Email\BackButton.png" />
+    <None Remove="UI\Windows\Email\BrowseButton.png" />
+    <None Remove="UI\Windows\Email\DeleteButton.png" />
+    <None Remove="UI\Windows\Email\EditButton.png" />
+    <None Remove="UI\Windows\Email\FilterButton.png" />
+    <None Remove="UI\Windows\Email\FirstButton.png" />
+    <None Remove="UI\Windows\Email\LastButton.png" />
+    <None Remove="UI\Windows\Email\LookUpButton.png" />
+    <None Remove="UI\Windows\Email\NextButton.png" />
+    <None Remove="UI\Windows\Email\PreviousButton.png" />
+    <None Remove="UI\Windows\Email\RefreshButton.png" />
+    <None Remove="UI\Windows\Email\SaveButton.png" />
     <None Remove="UI\Windows\Error\SplashNotification.png" />
     <None Remove="UI\Windows\Excel\Application.png" />
     <None Remove="UI\Windows\Excel\BackButton.png" />
@@ -379,7 +392,6 @@
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
-    <Folder Include="UI\Resources\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -416,8 +428,8 @@
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
     <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\FilterButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
-    <Resource Include="UI\Windows\Datagrid\Waiting.gif" />
     <Resource Include="UI\Windows\Editor\BackButton.png" />
     <Resource Include="UI\Windows\Editor\BrowseButton.png" />
     <Resource Include="UI\Windows\Editor\DeleteButton.png" />
@@ -432,10 +444,12 @@
     <Resource Include="UI\Windows\Editor\RefreshButton.png" />
     <Resource Include="UI\Windows\Editor\SaveButton.png" />
     <Resource Include="UI\Windows\Email\Application.png" />
+    <Resource Include="UI\Windows\Email\BackButton.png" />
     <Resource Include="UI\Windows\Email\BrowseButton.png" />
     <Resource Include="UI\Windows\Email\DeleteButton.png" />
     <Resource Include="UI\Windows\Email\EditButton.png" />
     <Resource Include="UI\Windows\Email\ExportButton.png" />
+    <Resource Include="UI\Windows\Email\FilterButton.png" />
     <Resource Include="UI\Windows\Email\FirstButton.png" />
     <Resource Include="UI\Windows\Email\LastButton.png" />
     <Resource Include="UI\Windows\Email\LookUpButton.png" />

@@ -11,43 +11,6 @@
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
         Icon="/UI/Windows/Editor/Application.png">
     <Canvas x:Name="EditorGrid" Margin="3,3,3,3">
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40"
-                HorizontalAlignment="Left" Canvas.Left="2" Canvas.Top="681">
-            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
-            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
-            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/Chart/PreviousButton.png" Height="30" />
-            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/Chart/NextButton.png" Height="30" />
-            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
-            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Chart/EditButton.png" Height="30" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Chart/SaveButton.png" Height="30" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/Chart/DeleteButton.png" Height="30" />
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
-            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
-        </local:ToolStrip>
         <syncfusion:EditControl x:Name="Editor" Text="Edit Control" Background="#FF464646"
                 BorderBrush="#FF0078D4" Foreground="#FFF0F1F3" CaretBrush="#FFEEFB00"
                 LineNumberAreaBackground="Black" LineNumberTextForeground="#FF1FB70A"
@@ -82,5 +45,50 @@
             <ListBoxItem Height="20" />
             <ListBoxItem Height="20" />
         </local:MetroListBox>
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
+                Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                    ImageSource="/UI/Windows/Editor/FirstButton.png" Height="30" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                    ImageSource="/UI/Windows/Editor/PreviousButton.png" Height="30" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                    ImageSource="/UI/Windows/Editor/NextButton.png" Height="30" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                    ImageSource="/UI/Windows/Editor/LastButton.png" Height="30" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
+                    Foreground="White" Margin="3,0,3,0" Width="175" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                    ImageSource="/UI/Windows/Editor/LookUpButton.png" Height="30" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                    ImageSource="/UI/Windows/Editor/RefreshButton.png" Height="30" />
+            <local:ToolStripButton Foreground="#FFA0BDFC"
+                    ImageSource="/UI/Windows/Datagrid/FilterButton.png" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                    ImageSource="/UI/Windows/Editor/EditButton.png" Height="30" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                    ImageSource="/UI/Windows/Editor/BackButton.png" Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                    ImageSource="/UI/Windows/Editor/SaveButton.png" Height="30" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                    ImageSource="/UI/Windows/Editor/DeleteButton.png" Height="30" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                    ImageSource="/UI/Windows/Editor/BrowseButton.png" Height="30" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                    Foreground="{x:Null}" Margin="25,6,0,6" />
+            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
+                    Foreground="{x:Null}" Margin="20,6,0,6" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                    ImageSource="/UI/Windows/Editor/MenuButton.png" Height="30" />
+        </local:ToolStrip>
     </Canvas>
 </Window>
