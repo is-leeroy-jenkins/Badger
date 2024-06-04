@@ -456,6 +456,7 @@ namespace Badger
                 Fail( _ex );
             }
         }
+
         /// <summary>
         /// Called when [first button click].
         /// </summary>

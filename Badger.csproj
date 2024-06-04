@@ -54,6 +54,69 @@
     <None Remove="FileItem.png" />
     <None Remove="FirefoxItem.png" />
     <None Remove="FolderItem.png" />
+    <None Remove="Resources\Assets\DialogImages\FileBrowse.png" />
+    <None Remove="Resources\Assets\DialogImages\FolderBrowse.png" />
+    <None Remove="Resources\Assets\DialogImages\SplashNotification.png" />
+    <None Remove="Resources\Assets\DialogImages\TextDialog.png" />
+    <None Remove="Resources\Assets\FormImages\Application.png" />
+    <None Remove="Resources\Assets\LoaderImages\earth.gif" />
+    <None Remove="Resources\Assets\LoaderImages\Loading.gif" />
+    <None Remove="Resources\Assets\LoaderImages\Processing.gif" />
+    <None Remove="Resources\Assets\LoaderImages\Waiting.gif" />
+    <None Remove="Resources\Assets\MenuImages\CalculatorItem.png" />
+    <None Remove="Resources\Assets\MenuImages\CalendarItem.png" />
+    <None Remove="Resources\Assets\MenuImages\ChromeItem.png" />
+    <None Remove="Resources\Assets\MenuImages\ClockItem.png" />
+    <None Remove="Resources\Assets\MenuImages\ControlPanelItem.png" />
+    <None Remove="Resources\Assets\MenuImages\DocumentaionItem.png" />
+    <None Remove="Resources\Assets\MenuImages\EdgeItem.png" />
+    <None Remove="Resources\Assets\MenuImages\ExitItem.png" />
+    <None Remove="Resources\Assets\MenuImages\FileItem.png" />
+    <None Remove="Resources\Assets\MenuImages\FirefoxItem.png" />
+    <None Remove="Resources\Assets\MenuImages\FolderItem.png" />
+    <None Remove="Resources\Assets\MenuImages\MapItem.png" />
+    <None Remove="Resources\Assets\MenuImages\MediaPlayerItem.png" />
+    <None Remove="Resources\Assets\MenuImages\OneDriveItem.png" />
+    <None Remove="Resources\Assets\MenuImages\RefreshItem.png" />
+    <None Remove="Resources\Assets\MenuImages\SaveItem.png" />
+    <None Remove="Resources\Assets\MenuImages\TaskManagerItem.png" />
+    <None Remove="Resources\Assets\TileImages\AccessTile.png" />
+    <None Remove="Resources\Assets\TileImages\BrowserTile.png" />
+    <None Remove="Resources\Assets\TileImages\CalendarTile.png" />
+    <None Remove="Resources\Assets\TileImages\DataTile.png" />
+    <None Remove="Resources\Assets\TileImages\EmailTile.png" />
+    <None Remove="Resources\Assets\TileImages\ExcelTile.png" />
+    <None Remove="Resources\Assets\TileImages\GuidanceTile.png" />
+    <None Remove="Resources\Assets\TileImages\MapTile.png" />
+    <None Remove="Resources\Assets\TileImages\PivotTile.png" />
+    <None Remove="Resources\Assets\TileImages\ProgramTile.png" />
+    <None Remove="Resources\Assets\TileImages\SqlCeTile.png" />
+    <None Remove="Resources\Assets\TileImages\SqlEditorTile.png" />
+    <None Remove="Resources\Assets\TileImages\SQLiteTile.png" />
+    <None Remove="Resources\Assets\TileImages\SqlServerTile.png" />
+    <None Remove="Resources\Assets\TileImages\VisualizationTile.png" />
+    <None Remove="Resources\Assets\ToolStripImages\AddColumnButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\AddRecordButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\BackButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\BrowseButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\DecreaseButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\DeleteButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\EditButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\ExcelButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\ExitButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\ExportButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\FilterButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\FirstButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\IncreaseButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\LastButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\LookUpButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\MapTile.png" />
+    <None Remove="Resources\Assets\ToolStripImages\MenuButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\NextButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\PreviousButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\PrintButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\RefreshButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\SaveButton.png" />
     <None Remove="SplashNotification.png" />
     <None Remove="TaskManagerItem.png" />
     <None Remove="UI\Windows\Calendar\Application.png" />
@@ -75,6 +138,8 @@
     <None Remove="UI\Windows\Chart\BrowseButton.png" />
     <None Remove="UI\Windows\Chart\DeleteButton.png" />
     <None Remove="UI\Windows\Chart\EditButton.png" />
+    <None Remove="UI\Windows\Chart\ExportButton.png" />
+    <None Remove="UI\Windows\Chart\FilterButton.png" />
     <None Remove="UI\Windows\Chart\FirstButton.png" />
     <None Remove="UI\Windows\Chart\LastButton.png" />
     <None Remove="UI\Windows\Chart\LookUpButton.png" />
@@ -85,7 +150,9 @@
     <None Remove="UI\Windows\Chart\SaveButton.png" />
     <None Remove="UI\Windows\Datagrid\BackButton.png" />
     <None Remove="UI\Windows\Datagrid\BrowseButton.png" />
+    <None Remove="UI\Windows\Datagrid\DeleteButton.png" />
     <None Remove="UI\Windows\Datagrid\EditButton.png" />
+    <None Remove="UI\Windows\Datagrid\ExportButton.png" />
     <None Remove="UI\Windows\Datagrid\FilterButton.png" />
     <None Remove="UI\Windows\Datagrid\FirstButton.png" />
     <None Remove="UI\Windows\Datagrid\LastButton.png" />
@@ -103,6 +170,7 @@
     <None Remove="UI\Windows\Document\DeleteButton.png" />
     <None Remove="UI\Windows\Document\EditButton.png" />
     <None Remove="UI\Windows\Document\ExportButton.png" />
+    <None Remove="UI\Windows\Document\FilterButton.png" />
     <None Remove="UI\Windows\Document\FirstButton.png" />
     <None Remove="UI\Windows\Document\LastButton.png" />
     <None Remove="UI\Windows\Document\LookUpButton.png" />
@@ -117,6 +185,7 @@
     <None Remove="UI\Windows\Editor\DeleteButton.png" />
     <None Remove="UI\Windows\Editor\EditButton.png" />
     <None Remove="UI\Windows\Editor\ExportButton.png" />
+    <None Remove="UI\Windows\Editor\FilterButton.png" />
     <None Remove="UI\Windows\Editor\FirstButton.png" />
     <None Remove="UI\Windows\Editor\LastButton.png" />
     <None Remove="UI\Windows\Editor\LookUpButton.png" />
@@ -130,6 +199,7 @@
     <None Remove="UI\Windows\Email\BrowseButton.png" />
     <None Remove="UI\Windows\Email\DeleteButton.png" />
     <None Remove="UI\Windows\Email\EditButton.png" />
+    <None Remove="UI\Windows\Email\ExportButton.png" />
     <None Remove="UI\Windows\Email\FilterButton.png" />
     <None Remove="UI\Windows\Email\FirstButton.png" />
     <None Remove="UI\Windows\Email\LastButton.png" />
@@ -145,6 +215,7 @@
     <None Remove="UI\Windows\Excel\DeleteButton.png" />
     <None Remove="UI\Windows\Excel\EditButton.png" />
     <None Remove="UI\Windows\Excel\ExportButton.png" />
+    <None Remove="UI\Windows\Excel\FilterButton.png" />
     <None Remove="UI\Windows\Excel\FirstButton.png" />
     <None Remove="UI\Windows\Excel\LastButton.png" />
     <None Remove="UI\Windows\Excel\LookUpButton.png" />
@@ -196,6 +267,7 @@
     <None Remove="UI\Windows\Map\DeleteButton.png" />
     <None Remove="UI\Windows\Map\EditButton.png" />
     <None Remove="UI\Windows\Map\ExportButton.png" />
+    <None Remove="UI\Windows\Map\FilterButton.png" />
     <None Remove="UI\Windows\Map\FirstButton.png" />
     <None Remove="UI\Windows\Map\LastButton.png" />
     <None Remove="UI\Windows\Map\LookUpButton.png" />
@@ -211,6 +283,7 @@
     <None Remove="UI\Windows\Pivot\DeleteButton.png" />
     <None Remove="UI\Windows\Pivot\EditButton.png" />
     <None Remove="UI\Windows\Pivot\ExportButton.png" />
+    <None Remove="UI\Windows\Pivot\FilterButton.png" />
     <None Remove="UI\Windows\Pivot\FirstButton.png" />
     <None Remove="UI\Windows\Pivot\LastButton.png" />
     <None Remove="UI\Windows\Pivot\LookUpButton.png" />
@@ -225,6 +298,7 @@
     <None Remove="UI\Windows\Program\DeleteButton.png" />
     <None Remove="UI\Windows\Program\EditButton.png" />
     <None Remove="UI\Windows\Program\ExportButton.png" />
+    <None Remove="UI\Windows\Program\FilterButton.png" />
     <None Remove="UI\Windows\Program\FirstButton.png" />
     <None Remove="UI\Windows\Program\LastButton.png" />
     <None Remove="UI\Windows\Program\LookUpButton.png" />
@@ -237,10 +311,76 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Assets\FormImages\Application.ico" />
+    <EmbeddedResource Include="Resources\Assets\DialogImages\FileBrowse.png" />
+    <EmbeddedResource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
+    <EmbeddedResource Include="Resources\Assets\DialogImages\SplashNotification.png" />
+    <EmbeddedResource Include="Resources\Assets\DialogImages\TextDialog.png" />
+    <EmbeddedResource Include="Resources\Assets\FormImages\Application.ico" />
+    <EmbeddedResource Include="Resources\Assets\FormImages\Application.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Assets\LoaderImages\earth.gif" />
+    <EmbeddedResource Include="Resources\Assets\LoaderImages\Loading.gif" />
+    <EmbeddedResource Include="Resources\Assets\LoaderImages\Processing.gif" />
+    <EmbeddedResource Include="Resources\Assets\LoaderImages\Waiting.gif" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\CalculatorItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\CalendarItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\ChromeItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\ClockItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\ControlPanelItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\DocumentaionItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\EdgeItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\ExitItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\FileItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\FirefoxItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\FolderItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\MapItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\MediaPlayerItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\OneDriveItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\RefreshItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\SaveItem.png" />
+    <EmbeddedResource Include="Resources\Assets\MenuImages\TaskManagerItem.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\AccessTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\BrowserTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\CalendarTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\DataTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\EmailTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\ExcelTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\GuidanceTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\MapTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\PivotTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\ProgramTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\SqlCeTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\SqlEditorTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\SQLiteTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\SqlServerTile.png" />
+    <EmbeddedResource Include="Resources\Assets\TileImages\VisualizationTile.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\AddColumnButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\AddRecordButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\BackButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\BrowseButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\DecreaseButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\DeleteButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\EditButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExcelButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExitButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExportButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\FilterButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\FirstButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\IncreaseButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\LastButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\LookUpButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\MapTile.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\MenuButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\NextButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\PreviousButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\PrintButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\RefreshButton.png" />
+    <EmbeddedResource Include="Resources\Assets\ToolStripImages\SaveButton.png" />
     <EmbeddedResource Include="UI\Windows\File\ACCDB.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -401,6 +541,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="UI\Windows\Chart\ExportButton.png" />
+    <Resource Include="UI\Windows\Chart\FilterButton.png" />
     <Resource Include="UI\Windows\Command\Application.png" />
     <Resource Include="UI\Windows\Command\CalculatorItem.png" />
     <Resource Include="UI\Windows\Command\CalendarItem.png" />
@@ -428,13 +570,17 @@
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
     <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\DeleteButton.png" />
+    <Resource Include="UI\Windows\Datagrid\ExportButton.png" />
     <Resource Include="UI\Windows\Datagrid\FilterButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
+    <Resource Include="UI\Windows\Document\FilterButton.png" />
     <Resource Include="UI\Windows\Editor\BackButton.png" />
     <Resource Include="UI\Windows\Editor\BrowseButton.png" />
     <Resource Include="UI\Windows\Editor\DeleteButton.png" />
     <Resource Include="UI\Windows\Editor\EditButton.png" />
     <Resource Include="UI\Windows\Editor\ExportButton.png" />
+    <Resource Include="UI\Windows\Editor\FilterButton.png" />
     <Resource Include="UI\Windows\Editor\FirstButton.png" />
     <Resource Include="UI\Windows\Editor\LastButton.png" />
     <Resource Include="UI\Windows\Editor\LookUpButton.png" />
@@ -503,6 +649,7 @@
     <Resource Include="UI\Windows\Excel\DeleteButton.png" />
     <Resource Include="UI\Windows\Excel\EditButton.png" />
     <Resource Include="UI\Windows\Excel\ExportButton.png" />
+    <Resource Include="UI\Windows\Excel\FilterButton.png" />
     <Resource Include="UI\Windows\Excel\FirstButton.png" />
     <Resource Include="UI\Windows\Excel\LastButton.png" />
     <Resource Include="UI\Windows\Excel\LookUpButton.png" />
@@ -537,6 +684,7 @@
     <Resource Include="UI\Windows\Map\DeleteButton.png" />
     <Resource Include="UI\Windows\Map\EditButton.png" />
     <Resource Include="UI\Windows\Map\ExportButton.png" />
+    <Resource Include="UI\Windows\Map\FilterButton.png" />
     <Resource Include="UI\Windows\Map\FirstButton.png" />
     <Resource Include="UI\Windows\Map\LastButton.png" />
     <Resource Include="UI\Windows\Map\LookUpButton.png" />
@@ -553,6 +701,7 @@
     <Resource Include="UI\Windows\Pivot\DeleteButton.png" />
     <Resource Include="UI\Windows\Pivot\EditButton.png" />
     <Resource Include="UI\Windows\Pivot\ExportButton.png" />
+    <Resource Include="UI\Windows\Pivot\FilterButton.png" />
     <Resource Include="UI\Windows\Pivot\FirstButton.png" />
     <Resource Include="UI\Windows\Pivot\LastButton.png" />
     <Resource Include="UI\Windows\Pivot\LookUpButton.png" />
@@ -568,6 +717,7 @@
     <Resource Include="UI\Windows\Program\DeleteButton.png" />
     <Resource Include="UI\Windows\Program\EditButton.png" />
     <Resource Include="UI\Windows\Program\ExportButton.png" />
+    <Resource Include="UI\Windows\Program\FilterButton.png" />
     <Resource Include="UI\Windows\Program\FirstButton.png" />
     <Resource Include="UI\Windows\Program\LastButton.png" />
     <Resource Include="UI\Windows\Program\LookUpButton.png" />
@@ -1158,10 +1308,6 @@
       <PackagePath>\</PackagePath>
     </None>
     <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\Assets\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

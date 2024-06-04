@@ -163,6 +163,16 @@ namespace Badger.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FilterButton {
+            get {
+                object obj = ResourceManager.GetObject("FilterButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FirstButton {
             get {
                 object obj = ResourceManager.GetObject("FirstButton", resourceCulture);

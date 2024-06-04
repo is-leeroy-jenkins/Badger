@@ -222,6 +222,13 @@ namespace Badger
                 PreviousButton.Click += OnPreviousButtonClick;
                 NextButton.Click += OnNextButtonClick;
                 LastButton.Click += OnLastButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                EditButton.Click += OnEditButtonClick;
+                UndoButton.Click += OnUndoButtonClick;
+                DeleteButton.Click += OnDeleteButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
             }
             catch( Exception _ex )
             {

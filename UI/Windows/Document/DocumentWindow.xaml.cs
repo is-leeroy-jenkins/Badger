@@ -408,7 +408,8 @@ namespace Badger
             try
             {
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
-                _form.Activate( );
+                _form.Show( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -432,6 +433,7 @@ namespace Badger
                 Fail( _ex );
             }
         }
+
         /// <summary>
         /// Called when [first button click].
         /// </summary>
