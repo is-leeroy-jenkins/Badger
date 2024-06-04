@@ -199,6 +199,18 @@ namespace Badger
         {
             try
             {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                EditButton.Click += OnEditButtonClick;
+                UndoButton.Click += OnUndoButtonClick;
+                DeleteButton.Click += OnDeleteButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                ExportButton.Click += OnExportButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )

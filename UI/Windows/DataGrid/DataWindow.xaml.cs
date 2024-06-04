@@ -41,14 +41,19 @@
 namespace Badger
 {
     using System;
+    using System.Data.Entity.Core.Objects;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Threading.Tasks;
+    using System.Timers;
     using System.Windows;
     using System.Windows.Media;
+    using Microsoft.Xaml.Behaviors.Media;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
+    using Timer = System.Timers.Timer;
 
     /// <inheritdoc />
     /// <summary>
@@ -154,6 +159,16 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected System.Threading.Timer _timer;
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -208,6 +223,9 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Window Events
+            Loaded += OnLoaded;
         }
 
         /// <summary>
@@ -217,7 +235,6 @@ namespace Badger
         {
             try
             {
-                MenuButton.Click += OnMenuButtonClick;
                 FirstButton.Click += OnFirstButtonClick;
                 PreviousButton.Click += OnPreviousButtonClick;
                 NextButton.Click += OnNextButtonClick;
@@ -228,7 +245,9 @@ namespace Badger
                 UndoButton.Click += OnUndoButtonClick;
                 DeleteButton.Click += OnDeleteButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
+                ExportButton.Click += OnExportButtonClick;
                 BrowseButton.Click += OnBrowseButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -243,6 +262,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -285,6 +305,56 @@ namespace Badger
         {
             try
             {
+                _timerCallback += UpdateStatus;
+                _timer = new System.Threading.Timer( _timerCallback, null, 0, 260 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
             }
             catch( Exception _ex )
             {
@@ -414,6 +484,7 @@ namespace Badger
         {
             try
             {
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -428,6 +499,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -457,10 +529,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {
@@ -715,6 +788,18 @@ namespace Badger
             }
         }
 
+        private void OnTimerElapsed( object sender, ElapsedEventArgs e )
+        {
+            try
+            {
+                UpdateStatus( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
@@ -722,6 +807,7 @@ namespace Badger
         private protected void Fail( Exception ex )
         {
             var _error = new ErrorWindow( ex );
+            _timer?.Dispose( );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
