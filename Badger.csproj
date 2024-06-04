@@ -88,6 +88,7 @@
     <None Remove="UI\Windows\Datagrid\EditButton.png" />
     <None Remove="UI\Windows\Datagrid\FirstButton.png" />
     <None Remove="UI\Windows\Datagrid\LastButton.png" />
+    <None Remove="UI\Windows\Datagrid\Loading.gif" />
     <None Remove="UI\Windows\Datagrid\LookUpButton.png" />
     <None Remove="UI\Windows\Datagrid\MenuButton.png" />
     <None Remove="UI\Windows\Datagrid\NextButton.png" />
@@ -139,6 +140,27 @@
     <None Remove="UI\Windows\Excel\PreviousButton.png" />
     <None Remove="UI\Windows\Excel\RefreshButton.png" />
     <None Remove="UI\Windows\Excel\SaveButton.png" />
+    <None Remove="UI\Windows\File\ACCDB.png" />
+    <None Remove="UI\Windows\File\CSV.png" />
+    <None Remove="UI\Windows\File\DB.png" />
+    <None Remove="UI\Windows\File\DLL.png" />
+    <None Remove="UI\Windows\File\DOC.png" />
+    <None Remove="UI\Windows\File\DOCX.png" />
+    <None Remove="UI\Windows\File\EXE.png" />
+    <None Remove="UI\Windows\File\FileBrowse.png" />
+    <None Remove="UI\Windows\File\HTML.png" />
+    <None Remove="UI\Windows\File\MDB.png" />
+    <None Remove="UI\Windows\File\MDF.png" />
+    <None Remove="UI\Windows\File\PDF.png" />
+    <None Remove="UI\Windows\File\PNG.png" />
+    <None Remove="UI\Windows\File\PPTX.png" />
+    <None Remove="UI\Windows\File\PY.png" />
+    <None Remove="UI\Windows\File\SDF.png" />
+    <None Remove="UI\Windows\File\SQL.png" />
+    <None Remove="UI\Windows\File\TXT.png" />
+    <None Remove="UI\Windows\File\XLS.png" />
+    <None Remove="UI\Windows\File\XLSX.png" />
+    <None Remove="UI\Windows\File\XML.png" />
     <None Remove="UI\Windows\Folder\FolderBrowse.png" />
     <None Remove="UI\Windows\Main\AccessTile.png" />
     <None Remove="UI\Windows\Main\BrowserTile.png" />
@@ -198,10 +220,71 @@
     <None Remove="UI\Windows\Program\PreviousButton.png" />
     <None Remove="UI\Windows\Program\RefreshButton.png" />
     <None Remove="UI\Windows\Program\SaveButton.png" />
+    <None Remove="UI\Windows\Splash\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Windows\File\ACCDB.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\CSV.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\DB.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\DLL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\DOC.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\DOCX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\EXE.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\HTML.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\MDB.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\MDF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\PDF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\PNG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\PPTX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\SDF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\SQL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\TXT.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\XLS.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\XLSX.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Windows\File\XML.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
@@ -296,6 +379,7 @@
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+    <Folder Include="UI\Resources\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -332,6 +416,7 @@
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
     <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\Loading.gif" />
     <Resource Include="UI\Windows\Datagrid\Waiting.gif" />
     <Resource Include="UI\Windows\Editor\BackButton.png" />
     <Resource Include="UI\Windows\Editor\BrowseButton.png" />
@@ -412,6 +497,10 @@
     <Resource Include="UI\Windows\Excel\PreviousButton.png" />
     <Resource Include="UI\Windows\Excel\RefreshButton.png" />
     <Resource Include="UI\Windows\Excel\SaveButton.png" />
+    <Resource Include="UI\Windows\File\FileBrowse.png" />
+    <EmbeddedResource Include="UI\Windows\File\PY.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Resource Include="UI\Windows\Folder\FolderBrowse.png" />
     <Resource Include="UI\Windows\Main\AccessTile.png" />
     <Resource Include="UI\Windows\Main\BrowserTile.png" />

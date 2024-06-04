@@ -63,36 +63,6 @@ namespace Badger
     public partial class SplashMessage : Window
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -104,20 +74,9 @@ namespace Badger
         };
 
         /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
         /// The fore color
         /// </summary>
-        private protected Color _foreColor = new Color( )
+        private protected Color _titleColor = new Color( )
         {
             A = 255,
             R = 106,
@@ -128,7 +87,7 @@ namespace Badger
         /// <summary>
         /// The fore hover color
         /// </summary>
-        private protected Color _foreHover = new Color( )
+        private protected Color _messageColor = new Color( )
         {
             A = 255,
             R = 255,
@@ -140,17 +99,6 @@ namespace Badger
         /// The border color
         /// </summary>
         private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
         {
             A = 255,
             R = 106,
@@ -304,18 +252,17 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Margin = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            BorderThickness = new Thickness( 1 );
-            Title = "Budget Execution";
+            WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Foreground = new SolidColorBrush( _titleColor );
 
             // Event Wiring
-            Loaded += OnLoad;
+            IsVisibleChanged += OnVisibleChanged;
+            MouseLeftButtonDown += OnClick;
+            MouseRightButtonDown += OnClick;
         }
 
         /// <inheritdoc />
@@ -327,7 +274,8 @@ namespace Badger
         public SplashMessage( string message )
             : this( )
         {
-            _text = message;
+            TitleLabel.Content = "Message";
+            MessageLabel.Content = message;
         }
 
         /// <summary>
@@ -470,11 +418,10 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
             try
             {
-                MessageLabel.Content = _text;
                 Opacity = 0;
                 FadeInAsync( this );
             }

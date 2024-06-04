@@ -3,46 +3,96 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Name="DataView"
-        x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution" Background="#FF141414"
-        BorderBrush="#FF0078D4" Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen"
-        Topmost="True" BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="750"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="DataView" x:Class="Badger.DataWindow"
+        mc:Ignorable="d" Title="Budget Execution" Background="#FF141414" BorderBrush="#FF0078D4"
+        Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
+        BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="750"
         VerticalContentAlignment="Bottom" Width="1400">
-    <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,670,0,0" Height="40"
-            VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
-        <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
-        <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
-        <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                ImageSource="/UI/Windows/Chart/PreviousButton.png" Height="30" />
-        <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                ImageSource="/UI/Windows/Chart/NextButton.png" Height="30" />
-        <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
-        <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                Foreground="#006ABDFC" Width="1" />
-        <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                Foreground="White" Margin="3,0,3,0" Width="175" />
-        <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                Foreground="#006ABDFC" Width="1" />
-        <local:ToolStripTextBox x:Name="ToolStripTextBox" />
-        <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                Foreground="#006ABDFC" Width="1" />
-        <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
-        <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
-        <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                ImageSource="/UI/Windows/Chart/EditButton.png" Height="30" />
-        <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
-        <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                ImageSource="/UI/Windows/Chart/SaveButton.png" Height="30" />
-        <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                ImageSource="/UI/Windows/Chart/DeleteButton.png" Height="30" />
-        <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
-        <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
-    </local:ToolStrip>
+    <Grid x:Name="DataGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="166*" />
+            <RowDefinition Height="17*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="460*" />
+            <ColumnDefinition Width="239*" />
+        </Grid.ColumnDefinitions>
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,18,-2,10" Width="1400"
+                Grid.ColumnSpan="2" Grid.Row="1">
+            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
+            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
+            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                    ImageSource="/UI/Windows/Chart/PreviousButton.png" Height="30" />
+            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                    ImageSource="/UI/Windows/Chart/NextButton.png" Height="30" />
+            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                    ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
+                    Foreground="White" Margin="3,0,3,0" Width="175" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
+                    Foreground="#006ABDFC" Width="1" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                    ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                    ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                    ImageSource="/UI/Windows/Chart/EditButton.png" Height="30" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                    ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                    ImageSource="/UI/Windows/Chart/SaveButton.png" Height="30" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                    ImageSource="/UI/Windows/Chart/DeleteButton.png" Height="30" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                    ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                    ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
+        </local:ToolStrip>
+        <local:MetroTabControl x:Name="PrimaryTabControl" Margin="10,9,10,30">
+            <TabItem Header="Data" x:Name="DataTab" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FF0078D4" IsSelected="True">
+                <Grid x:Name="DataTabGrid" Background="#FF141414" Height="545"
+                        VerticalAlignment="Top" Margin="12,0,38,0">
+                    <local:MetroDataGrid Margin="55,46,113,109" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Busy" x:Name="BusyTab" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FF0078D4">
+                <Grid x:Name="BusyTabGrid" Background="#FF141414">
+                    <Image x:Name="Loader" Margin="3,3,6,3"
+                            gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif"
+                            Stretch="Fill" />
+                </Grid>
+            </TabItem>
+        </local:MetroTabControl>
+        <local:MetroTabControl x:Name="SecondaryTabControl" Margin="9,11,9,25" Grid.Column="1">
+            <TabItem Header="Source" x:Name="SourceTab" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FF0078D4" IsSelected="False">
+                <Grid x:Name="SourceTabGrid" Background="#FF141414" Height="545"
+                        VerticalAlignment="Top" />
+            </TabItem>
+            <TabItem Header="Filter" x:Name="FilterTab1" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FF0078D4">
+                <Grid x:Name="FilterTabGrid" Background="#FF141414" Height="545"
+                        VerticalAlignment="Top" />
+            </TabItem>
+            <TabItem Header="Grouping" x:Name="GroupingTab" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FF0078D4">
+                <Grid x:Name="Groupin3TabGrid" Background="#FF141414" Height="545"
+                        VerticalAlignment="Top" />
+            </TabItem>
+            <TabItem Header="Calendar" x:Name="CalendarTab" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FF0078D4">
+                <Grid x:Name="CalendarTabGrid" Background="#FF141414" Height="545"
+                        VerticalAlignment="Top" />
+            </TabItem>
+        </local:MetroTabControl>
+    </Grid>
 </Window>

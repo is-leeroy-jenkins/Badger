@@ -47,19 +47,20 @@
                 Margin="95,514,0,0" Title="Baby Browser" VerticalAlignment="Top" Width="155"
                 Grid.Column="1" ImageSource="/UI/Windows/Main/BrowserTile.png" />
         <local:MetroTile x:Name="DocumentTile" Grid.Column="1" HorizontalAlignment="Left"
-                Height="115" Header="" Margin="343,77,0,0" Title="Guidance" VerticalAlignment="Top"
-                Width="155" ImageSource="/UI/Windows/Main/GuidanceTile.png" />
+                Height="115" Header="" Margin="345,77,0,0" Title="Guidance" VerticalAlignment="Top"
+                Width="175" ImageSource="/UI/Windows/Main/GuidanceTile.png" />
         <local:MetroTile x:Name="CalendarTile" HorizontalAlignment="Left" Height="115" Header=""
                 Margin="85,304,0,0" Title="Fiscal Year" VerticalAlignment="Top" Width="155"
                 Background="#FF282828" ImageSource="/UI/Windows/Main/CalendarTile.png" />
-        <local:MetroTile x:Name="EditorTile" Grid.Column="1" HorizontalAlignment="Left" Height="115"
-                Header="" Margin="350,0,0,0" Title="SQL Editors" VerticalAlignment="Center"
-                Width="155" ImageSource="/UI/Windows/Main/SqlEditorTile.png" />
-        <local:MetroTile x:Name="MapTile" Grid.Column="1" HorizontalAlignment="Left" Height="115"
-                Header="" Margin="360,514,0,0" Title="GIS Data" Width="155" VerticalAlignment="Top"
+        <local:MetroTile x:Name="EditorTile" Grid.Column="1" Height="115" Header=""
+                Margin="354,0,0,0" Title="SQL Editors" VerticalAlignment="Center"
+                ImageSource="/UI/Windows/Main/SqlEditorTile.png" HorizontalAlignment="Left"
+                Width="171" />
+        <local:MetroTile x:Name="MapTile" Grid.Column="1" Height="115" Header=""
+                Margin="352,514,0,0" Title="GIS Data" VerticalAlignment="Top"
                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
-                ImageSource="/UI/Windows/Main/MapTile.png" />
-        <local:MetroTile x:Name="TestButton" Grid.Column="1" HorizontalAlignment="Left" Height="45" Header=""
-                Margin="230,229,0,0" Title="Test" VerticalAlignment="Top" Width="150" />
+                ImageSource="/UI/Windows/Main/MapTile.png" HorizontalAlignment="Left" Width="178" />
+        <local:MetroTile x:Name="TestButton" Grid.Column="1" HorizontalAlignment="Left" Height="45"
+                Header="" Margin="410,229,0,0" Title="Test" VerticalAlignment="Top" Width="90" />
     </Grid>
 </Window>

@@ -45,6 +45,9 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using ToastNotifications;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Position;
 
     /// <inheritdoc />
     /// <summary>
@@ -304,6 +307,77 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the notifier.
+        /// </summary>
+        /// <returns></returns>
+        private Notifier CreateNotifier( )
+        {
+            try
+            {
+                var _timeSpan = TimeSpan.FromSeconds( 3 );
+                var _max = MaximumNotificationCount.FromCount( 5 );
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _timeSpan, _max );
+                return new Notifier( cfg =>
+                {
+                    cfg.LifetimeSupervisor = _lifeTime;
+                    cfg.PositionProvider = _position;
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        private void SendNotification( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notify = new Notification( message )
+                {
+                    Owner = this
+                };
+
+                _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        private void SendMessage( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _splash = new SplashMessage( message )
+                {
+                    Owner = this
+                };
+
+                _splash.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the out asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -342,7 +416,6 @@ namespace Badger
                 Fail( _ex );
             }
         }
-
 
         /// <summary>
         /// Updates the status.

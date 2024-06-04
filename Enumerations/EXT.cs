@@ -147,6 +147,11 @@ namespace Badger
         /// <summary>
         /// The Power Point Extension
         /// </summary>
-        PPT
+        PPT,
+
+        /// <summary>
+        /// The Power Point Extension
+        /// </summary>
+        PPTX
     }
 }

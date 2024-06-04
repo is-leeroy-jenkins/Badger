@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 06-03-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        06-03-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
+// <copyright file="FileBrowser.xaml.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
-//
+//    Copyright ©  2024  Terry Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   FileBrowser.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,8 +46,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Timers;
     using System.Windows;
     using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
     /// <summary>
@@ -59,6 +61,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class FileBrowser : Window
     {
         /// <summary>
@@ -67,9 +70,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -186,6 +189,11 @@ namespace Badger
         private protected IList<string> _initialPaths;
 
         /// <summary>
+        /// The image
+        /// </summary>
+        private protected BitmapImage _image;
+
+        /// <summary>
         /// Gets or sets the selected path.
         /// </summary>
         /// <value>
@@ -277,6 +285,19 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
+            // Budget Properties
+            _extension = EXT.XLSX;
+            _fileExtension = _extension.ToString( ).ToLower( );
+            _radioButtons = GetRadioButtons( );
+            _initialPaths = CreateInitialDirectoryPaths( );
+
+            // Wire Events
+            IsVisibleChanged += OnVisibleChanged;
         }
 
         /// <summary>
@@ -342,6 +363,23 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                BrowseButton.Content = "Browse";
+                ClearButton.Content = "Clear";
+                SelectButton.Content = "Select";
             }
             catch( Exception _ex )
             {
@@ -475,10 +513,11 @@ namespace Badger
                         ?.ToArray( );
 
                     _filePaths.AddRange( _topLevelFiles );
-                    for( int _k = 0; _k < _folders.Count; _k++ )
+                    for( var _k = 0; _k < _folders.Count; _k++ )
                     {
                         var _folder = Directory.CreateDirectory( _folders[ _k ] );
-                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                        var _lowerLevelFiles = _folder
+                            .GetFiles( _pattern, SearchOption.AllDirectories )
                             ?.Select( s => s.FullName )
                             ?.ToArray( );
 
@@ -522,7 +561,8 @@ namespace Badger
                     for( var _k = 0; _k < _folders.Count; _k++ )
                     {
                         var _folder = Directory.CreateDirectory( _folders[ _k ] );
-                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                        var _lowerLevelFiles = _folder
+                            .GetFiles( _pattern, SearchOption.AllDirectories )
                             ?.Select( s => s.FullName )
                             ?.ToArray( );
 
@@ -648,15 +688,42 @@ namespace Badger
         }
 
         /// <summary>
+        /// Sets the extension.
+        /// </summary>
+        private void SetImage( )
+        {
+            try
+            {
+                var _file = $@"/UI/Windows/File/{_fileExtension.ToUpper( )}.png";
+                var _uri = new Uri( _file, UriKind.RelativeOrAbsolute );
+                _image = new BitmapImage( _uri );
+                PictureBox.Source = _image;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
             try
             {
+                ExcelRadioButton.IsChecked = true;
+                _filePaths = GetFilePaths( );
+                _count = _filePaths.Count;
+                InitializeTimer( );
+                PopulateListBox( );
+                InitializeLabels( );
+                InitializeButtons( );
+                RegisterRadioButtonEvents( );
+                SetImage( );
             }
             catch( Exception _ex )
             {
@@ -674,8 +741,7 @@ namespace Badger
             try
             {
                 var _radioButton = sender as MetroRadioButton;
-                var _provider = _radioButton?.Tag?.ToString( );
-                _fileExtension = _provider?.Replace( ".", "" );
+                _fileExtension = _radioButton?.Tag?.ToString( );
                 if( !string.IsNullOrEmpty( _fileExtension ) )
                 {
                     _extension = (EXT)Enum.Parse( typeof( EXT ), _fileExtension.ToUpper( ) );
@@ -684,6 +750,7 @@ namespace Badger
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
                 PopulateListBox( _filePaths );
+                SetImage( );
             }
             catch( Exception _ex )
             {

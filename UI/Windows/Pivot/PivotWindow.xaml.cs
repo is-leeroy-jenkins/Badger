@@ -45,6 +45,10 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using ToastNotifications;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Messages;
+    using ToastNotifications.Position;
 
     /// <inheritdoc />
     /// <summary>
@@ -326,6 +330,32 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the notifier.
+        /// </summary>
+        /// <returns></returns>
+        private Notifier CreateNotifier( )
+        {
+            try
+            {
+                var _timeSpan = TimeSpan.FromSeconds( 3 );
+                var _max = MaximumNotificationCount.FromCount( 5 );
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _timeSpan, _max );
+                return new Notifier( cfg =>
+                {
+                    cfg.LifetimeSupervisor = _lifeTime;
+                    cfg.PositionProvider = _position;
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -336,12 +366,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _notify = new Notification( message )
-                {
-                    Owner = this
-                };
-
-                _notify.Show( );
+                var _notifier = CreateNotifier( );
+                _notifier.ShowInformation( message );
             }
             catch( Exception _ex )
             {
@@ -420,7 +446,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
             try
             {

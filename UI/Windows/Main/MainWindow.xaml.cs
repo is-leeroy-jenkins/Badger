@@ -46,7 +46,6 @@ namespace Badger
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
     using System.Windows.Media;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -392,32 +391,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the notifier.
-        /// </summary>
-        /// <returns></returns>
-        private Notifier CreateNotifier( )
-        {
-            try
-            {
-                var _time = TimeSpan.FromSeconds( 3 );
-                var _max = MaximumNotificationCount.FromCount( 5 );
-                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
-                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _time, _max );
-                return new Notifier( cfg =>
-                {
-                    cfg.LifetimeSupervisor = _lifeTime;
-                    cfg.PositionProvider = _position;
-                    cfg.Dispatcher = Application.Current.Dispatcher;
-                } );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Notifier );
-            }
-        }
-
-        /// <summary>
         /// Opens the data window.
         /// </summary>
         private void OpenDataWindow( )
@@ -748,6 +721,52 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
+                var _dataTable = _data.DataTable;
+                var _report = new ExcelReport( _dataTable );
+                _report.SaveDialog( );
+                var _message = "The Excel File has been created!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the notifier.
+        /// </summary>
+        /// <returns></returns>
+        private Notifier CreateNotifier( )
+        {
+            try
+            {
+                var _time = TimeSpan.FromSeconds( 3 );
+                var _max = MaximumNotificationCount.FromCount( 5 );
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _time, _max );
+                return new Notifier( cfg =>
+                {
+                    cfg.LifetimeSupervisor = _lifeTime;
+                    cfg.PositionProvider = _position;
+                    cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -781,26 +800,6 @@ namespace Badger
                 };
 
                 _splash.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Creates the excel report.
-        /// </summary>
-        private void CreateExcelReport( )
-        {
-            try
-            {
-                var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
-                var _dataTable = _data.DataTable;
-                var _report = new ExcelReport( _dataTable );
-                _report.SaveDialog( );
-                var _message = "The Excel File has been created!";
-                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -857,12 +856,11 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [loaded].
+        /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/>
+        /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        /// <returns></returns>
         private void OnLoaded( object sender, EventArgs e )
         {
             try
@@ -1125,8 +1123,8 @@ namespace Badger
         {
             try
             {
-                var _fileBrowser = new FileBrowser( );
-                _fileBrowser.ShowDialog( );
+                var _message = "THIS IS A TEST MESSAGE!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {

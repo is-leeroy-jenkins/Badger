@@ -12,7 +12,7 @@
                               LeftWallBrush="#FF4B4B4B" RightWallBrush="#FF4B4B4B" TopWallBrush="#FF4B4B4B"
                               Background="#FF141414" RenderTransformOrigin="0.492,0.913" Height="426"
                               VerticalAlignment="Top" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,670,0,0" Height="40"
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,670,0,0" Height="40"
                          VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"

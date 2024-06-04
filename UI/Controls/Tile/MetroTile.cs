@@ -57,36 +57,6 @@ namespace Badger
     public class MetroTile : SfHubTile
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -161,20 +131,14 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            _backColorBrush = new SolidColorBrush( _backColor );
-            _borderColorBrush = new SolidColorBrush( _borderColor );
-            _foreColorBrush = new SolidColorBrush( _foreColor );
-            _backHoverBrush = new SolidColorBrush( _backHover );
-            _borderHoverBrush = new SolidColorBrush( _borderHover );
-            _foreHoverBrush = new SolidColorBrush( _foreHover );
             Width = 200;
             Height = 100;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             BorderThickness = new Thickness( 1 );
-            Background = _backColorBrush;
-            Foreground = _foreColorBrush;
-            BorderBrush = _borderColorBrush;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
 
             // Wire Events
             MouseEnter += OnMouseEnter;
@@ -192,9 +156,9 @@ namespace Badger
         {
             try
             {
-                Background = _backHoverBrush;
-                Foreground = _foreHoverBrush;
-                BorderBrush = _borderHoverBrush;
+                Background = new SolidColorBrush( _backHover );
+                Foreground = new SolidColorBrush( _foreHover );
+                BorderBrush = new SolidColorBrush( _borderHover );
             }
             catch( Exception _ex )
             {
@@ -213,9 +177,9 @@ namespace Badger
         {
             try
             {
-                Background = _backColorBrush;
-                Foreground = _foreColorBrush;
-                BorderBrush = _borderColorBrush;
+                Background = new SolidColorBrush( _backColor );
+                Foreground = new SolidColorBrush( _foreColor );
+                BorderBrush = new SolidColorBrush( _borderColor );
             }
             catch( Exception _ex )
             {

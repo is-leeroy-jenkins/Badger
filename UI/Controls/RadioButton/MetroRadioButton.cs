@@ -42,12 +42,17 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
     using System.Windows.Media;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class MetroRadioButton : RadioButton
     {
         /// <summary>
@@ -62,13 +67,35 @@ namespace Badger
         };
 
         /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
         /// The fore color
         /// </summary>
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 186,
-            G = 207,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
             B = 255
         };
 
@@ -77,10 +104,21 @@ namespace Badger
         /// </summary>
         private readonly Color _borderColor = new Color( )
         {
-            A = 0,
+            A = 255,
             R = 0,
             G = 120,
             B = 212
+        };
+
+        /// <summary>
+        /// The selected color
+        /// </summary>
+        private protected Color _selectedColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 255,
+            B = 0
         };
 
         /// <inheritdoc />
@@ -96,9 +134,74 @@ namespace Badger
             Width = 124;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Wire Events
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
+            MouseLeftButtonDown += OnMouseClick;
+        }
+
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private protected virtual void OnMouseEnter( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = new SolidColorBrush( _backHover );
+                Foreground = new SolidColorBrush( _foreHover );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private protected virtual void OnMouseLeave( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Background = new SolidColorBrush( _backColor );
+                Foreground = new SolidColorBrush( _foreColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private protected virtual void OnMouseClick( object sender, MouseEventArgs e )
+        {
+            try
+            {
+                Foreground = new SolidColorBrush( _borderColor );
+                BorderBrush = new SolidColorBrush( _selectedColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

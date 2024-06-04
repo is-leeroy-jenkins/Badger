@@ -157,17 +157,17 @@
   <data name="EditSqlButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\DialogImages\EditSqlButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\DialogImages\Error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ErrorDialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\DialogImages\ErrorDialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\DialogImages\Error_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FileBrowse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\DialogImages\FileBrowse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Error_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\DialogImages\Error_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FolderBrowse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\DialogImages\FolderBrowse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuDialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\DialogImages\MenuDialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Message" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\DialogImages\Message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

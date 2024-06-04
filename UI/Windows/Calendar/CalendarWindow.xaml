@@ -29,8 +29,8 @@
                              Margin="104,119,1028,0" VerticalAlignment="Top"
                              ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1"
                              BorderBrush="#FF2D2D2D" BorderThickness="1,1,1,1" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,670,0,0" Height="40"
-                         VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,670,0,0" Height="40"
+                HorizontalAlignment="Left" Width="1400" VerticalAlignment="Top">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                                    ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
