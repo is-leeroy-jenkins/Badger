@@ -208,9 +208,6 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-
-            // Wire Events
-            IsVisibleChanged += OnVisibleChanged;
         }
 
         /// <summary>
@@ -221,6 +218,10 @@ namespace Badger
             try
             {
                 MenuButton.Click += OnMenuButtonClick;
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
             }
             catch( Exception _ex )
             {
@@ -472,6 +473,162 @@ namespace Badger
             {
                 OpenMainWindow( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnFirstButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnPreviousButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnNextButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnLastButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnBrowseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnEditButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnRefreshButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnUndoButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnDeleteButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnExportButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
