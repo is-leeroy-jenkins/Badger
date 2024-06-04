@@ -9,22 +9,11 @@
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
         BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="750"
         VerticalContentAlignment="Bottom" Width="1400">
-    <Grid x:Name="DataGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="664.036" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="905" />
-            <ColumnDefinition Width="493" />
-        </Grid.ColumnDefinitions>
-        <local:MetroCanvas x:Name="SecondaryCanvas" Grid.Column="1" HorizontalAlignment="Right"
-                Width="483" Height="625" VerticalAlignment="Center" Margin="0,0,5,0" />
-        <local:MetroCanvas x:Name="PrimaryCanvas" HorizontalAlignment="Left" Width="875"
-                Height="625" VerticalAlignment="Center" Margin="10,0,0,0" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,670,0,3" Grid.ColumnSpan="2"
-                HorizontalAlignment="Left" Width="1400" Height="40"  Grid.RowSpan="2">
-            <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
+    <local:MetroCanvas x:Name="MainCanvas" Margin="1,1,1,1" Width="1400" Height="750">
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1399"
+                Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -59,46 +48,62 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <local:MetroTabControl x:Name="SecondaryTabControl" Margin="25,0,33,29" Grid.Column="1"
-                Height="605" VerticalAlignment="Bottom">
-            <TabItem Header="Source" x:Name="SourceTab" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FF0078D4" IsSelected="False">
-                <Grid x:Name="SourceTabGrid" Background="#FF141414" Height="545"
-                        VerticalAlignment="Top" Margin="0,0,16,0" />
+        <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="559"
+                Canvas.Left="819" Canvas.Top="12" HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+            <TabItem HorizontalAlignment="Center" Height="20" Header="Sources"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="SourceCanvas" Background="#FF141414">
+                    <local:MetroRadioButton x:Name="ExecutionRadioButton" Content="Execution Tables"
+                            Canvas.Left="54" Canvas.Top="41" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    <local:MetroRadioButton x:Name="ReferenceRadioButton" Content="Reference Tables"
+                            Canvas.Left="189" Canvas.Top="41" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    <local:MetroRadioButton x:Name="MaintenanceRadioButton"
+                            Content="Maintainence Tables" Canvas.Left="334" Canvas.Top="41"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroListBox Height="410" Width="425"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
+                            Canvas.Top="86" VerticalAlignment="Top" Canvas.Left="54" />
+                </Canvas>
             </TabItem>
-            <TabItem Header="Filter" x:Name="FilterTab" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FF0078D4">
-                <Grid x:Name="FilterTabGrid" Background="#FF141414" Height="545"
-                        VerticalAlignment="Top" />
+            <TabItem Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FFA0BDFC" Width="100">
+                <Canvas x:Name="FilterCanvas" />
             </TabItem>
-            <TabItem Header="Grouping" x:Name="GroupingTab" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FF0078D4">
-                <Grid x:Name="Groupin3TabGrid" Background="#FF141414" Height="545"
-                        VerticalAlignment="Top" />
+            <TabItem HorizontalAlignment="Center" Height="20" Header="Grouping"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="GroupCanvas" Background="#FF141414" />
             </TabItem>
-            <TabItem Header="Calendar" x:Name="CalendarTab" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FF0078D4">
-                <Grid x:Name="CalendarTabGrid" Background="#FF141414" Height="545"
-                        VerticalAlignment="Top" />
+            <TabItem HorizontalAlignment="Center" Height="20" Header="Calendar"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="CalendarCanvas" Background="#FF141414" />
             </TabItem>
+            <local:MetroRadioButton Content="MetroRadioButton" />
         </local:MetroTabControl>
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="604" VerticalAlignment="Center"
-                Grid.Column="0" Margin="0,0,30,0" HorizontalAlignment="Right" Width="840">
-            <TabItem Header="Data" x:Name="DataTab" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FF0078D4" IsSelected="True">
-                <Grid x:Name="DataTabGrid" Background="#FF141414" Height="545"
-                        VerticalAlignment="Top" Margin="12,0,38,0">
-                    <local:MetroDataGrid Margin="55,46,65,109" />
-                </Grid>
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="791" Canvas.Left="18"
+                Canvas.Top="11" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TabItem Header="Data" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FFA0BDFC" Width="100">
+                <Canvas x:Name="DataTabCanvas" Background="#FF141414">
+                    <local:MetroDataGrid x:Name="Datagrid" Height="410" Canvas.Left="50"
+                            Canvas.Top="92" Width="690" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" BorderBrush="#FF0078D4"
+                            SelectionForegroundBrush="#FFFFFCFC" />
+                </Canvas>
             </TabItem>
-            <TabItem Header="Busy" x:Name="BusyTab" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FF0078D4">
-                <Grid x:Name="BusyTabGrid" Background="#FF141414">
-                    <Image x:Name="Loader" Margin="3,3,6,3"
+            <TabItem HorizontalAlignment="Center" Height="20" Header="TabItem"
+                    VerticalAlignment="Center" Width="54">
+                <Canvas x:Name="BusyTabCanvas" Background="#FF141414">
+                    <Image x:Name="PictureBox" Height="550" Canvas.Top="32" Width="732"
                             gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif"
-                            Stretch="Fill" />
-                </Grid>
+                            Canvas.Left="25" />
+                </Canvas>
             </TabItem>
         </local:MetroTabControl>
-    </Grid>
+    </local:MetroCanvas>
 </Window>

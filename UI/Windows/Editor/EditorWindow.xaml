@@ -10,20 +10,9 @@
         Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
         Icon="/UI/Windows/Editor/Application.png">
-    <Grid x:Name="EditorGrid" Margin="3,3,3,3">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="101*" />
-            <RowDefinition Height="480*" />
-            <RowDefinition Height="145*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="112*" />
-            <ColumnDefinition Width="600*" />
-            <ColumnDefinition Width="335*" />
-            <ColumnDefinition Width="345*" />
-        </Grid.ColumnDefinitions>
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Grid.ColumnSpan="4" Grid.Row="2"
-                Margin="2,100,0,5" HorizontalAlignment="Left" Width="1400" Height="40">
+    <Canvas x:Name="EditorGrid" Margin="3,3,3,3">
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40"
+                HorizontalAlignment="Left" Canvas.Left="2" Canvas.Top="681">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
@@ -64,34 +53,34 @@
                 LineNumberAreaBackground="Black" LineNumberTextForeground="#FF1FB70A"
                 SelectionBackground="#FF183159" FontFamily="Source Code Pro"
                 BorderThickness="1,1,1,1" OutliningAreaWidth="3" LineNumberAreaWidth="10"
-                Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="15,15,0,0"
-                HorizontalAlignment="Left" Width="900" Height="450" VerticalAlignment="Top" />
-        <local:MetroListBox Grid.Column="3" Grid.Row="1" Margin="0,130,45,0"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                Width="900" Height="450" HorizontalAlignment="Left" Canvas.Left="127"
+                Canvas.Top="116" VerticalAlignment="Top" />
+        <local:MetroListBox ScrollViewer.HorizontalScrollBarVisibility="Auto"
                 ScrollViewer.CanContentScroll="True" ClipToBounds="True" SnapsToDevicePixels="True"
-                HorizontalAlignment="Right" Width="240" Height="335" VerticalAlignment="Top">
+                Width="240" Height="335" HorizontalAlignment="Right" Canvas.Left="1107"
+                Canvas.Top="231" VerticalAlignment="Top">
             <ListBoxItem Height="20" />
             <ListBoxItem Height="20" />
         </local:MetroListBox>
-        <local:MetroRadioButton x:Name="SQLiteRadioButton" Grid.Column="3" Content="SQLite"
-                HorizontalAlignment="Left" Margin="50,56,0,0" VerticalAlignment="Top" Width="60"
-                Tag="SQLite" RenderTransformOrigin="0.286,0.668" Height="30" />
-        <local:MetroRadioButton x:Name="AccessRadioButton" Grid.Column="3" Content="Access"
-                HorizontalAlignment="Left" Margin="115,56,0,0" VerticalAlignment="Top" Width="65"
-                Tag="Access" Height="30" />
-        <local:MetroRadioButton x:Name="SqlServerRadioButton" Grid.Column="3" Content="SQL Server"
-                HorizontalAlignment="Left" Margin="185,56,0,0" VerticalAlignment="Top" Width="80"
-                Tag="SqlServer" Height="30" />
-        <local:MetroRadioButton x:Name="SQLiteRadioButton_Copy" Grid.Column="3" Content="SQLite"
-                HorizontalAlignment="Left" Margin="270,56,0,0" VerticalAlignment="Top" Width="70"
-                Tag="SQLite" Height="30" />
-        <local:MetroListBox Grid.Column="3" Grid.Row="1" Margin="0,15,45,0" Height="85"
-                VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+        <local:MetroRadioButton x:Name="SQLiteRadioButton" Content="SQLite" Width="60" Tag="SQLite"
+                RenderTransformOrigin="0.286,0.668" Height="30" HorizontalAlignment="Left"
+                Canvas.Left="1097" Canvas.Top="56" VerticalAlignment="Top" />
+        <local:MetroRadioButton x:Name="AccessRadioButton" Content="Access" Width="65" Tag="Access"
+                Height="30" HorizontalAlignment="Left" Canvas.Left="1162" Canvas.Top="56"
+                VerticalAlignment="Top" />
+        <local:MetroRadioButton x:Name="SqlServerRadioButton" Content="SQL Server" Width="80"
+                Tag="SqlServer" Height="30" HorizontalAlignment="Left" Canvas.Left="1232"
+                Canvas.Top="56" VerticalAlignment="Top" />
+        <local:MetroRadioButton x:Name="SQLiteRadioButton_Copy" Content="SQLite" Width="70"
+                Tag="SQLite" Height="30" HorizontalAlignment="Left" Canvas.Left="1317"
+                Canvas.Top="56" VerticalAlignment="Top" />
+        <local:MetroListBox Height="85" ScrollViewer.HorizontalScrollBarVisibility="Auto"
                 ScrollViewer.CanContentScroll="True"
-                ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right"
-                Width="240">
+                ScrollViewer.VerticalScrollBarVisibility="Hidden" Width="240"
+                HorizontalAlignment="Right" Canvas.Left="1107" Canvas.Top="116"
+                VerticalAlignment="Top">
             <ListBoxItem Height="20" />
             <ListBoxItem Height="20" />
         </local:MetroListBox>
-    </Grid>
+    </Canvas>
 </Window>

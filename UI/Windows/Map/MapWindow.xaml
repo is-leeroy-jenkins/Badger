@@ -7,18 +7,18 @@
         Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="12"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
-    <Grid>
-        <syncfusion:SfMap x:Name="Map" Margin="10,85,670,0" RenderTransformOrigin="0.555,0.503"
-                          Height="401" VerticalAlignment="Top">
+    <Canvas>
+        <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="401"
+                Canvas.Left="10" Canvas.Top="85" VerticalAlignment="Top" Width="718">
             <syncfusion:SfMap.Layers>
                 <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="265,0,242,0" Height="352"
-                                         RenderTransformOrigin="0.882,0.492" />
+                        RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:MetroChart x:Name="Chart" Margin="0,85,53,135" HorizontalAlignment="Right"
-                          Width="653" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="5,670,0,0" Height="40"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Width="1400">
+        <local:MetroChart x:Name="Chart" Width="653" HorizontalAlignment="Right" Height="512"
+                Canvas.Left="692" Canvas.Top="85" />
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
+                HorizontalAlignment="Left" Canvas.Left="5" Canvas.Top="670" VerticalAlignment="Top">
             <local:ToolStripLabel x:Name="ToolStripLabel" Content="Date &amp; Time" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
@@ -54,5 +54,5 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
-    </Grid>
+    </Canvas>
 </Window>
