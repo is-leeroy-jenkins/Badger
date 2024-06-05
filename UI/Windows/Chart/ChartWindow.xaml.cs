@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
@@ -153,6 +154,16 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -202,13 +213,16 @@ namespace Badger
             BorderThickness = new Thickness( 1 );
             Margin = new Thickness( 3 );
             WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Budget Execution";
+            Title = "Chart Data";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Window Events
+            Loaded += OnLoaded;
         }
 
         /// <summary>
@@ -218,6 +232,18 @@ namespace Badger
         {
             try
             {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                EditButton.Click += OnEditButtonClick;
+                UndoButton.Click += OnUndoButtonClick;
+                DeleteButton.Click += OnDeleteButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                ExportButton.Click += OnExportButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
@@ -233,6 +259,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -275,6 +302,8 @@ namespace Badger
         {
             try
             {
+                _timerCallback += UpdateStatus;
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -424,6 +453,7 @@ namespace Badger
         {
             try
             {
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -438,6 +468,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -447,22 +478,22 @@ namespace Badger
 
         /// <summary>
         /// Called when [load].
-        ///
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
-                App.ActiveWindows.Add( "ChartWindow", this );
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
         }
+
         /// <summary>
         /// Called when [first button click].
         /// </summary>

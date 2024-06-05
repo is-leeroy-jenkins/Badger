@@ -45,6 +45,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Windows;
     using System.Windows.Media;
 
@@ -121,6 +122,16 @@ namespace Badger
         /// The status update
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
 
         /// <summary>
         /// The time
@@ -221,6 +232,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -263,6 +275,8 @@ namespace Badger
         {
             try
             {
+                _timerCallback += UpdateStatus;
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -322,6 +336,8 @@ namespace Badger
         {
             try
             {
+                TimeLabel.Content = DateTime.Now.ToLongTimeString( );
+                DateLabel.Content = DateTime.Now.ToLongDateString( );
             }
             catch( Exception _ex )
             {
@@ -336,6 +352,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -465,10 +482,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {

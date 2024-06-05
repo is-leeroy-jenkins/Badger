@@ -46,6 +46,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Timers;
     using System.Windows;
     using System.Windows.Media;
@@ -122,6 +123,16 @@ namespace Badger
         /// The status update
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected System.Threading.Timer _timer;
 
         /// <summary>
         /// The time
@@ -267,6 +278,7 @@ namespace Badger
         public FileBrowser( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -321,6 +333,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -363,6 +376,8 @@ namespace Badger
         {
             try
             {
+                _timerCallback += UpdateStatus;
+                _timer = new System.Threading.Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -666,6 +681,8 @@ namespace Badger
         {
             try
             {
+                TimeLabel.Content = DateTime.Now.ToLongTimeString( );
+                DateLabel.Content = DateTime.Now.ToLongDateString( );
             }
             catch( Exception _ex )
             {
@@ -680,6 +697,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {

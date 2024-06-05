@@ -43,14 +43,14 @@
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
                     ImageSource="/UI/Windows/Calendar/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
+                    Foreground="#006ABDFC" Width="1" Margin="15,6,0,6" />
             <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
                     Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
+                    Foreground="#006ABDFC" Width="1" Margin="15,6,0,6" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
             <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" />
+                    Foreground="#006ABDFC" Width="1" Margin="20,6,0,6" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
                     ImageSource="/UI/Windows/Calendar/LookUpButton.png" Height="30" />
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
@@ -65,6 +65,8 @@
                     ImageSource="/UI/Windows/Calendar/SaveButton.png" Height="30" />
             <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
                     ImageSource="/UI/Windows/Calendar/DeleteButton.png" Height="30" />
+            <local:ToolStripButton x:Name="ExportButton"
+                    ImageSource="/UI/Windows/Calendar/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Calendar/BrowseButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"

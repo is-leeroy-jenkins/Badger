@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
@@ -153,6 +154,16 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -208,6 +219,9 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Window Events
+            Loaded += OnLoaded;
         }
 
         /// <summary>
@@ -244,6 +258,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -286,6 +301,8 @@ namespace Badger
         {
             try
             {
+                _timerCallback += UpdateStatus;
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -415,6 +432,7 @@ namespace Badger
         {
             try
             {
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -429,6 +447,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -458,10 +477,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {
