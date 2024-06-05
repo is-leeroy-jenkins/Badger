@@ -58,7 +58,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public partial class MessageWindow : Window
+    public partial class InputWindow : Window
     {
         /// <summary>
         /// The back color
@@ -143,7 +143,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.MessageWindow" /> class.
         /// </summary>
-        public MessageWindow( )
+        public InputWindow( )
         {
             InitializeComponent( );
             InitializeDelegates( );
@@ -177,7 +177,7 @@ namespace Badger
         /// <see cref="T:Badger.MessageWindow" /> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        public MessageWindow( string message )
+        public InputWindow( string message )
             : this( )
         {
             Title.Content = "Input Requested";
@@ -191,7 +191,7 @@ namespace Badger
         /// </summary>
         /// <param name="title">The title.</param>
         /// <param name="message">The message.</param>
-        public MessageWindow( string title, string message )
+        public InputWindow( string title, string message )
             : this( )
         {
             Title.Content = title;

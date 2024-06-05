@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        x:Name="InputView" x:Class="Badger.MessageWindow" mc:Ignorable="d" Height="350" Width="700"
+        x:Name="InputView" x:Class="Badger.InputWindow" mc:Ignorable="d" Height="350" Width="700"
         Background="#FF031017" BorderBrush="#FF81A7FB" BorderThickness="1,1,1,1"
         WindowStartupLocation="CenterScreen" Foreground="#FFFDFEFF" WindowStyle="None"
         Icon="/UI/Windows/Message/SplashNotification.png" ResizeMode="NoResize">

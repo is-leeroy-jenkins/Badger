@@ -229,7 +229,7 @@ namespace Badger
                     if( ( _table?.Rows.Count > 0 )
                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
-                        var _message = new MessageWindow( _msg );
+                        var _message = new SplashMessage( _msg );
                         _message?.ShowDialog( );
                     }
                     else

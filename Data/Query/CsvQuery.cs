@@ -240,8 +240,8 @@ namespace Badger
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {sheetName} Does Not Exist!";
-                        var _message = new MessageWindow( _msg );
-                        _message?.ShowDialog( );
+                        var _message = new SplashMessage( _msg );
+                        _message?.Show( );
                     }
                 }
                 else
@@ -249,8 +249,8 @@ namespace Badger
                     sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                 }
 
-                using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
-                _dataAdapter.Fill( _dataSet );
+                using var _adapter = new OleDbDataAdapter( _sql, _connection );
+                _adapter.Fill( _dataSet );
                 return _dataSet.Tables[ 0 ];
             }
             catch( Exception _ex )
@@ -283,7 +283,7 @@ namespace Badger
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {filePath} Does Not Exist!";
-                        var _message = new MessageWindow( _msg );
+                        var _message = new SplashMessage( _msg );
                         _message?.ShowDialog( );
                     }
                 }
@@ -292,8 +292,8 @@ namespace Badger
                     sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                 }
 
-                using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
-                _dataAdapter.Fill( _dataSet );
+                using var _adapter = new OleDbDataAdapter( _sql, _connection );
+                _adapter.Fill( _dataSet );
                 return _dataSet.Tables[ 0 ];
             }
             catch( Exception _ex )

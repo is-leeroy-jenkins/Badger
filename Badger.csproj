@@ -276,8 +276,8 @@
     <None Remove="UI\Windows\Map\PreviousButton.png" />
     <None Remove="UI\Windows\Map\RefreshButton.png" />
     <None Remove="UI\Windows\Map\SaveButton.png" />
-    <None Remove="UI\Windows\Message\InputDialog.png" />
-    <None Remove="UI\Windows\Message\SplashNotification.png" />
+    <None Remove="UI\Windows\Input\InputDialog.png" />
+    <None Remove="UI\Windows\Input\SplashNotification.png" />
     <None Remove="UI\Windows\Pivot\Application.png" />
     <None Remove="UI\Windows\Pivot\BackButton.png" />
     <None Remove="UI\Windows\Pivot\BrowseButton.png" />
@@ -709,8 +709,8 @@
     <Resource Include="UI\Windows\Map\PreviousButton.png" />
     <Resource Include="UI\Windows\Map\RefreshButton.png" />
     <Resource Include="UI\Windows\Map\SaveButton.png" />
-    <Resource Include="UI\Windows\Message\InputDialog.png" />
-    <Resource Include="UI\Windows\Message\SplashNotification.png" />
+    <Resource Include="UI\Windows\Input\InputDialog.png" />
+    <Resource Include="UI\Windows\Input\SplashNotification.png" />
     <Resource Include="UI\Windows\Notification\SplashNotification.png" />
     <Resource Include="UI\Windows\Pivot\Application.png" />
     <Resource Include="UI\Windows\Pivot\BackButton.png" />

@@ -334,7 +334,7 @@ namespace Badger
         {
             try
             {
-                var _message = new MessageWindow( "Not Yet Implemented" );
+                var _message = new SplashMessage( "Not Yet Implemented" );
                 _message.Show( );
             }
             catch( Exception _ex )
