@@ -185,10 +185,13 @@ namespace Badger
             InitializeComponent( );
 
             // Basic Properties
-            Width = 560;
-            Height = 250;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
+            Width = 560;
+            Height = 250;
+            Margin = new Thickness( 3 );
+            Padding = new Thickness( 1 );
+            WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;

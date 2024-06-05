@@ -251,7 +251,10 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Margin = new Thickness( 1 );
+            Height = 250;
+            Width = 560;
+            Margin = new Thickness( 3 );
+            Padding = new Thickness( 1 );
             WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
