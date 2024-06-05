@@ -3,17 +3,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        x:Class="Badger.MessageWindow" mc:Ignorable="d" Title="Message" Height="350" Width="700"
+        x:Name="InputView" x:Class="Badger.MessageWindow" mc:Ignorable="d" Height="350" Width="700"
         Background="#FF031017" BorderBrush="#FF81A7FB" BorderThickness="1,1,1,1"
         WindowStartupLocation="CenterScreen" Foreground="#FFFDFEFF" WindowStyle="None"
-        Icon="/UI/Windows/Message/SplashNotification.png">
+        Icon="/UI/Windows/Message/SplashNotification.png" ResizeMode="NoResize">
     <Canvas x:Name="MessageCanvas">
         <Image x:Name="ImageBox" Height="18" Width="20" HorizontalAlignment="Left" Canvas.Left="3"
                 Canvas.Top="3" VerticalAlignment="Top" Source="/UI/Windows/Message/InputDialog.png" />
         <Label x:Name="Title" Content="Input Requested" Foreground="#FFFFFEFE" Width="352"
                 Height="17" Padding="1,1,1,1" HorizontalAlignment="Left" Canvas.Left="38"
                 Canvas.Top="3" VerticalAlignment="Top" />
-        <local:MetroLabel x:Name="MessageText" Content="Message text goes here." Height="25"
+        <local:MetroLabel x:Name="Caption" Content="Message text goes here." Height="25"
                 Width="527" Foreground="#FFFBFDFD" HorizontalAlignment="Left" Canvas.Left="75"
                 Canvas.Top="50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <local:MetroLabel.RenderTransform>
@@ -25,22 +25,24 @@
                 </TransformGroup>
             </local:MetroLabel.RenderTransform>
         </local:MetroLabel>
-        <local:MetroLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="200" Height="20"
+        <local:MetroLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="105" Height="20"
                 Foreground="#FFF7F9F9" Padding="1,1,1,1" FontSize="9"
                 HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
-                HorizontalAlignment="Left" Canvas.Left="485" VerticalAlignment="Center"
+                HorizontalAlignment="Left" Canvas.Left="580" VerticalAlignment="Center"
                 Canvas.Top="5" />
-        <local:MetroTile x:Name="CloseButton" Height="35" Header="" Canvas.Left="535" Title="Close"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Center" VerticalAlignment="Top"
-                ToolTip="Close" />
-        <local:MetroTile x:Name="ClearButton" Height="35" Header="" Canvas.Left="80" Title="Clear"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center"
-                ToolTip="Clear Input" />
-        <local:MetroTile x:Name="SelectButton" Height="35" Header="" Canvas.Left="315" Title="Enter"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top"
-                ToolTip="Enter" />
-        <local:MetroTextBox x:Name="InputText" Canvas.Left="75" TextWrapping="Wrap"
+        <local:MetroTextBox x:Name="Input" Canvas.Left="75" TextWrapping="Wrap"
                 Text="Enter text here" Canvas.Top="85" Width="530" HorizontalAlignment="Center"
-                VerticalAlignment="Top" Height="124" BorderThickness="1,1,1,1" Padding="10,5,5,5" />
+                VerticalAlignment="Top" Height="124" BorderThickness="1,1,1,1" Padding="10,5,5,5"
+                Foreground="#FFD8E7F3" />
+        <Button x:Name="CloseButton" Content="Close" Canvas.Left="540" Canvas.Top="285" Height="40"
+                Width="65" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF031017"
+                BorderBrush="#FF031017" Foreground="#FFA0BDD4" />
+        <Button x:Name="ClearButton" Content="Clear" Canvas.Left="75" Canvas.Top="285" Height="40"
+                Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                RenderTransformOrigin="0.462,0.625" />
+        <Button x:Name="SelectButton" Content="Enter" Canvas.Left="300" Canvas.Top="285" Height="40"
+                Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
+                HorizontalAlignment="Center" VerticalAlignment="Top" />
     </Canvas>
 </Window>

@@ -2,9 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger" x:Name="Message" x:Class="Badger.SplashMessage"
-        mc:Ignorable="d" Title="Message" Height="455" Width="830" Background="#FF002336"
-        BorderBrush="#FF6ABAD4" Foreground="#FF6ABAD4" WindowStyle="None" BorderThickness="1,1,1,1"
+        xmlns:local="clr-namespace:Badger" x:Name="Splash" x:Class="Badger.SplashMessage"
+        mc:Ignorable="d" Title="Message" Height="455" Width="830" Background="#FF011C2B"
+        BorderBrush="#FF6ABAD4" Foreground="#FF7BD9F7" WindowStyle="None" BorderThickness="1,1,1,1"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Canvas>
         <Image Height="18" Width="20" Source="/UI/Windows/Splash/SplashNotification.png"

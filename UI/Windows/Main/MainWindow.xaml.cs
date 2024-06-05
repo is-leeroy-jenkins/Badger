@@ -1158,9 +1158,8 @@ namespace Badger
             try
             {
                 var _message = "THIS IS A TEST MESSAGE!";
-                var _error = new ErrorWindow( _message );
-                _error.Owner = this;
-                _error.Show( );
+                var _error = new MessageWindow( _message );
+                _error.ShowDialog( );
             }
             catch( Exception _ex )
             {

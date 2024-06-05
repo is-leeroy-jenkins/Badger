@@ -152,44 +152,6 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets a value indicating whether [allow focus].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
-        /// </value>
-        public bool AllowFocus
-        {
-            get
-            {
-                return _allowFocus;
-            }
-            private set
-            {
-                _allowFocus = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating
-        /// whether [shown without activation].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [shown without activation];
-        /// otherwise, <c>false</c>.
-        /// </value>
-        public bool ShownWithoutActivation
-        {
-            get
-            {
-                return _withoutActivation;
-            }
-            private set
-            {
-                _withoutActivation = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the lines.
         /// </summary>
         /// <value>
@@ -251,8 +213,8 @@ namespace Badger
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Height = 250;
-            Width = 560;
+            Height = 455;
+            Width = 830;
             Margin = new Thickness( 3 );
             Padding = new Thickness( 1 );
             WindowStyle = WindowStyle.None;

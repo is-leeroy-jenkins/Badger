@@ -46,7 +46,6 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
-    using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
     /// <summary>
@@ -62,44 +61,14 @@ namespace Badger
     public partial class MessageWindow : Window
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 1,
-            G = 51,
-            B = 78
+            R = 3,
+            G = 16,
+            B = 23
         };
 
         /// <summary>
@@ -122,17 +91,6 @@ namespace Badger
             R = 160,
             G = 189,
             B = 252
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 128,
-            G = 0,
-            B = 0
         };
 
         /// <summary>
@@ -175,6 +133,11 @@ namespace Badger
         /// </summary>
         private protected string _message;
 
+        /// <summary>
+        /// The input
+        /// </summary>
+        private protected string _input;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -184,6 +147,7 @@ namespace Badger
         {
             InitializeComponent( );
             InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
@@ -204,6 +168,7 @@ namespace Badger
 
             // Event Wiring
             IsVisibleChanged += OnVisibleChanged;
+            Loaded += OnLoaded;
         }
 
         /// <inheritdoc />
@@ -215,8 +180,8 @@ namespace Badger
         public MessageWindow( string message )
             : this( )
         {
-            Title.Content = "Message";
-            MessageText.Content = message;
+            Title.Content = "Input Requested";
+            Caption.Content = message;
         }
 
         /// <inheritdoc />
@@ -230,7 +195,7 @@ namespace Badger
             : this( )
         {
             Title.Content = title;
-            MessageText.Content = message;
+            Caption.Content = message;
         }
 
         /// <summary>
@@ -257,6 +222,9 @@ namespace Badger
         {
             try
             {
+                CloseButton.Click += OnCloseButtonClick;
+                ClearButton.Click += OnClearButtonClick;
+                SelectButton.Click += OnSelectButtonClick;
             }
             catch( Exception _ex )
             {
@@ -300,6 +268,7 @@ namespace Badger
         {
             try
             {
+                _input = Input.Text;
             }
             catch( Exception _ex )
             {
@@ -434,6 +403,25 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeTimer( );
+                InitializeTextBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -462,6 +450,7 @@ namespace Badger
         {
             try
             {
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -469,10 +458,17 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
             {
+                Input.Text = "";
             }
             catch( Exception _ex )
             {
@@ -480,10 +476,20 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [select button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSelectButtonClick( object sender, EventArgs e )
         {
             try
             {
+                if( !string.IsNullOrEmpty( _input ) )
+                {
+                    Caption.Content = _input;
+                }
             }
             catch( Exception _ex )
             {
