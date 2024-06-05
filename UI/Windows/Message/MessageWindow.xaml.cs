@@ -183,12 +183,13 @@ namespace Badger
         public MessageWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
 
             // Basic Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            Width = 560;
-            Height = 250;
+            Width = 700;
+            Height = 350;
             Margin = new Thickness( 3 );
             Padding = new Thickness( 1 );
             WindowStyle = WindowStyle.None;
@@ -203,8 +204,6 @@ namespace Badger
 
             // Event Wiring
             IsVisibleChanged += OnVisibleChanged;
-            MouseLeftButtonDown += OnClick;
-            MouseRightButtonDown += OnClick;
         }
 
         /// <inheritdoc />
@@ -356,7 +355,6 @@ namespace Badger
             }
         }
 
-
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
@@ -460,11 +458,32 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnClick( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {
-                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnSelectButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {

@@ -13,8 +13,8 @@
         <Label x:Name="Title" Content="Input Requested" Foreground="#FFFFFEFE" Width="352"
                 Height="17" Padding="1,1,1,1" HorizontalAlignment="Left" Canvas.Left="38"
                 Canvas.Top="3" VerticalAlignment="Top" />
-        <local:MetroLabel x:Name="MessageText" Content="Message text goes here." Height="35"
-                Width="537" Foreground="#FFFBFDFD" HorizontalAlignment="Left" Canvas.Left="75"
+        <local:MetroLabel x:Name="MessageText" Content="Message text goes here." Height="25"
+                Width="527" Foreground="#FFFBFDFD" HorizontalAlignment="Left" Canvas.Left="75"
                 Canvas.Top="50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <local:MetroLabel.RenderTransform>
                 <TransformGroup>
@@ -31,18 +31,16 @@
                 HorizontalAlignment="Left" Canvas.Left="485" VerticalAlignment="Center"
                 Canvas.Top="5" />
         <local:MetroTile x:Name="CloseButton" Height="35" Header="" Canvas.Left="535" Title="Close"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                Canvas.Top="270" Width="70" HorizontalAlignment="Center" VerticalAlignment="Top"
+                ToolTip="Close" />
         <local:MetroTile x:Name="ClearButton" Height="35" Header="" Canvas.Left="80" Title="Clear"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Center"
+                ToolTip="Clear Input" />
         <local:MetroTile x:Name="SelectButton" Height="35" Header="" Canvas.Left="315" Title="Enter"
-                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <ui:RichTextBox x:Name="InputText" Height="135" Width="520" Canvas.Left="80" Canvas.Top="85"
-                Background="#FF2D2D2D" BorderBrush="#FFBEBEBE" Foreground="#FFA0BDFC" >
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox" />
-                </Paragraph>
-            </FlowDocument>
-        </ui:RichTextBox>
+                Canvas.Top="270" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top"
+                ToolTip="Enter" />
+        <local:MetroTextBox x:Name="InputText" Canvas.Left="75" TextWrapping="Wrap"
+                Text="Enter text here" Canvas.Top="85" Width="530" HorizontalAlignment="Center"
+                VerticalAlignment="Top" Height="124" BorderThickness="1,1,1,1" Padding="10,5,5,5" />
     </Canvas>
 </Window>
