@@ -126,8 +126,8 @@ namespace Badger
         public ToolPanel( )
             : base( )
         {
-            Width = 1300;
-            Height = 45;
+            Width = 1400;
+            Height = 40;
             Background = new SolidColorBrush( _backColor );
         }
     }

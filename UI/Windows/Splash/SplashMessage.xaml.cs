@@ -285,7 +285,6 @@ namespace Badger
         {
             try
             {
-                //CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {

@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-02-2024
+//     Created:                 06-05-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-02-2024
+//     Last Modified On:        06-05-2024
 // ******************************************************************************************
-// <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="WebWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,16 +34,15 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MainWindow.xaml.cs
+//   WebWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
@@ -54,15 +53,13 @@ namespace Badger
 
     /// <inheritdoc />
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WebWindow.xaml
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
-    public partial class MainWindow : Window
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    public partial class WebWindow : Window
     {
         /// <summary>
         /// The back color
@@ -131,11 +128,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The tiles
-        /// </summary>
-        private protected IList<MetroTile> _tiles;
-
-        /// <summary>
         /// The path
         /// </summary>
         private protected object _path;
@@ -161,41 +153,21 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
+        /// The timer
         /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is busy; otherwise,
-        /// <c> false </c>
-        /// </value>
-        public bool IsBusy
-        {
-            get
-            {
-                if( _path == null )
-                {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-            }
-        }
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MainWindow" /> class.
+        /// <see cref="T:Badger.WebWindow" /> class.
         /// </summary>
-        public MainWindow( )
+        public WebWindow( )
         {
             InitializeComponent( );
             InitializeDelegates( );
@@ -204,22 +176,21 @@ namespace Badger
             // Basic Properties
             Width = 1400;
             Height = 750;
-            ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Margin = new Thickness( 1 );
-            Title = "Budget Execution";
+            Margin = new Thickness( 3 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            Title = "Internet";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
 
-            // Event Wiring
+            // Window Events
             Loaded += OnLoaded;
         }
 
@@ -230,22 +201,19 @@ namespace Badger
         {
             try
             {
-                DataTile.Click += OnDataTileClick;
-                ChartTile.Click += OnChartTileClick;
-                DocumentTile.Click += OnGuidanceTileClick;
-                ExcelTile.Click += OnExcelTileClick;
-                EditorTile.Click += OnEditorTileClick;
-                MapTile.Click += OnMapTileClick;
-                SqlServerTile.Click += OnSqlServerTileClick;
-                CalendarTile.Click += OnCalendarTileClick;
-                EmailTile.Click += OnEmailTileClick;
-                ProgramTile.Click += OnProgramTileClick;
-                PivotTile.Click += OnPivotTileClick;
-                SqliteTile.Click += OnSQLiteTileClick;
-                SqlCeTile.Click += OnSqlCeTileClick;
-                AccessTile.Click += OnAccessTileClick;
-                BrowserTile.Click += OnBrowserTileClick;
-                TestButton.Click += OnTestButtonClick;
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                EditButton.Click += OnEditButtonClick;
+                UndoButton.Click += OnUndoButtonClick;
+                DeleteButton.Click += OnDeleteButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                ExportButton.Click += OnExportButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -260,6 +228,7 @@ namespace Badger
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -284,7 +253,7 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTiles( )
+        private void InitializeTextBox( )
         {
             try
             {
@@ -296,46 +265,14 @@ namespace Badger
         }
 
         /// <summary>
-        /// Invokes if needed.
+        /// Initializes the timer.
         /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        private void InitializeTimer( )
         {
             try
             {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action<object> action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( null );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
+                _timerCallback += UpdateStatus;
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -392,377 +329,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Opens the data window.
-        /// </summary>
-        private void OpenDataWindow( )
-        {
-            try
-            {
-                var _dataWindow = new DataWindow( )
-                {
-                    Owner = this
-                };
-
-                _dataWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the chart data form.
-        /// </summary>
-        private void OpenChartWindow( )
-        {
-            try
-            {
-                var _chartWindow = new ChartWindow( )
-                {
-                    Owner = this
-                };
-
-                _chartWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the document viewer.
-        /// </summary>
-        private void OpenDocumentViewer( )
-        {
-            try
-            {
-                var _docViewer = new DocumentWindow( )
-                {
-                    Owner = this
-                };
-
-                _docViewer.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the excel data form.
-        /// </summary>
-        private void OpenExcelWindow( )
-        {
-            try
-            {
-                var _excelWindow = new ExcelWindow( )
-                {
-                    Owner = this
-                };
-
-                _excelWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL editor.
-        /// </summary>
-        private void OpenSqlWindow( )
-        {
-            try
-            {
-                var _sqlWindow = new EditorWindow
-                {
-                    Owner = this
-                };
-
-                _sqlWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the geo mapper.
-        /// </summary>
-        private void OpenMapWindow( )
-        {
-            try
-            {
-                var _form = new MapWindow( )
-                {
-                    Owner = this
-                };
-
-                _form.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL server editor.
-        /// </summary>
-        private void OpenSqlServerEditor( )
-        {
-            try
-            {
-                var _form = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _form.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the fiscal year form.
-        /// </summary>
-        private void OpenCalendarWindow( )
-        {
-            try
-            {
-                var _form = new CalendarWindow
-                {
-                    Owner = this
-                };
-
-                _form.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the email dialog.
-        /// </summary>
-        private void OpenEmailWindow( )
-        {
-            try
-            {
-                var _form = new EmailWindow( )
-                {
-                    Owner = this
-                };
-
-                _form.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the program project dialog.
-        /// </summary>
-        private void OpenProgramWindow( )
-        {
-            try
-            {
-                var _programs = new ProgramWindow
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the pivot chart form.
-        /// </summary>
-        private void OpenPivotWindow( )
-        {
-            try
-            {
-                var _pivotWindow = new PivotWindow
-                {
-                    Owner = this
-                };
-
-                _pivotWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the sqlite window.
-        /// </summary>
-        private void OpenSqliteWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL ce window.
-        /// </summary>
-        private void OpenSqlCeWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the access window.
-        /// </summary>
-        private void OpenAccessWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL server window.
-        /// </summary>
-        private void OpenSqlServerWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the web window.
-        /// </summary>
-        private void OpenWebWindow( )
-        {
-            try
-            {
-                var _programs = new WebWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL client.
-        /// </summary>
-        private void LaunchSqlClient( )
-        {
-            try
-            {
-                DataMinion.RunSqlCe( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Creates the excel report.
-        /// </summary>
-        private void CreateExcelReport( )
-        {
-            try
-            {
-                var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
-                var _dataTable = _data.DataTable;
-                var _report = new ExcelReport( _dataTable );
-                _report.SaveDialog( );
-                var _message = "The Excel File has been created!";
-                SendNotification( _message );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Creates the notifier.
         /// </summary>
         /// <returns></returns>
@@ -770,10 +336,10 @@ namespace Badger
         {
             try
             {
-                var _time = TimeSpan.FromSeconds( 3 );
+                var _timeSpan = TimeSpan.FromSeconds( 3 );
                 var _max = MaximumNotificationCount.FromCount( 5 );
                 var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
-                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _time, _max );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _timeSpan, _max );
                 return new Notifier( cfg =>
                 {
                     cfg.LifetimeSupervisor = _lifeTime;
@@ -830,32 +396,13 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets the tiles.
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerable<MetroTile> GetTiles( )
-        {
-            try
-            {
-                _tiles = new List<MetroTile>( );
-                return _tiles?.Any( ) == true
-                    ? _tiles
-                    : Enumerable.Empty<MetroTile>( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<MetroTile> );
-            }
-        }
-
-        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
         {
             try
             {
+               //StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -870,6 +417,23 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainWindow( )
+        {
+            try
+            {
+                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                _form.Show( );
             }
             catch( Exception _ex )
             {
@@ -887,7 +451,7 @@ namespace Badger
         {
             try
             {
-                App.ActiveWindows.Add( "MainWindow", this );
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {
@@ -896,40 +460,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [data tile click].
+        /// Called when [first button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataTileClick( object sender, EventArgs e )
+        private void OnFirstButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenDataWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        private void OnExcelTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenExcelWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        private void OnMapTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenMapWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -938,16 +479,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [chart tile click].
+        /// Called when [previous button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnChartTileClick( object sender, EventArgs e )
+        private void OnPreviousButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenChartWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -956,16 +498,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [program tile click].
+        /// Called when [next button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnProgramTileClick( object sender, EventArgs e )
+        private void OnNextButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenProgramWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -974,16 +517,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [editor tile click].
+        /// Called when [last button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditorTileClick( object sender, EventArgs e )
+        private void OnLastButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenSqlWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -992,16 +536,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [guidance tile click].
+        /// Called when [browse button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGuidanceTileClick( object sender, EventArgs e )
+        private void OnBrowseButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenDocumentViewer( );
+                var _fileBrowser = new FileBrowser( );
+                _fileBrowser.ShowDialog( );
             }
             catch( Exception _ex )
             {
@@ -1010,16 +555,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [calendar tile click].
+        /// Called when [edit button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalendarTileClick( object sender, EventArgs e )
+        private void OnEditButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenCalendarWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1028,16 +574,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [sq lite tile click].
+        /// Called when [refresh button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSQLiteTileClick( object sender, EventArgs e )
+        private void OnRefreshButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenSqliteWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1046,16 +593,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [SQL ce tile click].
+        /// Called when [lookup button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSqlCeTileClick( object sender, EventArgs e )
+        private void OnLookupButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenSqlCeWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1064,16 +612,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [SQL server tile click].
+        /// Called when [undo button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSqlServerTileClick( object sender, EventArgs e )
+        private void OnUndoButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenSqlServerEditor( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1082,16 +631,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [access tile click].
+        /// Called when [delete button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnAccessTileClick( object sender, EventArgs e )
+        private void OnDeleteButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenAccessWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1100,16 +650,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [pivot tile click].
+        /// Called when [export button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnPivotTileClick( object sender, EventArgs e )
+        private void OnExportButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenPivotWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1118,28 +669,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [email tile click].
+        /// Called when [save button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEmailTileClick( object sender, EventArgs e )
+        private void OnSaveButtonClick( object sender, EventArgs e )
         {
             try
             {
-                OpenEmailWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        private void OnBrowserTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenWebWindow( );
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -1148,19 +688,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [test button click].
+        /// Called when [menu button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTestButtonClick( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
             {
-                var _message = "THIS IS A TEST MESSAGE!";
-                var _error = new ErrorWindow( _message );
-                _error.Owner = this;
-                _error.Show( );
+                OpenMainWindow( );
+                Close( );
             }
             catch( Exception _ex )
             {

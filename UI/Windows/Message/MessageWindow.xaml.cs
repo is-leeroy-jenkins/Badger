@@ -43,6 +43,7 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
@@ -152,12 +153,7 @@ namespace Badger
         /// <summary>
         /// The status update
         /// </summary>
-        private protected Action _reporter;
-
-        /// <summary>
-        /// The status update
-        /// </summary>
-        private protected Action<object> _updater;
+        private protected Action _statusUpdate;
 
         /// <summary>
         ///
@@ -203,8 +199,9 @@ namespace Badger
             ToolTip = "click to clear";
 
             // Event Wiring
-            MouseLeftButtonDown += OnLeftClick;
-            MouseRightButtonDown += OnRightClick;
+            IsVisibleChanged += OnVisibleChanged;
+            MouseLeftButtonDown += OnClick;
+            MouseRightButtonDown += OnClick;
         }
 
         /// <inheritdoc />
@@ -258,7 +255,6 @@ namespace Badger
         {
             try
             {
-                //CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {
@@ -273,7 +269,7 @@ namespace Badger
         {
             try
             {
-                _updater += UpdateStatus;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -357,6 +353,55 @@ namespace Badger
             }
         }
 
+
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Updates the status.
         /// </summary>
@@ -364,6 +409,7 @@ namespace Badger
         {
             try
             {
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -378,25 +424,7 @@ namespace Badger
         {
             try
             {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -405,34 +433,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [timer tick].
+        /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
+        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
             try
             {
-                InvokeIf( _updater );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [left click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLeftClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -446,7 +457,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRightClick( object sender, EventArgs e )
+        private void OnClick( object sender, EventArgs e )
         {
             try
             {
@@ -465,6 +476,7 @@ namespace Badger
         private protected void Fail( Exception ex )
         {
             var _error = new ErrorWindow( ex );
+            _timer?.Dispose( );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

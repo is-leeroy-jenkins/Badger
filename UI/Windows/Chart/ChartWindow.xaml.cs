@@ -487,6 +487,8 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                ChartTab.IsSelected = true;
+                TableTab.IsSelected = true;
             }
             catch( Exception _ex )
             {
@@ -620,6 +622,24 @@ namespace Badger
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                //FilterTab.IsSelected = true;
             }
             catch( Exception _ex )
             {

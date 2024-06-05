@@ -41,6 +41,7 @@
 namespace Badger
 {
     using System;
+    using System.Data;
     using System.Data.Entity.Core.Objects;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
@@ -169,6 +170,11 @@ namespace Badger
         private protected System.Threading.Timer _timer;
 
         /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -242,6 +248,7 @@ namespace Badger
                 LookupButton.Click += OnLookupButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 EditButton.Click += OnEditButtonClick;
+                FilterButton.Click += OnFilterButtonClick;
                 UndoButton.Click += OnUndoButtonClick;
                 DeleteButton.Click += OnDeleteButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
@@ -291,6 +298,19 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void InitializeTabControls( )
+        {
+            try
+            {
+                DataTab.IsSelected = true;
+                TableTab.IsSelected = true;
             }
             catch( Exception _ex )
             {
@@ -646,8 +666,7 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                EditTab.IsSelected = true;
             }
             catch( Exception _ex )
             {
@@ -686,6 +705,24 @@ namespace Badger
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                FilterTab.IsSelected = true;
             }
             catch( Exception _ex )
             {

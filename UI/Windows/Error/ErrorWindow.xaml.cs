@@ -45,8 +45,10 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using ModernWpf.Media.Animation;
 
     /// <inheritdoc />
     /// <summary>
@@ -191,7 +193,7 @@ namespace Badger
         /// <summary>
         /// The status update
         /// </summary>
-        private protected Action _updater;
+        private protected Action _statusUpdate;
 
         /// <inheritdoc />
         /// <summary>
@@ -201,6 +203,8 @@ namespace Badger
         public ErrorWindow( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Width = 560;
@@ -217,8 +221,9 @@ namespace Badger
             ToolTip = "click to clear";
 
             // Event Wiring
-            MouseLeftButtonDown += OnLeftClick;
-            MouseRightButtonDown += OnRightClick;
+            IsVisibleChanged += OnVisibleChanged;
+            MouseLeftButtonDown += OnClick;
+            MouseRightButtonDown += OnClick;
         }
 
         /// <inheritdoc />
@@ -232,8 +237,8 @@ namespace Badger
             : this( )
         {
             _exception = exception;
-            _message = exception.ToLogString( exception.Message );
-            _text = "There has been an error!";
+            MessageText.Content = exception.ToLogString( exception.Message );
+            Title.Content = "There has been an error!";
         }
 
         /// <inheritdoc />
@@ -247,8 +252,8 @@ namespace Badger
             : this( exception )
         {
             _exception = exception;
-            _message = exception.ToLogString( exception.Message );
-            _text = title;
+            MessageText.Content = exception.ToLogString( exception.Message );
+            Title.Content = title;
         }
 
         /// <inheritdoc />
@@ -261,9 +266,8 @@ namespace Badger
         public ErrorWindow( string message )
             : this( )
         {
-            _exception = new Exception( message );
-            _message = _exception.ToLogString( _exception.Message );
-            _text = "There has been an error!";
+            MessageText.Content = message;
+            Title.Content = "There has been an error!";
         }
 
         /// <inheritdoc />
@@ -276,9 +280,8 @@ namespace Badger
         public ErrorWindow( string title, string message )
             : this( )
         {
-            _exception = new Exception( message );
-            _message = _exception.ToLogString( message );
-            _text = title;
+            Title.Content = title;
+            MessageText.Content = message;
         }
 
         /// <summary>
@@ -320,7 +323,7 @@ namespace Badger
         {
             try
             {
-                _updater += UpdateStatus;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -381,6 +384,30 @@ namespace Badger
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the out asynchronous.
         /// </summary>
         /// <param name="window">The o.</param>
@@ -407,7 +434,7 @@ namespace Badger
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void StartInit( )
+        private void Busy( )
         {
             try
             {
@@ -436,7 +463,7 @@ namespace Badger
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private protected void StopInit( )
+        private protected void Chill( )
         {
             try
             {
@@ -469,9 +496,7 @@ namespace Badger
         {
             try
             {
-                var _logString = _exception.ToLogString( "" );
-
-                //TextBox.Text = _logString;
+                MessageText.Content = _exception?.ToLogString( "" );
             }
             catch( Exception _ex )
             {
@@ -486,11 +511,7 @@ namespace Badger
         {
             try
             {
-                var _now = DateTime.Now;
-                var _date = _now.ToShortDateString( );
-                var _status = _now.ToLongTimeString( );
-
-                //StatusLabel.Text = $"{_date} - {_status}";
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -505,6 +526,7 @@ namespace Badger
         {
             try
             {
+                Dispatcher.BeginInvoke( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -519,38 +541,13 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnLoad( object sender, EventArgs e )
+        public void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
             try
             {
-                InitializeLabels( );
-                InitializeTextBox( );
+                Opacity = 0;
                 InitializeTimer( );
-                if( !string.IsNullOrEmpty( _text )
-                   && !string.IsNullOrEmpty( _message ) )
-                {
-                    Title.Content = _text;
-                    MessageText.Content = _message;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -559,48 +556,12 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [timer tick].
+        /// Called when [click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            try
-            {
-                InvokeIf( _updater );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [left click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLeftClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [right click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnRightClick( object sender, EventArgs e )
+        private void OnClick( object sender, MouseEventArgs e )
         {
             try
             {

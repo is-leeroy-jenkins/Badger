@@ -748,6 +748,7 @@ namespace Badger
         private protected void Fail( Exception ex )
         {
             var _error = new ErrorWindow( ex );
+            _timer?.Dispose( );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

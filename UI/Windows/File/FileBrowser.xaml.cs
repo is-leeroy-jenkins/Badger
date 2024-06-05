@@ -713,7 +713,7 @@ namespace Badger
             try
             {
                 var _file = $@"/UI/Windows/File/{_fileExtension.ToUpper( )}.png";
-                var _uri = new Uri( _file, UriKind.RelativeOrAbsolute );
+                var _uri = new Uri( _file, UriKind.Relative );
                 _image = new BitmapImage( _uri );
                 PictureBox.Source = _image;
             }

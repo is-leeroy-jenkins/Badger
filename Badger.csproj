@@ -308,6 +308,21 @@
     <None Remove="UI\Windows\Program\RefreshButton.png" />
     <None Remove="UI\Windows\Program\SaveButton.png" />
     <None Remove="UI\Windows\Splash\SplashNotification.png" />
+    <None Remove="UI\Windows\Web\Application.png" />
+    <None Remove="UI\Windows\Web\BackButton.png" />
+    <None Remove="UI\Windows\Web\BrowseButton.png" />
+    <None Remove="UI\Windows\Web\DeleteButton.png" />
+    <None Remove="UI\Windows\Web\EditButton.png" />
+    <None Remove="UI\Windows\Web\ExportButton.png" />
+    <None Remove="UI\Windows\Web\FilterButton.png" />
+    <None Remove="UI\Windows\Web\FirstButton.png" />
+    <None Remove="UI\Windows\Web\LastButton.png" />
+    <None Remove="UI\Windows\Web\LookUpButton.png" />
+    <None Remove="UI\Windows\Web\MenuButton.png" />
+    <None Remove="UI\Windows\Web\NextButton.png" />
+    <None Remove="UI\Windows\Web\PreviousButton.png" />
+    <None Remove="UI\Windows\Web\RefreshButton.png" />
+    <None Remove="UI\Windows\Web\SaveButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -727,6 +742,21 @@
     <Resource Include="UI\Windows\Program\RefreshButton.png" />
     <Resource Include="UI\Windows\Program\SaveButton.png" />
     <Resource Include="UI\Windows\Splash\SplashNotification.png" />
+    <Resource Include="UI\Windows\Web\Application.png" />
+    <Resource Include="UI\Windows\Web\BackButton.png" />
+    <Resource Include="UI\Windows\Web\BrowseButton.png" />
+    <Resource Include="UI\Windows\Web\DeleteButton.png" />
+    <Resource Include="UI\Windows\Web\EditButton.png" />
+    <Resource Include="UI\Windows\Web\ExportButton.png" />
+    <Resource Include="UI\Windows\Web\FilterButton.png" />
+    <Resource Include="UI\Windows\Web\FirstButton.png" />
+    <Resource Include="UI\Windows\Web\LastButton.png" />
+    <Resource Include="UI\Windows\Web\LookUpButton.png" />
+    <Resource Include="UI\Windows\Web\MenuButton.png" />
+    <Resource Include="UI\Windows\Web\NextButton.png" />
+    <Resource Include="UI\Windows\Web\PreviousButton.png" />
+    <Resource Include="UI\Windows\Web\RefreshButton.png" />
+    <Resource Include="UI\Windows\Web\SaveButton.png" />
   </ItemGroup>
 
   <ItemGroup>
