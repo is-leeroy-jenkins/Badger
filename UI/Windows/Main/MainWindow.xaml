@@ -60,7 +60,7 @@
                 Margin="345,514,0,0" Title="GIS Data" VerticalAlignment="Top"
                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
                 ImageSource="/UI/Windows/Main/MapTile.png" HorizontalAlignment="Left" Width="155" />
-        <local:MetroTile x:Name="TestButton" Grid.Column="1" HorizontalAlignment="Left" Height="45"
-                Header="" Margin="440,229,0,0" Title="Test" VerticalAlignment="Top" Width="55" />
+        <local:MetroTile x:Name="TestButton" Grid.Column="1" HorizontalAlignment="Left" Height="30"
+                Header="" Margin="440,239,0,0" Title="Test" VerticalAlignment="Top" Width="55" />
     </Grid>
 </Window>

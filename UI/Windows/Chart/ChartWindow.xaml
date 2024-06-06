@@ -8,8 +8,8 @@
         Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
     <Canvas x:Name="ChartGrid">
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="791" Canvas.Left="20"
-                Canvas.Top="13" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="791" Canvas.Left="21"
+                Canvas.Top="14" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TabItem x:Name="ChartTab" Header="Chart" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" />
@@ -75,8 +75,8 @@
                 Height="375" HorizontalAlignment="Left" Canvas.Left="60" Canvas.Top="64"
                 VerticalAlignment="Center" />
         <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="559"
-                Canvas.Left="821" Canvas.Top="13" HorizontalAlignment="Center"
-                VerticalAlignment="Top">
+                Canvas.Left="822" Canvas.Top="14" HorizontalAlignment="Center"
+                VerticalAlignment="Center">
             <TabItem x:Name="TableTab" HorizontalAlignment="Center" Height="20" Header="Sources"
                     VerticalAlignment="Center" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC">

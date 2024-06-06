@@ -40,8 +40,13 @@
 
 namespace Badger
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Diagnostics.Eventing.Reader;
+    using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Input;
+    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -49,11 +54,204 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class CalculatorWindow : Window
     {
+        /// <summary>
+        /// The back color
+        /// </summary>
+        private protected Color _backColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 0,
+            B = 0
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private protected Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.CalculatorWindow" /> class.
+        /// </summary>
         public CalculatorWindow( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Window Properties
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12d;
+            Height = 460;
+            Width = 410;
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            WindowStyle = WindowStyle.None;
+            Title = "Calculator";
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Window Event Wiring
+            Loaded += OnLoaded;
+        }
+
+        /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                CloseButton.MouseLeftButtonDown += OnCloseButtonClick;
+                PictureBox.MouseLeftButtonDown += OnLeftClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1.0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0.0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [PictureBox click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLeftClick( object sender, MouseButtonEventArgs e )
+        {
+            try
+            {
+                WinMinion.LaunchCalculator( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1.0;
+                FadeOutAsync( this );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

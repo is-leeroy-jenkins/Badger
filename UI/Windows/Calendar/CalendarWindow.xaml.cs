@@ -223,6 +223,7 @@ namespace Badger
 
             // Window Events
             Loaded += OnLoaded;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -732,8 +733,28 @@ namespace Badger
         {
             try
             {
-                OpenMainWindow( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                if( App.ActiveWindows.ContainsKey( "MainWindow" ) )
+                {
+                    OpenMainWindow( );
+                }
             }
             catch( Exception _ex )
             {

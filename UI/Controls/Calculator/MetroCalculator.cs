@@ -57,55 +57,14 @@ namespace Badger
     public class MetroCalculator : SfCalculator
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 25,
-            G = 76,
-            B = 120
+            R = 0,
+            G = 0,
+            B = 0
         };
 
         /// <summary>
@@ -114,20 +73,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
+            R = 0,
+            G = 120,
+            B = 212
         };
 
         /// <summary>
@@ -137,19 +85,8 @@ namespace Badger
         {
             A = 255,
             R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            G = 0,
+            B = 0
         };
 
         /// <inheritdoc />

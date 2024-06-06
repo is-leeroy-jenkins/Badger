@@ -42,19 +42,16 @@ namespace Badger
 {
     using System;
     using System.Data;
-    using System.Data.Entity.Core.Objects;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Timers;
     using System.Windows;
     using System.Windows.Media;
-    using Microsoft.Xaml.Behaviors.Media;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
-    using Timer = System.Timers.Timer;
 
     /// <inheritdoc />
     /// <summary>
@@ -232,6 +229,7 @@ namespace Badger
 
             // Window Events
             Loaded += OnLoaded;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -554,6 +552,8 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -816,7 +816,6 @@ namespace Badger
         {
             try
             {
-                OpenMainWindow( );
                 Close( );
             }
             catch( Exception _ex )
@@ -825,11 +824,20 @@ namespace Badger
             }
         }
 
-        private void OnTimerElapsed( object sender, ElapsedEventArgs e )
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClosing( object sender, EventArgs e )
         {
             try
             {
-                UpdateStatus( );
+                if( App.ActiveWindows.ContainsKey( "MainWindow" ) )
+                {
+                    OpenMainWindow( );
+                }
             }
             catch( Exception _ex )
             {
