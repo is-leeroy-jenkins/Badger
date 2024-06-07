@@ -80,7 +80,7 @@
 - ##### Search across multiple .gov domains
 ![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/Overview.gif)
 
-## Budget Calculations 
+## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
 - ##### Ad-hoc calculations directly on bound data.
 - ##### Quick access to the full functionality of the widows 10 calculator.
 
