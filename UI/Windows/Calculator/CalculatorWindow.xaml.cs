@@ -42,11 +42,11 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Diagnostics.Eventing.Reader;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
 
     /// <inheritdoc />
     /// <summary>
@@ -57,6 +57,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class CalculatorWindow : Window
     {
         /// <summary>
@@ -97,8 +98,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.CalculatorWindow" /> class.
         /// </summary>
-        public CalculatorWindow( )
+        public CalculatorWindow( ) 
+            : base( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+
+            // Window Plumbing
             InitializeComponent( );
             RegisterCallbacks( );
 

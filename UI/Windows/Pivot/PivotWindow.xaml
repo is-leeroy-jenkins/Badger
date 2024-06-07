@@ -60,7 +60,7 @@
                 VerticalAlignment="Center">
             <TabItem x:Name="SourceTab" Header="Tables" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Width="100">
-                <Canvas x:Name="SourceCanvas" Background="#FF141414">
+                <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,13,0,0">
                     <local:MetroListBox x:Name="TableListBox" Height="529" Width="230"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
                             Canvas.Top="65" VerticalAlignment="Center" Canvas.Left="34"
@@ -80,7 +80,8 @@
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filters" Width="100" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC" Height="22" Margin="3,3,3,3"
+                    Padding="6,2,6,5">
                 <Canvas x:Name="FilterCanvas" Background="#FF141414">
                     <local:MetroListBox x:Name="ThirdListBox" Height="130" Width="230"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
@@ -122,16 +123,17 @@
         </local:MetroTabControl>
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="652" Width="1050"
                 HorizontalAlignment="Left" Canvas.Left="3" Canvas.Top="5" VerticalAlignment="Center">
-            <TabItem x:Name="DataTab" Header="Pivot Data" Width="100" Margin="0,0,0,0"
-                    Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC">
-                <Canvas x:Name="PIvotCanvas" Background="#FF141414">
+            <TabItem x:Name="DataTab" Header="Pivot Data" Width="100" Margin="3,3,3,3"
+                    Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
+                    Padding="6,2,6,5">
+                <Canvas x:Name="PIvotCanvas" Background="#FF141414" Margin="0,11,0,0">
                     <local:MetroPivotGrid x:Name="PivotGrid" AllowSelection="True" Height="565"
                             Canvas.Left="34" ShowGroupingBar="True" ShowSubTotals="True"
                             SortOption="All" Canvas.Top="31" Width="980" HorizontalAlignment="Left"
                             VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="ChartTab" HorizontalAlignment="Center" Height="20" Header="Pivot Chart"
+            <TabItem x:Name="ChartTab" HorizontalAlignment="Center" Height="22" Header="Pivot Chart"
                     VerticalAlignment="Center" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC">
                 <Canvas x:Name="ChartCanvas" Background="#FF141414">

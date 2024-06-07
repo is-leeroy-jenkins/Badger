@@ -45,6 +45,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
 
     /// <inheritdoc />
     /// <summary>
@@ -207,8 +208,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ContextMenu" /> class.
         /// </summary>
-        public CommandWindow( )
+        public CommandWindow( ) 
+            : base( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+
+            // Window Plumbing
             InitializeComponent( );
             RegisterCallbacks( );
 

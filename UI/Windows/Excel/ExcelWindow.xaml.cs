@@ -46,6 +46,7 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -176,8 +177,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ExcelWindow" /> class.
         /// </summary>
-        public ExcelWindow( )
+        public ExcelWindow( ) 
+            : base( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+
+            // Window Plumbing
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
@@ -263,7 +270,35 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeTextBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the combo boxes.
+        /// </summary>
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the list boxes.
+        /// </summary>
+        private void InitializeListBoxes( )
         {
             try
             {

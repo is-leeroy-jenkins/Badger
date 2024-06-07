@@ -358,7 +358,7 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeTextBoxes( )
         {
             try
             {

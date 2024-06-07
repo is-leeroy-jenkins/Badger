@@ -46,6 +46,7 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -198,8 +199,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.PivotWindow" /> class.
         /// </summary>
-        public PivotWindow( )
+        public PivotWindow( ) 
+            : base( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+
+            // Window Plumbing
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
@@ -268,9 +275,9 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes the labels.
+        /// Initializes the text box.
         /// </summary>
-        private void InitializeLabels( )
+        private void InitializeTextBoxes( )
         {
             try
             {
@@ -282,9 +289,23 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes the text box.
+        /// Initializes the combo boxes.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the list boxes.
+        /// </summary>
+        private void InitializeListBoxes( )
         {
             try
             {

@@ -264,7 +264,7 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeTextBoxes( )
         {
             try
             {
@@ -413,7 +413,7 @@ namespace Badger
             try
             {
                 InitializeTimer( );
-                InitializeTextBox( );
+                InitializeTextBoxes( );
             }
             catch( Exception _ex )
             {

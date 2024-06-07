@@ -285,7 +285,35 @@ namespace Badger
         /// <summary>
         /// Initializes the text box.
         /// </summary>
-        private void InitializeTextBox( )
+        private void InitializeTextBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the combo boxes.
+        /// </summary>
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the list boxes.
+        /// </summary>
+        private void InitializeListBoxes( )
         {
             try
             {
