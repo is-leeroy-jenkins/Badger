@@ -191,6 +191,7 @@
     <None Remove="UI\Windows\Editor\FilterButton.png" />
     <None Remove="UI\Windows\Editor\FirstButton.png" />
     <None Remove="UI\Windows\Editor\LastButton.png" />
+    <None Remove="UI\Windows\Editor\Loading.gif" />
     <None Remove="UI\Windows\Editor\LookUpButton.png" />
     <None Remove="UI\Windows\Editor\MenuButton.png" />
     <None Remove="UI\Windows\Editor\NextButton.png" />
@@ -221,6 +222,7 @@
     <None Remove="UI\Windows\Excel\FilterButton.png" />
     <None Remove="UI\Windows\Excel\FirstButton.png" />
     <None Remove="UI\Windows\Excel\LastButton.png" />
+    <None Remove="UI\Windows\Excel\Loading.gif" />
     <None Remove="UI\Windows\Excel\LookUpButton.png" />
     <None Remove="UI\Windows\Excel\MenuButton.png" />
     <None Remove="UI\Windows\Excel\NextButton.png" />
@@ -290,6 +292,7 @@
     <None Remove="UI\Windows\Pivot\FilterButton.png" />
     <None Remove="UI\Windows\Pivot\FirstButton.png" />
     <None Remove="UI\Windows\Pivot\LastButton.png" />
+    <None Remove="UI\Windows\Pivot\Loading.gif" />
     <None Remove="UI\Windows\Pivot\LookUpButton.png" />
     <None Remove="UI\Windows\Pivot\MenuButton.png" />
     <None Remove="UI\Windows\Pivot\NextButton.png" />
@@ -605,6 +608,7 @@
     <Resource Include="UI\Windows\Editor\FilterButton.png" />
     <Resource Include="UI\Windows\Editor\FirstButton.png" />
     <Resource Include="UI\Windows\Editor\LastButton.png" />
+    <Resource Include="UI\Windows\Editor\Loading.gif" />
     <Resource Include="UI\Windows\Editor\LookUpButton.png" />
     <Resource Include="UI\Windows\Editor\MenuButton.png" />
     <Resource Include="UI\Windows\Editor\NextButton.png" />
@@ -674,6 +678,7 @@
     <Resource Include="UI\Windows\Excel\FilterButton.png" />
     <Resource Include="UI\Windows\Excel\FirstButton.png" />
     <Resource Include="UI\Windows\Excel\LastButton.png" />
+    <Resource Include="UI\Windows\Excel\Loading.gif" />
     <Resource Include="UI\Windows\Excel\LookUpButton.png" />
     <Resource Include="UI\Windows\Excel\MenuButton.png" />
     <Resource Include="UI\Windows\Excel\NextButton.png" />
@@ -727,6 +732,7 @@
     <Resource Include="UI\Windows\Pivot\FilterButton.png" />
     <Resource Include="UI\Windows\Pivot\FirstButton.png" />
     <Resource Include="UI\Windows\Pivot\LastButton.png" />
+    <Resource Include="UI\Windows\Pivot\Loading.gif" />
     <Resource Include="UI\Windows\Pivot\LookUpButton.png" />
     <Resource Include="UI\Windows\Pivot\MenuButton.png" />
     <Resource Include="UI\Windows\Pivot\NextButton.png" />

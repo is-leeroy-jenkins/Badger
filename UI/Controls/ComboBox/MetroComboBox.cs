@@ -38,14 +38,13 @@
 // </summary>
 // ******************************************************************************************
 
-
 namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media;
+    using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
     /// <summary>
@@ -54,7 +53,10 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class MetroComboBox : ComboBox
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    public class MetroComboBox : ComboBoxAdv
     {
         /// <summary>
         /// The back color
@@ -65,6 +67,28 @@ namespace Badger
             R = 40,
             G = 40,
             B = 40
+        };
+
+        /// <summary>
+        /// The item back color
+        /// </summary>
+        private protected Color _itemBackColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
+        };
+
+        /// <summary>
+        /// The item fore color
+        /// </summary>
+        private protected Color _itemForeColor = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
         };
 
         /// <summary>
@@ -96,17 +120,43 @@ namespace Badger
         /// </summary>
         public MetroComboBox( ) 
             : base( )
+
         {
             // Basic Properties
             Width = 200;
-            Height = 30;
+            Height = 35;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Padding = new Thickness( 1 );
+            Padding = new Thickness( 15, 1, 1, 1 );
+            Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+        }
+
+        /// <summary>
+        /// Creates the item.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        public void CreateItem( string name )
+        {
+            try
+            {
+                var _item = new ComboBoxItemAdv
+                {
+                    Background = new SolidColorBrush( _itemBackColor ),
+                    Foreground = new SolidColorBrush( _itemForeColor ),
+                    BorderBrush = new SolidColorBrush( _borderColor ),
+                    Content = name
+                };
+
+                Items.Add( _item );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

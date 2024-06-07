@@ -3,8 +3,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        x:Name="PivotView" x:Class="Badger.PivotWindow" mc:Ignorable="d" Title="Pivot Data"
-        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="PivotView"
+        x:Class="Badger.PivotWindow" mc:Ignorable="d" Title="Pivot Analysis" Height="750"
+        Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Margin="1,1,1,1"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Pivot/Application.png" MinWidth="200"
         MinHeight="100">
@@ -54,5 +55,106 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Pivot/MenuButton.png" Height="30" />
         </local:ToolStrip>
+        <local:MetroTabControl x:Name="SecondaryTabControl" Height="652" Width="304"
+                HorizontalAlignment="Left" Canvas.Left="1086" Canvas.Top="5"
+                VerticalAlignment="Center">
+            <TabItem x:Name="SourceTab" Header="Tables" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC" Width="100">
+                <Canvas x:Name="SourceCanvas" Background="#FF141414">
+                    <local:MetroListBox x:Name="TableListBox" Height="529" Width="230"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
+                            Canvas.Top="65" VerticalAlignment="Center" Canvas.Left="34"
+                            RenderTransformOrigin="0.5,0.5">
+                        <local:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleX="0.205" />
+                                <RotateTransform />
+                                <TranslateTransform X="-0.945" />
+                            </TransformGroup>
+                        </local:MetroListBox.RenderTransform>
+                    </local:MetroListBox>
+                    <local:MetroLabel x:Name="SourceLabel" Content="Data Tables" Canvas.Left="36"
+                            Canvas.Top="34" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Width="225" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="FilterTab" Header="Filters" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="FilterCanvas" Background="#FF141414">
+                    <local:MetroListBox x:Name="ThirdListBox" Height="130" Width="230"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
+                            Canvas.Top="479" VerticalAlignment="Top" Canvas.Left="36" />
+                    <local:MetroListBox x:Name="SecondListBox" Height="130" Width="230"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Canvas.Left="36" Canvas.Top="269" />
+                    <local:MetroListBox x:Name="FirstListBox" Height="110" Width="230"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" Canvas.Top="79" Canvas.Left="36" />
+                    <local:MetroComboBox AllowMultiSelect="True" DefaultText="ComboBox Items"
+                            Height="30" Width="230" Canvas.Left="31" Canvas.Top="31">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </local:MetroComboBox>
+                    <local:MetroComboBox AllowMultiSelect="True" DefaultText="ComboBox Items"
+                            Height="30" Width="230" Canvas.Left="36" Canvas.Top="224"
+                            HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </local:MetroComboBox>
+                    <local:MetroComboBox AllowMultiSelect="True" DefaultText="ComboBox Items"
+                            Height="30" Width="230" Canvas.Left="36" Canvas.Top="434"
+                            HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </local:MetroComboBox>
+                </Canvas>
+            </TabItem>
+        </local:MetroTabControl>
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="652" Width="1050"
+                HorizontalAlignment="Left" Canvas.Left="3" Canvas.Top="5" VerticalAlignment="Center">
+            <TabItem x:Name="DataTab" Header="Pivot Data" Width="100" Margin="0,0,0,0"
+                    Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="PIvotCanvas" Background="#FF141414">
+                    <local:MetroPivotGrid x:Name="PivotGrid" AllowSelection="True" Height="565"
+                            Canvas.Left="34" ShowGroupingBar="True" ShowSubTotals="True"
+                            SortOption="All" Canvas.Top="31" Width="980" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="ChartTab" HorizontalAlignment="Center" Height="20" Header="Pivot Chart"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="ChartCanvas" Background="#FF141414">
+                    <local:MetroChart x:Name="Chart" Canvas.Left="52" Canvas.Top="49"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="934"
+                            Height="497" Background="#FF141414" BackWallBrush="#FF2D2D2D"
+                            BottomWallBrush="#FF2D2D2D" LeftWallBrush="#FF2D2D2D"
+                            RightWallBrush="#FF2D2D2D" BorderBrush="#FF141414" Padding="1,1,1,1"
+                            Depth="250" EnableRotation="True" Header="Data Source" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="BusyTab" Header="Busy" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas Background="#FF141414">
+                    <Canvas Background="#FF141414" Height="626" Width="1024"
+                            RenderTransformOrigin="0.517,0.505">
+                        <Image x:Name="Loader" Height="600" Canvas.Left="19" Canvas.Top="16"
+                                Width="980" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                gif:ImageBehavior.AnimatedSource="/UI/Windows/Pivot/Loading.gif"
+                                Stretch="UniformToFill" />
+                    </Canvas>
+                </Canvas>
+            </TabItem>
+        </local:MetroTabControl>
     </Canvas>
 </Window>

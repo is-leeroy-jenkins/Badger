@@ -45,7 +45,6 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using System.Threading.Tasks;
-    using System.Timers;
     using System.Windows;
     using System.Windows.Media;
     using ToastNotifications;
@@ -164,7 +163,7 @@ namespace Badger
         /// <summary>
         /// The timer
         /// </summary>
-        private protected System.Threading.Timer _timer;
+        private protected Timer _timer;
 
         /// <summary>
         /// The data table
@@ -303,6 +302,31 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Initializes the combo boxes.
+        /// </summary>
+        private void InitializeComboBoxes( )
+        {
+            try
+            {
+                FirstCategoryComboBox.Items.Clear( );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.CreateItem( "Test Item" );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tab controls.
+        /// </summary>
         private void InitializeTabControls( )
         {
             try
@@ -324,7 +348,7 @@ namespace Badger
             try
             {
                 _timerCallback += UpdateStatus;
-                _timer = new System.Threading.Timer( _timerCallback, null, 0, 260 );
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception _ex )
             {
@@ -496,6 +520,28 @@ namespace Badger
         }
 
         /// <summary>
+        /// Sets the tab visiblity.
+        /// </summary>
+        private void SetTabVisiblity( )
+        {
+            try
+            {
+                DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                TableTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -552,6 +598,27 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                InitializeComboBoxes( );
+                InitializeTabControls( );
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [visibility changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnVisibilityChanged( object sender, DependencyPropertyChangedEventArgs e )
+        {
+            try
+            {
                 Opacity = 0;
                 FadeInAsync( this );
             }
