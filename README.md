@@ -92,7 +92,7 @@
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
-## [Orca](https://github.com/KarmaScripter/Orca)
+## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/KarmaScripter/Orca)
 - ##### Ad-hoc web development
 - ##### Network communications
 - ##### HTML5, CSS, and Javascript
