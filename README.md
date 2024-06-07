@@ -69,7 +69,7 @@
 - ##### Import and export spreadsheet data.
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
-## GIS Mapping.
+## Mapping.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
