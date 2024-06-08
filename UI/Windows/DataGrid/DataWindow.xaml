@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="DataView" x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
@@ -81,24 +81,26 @@
                     Margin="3,3,3,3" Height="24" Padding="6,2,6,5">
                 <Canvas x:Name="FilterGrid" Height="622" Margin="0,0,23,0">
                     <local:MetroListBox x:Name="SecondCategoryListBox"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="110"
-                            Canvas.Left="164" Canvas.Top="302" Width="170"
-                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="85" Canvas.Left="154"
+                            Canvas.Top="258" Width="250" HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                             ScrollViewer.CanContentScroll="True"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                     <local:MetroListBox x:Name="ThirdCategoryListBox"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="115"
-                            Canvas.Left="164" Canvas.Top="482" VerticalAlignment="Top" Width="170"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="90" Canvas.Left="159"
+                            Canvas.Top="408" VerticalAlignment="Top" Width="250"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                             ScrollViewer.CanContentScroll="True" HorizontalAlignment="Center" />
-                    <local:MetroListBox x:Name="FirstCategoryListBox" Height="110" Width="174"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="165"
-                            Canvas.Top="107" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroListBox x:Name="FirstCategoryListBox" Height="81" Width="250"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="151"
+                            Canvas.Top="107" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            SelectionChanged="FirstCategoryListBox_SelectionChanged"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                     <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="160"
-                            Canvas.Top="65">
+                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="151"
+                            Canvas.Top="69">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -106,8 +108,8 @@
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
                     <local:MetroComboBox x:Name="SecondCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="159"
-                            Canvas.Top="252">
+                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="149"
+                            Canvas.Top="218">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -115,8 +117,9 @@
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
                     <local:MetroComboBox x:Name="ThirdCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="164"
-                            Canvas.Top="437">
+                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="154"
+                            Canvas.Top="368" RenderTransformOrigin="0.533,-0.565"
+                            HorizontalAlignment="Center" VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -126,19 +129,20 @@
                 </Canvas>
             </TabItem>
             <TabItem x:Name="GroupTab" HorizontalAlignment="Center" Height="24" Header="Grouping"
-                    VerticalAlignment="Center" Width="100" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="3,3,3,3"
-                    Padding="6,2,6,5">
+                    VerticalAlignment="Bottom" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,5">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
                     <local:MetroLabel x:Name="FieldLabels" Content="Fields" Width="170"
-                            HorizontalAlignment="Center" Canvas.Left="154" Canvas.Top="62"
+                            HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="62"
                             VerticalAlignment="Top" />
-                    <local:MetroListBox d:ItemsSource="{d:SampleData ItemCount=5}" Height="190"
-                            Canvas.Left="151" Canvas.Top="92" VerticalAlignment="Top" Width="220" />
+                    <local:MetroListBox d:ItemsSource="{d:SampleData ItemCount=5}" Height="181"
+                            Canvas.Left="151" Canvas.Top="92" VerticalAlignment="Top" Width="250"
+                            HorizontalAlignment="Center" />
                     <local:MetroListBox d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
-                            Canvas.Left="151" Canvas.Top="376" VerticalAlignment="Top" Width="220" />
+                            Canvas.Left="151" Canvas.Top="333" VerticalAlignment="Center"
+                            Width="250" HorizontalAlignment="Center" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170"
-                            HorizontalAlignment="Left" Canvas.Left="151" Canvas.Top="340"
+                            HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="307"
                             VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
@@ -147,17 +151,17 @@
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False"
                     Margin="3,3,3,3" Padding="6,2,6,5">
                 <Canvas x:Name="CalendarCanvas" Background="#FF141414" Margin="0,5,0,0">
-                    <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="154"
+                    <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="151"
                             Canvas.Top="59" HorizontalAlignment="Left" VerticalAlignment="Top"
                             Width="268" />
                     <local:MetroCalendar Date="1/1/2020" Height="205" Canvas.Left="151"
-                            Canvas.Top="92" Width="244" HorizontalAlignment="Left"
+                            Canvas.Top="92" Width="250" HorizontalAlignment="Left"
                             VerticalAlignment="Top" BorderThickness="1,1,1,1" />
                     <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second"
-                            Canvas.Left="154" Canvas.Top="335" HorizontalAlignment="Left"
+                            Canvas.Left="151" Canvas.Top="335" HorizontalAlignment="Left"
                             VerticalAlignment="Center" Width="240" />
                     <local:MetroCalendar Date="1/1/2020" Height="205" Canvas.Left="151"
-                            Canvas.Top="365" Width="244" BorderThickness="1,1,1,1"
+                            Canvas.Top="365" Width="250" BorderThickness="1,1,1,1"
                             HorizontalAlignment="Left" VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>

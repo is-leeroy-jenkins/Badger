@@ -153,31 +153,6 @@ namespace Badger
         private protected int _seconds;
 
         /// <summary>
-        /// The controls
-        /// </summary>
-        private protected string[ ] _controls =
-        {
-            "ComboBoxAdv",
-            "MetroComboBox",
-            "MetroDatagrid",
-            "SfDataGrid",
-            "ToolStrip",
-            "ToolBarAdv",
-            "MetroCalendar",
-            "CalendarEdit",
-            "MetroPivotGrid",
-            "PivotGridControl",
-            "MetroChart",
-            "SfChart3D",
-            "SfChart",
-            "SfSmithChart",
-            "SfSunburstChart",
-            "SfSurfaceChart",
-            "SfHeatMap",
-            "SfMap"
-        };
-
-        /// <summary>
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
@@ -237,7 +212,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", _controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.MetroControls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -261,6 +236,7 @@ namespace Badger
 
             // Window Events
             Loaded += OnLoaded;
+            IsVisibleChanged += OnVisibilityChanged;
             Closing += OnClosing;
         }
 
@@ -633,8 +609,6 @@ namespace Badger
                 InitializeTimer( );
                 InitializeComboBoxes( );
                 InitializeTabControls( );
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -955,6 +929,11 @@ namespace Badger
             _timer?.Dispose( );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void FirstCategoryListBox_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
+        {
+
         }
     }
 }

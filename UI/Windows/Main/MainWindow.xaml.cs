@@ -68,6 +68,36 @@ namespace Badger
     public partial class MainWindow : Window
     {
         /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The tiles
+        /// </summary>
+        private protected IList<MetroTile> _tiles;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -134,76 +164,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The controls
-        /// </summary>
-        private protected string[ ] _controls =
-        {
-            "ComboBoxAdv",
-            "MetroComboBox",
-            "MetroDatagrid",
-            "SfDataGrid",
-            "ToolStrip",
-            "ToolBarAdv",
-            "MetroCalendar",
-            "CalendarEdit",
-            "MetroPivotGrid",
-            "PivotGridControl",
-            "MetroChart",
-            "SfChart3D",
-            "SfChart",
-            "SfSmithChart",
-            "SfSunburstChart",
-            "SfSurfaceChart",
-            "SfHeatMap",
-            "SfMap",
-            "MetroMap",
-            "EditControl",
-            "CheckListBox",
-            "EditControl",
-            "MetroEditor",
-            "DropDownButtonAdv",
-            "MetroDropDown",
-            "SfCircularProgressBar",
-            "SfLinearProgressBar",
-            "GridControl",
-            "MetroGridControl",
-            "TabControlExt",
-            "MetroTabControl",
-            "SfTextInputLayout",
-            "MetroTextInput"
-        };
-
-        /// <summary>
-        /// The tiles
-        /// </summary>
-        private protected IList<MetroTile> _tiles;
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -243,7 +203,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", _controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.MetroControls ) );
 
             // Window Plumbing
             InitializeComponent( );

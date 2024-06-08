@@ -41,6 +41,7 @@
 namespace Badger
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using System.Threading.Tasks;
@@ -97,6 +98,11 @@ namespace Badger
         private protected Timer _timer;
 
         /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -137,6 +143,8 @@ namespace Badger
         public GridWindow( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+            InitializeDelegates( );
 
             // Basic Properties
             Width = 1400;
@@ -163,6 +171,20 @@ namespace Badger
         {
             try
             {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                EditButton.Click += OnEditButtonClick;
+                FilterButton.Click += OnFilterButtonClick;
+                UndoButton.Click += OnUndoButtonClick;
+                DeleteButton.Click += OnDeleteButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                ExportButton.Click += OnExportButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
             }
             catch( Exception _ex )
             {
@@ -177,7 +199,7 @@ namespace Badger
         {
             try
             {
-                //_statusUpdate += UpdateStatus;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -379,7 +401,7 @@ namespace Badger
         {
             try
             {
-                //StatusLabel.Content = DateTime.Now.ToLongTimeString( );
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -411,6 +433,311 @@ namespace Badger
             {
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [visibility changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnVisibilityChanged( object sender, DependencyPropertyChangedEventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [previous button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPreviousButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [next button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnNextButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [last button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLastButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [browse button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _fileBrowser = new FileBrowser( );
+                _fileBrowser.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [edit button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEditButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [refresh button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRefreshButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [undo button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnUndoButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [delete button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnDeleteButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [export button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnExportButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                if( App.ActiveWindows.ContainsKey( "MainWindow" ) )
+                {
+                    OpenMainWindow( );
+                }
             }
             catch( Exception _ex )
             {

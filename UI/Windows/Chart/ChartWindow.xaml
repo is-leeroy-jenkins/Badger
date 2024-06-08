@@ -3,10 +3,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="ChartView"
-        x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization" Height="750"
-        Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
-        WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:SunburstChart="clr-namespace:Syncfusion.UI.Xaml.SunburstChart;assembly=Syncfusion.SfSunburstChart.WPF"
+        xmlns:SmithChart="clr-namespace:Syncfusion.UI.Xaml.SmithChart;assembly=Syncfusion.SfSmithChart.WPF"
+        x:Name="ChartView" x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization"
+        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4"
+        Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1">
     <Canvas x:Name="ChartGrid">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26"
                 Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -14,18 +16,44 @@
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Margin="0,0,0,0"
                     Height="24" Padding="6,2,6,5">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <syncfusion:SfChart3D x:Name="Chart" Width="700" BackWallBrush="#FF4B4B4B"
+                    <syncfusion:SfChart3D x:Name="Chart" Width="720" BackWallBrush="#FF4B4B4B"
                             BottomWallBrush="#FF4B4B4B" LeftWallBrush="#FF4B4B4B"
                             RightWallBrush="#FF4B4B4B" TopWallBrush="#FF4B4B4B"
-                            Background="#FF141414" RenderTransformOrigin="0.495,0.487" Height="400"
-                            Canvas.Left="60" Canvas.Top="89" HorizontalAlignment="Center"
-                            VerticalAlignment="Top" Depth="250" EnableRotation="True" Header="Title" />
+                            Background="#FF141414" RenderTransformOrigin="0.495,0.487" Height="450"
+                            Canvas.Left="21" Canvas.Top="40" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Depth="250" EnableRotation="True" Header="Title"
+                            BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="GraphTab" Header="Graph" Width="100"  BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Height="24" Background="#FF141414" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,3,3,3"
+            <TabItem x:Name="SunburstTab" Header="Sunburst" Width="100" BorderBrush="#FF141414"
+                    Foreground="#FFA0BDFC" Height="24" Background="#FF141414"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,3,3,3"
                     Padding="6,2,6,5">
-                <Canvas x:Name="GraphCanvas" Background="#FF141414" />
+                <Canvas x:Name="GraphCanvas" Background="#FF141414">
+                    <SunburstChart:SfSunburstChart x:Name="Sunburst" Canvas.Left="21"
+                            Canvas.Top="40" HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Width="720" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
+                            Height="450" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="SmithTab" HorizontalAlignment="Center" Height="24" Header="Smith"
+                    VerticalAlignment="Bottom" Width="100" Margin="0,0,0,1" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="SmithCanvas" Background="#FF141414">
+                    <SmithChart:SfSmithChart Canvas.Left="21" Canvas.Top="40"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="720"
+                            Foreground="#FFA0BDFC" Header="Chart Title" BorderBrush="#FF0078D4"
+                            BorderThickness="1,1,1,1" Height="450" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="HeatTab" HorizontalAlignment="Center" Height="24" Header="Heat Map"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="HeatCanvas" Background="#FF141414">
+                    <syncfusion:SfHeatMap x:Name="HeatMap" Height="450" Canvas.Left="21"
+                            Canvas.Top="40" Width="720" BorderBrush="#FF0078D4"
+                            Foreground="#FFA0BDFC" BorderThickness="1,1,1,1" />
+                </Canvas>
             </TabItem>
             <TabItem x:Name="BusyTab" HorizontalAlignment="Center" Height="24" Header="Busy"
                     VerticalAlignment="Center" Width="100" Background="#FF141414"

@@ -6,8 +6,8 @@
         x:Name="GridView" x:Class="Badger.GridWindow" mc:Ignorable="d" Title="GridWindow"
         Height="750" Width="1397" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1"
         WindowStartupLocation="CenterScreen" Background="#FF141414" BorderBrush="#FF0078D4"
-        Foreground="#FFA0BDFC">
-    <Canvas>
+        Foreground="#FFA0BDFC" Icon="/UI/Windows/Grid/Application.png">
+    <Canvas x:Name="GridCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40" Canvas.Left="1"
                 Canvas.Top="670" HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
@@ -52,5 +52,27 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Grid/MenuButton.png" Height="30" />
         </local:ToolStrip>
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="662" Width="349"
+                Canvas.Left="1050" Canvas.Top="4" HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+            <TabItem Header="TabItem">
+                <Canvas Background="#FF141414" />
+            </TabItem>
+            <TabItem HorizontalAlignment="Center" Height="20" Header="TabItem"
+                    VerticalAlignment="Center" Width="54">
+                <Canvas Background="#FF141414" />
+            </TabItem>
+        </local:MetroTabControl>
+        <local:MetroGridControl x:Name="Sheet" HorizontalAlignment="Center" Height="435"
+                Canvas.Left="71" Canvas.Top="49" VerticalAlignment="Top" Width="924"
+                HighlightBorder="#FF0078D4">
+            <local:MetroGridControl.Model>
+                <syncfusion:GridListModel x:Name="ListModel" ColumnCount="40">
+                    <syncfusion:GridListModel.TableStyle>
+                        <syncfusion:GridDataStyleInfo x:Name="StyleInfo" />
+                    </syncfusion:GridListModel.TableStyle>
+                </syncfusion:GridListModel>
+            </local:MetroGridControl.Model>
+        </local:MetroGridControl>
     </Canvas>
 </Window>
