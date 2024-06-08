@@ -930,10 +930,5 @@ namespace Badger
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
-        private void FirstCategoryListBox_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
-        {
-
-        }
     }
 }

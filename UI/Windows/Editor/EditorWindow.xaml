@@ -15,15 +15,15 @@
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="613" Width="885" Canvas.Left="5"
                 Canvas.Top="8" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TabItem x:Name="EditorTab" Header="SQL " Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" Margin="3,3,3,3" Height="24"
-                    Padding="6,2,6,5" UseLayoutRounding="True">
+                    Foreground="#FFA0BDFC" Width="100" Margin="3,3,-3,-3" Padding="6,2,6,5"
+                    UseLayoutRounding="True">
                 <Canvas x:Name="SqlCanvas" Background="#FF141414" Margin="0,5,0,0">
                     <syncfusion:EditControl x:Name="Editor" Text="Edit Control"
                             Background="#FF464646" BorderBrush="#FF0078D4" Foreground="#FFF0F1F3"
                             CaretBrush="#FFEEFB00" LineNumberAreaBackground="Black"
                             LineNumberTextForeground="#FF1FB70A" SelectionBackground="#FF183159"
                             FontFamily="Source Code Pro" BorderThickness="1,1,1,1"
-                            OutliningAreaWidth="3" LineNumberAreaWidth="10" Width="828" Height="518"
+                            OutliningAreaWidth="3" LineNumberAreaWidth="10" Width="828" Height="450"
                             Canvas.Left="23" Canvas.Top="45" HorizontalAlignment="Left"
                             VerticalAlignment="Center" />
                 </Canvas>
@@ -33,8 +33,8 @@
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="3,3,3,3"
                     Padding="6,2,6,5">
                 <Canvas x:Name="DataCanvas" Background="#FF141414" Margin="0,5,0,0">
-                    <local:MetroDataGrid x:Name="Datagrid" Height="445" Canvas.Left="39"
-                            Canvas.Top="58" Width="812" HorizontalAlignment="Left"
+                    <local:MetroDataGrid x:Name="Datagrid" Height="450" Canvas.Left="23"
+                            Canvas.Top="58" Width="828" HorizontalAlignment="Left"
                             VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
@@ -103,9 +103,9 @@
                     <local:MetroListBox x:Name="QueryListBox"
                             ScrollViewer.HorizontalScrollBarVisibility="Auto"
                             ScrollViewer.CanContentScroll="True" ClipToBounds="True"
-                            SnapsToDevicePixels="True" Width="327" Height="337" Canvas.Left="53"
-                            Canvas.Top="217" RenderTransformOrigin="0.5,0.5"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="3,3,3,3">
+                            SnapsToDevicePixels="True" Width="327" Height="267" Canvas.Left="56"
+                            Canvas.Top="220" RenderTransformOrigin="0.5,0.5"
+                            HorizontalAlignment="Center" VerticalAlignment="Top">
                         <local:MetroListBox.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform />
@@ -147,11 +147,11 @@
                     <local:MetroListBox x:Name="FirstCategoryListBox" Height="145" Width="200"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"
                             Canvas.Top="104" VerticalAlignment="Top" Canvas.Left="123" />
-                    <local:MetroListBox x:Name="SecondCategoryListBox" Height="145" Width="200"
+                    <local:MetroListBox x:Name="SecondCategoryListBox" Height="166" Width="200"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="123"
-                            Canvas.Top="334" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            Canvas.Top="334" HorizontalAlignment="Center" VerticalAlignment="Top" />
                     <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="123"
+                            DefaultText="ComboBox Items" Height="30" Width="200" Canvas.Left="122"
                             Canvas.Top="59">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
@@ -160,7 +160,7 @@
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
                     <local:MetroComboBox AllowMultiSelect="True" DefaultText="ComboBox Items"
-                            Height="30" Width="150" Canvas.Left="123" Canvas.Top="295">
+                            Height="30" Width="200" Canvas.Left="122" Canvas.Top="295">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -174,13 +174,13 @@
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="3,3,3,3">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414">
                     <local:MetroLabel x:Name="FieldList" Content="Fields" Canvas.Left="123"
-                            Canvas.Top="59"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Canvas.Left="123" Canvas.Top="309" />
-                    <local:MetroListBox Height="190" Width="220"
+                            Canvas.Top="59" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Canvas.Left="123"
+                            Canvas.Top="309" />
+                    <local:MetroListBox Height="170" Width="220"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="123"
                             Canvas.Top="89" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <local:MetroListBox Height="225" Width="217"
+                    <local:MetroListBox Height="170" Width="217"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"
                             Canvas.Top="339" VerticalAlignment="Top" Canvas.Left="123" />
                 </Canvas>

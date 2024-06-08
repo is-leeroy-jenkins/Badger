@@ -8,15 +8,21 @@
         Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
     <Canvas>
-        <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="401"
-                Canvas.Left="10" Canvas.Top="85" VerticalAlignment="Top" Width="718">
+        <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="400"
+                Canvas.Left="30" Canvas.Top="85" VerticalAlignment="Top" Width="620"
+                NavigationControlPosition="Right" HorizontalAlignment="Center" MaxZoom="102"
+                ShowCoords="True" ShowNavigationControl="True" BorderThickness="1,1,1,1"
+                BorderBrush="#FF0078D4">
             <syncfusion:SfMap.Layers>
                 <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="265,0,242,0" Height="352"
                         RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:MetroChart x:Name="Chart" Width="653" HorizontalAlignment="Right" Height="512"
-                Canvas.Left="692" Canvas.Top="85" />
+        <local:MetroChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
+                Canvas.Left="740" Canvas.Top="85" VerticalAlignment="Top" BorderBrush="#FF0078D4"
+                BottomWallBrush="#FF323232" LeftWallBrush="#FF323232" RightWallBrush="#FF323232"
+                TopWallBrush="#FF323232" PerspectiveAngle="100" EnableRotation="True"
+                Header="Chart Title" EnableSeriesSelection="True" BorderThickness="1,1,1,1" />
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
                 Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
