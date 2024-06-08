@@ -86,7 +86,7 @@
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
-## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Fiscal Year Calendar
+## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
 - ##### Calculation based on the federal fiscal year beginning Oct 1.
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
