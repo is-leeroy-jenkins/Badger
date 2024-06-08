@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /Data/Database/Access/DataModels/Data.accdb
 /Data/Database/SQLite/DataModels/Data.db
+/Misc

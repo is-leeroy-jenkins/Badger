@@ -54,7 +54,6 @@
     <None Remove="FileItem.png" />
     <None Remove="FirefoxItem.png" />
     <None Remove="FolderItem.png" />
-    <None Remove="Main.png" />
     <None Remove="Resources\Assets\DialogImages\FileBrowse.png" />
     <None Remove="Resources\Assets\DialogImages\FolderBrowse.png" />
     <None Remove="Resources\Assets\DialogImages\SplashNotification.png" />
@@ -580,7 +579,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Main.png" />
     <Resource Include="UI\Windows\Calculator\Cancel.png" />
     <Resource Include="UI\Windows\Calculator\Main.png" />
     <Resource Include="UI\Windows\Chart\ExportButton.png" />

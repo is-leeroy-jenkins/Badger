@@ -6,7 +6,8 @@
         x:Name="Main" x:Class="Badger.MainWindow" mc:Ignorable="d" Title="Budget Execution"
         Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
         Background="#FF141414" WindowStartupLocation="CenterScreen">
-    <Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350">
+
+<Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350">
         <local:MetroTile x:Name="ChartTile" Height="126" Header="" Title="Charts &amp; Gaphs"
                 Width="155" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 ScaleDepth="-1" ImageSource="/UI/Windows/Main/VisualizationTile.png"
@@ -61,4 +62,5 @@
                 HorizontalAlignment="Left" Canvas.Left="605" Canvas.Top="249"
                 VerticalAlignment="Top" />
     </Canvas>
+
 </Window>
