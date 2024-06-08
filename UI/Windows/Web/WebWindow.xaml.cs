@@ -175,7 +175,11 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark",
+                new string[ ]
+                {
+                    "MetroComboBox"
+                } ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -756,6 +760,7 @@ namespace Badger
                 if( App.ActiveWindows.ContainsKey( "MainWindow" ) )
                 {
                     OpenMainWindow( );
+                    SfSkinManager.Dispose( this );
                 }
             }
             catch( Exception _ex )
