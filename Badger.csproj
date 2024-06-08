@@ -250,6 +250,21 @@
     <None Remove="UI\Windows\File\XLSX.png" />
     <None Remove="UI\Windows\File\XML.png" />
     <None Remove="UI\Windows\Folder\FolderBrowse.png" />
+    <None Remove="UI\Windows\Grid\Application.png" />
+    <None Remove="UI\Windows\Grid\BackButton.png" />
+    <None Remove="UI\Windows\Grid\BrowseButton.png" />
+    <None Remove="UI\Windows\Grid\DeleteButton.png" />
+    <None Remove="UI\Windows\Grid\EditButton.png" />
+    <None Remove="UI\Windows\Grid\ExportButton.png" />
+    <None Remove="UI\Windows\Grid\FilterButton.png" />
+    <None Remove="UI\Windows\Grid\FirstButton.png" />
+    <None Remove="UI\Windows\Grid\LastButton.png" />
+    <None Remove="UI\Windows\Grid\LookUpButton.png" />
+    <None Remove="UI\Windows\Grid\MenuButton.png" />
+    <None Remove="UI\Windows\Grid\NextButton.png" />
+    <None Remove="UI\Windows\Grid\PreviousButton.png" />
+    <None Remove="UI\Windows\Grid\RefreshButton.png" />
+    <None Remove="UI\Windows\Grid\SaveButton.png" />
     <None Remove="UI\Windows\Main\AccessTile.png" />
     <None Remove="UI\Windows\Main\BrowserTile.png" />
     <None Remove="UI\Windows\Main\CalendarTile.png" />
@@ -462,7 +477,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CefSharp.Common" Version="124.3.80" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="124.3.80" />
     <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="124.3.80" />
     <PackageReference Include="EPPlus" Version="7.1.2" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
@@ -473,6 +490,7 @@
     <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.68.0" />
     <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
+    <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.2.20220510" />
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
@@ -570,6 +588,7 @@
     <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+    <Folder Include="UI\Controls\Map\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -705,6 +724,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Resource Include="UI\Windows\Folder\FolderBrowse.png" />
+    <Resource Include="UI\Windows\Grid\Application.png" />
+    <Resource Include="UI\Windows\Grid\BackButton.png" />
+    <Resource Include="UI\Windows\Grid\BrowseButton.png" />
+    <Resource Include="UI\Windows\Grid\DeleteButton.png" />
+    <Resource Include="UI\Windows\Grid\EditButton.png" />
+    <Resource Include="UI\Windows\Grid\ExportButton.png" />
+    <Resource Include="UI\Windows\Grid\FilterButton.png" />
+    <Resource Include="UI\Windows\Grid\FirstButton.png" />
+    <Resource Include="UI\Windows\Grid\LastButton.png" />
+    <Resource Include="UI\Windows\Grid\LookUpButton.png" />
+    <Resource Include="UI\Windows\Grid\MenuButton.png" />
+    <Resource Include="UI\Windows\Grid\NextButton.png" />
+    <Resource Include="UI\Windows\Grid\PreviousButton.png" />
+    <Resource Include="UI\Windows\Grid\RefreshButton.png" />
+    <Resource Include="UI\Windows\Grid\SaveButton.png" />
     <Resource Include="UI\Windows\Main\AccessTile.png" />
     <Resource Include="UI\Windows\Main\BrowserTile.png" />
     <Resource Include="UI\Windows\Main\CalendarTile.png" />

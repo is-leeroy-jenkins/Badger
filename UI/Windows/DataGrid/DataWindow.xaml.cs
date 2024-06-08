@@ -63,6 +63,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
     public partial class DataWindow : Window
     {
         /// <summary>
@@ -77,17 +78,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
         /// The fore color
         /// </summary>
         private protected Color _foreColor = new Color( )
@@ -99,17 +89,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
         private protected Color _borderColor = new Color( )
@@ -118,6 +97,28 @@ namespace Badger
             R = 0,
             G = 120,
             B = 212
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
         };
 
         /// <summary>
@@ -150,6 +151,31 @@ namespace Badger
         /// The seconds
         /// </summary>
         private protected int _seconds;
+
+        /// <summary>
+        /// The controls
+        /// </summary>
+        private protected string[ ] _controls =
+        {
+            "ComboBoxAdv",
+            "MetroComboBox",
+            "MetroDatagrid",
+            "SfDataGrid",
+            "ToolStrip",
+            "ToolBarAdv",
+            "MetroCalendar",
+            "CalendarEdit",
+            "MetroPivotGrid",
+            "PivotGridControl",
+            "MetroChart",
+            "SfChart3D",
+            "SfChart",
+            "SfSmithChart",
+            "SfSunburstChart",
+            "SfSurfaceChart",
+            "SfHeatMap",
+            "SfMap"
+        };
 
         /// <summary>
         /// The update status
@@ -211,7 +237,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", _controls ) );
 
             // Window Plumbing
             InitializeComponent( );

@@ -62,8 +62,54 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class WebWindow : Window
     {
+        /// <summary>
+        /// The home page
+        /// </summary>
+        private protected string _homePage;
+
+        /// <summary>
+        /// The URI
+        /// </summary>
+        private protected Uri _uri;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -130,41 +176,6 @@ namespace Badger
             B = 252
         };
 
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -175,11 +186,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark",
-                new string[ ]
-                {
-                    "MetroComboBox"
-                } ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.MetroControls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -202,6 +209,10 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Web Properties
+            _homePage = @"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
+            _uri = new Uri( _homePage );
 
             // Window Events
             Loaded += OnLoaded;
@@ -443,8 +454,8 @@ namespace Badger
         private void UpdateStatus( )
         {
             try
-            {
-               //StatusLabel.Content = DateTime.Now.ToLongTimeString( );
+            {  
+                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception _ex )
             {
@@ -494,6 +505,7 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                Browser.Source = _uri;
             }
             catch( Exception _ex )
             {

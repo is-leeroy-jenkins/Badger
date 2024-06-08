@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-08-2024
 // ******************************************************************************************
-// <copyright file="App.xaml.cs" company="Terry D. Eppler">
+// <copyright file="MetroGridControl.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,89 +34,107 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   App.xaml.cs
+//   MetroGridControl.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
-    using System.Collections.Generic;
-    using System.Configuration;
+    using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
-    using OfficeOpenXml;
-    using Syncfusion.Licensing;
+    using System.Windows.Media;
+    using Syncfusion.Windows.Controls.Grid;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
-    public partial class App : Application
+    public class MetroGridControl : GridControl
     {
         /// <summary>
-        /// The controls
+        /// The back color
         /// </summary>
-        public static string[ ] MetroControls =
+        private protected Color _backColor = new Color( )
         {
-            "ComboBoxAdv",
-            "MetroComboBox",
-            "MetroDatagrid",
-            "SfDataGrid",
-            "ToolStrip",
-            "ToolBarAdv",
-            "MetroCalendar",
-            "CalendarEdit",
-            "MetroPivotGrid",
-            "PivotGridControl",
-            "MetroChart",
-            "SfChart3D",
-            "SfChart",
-            "SfSmithChart",
-            "SfSunburstChart",
-            "SfSurfaceChart",
-            "SfHeatMap",
-            "SfMap",
-            "MetroMap",
-            "EditControl",
-            "CheckListBox",
-            "EditControl",
-            "MetroEditor",
-            "DropDownButtonAdv",
-            "MetroDropDown",
-            "SfCircularProgressBar",
-            "SfLinearProgressBar",
-            "GridControl",
-            "MetroGridControl",
-            "TabControlExt",
-            "MetroTabControl",
-            "SfTextInputLayout",
-            "MetroTextInput"
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
-        /// Gets or sets the windows.
+        /// The fore color
         /// </summary>
-        /// <value>
-        /// The windows.
-        /// </value>
-        public static IDictionary<string, Window> ActiveWindows { get; private set; }
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private protected Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The border hover color
+        /// </summary>
+        private protected Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.App" /> class.
+        /// <see cref="T:Badger.MetroGridControl" /> class.
         /// </summary>
-        public App( )
+        public MetroGridControl( )
+            : base( )
         {
-            var _key = ConfigurationManager.AppSettings[ "UI" ];
-            SyncfusionLicenseProvider.RegisterLicense( _key );
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            ActiveWindows = new Dictionary<string, Window>( );
+            // Basic Properties
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

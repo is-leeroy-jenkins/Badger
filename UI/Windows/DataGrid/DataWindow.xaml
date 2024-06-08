@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="DataView" x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
@@ -181,106 +182,106 @@
                         HorizontalAlignment="Left" Height="570" Margin="17,0,0,0"
                         ScrollViewer.VerticalScrollBarVisibility="Auto" Width="715"
                         ScrollViewer.CanContentScroll="True">
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
                             Canvas.Top="72" HorizontalAlignment="Center" Height="65"
                             VerticalAlignment="Top" Width="130">
                         <TextBox Text="John" Foreground="White" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
                             Canvas.Top="72" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top" Foreground="#FFC3BFBF">
                         <TextBox Text="John" Foreground="#FFF7F2F2" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
                             Canvas.Top="72" Height="65" Width="130" HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="White" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
                             Canvas.Top="72" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFF9F6F6" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
                             Canvas.Top="167" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Background="#FF141414" Foreground="#FFFDFBFB" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
                             Canvas.Top="167" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Background="#FF141414" Foreground="#FFF7F2F2" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
                             Canvas.Top="167" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Background="#FF141414" Foreground="#FFF3EFEF" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
                             Canvas.Top="167" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF5F5" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
                             Canvas.Top="257" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFF9F3F3" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
                             Canvas.Top="257" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFDFAFA" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
                             Canvas.Top="257" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFDFBFB" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
                             Canvas.Top="257" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFF5EFEF" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="30"
                             Canvas.Top="337" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFFFCFC" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="195"
                             Canvas.Top="337" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF5F5" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="360"
                             Canvas.Top="337" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF9F9" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="535"
                             Canvas.Top="337" Height="65" Width="130" HorizontalAlignment="Center"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF9F9" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="35"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="35"
                             Canvas.Top="422" Height="65" Width="130" HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFF9F9F9" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="200"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="200"
                             Canvas.Top="422" Height="65" Width="130" HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFF9F4F4" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="365"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="365"
                             Canvas.Top="422" Height="65" Width="130" HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF5F5" />
-                    </local:MetroInput>
-                    <local:MetroInput ContainerType="Outlined" Hint="Name" Canvas.Left="540"
+                    </local:MetroTextInput>
+                    <local:MetroTextInput ContainerType="Outlined" Hint="Name" Canvas.Left="540"
                             Canvas.Top="422" Height="65" Width="130" HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                         <TextBox Text="John" Foreground="#FFFBF5F5" />
-                    </local:MetroInput>
+                    </local:MetroTextInput>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SchemaTab" HorizontalAlignment="Center" Height="24" Header="Schema"

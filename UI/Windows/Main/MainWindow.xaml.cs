@@ -47,6 +47,7 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -62,6 +63,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
     public partial class MainWindow : Window
     {
         /// <summary>
@@ -131,6 +134,46 @@ namespace Badger
         };
 
         /// <summary>
+        /// The controls
+        /// </summary>
+        private protected string[ ] _controls =
+        {
+            "ComboBoxAdv",
+            "MetroComboBox",
+            "MetroDatagrid",
+            "SfDataGrid",
+            "ToolStrip",
+            "ToolBarAdv",
+            "MetroCalendar",
+            "CalendarEdit",
+            "MetroPivotGrid",
+            "PivotGridControl",
+            "MetroChart",
+            "SfChart3D",
+            "SfChart",
+            "SfSmithChart",
+            "SfSunburstChart",
+            "SfSurfaceChart",
+            "SfHeatMap",
+            "SfMap",
+            "MetroMap",
+            "EditControl",
+            "CheckListBox",
+            "EditControl",
+            "MetroEditor",
+            "DropDownButtonAdv",
+            "MetroDropDown",
+            "SfCircularProgressBar",
+            "SfLinearProgressBar",
+            "GridControl",
+            "MetroGridControl",
+            "TabControlExt",
+            "MetroTabControl",
+            "SfTextInputLayout",
+            "MetroTextInput"
+        };
+
+        /// <summary>
         /// The tiles
         /// </summary>
         private protected IList<MetroTile> _tiles;
@@ -195,8 +238,14 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.MainWindow" /> class.
         /// </summary>
-        public MainWindow( )
+        public MainWindow( ) 
+            : base( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", _controls ) );
+
+            // Window Plumbing
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
