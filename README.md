@@ -74,7 +74,7 @@
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
-## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby Browser
+## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
@@ -122,19 +122,19 @@
 
 ## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) Editors
 
-- SQLite
+- ##### SQLite
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
-- MS Access
+- ##### MS Access
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
-- SQL Compact Edition
+- ##### SQL Compact Edition
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
-- SQL Server Express
+- ##### SQL Server Express
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
