@@ -43,7 +43,9 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media;
+    using Syncfusion.Windows.Controls.Input;
     using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
@@ -123,8 +125,8 @@ namespace Badger
 
         {
             // Basic Properties
-            Width = 200;
-            Height = 35;
+            Width = 150;
+            Height = 30;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 15, 1, 1, 1 );

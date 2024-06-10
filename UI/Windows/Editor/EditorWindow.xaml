@@ -15,8 +15,8 @@
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="613" Width="885" Canvas.Left="5"
                 Canvas.Top="8" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TabItem x:Name="EditorTab" Header="SQL " Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" Margin="3,3,-3,-3" Padding="6,2,6,5"
-                    UseLayoutRounding="True">
+                    Foreground="#FFA0BDFC" Width="100" Margin="3,3,0,-3" Padding="6,2,6,5"
+                    UseLayoutRounding="True" HorizontalAlignment="Left">
                 <Canvas x:Name="SqlCanvas" Background="#FF141414" Margin="0,5,0,0">
                     <syncfusion:EditControl x:Name="Editor" Text="Edit Control"
                             Background="#FF464646" BorderBrush="#FF0078D4" Foreground="#FFF0F1F3"
@@ -55,6 +55,7 @@
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Editor/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -65,8 +66,6 @@
                     ImageSource="/UI/Windows/Editor/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
@@ -150,17 +149,15 @@
                     <local:MetroListBox x:Name="SecondCategoryListBox" Height="166" Width="200"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="123"
                             Canvas.Top="334" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="200" Canvas.Left="122"
-                            Canvas.Top="59">
+                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Height="30" Width="200"
+                            Canvas.Left="122" Canvas.Top="59">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox AllowMultiSelect="True" DefaultText="ComboBox Items"
-                            Height="30" Width="200" Canvas.Left="122" Canvas.Top="295">
+                    <local:MetroComboBox Height="30" Width="200" Canvas.Left="122" Canvas.Top="295">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />

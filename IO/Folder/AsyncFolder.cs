@@ -199,14 +199,14 @@ namespace Badger
         /// <param name="destination">
         /// The folder.
         /// </param>
-        public Task CopyContentsAsync( string destination )
+        public Task<object> CopyContentsAsync( string destination )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 Directory.Move( _input, destination );
-                _async.SetResult( );
+                _async.SetResult( destination );
                 return _async.Task;
             }
             catch( IOException _ex )
@@ -278,20 +278,23 @@ namespace Badger
         /// <param name="folderName">
         /// Name of the folder.
         /// </param>
-        public static void DeleteFolderAsync( string folderName )
+        public Task<object> DeleteFolderAsync( string folderName )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( folderName, nameof( folderName ) );
                 Directory.Delete( folderName, true );
-                _async.SetResult( );
+                _async.SetResult( folderName );
             }
             catch( Exception _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task<object> );
             }
+
+            return default( Task<object> );
         }
 
         /// <summary>
@@ -303,21 +306,24 @@ namespace Badger
         /// <param name="destination">
         /// The destination.
         /// </param>
-        public static void GetZipFileAsync( string source, string destination )
+        public Task<object> GetZipFileAsync( string source, string destination )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( source, nameof( source ) );
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( source, destination );
-                _async.SetResult( );
+                _async.SetResult( destination );
             }
             catch( Exception _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task<object> );
             }
+
+            return default( Task<object> );
         }
 
         /// <inheritdoc />
@@ -361,21 +367,24 @@ namespace Badger
         /// <param name="destination">
         /// The fullName.
         /// </param>
-        public void MoveToAsync( string destination )
+        public Task<object> MoveToAsync( string destination )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 var _directory = new DirectoryInfo( _fullPath );
                 _directory.MoveTo( destination );
-                _async.SetResult( );
+                _async.SetResult( destination );
             }
             catch( Exception _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task<object> );
             }
+
+            return default( Task<object> );
         }
 
         /// <inheritdoc />
@@ -385,20 +394,23 @@ namespace Badger
         /// <param name="destination">
         /// The destination.
         /// </param>
-        public void ZipAsync( string destination )
+        public Task<object>ZipAsync( string destination )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( _fileName, destination );
-                _async.SetResult( );
+                _async.SetResult( destination );
             }
             catch( Exception _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task<object> );
             }
+
+            return default( Task<object> );
         }
 
         /// <inheritdoc />
@@ -408,20 +420,23 @@ namespace Badger
         /// <param name="zipPath">
         /// The zipPath.
         /// </param>
-        public void UnZipAsync( string zipPath )
+        public Task<object> UnZipAsync( string zipPath )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( zipPath, nameof( zipPath ) );
                 ZipFile.ExtractToDirectory( zipPath, FullPath );
-                _async.SetResult( );
+                _async.SetResult( zipPath );
             }
             catch( Exception _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task<object> );
             }
+
+            return default( Task<object> );
         }
 
         /// <inheritdoc />

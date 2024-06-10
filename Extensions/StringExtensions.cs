@@ -222,7 +222,7 @@ namespace Badger
             {
                 ThrowIf.NegativeOrZero( length, nameof( length ) );
                 return text?.Length > length
-                    ? text[ ..length ]
+                    ? text[ length ].ToString( )
                     : text;
             }
             catch( Exception _ex )
@@ -440,7 +440,7 @@ namespace Badger
         /// <returns></returns>
         public static string RemoveSpaces( this string text )
         {
-            if( text.Contains( ' ' ) )
+            if( text.Contains( " " ) )
             {
                 try
                 {

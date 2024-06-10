@@ -106,37 +106,37 @@ namespace Badger
         /// <param name="destination">
         /// The file path.
         /// </param>
-        public Task CopyToAsnyc( string destination )
+        public Task<object> CopyToAsnyc( string destination )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 var _source = new FileInfo( _fullPath );
                 _source.CopyTo( destination );
-                _async.SetResult( );
+                _async.SetResult( _source );
                 return _async.Task;
             }
             catch( IOException _ex )
             {
                 _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task );
+                return default( Task<object> );
             }
         }
 
         /// <summary>
         /// Deletes this instance.
         /// </summary>
-        public Task DeleteAsync( )
+        public Task<object> DeleteAsync( )
         {
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 if( File.Exists( _fullPath ) )
                 {
                     File.Delete( _fullPath );
-                    _async.SetResult( );
+                    _async.SetResult( _fullPath );
                     return _async.Task;
                 }
 
@@ -146,7 +146,7 @@ namespace Badger
             {
                 _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task );
+                return default( Task<object> );
             }
         }
 

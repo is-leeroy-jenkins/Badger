@@ -1167,8 +1167,7 @@ namespace Badger
             try
             {
                 var _message = "THIS IS A TEST MESSAGE!";
-                var _error = new CalculatorWindow( );
-                _error.ShowDialog( );
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {

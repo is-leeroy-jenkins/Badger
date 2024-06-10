@@ -423,7 +423,7 @@ namespace Badger
             _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
             _isRooted = Path.IsPathRooted( input );
             _absolutePath = Path.GetFullPath( input );
-            _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, input );
+            _relativePath = Environment.CurrentDirectory + input;
             _fileName = Path.GetFileNameWithoutExtension( input );
             _fullPath = Path.GetFullPath( input );
             _length = input.Length;

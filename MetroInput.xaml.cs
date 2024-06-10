@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 06-09-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        06-09-2024
 // ******************************************************************************************
-// <copyright file="MetroTextBox.cs" company="Terry D. Eppler">
+// <copyright file="MetroInput.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroTextBox.cs
+//   MetroInput.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,44 +45,25 @@ namespace Badger
     using System.Windows.Controls;
     using System.Windows.Media;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// Interaction logic for MetroInput.xaml
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroTextBox : TextBox
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public partial class MetroInput : UserControl
     {
         /// <summary>
-        /// The back color brush
+        /// The input
         /// </summary>
-        private protected SolidColorBrush _backColorBrush;
+        private protected string _input;
 
         /// <summary>
-        /// The border color brush
+        /// The caption
         /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _dropDownBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
+        private protected string _caption;
 
         /// <summary>
         /// The back color
@@ -90,20 +71,20 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
-        /// The back hover color
+        /// The item color
         /// </summary>
-        private protected Color _dropColor = new Color( )
+        private protected Color _itemColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 0,
-            B = 0
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -118,6 +99,28 @@ namespace Badger
         };
 
         /// <summary>
+        /// The border color
+        /// </summary>
+        private protected Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
         /// The fore hover color
         /// </summary>
         private protected Color _foreHover = new Color( )
@@ -129,55 +132,75 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The selection color
-        /// </summary>
-        private Color _selectionColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
-
-        /// <summary>
         /// The border hover color
         /// </summary>
         private protected Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 106,
+            G = 189,
+            B = 252
         };
+
+        /// <summary>
+        /// Gets the input.
+        /// </summary>
+        /// <value>
+        /// The input.
+        /// </value>
+        public string Input
+        {
+            get
+            {
+                return InputTextBox.Text;
+            }
+            private protected set
+            {
+                InputTextBox.Text = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the caption.
+        /// </summary>
+        /// <value>
+        /// The caption.
+        /// </value>
+        public string Caption
+        {
+            get
+            {
+                return InputFrame.Hint;
+            }
+            private protected set
+            {
+                InputFrame.Hint = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.TextBox" /> class.
+        /// <see cref="T:Badger.MetroInput" /> class.
         /// </summary>
-        public MetroTextBox( )
-            : base( )
+        public MetroInput( )
         {
-            Width = 200;
-            Height = 24;
+            InitializeComponent( );
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            SelectionBrush = new SolidColorBrush( _selectionColor );
+            FontSize = 12;
+            InputFrame.Width = 260;
+            InputFrame.Height = 60;
+            InputFrame.Foreground = new SolidColorBrush( _foreColor );
+            InputFrame.Background = new SolidColorBrush( _itemColor );
+            InputFrame.ContainerBackground = new SolidColorBrush( _itemColor );
+            InputFrame.FocusedForeground = new SolidColorBrush( _foreHover );
+            InputFrame.FocusedBorderBrush = new SolidColorBrush( _borderHover );
+            InputTextBox.Width = 240;
+            InputTextBox.Height = 22;
+            InputTextBox.Foreground = new SolidColorBrush( _foreColor );
+            InputTextBox.Background = new SolidColorBrush( _itemColor );
         }
+
 
         /// <summary>
         /// Fails the specified ex.

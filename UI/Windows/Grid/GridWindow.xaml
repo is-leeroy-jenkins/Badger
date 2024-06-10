@@ -13,6 +13,7 @@
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Grid/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -23,8 +24,6 @@
                     ImageSource="/UI/Windows/Grid/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />

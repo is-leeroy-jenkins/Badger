@@ -55,7 +55,7 @@
                     WindowStyle = ProcessWindowStyle.Maximized
                 };
 
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -140,7 +140,7 @@
                     WindowStyle = ProcessWindowStyle.Maximized
                 };
 
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -198,7 +198,7 @@
                     WindowStyle = ProcessWindowStyle.Maximized
                 };
 
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;

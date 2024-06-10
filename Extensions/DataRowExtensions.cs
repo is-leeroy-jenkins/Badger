@@ -91,7 +91,7 @@ namespace Badger
 
                                 return _sqlite?.Any( ) == true
                                     ? _sqlite
-                                    : default( IList<DbParameter> );
+                                    : default( IList<SQLiteParameter> );
                             }
                             case Provider.SqlCe:
                             {
@@ -106,7 +106,7 @@ namespace Badger
 
                                 return _sqlce?.Any( ) == true
                                     ? _sqlce
-                                    : default( IList<DbParameter> );
+                                    : default( IList<SqlCeParameter> );
                             }
                             case Provider.OleDb:
                             case Provider.Excel:
@@ -123,7 +123,7 @@ namespace Badger
 
                                 return _oledb.Any( )
                                     ? _oledb
-                                    : default( IList<DbParameter> );
+                                    : default( IList<OleDbParameter> );
                             }
                             case Provider.SqlServer:
                             {
@@ -138,7 +138,7 @@ namespace Badger
 
                                 return _sqlserver?.Any( ) == true
                                     ? _sqlserver
-                                    : default( IList<DbParameter> );
+                                    : default( IList<SqlParameter> );
                             }
                         }
 

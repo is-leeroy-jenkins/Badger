@@ -43,14 +43,14 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Badger.MetroTextBox" />
+    /// <seealso cref="T:Badger.MetroTextBox" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ToolStripDropDown : MetroDropDown
+    public class ToolStripDropDown : MetroComboBox
     {
         /// <summary>
         /// Initializes a new instance of the

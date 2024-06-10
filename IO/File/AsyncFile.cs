@@ -299,10 +299,10 @@ namespace Badger
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task OpenSaveDialogAsync( )
+        public Task<object> OpenSaveDialogAsync( )
         {
             FileStream _stream = null;
-            var _async = new TaskCompletionSource( );
+            var _async = new TaskCompletionSource<object>( );
             try
             {
                 var _dialog = new SaveFileDialog( );
@@ -313,7 +313,7 @@ namespace Badger
                 _dialog.ShowDialog( );
                 _stream = File.Create( _dialog.FileName );
                 _stream.Close( );
-                _async.SetResult( );
+                _async.SetResult(_stream );
                 return _async.Task;
             }
             catch( Exception _ex )

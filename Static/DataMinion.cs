@@ -198,7 +198,7 @@ namespace Badger
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
                 _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -274,7 +274,7 @@ namespace Badger
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
                 _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -326,7 +326,7 @@ namespace Badger
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
                 _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-                _startInfo.ArgumentList.Add( uri );
+                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;

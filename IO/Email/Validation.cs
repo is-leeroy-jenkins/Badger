@@ -240,7 +240,7 @@ namespace Badger
                 }
 
                 return c < 128
-                    ? IsLetterOrDigit( c ) || ( AtomCharacters.Contains( c ) )
+                    ? IsLetterOrDigit( c ) || ( AtomCharacters.Contains( c.ToString( ) ) )
                     : allowInternational && !char.IsWhiteSpace( c );
             }
             catch( Exception _ex )

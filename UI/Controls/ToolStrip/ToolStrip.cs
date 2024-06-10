@@ -77,7 +77,7 @@ namespace Badger
             Height = 40;
             Width = 1400;
             GripperVisibility = Visibility.Hidden;
-            OverflowButtonVisibility = Visibility.Hidden;
+            OverflowButtonVisibility = Visibility.Collapsed;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );

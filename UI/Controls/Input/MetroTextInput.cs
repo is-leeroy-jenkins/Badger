@@ -42,8 +42,8 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Controls;
     using System.Windows.Media;
-    using MaterialDesignThemes.Wpf;
     using Syncfusion.UI.Xaml.TextInputLayout;
 
     /// <inheritdoc />
@@ -54,6 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class MetroTextInput : SfTextInputLayout
     {
         /// <summary>
@@ -95,17 +96,6 @@ namespace Badger
         private readonly Color _borderColor = new Color( )
         {
             A = 255,
-            R = 175,
-            G = 175,
-            B = 175
-        };
-
-        /// <summary>
-        /// The focused border
-        /// </summary>
-        private readonly Color _focusedBorder = new Color( )
-        {
-            A = 255,
             R = 0,
             G = 120,
             B = 212
@@ -122,6 +112,11 @@ namespace Badger
             B = 255
         };
 
+        /// <summary>
+        /// The text box
+        /// </summary>
+        private protected TextBox _textBox;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -135,12 +130,14 @@ namespace Badger
             Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _borderColor );
+            Background = new SolidColorBrush( _containerColor );
+            Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             ContainerBackground = new SolidColorBrush( _containerColor );
-            FocusedBorderBrush = new SolidColorBrush( _focusedBorder );
+            FocusedBorderBrush = new SolidColorBrush( _foreColor );
             FocusedForeground = new SolidColorBrush( _focusedText );
+            Hint = "Name";
+            
         }
 
         /// <summary>

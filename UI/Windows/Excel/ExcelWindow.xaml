@@ -16,6 +16,7 @@
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Excel/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -26,8 +27,6 @@
                     ImageSource="/UI/Windows/Excel/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
@@ -91,9 +90,9 @@
                     <local:MetroListBox x:Name="TableListBox" Height="328" Width="315"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="152"
                             HorizontalAlignment="Left" Canvas.Left="57" VerticalAlignment="Top" />
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="180" Canvas.Left="422"
-                            Canvas.Top="152" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Height="30" Width="180"
+                            Canvas.Left="422" Canvas.Top="152" HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -103,9 +102,9 @@
                     <local:MetroListBox x:Name="FirstCategoryListBox" Height="287" Width="180"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"
                             Canvas.Left="422" VerticalAlignment="Center" Canvas.Top="197" />
-                    <local:MetroComboBox x:Name="SecondCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="180" Canvas.Left="637"
-                            Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <local:MetroComboBox x:Name="SecondCategoryComboBox" Height="30" Width="180"
+                            Canvas.Left="637" Canvas.Top="147" HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -115,9 +114,9 @@
                     <local:MetroListBox x:Name="SecondCategoryListBox" Height="287" Width="180"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="642"
                             Canvas.Top="195" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <local:MetroComboBox x:Name="ThirdCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="180" Canvas.Left="872"
-                            Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <local:MetroComboBox x:Name="ThirdCategoryComboBox" Height="30" Width="180"
+                            Canvas.Left="872" Canvas.Top="147" HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -127,9 +126,9 @@
                     <local:MetroListBox x:Name="ThirdCategoryListBox" Height="287" Width="180"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="875"
                             Canvas.Top="195" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:MetroComboBox x:Name="FourthCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="180" Canvas.Left="1112"
-                            Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <local:MetroComboBox x:Name="FourthCategoryComboBox" Height="30" Width="180"
+                            Canvas.Left="1112" Canvas.Top="147" HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />

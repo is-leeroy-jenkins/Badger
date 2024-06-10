@@ -78,6 +78,17 @@ namespace Badger
         };
 
         /// <summary>
+        /// The item color
+        /// </summary>
+        private protected Color _itemColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
         /// The fore color
         /// </summary>
         private protected Color _foreColor = new Color( )
@@ -219,7 +230,7 @@ namespace Badger
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
             Height = 750;
             FontFamily = new FontFamily( "Segoe UI" );
@@ -236,7 +247,6 @@ namespace Badger
 
             // Window Events
             Loaded += OnLoaded;
-            IsVisibleChanged += OnVisibilityChanged;
             Closing += OnClosing;
         }
 
@@ -318,14 +328,9 @@ namespace Badger
         {
             try
             {
-                FirstCategoryComboBox.Items.Clear( );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
-                FirstCategoryComboBox.CreateItem( "Test Item" );
+                FirstCategoryComboBox.Background = new SolidColorBrush( _itemColor );
+                SecondCategoryComboBox.Background = new SolidColorBrush( _itemColor );
+                ThirdCategoryComboBox.Background = new SolidColorBrush( _itemColor );
             }
             catch( Exception _ex )
             {
@@ -498,8 +503,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _notifier = CreateNotifier( );
-                _notifier.ShowInformation( message );
+                var _notification = CreateNotifier( );
+                _notification.ShowInformation( message );
             }
             catch( Exception _ex )
             {
@@ -515,12 +520,12 @@ namespace Badger
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _splash = new SplashMessage( message )
+                var _message = new SplashMessage( message )
                 {
                     Owner = this
                 };
 
-                _splash.Show( );
+                _message.Show( );
             }
             catch( Exception _ex )
             {
@@ -609,23 +614,6 @@ namespace Badger
                 InitializeTimer( );
                 InitializeComboBoxes( );
                 InitializeTabControls( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [visibility changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnVisibilityChanged( object sender, DependencyPropertyChangedEventArgs e )
-        {
-            try
-            {
                 Opacity = 0;
                 FadeInAsync( this );
             }

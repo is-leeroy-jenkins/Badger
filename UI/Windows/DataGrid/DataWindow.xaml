@@ -13,11 +13,13 @@
     <local:MetroCanvas x:Name="MainCanvas" Margin="1,1,1,1" Width="1400" Height="750"
             HorizontalAlignment="Right" Background="#FF141414">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Left"
-                VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
+                Canvas.Top="670" Canvas.Left="1" HorizontalAlignment="Left"
+                VerticalAlignment="Center" BorderBrush="#FF141414" BorderThickness="1,1,1,1"
+                OverflowButtonVisibility="Collapsed">
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Datagrid/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -28,8 +30,6 @@
                     ImageSource="/UI/Windows/Datagrid/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
@@ -96,28 +96,28 @@
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="154"
                             Canvas.Top="112" HorizontalAlignment="Left" VerticalAlignment="Top"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="151"
-                            Canvas.Top="69">
+                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Background="#FF282828"
+                            Height="30" Width="200" Canvas.Left="151" Canvas.Top="69"
+                            ToolTip="Select Category">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" Background="#FF141414" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" Background="#FF141414" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" Background="#FF141414" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" Background="#FF141414" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" Background="#FF141414" />
+                    </local:MetroComboBox>
+                    <local:MetroComboBox x:Name="SecondCategoryComboBox" Background="#FF282828"
+                            Height="30" Width="200" Canvas.Left="149" Canvas.Top="218"
+                            ToolTip="Select Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="SecondCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="149"
-                            Canvas.Top="218">
-                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
-                    </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="ThirdCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="154"
-                            Canvas.Top="368" RenderTransformOrigin="0.533,-0.565"
-                            HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <local:MetroComboBox x:Name="ThirdCategoryComboBox" Background="#FF282828"
+                            Height="30" Width="200" Canvas.Left="154" Canvas.Top="368"
+                            RenderTransformOrigin="0.533,-0.565" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" ToolTip="Select Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -130,15 +130,17 @@
                     Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Padding="6,2,6,5" Margin="3,3,3,3">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
-                    <local:MetroLabel x:Name="FieldLabels" Content="Fields" Width="170"
+                    <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170"
                             HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="62"
                             VerticalAlignment="Top" />
-                    <local:MetroListBox d:ItemsSource="{d:SampleData ItemCount=5}" Height="181"
+                    <local:MetroListBox x:Name="FieldsListBox"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="181"
                             Canvas.Left="151" Canvas.Top="92" VerticalAlignment="Top" Width="250"
-                            HorizontalAlignment="Center" />
-                    <local:MetroListBox d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
+                            HorizontalAlignment="Center" SelectionMode="Multiple" />
+                    <local:MetroListBox x:Name="NumericsListBox"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
                             Canvas.Left="151" Canvas.Top="333" VerticalAlignment="Center"
-                            Width="250" HorizontalAlignment="Center" />
+                            Width="250" HorizontalAlignment="Center" SelectionMode="Multiple" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170"
                             HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="307"
                             VerticalAlignment="Top" />
@@ -184,17 +186,11 @@
                         ScrollViewer.VerticalScrollBarVisibility="Auto" Width="715">
                     <Canvas HorizontalAlignment="Center" Height="430" Canvas.Left="0" Canvas.Top="0"
                             VerticalAlignment="Center">
-                        <Grid Width="695" HorizontalAlignment="Center" VerticalAlignment="Top"
-                                Height="456" Canvas.Top="19">
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name"
+                        <local:MetroTextInput ContainerType="Outlined" Hint="Name"
                                     HorizontalAlignment="Left" Height="65" VerticalAlignment="Top"
                                     Width="130" Margin="35,95,0,0">
-                                <TextBox Text="John" Foreground="White" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Foreground="#FFC3BFBF" Margin="195,95,0,0">
-                                <TextBox Text="John" Foreground="#FFF7F2F2" />
+                                <TextBox Text="John" Foreground="White" Margin="14,0,8,0"
+                                        VerticalAlignment="Bottom" />
                             </local:MetroTextInput>
                             <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
                                     Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -286,7 +282,11 @@
                                     Margin="535,365,0,0">
                                 <TextBox Text="John" Foreground="#FFFBF5F5" />
                             </local:MetroTextInput>
-                        </Grid>
+                        <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
+                                Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                Foreground="#FFC3BFBF" Margin="195,95,0,0">
+                            <TextBox Text="John" Foreground="#FFF7F2F2" />
+                        </local:MetroTextInput>
                     </Canvas>
                 </Canvas>
             </TabItem>
@@ -310,7 +310,7 @@
                     <local:MetroListBox x:Name="DataTypeListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="110"
                             Canvas.Left="455" Canvas.Top="393" VerticalAlignment="Top" Width="200"
-                            HorizontalAlignment="Left"  />
+                            HorizontalAlignment="Left" />
                     <local:MetroListBox x:Name="DataTableListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="110" Canvas.Left="25"
                             Canvas.Top="208" VerticalAlignment="Top" Width="200"

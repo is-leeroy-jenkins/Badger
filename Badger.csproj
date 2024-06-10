@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <TargetFrameworks>net462;net48;net6.0-windows7.0;net7.0-windows7.0;net8.0-windows7.0;</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -18,6 +18,7 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,6 +43,62 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="ItCodeGuidance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx" />
+    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx" />
+    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx" />
+    <EmbeddedResource Remove="Resources\Documents\AntiDeficiencyAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\BudgetControlAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\CleanAirAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\CleanWaterAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\DataAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\DeobligationRecertificationGuidance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx" />
+    <EmbeddedResource Remove="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx" />
+    <EmbeddedResource Remove="Resources\Documents\FederalTrustFundAccountingGuide.resx" />
+    <EmbeddedResource Remove="Resources\Documents\FundsControlManual.resx" />
+    <EmbeddedResource Remove="Resources\Documents\GovernmentAuditingStandards.resx" />
+    <EmbeddedResource Remove="Resources\Documents\GovernmentInvoicingUserGuide.resx" />
+    <EmbeddedResource Remove="Resources\Documents\IncidentManagementHandbook.resx" />
+    <EmbeddedResource Remove="Resources\Documents\IndirectCostsOfAssistanceAgreements.resx" />
+    <EmbeddedResource Remove="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ItCodeGuidance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.resx" />
+    <EmbeddedResource Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx" />
+    <EmbeddedResource Remove="Resources\Documents\MoneyAndFinance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\NonDirectAllocableCosts.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ObjectClassManual.resx" />
+    <EmbeddedResource Remove="Resources\Documents\OfficialTravel.resx" />
+    <EmbeddedResource Remove="Resources\Documents\OilPollutionAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\PollutionPreventionAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.resx" />
+    <EmbeddedResource Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.resx" />
+    <EmbeddedResource Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.resx" />
+    <EmbeddedResource Remove="Resources\Documents\PurchaseCardPolicy.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ResourceConservationAndRecoveryAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SafeDrinkingWaterAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SepartationOfDuties.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SolidWasteDisposalAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SplitFundingRequirements.resx" />
+    <EmbeddedResource Remove="Resources\Documents\StaffordAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundAnnualAllocationGuidance.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundBudgetAndResourceManagement.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundContracts.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundCostRecoveryProcess.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundGeneralInformation.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundInterAgencyAgreements.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundIntroduction.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundSiteSpecificCostAccounting.resx" />
+    <EmbeddedResource Remove="Resources\Documents\SuperfundSpecialAccounts.resx" />
+    <EmbeddedResource Remove="Resources\Documents\ToxicSubstancesControlAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.resx" />
+    <EmbeddedResource Remove="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,10 +111,49 @@
     <None Remove="FileItem.png" />
     <None Remove="FirefoxItem.png" />
     <None Remove="FolderItem.png" />
+    <None Remove="Minions\SqlCe\CompactView.exe" />
+    <None Remove="Minions\SQLite\DB Browser for SQLite.exe" />
+    <None Remove="Resources\Assets\DialogImages\AddColumnButton.png" />
+    <None Remove="Resources\Assets\DialogImages\AddRecordButton.png" />
+    <None Remove="Resources\Assets\DialogImages\AddTableButton.png" />
+    <None Remove="Resources\Assets\DialogImages\ApplicationError.ico" />
+    <None Remove="Resources\Assets\DialogImages\Calendar.png" />
+    <None Remove="Resources\Assets\DialogImages\ColumnConfiguration.png" />
+    <None Remove="Resources\Assets\DialogImages\CopyRecordButton.png" />
+    <None Remove="Resources\Assets\DialogImages\DataSettings.png" />
+    <None Remove="Resources\Assets\DialogImages\DeleteColumnButton.png" />
+    <None Remove="Resources\Assets\DialogImages\DeleteRecordButton.png" />
+    <None Remove="Resources\Assets\DialogImages\DeleteTableButton.png" />
+    <None Remove="Resources\Assets\DialogImages\EditColumnButton.png" />
+    <None Remove="Resources\Assets\DialogImages\EditRecordButton.png" />
+    <None Remove="Resources\Assets\DialogImages\EditSqlButton.png" />
+    <None Remove="Resources\Assets\DialogImages\ErrorDialog.png" />
     <None Remove="Resources\Assets\DialogImages\FileBrowse.png" />
     <None Remove="Resources\Assets\DialogImages\FolderBrowse.png" />
+    <None Remove="Resources\Assets\DialogImages\InputDialog.png" />
+    <None Remove="Resources\Assets\DialogImages\MenuDialog.png" />
     <None Remove="Resources\Assets\DialogImages\SplashNotification.png" />
     <None Remove="Resources\Assets\DialogImages\TextDialog.png" />
+    <None Remove="Resources\Assets\ExtensionImages\ACCDB.png" />
+    <None Remove="Resources\Assets\ExtensionImages\CSV.png" />
+    <None Remove="Resources\Assets\ExtensionImages\DB.png" />
+    <None Remove="Resources\Assets\ExtensionImages\DLL.png" />
+    <None Remove="Resources\Assets\ExtensionImages\DOC.png" />
+    <None Remove="Resources\Assets\ExtensionImages\DOCX.png" />
+    <None Remove="Resources\Assets\ExtensionImages\EXE.png" />
+    <None Remove="Resources\Assets\ExtensionImages\HTML.png" />
+    <None Remove="Resources\Assets\ExtensionImages\MDB.png" />
+    <None Remove="Resources\Assets\ExtensionImages\MDF.png" />
+    <None Remove="Resources\Assets\ExtensionImages\PDF.png" />
+    <None Remove="Resources\Assets\ExtensionImages\PNG.png" />
+    <None Remove="Resources\Assets\ExtensionImages\PPTX.png" />
+    <None Remove="Resources\Assets\ExtensionImages\PY.png" />
+    <None Remove="Resources\Assets\ExtensionImages\SDF.png" />
+    <None Remove="Resources\Assets\ExtensionImages\SQL.png" />
+    <None Remove="Resources\Assets\ExtensionImages\TXT.png" />
+    <None Remove="Resources\Assets\ExtensionImages\XLS.png" />
+    <None Remove="Resources\Assets\ExtensionImages\XLSX.png" />
+    <None Remove="Resources\Assets\ExtensionImages\XML.png" />
     <None Remove="Resources\Assets\FormImages\Application.png" />
     <None Remove="Resources\Assets\LoaderImages\earth.gif" />
     <None Remove="Resources\Assets\LoaderImages\Loading.gif" />
@@ -117,6 +213,7 @@
     <None Remove="Resources\Assets\ToolStripImages\PrintButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\RefreshButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SaveButton.png" />
+    <None Remove="Resources\Reports\Report.xlsx" />
     <None Remove="SplashNotification.png" />
     <None Remove="TaskManagerItem.png" />
     <None Remove="UI\Windows\Calculator\Cancel.png" />
@@ -347,22 +444,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Assets\DialogImages\FileBrowse.png" />
-    <EmbeddedResource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
-    <EmbeddedResource Include="Resources\Assets\DialogImages\SplashNotification.png" />
-    <EmbeddedResource Include="Resources\Assets\DialogImages\TextDialog.png" />
+    <Resource Include="Resources\Assets\DialogImages\FileBrowse.png" />
+    <Resource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
+    <Resource Include="Resources\Assets\DialogImages\SplashNotification.png" />
+    <Resource Include="Resources\Assets\DialogImages\TextDialog.png" />
+    <EmbeddedResource Include="Minions\SqlCe\CompactView.exe" />
+    <EmbeddedResource Include="Minions\SQLite\DB Browser for SQLite.exe" />
     <EmbeddedResource Include="Resources\Assets\FormImages\Application.ico" />
-    <EmbeddedResource Include="Resources\Assets\FormImages\Application.png">
+    <Resource Include="Resources\Assets\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </EmbeddedResource>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Assets\LoaderImages\earth.gif" />
-    <EmbeddedResource Include="Resources\Assets\LoaderImages\Loading.gif" />
-    <EmbeddedResource Include="Resources\Assets\LoaderImages\Processing.gif" />
-    <EmbeddedResource Include="Resources\Assets\LoaderImages\Waiting.gif" />
+    <Resource Include="Resources\Assets\LoaderImages\Loading.gif" />
+    <Resource Include="Resources\Assets\LoaderImages\Processing.gif" />
+    <Resource Include="Resources\Assets\LoaderImages\Waiting.gif" />
     <EmbeddedResource Include="Resources\Assets\MenuImages\CalculatorItem.png" />
     <EmbeddedResource Include="Resources\Assets\MenuImages\CalendarItem.png" />
     <EmbeddedResource Include="Resources\Assets\MenuImages\ChromeItem.png" />
@@ -380,43 +479,80 @@
     <EmbeddedResource Include="Resources\Assets\MenuImages\RefreshItem.png" />
     <EmbeddedResource Include="Resources\Assets\MenuImages\SaveItem.png" />
     <EmbeddedResource Include="Resources\Assets\MenuImages\TaskManagerItem.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\AccessTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\BrowserTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\CalendarTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\DataTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\EmailTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\ExcelTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\GuidanceTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\MapTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\PivotTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\ProgramTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\SqlCeTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\SqlEditorTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\SQLiteTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\SqlServerTile.png" />
-    <EmbeddedResource Include="Resources\Assets\TileImages\VisualizationTile.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\AddColumnButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\AddRecordButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\BackButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\BrowseButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\DecreaseButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\DeleteButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\EditButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExcelButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExitButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\ExportButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\FilterButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\FirstButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\IncreaseButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\LastButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\LookUpButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\MapTile.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\MenuButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\NextButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\PreviousButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\PrintButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\RefreshButton.png" />
-    <EmbeddedResource Include="Resources\Assets\ToolStripImages\SaveButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\AddRecordButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\AddTableButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\ApplicationError.ico" />
+    <Resource Include="Resources\Assets\DialogImages\Calendar.png" />
+    <Resource Include="Resources\Assets\DialogImages\ColumnConfiguration.png" />
+    <Resource Include="Resources\Assets\DialogImages\CopyRecordButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\DataSettings.png" />
+    <Resource Include="Resources\Assets\DialogImages\DeleteColumnButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\DeleteRecordButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\DeleteTableButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\EditColumnButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\EditRecordButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\EditSqlButton.png" />
+    <Resource Include="Resources\Assets\DialogImages\ErrorDialog.png" />
+    <Resource Include="Resources\Assets\DialogImages\InputDialog.png" />
+    <Resource Include="Resources\Assets\DialogImages\MenuDialog.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\ACCDB.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\CSV.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\DB.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\DLL.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\DOC.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\DOCX.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\EXE.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\HTML.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\MDB.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\MDF.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\PDF.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\PNG.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\PPTX.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\PY.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\SDF.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\SQL.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\TXT.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\XLS.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\XLSX.png" />
+    <Resource Include="Resources\Assets\ExtensionImages\XML.png" />
+    <Resource Include="Resources\Assets\TileImages\AccessTile.png" />
+    <Resource Include="Resources\Assets\TileImages\BrowserTile.png" />
+    <Resource Include="Resources\Assets\TileImages\CalendarTile.png" />
+    <Resource Include="Resources\Assets\TileImages\DataTile.png" />
+    <Resource Include="Resources\Assets\TileImages\EmailTile.png" />
+    <Resource Include="Resources\Assets\TileImages\ExcelTile.png" />
+    <Resource Include="Resources\Assets\TileImages\GuidanceTile.png" />
+    <Resource Include="Resources\Assets\TileImages\MapTile.png" />
+    <Resource Include="Resources\Assets\TileImages\PivotTile.png" />
+    <Resource Include="Resources\Assets\TileImages\ProgramTile.png" />
+    <Resource Include="Resources\Assets\TileImages\SqlCeTile.png" />
+    <Resource Include="Resources\Assets\TileImages\SqlEditorTile.png" />
+    <Resource Include="Resources\Assets\TileImages\SQLiteTile.png" />
+    <Resource Include="Resources\Assets\TileImages\SqlServerTile.png" />
+    <Resource Include="Resources\Assets\TileImages\VisualizationTile.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\AddColumnButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\AddRecordButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\BackButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\BrowseButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\DecreaseButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\DeleteButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\EditButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\ExcelButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\ExitButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\ExportButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\FilterButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\FirstButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\IncreaseButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\LastButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\LookUpButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\MapTile.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\MenuButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\NextButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\PreviousButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\PrintButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\RefreshButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\SaveButton.png" />
     <EmbeddedResource Include="UI\Windows\File\ACCDB.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -476,16 +612,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common" Version="124.3.80" />
-    <PackageReference Include="CefSharp.Common.NETCore" Version="124.3.80" />
-    <PackageReference Include="CefSharp.Wpf" Version="124.3.80" />
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="124.3.80" />
     <PackageReference Include="EPPlus" Version="7.1.2" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
-    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
-    <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.68.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.68.0" />
@@ -495,9 +625,7 @@
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2535.41" />
     <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
@@ -516,8 +644,6 @@
     <PackageReference Include="Syncfusion.GridExcelExport.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.OlapGrid.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.OlapShared.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.OCR.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
@@ -564,7 +690,6 @@
     <PackageReference Include="Syncfusion.Themes.Office365.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
@@ -574,21 +699,17 @@
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
     <PackageReference Include="ToastNotifications" Version="2.5.1" />
     <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
-    <PackageReference Include="Vlc.DotNet.Wpf" Version="3.1.0" />
     <PackageReference Include="WPF-UI" Version="3.0.4" />
     <PackageReference Include="Wpf.Themes.ExpressionDark" Version="1.1.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
-    <PackageReference Include="WPFFolderBrowser" Version="1.0.2" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="IO\Excel\" />
-    <Folder Include="Minions\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
-    <Folder Include="UI\Controls\Map\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -598,6 +719,228 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2021.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\AntiDeficiencyAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AntiDeficiencyAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\BudgetControlAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BudgetControlAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\CleanAirAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CleanAirAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\CleanWaterAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CleanWaterAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\DataAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeobligationRecertificationGuidance.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmergencyResponseMissionAssignmentGuidance.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalAccountSymbolsAndTitlesBook.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalGovernmentStandardsForInternalControls.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederalTrustFundAccountingGuide.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\FundsControlManual.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FundsControlManual.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\GovernmentAuditingStandards.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GovernmentAuditingStandards.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GovernmentInvoicingUserGuide.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\IncidentManagementHandbook.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncidentManagementHandbook.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IndirectCostsOfAssistanceAgreements.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ItCodeGuidance.resx" />
+    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\MoneyAndFinance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MoneyAndFinance.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\NonDirectAllocableCosts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NonDirectAllocableCosts.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ObjectClassManual.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ObjectClassManual.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\OfficialTravel.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OfficialTravel.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\OilPollutionAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OilPollutionAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\PollutionPreventionAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PollutionPreventionAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PreparationSubmissionAndExecutionOfTheBudget.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\PurchaseCardPolicy.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PurchaseCardPolicy.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceConservationAndRecoveryAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SafeDrinkingWaterAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SafeDrinkingWaterAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SepartationOfDuties.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SepartationOfDuties.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SolidWasteDisposalAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SolidWasteDisposalAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SplitFundingRequirements.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SplitFundingRequirements.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\StaffordAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StaffordAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatutoryAuthoritiesForInterAgencyAgreements.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundAmendmentsAndReauthorizationAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundAnnualAllocationGuidance.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundBudgetAndResourceManagement.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundContracts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundContracts.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundCostRecoveryProcess.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundDirectChargingOfSuperfundCosts.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundGeneralInformation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundGeneralInformation.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundInterAgencyAgreements.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundIntroduction.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundIntroduction.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundPersonnelAndSupportCostAllocation.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundSiteSpecificCostAccounting.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\SuperfundSpecialAccounts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SuperfundSpecialAccounts.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\ToxicSubstancesControlAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToxicSubstancesControlAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WaterInfrastructureFinanceAndInnovationAct.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WaterInfrastructureImprovementsForTheNation.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Resources\Reports\Report.xlsx" />
     <Resource Include="UI\Windows\Calculator\Cancel.png" />
     <Resource Include="UI\Windows\Calculator\Main.png" />
     <Resource Include="UI\Windows\Chart\ExportButton.png" />
@@ -848,281 +1191,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ProviderImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Documents\GovernmentAuditingStandards.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>GovernmentAuditingStandards.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\GovernmentInvoicingUserGuide.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>GovernmentInvoicingUserGuide.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\IncidentManagementHandbook.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>IncidentManagementHandbook.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\IndirectCostsOfAssistanceAgreements.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>IndirectCostsOfAssistanceAgreements.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>InflationReductionActAdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JobsActAdviceOfAllowanceFiscalYear2022.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JobsActAdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\MoneyAndFinance.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MoneyAndFinance.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\NonDirectAllocableCosts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>NonDirectAllocableCosts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\ObjectClassManual.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ObjectClassManual.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\OfficialTravel.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>OfficialTravel.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\OilPollutionAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>OilPollutionAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\PollutionPreventionAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PollutionPreventionAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PreparationSubmissionAndExecutionOfTheBudget.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PrinciplesOfFederalAppropriationsLawVolumeOne.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PrinciplesOfFederalAppropriationsLawVolumeTwo.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\PurchaseCardPolicy.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PurchaseCardPolicy.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\ResourceConservationAndRecoveryAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceConservationAndRecoveryAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\FederalTrustFundAccountingGuide.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FederalTrustFundAccountingGuide.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2021.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AdviceOfAllowanceFiscalYear2021.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2022.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AdviceOfAllowanceFiscalYear2022.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\AdviceOfAllowanceFiscalYear2023.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AdviceOfAllowanceFiscalYear2023.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\AntiDeficiencyAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AntiDeficiencyAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\BudgetControlAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>BudgetControlAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\CleanWaterAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CleanWaterAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\DataAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\DeobligationRecertificationGuidance.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DeobligationRecertificationGuidance.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EmergencyResponseMissionAssignmentGuidance.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\FederalAccountSymbolsAndTitlesBook.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FederalAccountSymbolsAndTitlesBook.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\FederalGovernmentStandardsForInternalControls.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FederalGovernmentStandardsForInternalControls.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\FundsControlManual.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FundsControlManual.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\CleanAirAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CleanAirAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SafeDrinkingWaterAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SafeDrinkingWaterAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SepartationOfDuties.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SepartationOfDuties.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SolidWasteDisposalAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SolidWasteDisposalAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SplitFundingRequirements.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SplitFundingRequirements.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\StaffordAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StaffordAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StatutoryAuthoritiesForInterAgencyAgreements.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundAmendmentsAndReauthorizationAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundAnnualAllocationGuidance.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundAnnualAllocationGuidance.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundBudgetAndResourceManagement.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundBudgetAndResourceManagement.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundContracts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundContracts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundCostRecoveryProcess.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundCostRecoveryProcess.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundDirectChargingOfSuperfundCosts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundGeneralInformation.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundGeneralInformation.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundInterAgencyAgreements.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundInterAgencyAgreements.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundIntroduction.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundIntroduction.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundPersonnelAndSupportCostAllocation.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundSiteSpecificCostAccounting.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundSiteSpecificCostAccounting.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\SuperfundSpecialAccounts.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SuperfundSpecialAccounts.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\ToxicSubstancesControlAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ToxicSubstancesControlAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>WaterInfrastructureFinanceAndInnovationAct.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Documents\WaterInfrastructureImprovementsForTheNation.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>WaterInfrastructureImprovementsForTheNation.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\Images\ToolStripImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -1160,226 +1228,6 @@
     <EmbeddedResource Update="Resources\Images\ProviderImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProviderImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\GovernmentAuditingStandards.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GovernmentAuditingStandards.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\GovernmentInvoicingUserGuide.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GovernmentInvoicingUserGuide.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\IncidentManagementHandbook.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>IncidentManagementHandbook.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\IndirectCostsOfAssistanceAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndirectCostsOfAssistanceAgreements.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\MoneyAndFinance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MoneyAndFinance.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\NonDirectAllocableCosts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>NonDirectAllocableCosts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\ObjectClassManual.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ObjectClassManual.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\OfficialTravel.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OfficialTravel.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\OilPollutionAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OilPollutionAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\PollutionPreventionAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PollutionPreventionAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PreparationSubmissionAndExecutionOfTheBudget.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\PurchaseCardPolicy.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PurchaseCardPolicy.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\ResourceConservationAndRecoveryAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceConservationAndRecoveryAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\FederalTrustFundAccountingGuide.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalTrustFundAccountingGuide.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2021.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\AntiDeficiencyAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AntiDeficiencyAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\BudgetControlAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BudgetControlAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\CleanWaterAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CleanWaterAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\DataAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DataAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\DeobligationRecertificationGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DeobligationRecertificationGuidance.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmergencyResponseMissionAssignmentGuidance.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalAccountSymbolsAndTitlesBook.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalGovernmentStandardsForInternalControls.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\FundsControlManual.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FundsControlManual.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\CleanAirAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CleanAirAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SafeDrinkingWaterAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SafeDrinkingWaterAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SepartationOfDuties.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SepartationOfDuties.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SolidWasteDisposalAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SolidWasteDisposalAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SplitFundingRequirements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SplitFundingRequirements.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\StaffordAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StaffordAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StatutoryAuthoritiesForInterAgencyAgreements.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundAmendmentsAndReauthorizationAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundAnnualAllocationGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundAnnualAllocationGuidance.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundBudgetAndResourceManagement.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundBudgetAndResourceManagement.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundContracts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundContracts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundCostRecoveryProcess.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundCostRecoveryProcess.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundDirectChargingOfSuperfundCosts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundGeneralInformation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundGeneralInformation.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundInterAgencyAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundInterAgencyAgreements.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundIntroduction.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundIntroduction.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundPersonnelAndSupportCostAllocation.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundSiteSpecificCostAccounting.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundSiteSpecificCostAccounting.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\SuperfundSpecialAccounts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundSpecialAccounts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\ToxicSubstancesControlAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ToxicSubstancesControlAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WaterInfrastructureFinanceAndInnovationAct.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WaterInfrastructureImprovementsForTheNation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Images\ToolStripImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

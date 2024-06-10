@@ -8,7 +8,8 @@
         xmlns:ui1="http://schemas.modernwpf.com/2019" x:Name="ProgramView"
         x:Class="Badger.ProgramWindow" mc:Ignorable="d" Title="Program Project Data" Height="750"
         Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" Background="#FF141414"
-        WindowStartupLocation="CenterScreen" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1" Icon="/UI/Windows/Program/Application.png">
+        WindowStartupLocation="CenterScreen" Margin="3,3,3,3" Padding="1,1,1,1"
+        BorderThickness="1,1,1,1" Icon="/UI/Windows/Program/Application.png">
     <Canvas x:Name="ProgramCanvas" Height="732" RenderTransformOrigin="0.55,0.35"
             VerticalAlignment="Top">
         <RadioButton Content="RadioButton" Height="30" Foreground="#FFBACFFF" Width="124"
@@ -34,6 +35,7 @@
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Program/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -44,8 +46,6 @@
                     ImageSource="/UI/Windows/Program/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripDropDown x:Name="ToolStripComboBox" BorderBrush="#FF6ABDFC"
-                    Foreground="White" Margin="3,0,3,0" Width="175" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" />
