@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net462;net48;net6.0-windows7.0;net7.0-windows7.0;net8.0-windows7.0;</TargetFrameworks>
+    <TargetFrameworks>net462;net48;net6.0-windows7.0;</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -1260,6 +1260,24 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7.0'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows7.0'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7.0'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

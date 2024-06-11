@@ -3,46 +3,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:local="clr-namespace:Badger"
+        xmlns:Controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.Wpf"
         x:Name="Main" x:Class="Badger.MainWindow" mc:Ignorable="d" Title="Budget Execution"
-        Height="750" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
-        Background="#FF141414" WindowStartupLocation="CenterScreen">
-
-<Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350">
+        Height="800" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
+        Background="#FF141414" WindowStartupLocation="CenterScreen" MinWidth="1250" MinHeight="650">
+    <Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350" Height="803">
         <local:MetroTile x:Name="ChartTile" Height="126" Header="" Title="Charts &amp; Gaphs"
                 Width="155" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 ScaleDepth="-1" ImageSource="/UI/Windows/Main/VisualizationTile.png"
-                HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="77" VerticalAlignment="Top" />
+                HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="77" VerticalAlignment="Top">
+            <local:MetroTile.HubTileTransitions>
+                <Controls:ContentTransition />
+            </local:MetroTile.HubTileTransitions>
+        </local:MetroTile>
         <local:MetroTile x:Name="DataTile" Height="126" Header="" Title="Data Grids" Width="155"
                 HorizontalContentAlignment="Left" ImageSource="/UI/Windows/Main/DataTile.png"
                 HorizontalAlignment="Left" Canvas.Left="339" Canvas.Top="77" VerticalAlignment="Top" />
-        <local:MetroTile x:Name="SqliteTile" Height="126" Header="" Title="SQLite Data" Width="155"
-                ImageSource="/UI/Windows/Main/SQLiteTile.png" HorizontalAlignment="Left"
-                Canvas.Left="339" Canvas.Top="304" VerticalAlignment="Top" />
         <local:MetroTile x:Name="PivotTile" Height="126" Header="" Title="Pivot Anaysis" Width="155"
                 ImageSource="/UI/Windows/Main/PivotTile.png" HorizontalAlignment="Left"
                 Canvas.Left="594" Canvas.Top="77" VerticalAlignment="Top" />
-        <local:MetroTile x:Name="SqlCeTile" Height="126" Header="" Title="SQL Compact" Width="155"
-                ImageSource="/UI/Windows/Main/SqlCeTile.png" HorizontalAlignment="Left"
-                Canvas.Left="594" Canvas.Top="304" VerticalAlignment="Top" />
-        <local:MetroTile x:Name="SqlServerTile" Height="125" Header="" Title="SQL Server"
-                Width="155" ImageSource="/UI/Windows/Main/SqlServerTile.png"
-                HorizontalAlignment="Left" Canvas.Left="339" Canvas.Top="514"
-                VerticalAlignment="Top" />
-        <local:MetroTile x:Name="AccessTile" Height="125" Header="" Title="MS Access" Width="155"
-                ImageSource="/UI/Windows/Main/AccessTile.png" HorizontalAlignment="Left"
-                Canvas.Left="594" Canvas.Top="514" VerticalAlignment="Top" />
         <local:MetroTile x:Name="ProgramTile" Height="126" Header="" Title="EPA Programs"
                 Width="155" ImageSource="/UI/Windows/Main/ProgramTile.png"
                 HorizontalAlignment="Left" Canvas.Left="838" Canvas.Top="77" VerticalAlignment="Top" />
         <local:MetroTile x:Name="EmailTile" Height="126" Header="" Title="Email" Width="155"
                 ImageSource="/UI/Windows/Main/EmailTile.png" HorizontalAlignment="Left"
-                Canvas.Left="838" Canvas.Top="304" VerticalAlignment="Top" />
-        <local:MetroTile x:Name="ExcelTile" Height="126" Header="" Title="Excel Data" Width="155"
+                Canvas.Left="90" Canvas.Top="518" VerticalAlignment="Top" />
+        <local:MetroTile x:Name="ExcelTile" Height="126" Header="" Title="Excel Data" Width="295"
                 ImageSource="/UI/Windows/Main/ExcelTile.png" HorizontalAlignment="Left"
-                Canvas.Left="85" Canvas.Top="514" VerticalAlignment="Top" />
+                Canvas.Left="355" Canvas.Top="523" VerticalAlignment="Top">
+            <local:MetroTile.HubTileTransitions>
+                <Controls:SlideTransition />
+            </local:MetroTile.HubTileTransitions>
+        </local:MetroTile>
         <local:MetroTile x:Name="BrowserTile" Height="125" Header="" Title="Baby Browser"
                 Width="155" ImageSource="/UI/Windows/Main/BrowserTile.png"
-                HorizontalAlignment="Left" Canvas.Left="838" Canvas.Top="514"
+                HorizontalAlignment="Left" Canvas.Left="1110" Canvas.Top="299"
                 VerticalAlignment="Top" />
         <local:MetroTile x:Name="DocumentTile" Height="126" Header="" Title="Guidance" Width="155"
                 ImageSource="/UI/Windows/Main/GuidanceTile.png" HorizontalAlignment="Left"
@@ -51,16 +46,19 @@
                 Width="155" Background="#FF282828" ImageSource="/UI/Windows/Main/CalendarTile.png"
                 HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="304" VerticalAlignment="Top" />
         <local:MetroTile x:Name="EditorTile" Height="126" Header="" Title="SQL Editors"
-                ImageSource="/UI/Windows/Main/SqlEditorTile.png" Width="155"
-                HorizontalAlignment="Left" Canvas.Left="1095" Canvas.Top="304"
-                VerticalAlignment="Top" />
-        <local:MetroTile x:Name="MapTile" Height="125" Header="" Title="GIS Data"
+                ImageSource="/UI/Windows/Main/SqlEditorTile.png" Width="300"
+                HorizontalAlignment="Left" Canvas.Left="355" Canvas.Top="308"
+                VerticalAlignment="Top">
+            <local:MetroTile.HubTileTransitions>
+                <Controls:ContentTransition />
+            </local:MetroTile.HubTileTransitions>
+        </local:MetroTile>
+        <local:MetroTile x:Name="MapTile" Height="125" Header="" Title="Maps"
                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
                 ImageSource="/UI/Windows/Main/MapTile.png" Width="155" HorizontalAlignment="Left"
-                Canvas.Left="1095" Canvas.Top="514" VerticalAlignment="Top" />
+                Canvas.Left="845" Canvas.Top="299" VerticalAlignment="Top" />
         <local:MetroTile x:Name="TestButton" Height="30" Header="" Title="Test" Width="55"
                 HorizontalAlignment="Left" Canvas.Left="605" Canvas.Top="249"
                 VerticalAlignment="Top" />
     </Canvas>
-
 </Window>

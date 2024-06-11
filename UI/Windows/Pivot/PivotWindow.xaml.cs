@@ -211,9 +211,13 @@ namespace Badger
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
@@ -325,6 +329,37 @@ namespace Badger
             {
                 _timerCallback += UpdateStatus;
                 _timer = new Timer( _timerCallback, null, 0, 260 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                SourceLabel.Foreground = new SolidColorBrush( _borderColor );
+                FirstCategoryLabel.Foreground = new SolidColorBrush( _borderColor );
+                SecondCategoryLabel.Foreground = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -504,6 +539,10 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                InitializeLabels( );
+                InitializeRadioButtons( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-31-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="MetroInput.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroInput.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -44,18 +44,16 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.TextInputLayout;
 
     /// <inheritdoc />
     /// <summary>
+    /// Interaction logic for MetroComboFrame.xaml
     /// </summary>
-    /// <seealso cref="T:Syncfusion.UI.Xaml.TextInputLayout.SfTextInputLayout" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class MetroTextInput : SfTextInputLayout
+    public partial class MetroComboFrame : UserControl
     {
         /// <summary>
         /// The back color
@@ -63,9 +61,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -113,31 +111,86 @@ namespace Badger
         };
 
         /// <summary>
-        /// The text box
+        /// Gets or sets the caption.
         /// </summary>
-        private protected TextBox _textBox;
+        /// <value>
+        /// The caption.
+        /// </value>
+        public string Caption
+        {
+            get
+            {
+                return Label.Content.ToString( );
+            }
+            set
+            {
+                Label.Content = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the input.
+        /// </summary>
+        /// <value>
+        /// The input.
+        /// </value>
+        public string Input
+        {
+            get
+            {
+                return TextBox.Text;
+            }
+            set
+            {
+                TextBox.Text = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MetroInput" /> class.
+        /// <see cref="T:Badger.MetroComboFrame" /> class.
         /// </summary>
-        public MetroTextInput( )
-            : base( )
+        public MetroComboFrame( )
         {
+            InitializeComponent( );
+
             // Basic Settings
-            Height = 200;
-            Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( _containerColor );
+            Width = 220;
+            MinWidth = 180;
+            MaxWidth = 270;
+            Height = 120;
+            MinHeight = 118;
+            MaxHeight = 140;
+            Label.Width = 200;
+            Label.MinWidth = 150;
+            Label.MaxWidth = 250;
+            Label.Height = 25;
+            Label.MinHeight = 18;
+            Label.MaxHeight = 30;
+            ComboBox.Width = 200;
+            ComboBox.MinWidth = 150;
+            ComboBox.MaxWidth = 250;
+            ComboBox.Height = 30;
+            ComboBox.MinHeight = 25;
+            ComboBox.MaxHeight = 35;
+            TextBox.Width = 200;
+            TextBox.MinWidth = 150;
+            TextBox.MaxWidth = 250;
+            TextBox.Height = 25;
+            TextBox.MinHeight = 18;
+            TextBox.MaxHeight = 30;
+            Background = new SolidColorBrush( Colors.Transparent );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-            ContainerBackground = new SolidColorBrush( _containerColor );
-            FocusedBorderBrush = new SolidColorBrush( _foreColor );
-            FocusedForeground = new SolidColorBrush( _focusedText );
-            Hint = "Name";
-            
+            TextBox.Background = new SolidColorBrush( _containerColor );
+            TextBox.Foreground = new SolidColorBrush( _foreColor );
+            Label.Background = new SolidColorBrush( Colors.Transparent );
+            Label.Foreground = new SolidColorBrush( _foreColor );
+            Label.Content = "Name";
+            TextBox.Text = "Value";
         }
 
         /// <summary>

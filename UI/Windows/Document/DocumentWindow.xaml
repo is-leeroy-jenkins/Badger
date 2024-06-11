@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:PdfViewer="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF"
         x:Name="DocViewer" x:Class="Badger.DocumentWindow" mc:Ignorable="d" Title="Documentation"
-        Height="750" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
+        Height="800" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen"
         Icon="/UI/Windows/Document/Application.png">
     <Canvas RenderTransformOrigin="0.634,0.466">
@@ -13,9 +13,10 @@
                 BorderThickness="1,1,1,1" BorderBrush="#FF0078D4" HorizontalAlignment="Center"
                 Canvas.Left="25" Canvas.Top="34" VerticalAlignment="Top" />
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Center"
+                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
+                    HorizontalAlignment="Left" Padding="10,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
@@ -31,7 +32,8 @@
                     Foreground="{x:Null}" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"

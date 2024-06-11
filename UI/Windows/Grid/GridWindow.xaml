@@ -4,13 +4,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         x:Name="GridView" x:Class="Badger.GridWindow" mc:Ignorable="d" Title="GridWindow"
-        Height="750" Width="1397" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1"
+        Height="800" Width="1400" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1"
         WindowStartupLocation="CenterScreen" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FFA0BDFC" Icon="/UI/Windows/Grid/Application.png">
     <Canvas x:Name="GridCanvas">
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40" Canvas.Left="1"
-                Canvas.Top="670" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40" Canvas.Left="0"
+                Canvas.Top="720" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
+                    Padding="10,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
@@ -26,7 +27,8 @@
                     Foreground="{x:Null}" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"

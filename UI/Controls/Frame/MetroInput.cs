@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 05-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        05-31-2024
 // ******************************************************************************************
-// <copyright file="MetroPivotGrid.cs" company="Terry D. Eppler">
+// <copyright file="MetroInput.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroPivotGrid.cs
+//   MetroInput.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,20 +42,20 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows.Controls;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.PivotGrid;
+    using Syncfusion.UI.Xaml.TextInputLayout;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Controls.PivotGrid.PivotGridControl" />
+    /// <seealso cref="T:Syncfusion.UI.Xaml.TextInputLayout.SfTextInputLayout" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    public class MetroPivotGrid : PivotGridControl
+    public class MetroInput : SfTextInputLayout
     {
         /// <summary>
         /// The back color
@@ -63,20 +63,20 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
         /// The back hover color
         /// </summary>
-        private protected Color _backHover = new Color( )
+        private protected Color _containerColor = new Color( )
         {
             A = 255,
-            R = 25,
-            G = 76,
-            B = 120
+            R = 40,
+            G = 40,
+            B = 40
         };
 
         /// <summary>
@@ -85,26 +85,15 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
+            R = 160,
             G = 189,
             B = 252
         };
 
         /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -113,30 +102,41 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border hover color
+        /// The focused text
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private readonly Color _focusedText = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 255,
+            G = 255,
+            B = 255
         };
+
+        /// <summary>
+        /// The text box
+        /// </summary>
+        private protected TextBox _textBox;
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.PivotGrid" /> class.
+        /// <see cref="T:Badger.MetroInput" /> class.
         /// </summary>
-        public MetroPivotGrid( )
+        public MetroInput( )
             : base( )
         {
-            // Basic Properties
+            // Basic Settings
+            Height = 200;
+            Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = new SolidColorBrush( _containerColor );
             Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+            ContainerBackground = new SolidColorBrush( _containerColor );
+            FocusedBorderBrush = new SolidColorBrush( _foreColor );
+            FocusedForeground = new SolidColorBrush( _focusedText );
+            Hint = "Name";
         }
 
         /// <summary>

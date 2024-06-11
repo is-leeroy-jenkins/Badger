@@ -72,8 +72,8 @@ namespace Badger
             "ToolStrip",
             "MetroCalendar",
             "CalendarEdit",
-            "MetroPivotGrid",
             "PivotGridControl",
+            "MetroPivotGrid",
             "MetroChart",
             "SfChart3D",
             "SfChart",
@@ -96,7 +96,9 @@ namespace Badger
             "TabControlExt",
             "MetroTabControl",
             "SfTextInputLayout",
-            "MetroTextInput"
+            "MetroTextInput",
+            "SfSpreadsheet",
+            "SfSpreadsheetRibbon"
         };
 
         /// <summary>

@@ -8,15 +8,16 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="DataView" x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
-        BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="750"
+        BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="800"
         VerticalContentAlignment="Bottom" Width="1400">
-    <local:MetroCanvas x:Name="MainCanvas" Margin="1,1,1,1" Width="1400" Height="750"
+    <local:MetroCanvas x:Name="DataCanvas" Margin="1,1,1,1" Width="1400" Height="800"
             HorizontalAlignment="Right" Background="#FF141414">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="670" Canvas.Left="1" HorizontalAlignment="Left"
+                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Left"
                 VerticalAlignment="Center" BorderBrush="#FF141414" BorderThickness="1,1,1,1"
                 OverflowButtonVisibility="Collapsed">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
+                    Padding="10,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
@@ -32,7 +33,8 @@
                     Foreground="{x:Null}" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
@@ -62,14 +64,16 @@
                 VerticalAlignment="Center">
             <TabItem x:Name="TableTab" Height="24" Header="Sources" Width="100"
                     Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
-                    IsSelected="True" Margin="3,3,3,3" Padding="6,2,6,5">
+                    IsSelected="True" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,5,0,0">
                     <local:MetroRadioButton x:Name="ExecutionRadioButton" Content="Execution "
                             Canvas.Left="154" Canvas.Top="73" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" Width="78" />
+                            VerticalAlignment="Top" Width="78" Tag="EXECUTION"
+                            ToolTip="Execution Data Tables" Foreground="#FF0078D4" />
                     <local:MetroRadioButton x:Name="ReferenceRadioButton" Content="Reference "
                             Canvas.Left="249" Canvas.Top="73" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" />
+                            VerticalAlignment="Top" Tag="REFERENCE" ToolTip="Reference Data Tables"
+                            Foreground="#FF0078D4" />
                     <local:MetroListBox Height="358" Width="225"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
                             Canvas.Top="105" VerticalAlignment="Center" Canvas.Left="154" />
@@ -77,7 +81,7 @@
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Width="100" IsSelected="True"
-                    Margin="3,3,3,3" Height="24" Padding="6,2,6,5">
+                    Margin="0,0,0,0" Height="24" Padding="6,2,6,5">
                 <Canvas x:Name="FilterGrid" Height="622" Margin="0,0,23,0">
                     <local:MetroListBox x:Name="SecondCategoryListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="85" Canvas.Left="154"
@@ -98,7 +102,7 @@
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                     <local:MetroComboBox x:Name="FirstCategoryComboBox" Background="#FF282828"
                             Height="30" Width="200" Canvas.Left="151" Canvas.Top="69"
-                            ToolTip="Select Category">
+                            ToolTip="Select First Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" Background="#FF141414" />
@@ -107,7 +111,7 @@
                     </local:MetroComboBox>
                     <local:MetroComboBox x:Name="SecondCategoryComboBox" Background="#FF282828"
                             Height="30" Width="200" Canvas.Left="149" Canvas.Top="218"
-                            ToolTip="Select Category">
+                            ToolTip="Select Second Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -117,7 +121,7 @@
                     <local:MetroComboBox x:Name="ThirdCategoryComboBox" Background="#FF282828"
                             Height="30" Width="200" Canvas.Left="154" Canvas.Top="368"
                             RenderTransformOrigin="0.533,-0.565" HorizontalAlignment="Center"
-                            VerticalAlignment="Top" ToolTip="Select Category">
+                            VerticalAlignment="Top" ToolTip="Select Third Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -128,39 +132,42 @@
             </TabItem>
             <TabItem x:Name="GroupTab" Height="24" Header="Grouping" Width="100"
                     Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
-                    Padding="6,2,6,5" Margin="3,3,3,3">
+                    Padding="6,2,6,5" Margin="0,0,0,0">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
                     <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170"
                             HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="62"
-                            VerticalAlignment="Top" />
+                            VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="FieldsListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="181"
                             Canvas.Left="151" Canvas.Top="92" VerticalAlignment="Top" Width="250"
-                            HorizontalAlignment="Center" SelectionMode="Multiple" />
+                            HorizontalAlignment="Center" SelectionMode="Multiple"
+                            ToolTip="Select FIeld Groups" />
                     <local:MetroListBox x:Name="NumericsListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
                             Canvas.Left="151" Canvas.Top="333" VerticalAlignment="Center"
-                            Width="250" HorizontalAlignment="Center" SelectionMode="Multiple" />
+                            Width="250" HorizontalAlignment="Center" SelectionMode="Multiple"
+                            ToolTip="Select Numeric Groups" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170"
                             HorizontalAlignment="Center" Canvas.Left="151" Canvas.Top="307"
-                            VerticalAlignment="Top" />
+                            VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="CalendarTab" Height="24" Header="Calendar" Width="100"
                     Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
-                    IsSelected="False" Margin="3,3,3,3" Padding="6,2,6,5">
+                    IsSelected="False" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="CalendarCanvas" Background="#FF141414" Margin="0,5,0,0">
                     <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="151"
-                            Canvas.Top="63" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Width="268" />
-                    <local:MetroCalendar Date="1/1/2020" Height="165" Canvas.Left="154"
-                            Canvas.Top="103" Width="220" HorizontalAlignment="Center"
-                            VerticalAlignment="Top" BorderThickness="1,1,1,1" />
+                            Canvas.Top="70" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Width="220" Foreground="#FF0078D4" />
+                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="165"
+                            Canvas.Left="154" Canvas.Top="103" Width="220"
+                            HorizontalAlignment="Center" VerticalAlignment="Top"
+                            BorderThickness="1,1,1,1" />
                     <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second"
                             Canvas.Left="154" Canvas.Top="308" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" Width="240" />
-                    <local:MetroCalendar Date="1/1/2020" Height="165" Canvas.Left="154"
-                            Canvas.Top="338" Width="220" BorderThickness="1,1,1,1"
+                            VerticalAlignment="Top" Width="220" Foreground="#FF0078D4" />
+                    <local:MetroCalendar x:Name="Second_Calendar" Date="1/1/2020" Height="165"
+                            Canvas.Left="154" Canvas.Top="338" Width="220" BorderThickness="1,1,1,1"
                             HorizontalAlignment="Left" VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
@@ -168,145 +175,74 @@
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="791" Canvas.Left="18"
                 Canvas.Top="11" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TabItem x:Name="DataTab" Header="Data" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" Margin="3,3,3,3" Height="24"
+                    Foreground="#FFA0BDFC" Width="100" Margin="0,0,0,0" Height="24"
                     Padding="6,2,6,5">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
                     <local:MetroDataGrid x:Name="Datagrid" Height="410" Canvas.Left="35"
                             Canvas.Top="92" Width="724" HorizontalAlignment="Left"
                             VerticalAlignment="Center" BorderBrush="#FF0078D4"
                             SelectionForegroundBrush="#FFFFFCFC" BorderThickness="2,2,2,2" />
+                    <local:MetroLabel x:Name="DataHeader" Content="Data" Canvas.Left="34"
+                            Canvas.Top="15" Width="726" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="EditTab" Height="24" Header="Edit" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False"
-                    Margin="3,3,3,3" Padding="6,2,6,5">
+                    Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="EditTabCanvas" ScrollViewer.CanContentScroll="True"
                         ScrollViewer.HorizontalScrollBarVisibility="Visible"
                         HorizontalAlignment="Left" Height="570" Margin="17,0,0,0"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto" Width="715">
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" Width="767">
                     <Canvas HorizontalAlignment="Center" Height="430" Canvas.Left="0" Canvas.Top="0"
-                            VerticalAlignment="Center">
-                        <local:MetroTextInput ContainerType="Outlined" Hint="Name"
-                                    HorizontalAlignment="Left" Height="65" VerticalAlignment="Top"
-                                    Width="130" Margin="35,95,0,0">
-                                <TextBox Text="John" Foreground="White" Margin="14,0,8,0"
-                                        VerticalAlignment="Bottom" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="365,95,0,0">
-                                <TextBox Text="John" Foreground="White" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="535,95,0,0">
-                                <TextBox Text="John" Foreground="#FFF9F6F6" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="35,167,0,0">
-                                <TextBox Text="John" Background="#FF141414" Foreground="#FFFDFBFB" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="195,167,0,0">
-                                <TextBox Text="John" Background="#FF141414" Foreground="#FFF7F2F2" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="365,167,0,0">
-                                <TextBox Text="John" Background="#FF141414" Foreground="#FFF3EFEF" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="535,167,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF5F5" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="35,235,0,0">
-                                <TextBox Text="John" Foreground="#FFF9F3F3" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="195,235,0,0">
-                                <TextBox Text="John" Foreground="#FFFDFAFA" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="365,235,0,0">
-                                <TextBox Text="John" Foreground="#FFFDFBFB" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="535,235,0,0">
-                                <TextBox Text="John" Foreground="#FFF5EFEF" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="35,300,0,0">
-                                <TextBox Text="John" Foreground="#FFFFFCFC" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="195,300,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF5F5" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="365,300,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF9F9" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="535,300,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF9F9" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="35,365,0,0">
-                                <TextBox Text="John" Foreground="#FFF9F9F9" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="195,365,0,0">
-                                <TextBox Text="John" Foreground="#FFF9F4F4" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="365,365,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF5F5" />
-                            </local:MetroTextInput>
-                            <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                    Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                    Margin="535,365,0,0">
-                                <TextBox Text="John" Foreground="#FFFBF5F5" />
-                            </local:MetroTextInput>
-                        <local:MetroTextInput ContainerType="Outlined" Hint="Name" Height="65"
-                                Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"
-                                Foreground="#FFC3BFBF" Margin="195,95,0,0">
-                            <TextBox Text="John" Foreground="#FFF7F2F2" />
-                        </local:MetroTextInput>
-                    </Canvas>
+                            VerticalAlignment="Center" />
+                    <local:MetroTextInput x:Name="Frame" Canvas.Left="5" Canvas.Top="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" Width="245"
+                            Height="80" />
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="80" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="80" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="180" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="180" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="180" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="285" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="285" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="285" Width="245" Height="80"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="390" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="390" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="390" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroLabel x:Name="EditHeader" Content="Edit" Canvas.Left="18"
+                            Canvas.Top="9" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Width="702" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SchemaTab" Height="24" Header="Schema" Width="100"
                     Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
-                    Margin="3,3,3,3" Padding="6,2,6,5">
+                    Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SchemaCanvas" Background="#FF141414" HorizontalAlignment="Right"
                         Height="595" Margin="0,0,75,0" VerticalAlignment="Top" Width="680">
                     <local:MetroLabel x:Name="ProviderLabel" Content="Data Providers" Height="26"
                             HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="72"
-                            VerticalAlignment="Top" Width="130" Foreground="#FFA0BDFC" />
+                            VerticalAlignment="Top" Width="130" Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="ColumnNameLabel" Content="Column Name" Width="115"
                             Height="26" HorizontalAlignment="Center" Canvas.Left="35"
-                            Canvas.Top="438" VerticalAlignment="Top" Foreground="#FFA0BDFC" />
+                            Canvas.Top="438" VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="DataTypeLabel" Content="Data Type" Height="26"
                             HorizontalAlignment="Left" Canvas.Left="450" Canvas.Top="358"
-                            VerticalAlignment="Top" Width="70" Foreground="#FFA0BDFC" />
+                            VerticalAlignment="Top" Width="70" Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="DataTableLabel" Content="Data Table" Width="130"
                             Height="26" HorizontalAlignment="Left" Canvas.Left="25" Canvas.Top="177"
-                            VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFA0BDFC" />
+                            VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="DataTypeListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="110"
                             Canvas.Left="455" Canvas.Top="393" VerticalAlignment="Top" Width="200"
@@ -335,10 +271,10 @@
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="DataColumnLabel" Content="Data Columns"
                             Canvas.Left="450" Canvas.Top="178" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" Foreground="#FFA0BDFC" />
+                            VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="TableNameLabel" Content="Table Name" Canvas.Left="30"
                             Canvas.Top="358" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Foreground="#FFA0BDFC" />
+                            Foreground="#FF0078D4" />
                     <local:MetroTextBox Canvas.Left="30" TextWrapping="Wrap" Canvas.Top="393"
                             Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     <local:MetroTile x:Name="DropTableButton" Height="40" Header=""
@@ -353,11 +289,14 @@
                     <local:MetroTile x:Name="AddColumnButton" Height="40" Header=""
                             Canvas.Left="295" Title="Add Column" Canvas.Top="458" Width="90"
                             HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:MetroLabel x:Name="SchemaHeader" Content="Schema" Canvas.Left="4"
+                            Canvas.Top="37" Width="606" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False"
-                    Margin="3,3,3,3" Padding="6,2,6,5">
+                    Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="BusyTabCanvas" Background="#FF141414">
                     <Image x:Name="PictureBox" Height="550" Canvas.Top="32" Width="732"
                             gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif"

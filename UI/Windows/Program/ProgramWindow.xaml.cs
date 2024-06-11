@@ -185,14 +185,18 @@ namespace Badger
             SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
 
-            // Window Plumbing
+            // Window Initialization
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
@@ -469,6 +473,8 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

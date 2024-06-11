@@ -47,6 +47,7 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -142,13 +143,22 @@ namespace Badger
         /// </summary>
         public GridWindow( )
         {
+            // Theme Properties
+            SfSkinManager.ApplyStylesOnApplication = true;
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+
+            // Window Initialization
             InitializeComponent( );
             RegisterCallbacks( );
             InitializeDelegates( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Padding = new Thickness( 1 );
@@ -162,6 +172,10 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Window Events
+            Loaded += OnLoaded;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -446,7 +460,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
-        private void OnVisibilityChanged( object sender, DependencyPropertyChangedEventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {

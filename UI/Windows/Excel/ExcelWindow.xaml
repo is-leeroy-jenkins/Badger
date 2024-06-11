@@ -4,16 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="ExcelView"
-        x:Class="Badger.ExcelWindow" mc:Ignorable="d" Title="Excel Data" Height="750" Width="1400"
+        x:Class="Badger.ExcelWindow" mc:Ignorable="d" Title="Excel Data" Height="800" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF6ABDFC"
         WindowStartupLocation="CenterScreen" Icon="/UI/Windows/Excel/Application.png"
         Padding="1,1,1,1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch"
         Margin="3,3,3,3">
     <Canvas x:Name="ExcelCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="670" Canvas.Left="4" HorizontalAlignment="Center"
+                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
+                    Padding="10,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
@@ -29,7 +30,8 @@
                     Foreground="{x:Null}" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
@@ -54,25 +56,24 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Excel/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="659" Width="1390"
-                HorizontalAlignment="Center" Canvas.Left="5" Canvas.Top="5" VerticalAlignment="Top">
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="693" Width="1390"
+                HorizontalAlignment="Center" Canvas.Left="6" Canvas.Top="6" VerticalAlignment="Top">
             <TabItem x:Name="WorkbookTab" Header="Workbook" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FFFFF7F7" Width="100" Margin="3,3,3,3"
-                    Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Padding="6,2,6,5">
-                <Canvas Background="#FF141414" Height="628" VerticalAlignment="Center">
+                    BorderBrush="#FF141414" Foreground="#FFFFF7F7" Width="100" Margin="0,0,0,0"
+                    Height="24" Padding="6,2,6,5">
+                <Canvas Background="#FF141414" Height="627" VerticalAlignment="Center">
                     <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" Width="1375" Height="122"
                             Canvas.Left="2" Canvas.Top="38" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
-                    <syncfusion:SfSpreadsheet x:Name="Spreadsheet" Height="455" Width="1375"
-                            Canvas.Left="3" Canvas.Top="160" HorizontalAlignment="Center"
+                    <syncfusion:SfSpreadsheet x:Name="Spreadsheet" Height="500" Width="1375"
+                            Canvas.Left="6" Canvas.Top="156" HorizontalAlignment="Center"
                             VerticalAlignment="Top" BorderThickness="1,1,1,0" Padding="1,3,1,1"
-                            Margin="3,3,3,3" Foreground="{x:Null}" />
+                            Foreground="{x:Null}" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="QueryTab" Header="Query" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFF7F5F5" Width="100" Height="24" Margin="3,3,3,3"
-                    Padding="6,2,6,5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    Foreground="#FFF7F5F5" Width="100" Height="24" Margin="0,0,0,0"
+                    Padding="6,2,6,5">
                 <Canvas x:Name="QueryCanvas" Background="#FF141414" Margin="0,18,0,0">
                     <local:MetroRadioButton x:Name="SQLiteRadioButton" Content="SQLite"
                             Canvas.Left="62" Canvas.Top="117" Width="65" Tag="SQLite"
@@ -140,20 +141,21 @@
                             Canvas.Top="192" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="ChartTab" HorizontalAlignment="Center" Height="24" Header="Chart"
-                    VerticalAlignment="Center" Width="100" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FFFBF9F9" Margin="3,3,3,3"
+            <TabItem x:Name="ChartTab" Height="24" Header="Chart" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFFBF9F9" Margin="0,0,0,0"
                     Padding="6,2,6,5">
                 <Canvas x:Name="ChartTabCanvas" Background="#FF141414">
-                    <local:MetroChart x:Name="Chart" Canvas.Left="42" Canvas.Top="30"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="865"
-                            Height="440" Depth="250" Rotation="5" />
+                    <local:MetroChart x:Name="Chart" Canvas.Left="47" Canvas.Top="70"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Width="865"
+                            Height="440" Depth="252" Rotation="5" BackWallBrush="#FF373737"
+                            BorderBrush="#FF0078D4" BottomWallBrush="#FF373737"
+                            Foreground="#FFA0BDFC" LeftWallBrush="#FF373737"
+                            RightWallBrush="#FF373737" TopWallBrush="#FF373737"
+                            BorderThickness="1,1,1,1" Header="Title" EnableRotation="True" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="BusyTab" HorizontalAlignment="Center" Height="24" Header="Busy"
-                    VerticalAlignment="Center" Width="100" BorderBrush="#FF141414"
-                    Background="#FF141414" Foreground="#FFFFFDFD" Margin="3,0,0,-3"
-                    Padding="6,2,6,5">
+            <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" BorderBrush="#FF141414"
+                    Background="#FF141414" Foreground="#FFFFFDFD" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="BusyCanvas" Background="#FF141414">
                     <Image x:Name="PictureBox" Height="580" Canvas.Left="23" Width="1350"
                             HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="10"

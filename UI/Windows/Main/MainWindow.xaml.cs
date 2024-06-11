@@ -210,9 +210,13 @@ namespace Badger
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
@@ -245,14 +249,10 @@ namespace Badger
                 ExcelTile.Click += OnExcelTileClick;
                 EditorTile.Click += OnEditorTileClick;
                 MapTile.Click += OnMapTileClick;
-                SqlServerTile.Click += OnSqlServerTileClick;
                 CalendarTile.Click += OnCalendarTileClick;
                 EmailTile.Click += OnEmailTileClick;
                 ProgramTile.Click += OnProgramTileClick;
                 PivotTile.Click += OnPivotTileClick;
-                SqliteTile.Click += OnSQLiteTileClick;
-                SqlCeTile.Click += OnSqlCeTileClick;
-                AccessTile.Click += OnAccessTileClick;
                 BrowserTile.Click += OnBrowserTileClick;
                 TestButton.Click += OnTestButtonClick;
             }
@@ -527,27 +527,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Opens the SQL server editor.
-        /// </summary>
-        private void OpenSqlServerEditor( )
-        {
-            try
-            {
-                var _form = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _form.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Opens the fiscal year form.
         /// </summary>
         private void OpenCalendarWindow( )
@@ -623,90 +602,6 @@ namespace Badger
                 };
 
                 _pivotWindow.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the sqlite window.
-        /// </summary>
-        private void OpenSqliteWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL ce window.
-        /// </summary>
-        private void OpenSqlCeWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the access window.
-        /// </summary>
-        private void OpenAccessWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the SQL server window.
-        /// </summary>
-        private void OpenSqlServerWindow( )
-        {
-            try
-            {
-                var _programs = new EditorWindow( )
-                {
-                    Owner = this
-                };
-
-                _programs.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -1029,78 +924,6 @@ namespace Badger
             try
             {
                 OpenCalendarWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [sq lite tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSQLiteTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenSqliteWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [SQL ce tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSqlCeTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenSqlCeWindow( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [SQL server tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSqlServerTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenSqlServerEditor( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [access tile click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnAccessTileClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenAccessWindow( );
             }
             catch( Exception _ex )
             {

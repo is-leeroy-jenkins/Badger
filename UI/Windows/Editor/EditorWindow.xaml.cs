@@ -208,9 +208,13 @@ namespace Badger
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
@@ -280,6 +284,30 @@ namespace Badger
         {
             try
             {
+                FieldsLabel.Foreground = new SolidColorBrush( _borderColor );
+                NumericsLabel.Foreground = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                SQLiteRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SQLiteRadioButton.Tag = "SQLite";
+                AccessRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                AccessRadioButton.Tag = "Access";
+                SqlCeRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlServerRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SqlServerRadioButton.Tag = "SqlServer";
             }
             catch( Exception _ex )
             {
@@ -495,6 +523,10 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                InitializeLabels( );
+                InitializeRadioButtons( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

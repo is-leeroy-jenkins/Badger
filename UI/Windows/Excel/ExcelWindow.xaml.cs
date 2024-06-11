@@ -184,14 +184,18 @@ namespace Badger
             SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
 
-            // Window Plumbing
+            // Window Initialization
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
 
-            // Basic Properties
+            // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -497,6 +501,8 @@ namespace Badger
             try
             {
                 InitializeTimer( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -780,11 +786,6 @@ namespace Badger
             var _error = new ErrorWindow( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        private void ThirdCategoryComboBox_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
-        {
-
         }
     }
 }

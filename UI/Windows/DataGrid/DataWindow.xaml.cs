@@ -184,6 +184,11 @@ namespace Badger
         private protected DataTable _dataTable;
 
         /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -232,7 +237,11 @@ namespace Badger
 
             // Window Properties
             Width = 1400;
-            Height = 750;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Padding = new Thickness( 1 );
@@ -300,6 +309,32 @@ namespace Badger
         {
             try
             {
+                DataHeader.Foreground = new SolidColorBrush( _borderColor );
+                EditHeader.Foreground = new SolidColorBrush( _borderColor );
+                SchemaHeader.Foreground = new SolidColorBrush( _borderColor );
+                ProviderLabel.Foreground = new SolidColorBrush( _borderColor );
+                DataTableLabel.Foreground = new SolidColorBrush( _borderColor );
+                DataColumnLabel.Foreground = new SolidColorBrush( _borderColor );
+                DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
+                ColumnNameLabel.Foreground = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                ExecutionRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                ExecutionRadioButton.Tag = "EXECUTION";
+                ReferenceRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                ReferenceRadioButton.Tag = "REFERENCE";
             }
             catch( Exception _ex )
             {
@@ -614,6 +649,8 @@ namespace Badger
                 InitializeTimer( );
                 InitializeComboBoxes( );
                 InitializeTabControls( );
+                InitializeRadioButtons( );
+                InitializeLabels( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -793,6 +830,24 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [group button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGroupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                GroupTab.IsSelected = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [undo button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -900,6 +955,176 @@ namespace Badger
                 {
                     OpenMainWindow( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [provider RadioButton click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnProviderRadioButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTableListBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first category ComboBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstCategoryComboBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first category ListBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstCategoryListBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second category ComboBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondCategoryComboBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second category ListBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondCategoryListBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [third category ComboBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdCategoryComboBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [third category ListBox item select].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdCategoryListBoxItemSelect( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first calendar date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstCalendarDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [sedond calendar date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSedondCalendarDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
