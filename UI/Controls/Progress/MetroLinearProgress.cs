@@ -124,7 +124,8 @@ namespace Badger
         public MetroLinearProgress( ) 
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfLinearProgressBar ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

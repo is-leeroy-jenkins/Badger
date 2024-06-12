@@ -5,59 +5,102 @@
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-        xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="DataView" x:Class="Badger.DataWindow"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:badger="clr-namespace:Badger"
+        x:Name="DataView" x:Class="Badger.DataWindow"
         mc:Ignorable="d" Title="Budget Execution" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
         BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="800"
         VerticalContentAlignment="Bottom" Width="1400">
-    <local:MetroCanvas x:Name="DataCanvas" Margin="1,1,1,1" Width="1400" Height="800"
-            HorizontalAlignment="Right" Background="#FF141414">
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Left"
-                VerticalAlignment="Center" BorderBrush="#FF141414" BorderThickness="1,1,1,1"
-                OverflowButtonVisibility="Collapsed">
+    <Window.ContextMenu>
+        <ContextMenu Name="ContextMenu">
+            <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+        </ContextMenu>
+    </Window.ContextMenu>
+        
+            <local:MetroCanvas x:Name="DataCanvas" Margin="1,1,1,1" Width="1400" Height="800"
+                   HorizontalAlignment="Right" Background="#FF141414">
+
+
+            <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
+                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Left"
+                 VerticalAlignment="Center" BorderBrush="#FF141414" BorderThickness="1,1,1,1"
+                 OverflowButtonVisibility="Collapsed">
+
+
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
-                    Padding="10,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                      Padding="10,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/Datagrid/FirstButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/FirstButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/Datagrid/PreviousButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/PreviousButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/Datagrid/NextButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/NextButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/Datagrid/LastButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/LastButton.png" Height="30" />
+            
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" />
+            
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" />
+            
             <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
-                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
+                                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
+            
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+                                          Foreground="{x:Null}" />
+            
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Datagrid/LookUpButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/LookUpButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Datagrid/RefreshButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/RefreshButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
-                    ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filters" />
+                                   ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filters" />
+            
             <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Datagrid/BackButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/BackButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Datagrid/SaveButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/SaveButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/Datagrid/DeleteButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/DeleteButton.png" Height="30" />
+            
             <local:ToolStripButton x:Name="ExportButton"
-                    ImageSource="/UI/Windows/Datagrid/ExportButton.png" ToolTip="Export" />
+                                   ImageSource="/UI/Windows/Datagrid/ExportButton.png" ToolTip="Export" />
+            
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Datagrid/BrowseButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/BrowseButton.png" Height="30" />
+            
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Datagrid/MenuButton.png" Height="30" />
+                                   ImageSource="/UI/Windows/Datagrid/MenuButton.png" Height="30" />
         </local:ToolStrip>
         <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="523"
                 Canvas.Left="856" Canvas.Top="11" HorizontalAlignment="Left"
@@ -74,22 +117,24 @@
                             Canvas.Left="249" Canvas.Top="73" HorizontalAlignment="Left"
                             VerticalAlignment="Top" Tag="REFERENCE" ToolTip="Reference Data Tables"
                             Foreground="#FF0078D4" />
-                    <local:MetroListBox Height="358" Width="225"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left"
-                            Canvas.Top="105" VerticalAlignment="Center" Canvas.Left="154" />
+                    <local:MetroListBox Height="368" Width="225"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center"
+                            Canvas.Top="105" VerticalAlignment="Top" Canvas.Left="154" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Width="100" IsSelected="True"
                     Margin="0,0,0,0" Height="24" Padding="6,2,6,5">
+
                 <Canvas x:Name="FilterGrid" Height="622" Margin="0,0,23,0">
+                    
                     <local:MetroListBox x:Name="SecondCategoryListBox"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Height="85" Canvas.Left="154"
-                            Canvas.Top="258" Width="200" HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
-                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                            ScrollViewer.CanContentScroll="True"
-                            ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+                    d:ItemsSource="{d:SampleData ItemCount=5}" Height="85" Canvas.Left="154"
+                    Canvas.Top="258" Width="200" HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.CanContentScroll="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                     <local:MetroListBox x:Name="ThirdCategoryListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="90" Canvas.Left="159"
                             Canvas.Top="408" VerticalAlignment="Top" Width="200"
@@ -178,9 +223,9 @@
                     Foreground="#FFA0BDFC" Width="100" Margin="0,0,0,0" Height="24"
                     Padding="6,2,6,5">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroDataGrid x:Name="Datagrid" Height="410" Canvas.Left="35"
-                            Canvas.Top="92" Width="724" HorizontalAlignment="Left"
-                            VerticalAlignment="Center" BorderBrush="#FF0078D4"
+                    <local:MetroDataGrid x:Name="Datagrid" Height="371" Canvas.Left="35"
+                            Canvas.Top="92" Width="724" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" BorderBrush="#FF0078D4"
                             SelectionForegroundBrush="#FFFFFCFC" BorderThickness="2,2,2,2" />
                     <local:MetroLabel x:Name="DataHeader" Content="Data" Canvas.Left="34"
                             Canvas.Top="15" Width="726" HorizontalAlignment="Left"

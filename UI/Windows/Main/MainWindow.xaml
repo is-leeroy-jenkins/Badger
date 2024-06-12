@@ -7,7 +7,25 @@
         x:Name="Main" x:Class="Badger.MainWindow" mc:Ignorable="d" Title="Budget Execution"
         Height="800" Width="1350" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
         Background="#FF141414" WindowStartupLocation="CenterScreen" MinWidth="1250" MinHeight="650">
-    <Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350" Height="803">
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+        
+
+        <Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350" Height="803">
         <local:MetroTile x:Name="ChartTile" Height="126" Header="" Title="Charts &amp; Gaphs"
                 Width="155" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 ScaleDepth="-1" ImageSource="/UI/Windows/Main/VisualizationTile.png"

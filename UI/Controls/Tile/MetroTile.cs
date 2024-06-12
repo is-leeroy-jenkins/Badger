@@ -130,7 +130,8 @@ namespace Badger
         public MetroTile( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
             FontFamily = new FontFamily( "Segoe UI" );

@@ -10,12 +10,30 @@
         Height="800" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1"
         MinWidth="1200" MinHeight="650" MaxWidth="1500" MaxHeight="900">
-    <Canvas x:Name="ChartGrid">
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+
+        <Canvas x:Name="ChartGrid">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26"
                 Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="ChartTab" Header="Chart" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" IsSelected="True" Margin="0,0,0,0"
-                    Height="24" Padding="6,2,6,5">
+                    Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24"
+                    Padding="6,2,6,5" HeaderStringFormat="Pie">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
                     <syncfusion:SfChart3D x:Name="Chart" Width="720" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737"
@@ -24,6 +42,20 @@
                             Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Center"
                             Depth="250" EnableRotation="True" Header="Title" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" VerticalAlignment="Center" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414"
+                    BorderBrush="#FF141414" Foreground="#FFA0BDD4" Margin="0,0,0,0"
+                    Padding="6,2,6,5">
+                <Canvas Background="#FF141414">
+                    <syncfusion:SfChart x:Name="PieChart" Canvas.Left="21" Canvas.Top="65"
+                            Width="720" Height="465" Padding="1,1,1,1" BorderThickness="1,1,1,1"
+                            BorderBrush="#FF0078D4" Palette="Custom" Header="Chart Title">
+                        <syncfusion:PieSeries Interior="#FFE20909" />
+                        <syncfusion:PieSeries Interior="Black" />
+                        <syncfusion:PieSeries Interior="#FF0F36D4" />
+                        <syncfusion:PieSeries Interior="#FF1CF90A" />
+                    </syncfusion:SfChart>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SunburstTab" Header="Sunburst" Width="100" BorderBrush="#FF141414"

@@ -47,6 +47,7 @@ namespace Badger
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroMap : SfMap
     {
         /// <summary>
@@ -125,6 +126,7 @@ namespace Badger
 
         {
             // Basic Properties
+            SetResourceReference( StyleProperty, typeof( SfMap ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

@@ -3,13 +3,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="PivotView"
         x:Class="Badger.PivotWindow" mc:Ignorable="d" Title="Pivot Analysis" Height="800"
         Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" Margin="1,1,1,1"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Pivot/Application.png" MinWidth="200"
         MinHeight="100">
-    <Canvas>
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+        
+        <Canvas>
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
@@ -139,7 +157,7 @@
             <TabItem x:Name="ChartTab" Height="22" Header="Chart" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="ChartCanvas" Background="#FF141414">
-                    <local:MetroChart x:Name="Chart" Canvas.Left="44" Canvas.Top="66"
+                    <local:MetroBarChart x:Name="Chart" Canvas.Left="44" Canvas.Top="66"
                             HorizontalAlignment="Center" VerticalAlignment="Top" Width="980"
                             Height="496" Background="#FF141414" BackWallBrush="#FF2D2D2D"
                             BottomWallBrush="#FF2D2D2D" LeftWallBrush="#FF2D2D2D"

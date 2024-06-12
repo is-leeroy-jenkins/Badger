@@ -125,7 +125,8 @@ namespace Badger
         public MetroEditor( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( EditControl ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

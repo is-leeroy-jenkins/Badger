@@ -51,6 +51,7 @@ namespace Badger
     /// <seealso cref="Syncfusion.UI.Xaml.ProgressBar.SfStepProgressBar" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroStepProgress : SfStepProgressBar
     {
         /// <summary>
@@ -127,7 +128,8 @@ namespace Badger
         public MetroStepProgress( ) 
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfStepProgressBar ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

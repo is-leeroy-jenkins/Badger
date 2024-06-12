@@ -127,7 +127,7 @@ namespace Badger
         public MetroTabControl( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 460;

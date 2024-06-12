@@ -85,7 +85,6 @@ namespace Badger
             "MetroMap",
             "EditControl",
             "CheckListBox",
-            "EditControl",
             "MetroEditor",
             "DropDownButtonAdv",
             "MetroDropDown",
@@ -98,7 +97,8 @@ namespace Badger
             "SfTextInputLayout",
             "MetroTextInput",
             "SfSpreadsheet",
-            "SfSpreadsheetRibbon"
+            "SfSpreadsheetRibbon",
+            "MenuItemAdv"
         };
 
         /// <summary>

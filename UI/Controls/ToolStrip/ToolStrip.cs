@@ -45,6 +45,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Media;
+    using Syncfusion.Windows.Tools.Controls;
 
     /// <summary>
     ///
@@ -71,7 +72,8 @@ namespace Badger
         public ToolStrip( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Height = 40;

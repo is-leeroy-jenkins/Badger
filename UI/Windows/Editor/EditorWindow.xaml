@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:fc="http://devpelux.github.io/fullcontrols"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -11,7 +12,25 @@
         Background="#FF141414" BorderBrush="#FF0078D4" Margin="1,1,1,1"
         WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1" Padding="1,1,1,1"
         Icon="/UI/Windows/Editor/Application.png">
-    <Canvas x:Name="EditorCanvas" Margin="3,3,3,3">
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+
+        <Canvas x:Name="EditorCanvas" Margin="3,3,3,3">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="613" Width="885" Canvas.Left="5"
                 Canvas.Top="8" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TabItem x:Name="EditorTab" Header="SQL " Background="#FF141414" BorderBrush="#FF141414"

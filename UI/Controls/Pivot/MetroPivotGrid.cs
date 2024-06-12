@@ -132,6 +132,7 @@ namespace Badger
             : base( )
         {
             // Basic Properties
+            SetResourceReference( StyleProperty, typeof( PivotGridControl ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

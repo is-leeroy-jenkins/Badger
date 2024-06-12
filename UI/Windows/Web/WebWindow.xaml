@@ -3,12 +3,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="Web" x:Class="Badger.WebWindow" mc:Ignorable="d" Title="Internet " Height="800"
         Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FFA0BDFC"
         Margin="3,3,3,3" Padding="1,1,1,1" ScrollViewer.CanContentScroll="True"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Web/Application.png"
         WindowStartupLocation="CenterScreen">
-    <Canvas x:Name="WebCanvas" Background="#FF141414">
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+        <Canvas x:Name="WebCanvas" Background="#FF141414">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40"
                 HorizontalAlignment="Center" Canvas.Left="0" Canvas.Top="720"
                 VerticalAlignment="Top">

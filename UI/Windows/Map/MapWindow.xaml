@@ -3,11 +3,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="MapView" x:Class="Badger.MapWindow" mc:Ignorable="d" Title=" GIS Data" Height="800"
         Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="12"
         Background="#FF141414" WindowStartupLocation="CenterScreen"
         Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
-    <Canvas>
+
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+
+        <Canvas>
         <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="400"
                 Canvas.Left="30" Canvas.Top="85" VerticalAlignment="Top" Width="620"
                 NavigationControlPosition="Right" HorizontalAlignment="Center" MaxZoom="102"
@@ -18,7 +38,7 @@
                         RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:MetroChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
+        <local:MetroBarChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
                 Canvas.Left="740" Canvas.Top="85" VerticalAlignment="Top" BorderBrush="#FF0078D4"
                 BottomWallBrush="#FF323232" LeftWallBrush="#FF323232" RightWallBrush="#FF323232"
                 TopWallBrush="#FF323232" PerspectiveAngle="100" EnableRotation="True"

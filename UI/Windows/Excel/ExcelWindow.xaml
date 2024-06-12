@@ -3,13 +3,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" x:Name="ExcelView"
         x:Class="Badger.ExcelWindow" mc:Ignorable="d" Title="Excel Data" Height="800" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9" Foreground="#FF6ABDFC"
         WindowStartupLocation="CenterScreen" Icon="/UI/Windows/Excel/Application.png"
         Padding="1,1,1,1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch"
         Margin="3,3,3,3">
-    <Canvas x:Name="ExcelCanvas">
+
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+
+        <Canvas x:Name="ExcelCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
@@ -61,14 +81,15 @@
             <TabItem x:Name="WorkbookTab" Header="Workbook" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFFFF7F7" Width="100" Margin="0,0,0,0"
                     Height="24" Padding="6,2,6,5">
-                <Canvas Background="#FF141414" Height="627" VerticalAlignment="Center">
-                    <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" Width="1375" Height="122"
-                            Canvas.Left="2" Canvas.Top="38" HorizontalAlignment="Left"
+                <Canvas Background="#FF141414" Height="682" VerticalAlignment="Top"
+                        Margin="1,0,-1,0">
+                    <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" Width="1375" Height="118"
+                            Canvas.Left="2" Canvas.Top="38" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
-                    <syncfusion:SfSpreadsheet x:Name="Spreadsheet" Height="500" Width="1375"
-                            Canvas.Left="6" Canvas.Top="156" HorizontalAlignment="Center"
-                            VerticalAlignment="Top" BorderThickness="1,1,1,0" Padding="1,3,1,1"
-                            Foreground="{x:Null}" />
+                    <syncfusion:SfSpreadsheet x:Name="Spreadsheet" Height="510" Canvas.Left="0"
+                            Canvas.Top="159" BorderThickness="1,1,1,0" Padding="1,1,1,1"
+                            Foreground="{x:Null}" Width="1375" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" ScrollViewer.CanContentScroll="True" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="QueryTab" Header="Query" Background="#FF141414" BorderBrush="#FF141414"
@@ -145,7 +166,7 @@
                     BorderBrush="#FF141414" Foreground="#FFFBF9F9" Margin="0,0,0,0"
                     Padding="6,2,6,5">
                 <Canvas x:Name="ChartTabCanvas" Background="#FF141414">
-                    <local:MetroChart x:Name="Chart" Canvas.Left="47" Canvas.Top="70"
+                    <local:MetroBarChart x:Name="Chart" Canvas.Left="47" Canvas.Top="70"
                             HorizontalAlignment="Left" VerticalAlignment="Top" Width="865"
                             Height="440" Depth="252" Rotation="5" BackWallBrush="#FF373737"
                             BorderBrush="#FF0078D4" BottomWallBrush="#FF373737"

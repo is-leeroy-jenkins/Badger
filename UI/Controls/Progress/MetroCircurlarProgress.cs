@@ -123,7 +123,8 @@ namespace Badger
         public MetroCircurlarProgress( ) 
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfCircularProgressBar ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );

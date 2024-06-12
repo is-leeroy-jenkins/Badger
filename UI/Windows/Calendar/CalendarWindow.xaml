@@ -3,33 +3,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="Calendar" x:Class="Badger.CalendarWindow" mc:Ignorable="d" Title="Fiscal Year Data"
         Height="800" Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1"
         Margin="1,1,1,1">
-    <Canvas Height="800" VerticalAlignment="Top">
+
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+        <Canvas x:Name="CalendarCanvas" Width="1400" Margin="0,0,-2,8">
         <syncfusion:SfChart3D x:Name="CalendarChart" RenderTransformOrigin="0.788,0.533"
                 Background="#00000000" BackWallBrush="#FF464646" BottomWallBrush="#FF464646"
                 RightWallBrush="#FF464646" LeftWallBrush="#FF464646" TopWallBrush="#FF464646"
-                BorderBrush="Transparent" Padding="0,-1,0,0" Width="845" HorizontalAlignment="Right"
-                Height="560" Canvas.Left="491" Canvas.Top="72">
+                BorderBrush="#FF0078D4" Padding="1,1,1,1" Width="790" HorizontalAlignment="Center"
+                Height="419" Canvas.Left="526" Canvas.Top="87" VerticalAlignment="Top"
+                BorderThickness="1,1,1,1">
             <syncfusion:SfChart3D.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
-                    <SkewTransform />
+                    <SkewTransform AngleX="0.01" />
                     <RotateTransform Angle="0.126" />
-                    <TranslateTransform X="-0.038" Y="0.843" />
+                    <TranslateTransform X="-0.001" Y="0.843" />
                 </TransformGroup>
             </syncfusion:SfChart3D.RenderTransform>
         </syncfusion:SfChart3D>
-        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="198" Width="256"
+        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="215" Width="284"
                 BorderBrush="#FF2D2D2D" Padding="1,1,1,1" BorderThickness="1,1,1,1"
-                HorizontalAlignment="Left" Canvas.Left="109" Canvas.Top="319"
-                VerticalAlignment="Top" />
-        <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="178"
+                HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="334" VerticalAlignment="Top" />
+        <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="210"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1"
-                BorderBrush="#FF2D2D2D" BorderThickness="1,1,1,1" Canvas.Left="104" Canvas.Top="119"
-                VerticalAlignment="Top" Width="266" />
+                BorderBrush="#FF2D2D2D" BorderThickness="1,1,1,1" Canvas.Left="80" Canvas.Top="69"
+                VerticalAlignment="Top" Width="290" />
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
@@ -77,5 +96,12 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Calendar/MenuButton.png" Height="30" />
         </local:ToolStrip>
+        <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="75"
+                Canvas.Top="39" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" />
+        <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="85"
+                Canvas.Top="304" HorizontalAlignment="Center" VerticalAlignment="Center" Width="260"
+                Height="25" />
+        <local:MetroHeaderBox Height="40" Header="MetroHeaderBox" Width="785" Canvas.Left="530"
+                Canvas.Top="529" HorizontalAlignment="Center" VerticalAlignment="Top" />
     </Canvas>
 </Window>

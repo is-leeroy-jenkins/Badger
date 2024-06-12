@@ -750,6 +750,181 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [calculator menu option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalculatorMenuOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _calculator = new CalculatorWindow( );
+                _calculator.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file menu option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFileMenuOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _fileBrowser = new FileBrowser
+                {
+                    Owner = this,
+                    Topmost = true
+                };
+
+                _fileBrowser.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [folder menu option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFolderMenuOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _fileBrowser = new FileBrowser
+                {
+                    Owner = this,
+                    Topmost = true
+                };
+
+                _fileBrowser.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [control panel option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnControlPanelOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                WinMinion.LaunchControlPanel( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [task manager option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTaskManagerOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                WinMinion.LaunchTaskManager( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Application.Current.Shutdown( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chrome option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// containing the event data.</param>
+        private void OnChromeOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                WebMinion.RunChrome( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [edge option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnEdgeOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                WebMinion.RunEdge( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [firefox option click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// containing the event data.</param>
+        private void OnFirefoxOptionClick( object sender, EventArgs e )
+        {
+            try
+            {
+                WebMinion.RunFirefox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>

@@ -3,11 +3,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="GridView" x:Class="Badger.GridWindow" mc:Ignorable="d" Title="GridWindow"
         Height="800" Width="1400" Margin="3,3,3,3" Padding="1,1,1,1" BorderThickness="1,1,1,1"
         WindowStartupLocation="CenterScreen" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FFA0BDFC" Icon="/UI/Windows/Grid/Application.png">
-    <Canvas x:Name="GridCanvas">
+
+       <Window.ContextMenu>
+        <ContextMenu Name="ContextMenu">
+            <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+        </ContextMenu>
+    </Window.ContextMenu> 
+
+        <Canvas x:Name="GridCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40" Canvas.Left="0"
                 Canvas.Top="720" HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"

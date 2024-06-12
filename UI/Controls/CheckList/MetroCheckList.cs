@@ -118,6 +118,8 @@ namespace Badger
         public MetroCheckList( )
             : base( )
         {
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( CheckListBox ) );
             Width = 225;
             Height = 200;
             Foreground = new SolidColorBrush( _foreColor );

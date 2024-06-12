@@ -54,36 +54,6 @@ namespace Badger
     public class MetroCalendar : CalendarEdit
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -157,10 +127,11 @@ namespace Badger
         public MetroCalendar( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
             BorderThickness = new Thickness( 0 );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            SetResourceReference( StyleProperty, typeof( CalendarEdit ) );
             Background = new SolidColorBrush( _backColor );
             BlackoutDatesBackground = new SolidColorBrush( _backColor );
             BlackoutDatesCrossBrush = new SolidColorBrush( _backColor );

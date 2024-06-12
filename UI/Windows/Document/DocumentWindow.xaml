@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:PdfViewer="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="DocViewer" x:Class="Badger.DocumentWindow" mc:Ignorable="d" Title="Documentation"
         Height="800" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4" FontSize="9"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen"

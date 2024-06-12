@@ -2,7 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:Badger" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:ui1="http://schemas.modernwpf.com/2019" x:Name="ProgramView"
@@ -10,13 +12,30 @@
         Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" Background="#FF141414"
         WindowStartupLocation="CenterScreen" Margin="3,3,3,3" Padding="1,1,1,1"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Program/Application.png">
-    <Canvas x:Name="ProgramCanvas" RenderTransformOrigin="0.55,0.35" Margin="0,0,0,-5">
+        <Window.ContextMenu>
+            <ContextMenu Name="ContextMenu">
+                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
+                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
+                <Separator/>
+                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+            </ContextMenu>
+        </Window.ContextMenu>
+
+        <Canvas x:Name="ProgramCanvas" RenderTransformOrigin="0.55,0.35" Margin="0,0,0,-5">
         <RadioButton Content="RadioButton" Height="30" Foreground="#FFBACFFF" Width="124"
-                HorizontalAlignment="Left" Canvas.Left="383" Canvas.Top="293"
+                HorizontalAlignment="Left" Canvas.Left="670" Canvas.Top="409"
                 VerticalAlignment="Top" />
-        <ui:HyperlinkButton Content="HyperlinkButton" Height="22" Width="110" Foreground="#FFBACFFF"
+        <ui:HyperlinkButton Content="HyperlinkButton" Height="22" Width="155" Foreground="#FFBACFFF"
                 Background="#00DDDDDD" BorderBrush="{x:Null}" HorizontalAlignment="Left"
-                Canvas.Left="228" Canvas.Top="413" VerticalAlignment="Top" />
+                Canvas.Left="405" Canvas.Top="482" VerticalAlignment="Center" />
         <ContentControl Content="ContentControl" Height="148" Width="232" Foreground="#FFBACFFF"
                 HorizontalAlignment="Left" Canvas.Left="902" Canvas.Top="413"
                 VerticalAlignment="Top" />
@@ -74,5 +93,19 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Program/MenuButton.png" Height="30" />
         </local:ToolStrip>
+        <syncfusion:SfAccordion Height="150" SelectionMode="One" Width="215" AccentBrush="#FF131369"
+                BorderBrush="#FF0078D4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <syncfusion:SfAccordionItem Header="Item 1" />
+            <syncfusion:SfAccordionItem Header="Item 2" />
+            <syncfusion:SfAccordionItem Header="Item 3" />
+        </syncfusion:SfAccordion>
+        <ListView Height="225" Width="290" d:ItemsSource="{d:SampleData ItemCount=5}"
+                Canvas.Left="280" Canvas.Top="139">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Canvas>
 </Window>

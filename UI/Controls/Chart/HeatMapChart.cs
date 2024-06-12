@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-08-2024
+//     Created:                 06-11-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2024
+//     Last Modified On:        06-11-2024
 // ******************************************************************************************
-// <copyright file="MetroGridControl.cs" company="Terry D. Eppler">
+// <copyright file="HeatMapChart.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroGridControl.cs
+//   HeatMapChart.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,23 +43,25 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.Grid;
+    using Syncfusion.UI.Xaml.HeatMap;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.UI.Xaml.HeatMap.SfHeatMap" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroGridControl : GridControl
+    public class HeatMapChart : SfHeatMap
     {
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            A = 0,
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -76,7 +78,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private protected Color _borderColor = new Color( )
+        private Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -85,47 +87,16 @@ namespace Badger
         };
 
         /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <inheritdoc />
-        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MetroGridControl" /> class.
+        /// <see cref="HeatMapChart"/> class.
         /// </summary>
-        public MetroGridControl( )
+        public HeatMapChart( )
             : base( )
         {
-            SetResourceReference( StyleProperty, typeof( GridControl ) );
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfHeatMap ) );
+            FontSize = 12;
+            FontFamily = new FontFamily( "Segoe UI" );
         }
 
         /// <summary>

@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-08-2024
+//     Created:                 06-11-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2024
+//     Last Modified On:        06-11-2024
 // ******************************************************************************************
-// <copyright file="MetroGridControl.cs" company="Terry D. Eppler">
+// <copyright file="MetroCarousel.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroGridControl.cs
+//   MetroCarousel.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,13 +43,16 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.Grid;
+    using Syncfusion.Windows.Shared;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Shared.Carousel" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroGridControl : GridControl
+    public class MetroCarousel : Carousel
     {
         /// <summary>
         /// The back color
@@ -57,31 +60,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -96,36 +77,51 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore hover color
+        /// The fore color
         /// </summary>
-        private protected Color _foreHover = new Color( )
+        private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 255,
-            G = 255,
-            B = 255
+            R = 160,
+            G = 189,
+            B = 252
         };
 
         /// <summary>
-        /// The border hover color
+        /// The border color
         /// </summary>
-        private protected Color _borderHover = new Color( )
+        private readonly Color _borderColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 0,
+            G = 120,
+            B = 212
         };
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MetroGridControl" /> class.
+        /// <see cref="T:Badger.MetroCarousel" /> class.
         /// </summary>
-        public MetroGridControl( )
+        public MetroCarousel( )
             : base( )
         {
-            SetResourceReference( StyleProperty, typeof( GridControl ) );
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( Carousel ) );
+            FontSize = 12;
+            FontFamily = new FontFamily( "Segoe UI" );
+            Height = 500;
+            Width = 350;
+            Background = new SolidColorBrush( Colors.Transparent );
+            BorderBrush = new SolidColorBrush( _borderColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            EnableRotationAnimation = true;
+            ScalingEnabled = true;
+            RadiusX = 250;
+            RadiusY = 150;
+            RotationAngle = 0;
+            ScaleFraction = 0.5;
+            RotationSpeed = 200;
         }
 
         /// <summary>
