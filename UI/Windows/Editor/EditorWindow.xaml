@@ -110,14 +110,14 @@
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>
-        <local:ToolStrip x:Name="Toolbar" Padding="10,1,1,1" Height="40" Width="1400"
+        <local:ToolStrip x:Name="Toolbar" Padding="10,1,1,1" Height="40" Width="1387"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Left"
                 VerticalAlignment="Center" VerticalContentAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
                     Padding="10,1,1,1" HorizontalAlignment="Left" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="90" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Editor/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
