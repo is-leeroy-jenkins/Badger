@@ -364,6 +364,3 @@ FodyWeavers.xsd
 /Data/Database/Access/DataModels/Data.accdb
 /Data/Database/SQLite/DataModels/Data.db
 /Misc
-/Minions/Baby/runtimes/win-arm64/native/libcef.dll
-/Minions/Baby/runtimes/win-x64/native/libcef.dll
-/Minions/Baby/runtimes/win-x86/native/libcef.dll
