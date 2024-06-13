@@ -44,7 +44,7 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Wpf.Ui.Controls;
+    using ModernWpf.Controls;
 
     /// <inheritdoc />
     /// <summary>
@@ -81,9 +81,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 186,
-            G = 207,
-            B = 255
+            R = 0,
+            G = 120,
+            B = 212
         };
 
         private protected Color _foreHover = new Color( )
@@ -117,6 +117,22 @@ namespace Badger
             Width = 22;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            Background = new SolidColorBrush( Colors.Transparent );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( Colors.Transparent );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MetroHyperlink"/> class.
+        /// </summary>
+        /// <param name = "text" > </param>
+        /// <param name="uri">The URI.</param>
+        public MetroHyperlink( string text, string uri )
+            : this( )
+        {
+            Content = text;
+            NavigateUri = new Uri( uri );
         }
 
         /// <summary>

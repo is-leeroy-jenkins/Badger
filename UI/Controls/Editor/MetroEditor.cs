@@ -129,6 +129,8 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( EditControl ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            Width = 800;
+            Height = 400;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

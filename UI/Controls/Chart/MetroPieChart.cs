@@ -43,9 +43,12 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
+    using FirstFloor.ModernUI.Presentation;
+    using PropertyTools.DataAnnotations;
+    using Syncfusion.UI.Xaml.Charts;
 
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class MetroPieChart
+    public class MetroPieChart : SfChart
     {
         /// <summary>
         /// The back color
@@ -80,13 +83,20 @@ namespace Badger
             B = 212
         };
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MetroPieChart"/> class.
+        /// <see cref="T:Badger.MetroPieChart" /> class.
         /// </summary>
         public MetroPieChart( )
             : base( )
         {
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfChart ) );
+            Width = 800;
+            Height = 400;
+            FontSize = 12;
+            FontFamily = new FontFamily( "Segoe UI" );
         }
 
         /// <summary>

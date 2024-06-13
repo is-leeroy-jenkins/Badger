@@ -201,7 +201,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.MetroControls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -255,6 +255,7 @@ namespace Badger
                 ExportButton.Click += OnExportButtonClick;
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
+                ToggleButton.Click += OnToggleButtonClick;
             }
             catch( Exception _ex )
             {
@@ -374,6 +375,35 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes the toolbar.
+        /// </summary>
+        private void InitializeToolbar( )
+        {
+            try
+            {
+                FirstButton.Visibility = Visibility.Hidden;
+                PreviousButton.Visibility = Visibility.Hidden;
+                NextButton.Visibility = Visibility.Hidden;
+                LastButton.Visibility = Visibility.Hidden;
+                ToolStripTextBox.Visibility = Visibility.Hidden;
+                LookupButton.Visibility = Visibility.Hidden;
+                RefreshButton.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+                SaveButton.Visibility = Visibility.Hidden;
+                DeleteButton.Visibility = Visibility.Hidden;
+                UndoButton.Visibility = Visibility.Hidden;
+                ExportButton.Visibility = Visibility.Hidden;
+                FirstButton.Visibility = Visibility.Hidden;
+                BrowseButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -467,6 +497,62 @@ namespace Badger
         }
 
         /// <summary>
+        /// Shows the items.
+        /// </summary>
+        private void SetToolbarVisible( )
+        {
+            try
+            {
+                FirstButton.Visibility = Visibility.Visible;
+                PreviousButton.Visibility = Visibility.Visible;
+                NextButton.Visibility = Visibility.Visible;
+                LastButton.Visibility = Visibility.Visible;
+                ToolStripTextBox.Visibility = Visibility.Visible;
+                LookupButton.Visibility = Visibility.Visible;
+                EditButton.Visibility = Visibility.Visible;
+                FilterButton.Visibility = Visibility.Visible;
+                RefreshButton.Visibility = Visibility.Visible;
+                DeleteButton.Visibility = Visibility.Visible;
+                SaveButton.Visibility = Visibility.Visible;
+                UndoButton.Visibility = Visibility.Visible;
+                ExportButton.Visibility = Visibility.Visible;
+                BrowseButton.Visibility = Visibility.Visible;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Hides the items.
+        /// </summary>
+        private void SetToolbarHidden( )
+        {
+            try
+            {
+                FirstButton.Visibility = Visibility.Hidden;
+                PreviousButton.Visibility = Visibility.Hidden;
+                NextButton.Visibility = Visibility.Hidden;
+                LastButton.Visibility = Visibility.Hidden;
+                ToolStripTextBox.Visibility = Visibility.Hidden;
+                LookupButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
+                RefreshButton.Visibility = Visibility.Hidden;
+                DeleteButton.Visibility = Visibility.Hidden;
+                SaveButton.Visibility = Visibility.Hidden;
+                UndoButton.Visibility = Visibility.Hidden;
+                ExportButton.Visibility = Visibility.Hidden;
+                BrowseButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -525,6 +611,7 @@ namespace Badger
                 InitializeTimer( );
                 InitializeLabels( );
                 InitializeRadioButtons( );
+                InitializeToolbar( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -969,6 +1056,31 @@ namespace Badger
             try
             {
                 WebMinion.RunFirefox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [toggle button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnToggleButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !FirstButton.IsVisible )
+                {
+                    SetToolbarVisible( );
+                }
+                else
+                {
+                    SetToolbarHidden( );
+                }
             }
             catch( Exception _ex )
             {

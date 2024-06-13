@@ -10,26 +10,70 @@
         WindowStartupLocation="CenterScreen" Icon="/UI/Windows/Excel/Application.png"
         Padding="1,1,1,1" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch"
         Margin="3,3,3,3">
-
-        <Window.ContextMenu>
-            <ContextMenu Name="ContextMenu">
-                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
-            </ContextMenu>
-        </Window.ContextMenu>
-
-
-        <Canvas x:Name="ExcelCanvas">
+    <Window.ContextMenu>
+        <ContextMenu Name="ExcelWindowContextMenu">
+            <Separator />
+            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System"
+                    Click="OnFileMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FileItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
+                    Click="OnFolderMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FolderItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser"
+                    Click="OnChromeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser"
+                    Click="OnEdgeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
+                    Click="OnFirefoxOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
+                    Click="OnCalculatorMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel"
+                    Click="OnControlPanelOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager"
+                    Click="OnTaskManagerOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
+                    Click="OnCloseOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ExitItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Canvas x:Name="ExcelCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
@@ -73,6 +117,8 @@
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Excel/BrowseButton.png" Height="30" />
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <local:ToolStripButton x:Name="ToggleButton"
+                    ImageSource="/UI/Windows/Excel/ToggleButton.png" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Excel/MenuButton.png" Height="30" />
         </local:ToolStrip>
@@ -81,14 +127,13 @@
             <TabItem x:Name="WorkbookTab" Header="Workbook" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFFFF7F7" Width="100" Margin="0,0,0,0"
                     Height="24" Padding="6,2,6,5">
-                <Canvas Background="#FF141414" Height="682" VerticalAlignment="Top"
-                        Margin="1,0,-1,0">
-                    <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" Width="1375" Height="118"
-                            Canvas.Left="2" Canvas.Top="38" HorizontalAlignment="Center"
+                <Canvas x:Name="ExcelCanvas1" Background="#FF141414" Height="682" VerticalAlignment="Top">
+                    <syncfusion:SfSpreadsheetRibbon x:Name="Ribbon" Width="1380" Height="118"
+                            Canvas.Left="0" Canvas.Top="38" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
                     <syncfusion:SfSpreadsheet x:Name="Spreadsheet" Height="510" Canvas.Left="0"
                             Canvas.Top="159" BorderThickness="1,1,1,0" Padding="1,1,1,1"
-                            Foreground="{x:Null}" Width="1375" HorizontalAlignment="Left"
+                            Foreground="{x:Null}" Width="1385" HorizontalAlignment="Left"
                             VerticalAlignment="Center" ScrollViewer.CanContentScroll="True" />
                 </Canvas>
             </TabItem>

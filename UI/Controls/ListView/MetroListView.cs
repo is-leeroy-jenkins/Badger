@@ -102,6 +102,12 @@ namespace Badger
             : base( )
         {
             // Control Properties
+            Width = 300;
+            MinWidth = 200;
+            MaxWidth = 900;
+            Height = 270;
+            MinHeight = 170;
+            MaxHeight = 900;
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
             Background = new SolidColorBrush( _backColor );

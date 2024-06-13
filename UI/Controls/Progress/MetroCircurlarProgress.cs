@@ -47,6 +47,7 @@ namespace Badger
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroCircurlarProgress : SfStepProgressBar
     {
         /// <summary>
@@ -54,7 +55,7 @@ namespace Badger
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 255,
+            A = 0,
             R = 20,
             G = 20,
             B = 20

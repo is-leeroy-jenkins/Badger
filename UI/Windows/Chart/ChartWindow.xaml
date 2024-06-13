@@ -10,25 +10,68 @@
         Height="800" Width="1400" Background="#FF141414" BorderBrush="#FF0078D4"
         Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1"
         MinWidth="1200" MinHeight="650" MaxWidth="1500" MaxHeight="900">
-        <Window.ContextMenu>
-            <ContextMenu Name="ContextMenu">
-                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
-            </ContextMenu>
-        </Window.ContextMenu>
-
-
-        <Canvas x:Name="ChartGrid">
+    <Window.ContextMenu>
+        <ContextMenu Name="ChartWindowContextMenu">
+            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System"
+                    Click="OnFileMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FileItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
+                    Click="OnFolderMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FolderItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser"
+                    Click="OnChromeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser"
+                    Click="OnEdgeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
+                    Click="OnFirefoxOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
+                    Click="OnCalculatorMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows Control Panel"
+                    Click="OnControlPanelOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows Task Manager"
+                    Click="OnTaskManagerOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
+                    Click="OnCloseOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ExitItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Canvas x:Name="ChartGrid">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26"
                 Canvas.Top="15" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="ChartTab" Header="Chart" Background="#FF141414" BorderBrush="#FF141414"
@@ -105,7 +148,7 @@
                     HorizontalAlignment="Left" Padding="10,1,1,1" VerticalAlignment="Center" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -141,6 +184,9 @@
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <Separator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="30" />
+            <local:ToolStripButton x:Name="ToggleButton" Background="{x:Null}" Foreground="{x:Null}"
+                    ImageSource="/UI/Windows/Chart/ToggleButton.png" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
@@ -193,7 +239,7 @@
                     Margin="0,0,0,0">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="610">
                     <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170"
-                            HorizontalAlignment="Left" Canvas.Left="155" Canvas.Top="70"
+                            HorizontalAlignment="Left" Canvas.Left="160" Canvas.Top="76"
                             VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="FieldListBox"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="190"
@@ -202,7 +248,7 @@
                             d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
                             Canvas.Left="155" Canvas.Top="376" VerticalAlignment="Top" Width="200" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170"
-                            HorizontalAlignment="Left" Canvas.Left="155" Canvas.Top="340"
+                            HorizontalAlignment="Center" Canvas.Left="155" Canvas.Top="346"
                             VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
@@ -218,8 +264,8 @@
                             HorizontalAlignment="Center" VerticalAlignment="Top"
                             BorderThickness="1,1,1,1" />
                     <local:MetroLabel x:Name="SecondDateLabel" Content="Second Date"
-                            Canvas.Left="155" Canvas.Top="320" HorizontalAlignment="Left"
-                            VerticalAlignment="Center" Width="220" Panel.ZIndex="-2"
+                            Canvas.Left="155" Canvas.Top="331" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" Width="220" Panel.ZIndex="-2"
                             Foreground="#FF0078D4" />
                     <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="200"
                             Canvas.Left="155" Canvas.Top="356" Width="220" BorderThickness="1,1,1,1"

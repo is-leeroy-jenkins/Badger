@@ -203,7 +203,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.MetroControls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -989,8 +989,7 @@ namespace Badger
         {
             try
             {
-                var _calculator = new CalculatorWindow( );
-                _calculator.ShowDialog( );
+                WebMinion.RunBudgetBrowser( );
             }
             catch( Exception _ex )
             {

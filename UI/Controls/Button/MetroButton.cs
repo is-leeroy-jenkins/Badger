@@ -57,36 +57,6 @@ namespace Badger
     public class MetroButton : ButtonAdv
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -114,9 +84,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -136,9 +106,9 @@ namespace Badger
         private protected Color _borderColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 0,
+            G = 120,
+            B = 212
         };
 
         /// <summary>
@@ -147,9 +117,9 @@ namespace Badger
         private protected Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
+            R = 160,
+            G = 189,
+            B = 252
         };
 
         /// <inheritdoc />
@@ -160,7 +130,8 @@ namespace Badger
         public MetroButton( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( ButtonAdv ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 140;
@@ -170,14 +141,10 @@ namespace Badger
             SizeMode = SizeMode.Normal;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
+            BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-            BorderThickness = new Thickness( 1 );
-
-            // Event Wiring
-            MouseEnter += OnMouseEnter;
-            MouseLeave += OnMouseLeave;
         }
 
         /// <summary> Called when [mouse enter]. </summary>

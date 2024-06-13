@@ -10,20 +10,57 @@
         Margin="1,1,1,1">
 
         <Window.ContextMenu>
-            <ContextMenu Name="ContextMenu">
-                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
-            </ContextMenu>
+        <ContextMenu Name="CalendarWindowContextMenu">
+            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/FileItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories" Click="OnFolderMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/FolderItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser" Click="OnChromeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/ChromeItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser" Click="OnEdgeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/EdgeItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser" Click="OnFirefoxOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/FirefoxItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator" Click="OnCalculatorMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/CalculatorItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel" Click="OnControlPanelOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/ControlPanelItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager" Click="OnTaskManagerOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                <Image Source="/UI/Windows/Command/TaskManagerItem.png"/>
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator/>
+            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
+                    Click="OnCloseOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ExitItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+        </ContextMenu>
         </Window.ContextMenu>
 
         <Canvas x:Name="CalendarCanvas" Width="1400" Margin="0,0,-2,8">
@@ -93,6 +130,8 @@
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" Margin="20,6,0,6" />
+            <local:ToolStripButton x:Name="ToggleButton"
+                    ImageSource="/UI/Windows/Calendar/ToggleButton.png" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Calendar/MenuButton.png" Height="30" />
         </local:ToolStrip>

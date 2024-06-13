@@ -232,6 +232,7 @@
     <None Remove="UI\Windows\Calendar\PreviousButton.png" />
     <None Remove="UI\Windows\Calendar\RefreshButton.png" />
     <None Remove="UI\Windows\Calendar\SaveButton.png" />
+    <None Remove="UI\Windows\Calendar\ToggleButton.png" />
     <None Remove="UI\Windows\Chart\Application.png" />
     <None Remove="UI\Windows\Chart\BackButton.png" />
     <None Remove="UI\Windows\Chart\BrowseButton.png" />
@@ -247,6 +248,7 @@
     <None Remove="UI\Windows\Chart\PreviousButton.png" />
     <None Remove="UI\Windows\Chart\RefreshButton.png" />
     <None Remove="UI\Windows\Chart\SaveButton.png" />
+    <None Remove="UI\Windows\Chart\ToggleButton.png" />
     <None Remove="UI\Windows\Datagrid\BackButton.png" />
     <None Remove="UI\Windows\Datagrid\BrowseButton.png" />
     <None Remove="UI\Windows\Datagrid\DeleteButton.png" />
@@ -262,6 +264,7 @@
     <None Remove="UI\Windows\Datagrid\PreviousButton.png" />
     <None Remove="UI\Windows\Datagrid\RefreshButton.png" />
     <None Remove="UI\Windows\Datagrid\SaveButton.png" />
+    <None Remove="UI\Windows\Datagrid\ToggleButton.png" />
     <None Remove="UI\Windows\Datagrid\Waiting.gif" />
     <None Remove="UI\Windows\Document\Application.png" />
     <None Remove="UI\Windows\Document\BackButton.png" />
@@ -278,6 +281,7 @@
     <None Remove="UI\Windows\Document\PreviousButton.png" />
     <None Remove="UI\Windows\Document\RefreshButton.png" />
     <None Remove="UI\Windows\Document\SaveButton.png" />
+    <None Remove="UI\Windows\Document\ToggleButton.png" />
     <None Remove="UI\Windows\Editor\Application.png" />
     <None Remove="UI\Windows\Editor\BackButton.png" />
     <None Remove="UI\Windows\Editor\BrowseButton.png" />
@@ -294,6 +298,7 @@
     <None Remove="UI\Windows\Editor\PreviousButton.png" />
     <None Remove="UI\Windows\Editor\RefreshButton.png" />
     <None Remove="UI\Windows\Editor\SaveButton.png" />
+    <None Remove="UI\Windows\Editor\ToggleButton.png" />
     <None Remove="UI\Windows\Email\Application.png" />
     <None Remove="UI\Windows\Email\BackButton.png" />
     <None Remove="UI\Windows\Email\BrowseButton.png" />
@@ -308,6 +313,7 @@
     <None Remove="UI\Windows\Email\PreviousButton.png" />
     <None Remove="UI\Windows\Email\RefreshButton.png" />
     <None Remove="UI\Windows\Email\SaveButton.png" />
+    <None Remove="UI\Windows\Email\ToggleButton.png" />
     <None Remove="UI\Windows\Error\SplashNotification.png" />
     <None Remove="UI\Windows\Excel\Application.png" />
     <None Remove="UI\Windows\Excel\BackButton.png" />
@@ -325,6 +331,7 @@
     <None Remove="UI\Windows\Excel\PreviousButton.png" />
     <None Remove="UI\Windows\Excel\RefreshButton.png" />
     <None Remove="UI\Windows\Excel\SaveButton.png" />
+    <None Remove="UI\Windows\Excel\ToggleButton.png" />
     <None Remove="UI\Windows\File\ACCDB.png" />
     <None Remove="UI\Windows\File\CSV.png" />
     <None Remove="UI\Windows\File\DB.png" />
@@ -362,6 +369,7 @@
     <None Remove="UI\Windows\Grid\PreviousButton.png" />
     <None Remove="UI\Windows\Grid\RefreshButton.png" />
     <None Remove="UI\Windows\Grid\SaveButton.png" />
+    <None Remove="UI\Windows\Grid\ToggleButton.png" />
     <None Remove="UI\Windows\Main\AccessTile.png" />
     <None Remove="UI\Windows\Main\BrowserTile.png" />
     <None Remove="UI\Windows\Main\CalendarTile.png" />
@@ -394,6 +402,7 @@
     <None Remove="UI\Windows\Map\SaveButton.png" />
     <None Remove="UI\Windows\Input\InputDialog.png" />
     <None Remove="UI\Windows\Input\SplashNotification.png" />
+    <None Remove="UI\Windows\Map\ToggleButton.png" />
     <None Remove="UI\Windows\Pivot\Application.png" />
     <None Remove="UI\Windows\Pivot\BackButton.png" />
     <None Remove="UI\Windows\Pivot\BrowseButton.png" />
@@ -410,11 +419,13 @@
     <None Remove="UI\Windows\Pivot\PreviousButton.png" />
     <None Remove="UI\Windows\Pivot\RefreshButton.png" />
     <None Remove="UI\Windows\Pivot\SaveButton.png" />
+    <None Remove="UI\Windows\Pivot\ToggleButton.png" />
     <None Remove="UI\Windows\Program\Application.png" />
     <None Remove="UI\Windows\Program\BackButton.png" />
     <None Remove="UI\Windows\Program\BrowseButton.png" />
     <None Remove="UI\Windows\Program\DeleteButton.png" />
     <None Remove="UI\Windows\Program\EditButton.png" />
+    <None Remove="UI\Windows\Program\ExitButton.png" />
     <None Remove="UI\Windows\Program\ExportButton.png" />
     <None Remove="UI\Windows\Program\FilterButton.png" />
     <None Remove="UI\Windows\Program\FirstButton.png" />
@@ -425,6 +436,7 @@
     <None Remove="UI\Windows\Program\PreviousButton.png" />
     <None Remove="UI\Windows\Program\RefreshButton.png" />
     <None Remove="UI\Windows\Program\SaveButton.png" />
+    <None Remove="UI\Windows\Program\ToggleButton.png" />
     <None Remove="UI\Windows\Splash\SplashNotification.png" />
     <None Remove="UI\Windows\Web\Application.png" />
     <None Remove="UI\Windows\Web\BackButton.png" />
@@ -441,6 +453,7 @@
     <None Remove="UI\Windows\Web\PreviousButton.png" />
     <None Remove="UI\Windows\Web\RefreshButton.png" />
     <None Remove="UI\Windows\Web\SaveButton.png" />
+    <None Remove="UI\Windows\Web\ToggleButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -612,25 +625,27 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="cef.sdk" Version="125.0.21" />
+    <PackageReference Include="CefSharp.Common" Version="125.0.210" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="125.0.210" />
+    <PackageReference Include="CefSharp.Wpf" Version="125.0.210" />
+    <PackageReference Include="chromiumembeddedframework.runtime" Version="125.0.21" />
+    <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="125.0.21" />
+    <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="125.0.21" />
+    <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="125.0.21" />
     <PackageReference Include="EPPlus" Version="7.1.2" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
-    <PackageReference Include="Google.Apis" Version="1.68.0" />
-    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
-    <PackageReference Include="Google.Apis.Core" Version="1.68.0" />
-    <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
     <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.2.20220510" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
-    <PackageReference Include="MaterialDesignThemes.MahApps" Version="1.0.0" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWPF" Version="1.4.6" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
-    <PackageReference Include="ScottPlot.WPF" Version="5.0.34" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="Syncfusion.Calculate.Base" Version="24.1.41" />
@@ -690,7 +705,6 @@
     <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
-    <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
@@ -698,7 +712,6 @@
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
     <PackageReference Include="ToastNotifications" Version="2.5.1" />
     <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
-    <PackageReference Include="WPF-UI" Version="3.0.4" />
     <PackageReference Include="Wpf.Themes.ExpressionDark" Version="1.1.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
@@ -942,8 +955,10 @@
     <Resource Include="Resources\Reports\Report.xlsx" />
     <Resource Include="UI\Windows\Calculator\Cancel.png" />
     <Resource Include="UI\Windows\Calculator\Main.png" />
+    <Resource Include="UI\Windows\Calendar\ToggleButton.png" />
     <Resource Include="UI\Windows\Chart\ExportButton.png" />
     <Resource Include="UI\Windows\Chart\FilterButton.png" />
+    <Resource Include="UI\Windows\Chart\ToggleButton.png" />
     <Resource Include="UI\Windows\Command\Application.png" />
     <Resource Include="UI\Windows\Command\CalculatorItem.png" />
     <Resource Include="UI\Windows\Command\CalendarItem.png" />
@@ -975,7 +990,9 @@
     <Resource Include="UI\Windows\Datagrid\ExportButton.png" />
     <Resource Include="UI\Windows\Datagrid\FilterButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
+    <Resource Include="UI\Windows\Datagrid\ToggleButton.png" />
     <Resource Include="UI\Windows\Document\FilterButton.png" />
+    <Resource Include="UI\Windows\Document\ToggleButton.png" />
     <Resource Include="UI\Windows\Editor\BackButton.png" />
     <Resource Include="UI\Windows\Editor\BrowseButton.png" />
     <Resource Include="UI\Windows\Editor\DeleteButton.png" />
@@ -991,6 +1008,7 @@
     <Resource Include="UI\Windows\Editor\PreviousButton.png" />
     <Resource Include="UI\Windows\Editor\RefreshButton.png" />
     <Resource Include="UI\Windows\Editor\SaveButton.png" />
+    <Resource Include="UI\Windows\Editor\ToggleButton.png" />
     <Resource Include="UI\Windows\Email\Application.png" />
     <Resource Include="UI\Windows\Email\BackButton.png" />
     <Resource Include="UI\Windows\Email\BrowseButton.png" />
@@ -1044,6 +1062,7 @@
     <Resource Include="UI\Windows\Document\RefreshButton.png" />
     <Resource Include="UI\Windows\Document\SaveButton.png" />
     <Resource Include="UI\Windows\Editor\Application.png" />
+    <Resource Include="UI\Windows\Email\ToggleButton.png" />
     <Resource Include="UI\Windows\Error\SplashNotification.png" />
     <Resource Include="UI\Windows\Excel\Application.png" />
     <Resource Include="UI\Windows\Excel\BackButton.png" />
@@ -1061,6 +1080,7 @@
     <Resource Include="UI\Windows\Excel\PreviousButton.png" />
     <Resource Include="UI\Windows\Excel\RefreshButton.png" />
     <Resource Include="UI\Windows\Excel\SaveButton.png" />
+    <Resource Include="UI\Windows\Excel\ToggleButton.png" />
     <Resource Include="UI\Windows\File\FileBrowse.png" />
     <EmbeddedResource Include="UI\Windows\File\PY.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1081,6 +1101,7 @@
     <Resource Include="UI\Windows\Grid\PreviousButton.png" />
     <Resource Include="UI\Windows\Grid\RefreshButton.png" />
     <Resource Include="UI\Windows\Grid\SaveButton.png" />
+    <Resource Include="UI\Windows\Grid\ToggleButton.png" />
     <Resource Include="UI\Windows\Main\AccessTile.png" />
     <Resource Include="UI\Windows\Main\BrowserTile.png" />
     <Resource Include="UI\Windows\Main\CalendarTile.png" />
@@ -1113,6 +1134,7 @@
     <Resource Include="UI\Windows\Map\SaveButton.png" />
     <Resource Include="UI\Windows\Input\InputDialog.png" />
     <Resource Include="UI\Windows\Input\SplashNotification.png" />
+    <Resource Include="UI\Windows\Map\ToggleButton.png" />
     <Resource Include="UI\Windows\Notification\SplashNotification.png" />
     <Resource Include="UI\Windows\Pivot\Application.png" />
     <Resource Include="UI\Windows\Pivot\BackButton.png" />
@@ -1130,12 +1152,14 @@
     <Resource Include="UI\Windows\Pivot\PreviousButton.png" />
     <Resource Include="UI\Windows\Pivot\RefreshButton.png" />
     <Resource Include="UI\Windows\Pivot\SaveButton.png" />
+    <Resource Include="UI\Windows\Pivot\ToggleButton.png" />
     <Resource Include="UI\Windows\Program\Application.png" />
     <Resource Include="UI\Windows\Program\AppropriationTile.png" />
     <Resource Include="UI\Windows\Program\BackButton.png" />
     <Resource Include="UI\Windows\Program\BrowseButton.png" />
     <Resource Include="UI\Windows\Program\DeleteButton.png" />
     <Resource Include="UI\Windows\Program\EditButton.png" />
+    <Resource Include="UI\Windows\Program\ExitButton.png" />
     <Resource Include="UI\Windows\Program\ExportButton.png" />
     <Resource Include="UI\Windows\Program\FilterButton.png" />
     <Resource Include="UI\Windows\Program\FirstButton.png" />
@@ -1146,6 +1170,7 @@
     <Resource Include="UI\Windows\Program\PreviousButton.png" />
     <Resource Include="UI\Windows\Program\RefreshButton.png" />
     <Resource Include="UI\Windows\Program\SaveButton.png" />
+    <Resource Include="UI\Windows\Program\ToggleButton.png" />
     <Resource Include="UI\Windows\Splash\SplashNotification.png" />
     <Resource Include="UI\Windows\Web\Application.png" />
     <Resource Include="UI\Windows\Web\BackButton.png" />
@@ -1162,6 +1187,7 @@
     <Resource Include="UI\Windows\Web\PreviousButton.png" />
     <Resource Include="UI\Windows\Web\RefreshButton.png" />
     <Resource Include="UI\Windows\Web\SaveButton.png" />
+    <Resource Include="UI\Windows\Web\ToggleButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1262,8 +1288,20 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7.0'">
+    <PackageReference Include="Google.Apis">
+      <Version>1.68.0</Version>
+    </PackageReference>
+    <PackageReference Include="Google.Apis.Core">
+      <Version>1.68.0</Version>
+    </PackageReference>
+    <PackageReference Include="Google.Apis.CustomSearchAPI.v1">
+      <Version>1.68.0.3395</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.UI.WPF.NET">
       <Version>24.1.41</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.OleDb">
+      <Version>8.0.0</Version>
     </PackageReference>
   </ItemGroup>
 

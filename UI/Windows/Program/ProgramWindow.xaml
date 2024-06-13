@@ -2,40 +2,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger" 
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        xmlns:ui1="http://schemas.modernwpf.com/2019" x:Name="ProgramView"
+        xmlns:ui1="http://schemas.modernwpf.com/2019"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI" x:Name="ProgramView"
         x:Class="Badger.ProgramWindow" mc:Ignorable="d" Title="Program Project Data" Height="800"
-        Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" Background="#FF141414"
+        Width="1400" BorderBrush="#FF0078D4" Foreground="#FFDEDEDE" Background="#FF141414"
         WindowStartupLocation="CenterScreen" Margin="3,3,3,3" Padding="1,1,1,1"
         BorderThickness="1,1,1,1" Icon="/UI/Windows/Program/Application.png">
-        <Window.ContextMenu>
-            <ContextMenu Name="ContextMenu">
-                <syncfusion:MenuItemAdv Header="File"  Click="OnFileMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Folder" Click="OnFolderMenuOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Chrome" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Edge" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="FireFox" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Calculator" Click="OnCalculatorMenuOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Control Panel" Click="OnControlPanelOptionClick"></syncfusion:MenuItemAdv>
-                <syncfusion:MenuItemAdv Header="Task Manager" Click="OnTaskManagerOptionClick"></syncfusion:MenuItemAdv>
-                <Separator/>
-                <syncfusion:MenuItemAdv Header="Close" Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
-            </ContextMenu>
-        </Window.ContextMenu>
-
-        <Canvas x:Name="ProgramCanvas" RenderTransformOrigin="0.55,0.35" Margin="0,0,0,-5">
+    <Window.ContextMenu>
+        <ContextMenu x:Name="ProgramWindowContextMenu">
+            <Separator />
+            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System"
+                    Click="OnFileMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FileItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
+                    Click="OnFolderMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FolderItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser"
+                    Click="OnChromeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser"
+                    Click="OnEdgeOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
+                    Click="OnFirefoxOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
+                    Click="OnCalculatorMenuOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel"
+                    Click="OnControlPanelOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager"
+                    Click="OnTaskManagerOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
+                    Click="OnCloseOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/UI/Windows/Command/ExitItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Canvas x:Name="ProgramCanvas" RenderTransformOrigin="0.55,0.35" Margin="0,0,0,-5">
         <RadioButton Content="RadioButton" Height="30" Foreground="#FFBACFFF" Width="124"
                 HorizontalAlignment="Left" Canvas.Left="670" Canvas.Top="409"
                 VerticalAlignment="Top" />
-        <ui:HyperlinkButton Content="HyperlinkButton" Height="22" Width="155" Foreground="#FFBACFFF"
-                Background="#00DDDDDD" BorderBrush="{x:Null}" HorizontalAlignment="Left"
-                Canvas.Left="405" Canvas.Top="482" VerticalAlignment="Center" />
+        <ui1:HyperlinkButton Content="HyperlinkButton" Height="37" Width="155"
+                Foreground="#FF0078D4" BorderBrush="#00141414" Canvas.Left="635" Canvas.Top="262"
+                VerticalAlignment="Top" Background="#00141414" />
         <ContentControl Content="ContentControl" Height="148" Width="232" Foreground="#FFBACFFF"
                 HorizontalAlignment="Left" Canvas.Left="902" Canvas.Top="413"
                 VerticalAlignment="Top" />
@@ -90,22 +136,14 @@
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Program/BrowseButton.png" Height="30" />
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <local:ToolStripButton x:Name="ToggleButton"
+                    ImageSource="/UI/Windows/Program/ToggleButton.png"
+                    ToolTip="Toggle Command Buttons" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Program/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <syncfusion:SfAccordion Height="150" SelectionMode="One" Width="215" AccentBrush="#FF131369"
-                BorderBrush="#FF0078D4" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <syncfusion:SfAccordionItem Header="Item 1" />
-            <syncfusion:SfAccordionItem Header="Item 2" />
-            <syncfusion:SfAccordionItem Header="Item 3" />
-        </syncfusion:SfAccordion>
-        <ListView Height="225" Width="290" d:ItemsSource="{d:SampleData ItemCount=5}"
-                Canvas.Left="280" Canvas.Top="139">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <local:MetroButton Content="MetroButton" Height="40" Label="ButtonAdv" Canvas.Left="120"
+                Canvas.Top="99" Width="135" />
+        <syncfusion:SfLinearGauge Canvas.Left="110" Canvas.Top="354" Height="170" Width="320" />
     </Canvas>
 </Window>

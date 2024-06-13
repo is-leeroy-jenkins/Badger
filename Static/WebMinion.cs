@@ -9,6 +9,8 @@
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class WebMinion
     {
         /// <summary>
@@ -29,6 +31,8 @@
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
+                    _startInfo.Arguments =
+                        $@"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
                 }
 
                 Process.Start( _startInfo );
@@ -52,10 +56,10 @@
                 {
                     UseShellExecute = true,
                     LoadUserProfile = true,
-                    WindowStyle = ProcessWindowStyle.Maximized
+                    WindowStyle = ProcessWindowStyle.Maximized,
+                    Arguments = uri
                 };
 
-                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -114,6 +118,8 @@
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
+                    _startInfo.Arguments =
+                        $@"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
                 }
 
                 Process.Start( _startInfo );
@@ -172,6 +178,8 @@
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
+                    _startInfo.Arguments = 
+                        $@"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
                 }
 
                 Process.Start( _startInfo );

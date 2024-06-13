@@ -48,6 +48,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroAccordian : SfAccordion
     {
         /// <summary>
@@ -56,20 +58,20 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 20,
-            G = 20,
-            B = 20
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
-        /// The back hover color
+        /// The accent color
         /// </summary>
-        private protected Color _backHover = new Color( )
+        private protected Color _accentColor = new Color( )
         {
             A = 255,
-            R = 17,
-            G = 53,
-            B = 84
+            R = 70,
+            G = 130,
+            B = 180
         };
 
         /// <summary>
@@ -78,9 +80,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 160,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -106,6 +108,9 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfAccordion ) );
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
+            Width = 250;
+            Height = 250;
+            AccentBrush = new SolidColorBrush( _accentColor );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );

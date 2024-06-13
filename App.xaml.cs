@@ -44,8 +44,11 @@ namespace Badger
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
+    using System.Windows.Media;
     using OfficeOpenXml;
     using Syncfusion.Licensing;
+    using Syncfusion.SfSkinManager;
+    using Syncfusion.Themes.FluentDark.WPF;
 
     /// <inheritdoc />
     /// <summary>
@@ -62,7 +65,7 @@ namespace Badger
         /// <summary>
         /// The controls
         /// </summary>
-        public static string[ ] MetroControls =
+        public static string[ ] Controls =
         {
             "ComboBoxAdv",
             "MetroComboBox",
@@ -98,7 +101,9 @@ namespace Badger
             "MetroTextInput",
             "SfSpreadsheet",
             "SfSpreadsheetRibbon",
-            "MenuItemAdv"
+            "MenuItemAdv",
+            "ButtonAdv",
+            "Carousel"
         };
 
         /// <summary>
@@ -120,6 +125,29 @@ namespace Badger
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             ActiveWindows = new Dictionary<string, Window>( );
+            RegisterTheme( );
+        }
+
+        /// <summary>
+        /// Registers the theme.
+        /// </summary>
+        private void RegisterTheme( )
+        {
+            var _theme = new FluentDarkThemeSettings
+            {
+                PrimaryBackground = new SolidColorBrush( Color.FromRgb( 0, 120, 212 ) ),
+                PrimaryForeground = new SolidColorBrush( Color.FromRgb( 222, 222, 222 ) ),
+                BodyFontSize = 12,
+                HeaderFontSize = 16,
+                SubHeaderFontSize = 14,
+                TitleFontSize = 14,
+                SubTitleFontSize = 126,
+                BodyAltFontSize = 10,
+                FontFamily = new FontFamily( "Segoe UI" )
+            };
+
+            SfSkinManager.RegisterThemeSettings( "FluentDark", _theme );
+            SfSkinManager.ApplyStylesOnApplication = true;
         }
     }
 }

@@ -51,6 +51,8 @@ namespace Badger
     /// <seealso cref="Syncfusion.UI.Xaml.HeatMap.SfHeatMap" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public class HeatMapChart : SfHeatMap
     {
         /// <summary>
@@ -95,8 +97,13 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfHeatMap ) );
+            Width = 800;
+            Height = 400;
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
+            Background = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
         }
 
         /// <summary>

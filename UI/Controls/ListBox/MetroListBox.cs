@@ -132,8 +132,8 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            Width = 220;
-            Height = 400;
+            Width = 400;
+            Height = 220;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             BorderThickness = new Thickness( 1 );
