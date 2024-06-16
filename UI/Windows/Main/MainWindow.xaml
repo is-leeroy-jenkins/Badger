@@ -61,7 +61,12 @@
             </syncfusion:MenuItemAdv>
             <Separator />
             <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
-                    Click="OnCloseOptionClick"></syncfusion:MenuItemAdv>
+                    Click="OnCloseOptionClick">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+
+            </syncfusion:MenuItemAdv>
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas Background="#00000000" HorizontalAlignment="Center" Width="1350" Height="803">

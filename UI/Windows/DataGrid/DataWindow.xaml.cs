@@ -7,8 +7,8 @@
 //     Last Modified On:        06-02-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a Federal Budget, Finance, and Accounting application
+//    for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -248,7 +248,7 @@ namespace Badger
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Data View";
+            Title = "Data";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
@@ -539,15 +539,15 @@ namespace Badger
         {
             try
             {
-                var _timeSpan = TimeSpan.FromSeconds( 3 );
-                var _max = MaximumNotificationCount.FromCount( 5 );
                 var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
-                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( _timeSpan, _max );
-                return new Notifier( cfg =>
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( TimeSpan.FromSeconds( 5 ),
+                    MaximumNotificationCount.UnlimitedNotifications( ) );
+
+                return new Notifier( _cfg =>
                 {
-                    cfg.LifetimeSupervisor = _lifeTime;
-                    cfg.PositionProvider = _position;
-                    cfg.Dispatcher = Application.Current.Dispatcher;
+                    _cfg.LifetimeSupervisor = _lifeTime;
+                    _cfg.PositionProvider = _position;
+                    _cfg.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
             catch( Exception _ex )

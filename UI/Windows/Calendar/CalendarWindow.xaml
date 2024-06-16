@@ -57,7 +57,7 @@
             <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
                     Click="OnCloseOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ExitItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
         </ContextMenu>

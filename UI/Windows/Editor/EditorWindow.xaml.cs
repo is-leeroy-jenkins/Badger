@@ -47,6 +47,10 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.SfSkinManager;
+    using ToastNotifications;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Messages;
+    using ToastNotifications.Position;
 
     /// <inheritdoc />
     /// <summary>
@@ -452,6 +456,34 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates a notifier.
+        /// </summary>
+        /// <returns>
+        /// Notifier
+        /// </returns>
+        private Notifier CreateNotifier( )
+        {
+            try
+            {
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( TimeSpan.FromSeconds( 5 ),
+                    MaximumNotificationCount.UnlimitedNotifications( ) );
+
+                return new Notifier( _cfg =>
+                {
+                    _cfg.LifetimeSupervisor = _lifeTime;
+                    _cfg.PositionProvider = _position;
+                    _cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -462,12 +494,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _notify = new Notification( message )
-                {
-                    Owner = this
-                };
-
-                _notify.Show( );
+                var _notification = CreateNotifier( );
+                _notification.ShowInformation( message );
             }
             catch( Exception _ex )
             {

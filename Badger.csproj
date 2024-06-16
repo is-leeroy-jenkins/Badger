@@ -163,6 +163,7 @@
     <None Remove="Resources\Assets\MenuImages\CalendarItem.png" />
     <None Remove="Resources\Assets\MenuImages\ChromeItem.png" />
     <None Remove="Resources\Assets\MenuImages\ClockItem.png" />
+    <None Remove="Resources\Assets\MenuImages\CloseItem.png" />
     <None Remove="Resources\Assets\MenuImages\ControlPanelItem.png" />
     <None Remove="Resources\Assets\MenuImages\DocumentaionItem.png" />
     <None Remove="Resources\Assets\MenuImages\EdgeItem.png" />
@@ -176,6 +177,12 @@
     <None Remove="Resources\Assets\MenuImages\RefreshItem.png" />
     <None Remove="Resources\Assets\MenuImages\SaveItem.png" />
     <None Remove="Resources\Assets\MenuImages\TaskManagerItem.png" />
+    <None Remove="Resources\Assets\ProviderImages\Access.png" />
+    <None Remove="Resources\Assets\ProviderImages\Excel.ico" />
+    <None Remove="Resources\Assets\ProviderImages\Excel.png" />
+    <None Remove="Resources\Assets\ProviderImages\SqlCe.png" />
+    <None Remove="Resources\Assets\ProviderImages\SQLite.png" />
+    <None Remove="Resources\Assets\ProviderImages\SqlServer.png" />
     <None Remove="Resources\Assets\TileImages\AccessTile.png" />
     <None Remove="Resources\Assets\TileImages\BrowserTile.png" />
     <None Remove="Resources\Assets\TileImages\CalendarTile.png" />
@@ -475,23 +482,60 @@
     <Resource Include="Resources\Assets\LoaderImages\Loading.gif" />
     <Resource Include="Resources\Assets\LoaderImages\Processing.gif" />
     <Resource Include="Resources\Assets\LoaderImages\Waiting.gif" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\CalculatorItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\CalendarItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\ChromeItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\ClockItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\ControlPanelItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\DocumentaionItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\EdgeItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\ExitItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\FileItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\FirefoxItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\FolderItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\MapItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\MediaPlayerItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\OneDriveItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\RefreshItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\SaveItem.png" />
-    <EmbeddedResource Include="Resources\Assets\MenuImages\TaskManagerItem.png" />
+    <Resource Include="Resources\Assets\MenuImages\CalculatorItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\CalendarItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\ChromeItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\ClockItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\ControlPanelItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\DocumentaionItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\EdgeItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\CloseItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\ExitItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\FileItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\FirefoxItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\FolderItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\MapItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\MediaPlayerItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\OneDriveItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\RefreshItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\SaveItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\MenuImages\TaskManagerItem.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddRecordButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddTableButton.png" />
@@ -529,6 +573,24 @@
     <Resource Include="Resources\Assets\ExtensionImages\XLS.png" />
     <Resource Include="Resources\Assets\ExtensionImages\XLSX.png" />
     <Resource Include="Resources\Assets\ExtensionImages\XML.png" />
+    <Resource Include="Resources\Assets\ProviderImages\Access.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ProviderImages\Excel.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ProviderImages\Excel.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ProviderImages\SqlCe.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ProviderImages\SQLite.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ProviderImages\SqlServer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Assets\TileImages\AccessTile.png" />
     <Resource Include="Resources\Assets\TileImages\BrowserTile.png" />
     <Resource Include="Resources\Assets\TileImages\CalendarTile.png" />
@@ -637,8 +699,11 @@
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="HtmlRenderer.WPF" Version="1.5.0.6" />
     <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.2.20220510" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="Mapsui.Wpf" Version="4.1.6" />
+    <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="ModernUI.WPF" Version="1.0.9" />
