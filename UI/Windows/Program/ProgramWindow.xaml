@@ -96,11 +96,11 @@
         <local:ToolStrip x:Name="Toolbar" Padding="10,1,1,1" Height="40" Width="1400"
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70"
-                    HorizontalAlignment="Left" Padding="10,1,1,1" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="75"
+                    HorizontalAlignment="Left" Padding="5,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="125" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Program/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -135,7 +135,7 @@
                     ImageSource="/UI/Windows/Program/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Program/BrowseButton.png" Height="30" />
-            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <ProgressBar x:Name="ToolStripProgressBar" Background="#FF141414" BorderBrush="#FF141414" Width="150" />
             <local:ToolStripButton x:Name="ToggleButton"
                     ImageSource="/UI/Windows/Program/ToggleButton.png"
                     ToolTip="Toggle Command Buttons" />

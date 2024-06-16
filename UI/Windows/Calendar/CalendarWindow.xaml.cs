@@ -359,6 +359,7 @@ namespace Badger
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
                 LookupButton.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
                 RefreshButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
                 SaveButton.Visibility = Visibility.Hidden;
@@ -506,6 +507,7 @@ namespace Badger
                 LastButton.Visibility = Visibility.Visible;
                 ToolStripTextBox.Visibility = Visibility.Visible;
                 LookupButton.Visibility = Visibility.Visible;
+                FilterButton.Visibility = Visibility.Visible;
                 EditButton.Visibility = Visibility.Visible;
                 RefreshButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Visible;
@@ -533,6 +535,7 @@ namespace Badger
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
                 LookupButton.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
                 RefreshButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;

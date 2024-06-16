@@ -72,7 +72,7 @@
                 Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
                 VerticalAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
-                    HorizontalAlignment="Left" Padding="10,1,1,1" />
+                    HorizontalAlignment="Left" Padding="5,1,1,1" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
@@ -110,7 +110,7 @@
                     ImageSource="/UI/Windows/Document/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Document/BrowseButton.png" Height="30" />
-            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
             <Separator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="30" />
             <local:ToolStripButton x:Name="ToggleButton" Background="#FF141414"
                     ImageSource="/UI/Windows/Document/ToggleButton.png" />

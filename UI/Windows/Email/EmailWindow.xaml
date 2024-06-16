@@ -71,7 +71,7 @@
     <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,720,0,0" Width="1400" Height="40"
             VerticalAlignment="Top">
         <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
-                HorizontalAlignment="Left" Padding="10,1,1,1" />
+                HorizontalAlignment="Left" Padding="5,1,1,1" />
         <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
         <Separator Background="#FF141414" BorderBrush="#FF141414" Foreground="#FF141414" Width="100" />
@@ -109,7 +109,7 @@
                 ImageSource="/UI/Windows/Email/ExportButton.png" />
         <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                 ImageSource="/UI/Windows/Email/BrowseButton.png" Height="30" />
-        <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="150" />
+        <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
         <Separator Background="{x:Null}" BorderBrush="{x:Null}" Width="30" />
         <local:ToolStripButton x:Name="ToggleButton"
                 ImageSource="/UI/Windows/Email/ToggleButton.png" Padding="1,1,1,1" />

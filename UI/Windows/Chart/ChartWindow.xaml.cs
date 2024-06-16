@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2024
+//     Created:                 06-16-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2024
+//     Last Modified On:        06-16-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -199,7 +199,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ChartWindow" /> class.
         /// </summary>
-        public ChartWindow( ) 
+        public ChartWindow( )
             : base( )
         {
             // Theme Properties
@@ -365,6 +365,8 @@ namespace Badger
             {
                 ChartTab.IsSelected = true;
                 TableTab.IsSelected = true;
+                SecondDateLabel.Visibility = Visibility.Hidden;
+                SecondCalendar.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
