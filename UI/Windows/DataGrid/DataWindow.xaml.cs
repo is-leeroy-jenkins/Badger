@@ -41,8 +41,10 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
@@ -66,6 +68,131 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
     public partial class DataWindow : Window
     {
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private DataRow _current;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -144,49 +271,22 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
+        /// Gets the filter.
         /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private protected Provider _provider;
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -253,6 +353,19 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Initialize Default Provider
+            _provider = Provider.Access;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
 
             // Window Events
             Loaded += OnLoaded;
@@ -591,6 +704,273 @@ namespace Badger
                 };
 
                 _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        private void PopulateFirstComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FirstCategoryComboBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryComboBox.Items?.Clear( );
+                    }
+
+                    if( FirstCategoryListBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryListBox.Items?.Clear( );
+                    }
+
+                    foreach( var _item in _fields )
+                    {
+                        FirstCategoryComboBox.Items?.Add( _item );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        private void PopulateSecondComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( SecondCategoryComboBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryComboBox.Items?.Clear( );
+                    }
+
+                    if( SecondCategoryListBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( _firstValue ) )
+                    {
+                        for( var _index = 0; _index < _fields.Count; _index++ )
+                        {
+                            var _item = _fields[ _index ];
+                            if( !_item.Equals( _firstCategory ) )
+                            {
+                                SecondCategoryComboBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the third ComboBox items.
+        /// </summary>
+        private void PopulateThirdComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( ThirdCategoryComboBox.Items?.Count > 0 )
+                    {
+                        ThirdCategoryComboBox.Items?.Clear( );
+                    }
+
+                    if( ThirdCategoryListBox.Items?.Count > 0 )
+                    {
+                        ThirdCategoryListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( _firstValue )
+                       && !string.IsNullOrEmpty( _secondValue ) )
+                    {
+                        for( var _index = 0; _index < _fields.Count; _index++ )
+                        {
+                            var _item = _fields[ _index ];
+                            if( !_item.Equals( _firstCategory )
+                               && !_item.Equals( _secondCategory ) )
+                            {
+                                ThirdCategoryComboBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the field ListBox.
+        /// </summary>
+        private void PopulateFieldListBox( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FieldsListBox.Items.Count > 0 )
+                    {
+                        FieldsListBox.Items?.Clear( );
+                    }
+
+                    foreach( var _item in _fields )
+                    {
+                        FieldsListBox?.Items?.Add( _item );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateNumericListBox( )
+        {
+            if( _numerics?.Any( ) == true )
+            {
+                try
+                {
+                    if( NumericsListBox.Items.Count > 0 )
+                    {
+                        NumericsListBox.Items?.Clear( );
+                    }
+
+                    for( var _i = 0; _i < _numerics.Count; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _numerics[ _i ] ) )
+                        {
+                            NumericsListBox?.Items?.Add( _numerics[ _i ] );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( _thirdValue ) )
+                {
+                    ThirdCategoryComboBox.Items?.Clear( );
+                    ThirdCategoryListBox.Items?.Clear( );
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                }
+
+                if( !string.IsNullOrEmpty( _secondValue ) )
+                {
+                    SecondCategoryComboBox.Items?.Clear( );
+                    SecondCategoryListBox.Items?.Clear( );
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                }
+
+                if( !string.IsNullOrEmpty( _firstValue ) )
+                {
+                    FirstCategoryComboBox.Items?.Clear( );
+                    FirstCategoryListBox.Items?.Clear( );
+                    _firstCategory = string.Empty;
+                    _firstValue = string.Empty;
+                    PopulateFirstComboBoxItems( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( _selectedColumns?.Any( ) == true )
+                {
+                    _selectedColumns.Clear( );
+                }
+
+                if( _selectedFields?.Any( ) == true )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Any( ) == true )
+                {
+                    _selectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                FirstCategoryListBox.Items?.Clear( );
+                SecondCategoryListBox.Items?.Clear( );
+                ThirdCategoryListBox.Items?.Clear( );
+                FieldsListBox.Items?.Clear( );
+                NumericsListBox.Items?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstCategoryComboBox.Items?.Clear( );
+                SecondCategoryComboBox.Items?.Clear( );
+                ThirdCategoryComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {

@@ -103,7 +103,8 @@ namespace Badger
             "SfSpreadsheetRibbon",
             "MenuItemAdv",
             "ButtonAdv",
-            "Carousel"
+            "Carousel",
+            "ColorEdit"
         };
 
         /// <summary>
