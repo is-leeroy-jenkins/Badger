@@ -65,7 +65,7 @@
     <Canvas x:Name="ChartGrid">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26" Canvas.Top="15"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TabItem x:Name="ChartTab" Header="Chart" Background="#FF141414" BorderBrush="#FF141414"
+            <TabItem x:Name="ColumnTab" Header="Column" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
@@ -90,7 +90,7 @@
                     </syncfusion:SfChart>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="SunburstTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
+            <TabItem x:Name="SunTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="GraphCanvas" Background="#FF141414">
                     <SunburstChart:SfSunburstChart x:Name="Sunburst" Canvas.Left="21" Canvas.Top="65"
@@ -169,18 +169,13 @@
         </local:ToolStrip>
         <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="559" Canvas.Left="822" Canvas.Top="14"
                 HorizontalAlignment="Center">
-            <TabItem x:Name="TableTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
+            <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroListBox x:Name="TableListBox" Height="410" Width="250"
+                    <local:MetroListBox x:Name="DataTableListBox" Height="410" Width="250"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Canvas.Top="99"
                             VerticalAlignment="Center" Canvas.Left="160" />
                 </Canvas>
-            </TabItem>
-            <TabItem x:Name="InfoTab" HorizontalAlignment="Center" Height="24" Header="Statistics"
-                    VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Margin="0,0,0,0">
-                <Canvas x:Name="InfoCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
@@ -192,14 +187,16 @@
                     <local:MetroListBox x:Name="SecondCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
                             Height="145" Canvas.Left="160" Canvas.Top="369" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
-                    <local:MetroComboBox Height="30" Width="175" Canvas.Left="150" Canvas.Top="99">
+                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Height="30" Width="175" Canvas.Left="150"
+                            Canvas.Top="99">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox Height="30" Width="175" Canvas.Left="155" Canvas.Top="329">
+                    <local:MetroComboBox x:Name="SecondCategoryComboBox" Height="30" Width="175" Canvas.Left="155"
+                            Canvas.Top="329">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -238,6 +235,11 @@
                             Canvas.Top="356" Width="220" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
                 </Canvas>
+            </TabItem>
+            <TabItem x:Name="MetricsTab" HorizontalAlignment="Center" Height="24" Header="Statistics"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FFA0BDFC" Margin="0,0,0,0">
+                <Canvas x:Name="InfoCanvas" Background="#FF141414" />
             </TabItem>
         </local:MetroTabControl>
     </Canvas>

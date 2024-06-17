@@ -48,6 +48,7 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
@@ -66,6 +67,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class DataWindow : Window
     {
         /// <summary>
@@ -102,11 +105,6 @@ namespace Badger
         /// The SQL command
         /// </summary>
         private string _sqlQuery;
-
-        /// <summary>
-        /// The yvalues
-        /// </summary>
-        private IList<string> _columns;
 
         /// <summary>
         /// The path
@@ -149,6 +147,11 @@ namespace Badger
         private protected DataTable _dataTable;
 
         /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataBuilder _dataModel;
+
+        /// <summary>
         /// The current
         /// </summary>
         private DataRow _current;
@@ -159,6 +162,11 @@ namespace Badger
         private IDictionary<string, object> _filter;
 
         /// <summary>
+        /// The yvalues
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
         /// The fields
         /// </summary>
         private IList<string> _fields;
@@ -167,6 +175,11 @@ namespace Badger
         /// The numerics
         /// </summary>
         private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private string _selectedTable;
 
         /// <summary>
         /// The selected columns
@@ -363,6 +376,9 @@ namespace Badger
 
             // Budget Collections
             _filter = new Dictionary<string, object>( );
+            _columns = new List<string>( );
+            _fields = new List<string>( );
+            _numerics = new List<string>( );
             _selectedColumns = new List<string>( );
             _selectedFields = new List<string>( );
             _selectedNumerics = new List<string>( );
@@ -449,7 +465,11 @@ namespace Badger
                 ExecutionRadioButton.Tag = "EXECUTION";
                 ReferenceRadioButton.Foreground = new SolidColorBrush( _borderColor );
                 ReferenceRadioButton.Tag = "REFERENCE";
+                AccessRadioButton.Tag = "Access";
                 AccessRadioButton.IsChecked = true;
+                SQLiteRadioButton.Tag = "SQLite";
+                SqlCeRadioButton.Tag = "SqlCe";
+                SqlSeverRadioButton.Tag = "SqlServer";
             }
             catch( Exception _ex )
             {
@@ -496,7 +516,15 @@ namespace Badger
             try
             {
                 DataTab.IsSelected = true;
-                TableTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Visible;
+                SourceTab.IsSelected = true;
+                SourceTab.Visibility = Visibility.Visible;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -542,6 +570,64 @@ namespace Badger
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void Busy( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void Chill( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -646,6 +732,135 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlSelectQuery( IDictionary<string, object> where )
+        {
+            try
+            {
+                ThrowIf.Null( where, nameof( where ) );
+                return $"SELECT * FROM {_source} "
+                    + $"WHERE {where.ToCriteria( )};";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlSelectQuery( IEnumerable<string> columns,
+            IDictionary<string, object> where )
+        {
+            if( !string.IsNullOrEmpty( _dataTable.TableName ) )
+            {
+                try
+                {
+                    ThrowIf.Null( where, nameof( where ) );
+                    ThrowIf.Empty( columns, nameof( columns ) );
+                    var _cols = string.Empty;
+                    foreach( var _name in columns )
+                    {
+                        _cols += $"{_name}, ";
+                    }
+
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {_dataTable} " + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        private string CreateSqlSelectQuery( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            try
+            {
+                ThrowIf.Null( where, nameof( where ) );
+                ThrowIf.Empty( fields, nameof( fields ) );
+                ThrowIf.Empty( numerics, nameof( numerics ) );
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var _name in fields )
+                {
+                    _cols += $"{_name}, ";
+                }
+
+                foreach( var _metric in numerics )
+                {
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
+                }
+
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                var _criteria = where.ToCriteria( );
+                var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_names} "
+                    + "FROM {Source} "
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_groups};";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else if( _dataModel.Numerics == null )
+                {
+                    var _message = "    The data is not alpha-numeric";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.SaveDialog( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates the notifier.
         /// </summary>
         /// <returns></returns>
@@ -705,6 +920,96 @@ namespace Badger
                 };
 
                 _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the reference tables.
+        /// </summary>
+        private void PopulateReferenceTables( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        DataTableListBox.Items?.Add( _name );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the maintenance tables.
+        /// </summary>
+        private void PopulateMaintenanceTables( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        DataTableListBox.Items?.Add( _name );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the execution tables.
+        /// </summary>
+        private void PopulateExecutionTables( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        DataTableListBox.Items?.Add( _name );
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -877,6 +1182,171 @@ namespace Badger
         }
 
         /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateDataTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 0;
+                DataTab.Visibility = Visibility.Visible;
+                BusyTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateEditTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 1;
+                EditTab.Visibility = Visibility.Visible;
+                BusyTab.Visibility = Visibility.Hidden;
+                DataTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateSchemaTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 2;
+                BusyTab.Visibility = Visibility.Visible;
+                DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSourceTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 0;
+                SourceTab.Visibility = Visibility.Visible;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateExecutionTables( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateFilterTab( )
+        {
+            try
+            {
+                ClearFilter( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 1;
+                FilterTab.Visibility = Visibility.Visible;
+                SourceTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateFirstComboBoxItems( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateGroupTab( )
+        {
+            try
+            {
+                ClearCollections( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 2;
+                SourceTab.Visibility = Visibility.Visible;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateFieldListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 3;
+                BusyTab.Visibility = Visibility.Visible;
+                DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( _filter?.Any( ) == true )
+                {
+                    _filter.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Clears the selections.
         /// </summary>
         private void ClearSelections( )
@@ -905,7 +1375,6 @@ namespace Badger
                     FirstCategoryListBox.Items?.Clear( );
                     _firstCategory = string.Empty;
                     _firstValue = string.Empty;
-                    PopulateFirstComboBoxItems( );
                 }
             }
             catch( Exception _ex )
@@ -921,6 +1390,21 @@ namespace Badger
         {
             try
             {
+                if( _fields?.Any( ) == true )
+                {
+                    _fields.Clear( );
+                }
+
+                if( _columns?.Any( ) == true )
+                {
+                    _columns.Clear( );
+                }
+
+                if( _numerics?.Any( ) == true )
+                {
+                    _numerics.Clear( );
+                }
+
                 if( _selectedColumns?.Any( ) == true )
                 {
                     _selectedColumns.Clear( );
@@ -980,17 +1464,31 @@ namespace Badger
         }
 
         /// <summary>
+        /// Clears the text boxes.
+        /// </summary>
+        private void ClearTextBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the tab visiblity.
         /// </summary>
         private void SetTabVisiblity( )
         {
             try
             {
-                DataTab.Visibility = Visibility.Hidden;
+                DataTab.Visibility = Visibility.Visible;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
-                TableTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Visible;
                 FilterTab.Visibility = Visibility.Hidden;
                 GroupTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
@@ -1004,7 +1502,7 @@ namespace Badger
         /// <summary>
         /// Shows the items.
         /// </summary>
-        private void SetToolbarVisible( )
+        private void ShowToolbar( )
         {
             try
             {
@@ -1032,7 +1530,7 @@ namespace Badger
         /// <summary>
         /// Hides the items.
         /// </summary>
-        private void SetToolbarHidden( )
+        private void HideToolbar( )
         {
             try
             {
@@ -1050,6 +1548,20 @@ namespace Badger
                 UndoButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the ListBox visibility.
+        /// </summary>
+        private void ResetListBoxVisibility( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -1080,6 +1592,20 @@ namespace Badger
             try
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        private void UpdateLabels( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -1125,6 +1651,248 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnTableListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    _filter.Clear( );
+                    Toolbar.Visibility = Visibility.Visible;
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    _selectedTable = _title?.Replace( " ", "" );
+                    if( !string.IsNullOrEmpty( _selectedTable ) )
+                    {
+                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                    }
+
+                    _dataModel = new DataBuilder( _source, _provider );
+                    _dataTable = _dataModel.DataTable;
+                    _fields = _dataModel.Fields;
+                    _numerics = _dataModel.Numerics;
+                    PrimaryTabControl.SelectedIndex = 0;
+                    UpdateLabels( );
+                    PopulateFirstComboBoxItems( );
+                    ResetListBoxVisibility( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    _firstCategory = string.Empty;
+                    _firstValue = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    FirstCategoryListBox.Items?.Clear( );
+                    _firstCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _firstCategory ) )
+                    {
+                        _dataModel = new DataBuilder( _source, _provider );
+                        var _data = _dataModel.DataElements[ _firstCategory ];
+                        foreach( var _item in _data )
+                        {
+                            FirstCategoryListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnFirstListBoxItemSelected( object sender )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    _firstValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    PopulateSecondComboBoxItems( );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is MetroComboBox _comboBox )
+            {
+                try
+                {
+                    _sqlQuery = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
+                    {
+                        SecondCategoryListBox.Items?.Clear( );
+                    }
+
+                    _secondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
+                    {
+                        var _data = _dataModel.DataElements[ _secondCategory ];
+                        foreach( var _item in _data )
+                        {
+                            SecondCategoryListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnSecondListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Keys?.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                    PopulateThirdComboBoxItems( );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    _sqlQuery = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    if( ThirdCategoryListBox.Items?.Count > 0 )
+                    {
+                        ThirdCategoryListBox.Items?.Clear( );
+                    }
+
+                    _thirdCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _thirdCategory ) )
+                    {
+                        var _data = _dataModel?.DataElements[ _thirdCategory ];
+                        if( _data?.Any( ) == true )
+                        {
+                            foreach( var _item in _data )
+                            {
+                                ThirdCategoryListBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnThirdListBoxItemSelected( object sender )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Keys.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    if( FieldsListBox.Items.Count > 0 )
+                    {
+                        FieldsListBox.Items?.Clear( );
+                    }
+
+                    _thirdValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                    _filter.Add( _thirdCategory, _thirdValue );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -1787,11 +2555,11 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    SetToolbarVisible( );
+                    ShowToolbar( );
                 }
                 else
                 {
-                    SetToolbarHidden( );
+                    HideToolbar( );
                 }
             }
             catch( Exception _ex )

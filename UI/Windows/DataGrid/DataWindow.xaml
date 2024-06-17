@@ -135,7 +135,7 @@
         </local:ToolStrip>
         <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="523" Canvas.Left="856" Canvas.Top="11"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TabItem x:Name="TableTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
+            <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,5,0,0">
                     <local:MetroRadioButton x:Name="ExecutionRadioButton" Content="Execution " Canvas.Left="154"
@@ -144,7 +144,7 @@
                     <local:MetroRadioButton x:Name="ReferenceRadioButton" Content="Reference " Canvas.Left="249"
                             Canvas.Top="73" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="REFERENCE"
                             ToolTip="Reference Data Tables" Foreground="#FF0078D4" />
-                    <local:MetroListBox Height="368" Width="225" d:ItemsSource="{d:SampleData ItemCount=5}"
+                    <local:MetroListBox x:Name="DataTableListBox1" Height="368" Width="225" d:ItemsSource="{d:SampleData ItemCount=5}"
                             HorizontalAlignment="Center" Canvas.Top="105" VerticalAlignment="Top" Canvas.Left="154" />
                 </Canvas>
             </TabItem>
