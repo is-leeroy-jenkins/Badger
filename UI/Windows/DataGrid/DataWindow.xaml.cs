@@ -449,6 +449,7 @@ namespace Badger
                 ExecutionRadioButton.Tag = "EXECUTION";
                 ReferenceRadioButton.Foreground = new SolidColorBrush( _borderColor );
                 ReferenceRadioButton.Tag = "REFERENCE";
+                AccessRadioButton.IsChecked = true;
             }
             catch( Exception _ex )
             {
@@ -1486,7 +1487,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFirstCategoryListBoxItemSelect( object sender, EventArgs e )
+        private void OnFirstListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
             {
@@ -1503,7 +1504,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSecondCategoryComboBoxItemSelect( object sender, EventArgs e )
+        private void OnSecondComboBoxSelectionChanged( object sender, EventArgs e )
         {
             try
             {
@@ -1520,7 +1521,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSecondCategoryListBoxItemSelect( object sender, EventArgs e )
+        private void OnSecondListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
             {
@@ -1537,7 +1538,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnThirdCategoryComboBoxItemSelect( object sender, EventArgs e )
+        private void OnThirdComboBoxSelectionChanged( object sender, EventArgs e )
         {
             try
             {
@@ -1554,7 +1555,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnThirdCategoryListBoxItemSelect( object sender, EventArgs e )
+        private void OnThirdListBoxItemSelect( object sender, EventArgs e )
         {
             try
             {
