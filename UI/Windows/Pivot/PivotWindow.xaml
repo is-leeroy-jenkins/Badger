@@ -106,8 +106,8 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Pivot/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <local:MetroTabControl x:Name="SecondaryTabControl" Height="652" Width="308" HorizontalAlignment="Left"
-                Canvas.Left="1085" Canvas.Top="8" VerticalAlignment="Center">
+        <local:MetroTabControl x:Name="SecondaryTabControl" Height="652" Width="339" HorizontalAlignment="Left"
+                Canvas.Left="1055" Canvas.Top="9" VerticalAlignment="Center">
             <TabItem x:Name="SourceTab" Header="Tables" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="60" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,13,0,0">
@@ -161,47 +161,58 @@
                             Foreground="#FF0078D4" VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="GroupTab" HorizontalAlignment="Center" Height="22" Header="Groupings"
+            <TabItem x:Name="GroupTab" HorizontalAlignment="Center" Height="22" Header="Groups"
                     VerticalAlignment="Center" Width="60" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC">
                 <Grid x:Name="GroupCanvas" Background="#FF141414">
                     <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" Foreground="#FF0078D4"
                             HorizontalAlignment="Left" Margin="57,59,0,0" VerticalAlignment="Top" />
                     <local:MetroListBox x:Name="FieldListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Margin="52,89,52,345" />
+                            Margin="46,89,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="212"
+                            Height="220" VerticalAlignment="Top">
+                        <local:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleY="-0.295" />
+                                <RotateTransform />
+                                <TranslateTransform Y="-1.031" />
+                            </TransformGroup>
+                        </local:MetroListBox.RenderTransform>
+                    </local:MetroListBox>
                     <local:MetroListBox x:Name="NumericListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Margin="52,359,52,100" />
+                            Margin="46,359,0,0" HorizontalAlignment="Left" Width="210" Height="220"
+                            VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170" Foreground="#FF0078D4"
                             HorizontalAlignment="Left" Margin="52,329,0,0" VerticalAlignment="Top" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="CalendarTab" HorizontalAlignment="Center" Height="22" Header="Calendar"
-                    VerticalAlignment="Center" Width="54" Background="#FF141414" BorderBrush="#FF141414"
+                    VerticalAlignment="Center" Width="60" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC">
                 <Canvas x:Name="CalendarCanvas" Background="#FF141414" Height="624" VerticalAlignment="Bottom">
                     <local:MetroLabel x:Name="FirstDateLabel" Content="First Date" Canvas.Left="52" Canvas.Top="80"
                             Width="210" Foreground="#FF0078D4" Padding="1,1,1,1" VerticalContentAlignment="Bottom"
                             HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="200" Canvas.Left="47"
+                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="200" Canvas.Left="46"
                             Canvas.Top="104" Width="220" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="SecondDateLabel" Content="Second Date" Canvas.Left="47" Canvas.Top="329"
                             Width="220" Panel.ZIndex="-2" Foreground="#FF0078D4" Padding="1,1,1,1"
                             Grid.IsSharedSizeScope="True" VerticalContentAlignment="Bottom" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
-                    <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="200" Canvas.Left="47"
+                    <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="200" Canvas.Left="46"
                             Canvas.Top="354" Width="220" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="652" Width="1061" HorizontalAlignment="Left"
-                Canvas.Left="4" Canvas.Top="6" VerticalAlignment="Center">
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="652" Width="1015" HorizontalAlignment="Left"
+                Canvas.Left="5" Canvas.Top="7" VerticalAlignment="Center">
             <TabItem x:Name="DataTab" Header="Data" Width="100" Margin="0,0,0,0" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,2">
                 <Canvas x:Name="PivotCanvas" Background="#FF141414" Margin="0,11,0,0">
                     <local:MetroPivotGrid x:Name="PivotGrid" AllowSelection="True" Height="490" Canvas.Left="24"
-                            ShowGroupingBar="True" ShowSubTotals="True" SortOption="All" Canvas.Top="66" Width="1000"
+                            ShowGroupingBar="True" ShowSubTotals="True" SortOption="All" Canvas.Top="66" Width="954"
                             HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="1,1,1,1"
                             GroupingBarItemForeground="#FF6ABDFC" GroupingBarBackground="#FF052C4A"
                             GroupingBarItemBackground="#FF2F8AD0" GroupingBarItemBorderBrush="#FFF9F5F5"
@@ -213,7 +224,7 @@
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="ChartCanvas" Background="#FF141414">
                     <local:MetroBarChart x:Name="Chart" Canvas.Left="24" Canvas.Top="67" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" Width="1000" Height="496" Background="#FF141414"
+                            VerticalAlignment="Top" Width="954" Height="496" Background="#FF141414"
                             BackWallBrush="#FF2D2D2D" BottomWallBrush="#FF2D2D2D" LeftWallBrush="#FF2D2D2D"
                             RightWallBrush="#FF2D2D2D" BorderBrush="#FF0078D4" Padding="1,1,1,1" Depth="250"
                             EnableRotation="True" Header="Data Source" BorderThickness="1,1,1,1" />
