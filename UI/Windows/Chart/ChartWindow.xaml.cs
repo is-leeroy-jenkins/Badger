@@ -1452,6 +1452,95 @@ namespace Badger
         }
 
         /// <summary>
+        /// Sets the active data tab.
+        /// </summary>
+        private void SetPrimaryTabControl( )
+        {
+            try
+            {
+                switch( PrimaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateColumnTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivatePieTab( );
+                        break;
+                    }
+                    case 3:
+                    {
+                        ActivateSunTab( );
+                        break;
+                    }
+                    case 4:
+                    {
+                        ActivateSmithTab( );
+                        break;
+                    }
+                    case 5:
+                    {
+                        ActivateHeatTab( );
+                        break;
+                    }
+                    case 6:
+                    {
+                        ActivateBusyTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateColumnTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetSecondaryTabControl( )
+        {
+            try
+            {
+                switch( SecondaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivateFilterTab( );
+                        break;
+                    }
+                    case 2:
+                    {
+                        ActivateGroupTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1950,6 +2039,42 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPrimaryActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetPrimaryTabControl( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondaryActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetSecondaryTabControl( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

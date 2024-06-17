@@ -69,6 +69,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class DataWindow : Window
     {
         /// <summary>
@@ -1626,6 +1627,85 @@ namespace Badger
         }
 
         /// <summary>
+        /// Sets the active data tab.
+        /// </summary>
+        private void SetPrimaryTabControl( )
+        {
+            try
+            {
+                switch( PrimaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateDataTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivateEditTab( );
+                        break;
+                    }
+                    case 3:
+                    {
+                        ActivateSchemaTab( );
+                        break;
+                    }
+                    case 4:
+                    {
+                        ActivateBusyTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateDataTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetSecondaryTabControl( )
+        {
+            try
+            {
+                switch( SecondaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivateFilterTab( );
+                        break;
+                    }
+                    case 2:
+                    {
+                        ActivateGroupTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1647,248 +1727,6 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [table ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnTableListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    _filter.Clear( );
-                    Toolbar.Visibility = Visibility.Visible;
-                    var _title = _listBox.SelectedValue?.ToString( );
-                    _selectedTable = _title?.Replace( " ", "" );
-                    if( !string.IsNullOrEmpty( _selectedTable ) )
-                    {
-                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                    }
-
-                    _dataModel = new DataBuilder( _source, _provider );
-                    _dataTable = _dataModel.DataTable;
-                    _fields = _dataModel.Fields;
-                    _numerics = _dataModel.Numerics;
-                    PrimaryTabControl.SelectedIndex = 0;
-                    UpdateLabels( );
-                    PopulateFirstComboBoxItems( );
-                    ResetListBoxVisibility( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [first ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    _firstCategory = string.Empty;
-                    _firstValue = string.Empty;
-                    _secondCategory = string.Empty;
-                    _secondValue = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
-                    FirstCategoryListBox.Items?.Clear( );
-                    _firstCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( _firstCategory ) )
-                    {
-                        _dataModel = new DataBuilder( _source, _provider );
-                        var _data = _dataModel.DataElements[ _firstCategory ];
-                        foreach( var _item in _data )
-                        {
-                            FirstCategoryListBox.Items?.Add( _item );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [first ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnFirstListBoxItemSelected( object sender )
-        {
-            if( sender is MetroListBox _listBox )
-            {
-                try
-                {
-                    if( _filter.Count > 0 )
-                    {
-                        _filter.Clear( );
-                    }
-
-                    _firstValue = _listBox.SelectedValue?.ToString( );
-                    _filter.Add( _firstCategory, _firstValue );
-                    PopulateSecondComboBoxItems( );
-                    UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [second ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is MetroComboBox _comboBox )
-            {
-                try
-                {
-                    _sqlQuery = string.Empty;
-                    _secondCategory = string.Empty;
-                    _secondValue = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
-                    if( !string.IsNullOrEmpty( _secondCategory ) )
-                    {
-                        SecondCategoryListBox.Items?.Clear( );
-                    }
-
-                    _secondCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( _secondCategory ) )
-                    {
-                        var _data = _dataModel.DataElements[ _secondCategory ];
-                        foreach( var _item in _data )
-                        {
-                            SecondCategoryListBox.Items?.Add( _item );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [second ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnSecondListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    if( _filter.Keys?.Count > 0 )
-                    {
-                        _filter.Clear( );
-                    }
-
-                    _secondValue = _listBox.SelectedValue?.ToString( );
-                    _filter.Add( _firstCategory, _firstValue );
-                    _filter.Add( _secondCategory, _secondValue );
-                    PopulateThirdComboBoxItems( );
-                    UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    _sqlQuery = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
-                    if( ThirdCategoryListBox.Items?.Count > 0 )
-                    {
-                        ThirdCategoryListBox.Items?.Clear( );
-                    }
-
-                    _thirdCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( _thirdCategory ) )
-                    {
-                        var _data = _dataModel?.DataElements[ _thirdCategory ];
-                        if( _data?.Any( ) == true )
-                        {
-                            foreach( var _item in _data )
-                            {
-                                ThirdCategoryListBox.Items?.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnThirdListBoxItemSelected( object sender )
-        {
-            if( sender is MetroListBox _listBox )
-            {
-                try
-                {
-                    if( _filter.Keys.Count > 0 )
-                    {
-                        _filter.Clear( );
-                    }
-
-                    if( FieldsListBox.Items.Count > 0 )
-                    {
-                        FieldsListBox.Items?.Clear( );
-                    }
-
-                    _thirdValue = _listBox.SelectedValue?.ToString( );
-                    _filter.Add( _firstCategory, _firstValue );
-                    _filter.Add( _secondCategory, _secondValue );
-                    _filter.Add( _thirdCategory, _thirdValue );
-                    UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
         }
 
@@ -2194,175 +2032,6 @@ namespace Badger
             }
         }
 
-        /// <summary>
-        /// Called when [provider RadioButton click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnProviderRadioButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [table ListBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTableListBoxItemSelect( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [first category ComboBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFirstCategoryComboBoxItemSelect( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [first category ListBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFirstListBoxSelectionChanged( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [second category ComboBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSecondComboBoxSelectionChanged( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [second category ListBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSecondListBoxSelectionChanged( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [third category ComboBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnThirdComboBoxSelectionChanged( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [third category ListBox item select].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnThirdListBoxItemSelect( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [first calendar date selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFirstCalendarDateSelected( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [sedond calendar date selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSedondCalendarDateSelected( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
 
         /// <summary>
         /// Called when [calculator menu option click].
@@ -2557,6 +2226,298 @@ namespace Badger
                 {
                     HideToolbar( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        /// <summary>
+        /// Called when [provider RadioButton click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnProviderRadioButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnTableListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    _filter.Clear( );
+                    Toolbar.Visibility = Visibility.Visible;
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    _selectedTable = _title?.Replace( " ", "" );
+                    if( !string.IsNullOrEmpty( _selectedTable ) )
+                    {
+                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                    }
+
+                    _dataModel = new DataBuilder( _source, _provider );
+                    _dataTable = _dataModel.DataTable;
+                    _fields = _dataModel.Fields;
+                    _numerics = _dataModel.Numerics;
+                    PrimaryTabControl.SelectedIndex = 0;
+                    UpdateLabels( );
+                    PopulateFirstComboBoxItems( );
+                    ResetListBoxVisibility( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    _firstCategory = string.Empty;
+                    _firstValue = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    FirstCategoryListBox.Items?.Clear( );
+                    _firstCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _firstCategory ) )
+                    {
+                        _dataModel = new DataBuilder( _source, _provider );
+                        var _data = _dataModel.DataElements[ _firstCategory ];
+                        foreach( var _item in _data )
+                        {
+                            FirstCategoryListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnFirstListBoxItemSelected( object sender )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    _firstValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    PopulateSecondComboBoxItems( );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is MetroComboBox _comboBox )
+            {
+                try
+                {
+                    _sqlQuery = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
+                    {
+                        SecondCategoryListBox.Items?.Clear( );
+                    }
+
+                    _secondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
+                    {
+                        var _data = _dataModel.DataElements[ _secondCategory ];
+                        foreach( var _item in _data )
+                        {
+                            SecondCategoryListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnSecondListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Keys?.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                    PopulateThirdComboBoxItems( );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    _sqlQuery = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
+                    if( ThirdCategoryListBox.Items?.Count > 0 )
+                    {
+                        ThirdCategoryListBox.Items?.Clear( );
+                    }
+
+                    _thirdCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _thirdCategory ) )
+                    {
+                        var _data = _dataModel?.DataElements[ _thirdCategory ];
+                        if( _data?.Any( ) == true )
+                        {
+                            foreach( var _item in _data )
+                            {
+                                ThirdCategoryListBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnThirdListBoxItemSelected( object sender )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Keys.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    if( FieldsListBox.Items.Count > 0 )
+                    {
+                        FieldsListBox.Items?.Clear( );
+                    }
+
+                    _thirdValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                    _filter.Add( _thirdCategory, _thirdValue );
+                    UpdateLabels( );
+                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first calendar date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFirstCalendarDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [sedond calendar date selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSedondCalendarDateSelected( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {

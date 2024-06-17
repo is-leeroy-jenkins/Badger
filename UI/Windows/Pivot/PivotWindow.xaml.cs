@@ -583,6 +583,148 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <returns>
+        /// </returns>
+        private string CreateSqlSelectQuery( IDictionary<string, object> where )
+        {
+            if( !string.IsNullOrEmpty( _selectedTable ) )
+            {
+                try
+                {
+                    ThrowIf.Null( where, nameof( where ) );
+                    return $"SELECT * FROM {_selectedTable} "
+                        + $"WHERE {where.ToCriteria( )};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns>
+        /// </returns>
+        private string CreateSqlSelectQuery( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( !string.IsNullOrEmpty( _selectedTable ) )
+            {
+                try
+                {
+                    ThrowIf.Empty( where, nameof( where ) );
+                    ThrowIf.Empty( fields, nameof( fields ) );
+                    ThrowIf.Empty( numerics, nameof( numerics ) );
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var name in fields )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    foreach( var metric in numerics )
+                    {
+                        _aggr += $"SUM({metric}) AS {metric}, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_values} FROM {_selectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns>
+        /// </returns>
+        private string CreateSqlSelectQuery( IEnumerable<string> columns,
+            IDictionary<string, object> where )
+        {
+            if( !string.IsNullOrEmpty( _selectedTable ) )
+            {
+                try
+                {
+                    ThrowIf.Empty( where, nameof( where ) );
+                    ThrowIf.Empty( columns, nameof( columns ) );
+                    var _cols = string.Empty;
+                    foreach( var name in columns )
+                    {
+                        _cols += $"{name}, ";
+                    }
+
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {_selectedTable} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names};";
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return string.Empty;
+                }
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else if( _dataModel.Numerics == null )
+                {
+                    var _message = "    The data is not alpha-numeric";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.SaveDialog( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates a notifier.
         /// </summary>
         /// <returns>
@@ -750,7 +892,6 @@ namespace Badger
                 }
             }
         }
-
 
         /// <summary>
         /// Populates the field ListBox.
@@ -1191,6 +1332,85 @@ namespace Badger
             {
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetSecondaryTabControl( )
+        {
+            try
+            {
+                switch( SecondaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivateFilterTab( );
+                        break;
+                    }
+                    case 2:
+                    {
+                        ActivateGroupTab( );
+                        break;
+                    }
+                    case 3:
+                    {
+                        ActivateCalendarTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active data tab.
+        /// </summary>
+        private void SetPrimaryTabControl( )
+        {
+            try
+            {
+                switch( PrimaryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        ActivateDatTab( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        ActivateChartTab( );
+                        break;
+                    }
+                    case 3:
+                    {
+                        ActivateBusyTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateChartTab( );
+                        break;
+                    }
+                }
             }
             catch( Exception _ex )
             {
