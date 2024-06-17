@@ -41,6 +41,8 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using System.Threading.Tasks;
@@ -130,24 +132,104 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
+        /// The locked object
         /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
+        private object _path;
 
         /// <summary>
         /// The time
         /// </summary>
-        private protected int _time;
+        private int _time;
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private protected int _seconds;
+        private int _seconds;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The start date
+        /// </summary>
+        private DateTime _startDate;
+
+        /// <summary>
+        /// The end date
+        /// </summary>
+        private DateTime _endDate;
+
+        /// <summary>
+        /// The date string
+        /// </summary>
+        private string _dateString;
+
+        /// <summary>
+        /// The selected start
+        /// </summary>
+        private string _selectedStart;
+
+        /// <summary>
+        /// The selected end
+        /// </summary>
+        private string _selectedEnd;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private DataSet _dataSet;
+
+        /// <summary>
+        /// The holidays
+        /// </summary>
+        private DataTable _holidays;
+
+        /// <summary>
+        /// The fiscal years
+        /// </summary>
+        private DataTable _fiscalYears;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The selected dates
+        /// </summary>
+        private IList<DateTime> _selectedDates;
 
         /// <summary>
         /// The update status
@@ -163,6 +245,16 @@ namespace Badger
         /// The timer
         /// </summary>
         private protected Timer _timer;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -225,6 +317,15 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Initialize Collections
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _selectedDates = new List<DateTime>( );
+
+            // Default Provider
+            _provider = Provider.Access;
 
             // Window Events
             Loaded += OnLoaded;
@@ -424,6 +525,32 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the excel report.
+        /// </summary>
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "    The Data Table is null!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _report = new ExcelReport( _dataTable );
+                    _report.SaveDialog( );
+                    var _message = "    The Excel File has been created!";
+                    SendNotification( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates the notifier.
         /// </summary>
         /// <returns></returns>
@@ -497,7 +624,7 @@ namespace Badger
         /// <summary>
         /// Shows the items.
         /// </summary>
-        private void SetToolbarVisible( )
+        private void ShowToolbar( )
         {
             try
             {
@@ -525,7 +652,7 @@ namespace Badger
         /// <summary>
         /// Hides the items.
         /// </summary>
-        private void SetToolbarHidden( )
+        private void HideToolbar( )
         {
             try
             {
@@ -543,6 +670,97 @@ namespace Badger
                 UndoButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the labels.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                _selectedStart = string.Empty;
+                _selectedEnd = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                _selectedDates?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        private void ClearData( )
+        {
+            try
+            {
+                _holidays = null;
+                _fiscalYears = null;
+                ClearSelections( );
+                ClearCollections( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        /// <param name="start">
+        /// The start.
+        /// </param>
+        /// <param name="end">
+        /// The end.
+        /// </param>
+        private void UpdateLabels( DateTime start, DateTime end )
+        {
+            try
+            {
+                var _timeSpan = end - start;
+                var _days = _timeSpan.TotalDays;
+                var _hours = _timeSpan.TotalHours.ToString( "N0" );
+                var _weekdays = start.CountWeekDays( end );
+                var _weekends = start.CountWeekEnds( end );
+                var _workdays = start.CountWorkdays( end );
+                var _offDays = CountHolidays( start, end );
+                var _fte = ( _workdays * 8M / 2050M ).ToString( "N3" );
             }
             catch( Exception _ex )
             {
@@ -593,6 +811,40 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Counts the holidays.
+        /// </summary>
+        /// <param name="start">
+        /// The start.
+        /// </param>
+        /// <param name="end">
+        /// The end.
+        /// </param>
+        private int CountHolidays( DateTime start, DateTime end )
+        {
+            try
+            {
+                var _period = end - start;
+                var _days = _period.TotalDays;
+                var _holiday = 0;
+                for( var _i = 0d; _i <= _days; _i++ )
+                {
+                    var _day = start.AddDays( _i );
+                    if( _day.IsFederalHoliday( ) )
+                    {
+                        _holiday += 1;
+                    }
+                }
+
+                return _holiday;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0;
             }
         }
 
@@ -1069,12 +1321,54 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    SetToolbarVisible( );
+                    ShowToolbar( );
                 }
                 else
                 {
-                    SetToolbarHidden( );
+                    HideToolbar( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first calendar selection changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnFirstCalendarSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                _startDate = DateTime.Parse( FirstCalendar.SelectedDates[ 0 ].ToString( ) );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [second calendar selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnSecondCalendarSelectionChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                _endDate = DateTime.Parse( SecondCalendar.SelectedDates[ 0 ].ToString( ) );
+                UpdateLabels( _startDate, _endDate );
             }
             catch( Exception _ex )
             {
