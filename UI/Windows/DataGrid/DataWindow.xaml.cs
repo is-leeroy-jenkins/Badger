@@ -370,11 +370,7 @@ namespace Badger
             // Initialize Default Provider
             _provider = Provider.Access;
 
-            // Timer Properties
-            _time = 0;
-            _seconds = 5;
-
-            // Budget Collections
+            // Initialize Collections
             _filter = new Dictionary<string, object>( );
             _columns = new List<string>( );
             _fields = new List<string>( );

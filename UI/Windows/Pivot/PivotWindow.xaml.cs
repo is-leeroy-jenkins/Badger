@@ -41,10 +41,14 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
@@ -63,6 +67,161 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class PivotWindow : Window
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private protected int _count;
+
+        /// <summary>
+        /// The hover text
+        /// </summary>
+        private protected string _hoverText;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private protected string _selectedTable;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private protected string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private protected string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private protected string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private protected string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private protected string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private protected string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private protected string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private protected string _fourthValue;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The xaxis
+        /// </summary>
+        private protected string _xaxis;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private protected IList<string> _yvalues;
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        private protected STAT _metric;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private protected IList<string> _columns;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private protected IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private protected IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private protected IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -130,41 +289,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -230,6 +354,19 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Default Provider
+            _provider = Provider.Access;
+            _metric = STAT.Total;
+
+            // Initialize Collections
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
 
             // Window Events
             Loaded += OnLoaded;
@@ -515,9 +652,319 @@ namespace Badger
         }
 
         /// <summary>
+        /// Populates the execution tables.
+        /// </summary>
+        private void PopulateExecutionTables( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var name in _names )
+                    {
+                        DataTableListBox.Items?.Add( name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        public void PopulateFirstComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FirstCategoryComboBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryComboBox.Items.Clear( );
+                    }
+
+                    if( FirstCategoryListBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryListBox.Items?.Clear( );
+                    }
+
+                    for( var _index = 0; _index < _fields.Count; _index++ )
+                    {
+                        var _item = _fields[ _index ];
+                        FirstCategoryComboBox.Items?.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        public void PopulateSecondComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( SecondCategoryComboBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryComboBox.Items.Clear( );
+                    }
+
+                    if( SecondCategoryListBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( _firstValue ) )
+                    {
+                        for( var _index = 0; _index < _fields.Count; _index++ )
+                        {
+                            var item = _fields[ _index ];
+                            if( !item.Equals( _firstCategory ) )
+                            {
+                                SecondCategoryComboBox.Items?.Add( item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Populates the field ListBox.
+        /// </summary>
+        private void PopulateFieldListBox( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FieldListBox.Items.Count > 0 )
+                    {
+                        FieldListBox.Items.Clear( );
+                    }
+
+                    foreach( var _item in _fields )
+                    {
+                        FieldListBox.Items.Add( _item );
+                    }
+
+                    FieldListBox.SelectionMode = SelectionMode.Multiple;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the numeric ListBox.
+        /// </summary>
+        private void PopulateNumericListBox( )
+        {
+            if( _numerics?.Any( ) == true )
+            {
+                try
+                {
+                    if( NumericListBox.Items.Count > 0 )
+                    {
+                        NumericListBox.Items.Clear( );
+                    }
+
+                    for( var i = 0; i < _numerics.Count; i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _numerics[ i ] ) )
+                        {
+                            NumericListBox.Items.Add( _numerics[ i ] );
+                        }
+                    }
+
+                    NumericListBox.SelectionMode = SelectionMode.Multiple;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateDatTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 0;
+                DataTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                ChartTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ActivateChartTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 1;
+                ChartTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                ChartTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                PrimaryTabControl.SelectedIndex = 3;
+                BusyTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                ChartTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSourceTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 0;
+                SourceTab.IsSelected = true;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateExecutionTables( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateFilterTab( )
+        {
+            try
+            {
+                ClearFilter( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 1;
+                FilterTab.IsSelected = true;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateFirstComboBoxItems( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateGroupTab( )
+        {
+            try
+            {
+                ClearCollections( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 2;
+                GroupTab.IsSelected = true;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateFieldListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateCalendarTab( )
+        {
+            try
+            {
+                ClearCollections( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SecondaryTabControl.SelectedIndex = 3;
+                CalendarTab.IsSelected = true;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                PopulateFieldListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Shows the items.
         /// </summary>
-        private void SetToolbarVisible( )
+        private void ShowToolbar( )
         {
             try
             {
@@ -545,7 +992,7 @@ namespace Badger
         /// <summary>
         /// Hides the items.
         /// </summary>
-        private void SetToolbarHidden( )
+        private void HideToolbar( )
         {
             try
             {
@@ -567,6 +1014,141 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstCategoryComboBox.Items.Clear( );
+                SecondCategoryComboBox.Items.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                FirstCategoryListBox.Items.Clear( );
+                SecondCategoryListBox.Items.Clear( );
+                //FieldListBox.Items.Clear( );
+                //NumericListBox.Items.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                _selectedTable = string.Empty;
+                _dataModel = null;
+                _dataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( _filter?.Any( ) == true )
+                {
+                    _filter.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( _selectedColumns?.Any( ) == true )
+                {
+                    _selectedColumns.Clear( );
+                }
+
+                if( _selectedFields?.Any( ) == true )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Any( ) == true )
+                {
+                    _selectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
+                _selectedTable = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1093,11 +1675,11 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    SetToolbarVisible( );
+                    ShowToolbar( );
                 }
                 else
                 {
-                    SetToolbarHidden( );
+                    HideToolbar( );
                 }
             }
             catch( Exception _ex )

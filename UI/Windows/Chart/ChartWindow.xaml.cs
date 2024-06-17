@@ -84,16 +84,6 @@ namespace Badger
         private Action _statusUpdate;
 
         /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
         /// The count
         /// </summary>
         private protected int _count;
@@ -371,11 +361,7 @@ namespace Badger
             _provider = Provider.Access;
             _metric = STAT.Total;
 
-            // Timer Properties
-            _time = 0;
-            _seconds = 5;
-
-            // Budget Attributes
+            // Initialize Collections
             _filter = new Dictionary<string, object>( );
             _fields = new List<string>( );
             _columns = new List<string>( );

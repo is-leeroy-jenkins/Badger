@@ -220,7 +220,7 @@
             </TabItem>
             <TabItem x:Name="CalendarTab" Height="24" Header="Calendar" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False" Margin="0,0,0,0">
-                <Canvas x:Name="CalendarCanvas" Background="#FF141414">
+                <Canvas x:Name="CalendarCanvas" Background="#FF141414" Height="606" VerticalAlignment="Bottom">
                     <local:MetroLabel x:Name="FirstDateLabel" Content="First Date" Canvas.Left="160" Canvas.Top="82"
                             HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="210" Foreground="#FF0078D4"
                             Padding="1,1,1,1" VerticalContentAlignment="Bottom" />
