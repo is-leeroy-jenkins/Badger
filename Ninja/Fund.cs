@@ -171,7 +171,7 @@ namespace Badger
             : base( )
         {
             _source = Source.Funds;
-            _record = new DataBuilder( _source, GetArgs( fundCode ) )?.Record;
+            _record = new DataGenerator( _source, GetArgs( fundCode ) )?.Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
@@ -208,7 +208,7 @@ namespace Badger
             : base( )
         {
             _source = Source.Funds;
-            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
+            _record = new DataGenerator( _source, GetArgs( code ) )?.Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );

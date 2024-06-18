@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -89,6 +90,39 @@ namespace Badger
             {
                 Fail( _ex );
                 return default( BindingList<T> );
+            }
+        }
+
+        /// <summary>
+        /// Converts to observable.
+        /// </summary>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <returns>
+        /// ObservableCollection
+        /// </returns>
+        public static ObservableCollection<DataRow> ToObservable( this IEnumerable<DataRow> enumerable )
+        {
+            try
+            {
+                if( enumerable.Any( ) )
+                {
+                    var _rows = new ObservableCollection<DataRow>( );
+                    foreach( DataRow _row in enumerable )
+                    {
+                        _rows.Add( _row );
+                    }
+
+                    return _rows?.Count > 0
+                        ? _rows
+                        : default( ObservableCollection<DataRow> );
+                }
+
+                return default( ObservableCollection<DataRow> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ObservableCollection<DataRow> );
             }
         }
 

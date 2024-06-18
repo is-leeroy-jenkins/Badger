@@ -73,7 +73,7 @@ namespace Badger
         public StatusOfAmericanRescuePlanFunds( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfAmericanRescuePlanFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );

@@ -77,7 +77,7 @@ namespace Badger
         public StatusOfSupplementalFunds( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfSupplementalFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );

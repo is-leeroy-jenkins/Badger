@@ -168,7 +168,7 @@ namespace Badger
         public StatusOfBudgetExecution( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _lineNumber = _record[ "LineNumber" ]?.ToString( );
             _lineName = _record[ "LineName" ]?.ToString( );
             _lineCaption = _record[ "LineCaption" ]?.ToString( );

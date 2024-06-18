@@ -118,7 +118,7 @@ namespace Badger
         /// <param name="query">The query.</param>
         public SchemaType( IQuery query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ "SchemaTypesId" ]?.ToString( ) ?? "0" );
             _typeName = _record[ "TypeName" ]?.ToString( );
             _database = _record[ "Database" ]?.ToString( );

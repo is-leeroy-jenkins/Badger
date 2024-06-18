@@ -421,7 +421,7 @@ namespace Badger
             : base( query )
         {
             _source = query.Source;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
         }
 

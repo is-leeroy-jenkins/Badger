@@ -79,7 +79,7 @@ namespace Badger
         public Organization( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "OrganizationsId" ]?.ToString( ) ?? "0" );
             _name = Record[ "Name" ].ToString( );
             _code = Record[ "Code" ].ToString( );
@@ -96,7 +96,7 @@ namespace Badger
         public Organization( string org )
             : this( )
         {
-            _record = new DataBuilder( _source, GetArgs( org ) )?.Record;
+            _record = new DataGenerator( _source, GetArgs( org ) )?.Record;
             _id = int.Parse( _record[ "OrganizationsId" ]?.ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );

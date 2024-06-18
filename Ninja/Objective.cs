@@ -80,7 +80,7 @@ namespace Badger
         public Objective( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );
@@ -131,7 +131,7 @@ namespace Badger
         public Objective( string code )
             : this( )
         {
-            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );

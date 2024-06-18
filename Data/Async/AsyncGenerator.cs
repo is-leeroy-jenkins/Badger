@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        16-03-2024
 // ****************************************************************************************
-// <copyright file="AsyncBuilder.cs" company="Terry D. Eppler">
+// <copyright file="AsyncGenerator.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  AsyncBuilder.cs
+//  AsyncGenerator.cs
 // </summary>
 // ****************************************************************************************
 
@@ -51,27 +51,27 @@ namespace Badger
     /// </summary>
     /// <seealso cref="T:Badger.AsyncModel" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class AsyncBuilder : AsyncModel
+    public class AsyncGenerator : AsyncModel
     {
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
-        public AsyncBuilder( )
+        public AsyncGenerator( )
         {
         }
 
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
-        public AsyncBuilder( Source source, Provider provider = Provider.Access )
+        public AsyncGenerator( Source source, Provider provider = Provider.Access )
             : base( source, provider )
         {
         }
@@ -79,13 +79,13 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> The where. </param>
-        public AsyncBuilder( Source source, Provider provider, IDictionary<string, object> where )
+        public AsyncGenerator( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
         }
@@ -93,12 +93,12 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="dict"> </param>
-        public AsyncBuilder( Source source, IDictionary<string, object> dict )
+        public AsyncGenerator( Source source, IDictionary<string, object> dict )
             : base( source, dict )
         {
         }
@@ -106,7 +106,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -114,7 +114,7 @@ namespace Badger
         /// <param name="updates"> The updates. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncBuilder( Source source, Provider provider, IDictionary<string, object> updates,
+        public AsyncGenerator( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
@@ -123,7 +123,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -131,7 +131,7 @@ namespace Badger
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncBuilder( Source source, Provider provider, IEnumerable<string> columns,
+        public AsyncGenerator( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
             : base( source, provider, columns, where, commandType )
         {
@@ -140,7 +140,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -149,7 +149,7 @@ namespace Badger
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncBuilder( Source source, Provider provider, IEnumerable<string> fields,
+        public AsyncGenerator( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where,
             Command commandType )
             : base( source, provider, fields, numerics, where,
@@ -160,13 +160,13 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
-        public AsyncBuilder( Source source, Provider provider, string sqlText )
+        public AsyncGenerator( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
@@ -174,11 +174,11 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public AsyncBuilder( IQuery query )
+        public AsyncGenerator( IQuery query )
             : base( query )
         {
         }
@@ -186,13 +186,13 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.AsyncBuilder"/>
+        /// <see cref="T:Badger.AsyncGenerator"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The full path. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncBuilder( string fullPath, string sqlText, 
+        public AsyncGenerator( string fullPath, string sqlText, 
             Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {

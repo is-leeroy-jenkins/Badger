@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-02-2024
+//     Created:                 06-17-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-02-2024
+//     Last Modified On:        06-17-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application
-//    for EPA analysts.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -150,7 +150,7 @@ namespace Badger
         /// <summary>
         /// The data model
         /// </summary>
-        private protected DataBuilder _dataModel;
+        private protected DataGenerator _dataModel;
 
         /// <summary>
         /// The current
@@ -337,7 +337,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.DataWindow" /> class.
         /// </summary>
-        public DataWindow( ) 
+        public DataWindow( )
             : base( )
         {
             // Theme Properties
@@ -738,8 +738,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                return $"SELECT * FROM {_source} "
-                    + $"WHERE {where.ToCriteria( )};";
+                return $"SELECT * FROM {_source} " + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception _ex )
             {
@@ -791,8 +790,8 @@ namespace Badger
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlSelectQuery( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+        private string CreateSqlSelectQuery( IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             try
             {
@@ -814,9 +813,7 @@ namespace Badger
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} "
-                    + "FROM {Source} "
-                    + $"WHERE {_criteria} "
+                return $"SELECT {_names} " + "FROM {Source} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception _ex )
@@ -932,13 +929,11 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -962,13 +957,11 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -992,13 +985,11 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -2032,7 +2023,6 @@ namespace Badger
             }
         }
 
-
         /// <summary>
         /// Called when [calculator menu option click].
         /// </summary>
@@ -2232,6 +2222,7 @@ namespace Badger
                 Fail( _ex );
             }
         }
+
         /// <summary>
         /// Called when [provider RadioButton click].
         /// </summary>
@@ -2268,7 +2259,7 @@ namespace Badger
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                     }
 
-                    _dataModel = new DataBuilder( _source, _provider );
+                    _dataModel = new DataGenerator( _source, _provider );
                     _dataTable = _dataModel.DataTable;
                     _fields = _dataModel.Fields;
                     _numerics = _dataModel.Numerics;
@@ -2306,7 +2297,7 @@ namespace Badger
                     _firstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
-                        _dataModel = new DataBuilder( _source, _provider );
+                        _dataModel = new DataGenerator( _source, _provider );
                         var _data = _dataModel.DataElements[ _firstCategory ];
                         foreach( var _item in _data )
                         {

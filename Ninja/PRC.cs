@@ -401,7 +401,7 @@ namespace Badger
         protected PRC( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );
             _rpioName = _record[ "RpioName" ]?.ToString( );
@@ -483,7 +483,7 @@ namespace Badger
         /// <param name="map">The map.</param>
         protected PRC( IDictionary<string, object> map )
         {
-            _record = new DataBuilder( _source, map )?.Record;
+            _record = new DataGenerator( _source, map )?.Record;
             _map = _record.ToDictionary( );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );

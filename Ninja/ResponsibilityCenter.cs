@@ -76,7 +76,7 @@ namespace Badger
         public ResponsibilityCenter( IQuery query )
             : this( )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );
@@ -121,7 +121,7 @@ namespace Badger
         public ResponsibilityCenter( string rcCode )
             : this( )
         {
-            _record = new DataBuilder( _source, SetArgs( rcCode ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( rcCode ) )?.Record;
             _id = int.Parse( _record[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );

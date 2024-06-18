@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataBuilder.cs.cs
+//   DataGenerator.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -60,7 +60,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
-    public class DataBuilder : DataModel, IDataModel
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    public class DataGenerator : DataModel, IDataModel
     {
         /// <summary>
         /// Gets the duration.
@@ -142,20 +143,20 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
-        public DataBuilder( )
+        public DataGenerator( )
         {
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public DataBuilder( Source source, Provider provider = Provider.Access )
+        public DataGenerator( Source source, Provider provider = Provider.Access )
             : base( source, provider )
         {
         }
@@ -163,12 +164,12 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        public DataBuilder( Source source, Provider provider, IDictionary<string, object> where )
+        public DataGenerator( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
         }
@@ -176,11 +177,11 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
-        public DataBuilder( Source source, IDictionary<string, object> dict )
+        public DataGenerator( Source source, IDictionary<string, object> dict )
             : base( source, dict )
         {
         }
@@ -188,14 +189,14 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="updates">The updates.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates,
+        public DataGenerator( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
@@ -204,14 +205,14 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
+        public DataGenerator( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
             : base( source, provider, columns, where, commandType )
         {
@@ -220,7 +221,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -228,7 +229,7 @@ namespace Badger
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields,
+        public DataGenerator( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
@@ -238,12 +239,12 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public DataBuilder( Source source, Provider provider, string sqlText )
+        public DataGenerator( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
@@ -251,10 +252,10 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public DataBuilder( IQuery query )
+        public DataGenerator( IQuery query )
             : base( query )
         {
         }
@@ -262,12 +263,12 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataBuilder" /> class.
+        /// <see cref="T:Badger.DataGenerator" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( string fullPath, string sqlText, Command commandType = Command.SELECT )
+        public DataGenerator( string fullPath, string sqlText, Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }

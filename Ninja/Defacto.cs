@@ -78,7 +78,7 @@ namespace Badger
         public Defacto( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "DefactosId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );

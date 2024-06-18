@@ -95,7 +95,7 @@ namespace Badger
         public FundCategory( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _code = _record[ "Code" ].ToString( );
             _name = _record[ "Name" ].ToString( );

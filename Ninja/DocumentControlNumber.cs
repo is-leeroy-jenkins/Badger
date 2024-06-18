@@ -192,7 +192,7 @@ namespace Badger
         public DocumentControlNumber( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "DocumentControlNumbersId" ]?.ToString( ) ?? "0" );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );

@@ -100,7 +100,7 @@ namespace Badger
         public ActivityCode( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );
@@ -151,7 +151,7 @@ namespace Badger
         public ActivityCode( string code )
             : this( )
         {
-            _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            _record = new DataGenerator( Source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );

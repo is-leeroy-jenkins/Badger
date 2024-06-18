@@ -653,7 +653,7 @@ namespace Badger
         {
             try
             {
-                var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
+                var _data = new DataGenerator( Source.StatusOfAppropriations, Provider.Access );
                 var _dataTable = _data.DataTable;
                 var _report = new ExcelReport( _dataTable );
                 _report.SaveDialog( );

@@ -76,7 +76,7 @@ namespace Badger
         public ResourcePlanningOffice( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
@@ -124,7 +124,7 @@ namespace Badger
         public ResourcePlanningOffice( string rpioCode )
             : this( )
         {
-            _record = new DataBuilder( _source, SetArgs( rpioCode ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( rpioCode ) )?.Record;
             _id = int.Parse( _record?[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );

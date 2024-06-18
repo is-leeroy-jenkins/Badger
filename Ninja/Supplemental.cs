@@ -89,8 +89,8 @@ namespace Badger
             try
             {
                 return ( Map?.Any( ) == true )
-                    ? new DataBuilder( Source, Map )
-                    : default( DataBuilder );
+                    ? new DataGenerator( Source, Map )
+                    : default( DataGenerator );
             }
             catch( Exception _ex )
             {

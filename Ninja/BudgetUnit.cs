@@ -313,7 +313,7 @@ namespace Badger
         protected BudgetUnit( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );

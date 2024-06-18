@@ -150,7 +150,7 @@ namespace Badger
         public NationalProgram( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "NationalProgramsId" ]?.ToString( ) );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );
@@ -207,7 +207,7 @@ namespace Badger
         public NationalProgram( string code ) 
             : base( )
         {
-            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
+            _record = new DataGenerator( _source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "NationalProgramsId" ]?.ToString( ) );
             _name = _record[ "Name" ]?.ToString( );
             _code = _record[ "Code" ]?.ToString( );

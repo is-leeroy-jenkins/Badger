@@ -607,7 +607,7 @@ namespace Badger
         public Reprogramming( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ "TransfersId" ]?.ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );

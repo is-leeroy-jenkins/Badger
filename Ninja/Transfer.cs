@@ -345,7 +345,7 @@ namespace Badger
         protected Transfer( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );

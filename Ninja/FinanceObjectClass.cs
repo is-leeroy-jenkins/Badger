@@ -151,7 +151,7 @@ namespace Badger
         public FinanceObjectClass( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
@@ -208,7 +208,7 @@ namespace Badger
         public FinanceObjectClass( string focCode )
             : this( )
         {
-            _record = new DataBuilder( _source, GetArgs( focCode ) )?.Record;
+            _record = new DataGenerator( _source, GetArgs( focCode ) )?.Record;
             _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );

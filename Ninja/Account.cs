@@ -84,7 +84,7 @@ namespace Badger
             : base( query )
         {
             _source = query.Source;
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );
@@ -163,7 +163,7 @@ namespace Badger
         public Account( string code )
             : base( )
         {
-            _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            _record = new DataGenerator( Source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );

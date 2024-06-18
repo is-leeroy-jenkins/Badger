@@ -73,7 +73,7 @@ namespace Badger
         public OperatingPlan( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
             _map = Record.ToDictionary( );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );

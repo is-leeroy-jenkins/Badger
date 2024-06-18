@@ -132,7 +132,7 @@ namespace Badger
         public ApportionmentData( IQuery query )
             : this( )
         {
-            Record = new DataBuilder( query ).Record;
+            Record = new DataGenerator( query ).Record;
             Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );

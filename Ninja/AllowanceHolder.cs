@@ -101,7 +101,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
-        public AllowanceHolder( DataBuilder dataBuilder )
+        public AllowanceHolder( DataGenerator dataBuilder )
             : base( dataBuilder )
         {
             _record = dataBuilder.Record;
@@ -121,7 +121,7 @@ namespace Badger
         public AllowanceHolder( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
@@ -155,7 +155,7 @@ namespace Badger
         public AllowanceHolder( string ahCode )
             : base( )
         {
-            _record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
+            _record = new DataGenerator( Source, SetArgs( ahCode ) )?.Record;
             _id = int.Parse( _record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );

@@ -122,7 +122,7 @@ namespace Badger
         public BudgetObjectClass( BOC boc )
             : this( )
         {
-            _record = new DataBuilder( _source, SetArgs( boc ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( boc ) )?.Record;
             _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0.0" );
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );
@@ -139,7 +139,7 @@ namespace Badger
         public BudgetObjectClass( string code )
             : this( )
         {
-            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );
@@ -159,7 +159,7 @@ namespace Badger
         public BudgetObjectClass( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );

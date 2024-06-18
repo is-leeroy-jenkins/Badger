@@ -308,7 +308,7 @@ namespace Badger
             : base( query )
         {
             _source = query.Source;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );
             _objectiveCode = _record[ "ObjectiveCode" ].ToString( );

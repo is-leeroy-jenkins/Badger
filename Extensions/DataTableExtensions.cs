@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 06-17-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        06-17-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="DataTableExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataTableExtensions.cs
@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -73,7 +74,11 @@ namespace Badger
             try
             {
                 ThrowIf.Null( rootName, nameof( rootName ) );
-                var _xml = new XDocument { Declaration = new XDeclaration( "1.0", "utf-8", "" ) };
+                var _xml = new XDocument
+                {
+                    Declaration = new XDeclaration( "1.0", "utf-8", "" )
+                };
+
                 _xml.Add( new XElement( rootName ) );
                 foreach( DataRow _dataRow in dataTable.Rows )
                 {
@@ -210,8 +215,7 @@ namespace Badger
                 else
                 {
                     var _enumerable = dataTable?.AsEnumerable( )
-                        ?.Select( p => p.Field<string>( columnName ) )
-                        ?.Distinct( );
+                        ?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
 
                     return ( _enumerable?.Any( ) == true )
                         ? _enumerable?.ToArray( )
@@ -249,8 +253,7 @@ namespace Badger
                 else
                 {
                     var _query = dataTable.Select( _criteria )
-                        ?.Select( p => p.Field<string>( columnName ) )
-                        ?.Distinct( );
+                        ?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
 
                     return ( _query?.Any( ) == true )
                         ? _query?.ToArray( )
@@ -278,10 +281,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( dict, nameof( dict ) );
-                var _query = dataTable
-                    ?.Select( dict.ToCriteria( ) )
-                    ?.ToList( );
-
+                var _query = dataTable?.Select( dict.ToCriteria( ) )?.ToList( );
                 return ( _query?.Any( ) == true )
                     ? _query
                     : default( IEnumerable<DataRow> );
@@ -308,11 +308,7 @@ namespace Badger
                     _fields[ _i ] = dataTable.Columns[ _i ].ColumnName;
                 }
 
-                var _names = _fields
-                    ?.OrderBy( f => f.IndexOf( f ) )
-                    ?.Select( f => f )
-                    ?.ToArray( );
-
+                var _names = _fields?.OrderBy( f => f.IndexOf( f ) )?.Select( f => f )?.ToArray( );
                 return ( _names?.Any( ) == true )
                     ? _names
                     : default( string[ ] );
@@ -380,6 +376,7 @@ namespace Badger
                     if( _col.ColumnName.EndsWith( "Date" )
                        || _col.ColumnName.EndsWith( "Day" )
                        || ( ( _col.DataType == typeof( DateTime ) )
+                           | ( _col.DataType == typeof( DateOnly ) )
                            | ( _col.DataType == typeof( DateTimeOffset ) ) ) )
                     {
                         _columns.Add( _col );
@@ -475,6 +472,37 @@ namespace Badger
             {
                 Fail( _ex );
                 return default( SortedList<int, DataRow> );
+            }
+        }
+
+        /// <summary>
+        /// Converts to observable.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
+        public static ObservableCollection<DataRow> ToObservable( this DataTable dataTable )
+        {
+            try
+            {
+                if( dataTable?.Rows.Count > 0 )
+                {
+                    var _rows = new ObservableCollection<DataRow>( );
+                    foreach( DataRow _row in dataTable.Rows )
+                    {
+                        _rows.Add( _row );
+                    }
+
+                    return _rows?.Count > 0
+                        ? _rows
+                        : default( ObservableCollection<DataRow> );
+                }
+
+                return default( ObservableCollection<DataRow> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ObservableCollection<DataRow> );
             }
         }
 

@@ -161,7 +161,7 @@ namespace Badger
         /// <summary>
         /// The data model
         /// </summary>
-        private protected DataBuilder _dataModel;
+        private protected DataGenerator _dataModel;
 
         /// <summary>
         /// The data table
@@ -1022,7 +1022,7 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                var _model = new DataBuilder( Source.ApplicationTables, _provider );
+                var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )

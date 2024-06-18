@@ -73,7 +73,7 @@ namespace Badger
         public SpendingRate( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
         }
 

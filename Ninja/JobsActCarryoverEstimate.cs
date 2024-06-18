@@ -73,7 +73,7 @@ namespace Badger
         public JobsActCarryoverEstimate( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query ).Record;
+            Record = new DataGenerator( query ).Record;
             Map = Record.ToDictionary( );
             _id = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );

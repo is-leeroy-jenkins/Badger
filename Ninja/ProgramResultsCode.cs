@@ -87,7 +87,7 @@ namespace Badger
         public ProgramResultsCode( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -242,7 +242,7 @@ namespace Badger
         public ProgramResultsCode( IDictionary<string, object> dict ) 
             : this( )
         {
-            _record = new DataBuilder( _source, dict )?.Record;
+            _record = new DataGenerator( _source, dict )?.Record;
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );

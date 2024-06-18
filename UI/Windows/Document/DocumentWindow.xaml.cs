@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-29-2024
+//     Created:                 06-17-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-29-2024
+//     Last Modified On:        06-17-2024
 // ******************************************************************************************
-// <copyright file="DocWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="DocumentWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,20 +34,25 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DocWindow.xaml.cs
+//   DocumentWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media;
     using Syncfusion.SfSkinManager;
-    using Syncfusion.Windows.Controls.PivotGrid;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -63,8 +68,94 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class DocumentWindow : Window
     {
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The ext
+        /// </summary>
+        private EXT _extension;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private string _selectedPath;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, string> _documents;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private DataGenerator _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The prefix
+        /// </summary>
+        private string _prefix;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -132,41 +223,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -196,12 +252,30 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Gets or sets the selected item.
+        /// </summary>
+        /// <value>
+        /// The selected item.
+        /// </value>
+        public string SelectedPath
+        {
+            get
+            {
+                return _selectedPath;
+            }
+            private protected set
+            {
+                _selectedPath = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:Badger.DocumentWindow" /> class.
         /// </summary>
-        public DocumentWindow( ) 
+        public DocumentWindow( )
             : base( )
         {
             // Theme Properties
@@ -234,6 +308,14 @@ namespace Badger
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
 
+            // Initialize Default Provider
+            _source = Source.Resources;
+            _provider = Provider.Access;
+
+            // Initialize Collections
+            _filter = new Dictionary<string, object>( );
+            _documents = CreatePaths( );
+
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
@@ -260,6 +342,7 @@ namespace Badger
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
                 ToggleButton.Click += OnToggleButtonClick;
+                DocumentListBox.SelectionChanged += OnDocumentSelected;
             }
             catch( Exception _ex )
             {
@@ -384,6 +467,34 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes the viewer.
+        /// </summary>
+        private void InitializeViewer( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -428,6 +539,36 @@ namespace Badger
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Creates the paths.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<string, string> CreatePaths( )
+        {
+            try
+            {
+                var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                var _folder = ConfigurationManager.AppSettings[ "Documents" ];
+                var _documentPaths = new Dictionary<string, string>( );
+                var _dirPath = _prefix + _folder;
+                var _files = Directory.EnumerateFiles( _dirPath );
+                foreach( var _filePath in _files )
+                {
+                    var _fileName = Path.GetFileNameWithoutExtension( _filePath );
+                    _documentPaths.Add( _fileName, _filePath );
+                }
+
+                return ( _documentPaths?.Any( ) == true )
+                    ? _documentPaths
+                    : default( IDictionary<string, string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, string> );
             }
         }
 
@@ -603,6 +744,34 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes the list boxes.
+        /// </summary>
+        private void PopulateListBoxDocuments( )
+        {
+            try
+            {
+                DocumentListBox.Items?.Clear( );
+                foreach( var _kvp in _documents )
+                {
+                    var _item = new ListBoxItem
+                    {
+                        Height = 40,
+                        Name = _kvp.Key,
+                        Tag = _kvp.Value,
+                        Content = _kvp.Key.SplitPascal( ),
+                        ToolTip = _kvp.Key.SplitPascal( )
+                    };
+
+                    DocumentListBox.Items.Add( _item );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -614,6 +783,7 @@ namespace Badger
             {
                 InitializeTimer( );
                 InitializeToolbar( );
+                PopulateListBoxDocuments( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -1083,6 +1253,31 @@ namespace Badger
                 {
                     SetToolbarHidden( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [document selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnDocumentSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _listBox = sender as MetroListBox;
+                var _item = (ListBoxItem)_listBox?.SelectedValue;
+                var _content = _item?.Content.ToString( );
+                var _name = _content?.Replace( " ", "" );
+                var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                var _folder = ConfigurationManager.AppSettings[ "Documents" ];
+                _selectedPath = _prefix + _folder + _name + ".pdf";
+                PdfViewer.Load( _selectedPath );
             }
             catch( Exception _ex )
             {

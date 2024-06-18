@@ -261,7 +261,7 @@ namespace Badger
         /// <param name="query">The query.</param>
         protected DataUnit( IQuery query ) 
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _code = _record[ "Code" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );
             _map = _record.ToDictionary( );

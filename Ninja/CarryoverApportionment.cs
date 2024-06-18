@@ -377,7 +377,7 @@ namespace Badger
         public CarryoverApportionment( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "CarryoverApportionmentsId" ]?.ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ]?.ToString( );

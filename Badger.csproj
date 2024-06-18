@@ -22,12 +22,16 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>True</Optimize>
+    <Optimize>False</Optimize>
     <IsPublishable>False</IsPublishable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <IsPublishable>False</IsPublishable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows7.0|AnyCPU'">
+    <Optimize>False</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,62 +47,6 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="ItCodeGuidance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx" />
-    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx" />
-    <EmbeddedResource Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx" />
-    <EmbeddedResource Remove="Resources\Documents\AntiDeficiencyAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\BudgetControlAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\CleanAirAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\CleanWaterAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\DataAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\DeobligationRecertificationGuidance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx" />
-    <EmbeddedResource Remove="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx" />
-    <EmbeddedResource Remove="Resources\Documents\FederalTrustFundAccountingGuide.resx" />
-    <EmbeddedResource Remove="Resources\Documents\FundsControlManual.resx" />
-    <EmbeddedResource Remove="Resources\Documents\GovernmentAuditingStandards.resx" />
-    <EmbeddedResource Remove="Resources\Documents\GovernmentInvoicingUserGuide.resx" />
-    <EmbeddedResource Remove="Resources\Documents\IncidentManagementHandbook.resx" />
-    <EmbeddedResource Remove="Resources\Documents\IndirectCostsOfAssistanceAgreements.resx" />
-    <EmbeddedResource Remove="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ItCodeGuidance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.resx" />
-    <EmbeddedResource Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx" />
-    <EmbeddedResource Remove="Resources\Documents\MoneyAndFinance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\NonDirectAllocableCosts.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ObjectClassManual.resx" />
-    <EmbeddedResource Remove="Resources\Documents\OfficialTravel.resx" />
-    <EmbeddedResource Remove="Resources\Documents\OilPollutionAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\PollutionPreventionAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.resx" />
-    <EmbeddedResource Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.resx" />
-    <EmbeddedResource Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.resx" />
-    <EmbeddedResource Remove="Resources\Documents\PurchaseCardPolicy.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ResourceConservationAndRecoveryAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SafeDrinkingWaterAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SepartationOfDuties.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SolidWasteDisposalAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SplitFundingRequirements.resx" />
-    <EmbeddedResource Remove="Resources\Documents\StaffordAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundAnnualAllocationGuidance.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundBudgetAndResourceManagement.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundContracts.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundCostRecoveryProcess.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundGeneralInformation.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundInterAgencyAgreements.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundIntroduction.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundSiteSpecificCostAccounting.resx" />
-    <EmbeddedResource Remove="Resources\Documents\SuperfundSpecialAccounts.resx" />
-    <EmbeddedResource Remove="Resources\Documents\ToxicSubstancesControlAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.resx" />
-    <EmbeddedResource Remove="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -220,6 +168,62 @@
     <None Remove="Resources\Assets\ToolStripImages\PrintButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\RefreshButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SaveButton.png" />
+    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf" />
+    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf" />
+    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf" />
+    <None Remove="Resources\Documents\AntiDeficiencyAct.pdf" />
+    <None Remove="Resources\Documents\BudgetControlAct.pdf" />
+    <None Remove="Resources\Documents\CleanAirAct.pdf" />
+    <None Remove="Resources\Documents\CleanWaterAct.pdf" />
+    <None Remove="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf" />
+    <None Remove="Resources\Documents\DataAct.pdf" />
+    <None Remove="Resources\Documents\DeobligationRecertificationGuidance.pdf" />
+    <None Remove="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf" />
+    <None Remove="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf" />
+    <None Remove="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf" />
+    <None Remove="Resources\Documents\FederalTrustFundAccountingGuide.pdf" />
+    <None Remove="Resources\Documents\FundsControlManual.pdf" />
+    <None Remove="Resources\Documents\GovernmentAuditingStandards.pdf" />
+    <None Remove="Resources\Documents\GovernmentInvoicingUserGuide.pdf" />
+    <None Remove="Resources\Documents\IncidentManagementHandbook.pdf" />
+    <None Remove="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf" />
+    <None Remove="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf" />
+    <None Remove="Resources\Documents\ItCodeGuidance.pdf" />
+    <None Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf" />
+    <None Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf" />
+    <None Remove="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf" />
+    <None Remove="Resources\Documents\MoneyAndFinance.pdf" />
+    <None Remove="Resources\Documents\NonDirectAllocableCosts.pdf" />
+    <None Remove="Resources\Documents\ObjectClassManual.pdf" />
+    <None Remove="Resources\Documents\OfficialTravel.pdf" />
+    <None Remove="Resources\Documents\OilPollutionAct.pdf" />
+    <None Remove="Resources\Documents\PollutionPreventionAct.pdf" />
+    <None Remove="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf" />
+    <None Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf" />
+    <None Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf" />
+    <None Remove="Resources\Documents\PurchaseCardPolicy.pdf" />
+    <None Remove="Resources\Documents\ResourceConservationAndRecoveryAct.pdf" />
+    <None Remove="Resources\Documents\SafeDrinkingWaterAct.pdf" />
+    <None Remove="Resources\Documents\SepartationOfDuties.pdf" />
+    <None Remove="Resources\Documents\SolidWasteDisposalAct.pdf" />
+    <None Remove="Resources\Documents\SplitFundingRequirements.pdf" />
+    <None Remove="Resources\Documents\StaffordAct.pdf" />
+    <None Remove="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf" />
+    <None Remove="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf" />
+    <None Remove="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf" />
+    <None Remove="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf" />
+    <None Remove="Resources\Documents\SuperfundContracts.pdf" />
+    <None Remove="Resources\Documents\SuperfundCostRecoveryProcess.pdf" />
+    <None Remove="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf" />
+    <None Remove="Resources\Documents\SuperfundGeneralInformation.pdf" />
+    <None Remove="Resources\Documents\SuperfundInterAgencyAgreements.pdf" />
+    <None Remove="Resources\Documents\SuperfundIntroduction.pdf" />
+    <None Remove="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf" />
+    <None Remove="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf" />
+    <None Remove="Resources\Documents\SuperfundSpecialAccounts.pdf" />
+    <None Remove="Resources\Documents\ToxicSubstancesControlAct.pdf" />
+    <None Remove="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf" />
+    <None Remove="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf" />
     <None Remove="Resources\Reports\Report.xlsx" />
     <None Remove="SplashNotification.png" />
     <None Remove="TaskManagerItem.png" />
@@ -796,226 +800,173 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2021.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\AntiDeficiencyAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AntiDeficiencyAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\AntiDeficiencyAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\BudgetControlAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BudgetControlAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\BudgetControlAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\CleanAirAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CleanAirAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\CleanAirAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\CleanWaterAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CleanWaterAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\CleanWaterAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\DataAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DataAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\DataAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DeobligationRecertificationGuidance.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmergencyResponseMissionAssignmentGuidance.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalAccountSymbolsAndTitlesBook.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalGovernmentStandardsForInternalControls.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FederalTrustFundAccountingGuide.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\FundsControlManual.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FundsControlManual.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\FundsControlManual.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\GovernmentAuditingStandards.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GovernmentAuditingStandards.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\GovernmentAuditingStandards.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GovernmentInvoicingUserGuide.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\IncidentManagementHandbook.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>IncidentManagementHandbook.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\IncidentManagementHandbook.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndirectCostsOfAssistanceAgreements.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>InflationReductionActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ItCodeGuidance.resx" />
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2022.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ItCodeGuidance.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>JobsActAdviceOfAllowanceFiscalYear2023.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\MoneyAndFinance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MoneyAndFinance.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\NonDirectAllocableCosts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>NonDirectAllocableCosts.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\MoneyAndFinance.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ObjectClassManual.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ObjectClassManual.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\NonDirectAllocableCosts.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\OfficialTravel.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OfficialTravel.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ObjectClassManual.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\OilPollutionAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OilPollutionAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\OfficialTravel.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\PollutionPreventionAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PollutionPreventionAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\OilPollutionAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PreparationSubmissionAndExecutionOfTheBudget.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\PollutionPreventionAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeOne.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PrinciplesOfFederalAppropriationsLawVolumeTwo.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\PurchaseCardPolicy.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PurchaseCardPolicy.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceConservationAndRecoveryAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\PurchaseCardPolicy.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SafeDrinkingWaterAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SafeDrinkingWaterAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SepartationOfDuties.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SepartationOfDuties.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SafeDrinkingWaterAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SolidWasteDisposalAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SolidWasteDisposalAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SepartationOfDuties.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SplitFundingRequirements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SplitFundingRequirements.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SolidWasteDisposalAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\StaffordAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StaffordAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SplitFundingRequirements.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StatutoryAuthoritiesForInterAgencyAgreements.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\StaffordAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundAmendmentsAndReauthorizationAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundAnnualAllocationGuidance.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundBudgetAndResourceManagement.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundContracts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundContracts.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundCostRecoveryProcess.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundContracts.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundDirectChargingOfSuperfundCosts.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundGeneralInformation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundGeneralInformation.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundInterAgencyAgreements.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundGeneralInformation.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundIntroduction.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundIntroduction.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundPersonnelAndSupportCostAllocation.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundIntroduction.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundSiteSpecificCostAccounting.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\SuperfundSpecialAccounts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SuperfundSpecialAccounts.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\ToxicSubstancesControlAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ToxicSubstancesControlAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\SuperfundSpecialAccounts.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WaterInfrastructureFinanceAndInnovationAct.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\ToxicSubstancesControlAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WaterInfrastructureImprovementsForTheNation.Designer.cs</LastGenOutput>
+    <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Reports\Report.xlsx" />
     <Resource Include="UI\Windows\Calculator\Cancel.png" />

@@ -238,7 +238,7 @@ namespace Badger
         {
             _source = query.Source;
             _provider = query.Provider;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
             _code = _record[ "TreasuryAccountCode" ].ToString( );
             _name = _record[ "TreasuryAccountName" ].ToString( );

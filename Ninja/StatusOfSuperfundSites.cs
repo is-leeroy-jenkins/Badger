@@ -213,7 +213,7 @@ namespace Badger
         /// <param name="query"> The query. </param>
         public StatusOfSuperfundSites( IQuery query ) : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfSuperfundSitesId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );

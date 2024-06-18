@@ -74,7 +74,7 @@ namespace Badger
         public AccountingEvent( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
             _code = _record[ "Code" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );

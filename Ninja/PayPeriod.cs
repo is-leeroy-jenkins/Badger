@@ -100,7 +100,7 @@ namespace Badger
         /// <param name="query">The query.</param>
         public PayPeriod( IQuery query )
         {
-            Record = new DataBuilder( query ).Record;
+            Record = new DataGenerator( query ).Record;
             Data = Record.ToDictionary( );
         }
 

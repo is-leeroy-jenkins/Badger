@@ -78,7 +78,7 @@ namespace Badger
             : base( query )
         {
             _source = Source.UnliquidatedObligations;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "UnliquidatedObligationsId" ].ToString( ) ?? "0" );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );

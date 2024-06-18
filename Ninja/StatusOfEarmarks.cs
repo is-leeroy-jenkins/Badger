@@ -145,7 +145,7 @@ namespace Badger
         public StatusOfEarmarks( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
@@ -309,7 +309,7 @@ namespace Badger
         public StatusOfEarmarks( IDictionary<string, object> map ) 
             : base( )
         {
-            _record = new DataBuilder( _source, map )?.Record;
+            _record = new DataGenerator( _source, map )?.Record;
             _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );

@@ -265,7 +265,7 @@
             : base( query )
         {
             _source = query.Source;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _fund = _record[ "Fund" ].ToString( );
             _documentNumber = _record[ "DocumnetNumber" ].ToString( );

@@ -381,7 +381,7 @@ namespace Badger
         protected FundSymbol( IQuery query )
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _mainAccount = _record[ "MainAccount" ].ToString( );

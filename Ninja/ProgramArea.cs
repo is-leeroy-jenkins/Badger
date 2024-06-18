@@ -77,7 +77,7 @@ namespace Badger
         public ProgramArea( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
             _code = _record[ "Code" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );
@@ -124,7 +124,7 @@ namespace Badger
         /// <param name="code">The code.</param>
         public ProgramArea( string code )
         {
-            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
             _code = _record[ "Code" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );

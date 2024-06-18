@@ -111,7 +111,7 @@ namespace Badger
         public StateGrantObligation( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );
             _rpioName = _record[ "RpioName" ]?.ToString( );

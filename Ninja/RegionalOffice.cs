@@ -72,7 +72,7 @@ namespace Badger
         public RegionalOffice( IQuery query ) 
             : base( query )
         {
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );
             _map = _record?.ToDictionary( );

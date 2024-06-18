@@ -331,7 +331,7 @@ namespace Badger
             : base( query )
         {
             _source = Source.Obligations;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "ObligationsId" ]?.ToString( ) ?? "0" );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );

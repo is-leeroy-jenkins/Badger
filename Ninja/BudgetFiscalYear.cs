@@ -160,7 +160,7 @@ namespace Badger
             : this( )
         {
             _inputYear = bfy;
-            _record = new DataBuilder( _source, SetArgs( bfy ) )?.Record;
+            _record = new DataGenerator( _source, SetArgs( bfy ) )?.Record;
             _id = int.Parse( _record[ "FiscalYearsId" ].ToString( ) );
             _firstYear = _record[ "FirstYear" ].ToString( );
             _lastYear = _record[ "LastYEar" ].ToString( );
@@ -190,7 +190,7 @@ namespace Badger
             _currentYear = DateTime.Now.Year;
             _currentMonth = DateTime.Now.Month;
             _currentDay = DateTime.Now.Day;
-            _record = new DataBuilder( query )?.Record;
+            _record = new DataGenerator( query )?.Record;
             _id = int.Parse( _record[ "FiscalYearsId" ].ToString( ) );
             _firstYear = _record[ "FirstYear" ].ToString( );
             _lastYear = _record[ "LastYEar" ].ToString( );

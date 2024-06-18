@@ -81,7 +81,7 @@ namespace Badger
             : base( query )
         {
             _source = Source.FullTimeEquivalents;
-            _record = new DataBuilder( query ).Record;
+            _record = new DataGenerator( query ).Record;
             _id = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
             _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
