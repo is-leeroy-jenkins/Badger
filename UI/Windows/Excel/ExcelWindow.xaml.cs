@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 06-17-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        06-17-2024
 // ******************************************************************************************
 // <copyright file="ExcelWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -41,7 +41,10 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
@@ -63,6 +66,157 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class ExcelWindow : Window
     {
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private protected string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private protected string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private protected string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private protected string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private protected string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private protected string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private protected string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private protected string _fourthValue;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The xaxis
+        /// </summary>
+        private protected string _xaxis;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private protected IList<string> _yvalues;
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        private protected STAT _metric;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataGenerator _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private protected IList<string> _columns;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private protected IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private protected IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private protected IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -108,41 +262,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -177,7 +296,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ExcelWindow" /> class.
         /// </summary>
-        public ExcelWindow( ) 
+        public ExcelWindow( )
             : base( )
         {
             // Theme Properties
@@ -209,6 +328,18 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Default Provider
+            _provider = Provider.Access;
+
+            // Initialize Collections
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
 
             // Window Events
             Loaded += OnLoaded;
@@ -579,6 +710,36 @@ namespace Badger
         }
 
         /// <summary>
+        /// Populates the execution tables.
+        /// </summary>
+        private void PopulateExecutionTables( )
+        {
+            try
+            {
+                DataTableListBox.Items?.Clear( );
+                var _model = new DataGenerator( Source.ApplicationTables, _provider );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        DataTableListBox.Items?.Add( _name );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -590,6 +751,7 @@ namespace Badger
             {
                 InitializeTimer( );
                 InitializeToolbar( );
+                PopulateExecutionTables( );
                 Opacity = 0;
                 FadeInAsync( this );
             }

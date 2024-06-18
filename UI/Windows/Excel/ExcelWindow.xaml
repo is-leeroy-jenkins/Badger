@@ -131,7 +131,7 @@
                     <local:MetroRadioButton x:Name="SqlCeRadioButton" Content="SQL CE" Canvas.Left="307"
                             Canvas.Top="117" RenderTransformOrigin="0.444,0.501" HorizontalAlignment="Left"
                             VerticalAlignment="Top" Width="65" Tag="SqlCe" />
-                    <local:MetroListBox x:Name="TableListBox" Height="328" Width="315"
+                    <local:MetroListBox x:Name="DataTableListBox" Height="328" Width="315"
                             d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="152" HorizontalAlignment="Left"
                             Canvas.Left="57" VerticalAlignment="Top" />
                     <local:MetroComboBox x:Name="FirstCategoryComboBox" Height="30" Width="180" Canvas.Left="422"

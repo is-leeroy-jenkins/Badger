@@ -1032,9 +1032,9 @@ namespace Badger
 
                 if( _names?.Any( ) == true )
                 {
-                    foreach( var name in _names )
+                    foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( name );
+                        DataTableListBox.Items?.Add( _name );
                     }
                 }
             }
@@ -1554,6 +1554,7 @@ namespace Badger
                 InitializeTabControls( );
                 InitializeLabels( );
                 InitializeToolbar( );
+                PopulateExecutionTables( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -2071,6 +2072,25 @@ namespace Badger
             try
             {
                 SetSecondaryTabControl( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRadioButtonSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _button = sender as MetroRadioButton;
+                var _type = _button?.Tag.ToString( );
             }
             catch( Exception ex )
             {

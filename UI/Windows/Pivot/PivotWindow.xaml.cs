@@ -1432,6 +1432,7 @@ namespace Badger
                 InitializeLabels( );
                 InitializeRadioButtons( );
                 InitializeToolbar( );
+                PopulateExecutionTables( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
