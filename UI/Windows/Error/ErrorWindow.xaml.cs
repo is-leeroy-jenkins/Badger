@@ -182,7 +182,7 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             WindowStyle = WindowStyle.None;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );

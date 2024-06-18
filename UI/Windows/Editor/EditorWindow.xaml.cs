@@ -227,7 +227,7 @@ namespace Badger
             Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             Title = "SQL Editor";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );

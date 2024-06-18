@@ -119,7 +119,7 @@ namespace Badger
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.None;
             Title = "Calculator";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

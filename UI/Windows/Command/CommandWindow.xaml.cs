@@ -221,7 +221,7 @@ namespace Badger
 
             // Basic Properties
             WindowStyle = WindowStyle.SingleBorderWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ResizeMode = ResizeMode.CanResize;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;

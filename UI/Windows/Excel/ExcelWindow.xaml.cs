@@ -66,7 +66,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class ExcelWindow : Window
     {
-
         /// <summary>
         /// The path
         /// </summary>
@@ -317,7 +316,7 @@ namespace Badger
             MaxHeight = 900;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Padding = new Thickness( 1 );
@@ -729,7 +728,10 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( _name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataTableListBox.Items?.Add( _item );
                     }
                 }
             }

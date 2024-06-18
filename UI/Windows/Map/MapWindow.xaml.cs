@@ -204,7 +204,7 @@ namespace Badger
             Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             Title = "GIS Data";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );

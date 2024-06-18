@@ -83,9 +83,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 186,
-            G = 207,
-            B = 255
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>

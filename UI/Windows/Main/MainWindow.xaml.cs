@@ -224,7 +224,7 @@ namespace Badger
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Margin = new Thickness( 1 );
-            Title = "Budget Execution";
+            Title = "Badger";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;

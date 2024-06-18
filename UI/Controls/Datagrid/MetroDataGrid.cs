@@ -58,9 +58,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 70,
-            G = 70,
-            B = 70
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Badger
             R = 50,
             G = 93,
             B = 129
-        };
+        }; 
 
         /// <inheritdoc />
         /// <summary>
@@ -130,6 +130,19 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            AllowEditing = true;
+            AllowSorting = true;
+            AllowDraggingColumns = true;
+            AllowResizingColumns = true;
+            AllowDeleting = true;
+            AllowRowHoverHighlighting = true;
+            AllowResizingColumns = true;
+            AllowGrouping = true;
+            AllowDrop = true;
+            AllowDraggingRows = true;
+            AllowCollectionView = true;
+            AutoGenerateColumnsMode = AutoGenerateColumnsMode.SmartReset;
+            AutoGenerateColumns = true;
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );

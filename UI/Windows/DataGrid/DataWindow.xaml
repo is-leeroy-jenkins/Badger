@@ -6,7 +6,7 @@
         xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" xmlns:badger="clr-namespace:Badger" x:Name="DataView"
         x:Class="Badger.DataWindow" mc:Ignorable="d" Title="Budget Execution" Background="#FF141414"
-        BorderBrush="#FF0078D4" Foreground="#FF9CD3FD" WindowStartupLocation="CenterScreen" Topmost="True"
+        BorderBrush="#FF0078D4" Foreground="#FF9CD3FD" WindowStartupLocation="CenterOwner" Topmost="True"
         BorderThickness="1,1,1,1" d:DesignWidth="1400" Height="800" VerticalContentAlignment="Bottom" Width="1400">
     <Window.ContextMenu>
         <ContextMenu Name="DataWindowContextMenu">
@@ -133,57 +133,58 @@
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Datagrid/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="523" Canvas.Left="856" Canvas.Top="11"
+        <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="319" Canvas.Left="1063" Canvas.Top="14"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
+            <TabItem x:Name="SourceTab" Height="24" Header="Source" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,5,0,0">
-                    <local:MetroRadioButton x:Name="ExecutionRadioButton" Content="Execution " Canvas.Left="154"
-                            Canvas.Top="73" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78"
-                            Tag="EXECUTION" ToolTip="Execution Data Tables" Foreground="#FF0078D4" />
-                    <local:MetroRadioButton x:Name="ReferenceRadioButton" Content="Reference " Canvas.Left="249"
-                            Canvas.Top="73" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="REFERENCE"
-                            ToolTip="Reference Data Tables" Foreground="#FF0078D4" />
-                    <local:MetroListBox x:Name="DataTableListBox1" Height="368" Width="225" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            HorizontalAlignment="Center" Canvas.Top="105" VerticalAlignment="Top" Canvas.Left="154" />
+                    <local:MetroRadioButton x:Name="ExecutionRadioButton" Content="Execution " Canvas.Left="39"
+                            Canvas.Top="95" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78"
+                            Tag="EXECUTION" ToolTip="Execution Data Tables" Foreground="#FF0078D4" Height="22" />
+                    <local:MetroRadioButton x:Name="ReferenceRadioButton" Content="Reference " Canvas.Left="137"
+                            Canvas.Top="93" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="REFERENCE"
+                            ToolTip="Reference Data Tables" Foreground="#FF0078D4" Height="22" />
+                    <local:MetroListBox x:Name="DataSourceListBox" Height="346" Width="225"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="120"
+                            VerticalAlignment="Top" Canvas.Left="37" Background="#FF2D2D2D" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" IsSelected="True" Margin="0,0,0,0" Height="24" Padding="6,2,6,5">
+                    Foreground="#FFA0BDFC" Width="50" IsSelected="True" Margin="0,0,0,0" Height="24" Padding="6,2,6,5">
 
                 <Canvas x:Name="FilterGrid" Height="622" Margin="0,0,23,0">
 
-                    <local:MetroListBox x:Name="SecondCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="85" Canvas.Left="154" Canvas.Top="258" Width="200" HorizontalAlignment="Center"
+                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="85"
+                            Canvas.Left="37" Canvas.Top="258" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                             ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-                    <local:MetroListBox x:Name="ThirdCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="90" Canvas.Left="159" Canvas.Top="408" VerticalAlignment="Top" Width="200"
+                    <local:MetroListBox x:Name="ThirdListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="90"
+                            Canvas.Left="37" Canvas.Top="408" VerticalAlignment="Top" Width="200"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden"
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True"
                             HorizontalAlignment="Center" />
-                    <local:MetroListBox x:Name="FirstCategoryListBox" Height="81" Width="200"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="154" Canvas.Top="112"
+                    <local:MetroListBox x:Name="FirstListBox" Height="81" Width="200"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="37" Canvas.Top="112"
                             HorizontalAlignment="Left" VerticalAlignment="Top"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Background="#FF282828" Height="30" Width="200"
-                            Canvas.Left="151" Canvas.Top="69" ToolTip="Select First Category">
+                    <local:MetroComboBox x:Name="FirstComboBox" Background="#FF282828" Height="30" Width="150"
+                            Canvas.Left="37" Canvas.Top="69" ToolTip="Select First Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" Background="#FF141414" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="SecondCategoryComboBox" Background="#FF282828" Height="30" Width="200"
-                            Canvas.Left="149" Canvas.Top="218" ToolTip="Select Second Category">
+                    <local:MetroComboBox x:Name="SecondComboBox" Background="#FF282828" Height="30" Width="150"
+                            Canvas.Left="37" Canvas.Top="218" ToolTip="Select Second Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="ThirdCategoryComboBox" Background="#FF282828" Height="30" Width="200"
-                            Canvas.Left="154" Canvas.Top="368" RenderTransformOrigin="0.533,-0.565"
+                    <local:MetroComboBox x:Name="ThirdComboBox" Background="#FF282828" Height="30" Width="150"
+                            Canvas.Left="37" Canvas.Top="368" RenderTransformOrigin="0.533,-0.565"
                             HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Select Third Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
@@ -193,46 +194,46 @@
                     </local:MetroComboBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="GroupTab" Height="24" Header="Grouping" Width="100" Background="#FF141414"
+            <TabItem x:Name="GroupTab" Height="24" Header="Group" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,5" Margin="0,0,0,0">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
-                    <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" HorizontalAlignment="Center"
-                            Canvas.Left="151" Canvas.Top="62" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroListBox x:Name="FieldsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="181"
-                            Canvas.Left="151" Canvas.Top="92" VerticalAlignment="Top" Width="250"
+                    <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
+                            Canvas.Left="32" Canvas.Top="89" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                    <local:MetroListBox x:Name="FieldsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="153"
+                            Canvas.Left="27" Canvas.Top="120" VerticalAlignment="Top" Width="250"
                             HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select FIeld Groups" />
-                    <local:MetroListBox x:Name="NumericsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
-                            Canvas.Left="151" Canvas.Top="333" VerticalAlignment="Center" Width="250"
+                    <local:MetroListBox x:Name="NumericsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="129"
+                            Canvas.Left="27" Canvas.Top="333" VerticalAlignment="Top" Width="250"
                             HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select Numeric Groups" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170" HorizontalAlignment="Center"
-                            Canvas.Left="151" Canvas.Top="307" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                            Canvas.Left="27" Canvas.Top="307" VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="CalendarTab" Height="24" Header="Calendar" Width="100" Background="#FF141414"
+            <TabItem x:Name="CalendarTab" Height="24" Header="Dates" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="CalendarCanvas" Background="#FF141414" Margin="0,5,0,0">
-                    <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="159" Canvas.Top="75"
+                    <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="27" Canvas.Top="75"
                             HorizontalAlignment="Left" VerticalAlignment="Center" Width="235" Foreground="#FF0078D4"
                             Height="24" />
-                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="180" Canvas.Left="154"
+                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="180" Canvas.Left="27"
                             Canvas.Top="103" Width="240" HorizontalAlignment="Left" VerticalAlignment="Center"
                             BorderThickness="1,1,1,1" />
-                    <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="154" Canvas.Top="313"
+                    <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="27" Canvas.Top="313"
                             HorizontalAlignment="Left" VerticalAlignment="Center" Width="240" Foreground="#FF0078D4"
                             Height="24" />
-                    <local:MetroCalendar x:Name="Second_Calendar" Date="1/1/2020" Height="180" Canvas.Left="154"
+                    <local:MetroCalendar x:Name="Second_Calendar" Date="1/1/2020" Height="180" Canvas.Left="27"
                             Canvas.Top="338" Width="240" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="791" Canvas.Left="18" Canvas.Top="11"
-                HorizontalAlignment="Center" VerticalAlignment="Top">
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="637" Width="1026" Canvas.Left="22" Canvas.Top="15"
+                HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="DataTab" Header="Data" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" Margin="0,0,0,0" Height="24" Padding="6,2,6,5">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroDataGrid x:Name="DataGrid" Height="371" Canvas.Left="35" Canvas.Top="92" Width="724"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF0078D4"
+                    <local:MetroDataGrid x:Name="DataGrid" Height="371" Canvas.Left="9" Canvas.Top="92" Width="1004"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="#FF0078D4"
                             SelectionForegroundBrush="#FFFFFCFC" BorderThickness="2,2,2,2" />
                     <local:MetroLabel x:Name="DataHeader" Content="Data" Canvas.Left="34" Canvas.Top="15" Width="726"
                             HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF0078D4" />
@@ -241,8 +242,8 @@
             <TabItem x:Name="EditTab" Height="24" Header="Edit" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="EditTabCanvas" ScrollViewer.CanContentScroll="True"
-                        ScrollViewer.HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="570"
-                        Margin="17,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="767">
+                        ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="-7,0,-1,0"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Canvas HorizontalAlignment="Center" Height="430" Canvas.Left="0" Canvas.Top="0"
                             VerticalAlignment="Center" />
                     <local:MetroTextInput x:Name="Frame" Canvas.Left="5" Canvas.Top="80" HorizontalAlignment="Center"
@@ -251,32 +252,48 @@
                             HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <local:MetroTextInput Canvas.Left="515" Canvas.Top="80" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="180" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="170" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="180" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="170" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="180" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="170" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="285" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="265" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="285" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="265" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="285" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="265" Width="245" Height="80"
                             HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="390" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="5" Canvas.Top="360" Width="245" Height="80"
                             HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="390" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="260" Canvas.Top="360" Width="245" Height="80"
                             HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="390" Width="245" Height="80"
+                    <local:MetroTextInput Canvas.Left="515" Canvas.Top="360" Width="245" Height="80"
                             HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:MetroLabel x:Name="EditHeader" Content="Edit" Canvas.Left="18" Canvas.Top="9"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Width="702" Foreground="#FF0078D4" />
+                    <local:MetroLabel x:Name="EditHeader" Canvas.Left="18" Canvas.Top="9" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Width="702" Foreground="#FF0078D4" />
+                    <badger:MetroTextInput Canvas.Left="775" Canvas.Top="79" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="775" Canvas.Top="169" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="775" Canvas.Top="264" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="775" Canvas.Top="359" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="5" Canvas.Top="450" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="260" Canvas.Top="450" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="515" Canvas.Top="450" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroTextInput Canvas.Left="775" Canvas.Top="449" Width="245" Height="80"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SchemaTab" Height="24" Header="Schema" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SchemaCanvas" Background="#FF141414" HorizontalAlignment="Right" Height="595"
-                        Margin="0,0,75,0" VerticalAlignment="Top" Width="680">
+                        Margin="0,0,75,0" VerticalAlignment="Top" Width="859">
                     <local:MetroLabel x:Name="ProviderLabel" Content="Data Providers" Height="26"
                             HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="72" VerticalAlignment="Top"
                             Width="130" Foreground="#FF0078D4" />
@@ -295,8 +312,9 @@
                     <local:MetroListBox x:Name="DataTableListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
                             Height="110" Canvas.Left="25" Canvas.Top="208" VerticalAlignment="Top" Width="200"
                             HorizontalAlignment="Left" />
-                    <local:MetroListBox x:Name="DataColumnListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="110" Canvas.Left="450"
-                            Canvas.Top="208" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <local:MetroListBox x:Name="DataColumnListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
+                            Height="110" Canvas.Left="450" Canvas.Top="208" Width="200" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
                     <local:MetroRadioButton x:Name="SQLiteRadioButton" Content="SQLite" Canvas.Left="36"
                             Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" />
                     <local:MetroRadioButton x:Name="SqlSeverRadioButton" Content="SQL Server" Canvas.Left="110"
@@ -331,8 +349,9 @@
             <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="BusyTabCanvas" Background="#FF141414">
-                    <Image x:Name="PictureBox" Height="550" Canvas.Top="32" Width="732"
-                            gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif" Canvas.Left="25" />
+                    <Image x:Name="PictureBox" Height="601" Canvas.Top="6" Width="1002"
+                            gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif" Canvas.Left="11"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" />
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>

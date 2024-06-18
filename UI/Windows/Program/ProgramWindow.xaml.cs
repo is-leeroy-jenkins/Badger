@@ -205,7 +205,7 @@ namespace Badger
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Title = "Environmental Programs";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

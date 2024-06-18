@@ -301,7 +301,7 @@ namespace Badger
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "PDF Document Viewer";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );

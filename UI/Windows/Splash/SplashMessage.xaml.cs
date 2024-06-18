@@ -218,7 +218,7 @@ namespace Badger
             Margin = new Thickness( 3 );
             Padding = new Thickness( 1 );
             WindowStyle = WindowStyle.None;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );

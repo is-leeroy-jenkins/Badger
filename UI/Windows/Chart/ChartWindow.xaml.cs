@@ -349,8 +349,8 @@ namespace Badger
             BorderThickness = new Thickness( 1 );
             Margin = new Thickness( 3 );
             WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Chart Data";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Title = "Visualization";
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );
@@ -1034,7 +1034,10 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( _name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataTableListBox.Items?.Add( _item );
                     }
                 }
             }

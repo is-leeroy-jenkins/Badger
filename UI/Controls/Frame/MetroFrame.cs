@@ -63,9 +63,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 0,
+            G = 0,
+            B = 0
         };
 
         /// <summary>
@@ -74,9 +74,9 @@ namespace Badger
         private protected Color _containerColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -85,9 +85,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 160,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>

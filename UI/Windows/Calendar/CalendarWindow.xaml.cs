@@ -311,7 +311,7 @@ namespace Badger
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Title = "Fiscal Years";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );

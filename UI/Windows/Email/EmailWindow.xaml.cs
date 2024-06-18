@@ -221,7 +221,7 @@ namespace Badger
             WindowStyle = WindowStyle.SingleBorderWindow;
             BorderThickness = new Thickness( 1 );
             Title = "Email Viewer";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );

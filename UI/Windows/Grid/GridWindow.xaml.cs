@@ -166,7 +166,7 @@ namespace Badger
             Margin = new Thickness( 3 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Internet";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = new SolidColorBrush( _backColor );

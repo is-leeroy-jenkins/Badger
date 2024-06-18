@@ -349,8 +349,8 @@ namespace Badger
             Padding = new Thickness( 1 );
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Title = "Pivot Analysis";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Title = "Analysis";
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -811,9 +811,12 @@ namespace Badger
 
                 if( _names?.Any( ) == true )
                 {
-                    foreach( var name in _names )
+                    foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataTableListBox.Items?.Add( _item );
                     }
                 }
             }
@@ -1183,8 +1186,8 @@ namespace Badger
             {
                 FirstCategoryListBox.Items.Clear( );
                 SecondCategoryListBox.Items.Clear( );
-                //FieldListBox.Items.Clear( );
-                //NumericListBox.Items.Clear( );
+                FieldListBox.Items.Clear( );
+                NumericListBox.Items.Clear( );
             }
             catch( Exception ex )
             {

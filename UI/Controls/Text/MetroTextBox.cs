@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
 
@@ -54,36 +55,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroTextBox : TextBox
     {
-        /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _dropDownBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
         /// <summary>
         /// The back color
         /// </summary>
@@ -112,9 +83,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -173,6 +144,11 @@ namespace Badger
             Height = 24;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
+            HorizontalAlignment = HorizontalAlignment.Left;
+            VerticalAlignment = VerticalAlignment.Top;
+            HorizontalContentAlignment = HorizontalAlignment.Left;
+            VerticalContentAlignment = VerticalAlignment.Center;
+            Padding = new Thickness( 5, 1, 1, 1 );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

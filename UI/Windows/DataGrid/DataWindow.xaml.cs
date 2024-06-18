@@ -51,11 +51,16 @@ namespace Badger
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
+    using Syncfusion.Licensing;
     using Syncfusion.SfSkinManager;
+    using Syncfusion.UI.Xaml.CellGrid;
+    using Syncfusion.UI.Xaml.Diagram;
+    using Syncfusion.UI.Xaml.Grid;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
+    using DataRow = System.Data.DataRow;
 
     /// <inheritdoc />
     /// <summary>
@@ -348,7 +353,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "MaterialDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -368,8 +373,8 @@ namespace Badger
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Data";
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Title = "Data Management";
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -415,6 +420,7 @@ namespace Badger
                 ToggleButton.Click += OnToggleButtonClick;
                 ExecutionRadioButton.Checked += OnRadioButtonSelected;
                 ReferenceRadioButton.Checked += OnRadioButtonSelected;
+                DataSourceListBox.SelectionChanged += OnTableListBoxItemSelected;
             }
             catch( Exception _ex )
             {
@@ -503,9 +509,9 @@ namespace Badger
         {
             try
             {
-                FirstCategoryComboBox.Background = new SolidColorBrush( _itemColor );
-                SecondCategoryComboBox.Background = new SolidColorBrush( _itemColor );
-                ThirdCategoryComboBox.Background = new SolidColorBrush( _itemColor );
+                FirstComboBox.Background = new SolidColorBrush( _itemColor );
+                SecondComboBox.Background = new SolidColorBrush( _itemColor );
+                ThirdComboBox.Background = new SolidColorBrush( _itemColor );
             }
             catch( Exception _ex )
             {
@@ -521,9 +527,9 @@ namespace Badger
             try
             {
                 DataTab.IsSelected = true;
-                DataTab.Visibility = Visibility.Visible;
+                DataTab.Visibility = Visibility.Hidden;
                 SourceTab.IsSelected = true;
-                SourceTab.Visibility = Visibility.Visible;
+                SourceTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
@@ -936,7 +942,7 @@ namespace Badger
         {
             try
             {
-                DataTableListBox1.Items?.Clear( );
+                DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
@@ -947,7 +953,10 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox1.Items?.Add( _name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataSourceListBox.Items?.Add( _item );
                     }
                 }
             }
@@ -964,7 +973,7 @@ namespace Badger
         {
             try
             {
-                DataTableListBox1.Items?.Clear( );
+                DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
@@ -975,7 +984,10 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox1.Items?.Add( _name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataSourceListBox.Items?.Add( _item );
                     }
                 }
             }
@@ -992,18 +1004,22 @@ namespace Badger
         {
             try
             {
-                DataTableListBox1.Items?.Clear( );
+                DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox1.Items?.Add( _name );
+                        var _item = new MetroListBoxItem( );
+                        _item.Content = _name;
+                        _item.ToolTip = _name;
+                        DataSourceListBox.Items?.Add( _item );
                     }
                 }
             }
@@ -1022,19 +1038,19 @@ namespace Badger
             {
                 try
                 {
-                    if( FirstCategoryComboBox.Items?.Count > 0 )
+                    if( FirstComboBox.Items?.Count > 0 )
                     {
-                        FirstCategoryComboBox.Items?.Clear( );
+                        FirstComboBox.Items?.Clear( );
                     }
 
-                    if( FirstCategoryListBox.Items?.Count > 0 )
+                    if( FirstListBox.Items?.Count > 0 )
                     {
-                        FirstCategoryListBox.Items?.Clear( );
+                        FirstListBox.Items?.Clear( );
                     }
 
                     foreach( var _item in _fields )
                     {
-                        FirstCategoryComboBox.Items?.Add( _item );
+                        FirstComboBox.Items?.Add( _item );
                     }
                 }
                 catch( Exception _ex )
@@ -1053,14 +1069,14 @@ namespace Badger
             {
                 try
                 {
-                    if( SecondCategoryComboBox.Items?.Count > 0 )
+                    if( SecondComboBox.Items?.Count > 0 )
                     {
-                        SecondCategoryComboBox.Items?.Clear( );
+                        SecondComboBox.Items?.Clear( );
                     }
 
-                    if( SecondCategoryListBox.Items?.Count > 0 )
+                    if( SecondListBox.Items?.Count > 0 )
                     {
-                        SecondCategoryListBox.Items?.Clear( );
+                        SecondListBox.Items?.Clear( );
                     }
 
                     if( !string.IsNullOrEmpty( _firstValue ) )
@@ -1070,7 +1086,7 @@ namespace Badger
                             var _item = _fields[ _index ];
                             if( !_item.Equals( _firstCategory ) )
                             {
-                                SecondCategoryComboBox.Items?.Add( _item );
+                                SecondComboBox.Items?.Add( _item );
                             }
                         }
                     }
@@ -1091,14 +1107,14 @@ namespace Badger
             {
                 try
                 {
-                    if( ThirdCategoryComboBox.Items?.Count > 0 )
+                    if( ThirdComboBox.Items?.Count > 0 )
                     {
-                        ThirdCategoryComboBox.Items?.Clear( );
+                        ThirdComboBox.Items?.Clear( );
                     }
 
-                    if( ThirdCategoryListBox.Items?.Count > 0 )
+                    if( ThirdListBox.Items?.Count > 0 )
                     {
-                        ThirdCategoryListBox.Items?.Clear( );
+                        ThirdListBox.Items?.Clear( );
                     }
 
                     if( !string.IsNullOrEmpty( _firstValue )
@@ -1110,7 +1126,7 @@ namespace Badger
                             if( !_item.Equals( _firstCategory )
                                 && !_item.Equals( _secondCategory ) )
                             {
-                                ThirdCategoryComboBox.Items?.Add( _item );
+                                ThirdComboBox.Items?.Add( _item );
                             }
                         }
                     }
@@ -1351,24 +1367,24 @@ namespace Badger
             {
                 if( !string.IsNullOrEmpty( _thirdValue ) )
                 {
-                    ThirdCategoryComboBox.Items?.Clear( );
-                    ThirdCategoryListBox.Items?.Clear( );
+                    ThirdComboBox.Items?.Clear( );
+                    ThirdListBox.Items?.Clear( );
                     _thirdCategory = string.Empty;
                     _thirdValue = string.Empty;
                 }
 
                 if( !string.IsNullOrEmpty( _secondValue ) )
                 {
-                    SecondCategoryComboBox.Items?.Clear( );
-                    SecondCategoryListBox.Items?.Clear( );
+                    SecondComboBox.Items?.Clear( );
+                    SecondListBox.Items?.Clear( );
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
                 }
 
                 if( !string.IsNullOrEmpty( _firstValue ) )
                 {
-                    FirstCategoryComboBox.Items?.Clear( );
-                    FirstCategoryListBox.Items?.Clear( );
+                    FirstComboBox.Items?.Clear( );
+                    FirstListBox.Items?.Clear( );
                     _firstCategory = string.Empty;
                     _firstValue = string.Empty;
                 }
@@ -1430,9 +1446,9 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                FirstCategoryListBox.Items?.Clear( );
-                SecondCategoryListBox.Items?.Clear( );
-                ThirdCategoryListBox.Items?.Clear( );
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                ThirdListBox.Items?.Clear( );
                 FieldsListBox.Items?.Clear( );
                 NumericsListBox.Items?.Clear( );
             }
@@ -1449,9 +1465,9 @@ namespace Badger
         {
             try
             {
-                FirstCategoryComboBox.Items?.Clear( );
-                SecondCategoryComboBox.Items?.Clear( );
-                ThirdCategoryComboBox.Items?.Clear( );
+                FirstComboBox.Items?.Clear( );
+                SecondComboBox.Items?.Clear( );
+                ThirdComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1558,6 +1574,15 @@ namespace Badger
         {
             try
             {
+                if( string.IsNullOrEmpty( _firstCategory ) )
+                {
+                    FirstComboBox.Visibility = Visibility.Visible;
+                    FirstListBox.Visibility = Visibility.Visible;
+                    SecondComboBox.Visibility = Visibility.Hidden;
+                    SecondListBox.Visibility = Visibility.Hidden;
+                    ThirdComboBox.Visibility = Visibility.Hidden;
+                    ThirdListBox.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception _ex )
             {
@@ -2252,15 +2277,17 @@ namespace Badger
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnTableListBoxItemSelected( object sender )
+        private void OnTableListBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ListBox _listBox )
+            if( sender is MetroListBox _listBox )
             {
                 try
                 {
                     _filter.Clear( );
-                    Toolbar.Visibility = Visibility.Visible;
-                    var _title = _listBox.SelectedValue?.ToString( );
+                    PrimaryTabControl.SelectedIndex = 0;
+                    ShowToolbar( );
+                    var _item = _listBox.SelectedItem as MetroListBoxItem;
+                    var _title = _item.Content.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
@@ -2271,10 +2298,23 @@ namespace Badger
                     _dataTable = _generator.DataTable;
                     _fields = _generator.Fields;
                     _numerics = _generator.Numerics;
-                    PrimaryTabControl.SelectedIndex = 0;
-                    UpdateLabels( );
+                    DataGrid.ItemsSource = _dataTable;
+                    DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.SmartReset;
+                    DataGrid.AllowEditing = true;
+                    DataGrid.AutoGenerateColumns = true;
+                    DataGrid.AllowSorting = true;
+                    DataGrid.AllowDraggingColumns = true;
+                    DataGrid.AllowResizingColumns = true;
+                    DataGrid.AllowDeleting = true;
+                    DataGrid.AllowRowHoverHighlighting = true;
+                    DataGrid.AllowResizingColumns = true;
+                    DataGrid.AllowGrouping = true;
+                    DataGrid.AllowDrop = true;
+                    DataGrid.AllowDraggingRows = true;
+                    DataGrid.AllowCollectionView = true;
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
+                    SecondaryTabControl.SelectedIndex = 1;
                 }
                 catch( Exception _ex )
                 {
@@ -2301,7 +2341,7 @@ namespace Badger
                     _secondValue = string.Empty;
                     _thirdCategory = string.Empty;
                     _thirdValue = string.Empty;
-                    FirstCategoryListBox.Items?.Clear( );
+                    FirstListBox.Items?.Clear( );
                     _firstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
@@ -2309,7 +2349,7 @@ namespace Badger
                         var _data = _generator.DataElements[ _firstCategory ];
                         foreach( var _item in _data )
                         {
-                            FirstCategoryListBox.Items?.Add( _item );
+                            FirstListBox.Items?.Add( _item );
                         }
                     }
                 }
@@ -2324,7 +2364,7 @@ namespace Badger
         /// Called when [first ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnFirstListBoxItemSelected( object sender )
+        private void OnFirstListBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is MetroListBox _listBox )
             {
@@ -2367,7 +2407,7 @@ namespace Badger
                     _thirdValue = string.Empty;
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
-                        SecondCategoryListBox.Items?.Clear( );
+                        SecondListBox.Items?.Clear( );
                     }
 
                     _secondCategory = _comboBox.SelectedItem?.ToString( );
@@ -2376,7 +2416,7 @@ namespace Badger
                         var _data = _generator.DataElements[ _secondCategory ];
                         foreach( var _item in _data )
                         {
-                            SecondCategoryListBox.Items?.Add( _item );
+                            SecondListBox.Items?.Add( _item );
                         }
                     }
                 }
@@ -2391,7 +2431,7 @@ namespace Badger
         /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnSecondListBoxItemSelected( object sender )
+        private void OnSecondListBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ListBox _listBox )
             {
@@ -2431,9 +2471,9 @@ namespace Badger
                     _sqlQuery = string.Empty;
                     _thirdCategory = string.Empty;
                     _thirdValue = string.Empty;
-                    if( ThirdCategoryListBox.Items?.Count > 0 )
+                    if( ThirdListBox.Items?.Count > 0 )
                     {
-                        ThirdCategoryListBox.Items?.Clear( );
+                        ThirdListBox.Items?.Clear( );
                     }
 
                     _thirdCategory = _comboBox.SelectedItem?.ToString( );
@@ -2444,7 +2484,7 @@ namespace Badger
                         {
                             foreach( var _item in _data )
                             {
-                                ThirdCategoryListBox.Items?.Add( _item );
+                                ThirdListBox.Items?.Add( _item );
                             }
                         }
                     }
