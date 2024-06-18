@@ -15,10 +15,12 @@
     <RepositoryUrl>https://github.com/KarmaScripter/Badger.git</RepositoryUrl>
     <PackageTags>Data Analysis;Budget;Federal;Government;Data Visualization;WPF;</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeSymbols>False</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>latest</LangVersion>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,439 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ItCodeGuidance.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="ItCodeGuidance.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Application.png" />
-    <None Remove="CalculatorItem.png" />
-    <None Remove="CalendarItem.png" />
-    <None Remove="ChromeItem.png" />
-    <None Remove="ControlPanelItem.png" />
-    <None Remove="EdgeItem.png" />
-    <None Remove="FileItem.png" />
-    <None Remove="FirefoxItem.png" />
-    <None Remove="FolderItem.png" />
-    <None Remove="Minions\SqlCe\CompactView.exe" />
-    <None Remove="Minions\SQLite\DB Browser for SQLite.exe" />
-    <None Remove="Resources\Assets\DialogImages\AddColumnButton.png" />
-    <None Remove="Resources\Assets\DialogImages\AddRecordButton.png" />
-    <None Remove="Resources\Assets\DialogImages\AddTableButton.png" />
-    <None Remove="Resources\Assets\DialogImages\ApplicationError.ico" />
-    <None Remove="Resources\Assets\DialogImages\Calendar.png" />
-    <None Remove="Resources\Assets\DialogImages\ColumnConfiguration.png" />
-    <None Remove="Resources\Assets\DialogImages\CopyRecordButton.png" />
-    <None Remove="Resources\Assets\DialogImages\DataSettings.png" />
-    <None Remove="Resources\Assets\DialogImages\DeleteColumnButton.png" />
-    <None Remove="Resources\Assets\DialogImages\DeleteRecordButton.png" />
-    <None Remove="Resources\Assets\DialogImages\DeleteTableButton.png" />
-    <None Remove="Resources\Assets\DialogImages\EditColumnButton.png" />
-    <None Remove="Resources\Assets\DialogImages\EditRecordButton.png" />
-    <None Remove="Resources\Assets\DialogImages\EditSqlButton.png" />
-    <None Remove="Resources\Assets\DialogImages\ErrorDialog.png" />
-    <None Remove="Resources\Assets\DialogImages\FileBrowse.png" />
-    <None Remove="Resources\Assets\DialogImages\FolderBrowse.png" />
-    <None Remove="Resources\Assets\DialogImages\InputDialog.png" />
-    <None Remove="Resources\Assets\DialogImages\MenuDialog.png" />
-    <None Remove="Resources\Assets\DialogImages\SplashNotification.png" />
-    <None Remove="Resources\Assets\DialogImages\TextDialog.png" />
-    <None Remove="Resources\Assets\ExtensionImages\ACCDB.png" />
-    <None Remove="Resources\Assets\ExtensionImages\CSV.png" />
-    <None Remove="Resources\Assets\ExtensionImages\DB.png" />
-    <None Remove="Resources\Assets\ExtensionImages\DLL.png" />
-    <None Remove="Resources\Assets\ExtensionImages\DOC.png" />
-    <None Remove="Resources\Assets\ExtensionImages\DOCX.png" />
-    <None Remove="Resources\Assets\ExtensionImages\EXE.png" />
-    <None Remove="Resources\Assets\ExtensionImages\HTML.png" />
-    <None Remove="Resources\Assets\ExtensionImages\MDB.png" />
-    <None Remove="Resources\Assets\ExtensionImages\MDF.png" />
-    <None Remove="Resources\Assets\ExtensionImages\PDF.png" />
-    <None Remove="Resources\Assets\ExtensionImages\PNG.png" />
-    <None Remove="Resources\Assets\ExtensionImages\PPTX.png" />
-    <None Remove="Resources\Assets\ExtensionImages\PY.png" />
-    <None Remove="Resources\Assets\ExtensionImages\SDF.png" />
-    <None Remove="Resources\Assets\ExtensionImages\SQL.png" />
-    <None Remove="Resources\Assets\ExtensionImages\TXT.png" />
-    <None Remove="Resources\Assets\ExtensionImages\XLS.png" />
-    <None Remove="Resources\Assets\ExtensionImages\XLSX.png" />
-    <None Remove="Resources\Assets\ExtensionImages\XML.png" />
-    <None Remove="Resources\Assets\FormImages\Application.png" />
-    <None Remove="Resources\Assets\LoaderImages\earth.gif" />
-    <None Remove="Resources\Assets\LoaderImages\Loading.gif" />
-    <None Remove="Resources\Assets\LoaderImages\Processing.gif" />
-    <None Remove="Resources\Assets\LoaderImages\Waiting.gif" />
-    <None Remove="Resources\Assets\MenuImages\CalculatorItem.png" />
-    <None Remove="Resources\Assets\MenuImages\CalendarItem.png" />
-    <None Remove="Resources\Assets\MenuImages\ChromeItem.png" />
-    <None Remove="Resources\Assets\MenuImages\ClockItem.png" />
-    <None Remove="Resources\Assets\MenuImages\CloseItem.png" />
-    <None Remove="Resources\Assets\MenuImages\ControlPanelItem.png" />
-    <None Remove="Resources\Assets\MenuImages\DocumentaionItem.png" />
-    <None Remove="Resources\Assets\MenuImages\EdgeItem.png" />
-    <None Remove="Resources\Assets\MenuImages\ExitItem.png" />
-    <None Remove="Resources\Assets\MenuImages\FileItem.png" />
-    <None Remove="Resources\Assets\MenuImages\FirefoxItem.png" />
-    <None Remove="Resources\Assets\MenuImages\FolderItem.png" />
-    <None Remove="Resources\Assets\MenuImages\MapItem.png" />
-    <None Remove="Resources\Assets\MenuImages\MediaPlayerItem.png" />
-    <None Remove="Resources\Assets\MenuImages\OneDriveItem.png" />
-    <None Remove="Resources\Assets\MenuImages\RefreshItem.png" />
-    <None Remove="Resources\Assets\MenuImages\SaveItem.png" />
-    <None Remove="Resources\Assets\MenuImages\TaskManagerItem.png" />
-    <None Remove="Resources\Assets\ProviderImages\Access.png" />
-    <None Remove="Resources\Assets\ProviderImages\Excel.ico" />
-    <None Remove="Resources\Assets\ProviderImages\Excel.png" />
-    <None Remove="Resources\Assets\ProviderImages\SqlCe.png" />
-    <None Remove="Resources\Assets\ProviderImages\SQLite.png" />
-    <None Remove="Resources\Assets\ProviderImages\SqlServer.png" />
-    <None Remove="Resources\Assets\TileImages\AccessTile.png" />
-    <None Remove="Resources\Assets\TileImages\BrowserTile.png" />
-    <None Remove="Resources\Assets\TileImages\CalendarTile.png" />
-    <None Remove="Resources\Assets\TileImages\DataTile.png" />
-    <None Remove="Resources\Assets\TileImages\EmailTile.png" />
-    <None Remove="Resources\Assets\TileImages\ExcelTile.png" />
-    <None Remove="Resources\Assets\TileImages\GuidanceTile.png" />
-    <None Remove="Resources\Assets\TileImages\MapTile.png" />
-    <None Remove="Resources\Assets\TileImages\PivotTile.png" />
-    <None Remove="Resources\Assets\TileImages\ProgramTile.png" />
-    <None Remove="Resources\Assets\TileImages\SqlCeTile.png" />
-    <None Remove="Resources\Assets\TileImages\SqlEditorTile.png" />
-    <None Remove="Resources\Assets\TileImages\SQLiteTile.png" />
-    <None Remove="Resources\Assets\TileImages\SqlServerTile.png" />
-    <None Remove="Resources\Assets\TileImages\VisualizationTile.png" />
-    <None Remove="Resources\Assets\ToolStripImages\AddColumnButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\AddRecordButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\BackButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\BrowseButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\DecreaseButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\DeleteButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\EditButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\ExcelButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\ExitButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\ExportButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\FilterButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\FirstButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\IncreaseButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\LastButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\LookUpButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\MapTile.png" />
-    <None Remove="Resources\Assets\ToolStripImages\MenuButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\NextButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\PreviousButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\PrintButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\RefreshButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\SaveButton.png" />
-    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf" />
-    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf" />
-    <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf" />
-    <None Remove="Resources\Documents\AntiDeficiencyAct.pdf" />
-    <None Remove="Resources\Documents\BudgetControlAct.pdf" />
-    <None Remove="Resources\Documents\CleanAirAct.pdf" />
-    <None Remove="Resources\Documents\CleanWaterAct.pdf" />
-    <None Remove="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf" />
-    <None Remove="Resources\Documents\DataAct.pdf" />
-    <None Remove="Resources\Documents\DeobligationRecertificationGuidance.pdf" />
-    <None Remove="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf" />
-    <None Remove="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf" />
-    <None Remove="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf" />
-    <None Remove="Resources\Documents\FederalTrustFundAccountingGuide.pdf" />
-    <None Remove="Resources\Documents\FundsControlManual.pdf" />
-    <None Remove="Resources\Documents\GovernmentAuditingStandards.pdf" />
-    <None Remove="Resources\Documents\GovernmentInvoicingUserGuide.pdf" />
-    <None Remove="Resources\Documents\IncidentManagementHandbook.pdf" />
-    <None Remove="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf" />
-    <None Remove="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf" />
-    <None Remove="Resources\Documents\ItCodeGuidance.pdf" />
-    <None Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf" />
-    <None Remove="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf" />
-    <None Remove="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf" />
-    <None Remove="Resources\Documents\MoneyAndFinance.pdf" />
-    <None Remove="Resources\Documents\NonDirectAllocableCosts.pdf" />
-    <None Remove="Resources\Documents\ObjectClassManual.pdf" />
-    <None Remove="Resources\Documents\OfficialTravel.pdf" />
-    <None Remove="Resources\Documents\OilPollutionAct.pdf" />
-    <None Remove="Resources\Documents\PollutionPreventionAct.pdf" />
-    <None Remove="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf" />
-    <None Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf" />
-    <None Remove="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf" />
-    <None Remove="Resources\Documents\PurchaseCardPolicy.pdf" />
-    <None Remove="Resources\Documents\ResourceConservationAndRecoveryAct.pdf" />
-    <None Remove="Resources\Documents\SafeDrinkingWaterAct.pdf" />
-    <None Remove="Resources\Documents\SepartationOfDuties.pdf" />
-    <None Remove="Resources\Documents\SolidWasteDisposalAct.pdf" />
-    <None Remove="Resources\Documents\SplitFundingRequirements.pdf" />
-    <None Remove="Resources\Documents\StaffordAct.pdf" />
-    <None Remove="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf" />
-    <None Remove="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf" />
-    <None Remove="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf" />
-    <None Remove="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf" />
-    <None Remove="Resources\Documents\SuperfundContracts.pdf" />
-    <None Remove="Resources\Documents\SuperfundCostRecoveryProcess.pdf" />
-    <None Remove="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf" />
-    <None Remove="Resources\Documents\SuperfundGeneralInformation.pdf" />
-    <None Remove="Resources\Documents\SuperfundInterAgencyAgreements.pdf" />
-    <None Remove="Resources\Documents\SuperfundIntroduction.pdf" />
-    <None Remove="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf" />
-    <None Remove="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf" />
-    <None Remove="Resources\Documents\SuperfundSpecialAccounts.pdf" />
-    <None Remove="Resources\Documents\ToxicSubstancesControlAct.pdf" />
-    <None Remove="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf" />
-    <None Remove="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf" />
-    <None Remove="Resources\Reports\Report.xlsx" />
-    <None Remove="SplashNotification.png" />
-    <None Remove="TaskManagerItem.png" />
-    <None Remove="UI\Windows\Calculator\Cancel.png" />
-    <None Remove="UI\Windows\Calculator\Main.png" />
-    <None Remove="UI\Windows\Calendar\Application.png" />
-    <None Remove="UI\Windows\Calendar\BackButton.png" />
-    <None Remove="UI\Windows\Calendar\BrowseButton.png" />
-    <None Remove="UI\Windows\Calendar\DeleteButton.png" />
-    <None Remove="UI\Windows\Calendar\EditButton.png" />
-    <None Remove="UI\Windows\Calendar\ExportButton.png" />
-    <None Remove="UI\Windows\Calendar\FirstButton.png" />
-    <None Remove="UI\Windows\Calendar\LastButton.png" />
-    <None Remove="UI\Windows\Calendar\LookUpButton.png" />
-    <None Remove="UI\Windows\Calendar\MenuButton.png" />
-    <None Remove="UI\Windows\Calendar\NextButton.png" />
-    <None Remove="UI\Windows\Calendar\PreviousButton.png" />
-    <None Remove="UI\Windows\Calendar\RefreshButton.png" />
-    <None Remove="UI\Windows\Calendar\SaveButton.png" />
-    <None Remove="UI\Windows\Calendar\ToggleButton.png" />
-    <None Remove="UI\Windows\Chart\Application.png" />
-    <None Remove="UI\Windows\Chart\BackButton.png" />
-    <None Remove="UI\Windows\Chart\BrowseButton.png" />
-    <None Remove="UI\Windows\Chart\DeleteButton.png" />
-    <None Remove="UI\Windows\Chart\EditButton.png" />
-    <None Remove="UI\Windows\Chart\ExportButton.png" />
-    <None Remove="UI\Windows\Chart\FilterButton.png" />
-    <None Remove="UI\Windows\Chart\FirstButton.png" />
-    <None Remove="UI\Windows\Chart\LastButton.png" />
-    <None Remove="UI\Windows\Chart\LookUpButton.png" />
-    <None Remove="UI\Windows\Chart\MenuButton.png" />
-    <None Remove="UI\Windows\Chart\NextButton.png" />
-    <None Remove="UI\Windows\Chart\PreviousButton.png" />
-    <None Remove="UI\Windows\Chart\RefreshButton.png" />
-    <None Remove="UI\Windows\Chart\SaveButton.png" />
-    <None Remove="UI\Windows\Chart\ToggleButton.png" />
-    <None Remove="UI\Windows\Datagrid\BackButton.png" />
-    <None Remove="UI\Windows\Datagrid\BrowseButton.png" />
-    <None Remove="UI\Windows\Datagrid\DeleteButton.png" />
-    <None Remove="UI\Windows\Datagrid\EditButton.png" />
-    <None Remove="UI\Windows\Datagrid\ExportButton.png" />
-    <None Remove="UI\Windows\Datagrid\FilterButton.png" />
-    <None Remove="UI\Windows\Datagrid\FirstButton.png" />
-    <None Remove="UI\Windows\Datagrid\LastButton.png" />
-    <None Remove="UI\Windows\Datagrid\Loading.gif" />
-    <None Remove="UI\Windows\Datagrid\LookUpButton.png" />
-    <None Remove="UI\Windows\Datagrid\MenuButton.png" />
-    <None Remove="UI\Windows\Datagrid\NextButton.png" />
-    <None Remove="UI\Windows\Datagrid\PreviousButton.png" />
-    <None Remove="UI\Windows\Datagrid\RefreshButton.png" />
-    <None Remove="UI\Windows\Datagrid\SaveButton.png" />
-    <None Remove="UI\Windows\Datagrid\ToggleButton.png" />
-    <None Remove="UI\Windows\Datagrid\Waiting.gif" />
-    <None Remove="UI\Windows\Document\Application.png" />
-    <None Remove="UI\Windows\Document\BackButton.png" />
-    <None Remove="UI\Windows\Document\BrowseButton.png" />
-    <None Remove="UI\Windows\Document\DeleteButton.png" />
-    <None Remove="UI\Windows\Document\EditButton.png" />
-    <None Remove="UI\Windows\Document\ExportButton.png" />
-    <None Remove="UI\Windows\Document\FilterButton.png" />
-    <None Remove="UI\Windows\Document\FirstButton.png" />
-    <None Remove="UI\Windows\Document\LastButton.png" />
-    <None Remove="UI\Windows\Document\LookUpButton.png" />
-    <None Remove="UI\Windows\Document\MenuButton.png" />
-    <None Remove="UI\Windows\Document\NextButton.png" />
-    <None Remove="UI\Windows\Document\PreviousButton.png" />
-    <None Remove="UI\Windows\Document\RefreshButton.png" />
-    <None Remove="UI\Windows\Document\SaveButton.png" />
-    <None Remove="UI\Windows\Document\ToggleButton.png" />
-    <None Remove="UI\Windows\Editor\Application.png" />
-    <None Remove="UI\Windows\Editor\BackButton.png" />
-    <None Remove="UI\Windows\Editor\BrowseButton.png" />
-    <None Remove="UI\Windows\Editor\DeleteButton.png" />
-    <None Remove="UI\Windows\Editor\EditButton.png" />
-    <None Remove="UI\Windows\Editor\ExportButton.png" />
-    <None Remove="UI\Windows\Editor\FilterButton.png" />
-    <None Remove="UI\Windows\Editor\FirstButton.png" />
-    <None Remove="UI\Windows\Editor\LastButton.png" />
-    <None Remove="UI\Windows\Editor\Loading.gif" />
-    <None Remove="UI\Windows\Editor\LookUpButton.png" />
-    <None Remove="UI\Windows\Editor\MenuButton.png" />
-    <None Remove="UI\Windows\Editor\NextButton.png" />
-    <None Remove="UI\Windows\Editor\PreviousButton.png" />
-    <None Remove="UI\Windows\Editor\RefreshButton.png" />
-    <None Remove="UI\Windows\Editor\SaveButton.png" />
-    <None Remove="UI\Windows\Editor\ToggleButton.png" />
-    <None Remove="UI\Windows\Email\Application.png" />
-    <None Remove="UI\Windows\Email\BackButton.png" />
-    <None Remove="UI\Windows\Email\BrowseButton.png" />
-    <None Remove="UI\Windows\Email\DeleteButton.png" />
-    <None Remove="UI\Windows\Email\EditButton.png" />
-    <None Remove="UI\Windows\Email\ExportButton.png" />
-    <None Remove="UI\Windows\Email\FilterButton.png" />
-    <None Remove="UI\Windows\Email\FirstButton.png" />
-    <None Remove="UI\Windows\Email\LastButton.png" />
-    <None Remove="UI\Windows\Email\LookUpButton.png" />
-    <None Remove="UI\Windows\Email\NextButton.png" />
-    <None Remove="UI\Windows\Email\PreviousButton.png" />
-    <None Remove="UI\Windows\Email\RefreshButton.png" />
-    <None Remove="UI\Windows\Email\SaveButton.png" />
-    <None Remove="UI\Windows\Email\ToggleButton.png" />
-    <None Remove="UI\Windows\Error\SplashNotification.png" />
-    <None Remove="UI\Windows\Excel\Application.png" />
-    <None Remove="UI\Windows\Excel\BackButton.png" />
-    <None Remove="UI\Windows\Excel\BrowseButton.png" />
-    <None Remove="UI\Windows\Excel\DeleteButton.png" />
-    <None Remove="UI\Windows\Excel\EditButton.png" />
-    <None Remove="UI\Windows\Excel\ExportButton.png" />
-    <None Remove="UI\Windows\Excel\FilterButton.png" />
-    <None Remove="UI\Windows\Excel\FirstButton.png" />
-    <None Remove="UI\Windows\Excel\LastButton.png" />
-    <None Remove="UI\Windows\Excel\Loading.gif" />
-    <None Remove="UI\Windows\Excel\LookUpButton.png" />
-    <None Remove="UI\Windows\Excel\MenuButton.png" />
-    <None Remove="UI\Windows\Excel\NextButton.png" />
-    <None Remove="UI\Windows\Excel\PreviousButton.png" />
-    <None Remove="UI\Windows\Excel\RefreshButton.png" />
-    <None Remove="UI\Windows\Excel\SaveButton.png" />
-    <None Remove="UI\Windows\Excel\ToggleButton.png" />
-    <None Remove="UI\Windows\File\ACCDB.png" />
-    <None Remove="UI\Windows\File\CSV.png" />
-    <None Remove="UI\Windows\File\DB.png" />
-    <None Remove="UI\Windows\File\DLL.png" />
-    <None Remove="UI\Windows\File\DOC.png" />
-    <None Remove="UI\Windows\File\DOCX.png" />
-    <None Remove="UI\Windows\File\EXE.png" />
-    <None Remove="UI\Windows\File\FileBrowse.png" />
-    <None Remove="UI\Windows\File\HTML.png" />
-    <None Remove="UI\Windows\File\MDB.png" />
-    <None Remove="UI\Windows\File\MDF.png" />
-    <None Remove="UI\Windows\File\PDF.png" />
-    <None Remove="UI\Windows\File\PNG.png" />
-    <None Remove="UI\Windows\File\PPTX.png" />
-    <None Remove="UI\Windows\File\PY.png" />
-    <None Remove="UI\Windows\File\SDF.png" />
-    <None Remove="UI\Windows\File\SQL.png" />
-    <None Remove="UI\Windows\File\TXT.png" />
-    <None Remove="UI\Windows\File\XLS.png" />
-    <None Remove="UI\Windows\File\XLSX.png" />
-    <None Remove="UI\Windows\File\XML.png" />
-    <None Remove="UI\Windows\Folder\FolderBrowse.png" />
-    <None Remove="UI\Windows\Grid\Application.png" />
-    <None Remove="UI\Windows\Grid\BackButton.png" />
-    <None Remove="UI\Windows\Grid\BrowseButton.png" />
-    <None Remove="UI\Windows\Grid\DeleteButton.png" />
-    <None Remove="UI\Windows\Grid\EditButton.png" />
-    <None Remove="UI\Windows\Grid\ExportButton.png" />
-    <None Remove="UI\Windows\Grid\FilterButton.png" />
-    <None Remove="UI\Windows\Grid\FirstButton.png" />
-    <None Remove="UI\Windows\Grid\LastButton.png" />
-    <None Remove="UI\Windows\Grid\LookUpButton.png" />
-    <None Remove="UI\Windows\Grid\MenuButton.png" />
-    <None Remove="UI\Windows\Grid\NextButton.png" />
-    <None Remove="UI\Windows\Grid\PreviousButton.png" />
-    <None Remove="UI\Windows\Grid\RefreshButton.png" />
-    <None Remove="UI\Windows\Grid\SaveButton.png" />
-    <None Remove="UI\Windows\Grid\ToggleButton.png" />
-    <None Remove="UI\Windows\Main\AccessTile.png" />
-    <None Remove="UI\Windows\Main\BrowserTile.png" />
-    <None Remove="UI\Windows\Main\CalendarTile.png" />
-    <None Remove="UI\Windows\Main\DataTile.png" />
-    <None Remove="UI\Windows\Main\EmailTile.png" />
-    <None Remove="UI\Windows\Main\ExcelTile.png" />
-    <None Remove="UI\Windows\Main\GuidanceTile.png" />
-    <None Remove="UI\Windows\Main\MapTile.png" />
-    <None Remove="UI\Windows\Main\PivotTile.png" />
-    <None Remove="UI\Windows\Main\ProgramTile.png" />
-    <None Remove="UI\Windows\Main\SqlCeTile.png" />
-    <None Remove="UI\Windows\Main\SqlEditorTile.png" />
-    <None Remove="UI\Windows\Main\SQLiteTile.png" />
-    <None Remove="UI\Windows\Main\SqlServerTile.png" />
-    <None Remove="UI\Windows\Main\VisualizationTile.png" />
-    <None Remove="UI\Windows\Map\Application.png" />
-    <None Remove="UI\Windows\Map\BackButton.png" />
-    <None Remove="UI\Windows\Map\BrowseButton.png" />
-    <None Remove="UI\Windows\Map\DeleteButton.png" />
-    <None Remove="UI\Windows\Map\EditButton.png" />
-    <None Remove="UI\Windows\Map\ExportButton.png" />
-    <None Remove="UI\Windows\Map\FilterButton.png" />
-    <None Remove="UI\Windows\Map\FirstButton.png" />
-    <None Remove="UI\Windows\Map\LastButton.png" />
-    <None Remove="UI\Windows\Map\LookUpButton.png" />
-    <None Remove="UI\Windows\Map\MenuButton.png" />
-    <None Remove="UI\Windows\Map\NextButton.png" />
-    <None Remove="UI\Windows\Map\PreviousButton.png" />
-    <None Remove="UI\Windows\Map\RefreshButton.png" />
-    <None Remove="UI\Windows\Map\SaveButton.png" />
-    <None Remove="UI\Windows\Input\InputDialog.png" />
-    <None Remove="UI\Windows\Input\SplashNotification.png" />
-    <None Remove="UI\Windows\Map\ToggleButton.png" />
-    <None Remove="UI\Windows\Pivot\Application.png" />
-    <None Remove="UI\Windows\Pivot\BackButton.png" />
-    <None Remove="UI\Windows\Pivot\BrowseButton.png" />
-    <None Remove="UI\Windows\Pivot\DeleteButton.png" />
-    <None Remove="UI\Windows\Pivot\EditButton.png" />
-    <None Remove="UI\Windows\Pivot\ExportButton.png" />
-    <None Remove="UI\Windows\Pivot\FilterButton.png" />
-    <None Remove="UI\Windows\Pivot\FirstButton.png" />
-    <None Remove="UI\Windows\Pivot\LastButton.png" />
-    <None Remove="UI\Windows\Pivot\Loading.gif" />
-    <None Remove="UI\Windows\Pivot\LookUpButton.png" />
-    <None Remove="UI\Windows\Pivot\MenuButton.png" />
-    <None Remove="UI\Windows\Pivot\NextButton.png" />
-    <None Remove="UI\Windows\Pivot\PreviousButton.png" />
-    <None Remove="UI\Windows\Pivot\RefreshButton.png" />
-    <None Remove="UI\Windows\Pivot\SaveButton.png" />
-    <None Remove="UI\Windows\Pivot\ToggleButton.png" />
-    <None Remove="UI\Windows\Program\Application.png" />
-    <None Remove="UI\Windows\Program\BackButton.png" />
-    <None Remove="UI\Windows\Program\BrowseButton.png" />
-    <None Remove="UI\Windows\Program\DeleteButton.png" />
-    <None Remove="UI\Windows\Program\EditButton.png" />
-    <None Remove="UI\Windows\Program\ExitButton.png" />
-    <None Remove="UI\Windows\Program\ExportButton.png" />
-    <None Remove="UI\Windows\Program\FilterButton.png" />
-    <None Remove="UI\Windows\Program\FirstButton.png" />
-    <None Remove="UI\Windows\Program\LastButton.png" />
-    <None Remove="UI\Windows\Program\LookUpButton.png" />
-    <None Remove="UI\Windows\Program\MenuButton.png" />
-    <None Remove="UI\Windows\Program\NextButton.png" />
-    <None Remove="UI\Windows\Program\PreviousButton.png" />
-    <None Remove="UI\Windows\Program\RefreshButton.png" />
-    <None Remove="UI\Windows\Program\SaveButton.png" />
-    <None Remove="UI\Windows\Program\ToggleButton.png" />
-    <None Remove="UI\Windows\Splash\SplashNotification.png" />
-    <None Remove="UI\Windows\Web\Application.png" />
-    <None Remove="UI\Windows\Web\BackButton.png" />
-    <None Remove="UI\Windows\Web\BrowseButton.png" />
-    <None Remove="UI\Windows\Web\DeleteButton.png" />
-    <None Remove="UI\Windows\Web\EditButton.png" />
-    <None Remove="UI\Windows\Web\ExportButton.png" />
-    <None Remove="UI\Windows\Web\FilterButton.png" />
-    <None Remove="UI\Windows\Web\FirstButton.png" />
-    <None Remove="UI\Windows\Web\LastButton.png" />
-    <None Remove="UI\Windows\Web\LookUpButton.png" />
-    <None Remove="UI\Windows\Web\MenuButton.png" />
-    <None Remove="UI\Windows\Web\NextButton.png" />
-    <None Remove="UI\Windows\Web\PreviousButton.png" />
-    <None Remove="UI\Windows\Web\RefreshButton.png" />
-    <None Remove="UI\Windows\Web\SaveButton.png" />
-    <None Remove="UI\Windows\Web\ToggleButton.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\Assets\DialogImages\FileBrowse.png" />
     <Resource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
     <Resource Include="Resources\Assets\DialogImages\SplashNotification.png" />
     <Resource Include="Resources\Assets\DialogImages\TextDialog.png" />
-    <EmbeddedResource Include="Minions\SqlCe\CompactView.exe" />
-    <EmbeddedResource Include="Minions\SQLite\DB Browser for SQLite.exe" />
-    <EmbeddedResource Include="Resources\Assets\FormImages\Application.ico" />
     <Resource Include="Resources\Assets\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -482,7 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Assets\LoaderImages\earth.gif" />
     <Resource Include="Resources\Assets\LoaderImages\Loading.gif" />
     <Resource Include="Resources\Assets\LoaderImages\Processing.gif" />
     <Resource Include="Resources\Assets\LoaderImages\Waiting.gif" />
@@ -632,63 +204,6 @@
     <Resource Include="Resources\Assets\ToolStripImages\PrintButton.png" />
     <Resource Include="Resources\Assets\ToolStripImages\RefreshButton.png" />
     <Resource Include="Resources\Assets\ToolStripImages\SaveButton.png" />
-    <EmbeddedResource Include="UI\Windows\File\ACCDB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\CSV.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\DB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\DLL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\DOC.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\DOCX.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\EXE.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\HTML.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\MDB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\MDF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\PDF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\PNG.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\PPTX.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\SDF.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\SQL.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\TXT.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\XLS.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\XLSX.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Windows\File\XML.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="cef.sdk" Version="125.0.21" />
@@ -791,6 +306,7 @@
     <Folder Include="IO\Excel\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1098,9 +614,6 @@
     <Resource Include="UI\Windows\Excel\SaveButton.png" />
     <Resource Include="UI\Windows\Excel\ToggleButton.png" />
     <Resource Include="UI\Windows\File\FileBrowse.png" />
-    <EmbeddedResource Include="UI\Windows\File\PY.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <Resource Include="UI\Windows\Folder\FolderBrowse.png" />
     <Resource Include="UI\Windows\Grid\Application.png" />
     <Resource Include="UI\Windows\Grid\BackButton.png" />
@@ -1247,41 +760,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WindowImages.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Images\DialogImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\ExtensionImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExtensionImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\LoaderImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LoaderImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\MenuImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MenuImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\ProviderImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProviderImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\ToolStripImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ToolStripImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\TileImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TileImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images\WindowImages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WindowImages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

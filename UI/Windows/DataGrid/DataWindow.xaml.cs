@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-17-2024
+//     Created:                 06-18-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2024
+//     Last Modified On:        06-18-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -150,7 +151,12 @@ namespace Badger
         /// <summary>
         /// The data model
         /// </summary>
-        private protected DataGenerator _dataModel;
+        private protected DataGenerator _generator;
+
+        /// <summary>
+        /// The binding source
+        /// </summary>
+        private protected ObservableCollection<DataRow> _bindingSource;
 
         /// <summary>
         /// The current
@@ -407,6 +413,8 @@ namespace Badger
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
                 ToggleButton.Click += OnToggleButtonClick;
+                ExecutionRadioButton.Checked += OnRadioButtonSelected;
+                ReferenceRadioButton.Checked += OnRadioButtonSelected;
             }
             catch( Exception _ex )
             {
@@ -835,7 +843,7 @@ namespace Badger
                     var _message = "    The Data Table is null!";
                     SendMessage( _message );
                 }
-                else if( _dataModel.Numerics == null )
+                else if( _generator.Numerics == null )
                 {
                     var _message = "    The data is not alpha-numeric";
                     SendMessage( _message );
@@ -928,7 +936,7 @@ namespace Badger
         {
             try
             {
-                DataTableListBox.Items?.Clear( );
+                DataTableListBox1.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
@@ -939,7 +947,7 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( _name );
+                        DataTableListBox1.Items?.Add( _name );
                     }
                 }
             }
@@ -956,7 +964,7 @@ namespace Badger
         {
             try
             {
-                DataTableListBox.Items?.Clear( );
+                DataTableListBox1.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
@@ -967,7 +975,7 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( _name );
+                        DataTableListBox1.Items?.Add( _name );
                     }
                 }
             }
@@ -984,7 +992,7 @@ namespace Badger
         {
             try
             {
-                DataTableListBox.Items?.Clear( );
+                DataTableListBox1.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
@@ -995,7 +1003,7 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        DataTableListBox.Items?.Add( _name );
+                        DataTableListBox1.Items?.Add( _name );
                     }
                 }
             }
@@ -1094,13 +1102,13 @@ namespace Badger
                     }
 
                     if( !string.IsNullOrEmpty( _firstValue )
-                       && !string.IsNullOrEmpty( _secondValue ) )
+                        && !string.IsNullOrEmpty( _secondValue ) )
                     {
                         for( var _index = 0; _index < _fields.Count; _index++ )
                         {
                             var _item = _fields[ _index ];
                             if( !_item.Equals( _firstCategory )
-                               && !_item.Equals( _secondCategory ) )
+                                && !_item.Equals( _secondCategory ) )
                             {
                                 ThirdCategoryComboBox.Items?.Add( _item );
                             }
@@ -2259,10 +2267,10 @@ namespace Badger
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                     }
 
-                    _dataModel = new DataGenerator( _source, _provider );
-                    _dataTable = _dataModel.DataTable;
-                    _fields = _dataModel.Fields;
-                    _numerics = _dataModel.Numerics;
+                    _generator = new DataGenerator( _source, _provider );
+                    _dataTable = _generator.DataTable;
+                    _fields = _generator.Fields;
+                    _numerics = _generator.Numerics;
                     PrimaryTabControl.SelectedIndex = 0;
                     UpdateLabels( );
                     PopulateFirstComboBoxItems( );
@@ -2297,8 +2305,8 @@ namespace Badger
                     _firstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
-                        _dataModel = new DataGenerator( _source, _provider );
-                        var _data = _dataModel.DataElements[ _firstCategory ];
+                        _generator = new DataGenerator( _source, _provider );
+                        var _data = _generator.DataElements[ _firstCategory ];
                         foreach( var _item in _data )
                         {
                             FirstCategoryListBox.Items?.Add( _item );
@@ -2365,7 +2373,7 @@ namespace Badger
                     _secondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
-                        var _data = _dataModel.DataElements[ _secondCategory ];
+                        var _data = _generator.DataElements[ _secondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondCategoryListBox.Items?.Add( _item );
@@ -2431,7 +2439,7 @@ namespace Badger
                     _thirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _thirdCategory ) )
                     {
-                        var _data = _dataModel?.DataElements[ _thirdCategory ];
+                        var _data = _generator?.DataElements[ _thirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -2488,7 +2496,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFirstCalendarDateSelected( object sender, EventArgs e )
+        private void OnStartDateSelected( object sender, EventArgs e )
         {
             try
             {
@@ -2505,10 +2513,52 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSedondCalendarDateSelected( object sender, EventArgs e )
+        private void OnEndDateSelected( object sender, EventArgs e )
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRadioButtonSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _button = sender as MetroRadioButton;
+                var _model = _button?.Tag.ToString( );
+                switch( _model )
+                {
+                    case "EXECUTION":
+                    {
+                        PopulateExecutionTables( );
+                        break;
+                    }
+                    case "REFERENCE":
+                    {
+                        PopulateReferenceTables( );
+                        break;
+                    }
+                    case "MAINTENANCE":
+                    {
+                        PopulateMaintenanceTables( );
+                        break;
+                    }
+                    default:
+                    {
+                        PopulateExecutionTables( );
+                        break;
+                    }
+                }
             }
             catch( Exception _ex )
             {
