@@ -203,7 +203,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "MaterialDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );

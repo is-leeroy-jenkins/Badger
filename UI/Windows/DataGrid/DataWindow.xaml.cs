@@ -453,7 +453,6 @@ namespace Badger
                 DataHeader.Foreground = new SolidColorBrush( _borderColor );
                 EditHeader.Foreground = new SolidColorBrush( _borderColor );
                 SchemaHeader.Foreground = new SolidColorBrush( _borderColor );
-                ProviderLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataTableLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataColumnLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
@@ -581,6 +580,10 @@ namespace Badger
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+                GridButton.Visibility = Visibility.Hidden;
+                CalendarButton.Visibility = Visibility.Hidden;
+                DataSourceButton.Visibility = Visibility.Hidden;
+                GroupButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1532,6 +1535,10 @@ namespace Badger
                 UndoButton.Visibility = Visibility.Visible;
                 ExportButton.Visibility = Visibility.Visible;
                 BrowseButton.Visibility = Visibility.Visible;
+                GridButton.Visibility = Visibility.Visible;
+                CalendarButton.Visibility = Visibility.Visible;
+                DataSourceButton.Visibility = Visibility.Visible;
+                GroupButton.Visibility = Visibility.Visible;
             }
             catch( Exception _ex )
             {
@@ -1560,6 +1567,10 @@ namespace Badger
                 UndoButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+                GridButton.Visibility = Visibility.Hidden;
+                CalendarButton.Visibility = Visibility.Hidden;
+                DataSourceButton.Visibility = Visibility.Hidden;
+                GroupButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1627,6 +1638,38 @@ namespace Badger
         {
             try
             {
+                if( _dataTable != null )
+                {
+                    var _table = _selectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
+                    var _cols = _fields?.Count ?? 0;
+                    var _vals = _numerics?.Count ?? 0;
+                    var _selectedCols = _selectedFields?.Count ?? 0;
+                    var _selectedVals = _selectedNumerics?.Count ?? 0;
+                    DataHeader.Content = $"{_table} ";
+
+                    //FirstGridLabel.Text = $"Data Provider: {_provider}";
+                    //SecondGridLabel.Text = $"Records: {_rows}";
+                    //ThirdGridLabel.Text = $"Total Fields: {_cols}";
+                    //FourthGridLabel.Text = $"Total Measures: {_vals}";
+                    //FieldsLabel.CaptionText = $"Selected Fields: {_selectedCols}";
+                    //NumericsLabel.CaptionText = $"Selected Measures: {_selectedVals}";
+                    //FirstDateLabel.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
+                    //SecondDateLabel.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
+                }
+                else
+                {
+                    DataHeader.Content = $"{_provider} Database ";
+
+                    //FirstGridLabel.Text = $"Provider:  {_provider}";
+                    //SecondGridLabel.Text = "Total Records: 0.0";
+                    //ThirdGridLabel.Text = "Total Fields: 0.0";
+                    //FourthGridLabel.Text = "Total Measures: 0.0";
+                    //FieldsLabel.CaptionText = "Selected Fields: 0.0";
+                    //NumericsLabel.CaptionText = "Selected Measures: 0.0";
+                    //FirstDateLabel.CaptionText = "Start Date: --";
+                    //SecondDateLabel.CaptionText = "End Date: --";
+                }
             }
             catch( Exception _ex )
             {

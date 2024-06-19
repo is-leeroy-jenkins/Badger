@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
 
@@ -75,9 +76,9 @@ namespace Badger
         private protected Color _containerColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -89,6 +90,17 @@ namespace Badger
             R = 222,
             G = 222,
             B = 222
+        };
+
+        /// <summary>
+        /// The fore alternate
+        /// </summary>
+        private protected Color _foreAlternate = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
         };
 
         /// <summary>
@@ -158,7 +170,7 @@ namespace Badger
         {
             InitializeComponent( );
 
-            // Basic Settings
+            // Control Properties
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 245;
@@ -179,15 +191,20 @@ namespace Badger
             TextBox.Height = 25;
             TextBox.MinHeight = 18;
             TextBox.MaxHeight = 30;
-            Background = new SolidColorBrush( Colors.Transparent );
+            Label.Content = "Name";
+            TextBox.Text = "Value";
+            HorizontalAlignment = HorizontalAlignment.Left;
+            VerticalAlignment = VerticalAlignment.Stretch;
+            Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             TextBox.Background = new SolidColorBrush( _containerColor );
             TextBox.Foreground = new SolidColorBrush( _foreColor );
-            Label.Background = new SolidColorBrush( Colors.Transparent );
-            Label.Foreground = new SolidColorBrush( _foreColor );
-            Label.Content = "Name";
-            TextBox.Text = "Value";
+            Label.Background = new SolidColorBrush( _backColor );
+            Label.Foreground = new SolidColorBrush( _foreAlternate );
+            TextBox.Padding = new Thickness( 10, 1, 1, 1 );
+            TextBox.HorizontalAlignment = HorizontalAlignment.Left;
+            Canvas.Background = new SolidColorBrush( _backColor );
         }
 
         /// <summary>

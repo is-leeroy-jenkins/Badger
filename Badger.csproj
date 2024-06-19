@@ -44,6 +44,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="UI\Windows\Datagrid\DataSourceButton.png" />
+    <None Remove="UI\Windows\Datagrid\DateButton.png" />
+    <None Remove="UI\Windows\Datagrid\GridButton.png" />
+    <None Remove="UI\Windows\Datagrid\GroupButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Assets\DialogImages\FileBrowse.png" />
     <Resource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
     <Resource Include="Resources\Assets\DialogImages\SplashNotification.png" />
@@ -518,9 +525,13 @@
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
     <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
+    <Resource Include="UI\Windows\Datagrid\DataSourceButton.png" />
+    <Resource Include="UI\Windows\Datagrid\DateButton.png" />
     <Resource Include="UI\Windows\Datagrid\DeleteButton.png" />
     <Resource Include="UI\Windows\Datagrid\ExportButton.png" />
     <Resource Include="UI\Windows\Datagrid\FilterButton.png" />
+    <Resource Include="UI\Windows\Datagrid\GridButton.png" />
+    <Resource Include="UI\Windows\Datagrid\GroupButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
     <Resource Include="UI\Windows\Datagrid\ToggleButton.png" />
     <Resource Include="UI\Windows\Document\FilterButton.png" />
