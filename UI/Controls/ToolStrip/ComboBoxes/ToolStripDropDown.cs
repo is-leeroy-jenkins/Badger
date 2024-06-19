@@ -59,7 +59,7 @@ namespace Badger
         /// <inheritdoc />
         public ToolStripDropDown( )
         {
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12d;
             Height = 30;
             Width = 150;

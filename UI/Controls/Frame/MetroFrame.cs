@@ -129,7 +129,7 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfTextInputLayout ) );
             Height = 200;
             Width = 200;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = new SolidColorBrush( _containerColor );
             Foreground = new SolidColorBrush( _foreColor );

@@ -126,7 +126,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfLinearProgressBar ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );

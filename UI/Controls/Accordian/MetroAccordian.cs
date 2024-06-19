@@ -107,7 +107,7 @@ namespace Badger
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfAccordion ) );
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Width = 250;
             Height = 250;
             AccentBrush = new SolidColorBrush( _accentColor );

@@ -109,7 +109,7 @@ namespace Badger
             // Control Properties
             SetResourceReference( StyleProperty, typeof( Carousel ) );
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Height = 500;
             Width = 350;
             Background = new SolidColorBrush( Colors.Transparent );

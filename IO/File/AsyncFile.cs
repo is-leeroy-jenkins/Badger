@@ -305,11 +305,14 @@ namespace Badger
             var _async = new TaskCompletionSource<object>( );
             try
             {
-                var _dialog = new SaveFileDialog( );
-                _dialog.CreatePrompt = true;
-                _dialog.OverwritePrompt = true;
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
+                var _dialog = new SaveFileDialog
+                {
+                    CreatePrompt = true,
+                    OverwritePrompt = true,
+                    CheckFileExists = true,
+                    CheckPathExists = true
+                };
+
                 _dialog.ShowDialog( );
                 _stream = File.Create( _dialog.FileName );
                 _stream.Close( );

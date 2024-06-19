@@ -300,7 +300,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Initialization
             InitializeComponent( );
@@ -728,9 +728,12 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        var _item = new MetroListBoxItem( );
-                        _item.Content = _name;
-                        _item.ToolTip = _name;
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name
+                        };
+
                         DataTableListBox.Items?.Add( _item );
                     }
                 }

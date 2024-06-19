@@ -60,7 +60,7 @@ namespace Badger
         public ToolStripTextBox( )
             : base( )
         {
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12d;
             Height = 30;
             Width = 200;

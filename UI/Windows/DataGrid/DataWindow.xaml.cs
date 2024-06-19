@@ -189,6 +189,11 @@ namespace Badger
         private IList<string> _numerics;
 
         /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _dates;
+
+        /// <summary>
         /// The selected table
         /// </summary>
         private string _selectedTable;
@@ -411,7 +416,11 @@ namespace Badger
                 RefreshButton.Click += OnRefreshButtonClick;
                 EditButton.Click += OnEditButtonClick;
                 FilterButton.Click += OnFilterButtonClick;
-                UndoButton.Click += OnUndoButtonClick;
+                SchemaButton.Click += OnSchemaButtonClick;
+                GroupButton.Click += OnGroupButtonClick;
+                GridButton.Click += OnGridButtonClick;
+                DataSourceButton.Click += OnDataSourceButtonClick;
+                CalendarButton.Click += OnCalendarButtonClick;
                 DeleteButton.Click += OnDeleteButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
                 ExportButton.Click += OnExportButtonClick;
@@ -450,9 +459,13 @@ namespace Badger
         {
             try
             {
+                StatusLabel.FontSize = 10;
                 DataHeader.Foreground = new SolidColorBrush( _borderColor );
+                DataHeader.Visibility = Visibility.Hidden;
                 EditHeader.Foreground = new SolidColorBrush( _borderColor );
+                EditHeader.Visibility = Visibility.Hidden;
                 SchemaHeader.Foreground = new SolidColorBrush( _borderColor );
+                SchemaHeader.Visibility = Visibility.Hidden;
                 DataTableLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataColumnLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
@@ -510,7 +523,6 @@ namespace Badger
             {
                 FirstComboBox.Background = new SolidColorBrush( _itemColor );
                 SecondComboBox.Background = new SolidColorBrush( _itemColor );
-                ThirdComboBox.Background = new SolidColorBrush( _itemColor );
             }
             catch( Exception _ex )
             {
@@ -576,7 +588,7 @@ namespace Badger
                 EditButton.Visibility = Visibility.Hidden;
                 SaveButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;
-                UndoButton.Visibility = Visibility.Hidden;
+                SchemaButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
@@ -956,9 +968,12 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        var _item = new MetroListBoxItem( );
-                        _item.Content = _name;
-                        _item.ToolTip = _name;
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name
+                        };
+
                         DataSourceListBox.Items?.Add( _item );
                     }
                 }
@@ -987,9 +1002,12 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        var _item = new MetroListBoxItem( );
-                        _item.Content = _name;
-                        _item.ToolTip = _name;
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name
+                        };
+
                         DataSourceListBox.Items?.Add( _item );
                     }
                 }
@@ -1019,9 +1037,12 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        var _item = new MetroListBoxItem( );
-                        _item.Content = _name;
-                        _item.ToolTip = _name;
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name
+                        };
+
                         DataSourceListBox.Items?.Add( _item );
                     }
                 }
@@ -1102,46 +1123,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Populates the third ComboBox items.
-        /// </summary>
-        private void PopulateThirdComboBoxItems( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( ThirdComboBox.Items?.Count > 0 )
-                    {
-                        ThirdComboBox.Items?.Clear( );
-                    }
-
-                    if( ThirdListBox.Items?.Count > 0 )
-                    {
-                        ThirdListBox.Items?.Clear( );
-                    }
-
-                    if( !string.IsNullOrEmpty( _firstValue )
-                        && !string.IsNullOrEmpty( _secondValue ) )
-                    {
-                        for( var _index = 0; _index < _fields.Count; _index++ )
-                        {
-                            var _item = _fields[ _index ];
-                            if( !_item.Equals( _firstCategory )
-                                && !_item.Equals( _secondCategory ) )
-                            {
-                                ThirdComboBox.Items?.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Populates the field ListBox.
         /// </summary>
         private void PopulateFieldListBox( )
@@ -1204,10 +1185,17 @@ namespace Badger
             try
             {
                 PrimaryTabControl.SelectedIndex = 0;
-                DataTab.Visibility = Visibility.Visible;
-                BusyTab.Visibility = Visibility.Hidden;
+                SecondaryTabControl.SelectedIndex = 1;
+                DataTab.IsSelected = true;
+                SourceTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1222,11 +1210,26 @@ namespace Badger
         {
             try
             {
-                PrimaryTabControl.SelectedIndex = 1;
-                EditTab.Visibility = Visibility.Visible;
-                BusyTab.Visibility = Visibility.Hidden;
-                DataTab.Visibility = Visibility.Hidden;
-                SchemaTab.Visibility = Visibility.Hidden;
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Source!";
+                    SendNotification( _message );
+                }
+                else
+                {
+                    PrimaryTabControl.SelectedIndex = 1;
+                    SecondaryTabControl.SelectedIndex = 2;
+                    EditTab.IsSelected = true;
+                    FilterTab.IsSelected = true;
+                    DataTab.Visibility = Visibility.Hidden;
+                    EditTab.Visibility = Visibility.Hidden;
+                    SchemaTab.Visibility = Visibility.Hidden;
+                    BusyTab.Visibility = Visibility.Hidden;
+                    SourceTab.Visibility = Visibility.Hidden;
+                    FilterTab.Visibility = Visibility.Hidden;
+                    GroupTab.Visibility = Visibility.Hidden;
+                    CalendarTab.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception _ex )
             {
@@ -1242,81 +1245,17 @@ namespace Badger
             try
             {
                 PrimaryTabControl.SelectedIndex = 2;
-                BusyTab.Visibility = Visibility.Visible;
+                SecondaryTabControl.SelectedIndex = 0;
+                SchemaTab.IsSelected = true;
+                SourceTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the SQL tab.
-        /// </summary>
-        private void ActivateSourceTab( )
-        {
-            try
-            {
-                ClearListBoxes( );
-                ClearComboBoxes( );
-                SecondaryTabControl.SelectedIndex = 0;
-                SourceTab.Visibility = Visibility.Visible;
-                FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
-                PopulateExecutionTables( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the lookup tab.
-        /// </summary>
-        private void ActivateFilterTab( )
-        {
-            try
-            {
-                ClearFilter( );
-                ClearListBoxes( );
-                ClearComboBoxes( );
-                SecondaryTabControl.SelectedIndex = 1;
-                FilterTab.Visibility = Visibility.Visible;
                 SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Visible;
                 GroupTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
-                PopulateFirstComboBoxItems( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the schema tab.
-        /// </summary>
-        private void ActivateGroupTab( )
-        {
-            try
-            {
-                ClearCollections( );
-                ClearListBoxes( );
-                ClearComboBoxes( );
-                SecondaryTabControl.SelectedIndex = 2;
-                SourceTab.Visibility = Visibility.Visible;
-                FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
-                PopulateFieldListBox( );
             }
             catch( Exception _ex )
             {
@@ -1331,11 +1270,151 @@ namespace Badger
         {
             try
             {
-                PrimaryTabControl.SelectedIndex = 3;
-                BusyTab.Visibility = Visibility.Visible;
+                PrimaryTabControl.SelectedIndex = 2;
+                SecondaryTabControl.SelectedIndex = 1;
+                SchemaTab.IsSelected = true;
+                FilterTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSourceTab( )
+        {
+            try
+            {
+                ClearFilter( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                PrimaryTabControl.SelectedIndex = 0;
+                SecondaryTabControl.SelectedIndex = 0;
+                DataTab.IsSelected = true;
+                SourceTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateFilterTab( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Source!";
+                    SendNotification( _message );
+                }
+                else
+                {
+                    ClearFilter( );
+                    ClearListBoxes( );
+                    ClearComboBoxes( );
+                    PrimaryTabControl.SelectedIndex = 0;
+                    SecondaryTabControl.SelectedIndex = 1;
+                    DataTab.IsSelected = true;
+                    FilterTab.IsSelected = true;
+                    DataTab.Visibility = Visibility.Hidden;
+                    SchemaTab.Visibility = Visibility.Hidden;
+                    BusyTab.Visibility = Visibility.Hidden;
+                    SourceTab.Visibility = Visibility.Hidden;
+                    FilterTab.Visibility = Visibility.Hidden;
+                    GroupTab.Visibility = Visibility.Hidden;
+                    CalendarTab.Visibility = Visibility.Hidden;
+                    PopulateFirstComboBoxItems( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ActivateGroupTab( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Source!";
+                    SendNotification( _message );
+                }
+                else
+                {
+                    ClearListBoxes( );
+                    ClearComboBoxes( );
+                    PrimaryTabControl.SelectedIndex = 0;
+                    SecondaryTabControl.SelectedIndex = 2;
+                    DataTab.IsSelected = true;
+                    GroupTab.IsSelected = true;
+                    DataTab.Visibility = Visibility.Hidden;
+                    SchemaTab.Visibility = Visibility.Hidden;
+                    BusyTab.Visibility = Visibility.Hidden;
+                    SourceTab.Visibility = Visibility.Hidden;
+                    FilterTab.Visibility = Visibility.Visible;
+                    GroupTab.Visibility = Visibility.Hidden;
+                    CalendarTab.Visibility = Visibility.Hidden;
+                    PopulateFirstComboBoxItems( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateCalendarTab( )
+        {
+            try
+            {
+                if( _dates == null )
+                {
+                    var _message = "Verify Schema Contains Date Fields!";
+                    SendNotification( _message );
+                }
+                else
+                {
+                    ClearCollections( );
+                    ClearListBoxes( );
+                    ClearComboBoxes( );
+                    PrimaryTabControl.SelectedIndex = 0;
+                    SecondaryTabControl.SelectedIndex = 3;
+                    DataTab.IsSelected = true;
+                    CalendarTab.IsSelected = true;
+                    SourceTab.Visibility = Visibility.Visible;
+                    FilterTab.Visibility = Visibility.Hidden;
+                    GroupTab.Visibility = Visibility.Hidden;
+                    BusyTab.Visibility = Visibility.Hidden;
+                    CalendarTab.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception _ex )
             {
@@ -1368,13 +1447,6 @@ namespace Badger
         {
             try
             {
-                if( !string.IsNullOrEmpty( _thirdValue ) )
-                {
-                    ThirdComboBox.Items?.Clear( );
-                    ThirdListBox.Items?.Clear( );
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
-                }
 
                 if( !string.IsNullOrEmpty( _secondValue ) )
                 {
@@ -1451,7 +1523,6 @@ namespace Badger
                 DataTableListBox.Items?.Clear( );
                 FirstListBox.Items?.Clear( );
                 SecondListBox.Items?.Clear( );
-                ThirdListBox.Items?.Clear( );
                 FieldsListBox.Items?.Clear( );
                 NumericsListBox.Items?.Clear( );
             }
@@ -1470,7 +1541,6 @@ namespace Badger
             {
                 FirstComboBox.Items?.Clear( );
                 SecondComboBox.Items?.Clear( );
-                ThirdComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1532,7 +1602,7 @@ namespace Badger
                 RefreshButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Visible;
                 SaveButton.Visibility = Visibility.Visible;
-                UndoButton.Visibility = Visibility.Visible;
+                SchemaButton.Visibility = Visibility.Visible;
                 ExportButton.Visibility = Visibility.Visible;
                 BrowseButton.Visibility = Visibility.Visible;
                 GridButton.Visibility = Visibility.Visible;
@@ -1564,7 +1634,7 @@ namespace Badger
                 RefreshButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;
                 SaveButton.Visibility = Visibility.Hidden;
-                UndoButton.Visibility = Visibility.Hidden;
+                SchemaButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
                 GridButton.Visibility = Visibility.Hidden;
@@ -1591,8 +1661,6 @@ namespace Badger
                     FirstListBox.Visibility = Visibility.Visible;
                     SecondComboBox.Visibility = Visibility.Hidden;
                     SecondListBox.Visibility = Visibility.Hidden;
-                    ThirdComboBox.Visibility = Visibility.Hidden;
-                    ThirdListBox.Visibility = Visibility.Hidden;
                 }
             }
             catch( Exception _ex )
@@ -1640,35 +1708,35 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    var _table = _selectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _table = _dataTable.TableName.SplitPascal( ) ?? string.Empty;
                     var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _vals = _numerics?.Count ?? 0;
                     var _selectedCols = _selectedFields?.Count ?? 0;
                     var _selectedVals = _selectedNumerics?.Count ?? 0;
+                    var _startDate = DateTime.Now.ToShortDateString( );
+                    var _endDate = DateTime.Now.ToShortDateString( );
                     DataHeader.Content = $"{_table} ";
-
-                    //FirstGridLabel.Text = $"Data Provider: {_provider}";
-                    //SecondGridLabel.Text = $"Records: {_rows}";
-                    //ThirdGridLabel.Text = $"Total Fields: {_cols}";
-                    //FourthGridLabel.Text = $"Total Measures: {_vals}";
-                    //FieldsLabel.CaptionText = $"Selected Fields: {_selectedCols}";
-                    //NumericsLabel.CaptionText = $"Selected Measures: {_selectedVals}";
-                    //FirstDateLabel.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
-                    //SecondDateLabel.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
+                    FirstGridLabel.Content = $"Data Provider: {_provider}";
+                    SecondGridLabel.Content = $"Records: {_rows}";
+                    ThirdGridLabel.Content = $"Total Fields: {_cols}";
+                    FourthGridLabel.Content = $"Total Measures: {_vals}";
+                    FieldsLabel.Content = $"Selected Fields: {_selectedCols}";
+                    NumericsLabel.Content = $"Selected Measures: {_selectedVals}";
+                    FirstDateLabel.Content = $"Start Date: {_startDate}";
+                    SecondDateLabel.Content = $"End Date: {_endDate}";
                 }
                 else
                 {
                     DataHeader.Content = $"{_provider} Database ";
-
-                    //FirstGridLabel.Text = $"Provider:  {_provider}";
-                    //SecondGridLabel.Text = "Total Records: 0.0";
-                    //ThirdGridLabel.Text = "Total Fields: 0.0";
-                    //FourthGridLabel.Text = "Total Measures: 0.0";
-                    //FieldsLabel.CaptionText = "Selected Fields: 0.0";
-                    //NumericsLabel.CaptionText = "Selected Measures: 0.0";
-                    //FirstDateLabel.CaptionText = "Start Date: --";
-                    //SecondDateLabel.CaptionText = "End Date: --";
+                    FirstGridLabel.Content = $"Provider:  {_provider}";
+                    SecondGridLabel.Content = "Total Records: 0.0";
+                    ThirdGridLabel.Content = "Total Fields: 0.0";
+                    FourthGridLabel.Content = "Total Measures: 0.0";
+                    FieldsLabel.Content = "Selected Fields: 0.0";
+                    NumericsLabel.Content = "Selected Measures: 0.0";
+                    FirstDateLabel.Content = $"Start Date: " + DateTime.Now.ToShortDateString( );
+                    SecondDateLabel.Content = $"End Date: " + DateTime.Now.ToShortDateString( );
                 }
             }
             catch( Exception _ex )
@@ -1788,6 +1856,7 @@ namespace Badger
                 InitializeRadioButtons( );
                 InitializeLabels( );
                 InitializeToolbar( );
+                UpdateLabels( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -1902,7 +1971,7 @@ namespace Badger
         {
             try
             {
-                EditTab.IsSelected = true;
+                ActivateEditTab( );
             }
             catch( Exception _ex )
             {
@@ -1967,6 +2036,24 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [grid button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGridButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateDataTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [group button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1976,7 +2063,61 @@ namespace Badger
         {
             try
             {
-                GroupTab.IsSelected = true;
+                ActivateGroupTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calendar button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalendarButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateCalendarTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [data source button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnDataSourceButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateSourceTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [schema button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSchemaButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateSchemaTab( );
             }
             catch( Exception _ex )
             {
@@ -2092,6 +2233,8 @@ namespace Badger
                 {
                     OpenMainWindow( );
                 }
+
+                SfSkinManager.Dispose( this );
             }
             catch( Exception _ex )
             {
@@ -2327,10 +2470,10 @@ namespace Badger
                 try
                 {
                     _filter.Clear( );
-                    PrimaryTabControl.SelectedIndex = 0;
+                    _dataTable?.Clear( );
                     ShowToolbar( );
                     var _item = _listBox.SelectedItem as MetroListBoxItem;
-                    var _title = _item.Content.ToString( );
+                    var _title = _item?.Content.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
@@ -2342,7 +2485,7 @@ namespace Badger
                     _fields = _generator.Fields;
                     _numerics = _generator.Numerics;
                     DataGrid.ItemsSource = _dataTable;
-                    DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.SmartReset;
+                    DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
                     DataGrid.AllowEditing = true;
                     DataGrid.AutoGenerateColumns = true;
                     DataGrid.AllowSorting = true;
@@ -2355,9 +2498,11 @@ namespace Badger
                     DataGrid.AllowDrop = true;
                     DataGrid.AllowDraggingRows = true;
                     DataGrid.AllowCollectionView = true;
+                    DataGrid.ShowGroupDropArea = true;
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
-                    SecondaryTabControl.SelectedIndex = 1;
+                    ActivateFilterTab( );
+                    UpdateLabels( );
                 }
                 catch( Exception _ex )
                 {
@@ -2488,49 +2633,8 @@ namespace Badger
                     _secondValue = _listBox.SelectedValue?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    PopulateThirdComboBoxItems( );
                     UpdateLabels( );
                     _sqlQuery = CreateSqlSelectQuery( _filter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    _sqlQuery = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
-                    if( ThirdListBox.Items?.Count > 0 )
-                    {
-                        ThirdListBox.Items?.Clear( );
-                    }
-
-                    _thirdCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( _thirdCategory ) )
-                    {
-                        var _data = _generator?.DataElements[ _thirdCategory ];
-                        if( _data?.Any( ) == true )
-                        {
-                            foreach( var _item in _data )
-                            {
-                                ThirdListBox.Items?.Add( _item );
-                            }
-                        }
-                    }
                 }
                 catch( Exception _ex )
                 {

@@ -95,7 +95,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfChart3D ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = new SolidColorBrush( Colors.Transparent );
             BorderBrush = new SolidColorBrush( Colors.Transparent );

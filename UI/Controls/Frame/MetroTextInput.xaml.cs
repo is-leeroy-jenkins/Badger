@@ -171,7 +171,7 @@ namespace Badger
             InitializeComponent( );
 
             // Control Properties
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Width = 245;
             MinWidth = 220;

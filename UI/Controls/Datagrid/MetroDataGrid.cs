@@ -141,8 +141,9 @@ namespace Badger
             AllowDrop = true;
             AllowDraggingRows = true;
             AllowCollectionView = true;
-            AutoGenerateColumnsMode = AutoGenerateColumnsMode.SmartReset;
+            AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
             AutoGenerateColumns = true;
+            ShowGroupDropArea = true;
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );

@@ -127,7 +127,7 @@ namespace Badger
             // Basic Properties
             Width = 150;
             Height = 30;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Padding = new Thickness( 15, 1, 1, 1 );
             Margin = new Thickness( 3 );

@@ -72,8 +72,8 @@
                 OverflowButtonVisibility="Collapsed">
 
 
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="65" Padding="5,1,1,1"
-                    HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" Padding="5,1,1,1"
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" />
 
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="25" Height="32" />
@@ -104,32 +104,34 @@
 
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
                     ImageSource="/UI/Windows/Datagrid/RefreshButton.png" Height="30" />
-
-            <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
-                    ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filters" />
-            <badger:ToolStripButton x:Name="GroupButton" ImageSource="/UI/Windows/Datagrid/GroupButton.png" />
-            <badger:ToolStripButton x:Name="GridButton" Background="{x:Null}"
+            <badger:ToolStripButton x:Name="GridButton" Background="{x:Null}" ToolTip="View Data Grid"
                     ImageSource="/UI/Windows/Datagrid/GridButton.png" />
 
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit" ImageSource="/UI/Windows/Datagrid/EditButton.png"
-                    Height="30" />
-            <badger:ToolStripButton x:Name="CalendarButton" Background="{x:Null}"
+            <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
+                    ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filter Data Source" />
+
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit Current Record"
+                    ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="30" />
+            <badger:ToolStripButton x:Name="GroupButton" ToolTip="Aggregate Columns"
+                    ImageSource="/UI/Windows/Datagrid/GroupButton.png" />
+            <badger:ToolStripButton x:Name="DataSourceButton" ToolTip="Select Data Source"
+                    ImageSource="/UI/Windows/Datagrid/DataSourceButton.png" />
+
+            <local:ToolStripButton x:Name="SchemaButton" ToolTip="Edit Column Schema"
+                    ImageSource="/UI/Windows/Datagrid/SchemaButton.png" Height="30" />
+            <badger:ToolStripButton x:Name="CalendarButton" Background="{x:Null}" ToolTip="Filter By Date"
                     ImageSource="/UI/Windows/Datagrid/DateButton.png" />
-            <badger:ToolStripButton x:Name="DataSourceButton" ImageSource="/UI/Windows/Datagrid/DataSourceButton.png" />
 
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Datagrid/BackButton.png" Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save Changes"
+                    ImageSource="/UI/Windows/Datagrid/SaveButton.png" Height="30" />
 
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save" ImageSource="/UI/Windows/Datagrid/SaveButton.png"
-                    Height="30" />
-
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete Current Record"
                     ImageSource="/UI/Windows/Datagrid/DeleteButton.png" Height="30" />
 
             <local:ToolStripButton x:Name="ExportButton" ImageSource="/UI/Windows/Datagrid/ExportButton.png"
-                    ToolTip="Export" />
+                    ToolTip="Export Data" />
 
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse File System"
                     ImageSource="/UI/Windows/Datagrid/BrowseButton.png" Height="30" />
 
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="100" />
@@ -159,21 +161,17 @@
 
                 <Canvas x:Name="FilterGrid" Height="622" Margin="0,0,23,0">
 
-                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="85"
-                            Canvas.Left="37" Canvas.Top="258" Width="200" HorizontalAlignment="Center"
+                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="133"
+                            Canvas.Left="44" Canvas.Top="332" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                             ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-                    <local:MetroListBox x:Name="ThirdListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="90"
-                            Canvas.Left="37" Canvas.Top="408" VerticalAlignment="Top" Width="200"
-                            ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                            ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True"
-                            HorizontalAlignment="Center" />
-                    <local:MetroListBox x:Name="FirstListBox" Height="81" Width="200"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="37" Canvas.Top="119"
+                    <local:MetroListBox x:Name="FirstListBox" Height="121" Width="200"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="37" Canvas.Top="139"
                             HorizontalAlignment="Center" VerticalAlignment="Top"
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                     <local:MetroComboBox x:Name="FirstComboBox" Background="#FF282828" Height="30" Width="150"
-                            Canvas.Left="37" Canvas.Top="80" ToolTip="Select First Category">
+                            Canvas.Left="40" Canvas.Top="103" ToolTip="Select First Category"
+                            HorizontalAlignment="Center" VerticalAlignment="Top">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" Background="#FF141414" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" Background="#FF141414" />
@@ -181,16 +179,7 @@
                         <syncfusion:ComboBoxItemAdv Content="Item 5" Background="#FF141414" />
                     </local:MetroComboBox>
                     <local:MetroComboBox x:Name="SecondComboBox" Background="#FF282828" Height="30" Width="150"
-                            Canvas.Left="37" Canvas.Top="218" ToolTip="Select Second Category">
-                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
-                    </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="ThirdComboBox" Background="#FF282828" Height="30" Width="150"
-                            Canvas.Left="37" Canvas.Top="368" RenderTransformOrigin="0.533,-0.565"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" ToolTip="Select Third Category">
+                            Canvas.Left="47" Canvas.Top="295" ToolTip="Select Second Category">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -202,7 +191,7 @@
             <TabItem x:Name="GroupTab" Height="24" Header="Group" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,5" Margin="0,0,0,0">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
-                    <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
+                    <local:MetroLabel x:Name="FieldListBoxLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
                             Canvas.Left="32" Canvas.Top="89" VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="FieldsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="153"
                             Canvas.Left="27" Canvas.Top="120" VerticalAlignment="Top" Width="250"
@@ -210,8 +199,9 @@
                     <local:MetroListBox x:Name="NumericsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="129"
                             Canvas.Left="27" Canvas.Top="333" VerticalAlignment="Top" Width="250"
                             HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select Numeric Groups" />
-                    <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170" HorizontalAlignment="Center"
-                            Canvas.Left="27" Canvas.Top="307" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                    <local:MetroLabel x:Name="NumericListBoxLabel" Content="Numerics" Width="170"
+                            HorizontalAlignment="Center" Canvas.Left="27" Canvas.Top="307" VerticalAlignment="Top"
+                            Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="CalendarTab" Height="24" Header="Dates" Width="50" Background="#FF141414"
@@ -220,14 +210,14 @@
                     <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="27" Canvas.Top="75"
                             HorizontalAlignment="Left" VerticalAlignment="Center" Width="235" Foreground="#FF0078D4"
                             Height="24" />
-                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="180" Canvas.Left="27"
-                            Canvas.Top="103" Width="240" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="184" Canvas.Left="27"
+                            Canvas.Top="103" Width="240" HorizontalAlignment="Center" VerticalAlignment="Top"
                             BorderThickness="1,1,1,1" />
-                    <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="27" Canvas.Top="313"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="240" Foreground="#FF0078D4"
+                    <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="27" Canvas.Top="325"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" Width="240" Foreground="#FF0078D4"
                             Height="24" />
-                    <local:MetroCalendar x:Name="Second_Calendar" Date="1/1/2020" Height="180" Canvas.Left="27"
-                            Canvas.Top="338" Width="240" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
+                    <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="184" Canvas.Left="27"
+                            Canvas.Top="350" Width="240" BorderThickness="1,1,1,1" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
@@ -242,22 +232,22 @@
                             SelectionForegroundBrush="#FFFFFCFC" BorderThickness="2,2,2,2" />
                     <local:MetroLabel x:Name="DataHeader" Content="" Canvas.Left="34" Canvas.Top="15" Width="726"
                             HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF0078D4" />
-                    <badger:MetroLabel x:Name="FirstGridLabel" Content="MetroLabel" Canvas.Left="28" Canvas.Top="474" HorizontalAlignment="Left"
-                            VerticalAlignment="Center" Width="210" />
-                    <badger:MetroLabel x:Name="SecondGridLabel1" Content="MetroLabel" Canvas.Left="278" Canvas.Top="473" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <badger:MetroLabel x:Name="ThirdGridLabel" Content="MetroLabel" Canvas.Left="533" Canvas.Top="474" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <badger:MetroLabel x:Name="FourthGridLabel" Content="MetroLabel" Canvas.Left="798" Canvas.Top="473" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <badger:MetroLabel x:Name="FieldsLabel1" Content="MetroLabel" Canvas.Left="28" Canvas.Top="514" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <badger:MetroLabel x:Name="NumericsLabel1" Content="MetroLabel" Canvas.Left="278" Canvas.Top="513" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <badger:MetroLabel x:Name="FirstDateLabel" Content="MetroLabel" Canvas.Left="533" Canvas.Top="514" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <badger:MetroLabel x:Name="SecondDateLabel" Content="MetroLabel" Canvas.Left="798" Canvas.Top="513" Width="210"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroLabel x:Name="FirstGridLabel" Content="MetroLabel" Canvas.Left="28" Canvas.Top="474"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="210" />
+                    <badger:MetroLabel x:Name="SecondGridLabel" Content="MetroLabel" Canvas.Left="278" Canvas.Top="474"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <badger:MetroLabel x:Name="ThirdGridLabel" Content="MetroLabel" Canvas.Left="533" Canvas.Top="474"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <badger:MetroLabel x:Name="FourthGridLabel" Content="MetroLabel" Canvas.Left="798" Canvas.Top="474"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <badger:MetroLabel x:Name="FieldsLabel" Content="MetroLabel" Canvas.Left="28" Canvas.Top="500"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroLabel x:Name="NumericsLabel" Content="MetroLabel" Canvas.Left="278" Canvas.Top="500"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroLabel x:Name="FirstDateLabel" Content="MetroLabel" Canvas.Left="533" Canvas.Top="500"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <badger:MetroLabel x:Name="SecondDateLabel" Content="MetroLabel" Canvas.Left="798" Canvas.Top="500"
+                            Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="EditTab" Height="24" Header="Edit" Width="100" Background="#FF141414"

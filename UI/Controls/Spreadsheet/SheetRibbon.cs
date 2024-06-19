@@ -130,7 +130,7 @@ namespace Badger
         {
             // Basic Properties
             SetResourceReference( StyleProperty, typeof( SfSpreadsheetRibbon ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );

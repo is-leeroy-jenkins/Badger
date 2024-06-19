@@ -109,7 +109,7 @@ namespace Badger
             MinHeight = 170;
             MaxHeight = 900;
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );

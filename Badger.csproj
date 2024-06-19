@@ -44,10 +44,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Assets\FormImages\Application.ico" />
+    <None Remove="Resources\Assets\FormImages\Main.png" />
+    <None Remove="Resources\Assets\ToolStripImages\DataSourceButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\DateButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\GridButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\GroupButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\SchemaButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
     <None Remove="UI\Windows\Datagrid\DataSourceButton.png" />
     <None Remove="UI\Windows\Datagrid\DateButton.png" />
     <None Remove="UI\Windows\Datagrid\GridButton.png" />
     <None Remove="UI\Windows\Datagrid\GroupButton.png" />
+    <None Remove="UI\Windows\Datagrid\SchemaButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,9 +64,15 @@
     <Resource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
     <Resource Include="Resources\Assets\DialogImages\SplashNotification.png" />
     <Resource Include="Resources\Assets\DialogImages\TextDialog.png" />
+    <Resource Include="Resources\Assets\FormImages\Application.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Assets\FormImages\Application.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+    </Resource>
+    <Resource Include="Resources\Assets\FormImages\Main.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
@@ -174,43 +189,129 @@
     <Resource Include="Resources\Assets\ProviderImages\SqlServer.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Assets\TileImages\AccessTile.png" />
-    <Resource Include="Resources\Assets\TileImages\BrowserTile.png" />
-    <Resource Include="Resources\Assets\TileImages\CalendarTile.png" />
-    <Resource Include="Resources\Assets\TileImages\DataTile.png" />
-    <Resource Include="Resources\Assets\TileImages\EmailTile.png" />
-    <Resource Include="Resources\Assets\TileImages\ExcelTile.png" />
-    <Resource Include="Resources\Assets\TileImages\GuidanceTile.png" />
-    <Resource Include="Resources\Assets\TileImages\MapTile.png" />
-    <Resource Include="Resources\Assets\TileImages\PivotTile.png" />
-    <Resource Include="Resources\Assets\TileImages\ProgramTile.png" />
-    <Resource Include="Resources\Assets\TileImages\SqlCeTile.png" />
-    <Resource Include="Resources\Assets\TileImages\SqlEditorTile.png" />
-    <Resource Include="Resources\Assets\TileImages\SQLiteTile.png" />
-    <Resource Include="Resources\Assets\TileImages\SqlServerTile.png" />
-    <Resource Include="Resources\Assets\TileImages\VisualizationTile.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\AddColumnButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\AddRecordButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\BackButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\BrowseButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\DecreaseButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\DeleteButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\EditButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\ExcelButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\ExitButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\ExportButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\FilterButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\FirstButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\IncreaseButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\LastButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\LookUpButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\MapTile.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\MenuButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\NextButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\PreviousButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\PrintButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\RefreshButton.png" />
-    <Resource Include="Resources\Assets\ToolStripImages\SaveButton.png" />
+    <Resource Include="Resources\Assets\TileImages\AccessTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\BrowserTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\CalendarTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\DataTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\EmailTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\ExcelTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\GuidanceTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\MapTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\PivotTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\ProgramTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\SqlCeTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\SqlEditorTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\SQLiteTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\SqlServerTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\TileImages\VisualizationTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\AddColumnButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\AddRecordButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\BackButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\BrowseButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\DataSourceButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\DateButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\DecreaseButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\DeleteButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\EditButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\ExcelButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\ExitButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\ExportButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\FilterButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\FirstButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\GridButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\GroupButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\IncreaseButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\LastButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\LookUpButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\MapTile.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\MenuButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\NextButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\PreviousButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\PrintButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\RefreshButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\SaveButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="cef.sdk" Version="125.0.21" />
@@ -323,173 +424,179 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Assets\ToolStripImages\SchemaButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Assets\ToolStripImages\ToggleButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\AntiDeficiencyAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\BudgetControlAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\CleanAirAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\CleanWaterAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\DataAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\FundsControlManual.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\GovernmentAuditingStandards.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\IncidentManagementHandbook.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ItCodeGuidance.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\MoneyAndFinance.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\NonDirectAllocableCosts.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ObjectClassManual.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\OfficialTravel.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\OilPollutionAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\PollutionPreventionAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\PurchaseCardPolicy.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SafeDrinkingWaterAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SepartationOfDuties.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SolidWasteDisposalAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SplitFundingRequirements.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\StaffordAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundContracts.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundGeneralInformation.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundIntroduction.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\SuperfundSpecialAccounts.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\ToxicSubstancesControlAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Reports\Report.xlsx" />
     <Resource Include="UI\Windows\Calculator\Cancel.png" />
@@ -533,6 +640,7 @@
     <Resource Include="UI\Windows\Datagrid\GridButton.png" />
     <Resource Include="UI\Windows\Datagrid\GroupButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
+    <Resource Include="UI\Windows\Datagrid\SchemaButton.png" />
     <Resource Include="UI\Windows\Datagrid\ToggleButton.png" />
     <Resource Include="UI\Windows\Document\FilterButton.png" />
     <Resource Include="UI\Windows\Document\ToggleButton.png" />
@@ -728,49 +836,6 @@
     <Resource Include="UI\Windows\Web\RefreshButton.png" />
     <Resource Include="UI\Windows\Web\SaveButton.png" />
     <Resource Include="UI\Windows\Web\ToggleButton.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Resources\Images\DialogImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DialogImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\ExtensionImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ExtensionImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\LoaderImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LoaderImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\MenuImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MenuImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\ProviderImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ProviderImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\ToolStripImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ToolStripImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\TileImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TileImages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\Images\WindowImages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>WindowImages.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

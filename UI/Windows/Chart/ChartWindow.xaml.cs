@@ -1034,9 +1034,12 @@ namespace Badger
                 {
                     foreach( var _name in _names )
                     {
-                        var _item = new MetroListBoxItem( );
-                        _item.Content = _name;
-                        _item.ToolTip = _name;
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name
+                        };
+
                         DataTableListBox.Items?.Add( _item );
                     }
                 }

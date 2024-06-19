@@ -134,7 +134,7 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12d;
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );

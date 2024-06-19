@@ -132,7 +132,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( ButtonAdv ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Width = 140;
             Height = 50;

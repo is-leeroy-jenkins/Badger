@@ -223,7 +223,7 @@ namespace Badger
             WindowStyle = WindowStyle.SingleBorderWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12d;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );

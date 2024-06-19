@@ -143,10 +143,10 @@
                 {
                     UseShellExecute = true,
                     LoadUserProfile = true,
-                    WindowStyle = ProcessWindowStyle.Maximized
+                    WindowStyle = ProcessWindowStyle.Maximized,
+                    Arguments = uri
                 };
 
-                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
@@ -203,10 +203,10 @@
                 {
                     UseShellExecute = true,
                     LoadUserProfile = true,
-                    WindowStyle = ProcessWindowStyle.Maximized
+                    WindowStyle = ProcessWindowStyle.Maximized,
+                    Arguments = uri
                 };
 
-                _startInfo.Arguments = uri;
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     _startInfo.FileName = _path;
