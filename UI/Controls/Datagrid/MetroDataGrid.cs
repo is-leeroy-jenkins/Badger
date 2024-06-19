@@ -144,6 +144,7 @@ namespace Badger
             AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
             AutoGenerateColumns = true;
             ShowGroupDropArea = true;
+            SelectionMode = GridSelectionMode.Single;
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );

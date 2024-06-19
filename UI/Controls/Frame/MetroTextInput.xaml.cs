@@ -60,6 +60,16 @@ namespace Badger
     public partial class MetroTextInput : UserControl
     {
         /// <summary>
+        /// The tag
+        /// </summary>
+        private protected object _tag;
+
+        /// <summary>
+        /// The ordinal
+        /// </summary>
+        private protected int _ordinal;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -126,6 +136,40 @@ namespace Badger
         };
 
         /// <summary>
+        /// Gets or sets an arbitrary object value that can
+        /// be used to store custom information about this element.
+        /// </summary>
+        public new object Tag
+        {
+            get
+            {
+                return _tag;
+            }
+            set
+            {
+                _tag = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the ordinal.
+        /// </summary>
+        /// <value>
+        /// The ordinal.
+        /// </value>
+        public int Ordinal
+        {
+            get
+            {
+                return _ordinal;
+            }
+            set
+            {
+                _ordinal = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the caption.
         /// </summary>
         /// <value>
@@ -173,7 +217,7 @@ namespace Badger
             // Control Properties
             FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
-            Width = 245;
+            Width = 240;
             MinWidth = 220;
             MaxWidth = 300;
             Height = 80;
@@ -191,10 +235,11 @@ namespace Badger
             TextBox.Height = 25;
             TextBox.MinHeight = 18;
             TextBox.MaxHeight = 30;
-            Label.Content = "Name";
-            TextBox.Text = "Value";
+            Margin = new Thickness( 3 );
             HorizontalAlignment = HorizontalAlignment.Left;
-            VerticalAlignment = VerticalAlignment.Stretch;
+            HorizontalContentAlignment = HorizontalAlignment.Left;
+            VerticalAlignment = VerticalAlignment.Top;
+            VerticalContentAlignment = VerticalAlignment.Stretch;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

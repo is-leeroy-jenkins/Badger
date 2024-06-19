@@ -51,6 +51,7 @@ namespace Badger
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
+    using MahApps.Metro.Controls;
     using Syncfusion.Licensing;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.CellGrid;
@@ -166,7 +167,7 @@ namespace Badger
         /// <summary>
         /// The current
         /// </summary>
-        private DataRow _current;
+        private protected DataRow _current;
 
         /// <summary>
         /// The filter
@@ -221,7 +222,12 @@ namespace Badger
         /// <summary>
         /// The source
         /// </summary>
-        private Source _source;
+        private protected Source _source;
+
+        /// <summary>
+        /// The frames
+        /// </summary>
+        private protected IList<MetroTextInput> _frames;
 
         /// <summary>
         /// The back color
@@ -387,8 +393,13 @@ namespace Badger
             // Initialize Default Provider
             _provider = Provider.Access;
 
+            // Container Properties
+            EditCanvas.HorizontalAlignment = HorizontalAlignment.Left;
+            EditCanvas.VerticalAlignment = VerticalAlignment.Top;
+
             // Initialize Collections
             _filter = new Dictionary<string, object>( );
+            _frames = new List<MetroTextInput>( );
             _columns = new List<string>( );
             _fields = new List<string>( );
             _numerics = new List<string>( );
@@ -430,6 +441,7 @@ namespace Badger
                 ExecutionRadioButton.Checked += OnRadioButtonSelected;
                 ReferenceRadioButton.Checked += OnRadioButtonSelected;
                 DataSourceListBox.SelectionChanged += OnTableListBoxItemSelected;
+                DataGrid.SelectionChanged += OnDataRowSelected;
             }
             catch( Exception _ex )
             {
@@ -1178,6 +1190,32 @@ namespace Badger
         }
 
         /// <summary>
+        /// Populates the edit stack.
+        /// </summary>
+        private protected IList<MetroTextInput> CreateFrames( )
+        {
+            try
+            {
+                var _list = new List<MetroTextInput>( );
+                for( var _index = 0; _index < 49; _index++ )
+                {
+                    var _frame = new MetroTextInput( );
+                    _frame.Ordinal = _index;
+                    _list.Add( _frame );
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<MetroTextInput> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<MetroTextInput> );
+            }
+        }
+
+        /// <summary>
         /// Activates the busy tab.
         /// </summary>
         private void ActivateDataTab( )
@@ -1210,10 +1248,10 @@ namespace Badger
         {
             try
             {
-                if( _dataTable == null )
+                if( _current == null )
                 {
-                    var _message = "Verify Data Source!";
-                    SendNotification( _message );
+                    var _message = "Select a data row!";
+                    SendMessage( _message );
                 }
                 else
                 {
@@ -1229,6 +1267,11 @@ namespace Badger
                     FilterTab.Visibility = Visibility.Hidden;
                     GroupTab.Visibility = Visibility.Hidden;
                     CalendarTab.Visibility = Visibility.Hidden;
+                    _frames = CreateFrames( );
+                    foreach( var _frame in _frames )
+                    {
+                        EditPanel.Children.Add( _frame );
+                    }
                 }
             }
             catch( Exception _ex )
@@ -1447,7 +1490,6 @@ namespace Badger
         {
             try
             {
-
                 if( !string.IsNullOrEmpty( _secondValue ) )
                 {
                     SecondComboBox.Items?.Clear( );
@@ -2484,8 +2526,10 @@ namespace Badger
                     _dataTable = _generator.DataTable;
                     _fields = _generator.Fields;
                     _numerics = _generator.Numerics;
+                    _current = _dataTable.Rows[ 0 ];
                     DataGrid.ItemsSource = _dataTable;
                     DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
+                    DataGrid.SelectionMode = GridSelectionMode.Single;
                     DataGrid.AllowEditing = true;
                     DataGrid.AutoGenerateColumns = true;
                     DataGrid.AllowSorting = true;
@@ -2746,6 +2790,25 @@ namespace Badger
                         break;
                     }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [data row selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnDataRowSelected( object sender, GridSelectionChangedEventArgs e )
+        {
+            try
+            {
+                var _dataGrid = sender as MetroDataGrid;
+                _current = (DataRow)_dataGrid.SelectedItem;
             }
             catch( Exception _ex )
             {
