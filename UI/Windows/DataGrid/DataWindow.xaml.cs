@@ -43,8 +43,10 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -100,16 +102,6 @@ namespace Badger
         private string _secondValue;
 
         /// <summary>
-        /// The third category
-        /// </summary>
-        private string _thirdCategory;
-
-        /// <summary>
-        /// The third value
-        /// </summary>
-        private string _thirdValue;
-
-        /// <summary>
         /// The SQL command
         /// </summary>
         private string _sqlQuery;
@@ -157,7 +149,7 @@ namespace Badger
         /// <summary>
         /// The data model
         /// </summary>
-        private protected DataGenerator _generator;
+        private protected DataGenerator _dataGen;
 
         /// <summary>
         /// The binding source
@@ -228,6 +220,31 @@ namespace Badger
         /// The frames
         /// </summary>
         private protected IList<MetroTextInput> _frames;
+
+        /// <summary>
+        /// The selected command
+        /// </summary>
+        private string _selectedQuery;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _selectedCommand;
+
+        /// <summary>
+        /// The commands
+        /// </summary>
+        private IList<string> _commands;
+
+        /// <summary>
+        /// The data types
+        /// </summary>
+        private IList<string> _dataTypes;
+
+        /// <summary>
+        /// The statements
+        /// </summary>
+        private IDictionary<string, object> _statements;
 
         /// <summary>
         /// The back color
@@ -428,7 +445,7 @@ namespace Badger
                 EditButton.Click += OnEditButtonClick;
                 FilterButton.Click += OnFilterButtonClick;
                 SchemaButton.Click += OnSchemaButtonClick;
-                GroupButton.Click += OnGroupButtonClick;
+                SqlButton.Click += OnSqlButtonClick;
                 GridButton.Click += OnGridButtonClick;
                 DataSourceButton.Click += OnDataSourceButtonClick;
                 CalendarButton.Click += OnCalendarButtonClick;
@@ -438,10 +455,16 @@ namespace Badger
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
                 ToggleButton.Click += OnToggleButtonClick;
-                ExecutionRadioButton.Checked += OnRadioButtonSelected;
-                ReferenceRadioButton.Checked += OnRadioButtonSelected;
+                ExecutionRadioButton.Checked += OnDataSourceRadioButtonSelected;
+                ReferenceRadioButton.Checked += OnDataSourceRadioButtonSelected;
                 DataSourceListBox.SelectionChanged += OnTableListBoxItemSelected;
                 DataGrid.SelectionChanged += OnDataRowSelected;
+                SQLiteRadioButton.Checked += OnProviderRadioButtonChecked;
+                AccessRadioButton.Checked += OnProviderRadioButtonChecked;
+                SqlCeRadioButton.Checked += OnProviderRadioButtonChecked;
+                SqlSeverRadioButton.Checked += OnProviderRadioButtonChecked;
+                CommandComboBox.SelectionChanged += OnCommandComboBoxItemSelected;
+                CommandListBox.SelectionChanged += OnCommandListBoxItemSelected;
             }
             catch( Exception _ex )
             {
@@ -557,7 +580,7 @@ namespace Badger
                 SchemaTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -607,7 +630,7 @@ namespace Badger
                 GridButton.Visibility = Visibility.Hidden;
                 CalendarButton.Visibility = Visibility.Hidden;
                 DataSourceButton.Visibility = Visibility.Hidden;
-                GroupButton.Visibility = Visibility.Hidden;
+                SqlButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -876,7 +899,7 @@ namespace Badger
                     var _message = "    The Data Table is null!";
                     SendMessage( _message );
                 }
-                else if( _generator.Numerics == null )
+                else if( _dataGen.Numerics == null )
                 {
                     var _message = "    The data is not alpha-numeric";
                     SendMessage( _message );
@@ -918,6 +941,113 @@ namespace Badger
             {
                 Fail( _ex );
                 return default( Notifier );
+            }
+        }
+
+        /// <summary>
+        /// Populates the edit stack.
+        /// </summary>
+        private protected IList<MetroTextInput> CreateFrames( )
+        {
+            try
+            {
+                var _list = new List<MetroTextInput>( );
+                for( var _index = 0; _index < 49; _index++ )
+                {
+                    var _frame = new MetroTextInput
+                    {
+                        Ordinal = _index
+                    };
+
+                    _list.Add( _frame );
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<MetroTextInput> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<MetroTextInput> );
+            }
+        }
+
+        /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns> </returns>
+        private IList<string> CreateCommandList( Provider provider )
+        {
+            try
+            {
+                var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                var _names = Directory.GetDirectories( _filePath );
+                var _list = new List<string>( );
+                for( var _i = 0; _i < _names.Length; _i++ )
+                {
+                    var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                    if( !string.IsNullOrEmpty( _folder ) )
+                    {
+                        _list.Add( _folder );
+                    }
+                }
+
+                return _list?.Count > 0
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Creates the query list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private IList<string> CreateQueryList( Provider provider )
+        {
+            try
+            {
+                if( Enum.IsDefined( typeof( Provider ), provider ) )
+                {
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = Directory.GetDirectories( _filePath );
+                    var _list = new List<string>( );
+                    for( var _i = 0; _i < _names.Length; _i++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        if( !string.IsNullOrEmpty( _folder ) )
+                        {
+                            _list.Add( _folder );
+                        }
+                    }
+
+                    return _list?.Count > 0
+                        ? _list
+                        : default( IList<string> );
+                }
+
+                return default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
             }
         }
 
@@ -972,9 +1102,11 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1006,9 +1138,11 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1137,81 +1271,95 @@ namespace Badger
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>
-        private void PopulateFieldListBox( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( FieldsListBox.Items.Count > 0 )
-                    {
-                        FieldsListBox.Items?.Clear( );
-                    }
-
-                    foreach( var _item in _fields )
-                    {
-                        FieldsListBox?.Items?.Add( _item );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the numeric ListBox.
-        /// </summary>
-        private void PopulateNumericListBox( )
-        {
-            if( _numerics?.Any( ) == true )
-            {
-                try
-                {
-                    if( NumericsListBox.Items.Count > 0 )
-                    {
-                        NumericsListBox.Items?.Clear( );
-                    }
-
-                    for( var _i = 0; _i < _numerics.Count; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( _numerics[ _i ] ) )
-                        {
-                            NumericsListBox?.Items?.Add( _numerics[ _i ] );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the edit stack.
-        /// </summary>
-        private protected IList<MetroTextInput> CreateFrames( )
+        private void PopulateCommandComboBox( IList<string> list )
         {
             try
             {
-                var _list = new List<MetroTextInput>( );
-                for( var _index = 0; _index < 49; _index++ )
+                ThrowIf.Null( list, nameof( list ) );
+                var _sql = Enum.GetNames( typeof( Command ) );
+                CommandComboBox.Items?.Clear( );
+                CommandListBox.Items?.Clear( );
+                for( var _i = 0; _i < list.Count; _i++ )
                 {
-                    var _frame = new MetroTextInput( );
-                    _frame.Ordinal = _index;
-                    _list.Add( _frame );
+                    if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATEDATABASE}" ) )
+                    {
+                        CommandComboBox.Items.Add( "CREATE DATABASE" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATETABLE}" ) )
+                    {
+                        CommandComboBox.Items.Add( "CREATE TABLE" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.ALTERTABLE}" ) )
+                    {
+                        CommandComboBox.Items.Add( "ALTER TABLE" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATEVIEW}" ) )
+                    {
+                        CommandComboBox.Items.Add( "CREATE VIEW" );
+                    }
+                    else if( _sql.Contains( list[ _i ] ) 
+                        && list[ _i ].Equals( $"{Command.SELECTALL}" ) )
+                    {
+                        CommandComboBox.Items.Add( "SELECT ALL" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.DELETE}" ) )
+                    {
+                        CommandComboBox.Items.Add( "DELETE" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.INSERT}" ) )
+                    {
+                        CommandComboBox.Items.Add( "INSERT" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.UPDATE}" ) )
+                    {
+                        CommandComboBox.Items.Add( "UPDATE" );
+                    }
+                    else if( _sql.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.SELECT}" ) )
+                    {
+                        CommandComboBox.Items.Add( "SELECT" );
+                    }
                 }
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<MetroTextInput> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IList<MetroTextInput> );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        public void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
+        {
+            try
+            {
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeListBox.Items?.Clear( );
+                var _types = dataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _types[ _i ]
+                        };
+
+                        DataTypeListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1232,7 +1380,7 @@ namespace Badger
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1265,7 +1413,7 @@ namespace Badger
                     BusyTab.Visibility = Visibility.Hidden;
                     SourceTab.Visibility = Visibility.Hidden;
                     FilterTab.Visibility = Visibility.Hidden;
-                    GroupTab.Visibility = Visibility.Hidden;
+                    CommandTab.Visibility = Visibility.Hidden;
                     CalendarTab.Visibility = Visibility.Hidden;
                     _frames = CreateFrames( );
                     foreach( var _frame in _frames )
@@ -1297,7 +1445,7 @@ namespace Badger
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Visible;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1323,7 +1471,7 @@ namespace Badger
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1352,7 +1500,7 @@ namespace Badger
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1387,7 +1535,7 @@ namespace Badger
                     BusyTab.Visibility = Visibility.Hidden;
                     SourceTab.Visibility = Visibility.Hidden;
                     FilterTab.Visibility = Visibility.Hidden;
-                    GroupTab.Visibility = Visibility.Hidden;
+                    CommandTab.Visibility = Visibility.Hidden;
                     CalendarTab.Visibility = Visibility.Hidden;
                     PopulateFirstComboBoxItems( );
                 }
@@ -1398,32 +1546,39 @@ namespace Badger
             }
         }
 
-        private void ActivateGroupTab( )
+        private void ActivateCommandTab( )
         {
             try
             {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify Data Source!";
-                    SendNotification( _message );
-                }
-                else
-                {
-                    ClearListBoxes( );
-                    ClearComboBoxes( );
-                    PrimaryTabControl.SelectedIndex = 0;
-                    SecondaryTabControl.SelectedIndex = 2;
-                    DataTab.IsSelected = true;
-                    GroupTab.IsSelected = true;
-                    DataTab.Visibility = Visibility.Hidden;
-                    SchemaTab.Visibility = Visibility.Hidden;
-                    BusyTab.Visibility = Visibility.Hidden;
-                    SourceTab.Visibility = Visibility.Hidden;
-                    FilterTab.Visibility = Visibility.Visible;
-                    GroupTab.Visibility = Visibility.Hidden;
-                    CalendarTab.Visibility = Visibility.Hidden;
-                    PopulateFirstComboBoxItems( );
-                }
+                PrimaryTabControl.SelectedIndex = 3;
+                CommandTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Visible;
+                CommandTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSqlTab( )
+        {
+            try
+            {
+                SecondaryTabControl.SelectedIndex = 2;
+                SqlTab.IsSelected = true;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1454,7 +1609,7 @@ namespace Badger
                     CalendarTab.IsSelected = true;
                     SourceTab.Visibility = Visibility.Visible;
                     FilterTab.Visibility = Visibility.Hidden;
-                    GroupTab.Visibility = Visibility.Hidden;
+                    CommandTab.Visibility = Visibility.Hidden;
                     BusyTab.Visibility = Visibility.Hidden;
                     CalendarTab.Visibility = Visibility.Hidden;
                 }
@@ -1565,8 +1720,7 @@ namespace Badger
                 DataTableListBox.Items?.Clear( );
                 FirstListBox.Items?.Clear( );
                 SecondListBox.Items?.Clear( );
-                FieldsListBox.Items?.Clear( );
-                NumericsListBox.Items?.Clear( );
+                CommandListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1583,6 +1737,7 @@ namespace Badger
             {
                 FirstComboBox.Items?.Clear( );
                 SecondComboBox.Items?.Clear( );
+                CommandComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1617,7 +1772,7 @@ namespace Badger
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Visible;
                 FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1650,7 +1805,7 @@ namespace Badger
                 GridButton.Visibility = Visibility.Visible;
                 CalendarButton.Visibility = Visibility.Visible;
                 DataSourceButton.Visibility = Visibility.Visible;
-                GroupButton.Visibility = Visibility.Visible;
+                SqlButton.Visibility = Visibility.Visible;
             }
             catch( Exception _ex )
             {
@@ -1682,7 +1837,7 @@ namespace Badger
                 GridButton.Visibility = Visibility.Hidden;
                 CalendarButton.Visibility = Visibility.Hidden;
                 DataSourceButton.Visibility = Visibility.Hidden;
-                GroupButton.Visibility = Visibility.Hidden;
+                SqlButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1703,6 +1858,38 @@ namespace Badger
                     FirstListBox.Visibility = Visibility.Visible;
                     SecondComboBox.Visibility = Visibility.Hidden;
                     SecondListBox.Visibility = Visibility.Hidden;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Runs the client application.
+        /// </summary>
+        private void RunClient( )
+        {
+            try
+            {
+                switch( _provider )
+                {
+                    case Provider.Access:
+                    {
+                        DataMinion.RunAccess( );
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        DataMinion.RunSqlCe( );
+                        break;
+                    }
+                    case Provider.SQLite:
+                    {
+                        DataMinion.RunSQLite( );
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )
@@ -1777,8 +1964,8 @@ namespace Badger
                     FourthGridLabel.Content = "Total Measures: 0.0";
                     FieldsLabel.Content = "Selected Fields: 0.0";
                     NumericsLabel.Content = "Selected Measures: 0.0";
-                    FirstDateLabel.Content = $"Start Date: " + DateTime.Now.ToShortDateString( );
-                    SecondDateLabel.Content = $"End Date: " + DateTime.Now.ToShortDateString( );
+                    FirstDateLabel.Content = "Start Date: " + DateTime.Now.ToShortDateString( );
+                    SecondDateLabel.Content = "End Date: " + DateTime.Now.ToShortDateString( );
                 }
             }
             catch( Exception _ex )
@@ -1801,6 +1988,43 @@ namespace Badger
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Gets the data types.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
+        private protected IList<string> GetDataTypes( Provider provider )
+        {
+            if( Enum.IsDefined( typeof( Provider ), provider ) )
+            {
+                try
+                {
+                    var _database = provider.ToString( );
+                    var _db = new DataGenerator( Source.SchemaTypes, Provider.Access );
+                    var _data = _db.DataTable;
+                    var _list = _data.AsEnumerable( )
+                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
+                        ?.Select( c => c.Field<string>( "TypeName" ) )
+                        ?.ToList( );
+
+                    return _list.Count > 0
+                        ? _list
+                        : default( IList<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
         }
 
         /// <summary>
@@ -1866,7 +2090,7 @@ namespace Badger
                     }
                     case 2:
                     {
-                        ActivateGroupTab( );
+                        ActivateCommandTab( );
                         break;
                     }
                     default:
@@ -1874,6 +2098,36 @@ namespace Badger
                         ActivateSourceTab( );
                         break;
                     }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the provider.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        private void SetProvider( string provider )
+        {
+            try
+            {
+                ThrowIf.Null( provider, nameof( provider ) );
+                var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
+                if( Enum.IsDefined( typeof( Provider ), _value ) )
+                {
+                    _provider = _value switch
+                    {
+                        Provider.Access => Provider.Access,
+                        Provider.SQLite => Provider.SQLite,
+                        Provider.SqlCe => Provider.SqlCe,
+                        Provider.SqlServer => Provider.SqlServer,
+                        _ => Provider.Access
+                    };
                 }
             }
             catch( Exception _ex )
@@ -2101,11 +2355,14 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGroupButtonClick( object sender, EventArgs e )
+        private void OnSqlButtonClick( object sender, EventArgs e )
         {
             try
             {
-                ActivateGroupTab( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                ActivateSqlTab( );
+                ActivateCommandTab( );
             }
             catch( Exception _ex )
             {
@@ -2494,6 +2751,8 @@ namespace Badger
         {
             try
             {
+                _commands = CreateCommandList( _provider );
+                PopulateCommandComboBox( _commands );
             }
             catch( Exception _ex )
             {
@@ -2505,6 +2764,7 @@ namespace Badger
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private void OnTableListBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is MetroListBox _listBox )
@@ -2522,10 +2782,10 @@ namespace Badger
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                     }
 
-                    _generator = new DataGenerator( _source, _provider );
-                    _dataTable = _generator.DataTable;
-                    _fields = _generator.Fields;
-                    _numerics = _generator.Numerics;
+                    _dataGen = new DataGenerator( _source, _provider );
+                    _dataTable = _dataGen.DataTable;
+                    _fields = _dataGen.Fields;
+                    _numerics = _dataGen.Numerics;
                     _current = _dataTable.Rows[ 0 ];
                     DataGrid.ItemsSource = _dataTable;
                     DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
@@ -2571,16 +2831,19 @@ namespace Badger
                     _firstValue = string.Empty;
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
                     FirstListBox.Items?.Clear( );
                     _firstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
-                        _generator = new DataGenerator( _source, _provider );
-                        var _data = _generator.DataElements[ _firstCategory ];
-                        foreach( var _item in _data )
+                        _dataGen = new DataGenerator( _source, _provider );
+                        var _data = _dataGen.DataElements[ _firstCategory ];
+                        foreach( var _value in _data )
                         {
+                            var _item = new MetroListBoxItem
+                            {
+                                Content = _value
+                            };
+
                             FirstListBox.Items?.Add( _item );
                         }
                     }
@@ -2596,6 +2859,7 @@ namespace Badger
         /// Called when [first ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private void OnFirstListBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is MetroListBox _listBox )
@@ -2635,8 +2899,6 @@ namespace Badger
                     _sqlQuery = string.Empty;
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
-                    _thirdCategory = string.Empty;
-                    _thirdValue = string.Empty;
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
                         SecondListBox.Items?.Clear( );
@@ -2645,7 +2907,7 @@ namespace Badger
                     _secondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
-                        var _data = _generator.DataElements[ _secondCategory ];
+                        var _data = _dataGen.DataElements[ _secondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -2663,6 +2925,7 @@ namespace Badger
         /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private void OnSecondListBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ListBox _listBox )
@@ -2677,40 +2940,6 @@ namespace Badger
                     _secondValue = _listBox.SelectedValue?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        private void OnThirdListBoxItemSelected( object sender )
-        {
-            if( sender is MetroListBox _listBox )
-            {
-                try
-                {
-                    if( _filter.Keys.Count > 0 )
-                    {
-                        _filter.Clear( );
-                    }
-
-                    if( FieldsListBox.Items.Count > 0 )
-                    {
-                        FieldsListBox.Items?.Clear( );
-                    }
-
-                    _thirdValue = _listBox.SelectedValue?.ToString( );
-                    _filter.Add( _firstCategory, _firstValue );
-                    _filter.Add( _secondCategory, _secondValue );
-                    _filter.Add( _thirdCategory, _thirdValue );
                     UpdateLabels( );
                     _sqlQuery = CreateSqlSelectQuery( _filter );
                 }
@@ -2761,7 +2990,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRadioButtonSelected( object sender, EventArgs e )
+        private void OnDataSourceRadioButtonSelected( object sender, EventArgs e )
         {
             try
             {
@@ -2798,6 +3027,35 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        private void OnProviderRadioButtonChecked( object sender, EventArgs e )
+        {
+            if( sender is RadioButton _button )
+            {
+                try
+                {
+                    var _tag = _button.Tag?.ToString( );
+                    if( !string.IsNullOrEmpty( _tag ) )
+                    {
+                        SetProvider( _tag );
+                        _dataTypes = GetDataTypes( _provider );
+                        _commands = CreateCommandList( _provider );
+                        PopulateDataTypeListBoxItems( _dataTypes );
+                        PopulateCommandComboBox( _commands );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [data row selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -2808,11 +3066,121 @@ namespace Badger
             try
             {
                 var _dataGrid = sender as MetroDataGrid;
-                _current = (DataRow)_dataGrid.SelectedItem;
+                _current = (DataRow)_dataGrid?.SelectedItem;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    _selectedCommand = string.Empty;
+                    var _selection = _comboBox.SelectedItem?.ToString( );
+                    CommandListBox.Items?.Clear( );
+                    if( _selection?.Contains( " " ) == true )
+                    {
+                        _selectedCommand = _selection.Replace( " ", "" );
+                        var _filePath = _prefix + _dbpath
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
+
+                        var _files = Directory.GetFiles( _filePath );
+                        for( var _i = 0; _i < _files.Length; _i++ )
+                        {
+                            var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
+                            var _caption = _item?.SplitPascal( );
+                            CommandListBox.Items?.Add( _caption );
+                        }
+                    }
+                    else
+                    {
+                        _selectedCommand = _comboBox.SelectedItem?.ToString( );
+                        var _filePath = _prefix + _dbpath
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
+
+                        var _names = Directory.GetFiles( _filePath );
+                        for( var _i = 0; _i < _names.Length; _i++ )
+                        {
+                            var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
+                            var _caption = _item?.SplitPascal( );
+                            CommandListBox.Items?.Add( _caption );
+                        }
+                    }
+
+                    if( PrimaryTabControl.SelectedIndex != 3 )
+                    {
+                        PrimaryTabControl.SelectedIndex = 3;
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [ListBox item selected].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        private void OnCommandListBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ListBox _listBox
+                && !string.IsNullOrEmpty( _listBox.SelectedItem.ToString( ) ) )
+            {
+                try
+                {
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    Editor.Text = string.Empty;
+                    _selectedQuery = _listBox.SelectedItem?.ToString( );
+                    if( _selectedQuery?.Contains( " " ) == true
+                        || _selectedCommand?.Contains( " " ) == true )
+                    {
+                        var _command = _selectedCommand?.Replace( " ", "" );
+                        var _query = _selectedQuery?.Replace( " ", "" );
+                        var _filePath = _prefix + _dbpath
+                            + @$"\{_provider}\DataModels\{_command}\{_query}.sql";
+
+                        using var _stream = File.OpenRead( _filePath );
+                        using var _reader = new StreamReader( _stream );
+                        var _text = _reader.ReadToEnd( );
+                        Editor.Text = _text;
+                    }
+                    else
+                    {
+                        var _filePath = _prefix + _dbpath
+                            + @$"\{_provider}\DataModels\{_selectedCommand}\{_selectedQuery}.sql";
+
+                        using var _stream = File.OpenRead( _filePath );
+                        using var _reader = new StreamReader( _stream );
+                        var _text = _reader.ReadToEnd( );
+                        Editor.Text = _text;
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -2823,7 +3191,6 @@ namespace Badger
         private protected void Fail( Exception ex )
         {
             var _error = new ErrorWindow( ex );
-            _timer?.Dispose( );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

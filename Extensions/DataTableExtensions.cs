@@ -108,7 +108,8 @@ namespace Badger
         /// </summary>
         /// <param name="dataTable">The dataTable.</param>
         /// <param name="filePath">The filePath.</param>
-        /// <exception cref="Exception">OSExportToExcelFile: Null or empty input datatable!\n
+        /// <exception cref="Exception">
+        /// OSExportToExcelFile: Null or empty input datatable!\n
         /// or OSExportToExcelFile: Excel file could not
         /// be saved.\n" + ex.Message</exception>
         public static void WriteToExcel( this DataTable dataTable, string filePath )
@@ -122,7 +123,7 @@ namespace Badger
                 {
                     var _name = dataTable.Columns[ _i ]?.ColumnName;
                     if( ( _worksheet != null )
-                       && !string.IsNullOrEmpty( _name ) )
+                        && !string.IsNullOrEmpty( _name ) )
                     {
                         _worksheet.Cells[ 1, _i + 1 ].Value = _name;
                     }
@@ -166,7 +167,7 @@ namespace Badger
                         for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                         {
                             if( ( _col.DataType == typeof( int ) )
-                               && ( _col.Ordinal == 0 ) )
+                                && ( _col.Ordinal == 0 ) )
                             {
                                 var _row = dataTable.Rows[ _i ];
                                 var _value = _row[ _col.ColumnName ]?.ToString( );
@@ -179,7 +180,7 @@ namespace Badger
                         }
                     }
 
-                    return _list?.Any( ) == true
+                    return _list.Count != 0
                         ? _list
                         : default( IEnumerable<int> );
                 }
@@ -308,7 +309,11 @@ namespace Badger
                     _fields[ _i ] = dataTable.Columns[ _i ].ColumnName;
                 }
 
-                var _names = _fields?.OrderBy( f => f.IndexOf( f ) )?.Select( f => f )?.ToArray( );
+                var _names = _fields
+                    ?.OrderBy( f => f.IndexOf( f ) )
+                    ?.Select( f => f )
+                    ?.ToArray( );
+
                 return ( _names?.Any( ) == true )
                     ? _names
                     : default( string[ ] );
@@ -335,14 +340,14 @@ namespace Badger
                 foreach( DataColumn _col in dataTable.Columns )
                 {
                     if( !_col.ColumnName.EndsWith( "Id" )
-                       && ( _col.Ordinal > 0 )
-                       && ( ( _col.DataType == typeof( decimal ) )
-                           | ( _col.DataType == typeof( float ) )
-                           | ( _col.DataType == typeof( double ) )
-                           | ( _col.DataType == typeof( int ) )
-                           | ( _col.DataType == typeof( uint ) )
-                           | ( _col.DataType == typeof( ushort ) )
-                           | ( _col.DataType == typeof( short ) ) ) )
+                        && ( _col.Ordinal > 0 )
+                        && ( ( _col.DataType == typeof( decimal ) )
+                            | ( _col.DataType == typeof( float ) )
+                            | ( _col.DataType == typeof( double ) )
+                            | ( _col.DataType == typeof( int ) )
+                            | ( _col.DataType == typeof( uint ) )
+                            | ( _col.DataType == typeof( ushort ) )
+                            | ( _col.DataType == typeof( short ) ) ) )
                     {
                         _columns.Add( _col );
                     }
@@ -374,10 +379,10 @@ namespace Badger
                 foreach( DataColumn _col in dataTable.Columns )
                 {
                     if( _col.ColumnName.EndsWith( "Date" )
-                       || _col.ColumnName.EndsWith( "Day" )
-                       || ( ( _col.DataType == typeof( DateTime ) )
-                           | ( _col.DataType == typeof( DateOnly ) )
-                           | ( _col.DataType == typeof( DateTimeOffset ) ) ) )
+                        || _col.ColumnName.EndsWith( "Day" )
+                        || ( ( _col.DataType == typeof( DateTime ) )
+                            | ( _col.DataType == typeof( DateOnly ) )
+                            | ( _col.DataType == typeof( DateTimeOffset ) ) ) )
                     {
                         _columns.Add( _col );
                     }

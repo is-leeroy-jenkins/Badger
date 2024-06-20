@@ -57,6 +57,7 @@
     <None Remove="UI\Windows\Datagrid\GridButton.png" />
     <None Remove="UI\Windows\Datagrid\GroupButton.png" />
     <None Remove="UI\Windows\Datagrid\SchemaButton.png" />
+    <None Remove="UI\Windows\Datagrid\SqlButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -641,6 +642,7 @@
     <Resource Include="UI\Windows\Datagrid\GroupButton.png" />
     <Resource Include="UI\Windows\Datagrid\Loading.gif" />
     <Resource Include="UI\Windows\Datagrid\SchemaButton.png" />
+    <Resource Include="UI\Windows\Datagrid\SqlButton.png" />
     <Resource Include="UI\Windows\Datagrid\ToggleButton.png" />
     <Resource Include="UI\Windows\Document\FilterButton.png" />
     <Resource Include="UI\Windows\Document\ToggleButton.png" />

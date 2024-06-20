@@ -110,9 +110,10 @@
             <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
                     ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filter Data Source" />
 
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit Current Record"
-                    ImageSource="/UI/Windows/Datagrid/EditButton.png" Height="30" />
-            <badger:ToolStripButton x:Name="GroupButton" ToolTip="Aggregate Columns"
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit Current Record" Height="30"
+                    ImageSource="/UI/Windows/Datagrid/SqlButton.png" />
+            <badger:ToolStripButton x:Name="SqlButton" ToolTip="Write SQL
+                                    "
                     ImageSource="/UI/Windows/Datagrid/GroupButton.png" />
             <badger:ToolStripButton x:Name="DataSourceButton" ToolTip="Select Data Source"
                     ImageSource="/UI/Windows/Datagrid/DataSourceButton.png" />
@@ -188,20 +189,22 @@
                     </local:MetroComboBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="GroupTab" Height="24" Header="Group" Width="50" Background="#FF141414"
+            <TabItem x:Name="CommandTab" Height="24" Header="SQL" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,5" Margin="0,0,0,0">
-                <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
-                    <local:MetroLabel x:Name="FieldListBoxLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
-                            Canvas.Left="32" Canvas.Top="89" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroListBox x:Name="FieldsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="153"
-                            Canvas.Left="27" Canvas.Top="120" VerticalAlignment="Top" Width="250"
+                <Canvas x:Name="CommandCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
+                    <local:MetroLabel x:Name="CommandLabel" Content="SQL Commands:" Width="170" HorizontalAlignment="Left"
+                            Canvas.Left="27" Canvas.Top="95" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                    <local:MetroListBox x:Name="CommandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="268"
+                            Canvas.Left="27" Canvas.Top="177" VerticalAlignment="Top" Width="250"
                             HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select FIeld Groups" />
-                    <local:MetroListBox x:Name="NumericsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="129"
-                            Canvas.Left="27" Canvas.Top="333" VerticalAlignment="Top" Width="250"
-                            HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select Numeric Groups" />
-                    <local:MetroLabel x:Name="NumericListBoxLabel" Content="Numerics" Width="170"
-                            HorizontalAlignment="Center" Canvas.Left="27" Canvas.Top="307" VerticalAlignment="Top"
-                            Foreground="#FF0078D4" />
+                    <badger:MetroComboBox x:Name="CommandComboBox" AllowMultiSelect="True" DefaultText="ComboBox Items" Height="30" Width="175"
+                            Canvas.Left="22" Canvas.Top="125">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </badger:MetroComboBox>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="CalendarTab" Height="24" Header="Dates" Width="50" Background="#FF141414"
@@ -253,14 +256,16 @@
             <TabItem x:Name="EditTab" Height="24" Header="Edit" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="False" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="EditCanvas" ScrollViewer.CanContentScroll="True"
-                        ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <Canvas HorizontalAlignment="Center" Height="430" Canvas.Left="0" Canvas.Top="0"
                             VerticalAlignment="Center" />
                     <local:MetroLabel x:Name="EditHeader" Canvas.Left="18" Canvas.Top="9" HorizontalAlignment="Center"
                             VerticalAlignment="Top" Width="702" Foreground="#FF0078D4" Height="30" />
-                    <WrapPanel x:Name="EditPanel" Height="517" Width="1015" Canvas.Top="76" HorizontalAlignment="Center"
-                            Canvas.Left="3" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True"
-                            ScrollViewer.HorizontalScrollBarVisibility="Visible" />
+                    <WrapPanel x:Name="EditPanel" Height="533" Width="985" Canvas.Top="66" HorizontalAlignment="Left"
+                            Canvas.Left="38" VerticalAlignment="Center" ScrollViewer.CanContentScroll="True"
+                            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SchemaTab" Height="24" Header="Schema" Width="100" Background="#FF141414"
@@ -268,55 +273,63 @@
                 <Canvas x:Name="SchemaCanvas" Background="#FF141414" HorizontalAlignment="Right" Height="595"
                         Margin="0,0,5,0" VerticalAlignment="Top" Width="1011">
                     <local:MetroLabel x:Name="ColumnNameLabel" Content="Column Name" Width="115" Height="26"
-                            HorizontalAlignment="Left" Canvas.Left="40" Canvas.Top="421" VerticalAlignment="Top"
+                            HorizontalAlignment="Left" Canvas.Left="80" Canvas.Top="426" VerticalAlignment="Top"
                             Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="DataTypeLabel" Content="Data Type" Height="26" HorizontalAlignment="Left"
-                            Canvas.Left="455" Canvas.Top="329" VerticalAlignment="Top" Width="70" Foreground="#FF0078D4"
-                            Panel.ZIndex="-3" />
+                            Canvas.Left="535" Canvas.Top="329" VerticalAlignment="Center" Width="70"
+                            Foreground="#FF0078D4" Panel.ZIndex="-3" />
                     <local:MetroLabel x:Name="DataTableLabel" Content="Data Table" Width="130" Height="26"
-                            HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="153" VerticalAlignment="Top"
+                            HorizontalAlignment="Left" Canvas.Left="70" Canvas.Top="158" VerticalAlignment="Top"
                             Background="{x:Null}" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="DataTypeListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="120"
-                            Canvas.Left="455" Canvas.Top="359" VerticalAlignment="Top" Width="200"
+                            Canvas.Left="535" Canvas.Top="359" VerticalAlignment="Center" Width="200"
                             HorizontalAlignment="Left" />
                     <local:MetroListBox x:Name="DataTableListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="110" Canvas.Left="30" Canvas.Top="184" VerticalAlignment="Top" Width="200"
+                            Height="110" Canvas.Left="70" Canvas.Top="189" VerticalAlignment="Top" Width="200"
                             HorizontalAlignment="Left" />
                     <local:MetroListBox x:Name="DataColumnListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="110" Canvas.Left="455" Canvas.Top="184" Width="200" HorizontalAlignment="Left"
-                            VerticalAlignment="Top" />
-                    <local:MetroRadioButton x:Name="SQLiteRadioButton" Content="SQLite" Canvas.Left="26"
-                            Canvas.Top="109" HorizontalAlignment="Left" VerticalAlignment="Center" Width="64"
-                            Height="22" />
-                    <local:MetroRadioButton x:Name="SqlSeverRadioButton" Content="SQL Server" Canvas.Left="100"
-                            Canvas.Top="109" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85"
+                            Height="110" Canvas.Left="535" Canvas.Top="184" Width="200" HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                    <local:MetroRadioButton x:Name="SQLiteRadioButton" Content="SQLite" Canvas.Left="76"
+                            Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Width="64" Height="22" />
+                    <local:MetroRadioButton x:Name="SqlSeverRadioButton" Content="SQL Server" Canvas.Left="150"
+                            Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85"
                             RenderTransformOrigin="0.412,0.501" Height="22" />
-                    <local:MetroRadioButton x:Name="AccessRadioButton" Content="Access" Canvas.Left="195"
-                            Canvas.Top="109" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"
-                            Height="22" />
-                    <local:MetroRadioButton x:Name="SqlCeRadioButton" Content="SQL CE" Canvas.Left="265"
-                            Canvas.Top="109" HorizontalAlignment="Left" VerticalAlignment="Center" Width="65"
-                            Height="22" />
-                    <local:MetroTextBox x:Name="ColumnNameTextBox" Canvas.Left="40" TextWrapping="Wrap" Canvas.Top="449"
+                    <local:MetroRadioButton x:Name="AccessRadioButton" Content="Access" Canvas.Left="245"
+                            Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="22" />
+                    <local:MetroRadioButton x:Name="SqlCeRadioButton" Content="SQL CE" Canvas.Left="315"
+                            Canvas.Top="104" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Height="22" />
+                    <local:MetroTextBox x:Name="ColumnNameTextBox" Canvas.Left="80" TextWrapping="Wrap" Canvas.Top="454"
                             Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" />
-                    <local:MetroLabel x:Name="DataColumnLabel" Content="Data Columns" Canvas.Left="455" Canvas.Top="154"
+                    <local:MetroLabel x:Name="DataColumnLabel" Content="Data Columns" Canvas.Left="535" Canvas.Top="154"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF0078D4" />
+                    <local:MetroLabel x:Name="TableNameLabel" Content="Table Name" Canvas.Left="75" Canvas.Top="334"
                             HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroLabel x:Name="TableNameLabel" Content="Table Name" Canvas.Left="35" Canvas.Top="329"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroTextBox Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="359" Width="190"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" />
-                    <local:MetroTile x:Name="DropTableButton" Height="40" Header="" Canvas.Left="290"
-                            Title="Delete Table" Canvas.Top="189" Width="90" HorizontalAlignment="Center"
+                    <local:MetroTextBox Canvas.Left="75" TextWrapping="Wrap" Canvas.Top="364" Width="190"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" />
+                    <local:MetroTile x:Name="DropTableButton" Height="40" Header="" Canvas.Left="360"
+                            Title="Delete Table" Canvas.Top="194" Width="90" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
-                    <local:MetroTile x:Name="DeleteColumnButton" Height="40" Header="" Canvas.Left="290"
-                            Title="Delete Column" Canvas.Top="254" Width="90" HorizontalAlignment="Center"
+                    <local:MetroTile x:Name="DeleteColumnButton" Height="40" Header="" Canvas.Left="360"
+                            Title="Delete Column" Canvas.Top="259" Width="90" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
-                    <local:MetroTile x:Name="AddTableButton" Height="40" Header="" Canvas.Left="295" Title="Add Table"
-                            Canvas.Top="364" Width="90" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                    <local:MetroTile x:Name="AddColumnButton" Height="40" Header="" Canvas.Left="295" Title="Add Column"
-                            Canvas.Top="439" Width="90" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <local:MetroTile x:Name="AddTableButton" Height="40" Header="" Canvas.Left="365" Title="Add Table"
+                            Canvas.Top="369" Width="90" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <local:MetroTile x:Name="AddColumnButton" Height="40" Header="" Canvas.Left="365" Title="Add Column"
+                            Canvas.Top="444" Width="90" HorizontalAlignment="Left" VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="SchemaHeader" Content="" Canvas.Left="4" Canvas.Top="37" Width="606"
                             HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="SqlTab" HorizontalAlignment="Center" Height="24" Header="SQL" VerticalAlignment="Center" Width="100"
+                    Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
+                <Canvas x:Name="SqlCanvas" Background="#FF141414">
+                    <syncfusion:EditControl x:Name="Editor" Text="Edit Control" Background="#FF464646"
+                            BorderBrush="#FF0078D4" Foreground="#FFF0F1F3" CaretBrush="#FFEEFB00"
+                            LineNumberAreaBackground="Black" LineNumberTextForeground="#FF1FB70A"
+                            SelectionBackground="#FF183159" FontFamily="Source Code Pro" BorderThickness="1,1,1,1"
+                            OutliningAreaWidth="3" LineNumberAreaWidth="10" Width="990" Height="387" Canvas.Left="23"
+                            Canvas.Top="76" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" Background="#FF141414"
