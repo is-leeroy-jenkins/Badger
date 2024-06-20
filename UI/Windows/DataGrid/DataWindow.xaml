@@ -111,10 +111,9 @@
                     ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filter Data Source" />
 
             <local:ToolStripButton x:Name="EditButton" ToolTip="Edit Current Record" Height="30"
-                    ImageSource="/UI/Windows/Datagrid/SqlButton.png" />
+                    ImageSource="/UI/Windows/Datagrid/EditButton.png" />
             <badger:ToolStripButton x:Name="SqlButton" ToolTip="Write SQL
-                                    "
-                    ImageSource="/UI/Windows/Datagrid/GroupButton.png" />
+                                    " ImageSource="/UI/Windows/Datagrid/SqlButton.png" />
             <badger:ToolStripButton x:Name="DataSourceButton" ToolTip="Select Data Source"
                     ImageSource="/UI/Windows/Datagrid/DataSourceButton.png" />
 
@@ -192,13 +191,14 @@
             <TabItem x:Name="CommandTab" Height="24" Header="SQL" Width="50" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Padding="6,2,6,5" Margin="0,0,0,0">
                 <Canvas x:Name="CommandCanvas" Background="#FF141414" Height="576" Margin="0,0,25,0">
-                    <local:MetroLabel x:Name="CommandLabel" Content="SQL Commands:" Width="170" HorizontalAlignment="Left"
-                            Canvas.Left="27" Canvas.Top="95" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                    <local:MetroLabel x:Name="CommandLabel" Content="SQL Commands:" Width="170"
+                            HorizontalAlignment="Left" Canvas.Left="27" Canvas.Top="95" VerticalAlignment="Top"
+                            Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="CommandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="268"
                             Canvas.Left="27" Canvas.Top="177" VerticalAlignment="Top" Width="250"
-                            HorizontalAlignment="Center" SelectionMode="Multiple" ToolTip="Select FIeld Groups" />
-                    <badger:MetroComboBox x:Name="CommandComboBox" AllowMultiSelect="True" DefaultText="ComboBox Items" Height="30" Width="175"
-                            Canvas.Left="22" Canvas.Top="125">
+                            HorizontalAlignment="Center" ToolTip="Select SQL Command" />
+                    <badger:MetroComboBox x:Name="CommandComboBox" DefaultText="Select a command" Height="30"
+                            Width="175" Canvas.Left="22" Canvas.Top="125">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -321,8 +321,8 @@
                             HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="SqlTab" HorizontalAlignment="Center" Height="24" Header="SQL" VerticalAlignment="Center" Width="100"
-                    Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
+            <TabItem x:Name="SqlTab" HorizontalAlignment="Center" Height="24" Header="SQL" VerticalAlignment="Center"
+                    Width="100" Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="SqlCanvas" Background="#FF141414">
                     <syncfusion:EditControl x:Name="Editor" Text="Edit Control" Background="#FF464646"
                             BorderBrush="#FF0078D4" Foreground="#FFF0F1F3" CaretBrush="#FFEEFB00"

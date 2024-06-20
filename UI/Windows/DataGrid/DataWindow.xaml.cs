@@ -409,6 +409,7 @@ namespace Badger
 
             // Initialize Default Provider
             _provider = Provider.Access;
+            AccessRadioButton.IsChecked = true;
 
             // Container Properties
             EditCanvas.HorizontalAlignment = HorizontalAlignment.Left;
@@ -420,6 +421,8 @@ namespace Badger
             _columns = new List<string>( );
             _fields = new List<string>( );
             _numerics = new List<string>( );
+            _commands = new List<string>( );
+            _dataTypes = new List<string>( );
             _selectedColumns = new List<string>( );
             _selectedFields = new List<string>( );
             _selectedNumerics = new List<string>( );
@@ -1374,14 +1377,7 @@ namespace Badger
                 SecondaryTabControl.SelectedIndex = 1;
                 DataTab.IsSelected = true;
                 SourceTab.IsSelected = true;
-                DataTab.Visibility = Visibility.Hidden;
-                EditTab.Visibility = Visibility.Hidden;
-                SchemaTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
-                SourceTab.Visibility = Visibility.Hidden;
-                FilterTab.Visibility = Visibility.Hidden;
-                CommandTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
+                HideTabs( );
             }
             catch( Exception _ex )
             {
@@ -1407,14 +1403,7 @@ namespace Badger
                     SecondaryTabControl.SelectedIndex = 2;
                     EditTab.IsSelected = true;
                     FilterTab.IsSelected = true;
-                    DataTab.Visibility = Visibility.Hidden;
-                    EditTab.Visibility = Visibility.Hidden;
-                    SchemaTab.Visibility = Visibility.Hidden;
-                    BusyTab.Visibility = Visibility.Hidden;
-                    SourceTab.Visibility = Visibility.Hidden;
-                    FilterTab.Visibility = Visibility.Hidden;
-                    CommandTab.Visibility = Visibility.Hidden;
-                    CalendarTab.Visibility = Visibility.Hidden;
+                    HideTabs( );
                     _frames = CreateFrames( );
                     foreach( var _frame in _frames )
                     {
@@ -1442,11 +1431,14 @@ namespace Badger
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                SqlTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
-                FilterTab.Visibility = Visibility.Visible;
+                FilterTab.Visibility = Visibility.Hidden;
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
+                _dataTypes = GetDataTypes( _provider );
+                PopulateDataTypeListBoxItems( _dataTypes );
             }
             catch( Exception _ex )
             {
@@ -1463,11 +1455,12 @@ namespace Badger
             {
                 PrimaryTabControl.SelectedIndex = 2;
                 SecondaryTabControl.SelectedIndex = 1;
-                SchemaTab.IsSelected = true;
+                BusyTab.IsSelected = true;
                 FilterTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                SqlTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
@@ -1497,6 +1490,7 @@ namespace Badger
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                SqlTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
@@ -1532,6 +1526,7 @@ namespace Badger
                     FilterTab.IsSelected = true;
                     DataTab.Visibility = Visibility.Hidden;
                     SchemaTab.Visibility = Visibility.Hidden;
+                    SqlTab.Visibility = Visibility.Hidden;
                     BusyTab.Visibility = Visibility.Hidden;
                     SourceTab.Visibility = Visibility.Hidden;
                     FilterTab.Visibility = Visibility.Hidden;
@@ -1553,12 +1548,10 @@ namespace Badger
                 PrimaryTabControl.SelectedIndex = 3;
                 CommandTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
                 SchemaTab.Visibility = Visibility.Hidden;
+                SqlTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
-                SourceTab.Visibility = Visibility.Hidden;
-                FilterTab.Visibility = Visibility.Visible;
-                CommandTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1579,6 +1572,8 @@ namespace Badger
                 FilterTab.Visibility = Visibility.Hidden;
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
+                _commands = CreateCommandList( _provider );
+                PopulateCommandComboBox( _commands );
             }
             catch( Exception _ex )
             {
@@ -1607,10 +1602,13 @@ namespace Badger
                     SecondaryTabControl.SelectedIndex = 3;
                     DataTab.IsSelected = true;
                     CalendarTab.IsSelected = true;
-                    SourceTab.Visibility = Visibility.Visible;
+                    DataTab.Visibility = Visibility.Hidden;
+                    SchemaTab.Visibility = Visibility.Hidden;
+                    SqlTab.Visibility = Visibility.Hidden;
+                    BusyTab.Visibility = Visibility.Hidden;
+                    SourceTab.Visibility = Visibility.Hidden;
                     FilterTab.Visibility = Visibility.Hidden;
                     CommandTab.Visibility = Visibility.Hidden;
-                    BusyTab.Visibility = Visibility.Hidden;
                     CalendarTab.Visibility = Visibility.Hidden;
                 }
             }
@@ -1838,6 +1836,30 @@ namespace Badger
                 CalendarButton.Visibility = Visibility.Hidden;
                 DataSourceButton.Visibility = Visibility.Hidden;
                 SqlButton.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+
+        /// <summary>
+        /// Hides the tabs.
+        /// </summary>
+        private void HideTabs( )
+        {
+            try
+            {
+                DataTab.Visibility = Visibility.Hidden;
+                EditTab.Visibility = Visibility.Hidden;
+                SchemaTab.Visibility = Visibility.Hidden;
+                SqlTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                CommandTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
