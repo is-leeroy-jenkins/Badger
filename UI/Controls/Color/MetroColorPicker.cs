@@ -65,7 +65,7 @@ namespace Badger
             Width = 250;
             Height = 200;
             FontSize = 12;
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
         }
 
         /// <summary>

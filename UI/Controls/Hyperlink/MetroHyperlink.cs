@@ -115,7 +115,7 @@ namespace Badger
             // Basic Settings
             Height = 110;
             Width = 22;
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( Colors.Transparent );
             Foreground = new SolidColorBrush( _foreColor );

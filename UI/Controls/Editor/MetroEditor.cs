@@ -127,7 +127,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( EditControl ) );
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 800;
             Height = 400;

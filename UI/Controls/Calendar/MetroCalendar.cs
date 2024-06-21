@@ -129,7 +129,7 @@ namespace Badger
         {
             // Control Properties
             BorderThickness = new Thickness( 0 );
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             SetResourceReference( StyleProperty, typeof( CalendarEdit ) );
             Background = new SolidColorBrush( _backColor );

@@ -43,9 +43,7 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.Input;
     using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
@@ -118,21 +116,25 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.UI.Controls.Com.MetroComboBox" /> class.
+        /// <see cref="T:Badger.UI.Controls.ComboBox.MetroComboBox" /> class.
         /// </summary>
         public MetroComboBox( ) 
             : base( )
 
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( ComboBoxAdv ) );
             Width = 150;
             Height = 30;
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Padding = new Thickness( 15, 1, 1, 1 );
-            Margin = new Thickness( 3 );
+            Padding = new Thickness( 10, 1, 1, 1 );
+            Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             IsEditable = true;
+            AutoCompleteMode = AutoCompleteModes.None;
+            AllowMultiSelect = false;
+            IsTextSearchEnabled = false;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -151,7 +153,8 @@ namespace Badger
                     Background = new SolidColorBrush( _itemBackColor ),
                     Foreground = new SolidColorBrush( _itemForeColor ),
                     BorderBrush = new SolidColorBrush( _borderColor ),
-                    Content = name
+                    Content = name,
+                    Height = 24
                 };
 
                 Items.Add( _item );

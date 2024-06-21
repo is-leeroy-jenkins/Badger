@@ -150,7 +150,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             Width = 700;
             Height = 350;

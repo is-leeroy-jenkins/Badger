@@ -127,7 +127,7 @@ namespace Badger
         {
             // Basic Properties
             SetResourceReference( StyleProperty, typeof( SfMap ) );
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 800;
             Height = 400;

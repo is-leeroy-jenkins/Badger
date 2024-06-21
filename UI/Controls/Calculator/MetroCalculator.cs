@@ -99,7 +99,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfCalculator ) );
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _backColor );

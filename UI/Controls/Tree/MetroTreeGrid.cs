@@ -129,7 +129,7 @@ namespace Badger.UI.Controls
             Width = 400;
             Height = 400;
             FontSize = 12;
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

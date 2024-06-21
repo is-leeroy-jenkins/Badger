@@ -45,6 +45,7 @@ namespace Badger
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc />
     /// <summary>
@@ -215,7 +216,8 @@ namespace Badger
             InitializeComponent( );
 
             // Control Properties
-            FontFamily = new FontFamily( "Roboto" );
+            SetResourceReference( StyleProperty, typeof( TextBoxExt ) );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 240;
             MinWidth = 220;

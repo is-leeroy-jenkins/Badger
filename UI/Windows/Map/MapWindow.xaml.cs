@@ -197,7 +197,7 @@ namespace Badger
             MinHeight = 600;
             MaxHeight = 900;
             ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
             WindowStyle = WindowStyle.SingleBorderWindow;
             Padding = new Thickness( 1 );

@@ -74,7 +74,7 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
-            FontFamily = new FontFamily( "Roboto" );
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Height = 40;
             Width = 1400;

@@ -51,7 +51,10 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
     using System.Windows.Media;
+    using MahApps.Metro.Controls;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Grid;
     using ToastNotifications;
@@ -946,11 +949,13 @@ namespace Badger
             try
             {
                 var _list = new List<MetroTextInput>( );
-                for( var _index = 0; _index < 49; _index++ )
+                for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
                 {
                     var _frame = new MetroTextInput
                     {
-                        Ordinal = _index
+                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
+                        Caption = _dataTable.Columns[ _index ].ColumnName,
+                        Input = _current.ItemArray[ _index ]?.ToString( )
                     };
 
                     _list.Add( _frame );
@@ -3206,6 +3211,27 @@ namespace Badger
                         var _text = _reader.ReadToEnd( );
                         Editor.Text = _text;
                     }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        private void OnPreviewMouseWheel( object sender, MouseWheelEventArgs e )
+        {
+            if( sender is ScrollViewer 
+                && !e.Handled )
+            {
+                try
+                {
+                    e.Handled = true;
+                    var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta );
+                    eventArg.RoutedEvent = UIElement.MouseWheelEvent;
+                    eventArg.Source = sender;
+                    var parent = ( (Control)sender ).Parent as UIElement;
+                    parent.RaiseEvent( eventArg );
                 }
                 catch( Exception _ex )
                 {
