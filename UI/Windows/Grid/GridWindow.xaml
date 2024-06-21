@@ -72,8 +72,8 @@
     <Canvas x:Name="GridCanvas">
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40" Canvas.Left="0"
                 Canvas.Top="720" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70"
-                    Padding="5,1,1,1" />
+            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" Padding="3,1,1,1"
+                    HorizontalAlignment="Left" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                     Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />

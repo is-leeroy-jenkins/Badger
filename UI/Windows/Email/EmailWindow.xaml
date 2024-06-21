@@ -71,7 +71,8 @@
     <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Margin="0,720,0,0" Width="1400" Height="40"
             VerticalAlignment="Top">
         <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="80"
-                HorizontalAlignment="Left" Padding="5,1,1,1" />
+                HorizontalAlignment="Left"
+                Padding="3,1,1,1" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" />
         <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
         <Separator Background="#FF141414" BorderBrush="#FF141414" Foreground="#FF141414" Width="100" />

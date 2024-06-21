@@ -132,6 +132,7 @@ namespace Badger
             Padding = new Thickness( 15, 1, 1, 1 );
             Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
+            IsEditable = true;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

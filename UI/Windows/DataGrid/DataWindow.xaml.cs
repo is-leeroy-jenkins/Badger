@@ -51,13 +51,8 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media;
-    using MahApps.Metro.Controls;
-    using Syncfusion.Licensing;
     using Syncfusion.SfSkinManager;
-    using Syncfusion.UI.Xaml.CellGrid;
-    using Syncfusion.UI.Xaml.Diagram;
     using Syncfusion.UI.Xaml.Grid;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -79,7 +74,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public partial class DataWindow : Window
+    public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
         /// The first category
@@ -381,9 +376,9 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "MaterialDark", App.Controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
-            // Window Plumbing
+            // Window Initialization
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
@@ -411,10 +406,6 @@ namespace Badger
             _provider = Provider.Access;
             AccessRadioButton.IsChecked = true;
 
-            // Container Properties
-            EditCanvas.HorizontalAlignment = HorizontalAlignment.Left;
-            EditCanvas.VerticalAlignment = VerticalAlignment.Top;
-
             // Initialize Collections
             _filter = new Dictionary<string, object>( );
             _frames = new List<MetroTextInput>( );
@@ -423,9 +414,6 @@ namespace Badger
             _numerics = new List<string>( );
             _commands = new List<string>( );
             _dataTypes = new List<string>( );
-            _selectedColumns = new List<string>( );
-            _selectedFields = new List<string>( );
-            _selectedNumerics = new List<string>( );
 
             // Window Events
             Loaded += OnLoaded;
@@ -468,6 +456,10 @@ namespace Badger
                 SqlSeverRadioButton.Checked += OnProviderRadioButtonChecked;
                 CommandComboBox.SelectionChanged += OnCommandComboBoxItemSelected;
                 CommandListBox.SelectionChanged += OnCommandListBoxItemSelected;
+                FirstComboBox.SelectionChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectionChanged += OnSecondComboBoxItemSelected;
             }
             catch( Exception _ex )
             {
@@ -500,11 +492,8 @@ namespace Badger
                 StatusLabel.FontSize = 10;
                 DataHeader.Foreground = new SolidColorBrush( _borderColor );
                 DataHeader.Visibility = Visibility.Hidden;
-                EditHeader.Foreground = new SolidColorBrush( _borderColor );
-                EditHeader.Visibility = Visibility.Hidden;
                 SchemaHeader.Foreground = new SolidColorBrush( _borderColor );
                 SchemaHeader.Visibility = Visibility.Hidden;
-                DataTableLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataColumnLabel.Foreground = new SolidColorBrush( _borderColor );
                 DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
                 ColumnNameLabel.Foreground = new SolidColorBrush( _borderColor );
@@ -880,7 +869,9 @@ namespace Badger
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} " + "FROM {Source} " + $"WHERE {_criteria} "
+                return $"SELECT {_names} " 
+                    + "FROM {Source} " 
+                    + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception _ex )
@@ -1177,7 +1168,8 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1340,7 +1332,7 @@ namespace Badger
         /// <summary>
         /// Populates the data type ComboBox items.
         /// </summary>
-        public void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
+        private protected void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
         {
             try
             {
@@ -1357,6 +1349,33 @@ namespace Badger
                         };
 
                         DataTypeListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data column ListBox.
+        /// </summary>
+        private protected void PopulateDataColumnListBox( )
+        {
+            try
+            {
+                DataColumnListBox.Items?.Clear( );
+                for( var _i = 0; _i < _columns?.Count; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _columns[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _columns[ _i ]
+                        };
+
+                        DataColumnListBox.Items.Add( _item );
                     }
                 }
             }
@@ -1517,9 +1536,6 @@ namespace Badger
                 }
                 else
                 {
-                    ClearFilter( );
-                    ClearListBoxes( );
-                    ClearComboBoxes( );
                     PrimaryTabControl.SelectedIndex = 0;
                     SecondaryTabControl.SelectedIndex = 1;
                     DataTab.IsSelected = true;
@@ -1715,7 +1731,6 @@ namespace Badger
         {
             try
             {
-                DataTableListBox.Items?.Clear( );
                 FirstListBox.Items?.Clear( );
                 SecondListBox.Items?.Clear( );
                 CommandListBox.Items?.Clear( );
@@ -1843,7 +1858,6 @@ namespace Badger
             }
         }
 
-
         /// <summary>
         /// Hides the tabs.
         /// </summary>
@@ -1963,19 +1977,11 @@ namespace Badger
                     var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _vals = _numerics?.Count ?? 0;
-                    var _selectedCols = _selectedFields?.Count ?? 0;
-                    var _selectedVals = _selectedNumerics?.Count ?? 0;
-                    var _startDate = DateTime.Now.ToShortDateString( );
-                    var _endDate = DateTime.Now.ToShortDateString( );
                     DataHeader.Content = $"{_table} ";
                     FirstGridLabel.Content = $"Data Provider: {_provider}";
                     SecondGridLabel.Content = $"Records: {_rows}";
                     ThirdGridLabel.Content = $"Total Fields: {_cols}";
                     FourthGridLabel.Content = $"Total Measures: {_vals}";
-                    FieldsLabel.Content = $"Selected Fields: {_selectedCols}";
-                    NumericsLabel.Content = $"Selected Measures: {_selectedVals}";
-                    FirstDateLabel.Content = $"Start Date: {_startDate}";
-                    SecondDateLabel.Content = $"End Date: {_endDate}";
                 }
                 else
                 {
@@ -1984,10 +1990,6 @@ namespace Badger
                     SecondGridLabel.Content = "Total Records: 0.0";
                     ThirdGridLabel.Content = "Total Fields: 0.0";
                     FourthGridLabel.Content = "Total Measures: 0.0";
-                    FieldsLabel.Content = "Selected Fields: 0.0";
-                    NumericsLabel.Content = "Selected Measures: 0.0";
-                    FirstDateLabel.Content = "Start Date: " + DateTime.Now.ToShortDateString( );
-                    SecondDateLabel.Content = "End Date: " + DateTime.Now.ToShortDateString( );
                 }
             }
             catch( Exception _ex )
@@ -2175,6 +2177,7 @@ namespace Badger
                 InitializeLabels( );
                 InitializeToolbar( );
                 UpdateLabels( );
+                HideTabs( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -2307,8 +2310,9 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                ClearFilter( );
+                ClearSelections( );
+                ClearCollections( );
             }
             catch( Exception _ex )
             {
@@ -2806,6 +2810,7 @@ namespace Badger
 
                     _dataGen = new DataGenerator( _source, _provider );
                     _dataTable = _dataGen.DataTable;
+                    _columns = _dataGen.ColumnNames;
                     _fields = _dataGen.Fields;
                     _numerics = _dataGen.Numerics;
                     _current = _dataTable.Rows[ 0 ];
@@ -2826,6 +2831,7 @@ namespace Badger
                     DataGrid.AllowCollectionView = true;
                     DataGrid.ShowGroupDropArea = true;
                     PopulateFirstComboBoxItems( );
+                    PopulateDataColumnListBox( );
                     ResetListBoxVisibility( );
                     ActivateFilterTab( );
                     UpdateLabels( );
@@ -2845,7 +2851,7 @@ namespace Badger
         /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox )
+            if( sender is MetroComboBox _comboBox )
             {
                 try
                 {
@@ -2895,9 +2901,15 @@ namespace Badger
 
                     _firstValue = _listBox.SelectedValue?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
+                    DataGrid.ItemsSource = _dataTable.Filter( _filter );
+                    if( SecondComboBox.Visibility == Visibility.Hidden )
+                    {
+                        SecondComboBox.Visibility = Visibility.Visible;
+                        SecondListBox.Visibility = Visibility.Visible;
+                    }
+
                     PopulateSecondComboBoxItems( );
                     UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
                 }
                 catch( Exception _ex )
                 {
@@ -2918,7 +2930,6 @@ namespace Badger
             {
                 try
                 {
-                    _sqlQuery = string.Empty;
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
                     if( !string.IsNullOrEmpty( _secondCategory ) )
@@ -2950,7 +2961,7 @@ namespace Badger
         /// <param name = "e" > </param>
         private void OnSecondListBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ListBox _listBox )
+            if( sender is MetroListBox _listBox )
             {
                 try
                 {
@@ -2962,8 +2973,7 @@ namespace Badger
                     _secondValue = _listBox.SelectedValue?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    UpdateLabels( );
-                    _sqlQuery = CreateSqlSelectQuery( _filter );
+                    DataGrid.ItemsSource = _dataTable.Filter( _filter );
                 }
                 catch( Exception _ex )
                 {
@@ -3056,7 +3066,7 @@ namespace Badger
         /// </param>
         private void OnProviderRadioButtonChecked( object sender, EventArgs e )
         {
-            if( sender is RadioButton _button )
+            if( sender is MetroRadioButton _button )
             {
                 try
                 {
@@ -3108,7 +3118,7 @@ namespace Badger
         /// </param>
         private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ComboBox _comboBox )
+            if( sender is MetroComboBox _comboBox )
             {
                 try
                 {
@@ -3146,10 +3156,8 @@ namespace Badger
                         }
                     }
 
-                    if( PrimaryTabControl.SelectedIndex != 3 )
-                    {
-                        PrimaryTabControl.SelectedIndex = 3;
-                    }
+                    PrimaryTabControl.SelectedIndex = 3;
+                    SqlTab.IsSelected = true;
                 }
                 catch( Exception _ex )
                 {
@@ -3166,7 +3174,7 @@ namespace Badger
         /// </param>
         private void OnCommandListBoxItemSelected( object sender, EventArgs e )
         {
-            if( sender is ListBox _listBox
+            if( sender is MetroListBox _listBox
                 && !string.IsNullOrEmpty( _listBox.SelectedItem.ToString( ) ) )
             {
                 try
@@ -3204,6 +3212,35 @@ namespace Badger
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
         }
 
         /// <summary>
