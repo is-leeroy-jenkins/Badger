@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 06-21-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        06-21-2024
 // ******************************************************************************************
-// <copyright file="MetroChart.cs" company="Terry D. Eppler">
+// <copyright file="MetroMultiSelect.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroChart.cs
+//   MetroMultiSelect.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,24 +43,69 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.UI.Xaml.Grid;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class MetroBarChart : SfChart3D
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class MetroMultiSelect : SfMultiColumnDropDownControl
     {
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 0,
-            R = 20,
-            G = 20,
-            B = 20
+            A = 255,
+            R = 45,
+            G = 45,
+            B = 45
+        };
+
+        /// <summary>
+        /// The item back color
+        /// </summary>
+        private protected Color _popupBackColor = new Color( )
+        {
+            A = 255,
+            R = 75,
+            G = 75,
+            B = 75
+        };
+
+        /// <summary>
+        /// The popup border
+        /// </summary>
+        private protected Color _popupBorder = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The popup dropdown
+        /// </summary>
+        private protected Color _popupDropdown = new Color( )
+        {
+            A = 255,
+            R = 10,
+            G = 10,
+            B = 10
+        };
+
+        /// <summary>
+        /// The item fore color
+        /// </summary>
+        private protected Color _itemForeColor = new Color( )
+        {
+            A = 255,
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -69,9 +114,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -88,22 +133,21 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Chart3D" /> class.
+        /// <see cref="T:Badger.MetroMultiSelect" /> class.
         /// </summary>
-        public MetroBarChart( )
-            : base( )
+        public MetroMultiSelect( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfMultiColumnDropDownControl ) );
+            Width = 175;
+            Height = 30;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( Colors.Transparent );
-            BorderBrush = new SolidColorBrush( Colors.Transparent );
-            BackWallBrush = new SolidColorBrush( _backColor );
-            TopWallBrush = new SolidColorBrush( _backColor );
-            LeftWallBrush = new SolidColorBrush( _backColor );
-            RightWallBrush = new SolidColorBrush( _backColor );
+            Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+            PopupBackground = new SolidColorBrush( _popupBackColor );
+            PopupBorderBrush = new SolidColorBrush( _popupBorder );
         }
 
         /// <summary>

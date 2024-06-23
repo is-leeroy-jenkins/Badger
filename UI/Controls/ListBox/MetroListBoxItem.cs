@@ -42,7 +42,6 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
 
@@ -136,7 +135,6 @@ namespace Badger
         public MetroListBoxItem( )
             : base( )
         {
-            // Control Properties
             Height = 40;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
@@ -157,7 +155,7 @@ namespace Badger
         {
             try
             {
-                if( sender is ListBoxItem _item )
+                if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = new SolidColorBrush( _foreHover );
                     _item.Background = new SolidColorBrush( _backHover );
@@ -180,7 +178,7 @@ namespace Badger
         {
             try
             {
-                if( sender is ListBoxItem _item )
+                if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = new SolidColorBrush( _foreColor );
                     _item.Background = new SolidColorBrush( _backColor );

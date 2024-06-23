@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-21-2024
+//     Created:                 05-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-21-2024
+//     Last Modified On:        05-28-2024
 // ******************************************************************************************
-// <copyright file="MetroListView.cs" company="Terry D. Eppler">
+// <copyright file="MetroChart.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroListView.cs
+//   MetroChart.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,38 +42,25 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Controls;
     using System.Windows.Media;
+    using Syncfusion.UI.Xaml.Charts;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:System.Windows.Controls.ListView" />
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class MetroListView : ListView
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class ColumnChart : SfChart3D
     {
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
+            A = 0,
+            R = 20,
+            G = 20,
+            B = 20
         };
 
         /// <summary>
@@ -82,15 +69,15 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 222,
-            G = 222,
-            B = 222
+            R = 106,
+            G = 189,
+            B = 252
         };
 
         /// <summary>
         /// The border color
         /// </summary>
-        private readonly Color _borderColor = new Color( )
+        private Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -98,20 +85,24 @@ namespace Badger
             B = 212
         };
 
-        public MetroListView( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.Chart3D" /> class.
+        /// </summary>
+        public ColumnChart( )
             : base( )
         {
             // Control Properties
-            Width = 300;
-            MinWidth = 200;
-            MaxWidth = 900;
-            Height = 270;
-            MinHeight = 170;
-            MaxHeight = 900;
-            FontSize = 12;
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             FontFamily = new FontFamily( "Segoe UI" );
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            FontSize = 12;
+            Background = new SolidColorBrush( Colors.Transparent );
+            BorderBrush = new SolidColorBrush( Colors.Transparent );
+            BackWallBrush = new SolidColorBrush( _backColor );
+            TopWallBrush = new SolidColorBrush( _backColor );
+            LeftWallBrush = new SolidColorBrush( _backColor );
+            RightWallBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
         }
 

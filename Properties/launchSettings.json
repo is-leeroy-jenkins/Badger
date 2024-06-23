@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Badger": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

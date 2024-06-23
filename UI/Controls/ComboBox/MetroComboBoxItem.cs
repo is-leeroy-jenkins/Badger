@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="MetroDataGrid.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,28 +30,37 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroDataGrid.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using System.Windows.Media;
-    using Syncfusion.UI.Xaml.Grid;
+    using Syncfusion.Windows.Tools.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class MetroDataGrid : SfDataGrid
+    public class MetroComboBoxItem : ComboBoxItemAdv
     {
+        /// <summary>
+        /// Gets or sets an arbitrary object value that can be used
+        /// to store custom information about this element.
+        /// </summary>
+        public new object Tag { get; set; }
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -69,9 +78,9 @@ namespace Badger
         private protected Color _backHover = new Color( )
         {
             A = 255,
-            R = 17,
-            G = 53,
-            B = 84
+            R = 11,
+            G = 36,
+            B = 59
         };
 
         /// <summary>
@@ -99,7 +108,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -110,50 +119,77 @@ namespace Badger
         /// <summary>
         /// The border hover color
         /// </summary>
-        private readonly Color _borderHover = new Color( )
+        private protected Color _borderHover = new Color( )
         {
             A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        }; 
+            R = 106,
+            G = 189,
+            B = 252
+        };
 
-        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataGrid" /> class.
+        /// <see cref="MetroComboBoxItem"/> class.
         /// </summary>
-        public MetroDataGrid( )
+        public MetroComboBoxItem( ) 
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            AllowEditing = true;
-            AllowSorting = true;
-            AllowDraggingColumns = true;
-            AllowResizingColumns = true;
-            AllowDeleting = true;
-            AllowRowHoverHighlighting = true;
-            AllowResizingColumns = true;
-            AllowGrouping = true;
-            AllowDrop = true;
-            AllowDraggingRows = true;
-            AllowCollectionView = true;
-            AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
-            AutoGenerateColumns = true;
-            AutoExpandGroups = true;
-            ShowGroupDropArea = true;
-            SelectionMode = GridSelectionMode.Single;
-            ShowColumnWhenGrouped = true;
+            SetResourceReference( StyleProperty, typeof( ComboBoxItemAdv ) );
+            Height = 35;
             Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            CurrentCellBorderBrush = new SolidColorBrush( _borderHover );
-            GroupRowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
-            RowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
-            RowHoverHighlightingBrush = new SolidColorBrush( _backHover );
+            BorderBrush = new SolidColorBrush( _backColor );
+
+            // Event Wiring
+            MouseEnter += OnItemMouseEnter;
+            MouseLeave += OnItemMouseLeave;
+        }
+
+        /// <summary>
+        /// Called when [item mouse enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnItemMouseEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is MetroComboBoxItem _item )
+                {
+                    _item.Foreground = new SolidColorBrush( _foreHover );
+                    _item.Background = new SolidColorBrush( _backHover );
+                    _item.BorderBrush = new SolidColorBrush( _backHover );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [item mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnItemMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is MetroComboBoxItem _item )
+                {
+                    _item.Foreground = new SolidColorBrush( _foreColor );
+                    _item.Background = new SolidColorBrush( _backColor );
+                    _item.BorderBrush = new SolidColorBrush( _backColor );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

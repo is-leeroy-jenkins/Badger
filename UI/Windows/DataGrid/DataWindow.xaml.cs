@@ -54,7 +54,6 @@ namespace Badger
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
-    using MahApps.Metro.Controls;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Grid;
     using ToastNotifications;
@@ -77,6 +76,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
@@ -152,7 +152,7 @@ namespace Badger
         /// <summary>
         /// The binding source
         /// </summary>
-        private protected ObservableCollection<DataRow> _bindingSource;
+        private protected ObservableCollection<DataRow> _dataSource;
 
         /// <summary>
         /// The current
@@ -462,7 +462,7 @@ namespace Badger
                 FirstComboBox.SelectionChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectionChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
             }
             catch( Exception _ex )
             {
@@ -792,7 +792,7 @@ namespace Badger
         /// </summary>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlSelectQuery( IDictionary<string, object> where )
+        private string CreateSelectQuery( IDictionary<string, object> where )
         {
             try
             {
@@ -812,7 +812,7 @@ namespace Badger
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlSelectQuery( IEnumerable<string> columns,
+        private string CreateSelectQuery( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _dataTable.TableName ) )
@@ -829,7 +829,9 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {_dataTable} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names}" 
+                        + $"FROM {_dataTable} " 
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -849,7 +851,7 @@ namespace Badger
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlSelectQuery( IEnumerable<string> fields,
+        private string CreateSelectQuery( IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             try
@@ -951,10 +953,12 @@ namespace Badger
                 var _list = new List<MetroTextInput>( );
                 for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
                 {
+                    var _column = _dataTable.Columns[ _index ].ColumnName;
+                    var _name = _column?.SplitPascal( );
                     var _frame = new MetroTextInput
                     {
                         Ordinal = _dataTable.Columns[ _index ].Ordinal,
-                        Caption = _dataTable.Columns[ _index ].ColumnName,
+                        Caption = _name,
                         Input = _current.ItemArray[ _index ]?.ToString( )
                     };
 
@@ -1423,8 +1427,6 @@ namespace Badger
                 }
                 else
                 {
-                    PrimaryTabControl.SelectedIndex = 1;
-                    SecondaryTabControl.SelectedIndex = 2;
                     EditTab.IsSelected = true;
                     FilterTab.IsSelected = true;
                     HideTabs( );
@@ -1507,8 +1509,6 @@ namespace Badger
                 ClearFilter( );
                 ClearListBoxes( );
                 ClearComboBoxes( );
-                PrimaryTabControl.SelectedIndex = 0;
-                SecondaryTabControl.SelectedIndex = 0;
                 DataTab.IsSelected = true;
                 SourceTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
@@ -1541,8 +1541,6 @@ namespace Badger
                 }
                 else
                 {
-                    PrimaryTabControl.SelectedIndex = 0;
-                    SecondaryTabControl.SelectedIndex = 1;
                     DataTab.IsSelected = true;
                     FilterTab.IsSelected = true;
                     DataTab.Visibility = Visibility.Hidden;
@@ -1562,11 +1560,13 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the command tab.
+        /// </summary>
         private void ActivateCommandTab( )
         {
             try
             {
-                PrimaryTabControl.SelectedIndex = 3;
                 CommandTab.IsSelected = true;
                 DataTab.Visibility = Visibility.Hidden;
                 EditTab.Visibility = Visibility.Hidden;
@@ -1587,7 +1587,6 @@ namespace Badger
         {
             try
             {
-                SecondaryTabControl.SelectedIndex = 2;
                 SqlTab.IsSelected = true;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
@@ -2354,7 +2353,7 @@ namespace Badger
         {
             try
             {
-                FilterTab.IsSelected = true;
+                ActivateFilterTab( );
             }
             catch( Exception _ex )
             {
@@ -2390,8 +2389,6 @@ namespace Badger
         {
             try
             {
-                ClearListBoxes( );
-                ClearComboBoxes( );
                 ActivateSqlTab( );
                 ActivateCommandTab( );
             }
@@ -2904,9 +2901,14 @@ namespace Badger
                         _filter.Clear( );
                     }
 
-                    _firstValue = _listBox.SelectedValue?.ToString( );
+                    _dataTable?.Clear( );
+                    var _item = _listBox.SelectedItem as MetroListBoxItem;
+                    _firstValue = _item?.Content.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
-                    DataGrid.ItemsSource = _dataTable.Filter( _filter );
+                    _dataGen = new DataGenerator( _source, _provider, _filter );
+                    _dataTable = _dataGen.DataTable;
+                    _current = _dataGen.Record;
+                    DataGrid.ItemsSource = _dataTable;
                     if( SecondComboBox.Visibility == Visibility.Hidden )
                     {
                         SecondComboBox.Visibility = Visibility.Visible;
@@ -2946,8 +2948,13 @@ namespace Badger
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
                         var _data = _dataGen.DataElements[ _secondCategory ];
-                        foreach( var _item in _data )
+                        foreach( var _element in _data )
                         {
+                            var _item = new MetroListBoxItem
+                            {
+                                Content = _element
+                            };
+
                             SecondListBox.Items?.Add( _item );
                         }
                     }
@@ -2975,10 +2982,16 @@ namespace Badger
                         _filter.Clear( );
                     }
 
-                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    _dataTable?.Clear( );
+                    var _item = _listBox.SelectedItem as MetroListBoxItem;
+                    _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    DataGrid.ItemsSource = _dataTable.Filter( _filter );
+                    _dataGen = new DataGenerator( _source, _provider, _filter );
+                    _dataTable = _dataGen.DataTable;
+                    _current = _dataGen.Record;
+                    DataGrid.ItemsSource = _dataTable;
+                    UpdateLabels( );
                 }
                 catch( Exception _ex )
                 {

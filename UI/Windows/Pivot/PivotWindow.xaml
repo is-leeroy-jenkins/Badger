@@ -223,7 +223,7 @@
             <TabItem x:Name="ChartTab" Height="22" Header="Chart" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="ChartCanvas" Background="#FF141414">
-                    <local:MetroBarChart x:Name="Chart" Canvas.Left="24" Canvas.Top="67" HorizontalAlignment="Left"
+                    <local:ColumnChart x:Name="Chart" Canvas.Left="24" Canvas.Top="67" HorizontalAlignment="Left"
                             VerticalAlignment="Top" Width="954" Height="496" Background="#FF141414"
                             BackWallBrush="#FF2D2D2D" BottomWallBrush="#FF2D2D2D" LeftWallBrush="#FF2D2D2D"
                             RightWallBrush="#FF2D2D2D" BorderBrush="#FF0078D4" Padding="1,1,1,1" Depth="250"

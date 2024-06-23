@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -65,6 +66,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class PivotWindow : Window
     {
         /// <summary>
@@ -166,6 +168,11 @@ namespace Badger
         /// The data table
         /// </summary>
         private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The data source
+        /// </summary>
+        private protected ObservableCollection<DataRow> _dataSource;
 
         /// <summary>
         /// The filter

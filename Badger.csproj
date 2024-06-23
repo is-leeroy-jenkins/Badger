@@ -52,6 +52,13 @@
     <None Remove="Resources\Assets\ToolStripImages\GroupButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SchemaButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
+    <None Remove="UI\Windows\Chart\AreaButton.png" />
+    <None Remove="UI\Windows\Chart\ColumnButton.png" />
+    <None Remove="UI\Windows\Chart\GanttButton.png" />
+    <None Remove="UI\Windows\Chart\HeatButton.png" />
+    <None Remove="UI\Windows\Chart\PieButton.png" />
+    <None Remove="UI\Windows\Chart\SmithButton.png" />
+    <None Remove="UI\Windows\Chart\SunButton.png" />
     <None Remove="UI\Windows\Datagrid\DataSourceButton.png" />
     <None Remove="UI\Windows\Datagrid\DateButton.png" />
     <None Remove="UI\Windows\Datagrid\EditButton.png" />
@@ -604,8 +611,15 @@
     <Resource Include="UI\Windows\Calculator\Cancel.png" />
     <Resource Include="UI\Windows\Calculator\Main.png" />
     <Resource Include="UI\Windows\Calendar\ToggleButton.png" />
+    <Resource Include="UI\Windows\Chart\AreaButton.png" />
+    <Resource Include="UI\Windows\Chart\ColumnButton.png" />
     <Resource Include="UI\Windows\Chart\ExportButton.png" />
     <Resource Include="UI\Windows\Chart\FilterButton.png" />
+    <Resource Include="UI\Windows\Chart\GanttButton.png" />
+    <Resource Include="UI\Windows\Chart\HeatButton.png" />
+    <Resource Include="UI\Windows\Chart\PieButton.png" />
+    <Resource Include="UI\Windows\Chart\SmithButton.png" />
+    <Resource Include="UI\Windows\Chart\SunButton.png" />
     <Resource Include="UI\Windows\Chart\ToggleButton.png" />
     <Resource Include="UI\Windows\Command\Application.png" />
     <Resource Include="UI\Windows\Command\CalculatorItem.png" />
@@ -632,7 +646,6 @@
     <Resource Include="UI\Windows\Calendar\PreviousButton.png" />
     <Resource Include="UI\Windows\Calendar\RefreshButton.png" />
     <Resource Include="UI\Windows\Calendar\SaveButton.png" />
-    <Resource Include="UI\Windows\Chart\BackButton.png" />
     <Resource Include="UI\Windows\Chart\FirstButton.png" />
     <Resource Include="UI\Windows\Datagrid\DataSourceButton.png" />
     <Resource Include="UI\Windows\Datagrid\DateButton.png" />
@@ -681,8 +694,6 @@
     <Resource Include="UI\Windows\Calendar\Application.png" />
     <Resource Include="UI\Windows\Chart\Application.png" />
     <Resource Include="UI\Windows\Chart\BrowseButton.png" />
-    <Resource Include="UI\Windows\Chart\DeleteButton.png" />
-    <Resource Include="UI\Windows\Chart\EditButton.png" />
     <Resource Include="UI\Windows\Chart\LastButton.png" />
     <Resource Include="UI\Windows\Chart\LookUpButton.png" />
     <Resource Include="UI\Windows\Chart\MenuButton.png" />

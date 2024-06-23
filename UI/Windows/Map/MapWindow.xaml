@@ -80,7 +80,7 @@
                         RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:MetroBarChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
+        <local:ColumnChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
                 Canvas.Left="740" Canvas.Top="85" VerticalAlignment="Top" BorderBrush="#FF0078D4"
                 BottomWallBrush="#FF323232" LeftWallBrush="#FF323232" RightWallBrush="#FF323232"
                 TopWallBrush="#FF323232" PerspectiveAngle="100" EnableRotation="True"

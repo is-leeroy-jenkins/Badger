@@ -54,6 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class MetroButton : ButtonAdv
     {
         /// <summary>
@@ -62,9 +63,9 @@ namespace Badger
         private protected Color _backColor = new Color( )
         {
             A = 255,
-            R = 40,
-            G = 40,
-            B = 40
+            R = 45,
+            G = 45,
+            B = 45
         };
 
         /// <summary>
@@ -145,6 +146,10 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+
+            // Event Wiring
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
         }
 
         /// <summary> Called when [mouse enter]. </summary>
@@ -158,9 +163,12 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( _backHover );
-                BorderBrush = new SolidColorBrush( _borderHover );
+                if( sender is MetroButton _button )
+                {
+                    _button.Foreground = new SolidColorBrush( _foreHover );
+                    _button.Background = new SolidColorBrush( _backHover );
+                    _button.BorderBrush = new SolidColorBrush( _backHover );
+                }
             }
             catch( Exception _ex )
             {
@@ -179,9 +187,12 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreColor );
-                BorderBrush = new SolidColorBrush( _borderColor );
+                if( sender is MetroButton _button )
+                {
+                    _button.Foreground = new SolidColorBrush( _foreColor );
+                    _button.Background = new SolidColorBrush( _backColor );
+                    _button.BorderBrush = new SolidColorBrush( _backColor );
+                }
             }
             catch( Exception _ex )
             {

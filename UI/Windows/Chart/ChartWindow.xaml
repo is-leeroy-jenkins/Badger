@@ -69,7 +69,7 @@
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
                 <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <syncfusion:SfChart3D x:Name="Chart" Width="720" BackWallBrush="#FF1E1E1E"
+                    <syncfusion:SfChart3D x:Name="ColumnChart" Width="720" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
                             Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Center" Depth="250"
@@ -93,7 +93,7 @@
             <TabItem x:Name="SunTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="GraphCanvas" Background="#FF141414">
-                    <SunburstChart:SfSunburstChart x:Name="Sunburst" Canvas.Left="21" Canvas.Top="65"
+                    <SunburstChart:SfSunburstChart x:Name="SunburstChart" Canvas.Left="21" Canvas.Top="65"
                             HorizontalAlignment="Center" VerticalAlignment="Center" Width="720" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" Height="465" Header="Title" EnableAnimation="True" />
                 </Canvas>
@@ -102,7 +102,7 @@
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
                 <Canvas x:Name="SmithCanvas" Background="#FF141414">
-                    <SmithChart:SfSmithChart Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left"
+                    <SmithChart:SfSmithChart x:Name="SmithChart"  Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left"
                             VerticalAlignment="Center" Width="720" Foreground="#FFA0BDFC" Header="Chart Title"
                             BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="465" />
                 </Canvas>
@@ -110,9 +110,18 @@
             <TabItem x:Name="HeatTab" Height="24" Header="Heat Map" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="HeatCanvas" Background="#FF141414">
-                    <syncfusion:SfHeatMap x:Name="HeatMap" Height="465" Canvas.Left="21" Canvas.Top="65" Width="720"
+                    <syncfusion:SfHeatMap x:Name="HeatChart" Height="465" Canvas.Left="21" Canvas.Top="65" Width="720"
                             BorderBrush="#FF0078D4" Foreground="#FFA0BDFC" BorderThickness="1,1,1,1"
                             HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="GanttTab" HorizontalAlignment="Center" Height="24" Header="Gannt"
+                    VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FFDEDEDE" Margin="0,0,0,0">
+                <Canvas x:Name="GanttCanvas" Background="#FF141414">
+                    <syncfusion:GanttControl x:Name="GanttChart" Canvas.Left="62" Canvas.Top="95" Height="415"
+                            Width="650" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF4B4B4B"
+                            BorderBrush="#FF0078D4" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" Background="#FF141414"
@@ -126,7 +135,7 @@
         <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400" Canvas.Top="720" Canvas.Left="0"
                 HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" HorizontalAlignment="Left"
-                    Padding="3,1,1,1" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" />
+                    Padding="3,1,1,1" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" FontSize="10" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
@@ -142,20 +151,20 @@
             <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25" Padding="10,1,1,1"
                     VerticalContentAlignment="Center" Width="200" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Chart/LookUpButton.png" Height="30" />
-            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Chart/RefreshButton.png" Height="30" />
-            <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC" ToolTip="Filters"
-                    ImageSource="/UI/Windows/Chart/FilterButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit" ImageSource="/UI/Windows/Chart/EditButton.png"
+            <local:ToolStripButton x:Name="ColumnButton" ToolTip="Column Charts"
+                    ImageSource="/UI/Windows/Chart/ColumnButton.png" Height="30" />
+            <local:ToolStripButton x:Name="PieButton" ToolTip="Pie Charts" ImageSource="/UI/Windows/Chart/PieButton.png"
                     Height="30" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Chart/BackButton.png" Height="30" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save" ImageSource="/UI/Windows/Chart/SaveButton.png"
-                    Height="30" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete" Height="30"
-                    ImageSource="/UI/Windows/Chart/DeleteButton.png" />
+            <local:ToolStripButton x:Name="SunButton" Foreground="#FFA0BDFC" ToolTip="Sunburst Chart"
+                    ImageSource="/UI/Windows/Chart/SunButton.png" />
+            <local:ToolStripButton x:Name="SmithButton" ToolTip="Smith Charts"
+                    ImageSource="/UI/Windows/Chart/SmithButton.png" Height="30" />
+            <local:ToolStripButton x:Name="HeatButton" ToolTip="Heat Charts"
+                    ImageSource="/UI/Windows/Chart/HeatButton.png" Height="30" />
+            <local:ToolStripButton x:Name="AreaButton" ToolTip="Area Charts"
+                    ImageSource="/UI/Windows/Chart/AreaButton.png" Height="30" />
+            <local:ToolStripButton x:Name="GanttButton" ToolTip="Delete" Height="30"
+                    ImageSource="/UI/Windows/Chart/GanttButton.png" />
             <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
                     ImageSource="/UI/Windows/Chart/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
@@ -187,16 +196,16 @@
                     <local:MetroListBox x:Name="SecondCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
                             Height="145" Canvas.Left="160" Canvas.Top="369" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" Height="30" Width="175" Canvas.Left="150"
-                            Canvas.Top="99">
+                    <local:MetroComboBox x:Name="SecondCategoryComboBox" AllowMultiSelect="True"
+                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="164" Canvas.Top="330">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="SecondCategoryComboBox" Height="30" Width="175" Canvas.Left="155"
-                            Canvas.Top="329">
+                    <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
+                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="155" Canvas.Top="105">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />

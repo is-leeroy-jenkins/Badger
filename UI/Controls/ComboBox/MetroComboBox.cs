@@ -135,6 +135,8 @@ namespace Badger
             AutoCompleteMode = AutoCompleteModes.None;
             AllowMultiSelect = false;
             IsTextSearchEnabled = false;
+            AllowSelectAll = false;
+            DefaultText = "Make Selection";
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -154,7 +156,7 @@ namespace Badger
                     Foreground = new SolidColorBrush( _itemForeColor ),
                     BorderBrush = new SolidColorBrush( _borderColor ),
                     Content = name,
-                    Height = 24
+                    Height = 22
                 };
 
                 Items.Add( _item );
