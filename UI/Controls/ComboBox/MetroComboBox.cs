@@ -150,12 +150,13 @@ namespace Badger
         {
             try
             {
-                var _item = new ComboBoxItemAdv
+                var _item = new MetroComboBoxItem
                 {
                     Background = new SolidColorBrush( _backColor ),
                     Foreground = new SolidColorBrush( _foreColor ),
                     BorderBrush = new SolidColorBrush( _borderColor ),
                     Content = name,
+                    Tag = name,
                     Height = 22
                 };
 

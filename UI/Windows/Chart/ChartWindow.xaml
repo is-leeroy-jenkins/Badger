@@ -69,7 +69,7 @@
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
                 <Canvas x:Name="ColumnCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <syncfusion:SfChart3D x:Name="ColumnChart" Width="822" BackWallBrush="#FF1E1E1E"
+                    <syncfusion:SfChart3D x:Name="ColumnChart" Width="822" BackWallBrush="#FF373737"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
                             Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left" Depth="250"
@@ -82,11 +82,13 @@
                 <Canvas x:Name="PieCanvas" Background="#FF141414">
                     <syncfusion:SfChart x:Name="PieChart" Canvas.Left="21" Canvas.Top="65" Width="822" Height="465"
                             Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4" Palette="Custom"
-                            Header="Pie Series">
+                            Header="Pie Series" Background="#FF141414" AreaBackground="#FF141414"
+                            AreaBorderThickness="0,0,0,-3">
                         <syncfusion:PieSeries Interior="#FFE20909" />
                         <syncfusion:PieSeries Interior="Black" />
                         <syncfusion:PieSeries Interior="#FF0F36D4" />
-                        <syncfusion:PieSeries Interior="#FF1CF90A" />
+                        <syncfusion:PieSeries Interior="#FF1CF90A" Palette="Custom" EnableAnimation="True"
+                                Margin="116,49,79,53" />
                     </syncfusion:SfChart>
                 </Canvas>
             </TabItem>
@@ -179,7 +181,7 @@
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
                     ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <local:MetroComboBox x:Name="ToolStripComboBox" AllowMultiSelect="false" >
+            <local:MetroComboBox x:Name="ToolStripComboBox" AllowMultiSelect="false">
                 <local:MetroComboBoxItem Content="Column" />
                 <local:MetroComboBoxItem Content="Pie" />
                 <local:MetroComboBoxItem Content="Sunburst" />
@@ -216,30 +218,35 @@
             <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroListBox x:Name="DataTableListBox" Height="417" Width="250"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="99"
-                            VerticalAlignment="Top" Canvas.Left="160" />
+                    <local:MetroHeaderBox x:Name="SourceGroupBox" Height="465" Header="MetroHeaderBox" Width="405" HorizontalAlignment="Center"
+                            Canvas.Left="64" VerticalAlignment="Top" Canvas.Top="58" Foreground="#FF0078D4"
+                            BorderBrush="#FF0078D4" Padding="1,1,1,1" Margin="1,1,1,1"
+                            BorderThickness="1,1,1,1" />
+                    <local:MetroListBox x:Name="DataTableListBox" Height="372" Width="250"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="112"
+                            VerticalAlignment="Top" Canvas.Left="142" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     VerticalAlignment="Top">
                 <Canvas x:Name="FilterGrid" Height="601">
-                    <local:MetroListBox x:Name="FirstListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="150" Canvas.Left="155" Canvas.Top="144" VerticalAlignment="Top" Width="200"
+                    <local:MetroListBox x:Name="FirstListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="150"
+                            Canvas.Left="155" Canvas.Top="144" VerticalAlignment="Top" Width="200"
                             HorizontalAlignment="Center" />
-                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
-                            Height="145" Canvas.Left="160" Canvas.Top="369" Width="200" HorizontalAlignment="Center"
+                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="145"
+                            Canvas.Left="160" Canvas.Top="369" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
-                    <local:MetroComboBox x:Name="FirstComboBox" AllowMultiSelect="False" Height="30" Width="175" Canvas.Left="155" Canvas.Top="100">
+                    <local:MetroComboBox x:Name="FirstComboBox" AllowMultiSelect="False" DefaultText="ComboBox Items"
+                            Height="30" Width="175" Canvas.Left="160" Canvas.Top="100">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="SecondComboBox" AllowMultiSelect="False" Height="30" Width="175"
-                            Canvas.Left="156" Canvas.Top="330">
+                    <local:MetroComboBox x:Name="SecondComboBox" AllowMultiSelect="False" DefaultText="ComboBox Items"
+                            Height="30" Width="175" Canvas.Left="161" Canvas.Top="325">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />

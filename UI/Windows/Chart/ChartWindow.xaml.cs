@@ -248,6 +248,37 @@ namespace Badger
         };
 
         /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = new Color( )
+        {
+            A = 255,
+            R = 70,
+            G = 130,
+            B = 180
+        };
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _yellow = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _orange = Colors.Yellow;
+
+        /// <summary>
         /// The fore color
         /// </summary>
         private protected Color _foreColor = new Color( )
@@ -409,11 +440,6 @@ namespace Badger
             }
         }
 
-        private void O( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
-        {
-            throw new NotImplementedException( );
-        }
-
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
@@ -436,22 +462,44 @@ namespace Badger
         {
             try
             {
-                var _numericAxis = new NumericalAxis3D
+                var _wallColor = new Color( )
+                {
+                    A = 255,
+                    R = 55,
+                    G = 55,
+                    B = 55
+                };
+
+                var _chartColorModel = new ChartColorModel( );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _green ) );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _orange ) );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
+                ColumnChart.Palette = ChartColorPalette.Custom;
+                var _yAxis = new NumericalAxis3D
                 {
                     FontSize = 10,
                     ShowOrigin = true,
+                    Foreground = new SolidColorBrush( _foreColor ),
                     ShowGridLines = true
                 };
 
-                var _category = new CategoryAxis3D
+                var _xAxis = new CategoryAxis3D
                 {
                     FontSize = 10,
                     ShowOrigin = true,
+                    Foreground = new SolidColorBrush( _foreColor ),
                     ShowGridLines = true
                 };
 
-                ColumnChart.SecondaryAxis = _numericAxis;
-                ColumnChart.PrimaryAxis = _category;
+                ColumnChart.BackWallBrush = new SolidColorBrush( _wallColor );
+                ColumnChart.BottomWallBrush = new SolidColorBrush( _wallColor );
+                ColumnChart.LeftWallBrush = new SolidColorBrush( _wallColor );
+                ColumnChart.RightWallBrush = new SolidColorBrush( _wallColor );
+                ColumnChart.SecondaryAxis = _yAxis;
+                ColumnChart.PrimaryAxis = _xAxis;
+                ColumnChart.Header = "Column Chart";
             }
             catch( Exception _ex )
             {
@@ -469,15 +517,6 @@ namespace Badger
                 PieChart.FontSize = 10;
                 PieChart.Header = "Pie Chart";
                 PieChart.Series?.Clear( );
-                var _series = new PieSeries
-                {
-                    ExplodeOnMouseClick = true,
-                    EmptyPointStyle = EmptyPointStyle.SymbolAndInterior,
-                    EnableAnimation = true,
-                    EnableSmartLabels = true
-                };
-
-                PieChart.Series?.Add( _series );
                 PieChart.Background = new SolidColorBrush( _backColor );
                 PieChart.Foreground = new SolidColorBrush( _foreColor );
                 PieChart.BorderBrush = new SolidColorBrush( _borderColor );
@@ -854,14 +893,14 @@ namespace Badger
                     ThrowIf.Empty( numerics, nameof( numerics ) );
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
-                    foreach( var name in fields )
+                    foreach( var _name in fields )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{_name}, ";
                     }
 
-                    foreach( var metric in numerics )
+                    foreach( var _colname in numerics )
                     {
-                        _aggr += $"SUM({metric}) AS {metric}, ";
+                        _aggr += $"SUM({_colname}) AS {_colname}, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
@@ -889,7 +928,7 @@ namespace Badger
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSelectQuery( IEnumerable<string> columns,
+        private string CreateSelectQuery( IEnumerable<string> columns, 
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _selectedTable ) )
@@ -929,19 +968,19 @@ namespace Badger
             {
                 if( _dataTable == null )
                 {
-                    var _message = "    The Data Table is null!";
+                    var _message = "  The Data Table is null!";
                     SendMessage( _message );
                 }
                 else if( _data.Numerics == null )
                 {
-                    var _message = "    The data is not alpha-numeric";
+                    var _message = "  The data is not alpha-numeric";
                     SendMessage( _message );
                 }
                 else
                 {
                     var _report = new ExcelReport( _dataTable );
                     _report.SaveDialog( );
-                    var _message = "    The Excel File has been created!";
+                    var _message = "  The Excel File has been created!";
                     SendNotification( _message );
                 }
             }
@@ -1110,7 +1149,7 @@ namespace Badger
                     for( var _index = 0; _index < _fields.Count; _index++ )
                     {
                         var _name = _fields[ _index ];
-                        var _item = new MetroListBoxItem
+                        var _item = new MetroComboBoxItem
                         {
                             Content = _name,
                             ToolTip = _name.SplitPascal( ),
@@ -1167,7 +1206,7 @@ namespace Badger
                             var _name = _fields[ _index ];
                             if( !_name.Equals( _firstCategory ) )
                             {
-                                var _item = new MetroListBoxItem
+                                var _item = new MetroComboBoxItem
                                 {
                                     Content = _name,
                                     ToolTip = _name?.SplitPascal( ),
