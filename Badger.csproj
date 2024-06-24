@@ -54,6 +54,7 @@
     <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
     <None Remove="UI\Windows\Chart\AreaButton.png" />
     <None Remove="UI\Windows\Chart\ColumnButton.png" />
+    <None Remove="UI\Windows\Chart\DataSourceButton.png" />
     <None Remove="UI\Windows\Chart\ExportButton.png" />
     <None Remove="UI\Windows\Chart\FilterButton.png" />
     <None Remove="UI\Windows\Chart\GanttButton.png" />
@@ -619,6 +620,7 @@
     <Resource Include="UI\Windows\Calendar\ToggleButton.png" />
     <Resource Include="UI\Windows\Chart\AreaButton.png" />
     <Resource Include="UI\Windows\Chart\ColumnButton.png" />
+    <Resource Include="UI\Windows\Chart\DataSourceButton.png" />
     <Resource Include="UI\Windows\Chart\ExportButton.png" />
     <Resource Include="UI\Windows\Chart\FilterButton.png" />
     <Resource Include="UI\Windows\Chart\GanttButton.png" />

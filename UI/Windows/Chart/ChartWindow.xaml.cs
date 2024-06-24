@@ -76,6 +76,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -133,26 +134,6 @@ namespace Badger
         /// The second value
         /// </summary>
         private protected string _secondValue;
-
-        /// <summary>
-        /// The third category
-        /// </summary>
-        private protected string _thirdCategory;
-
-        /// <summary>
-        /// The third value
-        /// </summary>
-        private protected string _thirdValue;
-
-        /// <summary>
-        /// The fourth category
-        /// </summary>
-        private protected string _fourthCategory;
-
-        /// <summary>
-        /// The fourth value
-        /// </summary>
-        private protected string _fourthValue;
 
         /// <summary>
         /// The SQL command
@@ -416,11 +397,21 @@ namespace Badger
                 ToggleButton.Click += OnToggleButtonClick;
                 DataTableListBox.SelectionChanged += OnTableListBoxItemSelected;
                 ToolStripComboBox.SelectionChanged += OnChartTypeSelected;
+                DataSourceButton.Click += OnDataSourceButtonClick;
+                FirstComboBox.SelectionChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        private void O( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
+        {
+            throw new NotImplementedException( );
         }
 
         /// <summary>
@@ -666,12 +657,14 @@ namespace Badger
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
                 FilterButton.Visibility = Visibility.Hidden;
+                DataSourceButton.Visibility = Visibility.Hidden;
                 GroupButton.Visibility = Visibility.Hidden;
                 RefreshButton.Visibility = Visibility.Hidden;
                 LookupButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
+                ToolStripComboBox.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -701,7 +694,7 @@ namespace Badger
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
-                ChartCanvas.DataContext = _dataSource;
+                DataContext = _dataSource;
             }
             catch( Exception ex )
             {
@@ -1037,6 +1030,8 @@ namespace Badger
                 NextButton.Visibility = Visibility.Visible;
                 LastButton.Visibility = Visibility.Visible;
                 ToolStripTextBox.Visibility = Visibility.Visible;
+                ToolStripComboBox.Visibility = Visibility.Visible;
+                DataSourceButton.Visibility = Visibility.Visible;
                 FilterButton.Visibility = Visibility.Visible;
                 GroupButton.Visibility = Visibility.Visible;
                 LookupButton.Visibility = Visibility.Visible;
@@ -1062,7 +1057,9 @@ namespace Badger
                 NextButton.Visibility = Visibility.Hidden;
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
+                ToolStripComboBox.Visibility = Visibility.Hidden;
                 FilterButton.Visibility = Visibility.Hidden;
+                DataSourceButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 GroupButton.Visibility = Visibility.Hidden;
                 RefreshButton.Visibility = Visibility.Hidden;
@@ -1100,14 +1097,14 @@ namespace Badger
             {
                 try
                 {
-                    if( FirstCategoryComboBox.Items?.Count > 0 )
+                    if( FirstComboBox.Items?.Count > 0 )
                     {
-                        FirstCategoryComboBox.Items.Clear( );
+                        FirstComboBox.Items.Clear( );
                     }
 
-                    if( FirstCategoryListBox.Items?.Count > 0 )
+                    if( FirstListBox.Items?.Count > 0 )
                     {
-                        FirstCategoryListBox.Items?.Clear( );
+                        FirstListBox.Items?.Clear( );
                     }
 
                     for( var _index = 0; _index < _fields.Count; _index++ )
@@ -1120,8 +1117,22 @@ namespace Badger
                             Tag = _name
                         };
 
-                        FirstCategoryComboBox.Items?.Add( _item );
+                        FirstComboBox.Items?.Add( _item );
                     }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        public void PopulateFirstListBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
                 }
                 catch( Exception ex )
                 {
@@ -1139,14 +1150,14 @@ namespace Badger
             {
                 try
                 {
-                    if( SecondCategoryComboBox.Items?.Count > 0 )
+                    if( SecondComboBox.Items?.Count > 0 )
                     {
-                        SecondCategoryComboBox.Items.Clear( );
+                        SecondComboBox.Items.Clear( );
                     }
 
-                    if( SecondCategoryListBox.Items?.Count > 0 )
+                    if( SecondListBox.Items?.Count > 0 )
                     {
-                        SecondCategoryListBox.Items?.Clear( );
+                        SecondListBox.Items?.Clear( );
                     }
 
                     if( !string.IsNullOrEmpty( _firstValue ) )
@@ -1163,7 +1174,52 @@ namespace Badger
                                     Tag = _name
                                 };
 
-                                SecondCategoryComboBox.Items?.Add( _item );
+                                SecondComboBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the second ListBox items.
+        /// </summary>
+        public void PopulateSecondListBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( SecondComboBox.Items?.Count > 0 )
+                    {
+                        SecondComboBox.Items.Clear( );
+                    }
+
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( _firstValue ) )
+                    {
+                        for( var _index = 0; _index < _fields.Count; _index++ )
+                        {
+                            var name = _fields[ _index ];
+                            if( !name.Equals( _firstCategory ) )
+                            {
+                                var _item = new MetroListBoxItem
+                                {
+                                    Tag = name,
+                                    ToolTip = name.SplitPascal( ),
+                                    Content = name
+                                };
+
+                                SecondListBox.Items?.Add( _item );
                             }
                         }
                     }
@@ -1483,6 +1539,7 @@ namespace Badger
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
                 GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
                 PopulateExecutionTables( );
             }
             catch( Exception _ex )
@@ -1498,11 +1555,14 @@ namespace Badger
         {
             try
             {
+                PopulateFirstComboBoxItems( );
                 FilterTab.IsSelected = true;
                 FilterTab.Visibility = Visibility.Hidden;
                 GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
                 SourceTab.Visibility = Visibility.Hidden;
-                PopulateFirstComboBoxItems( );
+                SecondComboBox.Visibility = Visibility.Hidden;
+                SecondListBox.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1517,11 +1577,14 @@ namespace Badger
         {
             try
             {
-                SourceTab.IsSelected = true;
+                GroupTab.IsSelected = true;
                 SourceTab.Visibility = Visibility.Hidden;
                 FilterTab.Visibility = Visibility.Hidden;
                 GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
                 PopulateFieldListBox( );
+                NumericsLabel.Visibility = Visibility.Hidden;
+                NumericListBox.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1536,8 +1599,8 @@ namespace Badger
         {
             try
             {
-                FirstCategoryComboBox.Items?.Clear( );
-                SecondCategoryComboBox.Items?.Clear( );
+                FirstComboBox.Items?.Clear( );
+                SecondComboBox.Items?.Clear( );
             }
             catch( Exception ex )
             {
@@ -1552,8 +1615,8 @@ namespace Badger
         {
             try
             {
-                FirstCategoryListBox.Items?.Clear( );
-                SecondCategoryListBox.Items?.Clear( );
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
                 FieldListBox.Items?.Clear( );
                 NumericListBox.Items?.Clear( );
             }
@@ -1571,8 +1634,8 @@ namespace Badger
             try
             {
                 ClearSelections( );
-                ClearCollections( );
                 ClearFilter( );
+                ClearCollections( );
                 _selectedTable = string.Empty;
                 _data = null;
                 _dataTable = null;
@@ -1637,8 +1700,6 @@ namespace Badger
         {
             try
             {
-                _thirdCategory = string.Empty;
-                _thirdValue = string.Empty;
                 _secondCategory = string.Empty;
                 _secondValue = string.Empty;
                 _firstCategory = string.Empty;
@@ -1942,8 +2003,8 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                ClearData( );
+                ActivateFilterTab( );
             }
             catch( Exception _ex )
             {
@@ -1969,6 +2030,18 @@ namespace Badger
             }
         }
 
+        private void OnDataSourceButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateSourceTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Called when [group button click].
         /// </summary>
@@ -1979,7 +2052,7 @@ namespace Badger
         {
             try
             {
-                ActivateFilterTab( );
+                ActivateGroupTab( );
             }
             catch( Exception _ex )
             {
@@ -1997,6 +2070,8 @@ namespace Badger
         {
             try
             {
+                var _message = "NOT YET IMPLEMENTED!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {
@@ -2032,7 +2107,15 @@ namespace Badger
         {
             try
             {
-                ActivatePieTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivatePieTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2050,7 +2133,15 @@ namespace Badger
         {
             try
             {
-                ActivateSunTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivateSunTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2068,7 +2159,15 @@ namespace Badger
         {
             try
             {
-                ActivateHistogramTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivateHistogramTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2086,7 +2185,15 @@ namespace Badger
         {
             try
             {
-                ActivateSmithTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivateSmithTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2104,7 +2211,15 @@ namespace Badger
         {
             try
             {
-                ActivateAreaTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivateAreaTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2122,7 +2237,15 @@ namespace Badger
         {
             try
             {
-                ActivateScatterTab( );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data source!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ActivateScatterTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2180,6 +2303,7 @@ namespace Badger
             try
             {
                 var _calculator = new CalculatorWindow( );
+                _calculator.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 _calculator.ShowDialog( );
             }
             catch( Exception _ex )
@@ -2471,56 +2595,192 @@ namespace Badger
             {
                 var _comboBox = sender as MetroComboBox;
                 var _item = _comboBox?.SelectedItem as MetroComboBoxItem;
-                switch( _item.Tag.ToString( ) )
+                if( _item.Content != null )
                 {
-                    case "Column":
+                    switch( _item.Content )
                     {
-                        ActivateColumnTab( );
-                        break;
-                    }
-                    case "Pie":
-                    {
-                        ActivatePieTab( );
-                        break;
-                    }
-                    case "Sunburst":
-                    {
-                        ActivateSunTab( );
-                        break;
-                    }
-                    case "Histogram":
-                    {
-                        ActivateHistogramTab( );
-                        break;
-                    }
-                    case "Smith":
-                    {
-                        ActivateSmithTab( );
-                        break;
-                    }
-                    case "Area":
-                    {
-                        ActivateAreaTab( );
-                        break;
-                    }
-                    case "Scatter":
-                    {
-                        ActivateScatterTab( );
-                        break;
-                    }
-                    default:
-                    {
-                        ActivateColumnTab( );
-                        break;
+                        case "Column":
+                        {
+                            ActivateColumnTab( );
+                            break;
+                        }
+                        case "Pie":
+                        {
+                            ActivatePieTab( );
+                            break;
+                        }
+                        case "Sunburst":
+                        {
+                            ActivateSunTab( );
+                            break;
+                        }
+                        case "Histogram":
+                        {
+                            ActivateHistogramTab( );
+                            break;
+                        }
+                        case "Smith":
+                        {
+                            ActivateSmithTab( );
+                            break;
+                        }
+                        case "Area":
+                        {
+                            ActivateAreaTab( );
+                            break;
+                        }
+                        case "Scatter":
+                        {
+                            ActivateScatterTab( );
+                            break;
+                        }
+                        default:
+                        {
+                            ActivateColumnTab( );
+                            break;
+                        }
                     }
                 }
-
-                BindContext( );
-                ActivateFilterTab( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _comboBox = sender as MetroComboBox;
+                var _selection = _comboBox?.SelectedItem as MetroComboBoxItem;
+                _firstCategory = _selection?.Content.ToString( );
+                FirstListBox.Items?.Clear( );
+                if( !string.IsNullOrEmpty( _firstCategory ) )
+                {
+                    _data = new DataGenerator( _source, _provider );
+                    var _elements = _data.DataElements[ _firstCategory ];
+                    foreach( var _name in _elements )
+                    {
+                        var _item = new MetroComboBoxItem
+                        {
+                            Content = _name,
+                            ToolTip = _name.SplitPascal( ),
+                            Tag = _name
+                        };
+
+                        FirstListBox.Items?.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ListBox item selected].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        private void OnFirstListBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    if( _filter.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
+                    var _selection = _listBox.SelectedItem as MetroListBoxItem;
+                    _firstValue = _selection?.Content?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    PopulateSecondComboBoxItems( );
+                    if( SecondComboBox.Visibility == Visibility.Hidden )
+                    {
+                        SecondComboBox.Visibility = Visibility.Visible;
+                    }
+
+                    if( SecondListBox.Visibility == Visibility.Hidden )
+                    {
+                        SecondListBox.Visibility = Visibility.Visible;
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is MetroComboBox _comboBox )
+            {
+                try
+                {
+                    _sqlQuery = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    var _selection = _comboBox.SelectedItem as MetroComboBoxItem;
+                    _secondCategory = _selection?.Content?.ToString( );
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
+                    {
+                        var _names = _data.DataElements[ _secondCategory ];
+                        foreach( var _name in _names )
+                        {
+                            var _item = new MetroListBoxItem
+                            {
+                                Content = _name,
+                                ToolTip = _name.SplitPascal( ),
+                                Tag = _name
+                            };
+
+                            SecondListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnSecondListBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is MetroListBox _listBox )
+            {
+                try
+                {
+                    ClearFilter( );
+                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

@@ -136,7 +136,7 @@ namespace Badger
             AllowMultiSelect = false;
             IsTextSearchEnabled = false;
             AllowSelectAll = false;
-            DefaultText = "Make Selection";
+            DefaultText = "  Make a Selection";
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
@@ -152,8 +152,8 @@ namespace Badger
             {
                 var _item = new ComboBoxItemAdv
                 {
-                    Background = new SolidColorBrush( _itemBackColor ),
-                    Foreground = new SolidColorBrush( _itemForeColor ),
+                    Background = new SolidColorBrush( _backColor ),
+                    Foreground = new SolidColorBrush( _foreColor ),
                     BorderBrush = new SolidColorBrush( _borderColor ),
                     Content = name,
                     Height = 22

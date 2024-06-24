@@ -63,16 +63,16 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas x:Name="ChartCanvas">
-        <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26" Canvas.Top="15"
+        <local:MetroTabControl x:Name="PrimaryTabControl" Height="640" Width="863" Canvas.Top="16"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="ColumnTab" Header="Column" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
                 <Canvas x:Name="ColumnCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <syncfusion:SfChart3D x:Name="ColumnChart" Width="720" BackWallBrush="#FF1E1E1E"
+                    <syncfusion:SfChart3D x:Name="ColumnChart" Width="822" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
-                            Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Center" Depth="250"
+                            Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left" Depth="250"
                             EnableRotation="True" Header="Column Series" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" VerticalAlignment="Center" />
                 </Canvas>
@@ -80,7 +80,7 @@
             <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDD4" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="PieCanvas" Background="#FF141414">
-                    <syncfusion:SfChart x:Name="PieChart" Canvas.Left="21" Canvas.Top="65" Width="720" Height="465"
+                    <syncfusion:SfChart x:Name="PieChart" Canvas.Left="21" Canvas.Top="65" Width="822" Height="465"
                             Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4" Palette="Custom"
                             Header="Pie Series">
                         <syncfusion:PieSeries Interior="#FFE20909" />
@@ -94,7 +94,7 @@
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SunCanvas" Background="#FF141414">
                     <SunburstChart:SfSunburstChart x:Name="SunburstChart" Canvas.Left="21" Canvas.Top="65"
-                            HorizontalAlignment="Center" VerticalAlignment="Center" Width="720" BorderBrush="#FF0078D4"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Width="822" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" Height="465" Header="Sunburst Chart" EnableAnimation="True" />
                 </Canvas>
             </TabItem>
@@ -102,7 +102,7 @@
                     VerticalAlignment="Center" Width="70" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC">
                 <Canvas x:Name="HistogramCanvas" Background="#FF141414">
-                    <syncfusion:SfChart x:Name="HistogramChart" Canvas.Left="21" Canvas.Top="65" Width="720"
+                    <syncfusion:SfChart x:Name="HistogramChart" Canvas.Left="21" Canvas.Top="65" Width="822"
                             Height="465" Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4"
                             Palette="Custom" Header="Histogram" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <syncfusion:HistogramSeries />
@@ -117,14 +117,14 @@
                     VerticalAlignment="Center">
                 <Canvas x:Name="SmithCanvas" Background="#FF141414">
                     <SmithChart:SfSmithChart x:Name="SmithChart" Canvas.Left="21" Canvas.Top="65"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="720" Foreground="#FFA0BDFC"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="822" Foreground="#FFA0BDFC"
                             Header="Smith Chart" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="465" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="AreaTab" Height="24" Header="Area" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="AreaCanvas" Background="#FF141414">
-                    <syncfusion:SfChart3D x:Name="AreaChart" Width="720" BackWallBrush="#FF1E1E1E"
+                    <syncfusion:SfChart3D x:Name="AreaChart" Width="822" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
                             Height="465" Canvas.Left="21" Canvas.Top="65" Depth="250" EnableRotation="True"
@@ -142,7 +142,7 @@
                     VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="ScatterCanvas" Background="#FF141414">
-                    <syncfusion:SfChart3D x:Name="ScatterChart" Width="720" BackWallBrush="#FF1E1E1E"
+                    <syncfusion:SfChart3D x:Name="ScatterChart" Width="822" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
                             Height="465" Canvas.Left="21" Canvas.Top="65" Depth="250" EnableRotation="True"
@@ -179,40 +179,40 @@
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
                     ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <local:MetroComboBox x:Name="ToolStripComboBox" Padding="10, 1, 1, 1" Width="200" DefaultText="Chart Types">
-                <local:MetroComboBoxItem Content="Column" Tag="Column"/>
-                <local:MetroComboBoxItem Content="Pie" Tag="Pie"/>
-                <local:MetroComboBoxItem Content="Sunburst" Tag="Sunburst"/>
-                <local:MetroComboBoxItem Content="Histogram" Tag="Histogram" />
-                <local:MetroComboBoxItem Content="Smith" Tag="Smith"/>
-                <local:MetroComboBoxItem Content="Area" Tag="Area"/>
-                <local:MetroComboBoxItem Content="Scatter" Tag="Scatter" />
+            <local:MetroComboBox x:Name="ToolStripComboBox" AllowMultiSelect="false" >
+                <local:MetroComboBoxItem Content="Column" />
+                <local:MetroComboBoxItem Content="Pie" />
+                <local:MetroComboBoxItem Content="Sunburst" />
+                <local:MetroComboBoxItem Content="Smith" />
+                <local:MetroComboBoxItem Content="Area" />
+                <local:MetroComboBoxItem Content="Scatter" />
+                <local:MetroComboBoxItem Content="Histogram" />
             </local:MetroComboBox>
             <syncfusion:MenuItemSeparator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="FilterButton" ImageSource="/UI/Windows/Chart/FilterButton.png" />
             <local:ToolStripButton x:Name="GroupButton" ImageSource="/UI/Windows/Chart/GroupButton.png" />
-            <Separator Background="#FF141414" Width="10" BorderBrush="#FF141414" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25" Padding="10,1,1,1"
-                    VerticalContentAlignment="Center" Width="250" VerticalAlignment="Center" />
-            <Separator Background="#FF141414" Width="10" BorderBrush="#FF141414" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look-up"
-                    ImageSource="/UI/Windows/Chart/LookUpButton.png" />
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Reset Filters"
                     ImageSource="/UI/Windows/Chart/RefreshButton.png" />
+            <local:ToolStripButton x:Name="DataSourceButton" ImageSource="/UI/Windows/Chart/DataSourceButton.png" />
+            <Separator Background="#FF141414" Width="20" BorderBrush="#FF141414" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25" Padding="10,1,1,1"
+                    VerticalContentAlignment="Center" Width="250" VerticalAlignment="Center" />
+            <Separator Background="#FF141414" Width="20" BorderBrush="#FF141414" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look-up"
+                    ImageSource="/UI/Windows/Chart/LookUpButton.png" />
             <syncfusion:MenuItemSeparator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="ExportButton" ToolTip="Export to Excel"
                     ImageSource="/UI/Windows/Chart/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" Width="100" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" Width="40" />
             <local:ToolStripButton x:Name="ToggleButton" Background="{x:Null}" Foreground="{x:Null}"
                     ImageSource="/UI/Windows/Chart/ToggleButton.png" />
-            <Separator Background="#FF141414" Width="15" BorderBrush="#FF141414" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
-        <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="559" Canvas.Left="822" Canvas.Top="14"
-                HorizontalAlignment="Center">
+        <local:MetroTabControl x:Name="SecondaryTabControl" Height="636" Width="510" Canvas.Left="878" Canvas.Top="16"
+                HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
@@ -225,22 +225,21 @@
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     VerticalAlignment="Top">
                 <Canvas x:Name="FilterGrid" Height="601">
-                    <local:MetroListBox x:Name="FirstCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
+                    <local:MetroListBox x:Name="FirstListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
                             Height="150" Canvas.Left="155" Canvas.Top="144" VerticalAlignment="Top" Width="200"
                             HorizontalAlignment="Center" />
-                    <local:MetroListBox x:Name="SecondCategoryListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
+                    <local:MetroListBox x:Name="SecondListBox" d:ItemsSource="{d:SampleData ItemCount=5}"
                             Height="145" Canvas.Left="160" Canvas.Top="369" Width="200" HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
-                    <local:MetroComboBox x:Name="SecondCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="164" Canvas.Top="330">
+                    <local:MetroComboBox x:Name="FirstComboBox" AllowMultiSelect="False" Height="30" Width="175" Canvas.Left="155" Canvas.Top="100">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
-                    <local:MetroComboBox x:Name="FirstCategoryComboBox" AllowMultiSelect="True"
-                            DefaultText="ComboBox Items" Height="30" Width="150" Canvas.Left="155" Canvas.Top="105">
+                    <local:MetroComboBox x:Name="SecondComboBox" AllowMultiSelect="False" Height="30" Width="175"
+                            Canvas.Left="156" Canvas.Top="330">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />

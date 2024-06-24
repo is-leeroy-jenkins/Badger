@@ -41,11 +41,8 @@
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Windows;
     using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
 
@@ -53,6 +50,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroComboBoxItem : ComboBoxItemAdv
     {
         /// <summary>
@@ -127,19 +127,21 @@ namespace Badger
             B = 252
         };
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MetroComboBoxItem"/> class.
+        /// <see cref="T:Badger.MetroComboBoxItem" /> class.
         /// </summary>
         public MetroComboBoxItem( ) 
             : base( )
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( ComboBoxItemAdv ) );
-            Height = 35;
+            Height = 22;
+            Padding = new Thickness( 10, 1, 1, 1 );
             Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _backColor );
+            Foreground = new SolidColorBrush( _foreColor );
 
             // Event Wiring
             MouseEnter += OnItemMouseEnter;
@@ -160,7 +162,7 @@ namespace Badger
                 {
                     _item.Foreground = new SolidColorBrush( _foreHover );
                     _item.Background = new SolidColorBrush( _backHover );
-                    _item.BorderBrush = new SolidColorBrush( _backHover );
+                    _item.BorderBrush = new SolidColorBrush( _borderHover );
                 }
             }
             catch( Exception _ex )
