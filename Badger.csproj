@@ -54,9 +54,15 @@
     <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
     <None Remove="UI\Windows\Chart\AreaButton.png" />
     <None Remove="UI\Windows\Chart\ColumnButton.png" />
+    <None Remove="UI\Windows\Chart\ExportButton.png" />
+    <None Remove="UI\Windows\Chart\FilterButton.png" />
     <None Remove="UI\Windows\Chart\GanttButton.png" />
+    <None Remove="UI\Windows\Chart\GroupButton.png" />
     <None Remove="UI\Windows\Chart\HeatButton.png" />
+    <None Remove="UI\Windows\Chart\HistogramButton.png" />
+    <None Remove="UI\Windows\Chart\LookUpButton.png" />
     <None Remove="UI\Windows\Chart\PieButton.png" />
+    <None Remove="UI\Windows\Chart\RefreshButton.png" />
     <None Remove="UI\Windows\Chart\SmithButton.png" />
     <None Remove="UI\Windows\Chart\SunButton.png" />
     <None Remove="UI\Windows\Datagrid\DataSourceButton.png" />
@@ -616,7 +622,9 @@
     <Resource Include="UI\Windows\Chart\ExportButton.png" />
     <Resource Include="UI\Windows\Chart\FilterButton.png" />
     <Resource Include="UI\Windows\Chart\GanttButton.png" />
+    <Resource Include="UI\Windows\Chart\GroupButton.png" />
     <Resource Include="UI\Windows\Chart\HeatButton.png" />
+    <Resource Include="UI\Windows\Chart\HistogramButton.png" />
     <Resource Include="UI\Windows\Chart\PieButton.png" />
     <Resource Include="UI\Windows\Chart\SmithButton.png" />
     <Resource Include="UI\Windows\Chart\SunButton.png" />

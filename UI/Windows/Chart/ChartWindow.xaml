@@ -62,27 +62,27 @@
             </syncfusion:MenuItemAdv>
         </ContextMenu>
     </Window.ContextMenu>
-    <Canvas x:Name="ChartGrid">
+    <Canvas x:Name="ChartCanvas">
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="636" Width="778" Canvas.Left="26" Canvas.Top="15"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
             <TabItem x:Name="ColumnTab" Header="Column" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
-                <Canvas x:Name="DataTabCanvas" Background="#FF141414" Margin="0,10,0,0">
+                <Canvas x:Name="ColumnCanvas" Background="#FF141414" Margin="0,10,0,0">
                     <syncfusion:SfChart3D x:Name="ColumnChart" Width="720" BackWallBrush="#FF1E1E1E"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
                             Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Center" Depth="250"
-                            EnableRotation="True" Header="Title" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
-                            VerticalAlignment="Center" />
+                            EnableRotation="True" Header="Column Series" BorderBrush="#FF0078D4"
+                            BorderThickness="1,1,1,1" VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDD4" Margin="0,0,0,0" Padding="6,2,6,5">
-                <Canvas Background="#FF141414">
+                <Canvas x:Name="PieCanvas" Background="#FF141414">
                     <syncfusion:SfChart x:Name="PieChart" Canvas.Left="21" Canvas.Top="65" Width="720" Height="465"
                             Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4" Palette="Custom"
-                            Header="Chart Title">
+                            Header="Pie Series">
                         <syncfusion:PieSeries Interior="#FFE20909" />
                         <syncfusion:PieSeries Interior="Black" />
                         <syncfusion:PieSeries Interior="#FF0F36D4" />
@@ -92,36 +92,68 @@
             </TabItem>
             <TabItem x:Name="SunTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
-                <Canvas x:Name="GraphCanvas" Background="#FF141414">
+                <Canvas x:Name="SunCanvas" Background="#FF141414">
                     <SunburstChart:SfSunburstChart x:Name="SunburstChart" Canvas.Left="21" Canvas.Top="65"
                             HorizontalAlignment="Center" VerticalAlignment="Center" Width="720" BorderBrush="#FF0078D4"
-                            BorderThickness="1,1,1,1" Height="465" Header="Title" EnableAnimation="True" />
+                            BorderThickness="1,1,1,1" Height="465" Header="Sunburst Chart" EnableAnimation="True" />
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="HistogramTab" HorizontalAlignment="Center" Height="24" Header="Histogram"
+                    VerticalAlignment="Center" Width="70" Background="#FF141414" BorderBrush="#FF141414"
+                    Foreground="#FFA0BDFC">
+                <Canvas x:Name="HistogramCanvas" Background="#FF141414">
+                    <syncfusion:SfChart x:Name="HistogramChart" Canvas.Left="21" Canvas.Top="65" Width="720"
+                            Height="465" Padding="1,1,1,1" BorderThickness="1,1,1,1" BorderBrush="#FF0078D4"
+                            Palette="Custom" Header="Histogram" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <syncfusion:HistogramSeries />
+                        <syncfusion:HistogramSeries />
+                        <syncfusion:HistogramSeries />
+                        <syncfusion:HistogramSeries />
+                    </syncfusion:SfChart>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SmithTab" Height="24" Header="Smith" Width="100" Margin="0,0,0,0" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
                 <Canvas x:Name="SmithCanvas" Background="#FF141414">
-                    <SmithChart:SfSmithChart x:Name="SmithChart"  Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left"
-                            VerticalAlignment="Center" Width="720" Foreground="#FFA0BDFC" Header="Chart Title"
-                            BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="465" />
+                    <SmithChart:SfSmithChart x:Name="SmithChart" Canvas.Left="21" Canvas.Top="65"
+                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="720" Foreground="#FFA0BDFC"
+                            Header="Smith Chart" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="465" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="HeatTab" Height="24" Header="Heat Map" Width="100" Background="#FF141414"
+            <TabItem x:Name="AreaTab" Height="24" Header="Area" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
-                <Canvas x:Name="HeatCanvas" Background="#FF141414">
-                    <syncfusion:SfHeatMap x:Name="HeatChart" Height="465" Canvas.Left="21" Canvas.Top="65" Width="720"
-                            BorderBrush="#FF0078D4" Foreground="#FFA0BDFC" BorderThickness="1,1,1,1"
-                            HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Canvas x:Name="AreaCanvas" Background="#FF141414">
+                    <syncfusion:SfChart3D x:Name="AreaChart" Width="720" BackWallBrush="#FF1E1E1E"
+                            BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
+                            TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
+                            Height="465" Canvas.Left="21" Canvas.Top="65" Depth="250" EnableRotation="True"
+                            Header="Area Series" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" PerspectiveAngle="100"
+                            Rotation="0.01">
+                        <syncfusion:AreaSeries3D />
+                        <syncfusion:AreaSeries3D />
+                        <syncfusion:AreaSeries3D />
+                        <syncfusion:AreaSeries3D />
+                    </syncfusion:SfChart3D>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="GanttTab" HorizontalAlignment="Center" Height="24" Header="Gannt"
+            <TabItem x:Name="ScatterTab" HorizontalAlignment="Center" Height="24" Header="Scatter"
                     VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFDEDEDE" Margin="0,0,0,0">
-                <Canvas x:Name="GanttCanvas" Background="#FF141414">
-                    <syncfusion:GanttControl x:Name="GanttChart" Canvas.Left="62" Canvas.Top="95" Height="415"
-                            Width="650" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF4B4B4B"
-                            BorderBrush="#FF0078D4" />
+                    Foreground="#FFA0BDFC" Margin="0,0,0,0">
+                <Canvas x:Name="ScatterCanvas" Background="#FF141414">
+                    <syncfusion:SfChart3D x:Name="ScatterChart" Width="720" BackWallBrush="#FF1E1E1E"
+                            BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
+                            TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
+                            Height="465" Canvas.Left="21" Canvas.Top="65" Depth="250" EnableRotation="True"
+                            Header="Scatter Series" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
+                            PerspectiveAngle="100" Rotation="0.01" HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                        <syncfusion:ScatterSeries3D />
+                        <syncfusion:ScatterSeries3D />
+                        <syncfusion:ScatterSeries3D />
+                        <syncfusion:ScatterSeries3D />
+                    </syncfusion:SfChart3D>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="BusyTab" Height="24" Header="Busy" Width="100" Background="#FF141414"
@@ -137,7 +169,7 @@
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70" HorizontalAlignment="Left"
                     Padding="3,1,1,1" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" FontSize="10" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="70" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Chart/FirstButton.png" Height="30" />
             <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
@@ -147,32 +179,35 @@
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
                     ImageSource="/UI/Windows/Chart/LastButton.png" Height="30" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+            <local:MetroComboBox x:Name="ToolStripComboBox" Padding="10, 1, 1, 1" Width="200" DefaultText="Chart Types">
+                <local:MetroComboBoxItem Content="Column" Tag="Column"/>
+                <local:MetroComboBoxItem Content="Pie" Tag="Pie"/>
+                <local:MetroComboBoxItem Content="Sunburst" Tag="Sunburst"/>
+                <local:MetroComboBoxItem Content="Histogram" Tag="Histogram" />
+                <local:MetroComboBoxItem Content="Smith" Tag="Smith"/>
+                <local:MetroComboBoxItem Content="Area" Tag="Area"/>
+                <local:MetroComboBoxItem Content="Scatter" Tag="Scatter" />
+            </local:MetroComboBox>
+            <syncfusion:MenuItemSeparator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" />
+            <local:ToolStripButton x:Name="FilterButton" ImageSource="/UI/Windows/Chart/FilterButton.png" />
+            <local:ToolStripButton x:Name="GroupButton" ImageSource="/UI/Windows/Chart/GroupButton.png" />
+            <Separator Background="#FF141414" Width="10" BorderBrush="#FF141414" />
             <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25" Padding="10,1,1,1"
-                    VerticalContentAlignment="Center" Width="200" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-            <local:ToolStripButton x:Name="ColumnButton" ToolTip="Column Charts"
-                    ImageSource="/UI/Windows/Chart/ColumnButton.png" Height="30" />
-            <local:ToolStripButton x:Name="PieButton" ToolTip="Pie Charts" ImageSource="/UI/Windows/Chart/PieButton.png"
-                    Height="30" />
-            <local:ToolStripButton x:Name="SunButton" Foreground="#FFA0BDFC" ToolTip="Sunburst Chart"
-                    ImageSource="/UI/Windows/Chart/SunButton.png" />
-            <local:ToolStripButton x:Name="SmithButton" ToolTip="Smith Charts"
-                    ImageSource="/UI/Windows/Chart/SmithButton.png" Height="30" />
-            <local:ToolStripButton x:Name="HeatButton" ToolTip="Heat Charts"
-                    ImageSource="/UI/Windows/Chart/HeatButton.png" Height="30" />
-            <local:ToolStripButton x:Name="AreaButton" ToolTip="Area Charts"
-                    ImageSource="/UI/Windows/Chart/AreaButton.png" Height="30" />
-            <local:ToolStripButton x:Name="GanttButton" ToolTip="Delete" Height="30"
-                    ImageSource="/UI/Windows/Chart/GanttButton.png" />
-            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
+                    VerticalContentAlignment="Center" Width="250" VerticalAlignment="Center" />
+            <Separator Background="#FF141414" Width="10" BorderBrush="#FF141414" />
+            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look-up"
+                    ImageSource="/UI/Windows/Chart/LookUpButton.png" />
+            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Reset Filters"
+                    ImageSource="/UI/Windows/Chart/RefreshButton.png" />
+            <syncfusion:MenuItemSeparator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" />
+            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export to Excel"
                     ImageSource="/UI/Windows/Chart/ExportButton.png" />
             <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
                     ImageSource="/UI/Windows/Chart/BrowseButton.png" Height="30" />
-            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
-            <Separator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="30" />
+            <Separator Background="#FF141414" BorderBrush="#FF141414" Foreground="{x:Null}" Width="100" />
             <local:ToolStripButton x:Name="ToggleButton" Background="{x:Null}" Foreground="{x:Null}"
                     ImageSource="/UI/Windows/Chart/ToggleButton.png" />
+            <Separator Background="#FF141414" Width="15" BorderBrush="#FF141414" />
             <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
                     ImageSource="/UI/Windows/Chart/MenuButton.png" Height="30" />
         </local:ToolStrip>
@@ -181,9 +216,9 @@
             <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroListBox x:Name="DataTableListBox" Height="410" Width="250"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Canvas.Top="99"
-                            VerticalAlignment="Center" Canvas.Left="160" />
+                    <local:MetroListBox x:Name="DataTableListBox" Height="417" Width="250"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="99"
+                            VerticalAlignment="Top" Canvas.Left="160" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"

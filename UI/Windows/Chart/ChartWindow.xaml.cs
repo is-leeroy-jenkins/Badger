@@ -1,10 +1,11 @@
-﻿// ******************************************************************************************
+﻿
+// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-16-2024
+//     Created:                 06-23-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-16-2024
+//     Last Modified On:        06-23-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -49,17 +50,20 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media;
     using Microsoft.Office.Interop.Outlook;
     using Syncfusion.SfSkinManager;
+    using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.UI.Xaml.SmithChart;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
     using Action = System.Action;
     using Application = System.Windows.Application;
+    using ChartSeriesCollection = Syncfusion.UI.Xaml.Charts.ChartSeriesCollection;
     using Exception = System.Exception;
+    using SelectionMode = System.Windows.Controls.SelectionMode;
 
     /// <inheritdoc />
     /// <summary>
@@ -80,6 +84,7 @@ namespace Badger
         private object _path;
 
         /// <summary>
+        /// 
         /// The busy
         /// </summary>
         private bool _busy;
@@ -402,11 +407,15 @@ namespace Badger
                 PreviousButton.Click += OnPreviousButtonClick;
                 NextButton.Click += OnNextButtonClick;
                 LastButton.Click += OnLastButtonClick;
-                ExportButton.Click += OnExportButtonClick;
+                FilterButton.Click += OnFilterButtonClick;
+                GroupButton.Click += OnGroupButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
                 ToggleButton.Click += OnToggleButtonClick;
                 DataTableListBox.SelectionChanged += OnTableListBoxItemSelected;
+                ToolStripComboBox.SelectionChanged += OnChartTypeSelected;
             }
             catch( Exception _ex )
             {
@@ -432,10 +441,104 @@ namespace Badger
         /// <summary>
         /// Initializes the chart.
         /// </summary>
-        private void InitializeChart( )
+        private void InitializeColumnChart( )
         {
             try
             {
+                var _numericAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    ShowGridLines = true
+                };
+
+                var _category = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    ShowGridLines = true
+                };
+
+                ColumnChart.SecondaryAxis = _numericAxis;
+                ColumnChart.PrimaryAxis = _category;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the pie chart.
+        /// </summary>
+        private void InitializePieChart( )
+        {
+            try
+            {
+                PieChart.FontSize = 10;
+                PieChart.Header = "Pie Chart";
+                PieChart.Series?.Clear( );
+                var _series = new PieSeries
+                {
+                    ExplodeOnMouseClick = true,
+                    EmptyPointStyle = EmptyPointStyle.SymbolAndInterior,
+                    EnableAnimation = true,
+                    EnableSmartLabels = true
+                };
+
+                PieChart.Series?.Add( _series );
+                PieChart.Background = new SolidColorBrush( _backColor );
+                PieChart.Foreground = new SolidColorBrush( _foreColor );
+                PieChart.BorderBrush = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the sunburst chart.
+        /// </summary>
+        private void InitializeSunburstChart( )
+        {
+            try
+            {
+                SunburstChart.FontSize = 10;
+                SunburstChart.Header = "Sun Chart";
+                SunburstChart.Background = new SolidColorBrush( _backColor );
+                SunburstChart.Foreground = new SolidColorBrush( _foreColor );
+                SunburstChart.BorderBrush = new SolidColorBrush( _borderColor );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the smith chart.
+        /// </summary>
+        private void InitializeSmithChart( )
+        {
+            try
+            {
+                var _radial = new RadialAxis( )
+                {
+                    FontSize = 10
+                };
+
+                var _horizontal = new HorizontalAxis( )
+                {
+                    FontSize = 10
+                };
+
+                SmithChart.Header = "Smith Chart";
+                SmithChart.RadialAxis = _radial;
+                SmithChart.HorizontalAxis = _horizontal;
+                SmithChart.Background = new SolidColorBrush( _backColor );
+                SmithChart.Foreground = new SolidColorBrush( _foreColor );
+                SmithChart.BorderBrush = new SolidColorBrush( _borderColor );
             }
             catch( Exception _ex )
             {
@@ -528,6 +631,19 @@ namespace Badger
             {
                 ColumnTab.IsSelected = true;
                 SourceTab.IsSelected = true;
+                ColumnTab.Visibility = Visibility.Hidden;
+                PieTab.Visibility = Visibility.Hidden;
+                SunTab.Visibility = Visibility.Hidden;
+                SmithTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
+                MetricsTab.Visibility = Visibility.Hidden;
                 SecondDateLabel.Visibility = Visibility.Hidden;
                 SecondCalendar.Visibility = Visibility.Hidden;
             }
@@ -549,16 +665,13 @@ namespace Badger
                 NextButton.Visibility = Visibility.Hidden;
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
+                GroupButton.Visibility = Visibility.Hidden;
+                RefreshButton.Visibility = Visibility.Hidden;
+                LookupButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
-                AreaButton.Visibility = Visibility.Hidden;
-                ColumnButton.Visibility = Visibility.Hidden;
-                PieButton.Visibility = Visibility.Hidden;
-                SmithButton.Visibility = Visibility.Hidden;
-                SunButton.Visibility = Visibility.Hidden;
-                HeatButton.Visibility = Visibility.Hidden;
-                GanttButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -585,12 +698,10 @@ namespace Badger
                 _dataTable = _data.DataTable;
                 _dataSource = _dataTable?.ToObservable( );
                 _current = _data.Record;
-                ColumnChart.DataContext = _dataSource;
-                PieChart.DataContext = _dataSource;
-                SunburstChart.DataContext = _dataSource;
-                SmithChart.DataContext = _dataSource;
-                GanttChart.DataContext = _dataSource;
-                HeatChart.DataContext = _dataSource;
+                _columns = _data.ColumnNames;
+                _fields = _data.Fields;
+                _numerics = _data.Numerics;
+                ChartCanvas.DataContext = _dataSource;
             }
             catch( Exception ex )
             {
@@ -763,7 +874,8 @@ namespace Badger
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_values} FROM {_selectedTable} "
+                    return $"SELECT {_values} "
+                        + $"FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
@@ -925,15 +1037,12 @@ namespace Badger
                 NextButton.Visibility = Visibility.Visible;
                 LastButton.Visibility = Visibility.Visible;
                 ToolStripTextBox.Visibility = Visibility.Visible;
+                FilterButton.Visibility = Visibility.Visible;
+                GroupButton.Visibility = Visibility.Visible;
+                LookupButton.Visibility = Visibility.Visible;
+                RefreshButton.Visibility = Visibility.Visible;
                 ExportButton.Visibility = Visibility.Visible;
                 BrowseButton.Visibility = Visibility.Visible;
-                AreaButton.Visibility = Visibility.Visible;
-                ColumnButton.Visibility = Visibility.Visible;
-                PieButton.Visibility = Visibility.Visible;
-                SmithButton.Visibility = Visibility.Visible;
-                SunButton.Visibility = Visibility.Visible;
-                HeatButton.Visibility = Visibility.Visible;
-                GanttButton.Visibility = Visibility.Visible;
             }
             catch( Exception _ex )
             {
@@ -953,15 +1062,12 @@ namespace Badger
                 NextButton.Visibility = Visibility.Hidden;
                 LastButton.Visibility = Visibility.Hidden;
                 ToolStripTextBox.Visibility = Visibility.Hidden;
+                FilterButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
+                GroupButton.Visibility = Visibility.Hidden;
+                RefreshButton.Visibility = Visibility.Hidden;
+                LookupButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
-                AreaButton.Visibility = Visibility.Hidden;
-                ColumnButton.Visibility = Visibility.Hidden;
-                PieButton.Visibility = Visibility.Hidden;
-                SmithButton.Visibility = Visibility.Hidden;
-                SunButton.Visibility = Visibility.Hidden;
-                HeatButton.Visibility = Visibility.Hidden;
-                GanttButton.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1077,9 +1183,9 @@ namespace Badger
             try
             {
                 DataTableListBox.Items?.Clear( );
-                var _model = new DataGenerator( Source.ApplicationTables, _provider );
-                var _data = _model.GetData( );
-                var _names = _data
+                var _tables = new DataGenerator( Source.ApplicationTables, _provider );
+                var _rows = _tables.GetData( );
+                var _names = _rows
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
@@ -1193,9 +1299,10 @@ namespace Badger
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1203,16 +1310,21 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the pie tab.
+        /// </summary>
         private void ActivatePieTab( )
         {
             try
             {
+                PieTab.IsSelected = true;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1221,16 +1333,21 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the sun tab.
+        /// </summary>
         private void ActivateSunTab( )
         {
             try
             {
+                SunTab.IsSelected = true;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1239,16 +1356,21 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the smith tab.
+        /// </summary>
         private void ActivateSmithTab( )
         {
             try
             {
+                SmithTab.IsSelected = true;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1260,16 +1382,18 @@ namespace Badger
         /// <summary>
         /// Activates the heat tab.
         /// </summary>
-        private void ActivateHeatTab( )
+        private void ActivateAreaTab( )
         {
             try
             {
+                AreaTab.IsSelected = true;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1281,16 +1405,41 @@ namespace Badger
         /// <summary>
         /// Activates the gantt tab.
         /// </summary>
-        private void ActivateGanttTab( )
+        private void ActivateScatterTab( )
         {
             try
             {
-                GanttTab.Visibility = Visibility.Visible;
+                ScatterTab.IsSelected = true;
+                ScatterTab.Visibility = Visibility.Hidden;
+                ColumnTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
+                PieTab.Visibility = Visibility.Hidden;
+                SunTab.Visibility = Visibility.Hidden;
+                SmithTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the histogram tab.
+        /// </summary>
+        private void ActivateHistogramTab( )
+        {
+            try
+            {
+                HistogramTab.IsSelected = true;
+                HistogramTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
@@ -1306,13 +1455,15 @@ namespace Badger
         {
             try
             {
+                BusyTab.IsSelected = true;
                 BusyTab.Visibility = Visibility.Visible;
                 ColumnTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
-                HeatTab.Visibility = Visibility.Hidden;
-                GanttTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
+                HistogramTab.Visibility = Visibility.Hidden;
             }
             catch( Exception _ex )
             {
@@ -1563,9 +1714,14 @@ namespace Badger
                         ActivatePieTab( );
                         break;
                     }
-                    case 3:
+                    case 2:
                     {
                         ActivateSunTab( );
+                        break;
+                    }
+                    case 3:
+                    {
+                        ActivateHistogramTab( );
                         break;
                     }
                     case 4:
@@ -1575,10 +1731,15 @@ namespace Badger
                     }
                     case 5:
                     {
-                        ActivateHeatTab( );
+                        ActivateAreaTab( );
                         break;
                     }
                     case 6:
+                    {
+                        ActivateScatterTab( );
+                        break;
+                    }
+                    case 7:
                     {
                         ActivateBusyTab( );
                         break;
@@ -1800,7 +1961,42 @@ namespace Badger
         {
             try
             {
-                FilterTab.IsSelected = true;
+                ActivateFilterTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [group button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnGroupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ActivateFilterTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -1868,12 +2064,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnExportButtonClick( object sender, EventArgs e )
+        private void OnHistogramButtonClick( object sender, EventArgs e )
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                ActivateHistogramTab( );
             }
             catch( Exception _ex )
             {
@@ -1905,11 +2100,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnHeatButtonClick( object sender, EventArgs e )
+        private void OnAreaButtonClick( object sender, EventArgs e )
         {
             try
             {
-                ActivateHeatTab( );
+                ActivateAreaTab( );
             }
             catch( Exception _ex )
             {
@@ -1923,11 +2118,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGanttButtonClick( object sender, EventArgs e )
+        private void OnScatterButtonClick( object sender, EventArgs e )
         {
             try
             {
-                ActivateGanttTab( );
+                ActivateScatterTab( );
             }
             catch( Exception _ex )
             {
@@ -1953,6 +2148,12 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClosing( object sender, EventArgs e )
         {
             try
@@ -2255,6 +2456,71 @@ namespace Badger
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [chart type selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnChartTypeSelected( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                var _comboBox = sender as MetroComboBox;
+                var _item = _comboBox?.SelectedItem as MetroComboBoxItem;
+                switch( _item.Tag.ToString( ) )
+                {
+                    case "Column":
+                    {
+                        ActivateColumnTab( );
+                        break;
+                    }
+                    case "Pie":
+                    {
+                        ActivatePieTab( );
+                        break;
+                    }
+                    case "Sunburst":
+                    {
+                        ActivateSunTab( );
+                        break;
+                    }
+                    case "Histogram":
+                    {
+                        ActivateHistogramTab( );
+                        break;
+                    }
+                    case "Smith":
+                    {
+                        ActivateSmithTab( );
+                        break;
+                    }
+                    case "Area":
+                    {
+                        ActivateAreaTab( );
+                        break;
+                    }
+                    case "Scatter":
+                    {
+                        ActivateScatterTab( );
+                        break;
+                    }
+                    default:
+                    {
+                        ActivateColumnTab( );
+                        break;
+                    }
+                }
+
+                BindContext( );
+                ActivateFilterTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
