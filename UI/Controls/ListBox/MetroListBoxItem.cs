@@ -86,6 +86,7 @@ namespace Badger
         /// <summary>
         /// The fore color
         /// </summary>
+        /// 
         private protected Color _foreColor = new Color( )
         {
             A = 255,

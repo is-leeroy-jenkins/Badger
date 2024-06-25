@@ -1166,20 +1166,6 @@ namespace Badger
             }
         }
 
-        public void PopulateFirstListBoxItems( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary>
         /// Populates the second ComboBox items.
         /// </summary>
@@ -1211,51 +1197,6 @@ namespace Badger
                                     Content = _name,
                                     ToolTip = _name?.SplitPascal( ),
                                     Tag = _name
-                                };
-
-                                SecondComboBox.Items?.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the second ListBox items.
-        /// </summary>
-        public void PopulateSecondListBoxItems( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( SecondComboBox.Items?.Count > 0 )
-                    {
-                        SecondComboBox.Items.Clear( );
-                    }
-
-                    if( SecondListBox.Items?.Count > 0 )
-                    {
-                        SecondListBox.Items?.Clear( );
-                    }
-
-                    if( !string.IsNullOrEmpty( _firstValue ) )
-                    {
-                        for( var _index = 0; _index < _fields.Count; _index++ )
-                        {
-                            var name = _fields[ _index ];
-                            if( !name.Equals( _firstCategory ) )
-                            {
-                                var _item = new MetroListBoxItem
-                                {
-                                    Tag = name,
-                                    ToolTip = name.SplitPascal( ),
-                                    Content = name
                                 };
 
                                 SecondListBox.Items?.Add( _item );
@@ -2687,6 +2628,12 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             try
@@ -2697,11 +2644,10 @@ namespace Badger
                 FirstListBox.Items?.Clear( );
                 if( !string.IsNullOrEmpty( _firstCategory ) )
                 {
-                    _data = new DataGenerator( _source, _provider );
                     var _elements = _data.DataElements[ _firstCategory ];
                     foreach( var _name in _elements )
                     {
-                        var _item = new MetroComboBoxItem
+                        var _item = new MetroListBoxItem
                         {
                             Content = _name,
                             ToolTip = _name.SplitPascal( ),

@@ -6,9 +6,11 @@
     <SolidColorBrush x:Key="ForeColor" Color="#FFDEDEDE"></SolidColorBrush>
     <SolidColorBrush x:Key="BorderColor" Color="#FF0078D4"></SolidColorBrush>
     <SolidColorBrush x:Key="Transparent" Color="#00000000"></SolidColorBrush>
-    <SolidColorBrush x:Key="ControlColor" Color="#FF2D2D2D"></SolidColorBrush>
+    <SolidColorBrush x:Key="ControlBackColor" Color="#FF2D2D2D"></SolidColorBrush>
     <SolidColorBrush x:Key="BorderHover" Color="#FF6ABDFC"></SolidColorBrush>
     <SolidColorBrush x:Key="ForeHover" Color="#FFFFFFFF"></SolidColorBrush>
     <SolidColorBrush x:Key="BackHover" Color="#FF325D81"></SolidColorBrush>
+    <SolidColorBrush x:Key="SteelBlue" Color="SteelBlue"></SolidColorBrush>
+    <SolidColorBrush x:Key="Maroon" Color="Maroon"></SolidColorBrush>
 
 </ResourceDictionary>

@@ -72,9 +72,9 @@
                     <syncfusion:SfChart3D x:Name="ColumnChart" Width="822" BackWallBrush="#FF373737"
                             BottomWallBrush="#FF373737" LeftWallBrush="#FF373737" RightWallBrush="#FF373737"
                             TopWallBrush="#FF373737" Background="#FF141414" RenderTransformOrigin="0.495,0.487"
-                            Height="465" Canvas.Left="21" Canvas.Top="65" HorizontalAlignment="Left" Depth="250"
+                            Height="487" Canvas.Left="21" Canvas.Top="43" HorizontalAlignment="Center" Depth="250"
                             EnableRotation="True" Header="Column Series" BorderBrush="#FF0078D4"
-                            BorderThickness="1,1,1,1" VerticalAlignment="Center" />
+                            BorderThickness="1,1,1,1" VerticalAlignment="Top" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414" BorderBrush="#FF141414"
@@ -218,19 +218,21 @@
             <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroHeaderBox x:Name="SourceGroupBox" Height="465" Header="MetroHeaderBox" Width="405" HorizontalAlignment="Center"
-                            Canvas.Left="64" VerticalAlignment="Top" Canvas.Top="58" Foreground="#FF0078D4"
-                            BorderBrush="#FF0078D4" Padding="1,1,1,1" Margin="1,1,1,1"
+                    <Frame x:Name="SourceFrame" Content="Data Tables" Height="486" Width="420" Canvas.Left="39" Canvas.Top="44"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" />
                     <local:MetroListBox x:Name="DataTableListBox" Height="372" Width="250"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="112"
-                            VerticalAlignment="Top" Canvas.Left="142" />
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Canvas.Top="112"
+                            VerticalAlignment="Center" Canvas.Left="124" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
                     VerticalAlignment="Top">
                 <Canvas x:Name="FilterGrid" Height="601">
+                    <Frame x:Name="FilterFrame" Content="Filters" Height="491" Width="420" Canvas.Left="39"
+                            Canvas.Top="52" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" />
                     <local:MetroListBox x:Name="FirstListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="150"
                             Canvas.Left="155" Canvas.Top="144" VerticalAlignment="Top" Width="200"
                             HorizontalAlignment="Center" />
@@ -258,12 +260,16 @@
             <TabItem x:Name="GroupTab" Height="24" Header="Grouping" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="GroupCanvas" Background="#FF141414" Height="610">
+                    <Frame x:Name="GroupFrame" Content="Groups" Height="478" Width="420" Canvas.Left="39" Canvas.Top="66"
+                            BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
                             Canvas.Left="160" Canvas.Top="76" VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroListBox x:Name="FieldListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="190"
                             Canvas.Left="155" Canvas.Top="106" VerticalAlignment="Top" Width="200" />
-                    <local:MetroListBox x:Name="NumericListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="165"
-                            Canvas.Left="155" Canvas.Top="376" VerticalAlignment="Top" Width="200" />
+                    <local:MetroListBox x:Name="NumericListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="148"
+                            Canvas.Left="155" Canvas.Top="376" VerticalAlignment="Top" Width="200"
+                            HorizontalAlignment="Center" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170" HorizontalAlignment="Center"
                             Canvas.Left="155" Canvas.Top="346" VerticalAlignment="Top" Foreground="#FF0078D4" />
                 </Canvas>
@@ -289,7 +295,11 @@
             <TabItem x:Name="MetricsTab" HorizontalAlignment="Center" Height="24" Header="Statistics"
                     VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Margin="0,0,0,0">
-                <Canvas x:Name="InfoCanvas" Background="#FF141414" />
+                <Canvas x:Name="InfoCanvas" Background="#FF141414">
+                    <Frame x:Name="MetricFrame" Content="Frame" Height="490" Width="420" Canvas.Left="39" Canvas.Top="54"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF0078D4"
+                            BorderThickness="1,1,1,1" />
+                </Canvas>
             </TabItem>
         </local:MetroTabControl>
     </Canvas>
