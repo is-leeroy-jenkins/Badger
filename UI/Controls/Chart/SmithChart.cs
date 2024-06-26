@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.SmithChart;
 
@@ -51,17 +52,54 @@ namespace Badger
     /// <seealso cref="T:Syncfusion.UI.Xaml.SmithChart.SfSmithChart" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SmithChart : SfSmithChart
     {
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
+
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 0,
+            A = 255,
             R = 20,
             G = 20,
             B = 20
+        };
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
         };
 
         /// <summary>
@@ -78,7 +116,7 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -99,10 +137,13 @@ namespace Badger
             Width = 800;
             Height = 400;
             FontSize = 12;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
             FontFamily = new FontFamily( "Segoe UI" );
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+            Header = "Smith Chart";
         }
 
         /// <summary>

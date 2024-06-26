@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 06-11-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        06-11-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
+// <copyright file="PieChart.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
-//
+//    Copyright ©  2024  Terry Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   PieChart.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,23 +42,47 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.Gantt;
+    using Syncfusion.UI.Xaml.Charts;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Controls.Gantt.GanttControl" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class GanntChart : GanttControl
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    public class PieChart : SfChart3D
     {
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
+
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 0,
+            A = 255,
             R = 20,
             G = 20,
             B = 20
@@ -70,9 +94,9 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
@@ -89,20 +113,28 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.GanntChart" /> class.
+        /// <see cref="T:Badger.PieChart" /> class.
         /// </summary>
-        public GanntChart( )
+        public PieChart( )
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( GanttControl ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 400;
             FontSize = 12;
+            EnableRotation = true;
+            Depth = 250;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            EnableSegmentSelection = true;
+            EnableSeriesSelection = true;
+            PerspectiveAngle = 100;
             FontFamily = new FontFamily( "Segoe UI" );
             Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            Header = "Pie Chart";
         }
 
         /// <summary>

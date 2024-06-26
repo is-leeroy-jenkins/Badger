@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
 
@@ -53,14 +54,50 @@ namespace Badger
     public class ColumnChart : SfChart3D
     {
         /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 0,
+            A = 255,
             R = 20,
             G = 20,
             B = 20
+        };
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
         };
 
         /// <summary>
@@ -69,15 +106,15 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -95,15 +132,26 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            Width = 800;
+            Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( Colors.Transparent );
-            BorderBrush = new SolidColorBrush( Colors.Transparent );
-            BackWallBrush = new SolidColorBrush( _backColor );
-            TopWallBrush = new SolidColorBrush( _backColor );
-            LeftWallBrush = new SolidColorBrush( _backColor );
-            RightWallBrush = new SolidColorBrush( _backColor );
+            EnableRotation = true;
+            Depth = 250;
+            EnableSegmentSelection = true;
+            EnableSeriesSelection = true;
+            PerspectiveAngle = 100;
+            SideBySideSeriesPlacement = true;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
+            BackWallBrush = new SolidColorBrush( _wallColor );
+            TopWallBrush = new SolidColorBrush( _wallColor );
+            LeftWallBrush = new SolidColorBrush( _wallColor );
+            RightWallBrush = new SolidColorBrush( _wallColor );
+            Header = "Column Chart";
         }
 
         /// <summary>

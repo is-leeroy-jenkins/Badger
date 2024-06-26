@@ -51,7 +51,6 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
-    using Microsoft.Office.Interop.Outlook;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Charts;
     using Syncfusion.UI.Xaml.SmithChart;
@@ -61,7 +60,6 @@ namespace Badger
     using ToastNotifications.Position;
     using Action = System.Action;
     using Application = System.Windows.Application;
-    using ChartSeriesCollection = Syncfusion.UI.Xaml.Charts.ChartSeriesCollection;
     using Exception = System.Exception;
     using SelectionMode = System.Windows.Controls.SelectionMode;
 
@@ -250,13 +248,7 @@ namespace Badger
         /// <summary>
         /// The steel blue
         /// </summary>
-        private protected Color _steelBlue = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
+        private protected Color _steelBlue = Colors.SteelBlue;
 
         /// <summary>
         /// The maroon
@@ -271,12 +263,12 @@ namespace Badger
         /// <summary>
         /// The yellow
         /// </summary>
-        private protected Color _yellow = Colors.DarkKhaki;
+        private protected Color _khaki = Colors.DarkKhaki;
 
         /// <summary>
         /// The orange
         /// </summary>
-        private protected Color _orange = Colors.Yellow;
+        private protected Color _yellow = Colors.Yellow;
 
         /// <summary>
         /// The fore color
@@ -380,7 +372,6 @@ namespace Badger
             FontSize = 12d;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Margin = new Thickness( 3 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Visualization";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -474,7 +465,7 @@ namespace Badger
                 _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
                 _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _green ) );
                 _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _orange ) );
+                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
                 _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
                 ColumnChart.Palette = ChartColorPalette.Custom;
                 var _yAxis = new NumericalAxis3D
@@ -1175,16 +1166,8 @@ namespace Badger
             {
                 try
                 {
-                    if( SecondComboBox.Items?.Count > 0 )
-                    {
-                        SecondComboBox.Items.Clear( );
-                    }
-
-                    if( SecondListBox.Items?.Count > 0 )
-                    {
-                        SecondListBox.Items?.Clear( );
-                    }
-
+                    SecondComboBox.Items?.Clear( );
+                    SecondListBox.Items?.Clear( );
                     if( !string.IsNullOrEmpty( _firstValue ) )
                     {
                         for( var _index = 0; _index < _fields.Count; _index++ )
@@ -1199,7 +1182,7 @@ namespace Badger
                                     Tag = _name
                                 };
 
-                                SecondListBox.Items?.Add( _item );
+                                SecondComboBox.Items?.Add( _item );
                             }
                         }
                     }
@@ -1737,6 +1720,38 @@ namespace Badger
         }
 
         /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        private void UpdateLabels( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    var _table = _dataTable.TableName.SplitPascal( ) ?? string.Empty;
+                    var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
+                    var _cols = _fields?.Count ?? 0;
+                    var _vals = _numerics?.Count ?? 0;
+                    FirstLabel.Content = $"Source: {_table}";
+                    SecondLabel.Content = $"Records: {_rows}";
+                    ThirdLabel.Content = $"Fields: {_cols}";
+                    FourthLabel.Content = $"Measures: {_vals}";
+                }
+                else
+                {
+                    FirstLabel.Content = $"Provider:  {_provider}";
+                    SecondLabel.Content = "Records: 0.0";
+                    ThirdLabel.Content = "Fields: 0.0";
+                    FourthLabel.Content = "Measures: 0.0";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the active data tab.
         /// </summary>
         private void SetPrimaryTabControl( )
@@ -1850,6 +1865,7 @@ namespace Badger
                 InitializeLabels( );
                 InitializeToolbar( );
                 PopulateExecutionTables( );
+                UpdateLabels( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -1985,6 +2001,7 @@ namespace Badger
             {
                 ClearData( );
                 ActivateFilterTab( );
+                UpdateLabels( );
             }
             catch( Exception _ex )
             {
@@ -2555,6 +2572,7 @@ namespace Badger
 
                     BindContext( );
                     ActivateFilterTab( );
+                    UpdateLabels( );
                 }
                 catch( Exception _ex )
                 {
@@ -2684,6 +2702,7 @@ namespace Badger
                     var _selection = _listBox.SelectedItem as MetroListBoxItem;
                     _firstValue = _selection?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
+                    BindContext( );
                     PopulateSecondComboBoxItems( );
                     if( SecondComboBox.Visibility == Visibility.Hidden )
                     {
@@ -2694,6 +2713,8 @@ namespace Badger
                     {
                         SecondListBox.Visibility = Visibility.Visible;
                     }
+
+                    UpdateLabels( );
                 }
                 catch( Exception _ex )
                 {
@@ -2758,9 +2779,12 @@ namespace Badger
                 try
                 {
                     ClearFilter( );
-                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    var _item = _listBox.SelectedItem as MetroListBoxItem;
+                    _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
+                    BindContext( );
+                    UpdateLabels( );
                 }
                 catch( Exception _ex )
                 {

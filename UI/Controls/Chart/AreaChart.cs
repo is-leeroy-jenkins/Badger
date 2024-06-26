@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-11-2024
+//     Created:                 06-25-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-11-2024
+//     Last Modified On:        06-25-2024
 // ******************************************************************************************
-// <copyright file="MetroPieChart.cs" company="Terry D. Eppler">
+// <copyright file="AreaChart.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroPieChart.cs
+//   AreaChart.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,23 +42,61 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
-    using FirstFloor.ModernUI.Presentation;
-    using PropertyTools.DataAnnotations;
     using Syncfusion.UI.Xaml.Charts;
 
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class MetroPieChart : SfChart
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    public class AreaChart : SfChart3D
     {
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
+
         /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
         {
-            A = 0,
+            A = 255,
             R = 20,
             G = 20,
             B = 20
+        };
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
         };
 
         /// <summary>
@@ -67,15 +105,15 @@ namespace Badger
         private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 106,
-            G = 189,
-            B = 252
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
@@ -86,17 +124,27 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MetroPieChart" /> class.
+        /// <see cref="T:Badger.AreaChart" /> class.
         /// </summary>
-        public MetroPieChart( )
+        public AreaChart( )
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
-            Height = 400;
-            FontSize = 12;
+            Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12;
+            EnableRotation = true;
+            Depth = 250;
+            EnableSegmentSelection = true;
+            EnableSeriesSelection = true;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            Header = "Area Chart";
         }
 
         /// <summary>

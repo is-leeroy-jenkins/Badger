@@ -137,6 +137,7 @@ namespace Badger
             var _theme = new FluentDarkThemeSettings
             {
                 PrimaryBackground = new SolidColorBrush( Color.FromRgb( 20, 20, 20) ),
+                PrimaryColorForeground = new SolidColorBrush( Color.FromRgb( 0, 120, 212 ) ),
                 PrimaryForeground = new SolidColorBrush( Color.FromRgb( 222, 222, 222 ) ),
                 BodyFontSize = 12,
                 HeaderFontSize = 16,
