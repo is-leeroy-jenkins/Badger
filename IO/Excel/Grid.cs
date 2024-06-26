@@ -368,9 +368,9 @@ namespace Badger
                     ? _list
                     : default( IList<ExcelRangeBase> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<ExcelRangeBase> );
             }
         }
@@ -429,9 +429,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

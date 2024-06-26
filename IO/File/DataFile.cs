@@ -216,9 +216,9 @@ namespace Badger
 
                     return false;
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -252,9 +252,9 @@ namespace Badger
                         ? _list
                         : default( List<FileInfo> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IEnumerable<FileInfo> );
                 }
             }
@@ -286,9 +286,9 @@ namespace Badger
                     return new FileInfo( filePath );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( FileInfo );
             }
         }
@@ -314,9 +314,9 @@ namespace Badger
                     ? _dialog.FileName
                     : string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -343,9 +343,9 @@ namespace Badger
                 _stream = File.Create( _dialog.FileName );
                 _stream.Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 _stream?.Close( );
             }
             finally
@@ -396,9 +396,9 @@ namespace Badger
                     ? _text
                     : string.Empty;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

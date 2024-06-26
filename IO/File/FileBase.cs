@@ -51,7 +51,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.PathBase" />
+    /// <seealso cref="T:Badger.BasicPath" />
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -162,9 +162,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -191,9 +191,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -219,9 +219,9 @@ namespace Badger
                     _source.MoveTo( destination );
                 }
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -247,9 +247,9 @@ namespace Badger
                     _source.CopyTo( destination );
                 }
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -265,9 +265,9 @@ namespace Badger
                     File.Delete( _fullPath );
                 }
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -285,9 +285,9 @@ namespace Badger
                     var _stream = _file?.Create( );
                     return _stream;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( FileStream );
                 }
             }
@@ -318,9 +318,9 @@ namespace Badger
                         ? _list
                         : default( List<string> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IList<string> );
                 }
             }
@@ -344,9 +344,9 @@ namespace Badger
                         ? _data
                         : default( byte[ ] );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( byte[ ] );
                 }
             }
@@ -375,9 +375,9 @@ namespace Badger
                         ? _text
                         : string.Empty;
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }

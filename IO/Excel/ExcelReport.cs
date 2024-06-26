@@ -275,9 +275,9 @@ namespace Badger
                     _excelWorkbook.Worksheets[ _i ].View.ZoomScale = _zoomLevel;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -301,9 +301,9 @@ namespace Badger
                         eOrientation.Landscape;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -336,9 +336,9 @@ namespace Badger
                     + Environment.NewLine
                     + DateTime.Today.ToLongDateString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -373,9 +373,9 @@ namespace Badger
                     _pivotTable = CreatePivotTable( _dataRange, "PivotData", _fields, _numerics );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -392,9 +392,9 @@ namespace Badger
                 _excelWorkbook.Properties.Company = "US EPA";
                 _excelWorkbook.Properties.Modified = DateTime.Now;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -411,9 +411,9 @@ namespace Badger
                 _savePath = _browser.FileName + @"\" + _dataTable.TableName + ".xlsx";
                 _excelPackage.SaveAs( _savePath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }

@@ -50,7 +50,7 @@ namespace Badger
     /// <inheritdoc/>
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.PathBase"/>
+    /// <seealso cref="T:Badger.BasicPath"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -60,7 +60,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DataPath : PathBase
+    public class DataPath : BasicPath
     {
         /// <summary>
         /// Gets or sets the buffer.
@@ -72,7 +72,9 @@ namespace Badger
         {
             get
             {
-                return _input;
+                return !string.IsNullOrEmpty( _input )
+                    ? _input
+                    : string.Empty;
             }
             private protected set
             {
@@ -534,9 +536,9 @@ namespace Badger
                     ? _text
                     : string.Empty;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

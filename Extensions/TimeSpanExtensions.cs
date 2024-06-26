@@ -73,9 +73,9 @@ namespace Badger
             {
                 return (int)( timeSpan.TotalDays / AvgDaysInAYear );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -91,9 +91,9 @@ namespace Badger
             {
                 return timeSpan.TotalDays / AvgDaysInAYear;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -109,9 +109,9 @@ namespace Badger
             {
                 return (int)( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -127,9 +127,9 @@ namespace Badger
             {
                 return timeSpan.TotalDays / AvgDaysInAMonth;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -145,9 +145,9 @@ namespace Badger
             {
                 return (int)( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -163,9 +163,9 @@ namespace Badger
             {
                 return timeSpan.TotalDays / 7d;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -181,9 +181,9 @@ namespace Badger
             {
                 return (int)( timeSpan.TotalDays % 7d );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -199,9 +199,9 @@ namespace Badger
             {
                 return timeSpan.Ticks / 10d;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -217,9 +217,9 @@ namespace Badger
             {
                 return timeSpan.Ticks / 100d;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -239,20 +239,20 @@ namespace Badger
                 var _time = Math.Round( timeSpan.Ticks / (double)interval.Ticks, rounding );
                 return new TimeSpan( Convert.ToInt64( Math.Round( _time ) * interval.Ticks ) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( TimeSpan );
             }
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Fails the specified _ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
+        /// <param name="_ex">The _ex.</param>
+        private static void Fail( Exception _ex )
         {
-            var _error = new ErrorWindow( ex );
+            var _error = new ErrorWindow( _ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

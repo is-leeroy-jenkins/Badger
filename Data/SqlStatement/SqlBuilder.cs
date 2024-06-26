@@ -261,9 +261,9 @@ namespace Badger
                 {
                     return Commands[ commandName ];
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -288,9 +288,9 @@ namespace Badger
                 {
                     return Commands[ $"{sqlCommand}" ];
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -322,9 +322,9 @@ namespace Badger
                             : string.Empty;
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }

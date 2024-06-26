@@ -215,9 +215,9 @@ namespace Badger
             {
                 return Environment.CurrentDirectory ?? string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -239,9 +239,9 @@ namespace Badger
                 ThrowIf.Null( filePath, nameof( filePath ) );
                 return CreateDirectory( filePath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DirectoryInfo );
             }
         }
@@ -259,9 +259,9 @@ namespace Badger
                 ThrowIf.Null( folderName, nameof( folderName ) );
                 Directory.Delete( folderName, true );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -278,9 +278,9 @@ namespace Badger
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( source, destination );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -309,9 +309,9 @@ namespace Badger
                         : default( DirectoryInfo );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DirectoryInfo );
             }
         }
@@ -339,9 +339,9 @@ namespace Badger
                     _directory.MoveTo( destination );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -359,9 +359,9 @@ namespace Badger
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( _fileName, destination );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -379,9 +379,9 @@ namespace Badger
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.ExtractToDirectory( destination, _fullPath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -427,9 +427,9 @@ namespace Badger
                     ? _text
                     : string.Empty;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

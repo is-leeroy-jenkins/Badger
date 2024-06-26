@@ -79,9 +79,9 @@ namespace Badger
                     ? _dataRows.Count( )
                     : 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -107,9 +107,9 @@ namespace Badger
                     ? _dataRows.Count( )
                     : 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -134,9 +134,9 @@ namespace Badger
                     ? double.Parse( _select?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -161,9 +161,9 @@ namespace Badger
                     ? double.Parse( _select?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -186,9 +186,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -213,9 +213,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -238,9 +238,9 @@ namespace Badger
                     ? double.Parse( _select?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -265,9 +265,9 @@ namespace Badger
                     ? double.Parse( _select?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -290,9 +290,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -319,9 +319,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -348,9 +348,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -381,9 +381,9 @@ namespace Badger
                     ? double.Parse( _query?.ToString( "N1" ) )
                     : 0.0d;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0.0d;
             }
         }
@@ -418,9 +418,9 @@ namespace Badger
                     ? _names
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -452,9 +452,9 @@ namespace Badger
                     ? _names
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }

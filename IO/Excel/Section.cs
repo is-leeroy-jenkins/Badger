@@ -309,9 +309,9 @@ namespace Badger
                     SetValues( row.ItemArray );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -330,9 +330,9 @@ namespace Badger
                     SetValues( _items );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -351,9 +351,9 @@ namespace Badger
                     SetValues( _items );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
     }

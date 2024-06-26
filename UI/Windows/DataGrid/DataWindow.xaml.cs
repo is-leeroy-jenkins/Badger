@@ -43,6 +43,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
@@ -464,9 +465,9 @@ namespace Badger
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -479,9 +480,9 @@ namespace Badger
             {
                 _statusUpdate += UpdateStatus;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -501,9 +502,9 @@ namespace Badger
                 DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
                 ColumnNameLabel.Foreground = new SolidColorBrush( _borderColor );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -524,9 +525,9 @@ namespace Badger
                 SqlCeRadioButton.Tag = "SqlCe";
                 SqlSeverRadioButton.Tag = "SqlServer";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -538,9 +539,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -554,9 +555,9 @@ namespace Badger
                 FirstComboBox.Background = new SolidColorBrush( _itemColor );
                 SecondComboBox.Background = new SolidColorBrush( _itemColor );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -578,9 +579,9 @@ namespace Badger
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -594,9 +595,9 @@ namespace Badger
                 _timerCallback += UpdateStatus;
                 _timer = new Timer( _timerCallback, null, 0, 260 );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -627,9 +628,9 @@ namespace Badger
                 DataSourceButton.Visibility = Visibility.Hidden;
                 SqlButton.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -656,9 +657,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -685,9 +686,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -709,9 +710,9 @@ namespace Badger
                     Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -733,9 +734,9 @@ namespace Badger
                     Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -757,9 +758,9 @@ namespace Badger
 
                 form.Opacity = 1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -781,9 +782,9 @@ namespace Badger
 
                 form.Opacity = 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -799,9 +800,9 @@ namespace Badger
                 ThrowIf.Null( where, nameof( where ) );
                 return $"SELECT * FROM {_source} " + $"WHERE {where.ToCriteria( )};";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -834,9 +835,9 @@ namespace Badger
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -879,9 +880,9 @@ namespace Badger
                     + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -911,9 +912,9 @@ namespace Badger
                     SendNotification( _message );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -936,9 +937,9 @@ namespace Badger
                     _cfg.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Notifier );
             }
         }
@@ -969,9 +970,9 @@ namespace Badger
                     ? _list
                     : default( IList<MetroTextInput> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<MetroTextInput> );
             }
         }
@@ -1005,9 +1006,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -1047,9 +1048,9 @@ namespace Badger
 
                 return default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -1068,9 +1069,9 @@ namespace Badger
                 var _notification = CreateNotifier( );
                 _notification.ShowInformation( message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1089,9 +1090,9 @@ namespace Badger
 
                 _message.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1125,9 +1126,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1161,9 +1162,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1197,9 +1198,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1227,9 +1228,9 @@ namespace Badger
                         FirstComboBox.Items?.Add( _item );
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -1265,9 +1266,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -1332,9 +1333,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1361,9 +1362,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1388,9 +1389,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1407,9 +1408,9 @@ namespace Badger
                 SourceTab.IsSelected = true;
                 HideTabs( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1437,9 +1438,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1466,9 +1467,9 @@ namespace Badger
                 _dataTypes = GetDataTypes( _provider );
                 PopulateDataTypeListBoxItems( _dataTypes );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1493,9 +1494,9 @@ namespace Badger
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1521,9 +1522,9 @@ namespace Badger
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1554,9 +1555,9 @@ namespace Badger
                     PopulateFirstComboBoxItems( );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1574,9 +1575,9 @@ namespace Badger
                 SqlTab.Visibility = Visibility.Hidden;
                 BusyTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1595,9 +1596,9 @@ namespace Badger
                 _commands = CreateCommandList( _provider );
                 PopulateCommandComboBox( _commands );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1632,9 +1633,9 @@ namespace Badger
                     CalendarTab.Visibility = Visibility.Hidden;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1650,9 +1651,9 @@ namespace Badger
                     _filter.Clear( );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1679,9 +1680,9 @@ namespace Badger
                     _firstValue = string.Empty;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1722,9 +1723,9 @@ namespace Badger
                     _selectedNumerics.Clear( );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1739,9 +1740,9 @@ namespace Badger
                 SecondListBox.Items?.Clear( );
                 CommandListBox.Items?.Clear( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1756,9 +1757,9 @@ namespace Badger
                 SecondComboBox.Items?.Clear( );
                 CommandComboBox.Items?.Clear( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1770,9 +1771,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1792,9 +1793,9 @@ namespace Badger
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1824,9 +1825,9 @@ namespace Badger
                 DataSourceButton.Visibility = Visibility.Visible;
                 SqlButton.Visibility = Visibility.Visible;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1856,9 +1857,9 @@ namespace Badger
                 DataSourceButton.Visibility = Visibility.Hidden;
                 SqlButton.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1879,9 +1880,9 @@ namespace Badger
                 CommandTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1900,9 +1901,9 @@ namespace Badger
                     SecondListBox.Visibility = Visibility.Hidden;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1932,9 +1933,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1947,9 +1948,9 @@ namespace Badger
             {
                 StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1962,9 +1963,9 @@ namespace Badger
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1996,9 +1997,9 @@ namespace Badger
                     FourthGridLabel.Content = "Total Measures: 0.0";
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2012,9 +2013,9 @@ namespace Badger
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2045,9 +2046,9 @@ namespace Badger
                         ? _list
                         : default( IList<string> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IList<string> );
                 }
             }
@@ -2091,9 +2092,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2128,9 +2129,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2158,9 +2159,9 @@ namespace Badger
                     };
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2170,7 +2171,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoaded( object sender, EventArgs e )
+        private void OnLoaded( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -2185,9 +2186,9 @@ namespace Badger
                 Opacity = 0;
                 FadeInAsync( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2197,16 +2198,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFirstButtonClick( object sender, EventArgs e )
+        private void OnFirstButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2216,16 +2217,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnPreviousButtonClick( object sender, EventArgs e )
+        private void OnPreviousButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2235,16 +2236,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnNextButtonClick( object sender, EventArgs e )
+        private void OnNextButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2254,16 +2255,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLastButtonClick( object sender, EventArgs e )
+        private void OnLastButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2273,16 +2274,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnBrowseButtonClick( object sender, EventArgs e )
+        private void OnBrowseButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _fileBrowser = new FileBrowser( );
                 _fileBrowser.ShowDialog( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2292,15 +2293,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditButtonClick( object sender, EventArgs e )
+        private void OnEditButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateEditTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2310,7 +2311,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRefreshButtonClick( object sender, EventArgs e )
+        private void OnRefreshButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -2318,9 +2319,9 @@ namespace Badger
                 ClearSelections( );
                 ClearCollections( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2330,16 +2331,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLookupButtonClick( object sender, EventArgs e )
+        private void OnLookupButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2349,15 +2350,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFilterButtonClick( object sender, EventArgs e )
+        private void OnFilterButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateFilterTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2367,15 +2368,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGridButtonClick( object sender, EventArgs e )
+        private void OnGridButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateDataTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2385,16 +2386,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSqlButtonClick( object sender, EventArgs e )
+        private void OnSqlButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateSqlTab( );
                 ActivateCommandTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2404,15 +2405,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalendarButtonClick( object sender, EventArgs e )
+        private void OnCalendarButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateCalendarTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2422,15 +2423,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataSourceButtonClick( object sender, EventArgs e )
+        private void OnDataSourceButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateSourceTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2440,15 +2441,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSchemaButtonClick( object sender, EventArgs e )
+        private void OnSchemaButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 ActivateSchemaTab( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2458,16 +2459,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnUndoButtonClick( object sender, EventArgs e )
+        private void OnUndoButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2477,16 +2478,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDeleteButtonClick( object sender, EventArgs e )
+        private void OnDeleteButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2496,16 +2497,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnExportButtonClick( object sender, EventArgs e )
+        private void OnExportButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2515,16 +2516,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSaveButtonClick( object sender, EventArgs e )
+        private void OnSaveButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2534,15 +2535,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClick( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2552,7 +2553,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnClosing( object sender, EventArgs e )
+        private void OnClosing( object sender, CancelEventArgs e )
         {
             try
             {
@@ -2563,9 +2564,9 @@ namespace Badger
 
                 SfSkinManager.Dispose( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2575,16 +2576,22 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalculatorMenuOptionClick( object sender, EventArgs e )
+        private void OnCalculatorMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
-                var _calculator = new CalculatorWindow( );
-                _calculator.ShowDialog( );
+                var _calculator = new CalculatorWindow
+                {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                    Owner = this,
+                    Topmost = true
+                };
+
+                _calculator.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2594,21 +2601,22 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFileMenuOptionClick( object sender, EventArgs e )
+        private void OnFileMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _fileBrowser = new FileBrowser
                 {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     Owner = this,
                     Topmost = true
                 };
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2618,21 +2626,22 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFolderMenuOptionClick( object sender, EventArgs e )
+        private void OnFolderMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _fileBrowser = new FileBrowser
                 {
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     Owner = this,
                     Topmost = true
                 };
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2642,15 +2651,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnControlPanelOptionClick( object sender, EventArgs e )
+        private void OnControlPanelOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WinMinion.LaunchControlPanel( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2660,15 +2669,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTaskManagerOptionClick( object sender, EventArgs e )
+        private void OnTaskManagerOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WinMinion.LaunchTaskManager( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2678,15 +2687,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCloseOptionClick( object sender, EventArgs e )
+        private void OnCloseOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 Application.Current.Shutdown( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2696,15 +2705,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// containing the event data.</param>
-        private void OnChromeOptionClick( object sender, EventArgs e )
+        private void OnChromeOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunChrome( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2714,15 +2723,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEdgeOptionClick( object sender, EventArgs e )
+        private void OnEdgeOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunEdge( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2732,15 +2741,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// containing the event data.</param>
-        private void OnFirefoxOptionClick( object sender, EventArgs e )
+        private void OnFirefoxOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunFirefox( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2750,7 +2759,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnToggleButtonClick( object sender, EventArgs e )
+        private void OnToggleButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -2763,9 +2772,9 @@ namespace Badger
                     HideToolbar( );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2775,16 +2784,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnProviderRadioButtonClick( object sender, EventArgs e )
+        private void OnProviderRadioButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 _commands = CreateCommandList( _provider );
                 PopulateCommandComboBox( _commands );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -2793,7 +2802,7 @@ namespace Badger
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name = "e" > </param>
-        private void OnTableListBoxItemSelected( object sender, EventArgs e )
+        private void OnTableListBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroListBox _listBox )
             {
@@ -2838,9 +2847,9 @@ namespace Badger
                     ActivateFilterTab( );
                     UpdateLabels( );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -2851,7 +2860,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        private void OnFirstComboBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroComboBox _comboBox )
             {
@@ -2878,9 +2887,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -2890,7 +2899,7 @@ namespace Badger
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name = "e" > </param>
-        private void OnFirstListBoxItemSelected( object sender, EventArgs e )
+        private void OnFirstListBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroListBox _listBox )
             {
@@ -2918,9 +2927,9 @@ namespace Badger
                     PopulateSecondComboBoxItems( );
                     UpdateLabels( );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -2931,7 +2940,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        private void OnSecondComboBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroComboBox _comboBox )
             {
@@ -2959,9 +2968,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -2971,7 +2980,7 @@ namespace Badger
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name = "e" > </param>
-        private void OnSecondListBoxItemSelected( object sender, EventArgs e )
+        private void OnSecondListBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroListBox _listBox )
             {
@@ -2993,9 +3002,9 @@ namespace Badger
                     DataGrid.ItemsSource = _dataTable;
                     UpdateLabels( );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -3006,14 +3015,14 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnStartDateSelected( object sender, EventArgs e )
+        private void OnStartDateSelected( object sender, RoutedEventArgs e )
         {
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -3023,14 +3032,14 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEndDateSelected( object sender, EventArgs e )
+        private void OnEndDateSelected( object sender, RoutedEventArgs e )
         {
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -3040,7 +3049,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataSourceRadioButtonSelected( object sender, EventArgs e )
+        private void OnDataSourceRadioButtonSelected( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -3070,9 +3079,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -3082,7 +3091,7 @@ namespace Badger
         /// <param name="sender">
         /// The sender.
         /// </param>
-        private void OnProviderRadioButtonChecked( object sender, EventArgs e )
+        private void OnProviderRadioButtonChecked( object sender, RoutedEventArgs e )
         {
             if( sender is MetroRadioButton _button )
             {
@@ -3098,9 +3107,9 @@ namespace Badger
                         PopulateCommandComboBox( _commands );
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -3118,9 +3127,9 @@ namespace Badger
                 var _dataGrid = sender as MetroDataGrid;
                 _current = (DataRow)_dataGrid?.SelectedItem;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -3134,7 +3143,7 @@ namespace Badger
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnCommandComboBoxItemSelected( object sender, EventArgs e )
+        private void OnCommandComboBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroComboBox _comboBox )
             {
@@ -3177,9 +3186,9 @@ namespace Badger
                     PrimaryTabControl.SelectedIndex = 3;
                     SqlTab.IsSelected = true;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -3190,7 +3199,7 @@ namespace Badger
         /// <param name="sender">
         /// The sender.
         /// </param>
-        private void OnCommandListBoxItemSelected( object sender, EventArgs e )
+        private void OnCommandListBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroListBox _listBox
                 && !string.IsNullOrEmpty( _listBox.SelectedItem.ToString( ) ) )
@@ -3225,9 +3234,9 @@ namespace Badger
                         Editor.Text = _text;
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -3246,9 +3255,9 @@ namespace Badger
                     var parent = ( (Control)sender ).Parent as UIElement;
                     parent.RaiseEvent( eventArg );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }

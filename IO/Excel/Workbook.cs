@@ -177,9 +177,9 @@ namespace Badger
                     _dataWorksheet.HeaderFooter.ScaleWithDocument = true;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -214,9 +214,9 @@ namespace Badger
                     _startColumn++;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -250,9 +250,9 @@ namespace Badger
                     _startColumn++;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -291,10 +291,10 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -317,10 +317,10 @@ namespace Badger
                 _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                 _dataRange.Style.Numberformat.Format = "#,###";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -344,10 +344,10 @@ namespace Badger
                 _dataRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
                 _dataRange.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
     }

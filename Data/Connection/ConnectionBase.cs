@@ -348,9 +348,9 @@ namespace Badger
                         _ => AppSettings[ "ACCDB" ]
                     };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
 
@@ -386,9 +386,9 @@ namespace Badger
 
                 return string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -409,9 +409,9 @@ namespace Badger
                         ? _connectionString?.Replace( $"{_filePath}", _filePath )
                         : string.Empty;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -447,9 +447,9 @@ namespace Badger
 
                 return string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

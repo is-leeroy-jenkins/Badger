@@ -76,9 +76,9 @@ namespace Badger
 
                 return excelPackage.ToDataSet( _row );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataSet );
             }
         }
@@ -139,9 +139,9 @@ namespace Badger
 
                 return _result;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataSet );
             }
         }
@@ -159,9 +159,9 @@ namespace Badger
                     worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -188,9 +188,9 @@ namespace Badger
 
                 return _empties.All( e => e );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -221,9 +221,9 @@ namespace Badger
                         ? width + _third
                         : 0.0;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -241,9 +241,9 @@ namespace Badger
                 {
                     row.Height = height;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -264,9 +264,9 @@ namespace Badger
                     _column[ 3 ] += offset;
                     return _column;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -290,9 +290,9 @@ namespace Badger
                     _row[ 2 ] += offset;
                     return _row;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -317,9 +317,9 @@ namespace Badger
                     _column[ 3 ] += offset;
                     return _column;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -344,9 +344,9 @@ namespace Badger
                     _row[ 2 ] += offset;
                     return _row;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -366,9 +366,9 @@ namespace Badger
             {
                 range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -388,9 +388,9 @@ namespace Badger
                     range.Style.Fill.PatternType = fillStyle;
                     range.Style.Fill.BackgroundColor.SetColor( color );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }

@@ -84,9 +84,9 @@ namespace Badger
                     ? _values
                     : default( IEnumerable<int> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -119,9 +119,9 @@ namespace Badger
                     ? _schema
                     : default( IDictionary<string, Type> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, Type> );
             }
         }
@@ -157,9 +157,9 @@ namespace Badger
                     ? _list
                     : default( IList<DataColumn> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -199,9 +199,9 @@ namespace Badger
                     return default( IList<string> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }

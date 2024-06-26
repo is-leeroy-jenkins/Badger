@@ -318,9 +318,9 @@ namespace Badger
                     ? _data
                     : default( IDictionary<Holiday, DateTime> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<Holiday, DateTime> );
             }
         }
@@ -337,9 +337,9 @@ namespace Badger
                     ? _record.ToDictionary( )
                     : default( IDictionary<string, object> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -360,9 +360,9 @@ namespace Badger
                     ? _firstYear
                     : string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -377,9 +377,9 @@ namespace Badger
             {
                 return MemberwiseClone( ) as BudgetFiscalYear;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( BudgetFiscalYear );
             }
         }

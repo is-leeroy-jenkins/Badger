@@ -124,9 +124,9 @@ namespace Badger
 
                 return text;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -149,9 +149,9 @@ namespace Badger
                 ThrowIf.Null( alt, nameof( alt ) );
                 return text ?? alt ?? string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -171,9 +171,9 @@ namespace Badger
                 ThrowIf.Null( values, nameof( values ) );
                 return Array.IndexOf( values, text ) != -1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -198,9 +198,9 @@ namespace Badger
                     ? text.Substring( text.Length - length )
                     : text;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -225,9 +225,9 @@ namespace Badger
                     ? text[ length ].ToString( )
                     : text;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -249,9 +249,9 @@ namespace Badger
                 _letters[ 0 ] = char.ToUpper( _letters[ 0 ] );
                 return new string( _letters );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -274,9 +274,9 @@ namespace Badger
                     ? _dateTime
                     : default( DateTime );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DateTime );
             }
         }
@@ -297,9 +297,9 @@ namespace Badger
                 var _buffer = Encoding.UTF8.GetBytes( text );
                 return new MemoryStream( _buffer );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( MemoryStream );
             }
         }
@@ -319,9 +319,9 @@ namespace Badger
                 _document.LoadXml( xml );
                 return _document;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( XmlDocument );
             }
         }
@@ -340,9 +340,9 @@ namespace Badger
                 Encoding _encoding = Activator.CreateInstance<ASCIIEncoding>( );
                 return _encoding.GetBytes( text );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( byte[ ] );
             }
         }
@@ -365,9 +365,9 @@ namespace Badger
                 var _matches = _re.Matches( text );
                 _count = _matches.Count;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return _count;
             }
 
@@ -387,9 +387,9 @@ namespace Badger
                 using var _writer = new StreamWriter( text, false );
                 _writer.Write( filePath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -424,9 +424,9 @@ namespace Badger
                 _client.Send( _message );
                 return true;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -446,9 +446,9 @@ namespace Badger
                 {
                     return text.Replace( " ", "" );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return text;
                 }
             }
@@ -473,9 +473,9 @@ namespace Badger
                 var _regex = new Regex( @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" );
                 return _regex.IsMatch( s );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

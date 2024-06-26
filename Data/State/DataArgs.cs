@@ -296,9 +296,9 @@ namespace Badger
                 _selectedNumerics = default( IList<string> );
                 _selectedDates = default( IList<DateTime> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

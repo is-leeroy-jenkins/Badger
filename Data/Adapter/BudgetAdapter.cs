@@ -420,9 +420,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DbDataAdapter );
             }
         }
@@ -478,9 +478,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Task<DbDataAdapter> );
                 }
             }

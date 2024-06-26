@@ -138,9 +138,9 @@ namespace Badger
                 CloseButton.MouseLeftButtonDown += OnCloseButtonClick;
                 PictureBox.MouseLeftButtonDown += OnLeftClick;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -162,9 +162,9 @@ namespace Badger
 
                 form.Opacity = 1.0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -186,9 +186,9 @@ namespace Badger
 
                 form.Opacity = 0.0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -205,9 +205,9 @@ namespace Badger
                 Opacity = 0;
                 FadeInAsync( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -224,9 +224,9 @@ namespace Badger
                 WinMinion.LaunchCalculator( );
                 Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -244,9 +244,9 @@ namespace Badger
                 FadeOutAsync( this );
                 Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

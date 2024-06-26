@@ -284,10 +284,10 @@ namespace Badger
                     SendNotification( _message );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _socket?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

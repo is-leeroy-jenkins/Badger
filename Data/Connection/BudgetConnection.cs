@@ -189,9 +189,9 @@ namespace Badger
 
                 return default( DbConnection );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DbConnection );
             }
         }
@@ -250,9 +250,9 @@ namespace Badger
 
                 return default( Task<DbConnection> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<DbConnection> );
             }
         }

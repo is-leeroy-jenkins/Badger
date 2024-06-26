@@ -396,9 +396,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -425,9 +425,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -456,10 +456,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -485,10 +485,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -523,10 +523,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IDictionary<string, IEnumerable<string>>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }
         }

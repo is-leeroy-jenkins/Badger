@@ -163,9 +163,9 @@ namespace Badger
                     _item.BorderBrush = new SolidColorBrush( _backHover );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -186,9 +186,9 @@ namespace Badger
                     _item.BorderBrush = new SolidColorBrush( _backColor );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

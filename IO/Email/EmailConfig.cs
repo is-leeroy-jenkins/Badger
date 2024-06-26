@@ -245,9 +245,9 @@ namespace Badger
                     ? _displayName
                     : string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -266,9 +266,9 @@ namespace Badger
                     _copies?.Add( address );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -286,9 +286,9 @@ namespace Badger
                     _recipients?.Add( address );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
     }

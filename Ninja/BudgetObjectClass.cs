@@ -237,9 +237,9 @@ namespace Badger
                     ? Map
                     : default( IDictionary<string, object> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                BudgetObjectClass.Fail( _ex );
+                BudgetObjectClass.Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -258,9 +258,9 @@ namespace Badger
                     ? _amount
                     : 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                BudgetObjectClass.Fail( _ex );
+                BudgetObjectClass.Fail( ex );
                 return -1D;
             }
         }
@@ -277,9 +277,9 @@ namespace Badger
                     ? double.Parse( Value?.ToString( ) ?? "0.0" )
                     : 0.0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                BudgetObjectClass.Fail( _ex );
+                BudgetObjectClass.Fail( ex );
                 return default( double );
             }
         }
@@ -296,9 +296,9 @@ namespace Badger
                     ? (BOC)Enum.Parse( typeof( BOC ), Name )
                     : default( BOC );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                BudgetObjectClass.Fail( _ex );
+                BudgetObjectClass.Fail( ex );
                 return default( BOC );
             }
         }
@@ -321,9 +321,9 @@ namespace Badger
                         [ "Code" ] = code
                     };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( _ex );
+                    BudgetObjectClass.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -338,9 +338,9 @@ namespace Badger
                         [ "Name" ] = code
                     };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( _ex );
+                    BudgetObjectClass.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -366,9 +366,9 @@ namespace Badger
                         [ "Code" ] = boc.ToString( )
                     };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( _ex );
+                    BudgetObjectClass.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

@@ -43,13 +43,15 @@
 namespace Badger
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    public class AsyncPath : AsyncPathBase
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public class AsyncPath : AsyncBasicPath
     {
         /// <summary>
         /// Gets or sets the full path.
@@ -367,6 +369,11 @@ namespace Badger
         /// </summary>
         public AsyncPath( )
         {
+            _invalidPathChars = Path.GetInvalidPathChars( );
+            _invalidNameChars = Path.GetInvalidFileNameChars( );
+            _pathSeparator = Path.PathSeparator;
+            _folderSeparator = Path.AltDirectorySeparatorChar;
+            _driveSeparator = Path.DirectorySeparatorChar;
         }
 
         /// <inheritdoc/>
@@ -378,7 +385,8 @@ namespace Badger
         /// <param name="input">
         /// The input.
         /// </param>
-        public AsyncPath( string input )
+        public AsyncPath( string input ) 
+            : this( )
         {
             _input = input;
             _hasExtension = Path.HasExtension( input );
@@ -391,11 +399,6 @@ namespace Badger
             _length = input.Length;
             _created = File.GetCreationTime( input );
             _modified = File.GetLastWriteTime( input );
-            _invalidPathChars = Path.GetInvalidPathChars( );
-            _invalidNameChars = Path.GetInvalidFileNameChars( );
-            _pathSeparator = Path.PathSeparator;
-            _folderSeparator = Path.AltDirectorySeparatorChar;
-            _driveSeparator = Path.DirectorySeparatorChar;
         }
 
         /// <summary>
@@ -489,9 +492,9 @@ namespace Badger
                     ? _text
                     : string.Empty;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

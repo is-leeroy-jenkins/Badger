@@ -169,9 +169,9 @@ namespace Badger
                     [ "Code" ] = code
                 };
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

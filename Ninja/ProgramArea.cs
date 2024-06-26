@@ -154,9 +154,9 @@ namespace Badger
             {
                 return MemberwiseClone( ) as ProgramArea;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ProgramArea );
             }
         }
@@ -174,9 +174,9 @@ namespace Badger
                 {
                     return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

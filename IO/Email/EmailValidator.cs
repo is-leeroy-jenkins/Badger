@@ -98,9 +98,9 @@ namespace Badger
 
                 return _type != SubDomainType.Numeric;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -156,9 +156,9 @@ namespace Badger
                 index++;
                 return true;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -206,9 +206,9 @@ namespace Badger
 
                 return _groups == 4;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -228,9 +228,9 @@ namespace Badger
                     || ( ( c >= 'a' ) && ( c <= 'f' ) )
                     || ( ( c >= '0' ) && ( c <= '9' ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -342,9 +342,9 @@ namespace Badger
                         ? _groups <= 6
                         : _groups == 8 );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -462,9 +462,9 @@ namespace Badger
 
                 return _index == email.Length;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

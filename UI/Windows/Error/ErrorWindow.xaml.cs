@@ -265,10 +265,10 @@ namespace Badger
                 var _callback = new TimerCallback( UpdateStatus );
                 _timer = new Timer( _callback, null, 0, 80 );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _timer?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -281,9 +281,9 @@ namespace Badger
             {
                 //CloseButton.Click += OnCloseButtonClick;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -296,9 +296,9 @@ namespace Badger
             {
                 _statusUpdate += UpdateStatus;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -310,9 +310,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -324,9 +324,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -348,9 +348,9 @@ namespace Badger
                     Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -372,9 +372,9 @@ namespace Badger
 
                 form.Opacity = 1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -396,9 +396,9 @@ namespace Badger
 
                 window.Opacity = 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -425,9 +425,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -454,9 +454,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -469,9 +469,9 @@ namespace Badger
             {
                 MessageText.Content = _exception?.ToLogString( "" );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -484,9 +484,9 @@ namespace Badger
             {
                 StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -499,9 +499,9 @@ namespace Badger
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -520,9 +520,9 @@ namespace Badger
                 InitializeTimer( );
                 FadeInAsync( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -538,9 +538,9 @@ namespace Badger
             {
                 Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

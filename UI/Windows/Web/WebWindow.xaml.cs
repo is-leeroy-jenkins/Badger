@@ -41,6 +41,7 @@
 namespace Badger
 {
     using System;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
     using System.Threading.Tasks;
@@ -245,9 +246,9 @@ namespace Badger
                 MenuButton.Click += OnMenuButtonClick;
                 ToggleButton.Click += OnToggleButtonClick;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -260,9 +261,9 @@ namespace Badger
             {
                 _statusUpdate += UpdateStatus;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -274,9 +275,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -288,9 +289,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -302,9 +303,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -316,9 +317,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -332,9 +333,9 @@ namespace Badger
                 _timerCallback += UpdateStatus;
                 _timer = new Timer( _timerCallback, null, 0, 260 );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -361,9 +362,9 @@ namespace Badger
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -385,9 +386,9 @@ namespace Badger
 
                 form.Opacity = 1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -409,9 +410,9 @@ namespace Badger
 
                 form.Opacity = 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -436,9 +437,9 @@ namespace Badger
                     _cfg.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Notifier );
             }
         }
@@ -457,9 +458,9 @@ namespace Badger
                 var _notification = CreateNotifier( );
                 _notification.ShowInformation( message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -478,9 +479,9 @@ namespace Badger
 
                 _splash.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -506,9 +507,9 @@ namespace Badger
                 ExportButton.Visibility = Visibility.Visible;
                 BrowseButton.Visibility = Visibility.Visible;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -534,9 +535,9 @@ namespace Badger
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -549,9 +550,9 @@ namespace Badger
             {  
                 StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -564,9 +565,9 @@ namespace Badger
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -580,9 +581,9 @@ namespace Badger
                 var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -602,9 +603,9 @@ namespace Badger
                 Opacity = 0;
                 FadeInAsync( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -621,9 +622,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -640,9 +641,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -659,9 +660,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -678,9 +679,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -697,9 +698,9 @@ namespace Badger
                 var _fileBrowser = new FileBrowser( );
                 _fileBrowser.ShowDialog( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -716,9 +717,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -735,9 +736,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -754,9 +755,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -773,9 +774,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -792,9 +793,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -811,9 +812,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -830,9 +831,9 @@ namespace Badger
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -848,9 +849,9 @@ namespace Badger
             {
                 Close( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -860,7 +861,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnClosing( object sender, EventArgs e )
+        private void OnClosing( object sender, CancelEventArgs e )
         {
             try
             {
@@ -870,9 +871,9 @@ namespace Badger
                     SfSkinManager.Dispose( this );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -889,9 +890,9 @@ namespace Badger
                 var _calculator = new CalculatorWindow( );
                 _calculator.ShowDialog( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -913,9 +914,9 @@ namespace Badger
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -937,9 +938,9 @@ namespace Badger
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -955,9 +956,9 @@ namespace Badger
             {
                 WinMinion.LaunchControlPanel( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -973,9 +974,9 @@ namespace Badger
             {
                 WinMinion.LaunchTaskManager( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -991,9 +992,9 @@ namespace Badger
             {
                 Application.Current.Shutdown( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1009,9 +1010,9 @@ namespace Badger
             {
                 WebMinion.RunChrome( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1027,9 +1028,9 @@ namespace Badger
             {
                 WebMinion.RunEdge( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1045,9 +1046,9 @@ namespace Badger
             {
                 WebMinion.RunFirefox( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1070,9 +1071,9 @@ namespace Badger
                     SetToolbarHidden( );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

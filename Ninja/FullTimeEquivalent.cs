@@ -254,9 +254,9 @@ namespace Badger
                     ? int.Parse( _record[ 0 ].ToString( ) )
                     : -1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( int );
             }
         }

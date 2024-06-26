@@ -256,9 +256,9 @@ namespace Badger
                 BrowserTile.Click += OnBrowserTileClick;
                 TestButton.Click += OnTestButtonClick;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -270,9 +270,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -284,9 +284,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -298,9 +298,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -322,9 +322,9 @@ namespace Badger
                     Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -346,9 +346,9 @@ namespace Badger
                     Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -370,9 +370,9 @@ namespace Badger
 
                 form.Opacity = 1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -394,9 +394,9 @@ namespace Badger
 
                 form.Opacity = 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -415,9 +415,9 @@ namespace Badger
                 _dataWindow.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -436,9 +436,9 @@ namespace Badger
                 _chartWindow.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -457,9 +457,9 @@ namespace Badger
                 _docViewer.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -478,9 +478,9 @@ namespace Badger
                 _excelWindow.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -499,9 +499,9 @@ namespace Badger
                 _sqlWindow.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -520,9 +520,9 @@ namespace Badger
                 _form.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -541,9 +541,9 @@ namespace Badger
                 _form.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -562,9 +562,9 @@ namespace Badger
                 _form.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -583,9 +583,9 @@ namespace Badger
                 _programs.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -604,9 +604,9 @@ namespace Badger
                 _pivotWindow.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -625,9 +625,9 @@ namespace Badger
                 _programs.Show( );
                 Hide( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -640,9 +640,9 @@ namespace Badger
             {
                 DataMinion.RunSqlCe( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -660,9 +660,9 @@ namespace Badger
                 var _message = "The Excel File has been created!";
                 SendNotification( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -687,9 +687,9 @@ namespace Badger
                     _cfg.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Notifier );
             }
         }
@@ -708,9 +708,9 @@ namespace Badger
                 var _notification = CreateNotifier( );
                 _notification.ShowInformation( message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -729,9 +729,9 @@ namespace Badger
 
                 _splash.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -748,9 +748,9 @@ namespace Badger
                     ? _tiles
                     : Enumerable.Empty<MetroTile>( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<MetroTile> );
             }
         }
@@ -763,9 +763,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -777,9 +777,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -789,15 +789,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnLoaded( object sender, EventArgs e )
+        private void OnLoaded( object sender, RoutedEventArgs e )
         {
             try
             {
                 App.ActiveWindows.Add( "MainWindow", this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -807,39 +807,39 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataTileClick( object sender, EventArgs e )
+        private void OnDataTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenDataWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
-        private void OnExcelTileClick( object sender, EventArgs e )
+        private void OnExcelTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenExcelWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
-        private void OnMapTileClick( object sender, EventArgs e )
+        private void OnMapTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenMapWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -849,15 +849,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnChartTileClick( object sender, EventArgs e )
+        private void OnChartTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenChartWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -867,15 +867,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnProgramTileClick( object sender, EventArgs e )
+        private void OnProgramTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenProgramWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -885,15 +885,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditorTileClick( object sender, EventArgs e )
+        private void OnEditorTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenSqlWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -903,15 +903,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGuidanceTileClick( object sender, EventArgs e )
+        private void OnGuidanceTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenDocumentViewer( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -921,15 +921,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalendarTileClick( object sender, EventArgs e )
+        private void OnCalendarTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenCalendarWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -939,15 +939,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnPivotTileClick( object sender, EventArgs e )
+        private void OnPivotTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenPivotWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -957,27 +957,27 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEmailTileClick( object sender, EventArgs e )
+        private void OnEmailTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenEmailWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
-        private void OnBrowserTileClick( object sender, EventArgs e )
+        private void OnBrowserTileClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 OpenWebWindow( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -987,15 +987,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTestButtonClick( object sender, EventArgs e )
+        private void OnTestButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunBudgetBrowser( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1005,16 +1005,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalculatorMenuOptionClick( object sender, EventArgs e )
+        private void OnCalculatorMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 var _calculator = new CalculatorWindow( );
                 _calculator.ShowDialog( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1024,7 +1024,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFileMenuOptionClick( object sender, EventArgs e )
+        private void OnFileMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -1036,9 +1036,9 @@ namespace Badger
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1048,7 +1048,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFolderMenuOptionClick( object sender, EventArgs e )
+        private void OnFolderMenuOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
@@ -1060,9 +1060,9 @@ namespace Badger
 
                 _fileBrowser.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1072,15 +1072,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnControlPanelOptionClick( object sender, EventArgs e )
+        private void OnControlPanelOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WinMinion.LaunchControlPanel( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1090,15 +1090,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTaskManagerOptionClick( object sender, EventArgs e )
+        private void OnTaskManagerOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WinMinion.LaunchTaskManager( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1108,15 +1108,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCloseOptionClick( object sender, EventArgs e )
+        private void OnCloseOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 Application.Current.Shutdown( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1126,15 +1126,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// containing the event data.</param>
-        private void OnChromeOptionClick( object sender, EventArgs e )
+        private void OnChromeOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunChrome( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1144,15 +1144,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEdgeOptionClick( object sender, EventArgs e )
+        private void OnEdgeOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunEdge( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -1162,15 +1162,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// containing the event data.</param>
-        private void OnFirefoxOptionClick( object sender, EventArgs e )
+        private void OnFirefoxOptionClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 WebMinion.RunFirefox( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

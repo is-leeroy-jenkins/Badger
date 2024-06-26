@@ -117,9 +117,9 @@ namespace Badger
                     throw new ArgumentOutOfRangeException( numeric, _message );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -140,9 +140,9 @@ namespace Badger
                     throw new ArgumentOutOfRangeException( field, _message );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -163,9 +163,9 @@ namespace Badger
                     throw new ArgumentOutOfRangeException( date, _message );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -191,9 +191,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

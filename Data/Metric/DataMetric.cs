@@ -195,9 +195,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }

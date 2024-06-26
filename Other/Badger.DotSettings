@@ -407,19 +407,18 @@
 &lt;/Patterns&gt;</s:String>
 	<s:Boolean x:Key="/Default/CodeStyle/CSharpVarKeywordUsage/PreferExplicitDiscardDeclaration/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/EnableClangFormatSupport/@EntryValue">False</s:Boolean>
-	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">************************************************************************************************&#xD;
-    Assembly:                Badger&#xD;
-    File:                    ${File.FileName}&#xD;
+	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderRegex/@EntryValue"></s:String>
+	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">******************************************************************************************&#xD;
+    Assembly:             Badger&#xD;
     Author:                  Terry D. Eppler&#xD;
-    Created:                 03-24-2022&#xD;
+    Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
 &#xD;
     Last Modified By:        Terry D. Eppler&#xD;
     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
-************************************************************************************************&#xD;
-&lt;copyright file="${File.FileName}" company="Terry Eppler"&gt;&#xD;
-   This is a federal budget, finance, and Aaccounting application for&#xD;
-   EPA (US EPA) analysts.&#xD;
-   Copyright ©  2024  Terry Eppler&#xD;
+******************************************************************************************&#xD;
+&lt;copyright file="${File.FileName}" company="Terry D. Eppler"&gt;&#xD;
+    Badger is a budget, finance, and accounting tool for EPA analysts.&#xD;
+    Copyright ©  2024  Terry D. Eppler&#xD;
 &#xD;
    Permission is hereby granted, free of charge, to any person obtaining a copy&#xD;
    of this software and associated documentation files (the “Software”),&#xD;
@@ -441,12 +440,12 @@
    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER&#xD;
    DEALINGS IN THE SOFTWARE.&#xD;
 &#xD;
-   You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov&#xD;
+   You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov&#xD;
 &lt;/copyright&gt;&#xD;
 &lt;summary&gt;&#xD;
   ${File.FileName}&#xD;
 &lt;/summary&gt;&#xD;
-************************************************************************************************</s:String>
+******************************************************************************************</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CppNaming/Rules/=Typedefs/@EntryIndexedValue">&lt;NamingElement Priority="18"&gt;&lt;Descriptor Static="Indeterminate" Constexpr="Indeterminate" Const="Indeterminate" Volatile="Indeterminate" Accessibility="NOT_APPLICABLE"&gt;&lt;type Name="type alias" /&gt;&lt;type Name="typedef" /&gt;&lt;/Descriptor&gt;&lt;Policy Inspect="True" Prefix="" Suffix="" Style="AaBb" /&gt;&lt;/NamingElement&gt;</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/XamlNaming/UserRules/=NAMESPACE_005FALIAS/@EntryIndexedValue">&lt;Policy Inspect="True" Prefix="" Suffix="" Style="aa_bb" /&gt;</s:String>
 	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EFeature_002EServices_002ECodeCleanup_002EFileHeader_002EFileHeaderSettingsMigrate/@EntryIndexedValue">True</s:Boolean>

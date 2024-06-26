@@ -374,9 +374,9 @@ namespace Badger
                     ? _query
                     : default( IEnumerable<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -404,9 +404,9 @@ namespace Badger
                     ? _query
                     : default( IEnumerable<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -460,9 +460,9 @@ namespace Badger
                         : default( DataTable );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
 
@@ -500,9 +500,9 @@ namespace Badger
                     ? _dict
                     : default( Dictionary<string, IEnumerable<string>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, IEnumerable<string>> );
             }
         }

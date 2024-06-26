@@ -97,9 +97,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SKFontStyle );
             }
         }
@@ -129,9 +129,9 @@ namespace Badger
                     ? _measure
                     : default( TextMeasurement );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( TextMeasurement );
             }
         }

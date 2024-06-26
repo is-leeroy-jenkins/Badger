@@ -232,9 +232,9 @@ namespace Badger
                     ? _message
                     : string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -250,9 +250,9 @@ namespace Badger
                 ThrowIf.Null( filePath, nameof( filePath ) );
                 _attachments.Add( filePath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

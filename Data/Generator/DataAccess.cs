@@ -177,9 +177,9 @@ namespace Badger
                     ? _data
                     : default( IEnumerable<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -211,9 +211,9 @@ namespace Badger
                     ? _dataTable
                     : default( DataTable );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
         }
@@ -243,10 +243,10 @@ namespace Badger
                 EndInit( );
                 return _tcs?.Task;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _tcs.SetException( _ex );
-                Fail( _ex );
+                _tcs.SetException( ex );
+                Fail( ex );
                 return default( Task<DataTable> );
             }
         }
@@ -271,9 +271,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -303,9 +303,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -342,9 +342,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -381,9 +381,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -407,9 +407,9 @@ namespace Badger
                     ? _values.ToList( )
                     : default( IList<int> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<int> );
             }
         }
@@ -437,9 +437,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -466,9 +466,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
     }

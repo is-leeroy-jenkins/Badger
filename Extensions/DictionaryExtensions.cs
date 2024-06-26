@@ -88,9 +88,9 @@ namespace Badger
 
                 return dict[ key ];
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( TValue );
             }
         }
@@ -118,9 +118,9 @@ namespace Badger
                     ? _nvp
                     : default( NameValueCollection );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( NameValueCollection );
             }
         }
@@ -168,9 +168,9 @@ namespace Badger
                             : string.Empty;
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -198,9 +198,9 @@ namespace Badger
                     ? _bindingList
                     : default( BindingList<KeyValuePair<string, object>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( BindingList<KeyValuePair<string, object>> );
             }
         }
@@ -241,9 +241,9 @@ namespace Badger
 
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
@@ -341,9 +341,9 @@ namespace Badger
 
                 return default( List<DbParameter> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( List<DbParameter> );
             }
         }
@@ -376,9 +376,9 @@ namespace Badger
 
                 return _count > 0;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( bool );
             }
         }
@@ -405,9 +405,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( KeyValuePair<string, object> );
                 }
             }
@@ -438,9 +438,9 @@ namespace Badger
                         ? _list
                         : default( BindingList<string> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( BindingList<string> );
                 }
             }
@@ -471,9 +471,9 @@ namespace Badger
                         ? _list
                         : default( BindingList<object> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( BindingList<object> );
                 }
             }

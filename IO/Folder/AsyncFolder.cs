@@ -179,10 +179,10 @@ namespace Badger
                     _async.SetResult( _name );
                     return _async.Task;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    _async.SetException( _ex );
-                    Fail( _ex );
+                    _async.SetException( ex );
+                    Fail( ex );
                     return default( Task<string> );
                 }
             }
@@ -209,10 +209,10 @@ namespace Badger
                 _async.SetResult( destination );
                 return _async.Task;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return _async.Task;
             }
         }
@@ -229,10 +229,10 @@ namespace Badger
                 _async.SetResult( Environment.CurrentDirectory );
                 return _async.Task;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<string> );
             }
         }
@@ -265,9 +265,9 @@ namespace Badger
                     return _async.Task;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -287,10 +287,10 @@ namespace Badger
                 Directory.Delete( folderName, true );
                 _async.SetResult( folderName );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -316,10 +316,10 @@ namespace Badger
                 ZipFile.CreateFromDirectory( source, destination );
                 _async.SetResult( destination );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -352,10 +352,10 @@ namespace Badger
                     return _async.Task;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -377,10 +377,10 @@ namespace Badger
                 _directory.MoveTo( destination );
                 _async.SetResult( destination );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -403,10 +403,10 @@ namespace Badger
                 ZipFile.CreateFromDirectory( _fileName, destination );
                 _async.SetResult( destination );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -429,10 +429,10 @@ namespace Badger
                 ZipFile.ExtractToDirectory( zipPath, FullPath );
                 _async.SetResult( zipPath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -481,9 +481,9 @@ namespace Badger
                     ? _text
                     : string.Empty;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

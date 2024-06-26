@@ -118,9 +118,9 @@ namespace Badger
                 Dispose( true );
                 GC.SuppressFinalize( this );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -144,9 +144,9 @@ namespace Badger
                     _dataReader?.Dispose( );
                     _isDisposed = true;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }

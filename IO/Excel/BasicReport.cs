@@ -362,10 +362,10 @@ namespace Badger
                 _dataRange.Style.Fill.BackgroundColor.SetColor( color );
                 _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _dataRange?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -388,9 +388,9 @@ namespace Badger
                 var _second = (char)( 'A' + ( columnIndex % 26 ) );
                 return $"{_first}{_second}";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -412,9 +412,9 @@ namespace Badger
                     || ( type.IsGenericType
                         && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -448,9 +448,9 @@ namespace Badger
                     _fileInfo = null;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -463,9 +463,9 @@ namespace Badger
             {
                 Dispose( true );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

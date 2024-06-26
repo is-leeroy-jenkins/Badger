@@ -700,7 +700,7 @@
         </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.IsArgumentIsNumber(System.String)">
             <summary>
-            Below method has been used to find the negative values(ex formula:=LARGE({6,23,-5,2.3}, 2)).
+            Below method has been used to find the negative values(_ex formula:=LARGE({6,23,-5,2.3}, 2)).
             </summary>
             <param name="arg">string contains negative values(eg:-2,-2,-2) or possitve value.</param>
             <returns> True if the values are number.else false.</returns>
@@ -7100,9 +7100,9 @@
             <summary>
             This method is used to split the range and logical value when the range contains logical value.
             </summary>
-            <param name="range">Range with logical value(ex:\u0092C1:C3\"1,2\"m\u0092)</param>
-            <param name="rangeValue">Spilt the range ex("C1:C3")</param>
-            <param name="logicalValue">Split the logical value ex("\"1,2\"m")</param>
+            <param name="range">Range with logical value(_ex:\u0092C1:C3\"1,2\"m\u0092)</param>
+            <param name="rangeValue">Spilt the range _ex("C1:C3")</param>
+            <param name="logicalValue">Split the logical value _ex("\"1,2\"m")</param>
         </member>
         <member name="M:Syncfusion.Calculate.LinearRegression.Dispose">
             <summary>

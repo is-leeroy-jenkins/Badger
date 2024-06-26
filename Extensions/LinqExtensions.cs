@@ -68,9 +68,9 @@ namespace Badger
             {
                 return !source.Any( predicate );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -93,9 +93,9 @@ namespace Badger
             {
                 return source.HasAtLeast( minCount, _ => true );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -160,9 +160,9 @@ namespace Badger
                     ? _sequence.Count == count
                     : source.HasExactly( count, _ => true );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -204,9 +204,9 @@ namespace Badger
 
                 return _matches == count;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -229,9 +229,9 @@ namespace Badger
             {
                 return source.HasAtMost( limit, _ => true );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -272,9 +272,9 @@ namespace Badger
 
                 return true;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

@@ -83,9 +83,9 @@ namespace Badger
                     action( _line );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -102,9 +102,9 @@ namespace Badger
             {
                 return stream.GetReader( null );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -124,9 +124,9 @@ namespace Badger
                 encoding ??= Encoding.Default;
                 return new StreamReader( stream, encoding );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -146,9 +146,9 @@ namespace Badger
             {
                 return stream.GetWriter( null );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( StreamWriter );
             }
         }
@@ -170,9 +170,9 @@ namespace Badger
                     encoding ??= Encoding.Default;
                     return new StreamWriter( stream, encoding );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( StreamWriter );
                 }
             }
@@ -193,9 +193,9 @@ namespace Badger
             {
                 return stream.ReadToEnd( null );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -215,9 +215,9 @@ namespace Badger
                 using var _reader = stream.GetReader( encoding );
                 return _reader.ReadToEnd( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -238,9 +238,9 @@ namespace Badger
                     stream.Seek( 0, SeekOrigin.Begin );
                     return stream;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Stream );
                 }
             }
@@ -264,9 +264,9 @@ namespace Badger
                     stream.Seek( 0, SeekOrigin.End );
                     return stream;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Stream );
                 }
             }
@@ -300,9 +300,9 @@ namespace Badger
 
                     return stream;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( MemoryStream );
                 }
             }
@@ -325,9 +325,9 @@ namespace Badger
                 stream.CopyTo( _memory, (int)stream.Length );
                 return _memory;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( MemoryStream );
             }
         }
@@ -346,9 +346,9 @@ namespace Badger
                 var _memory = stream.CopyToMemory( );
                 return _memory.ToArray( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -382,9 +382,9 @@ namespace Badger
 
                 return _buffer;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -401,9 +401,9 @@ namespace Badger
                 ThrowIf.Empty( bytes, nameof( bytes ) );
                 stream.Write( bytes, 0, bytes.Length );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

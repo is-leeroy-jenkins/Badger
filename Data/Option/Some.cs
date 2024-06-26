@@ -141,9 +141,9 @@ namespace Badger
             {
                 return new Some<TResult>( func( _value ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Option<TResult> );
             }
         }
@@ -164,9 +164,9 @@ namespace Badger
             {
                 return someFunc( _value );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( TResult );
             }
         }

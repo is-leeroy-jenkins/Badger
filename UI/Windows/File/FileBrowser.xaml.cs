@@ -320,9 +320,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -335,9 +335,9 @@ namespace Badger
             {
                 _statusUpdate += UpdateStatus;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -349,9 +349,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -363,9 +363,9 @@ namespace Badger
             try
             {
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -379,9 +379,9 @@ namespace Badger
                 _timerCallback += UpdateStatus;
                 _timer = new System.Threading.Timer( _timerCallback, null, 0, 260 );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -396,9 +396,9 @@ namespace Badger
                 ClearButton.Content = "Clear";
                 SelectButton.Content = "Select";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -414,9 +414,9 @@ namespace Badger
                     _radioButton.Click += OnRadioButtonSelected;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -449,9 +449,9 @@ namespace Badger
                     ? _list
                     : default( IList<MetroRadioButton> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<MetroRadioButton> );
             }
         }
@@ -472,9 +472,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -498,9 +498,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -540,9 +540,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -590,9 +590,9 @@ namespace Badger
                 _duration = _watch.Elapsed.TotalMilliseconds;
                 return _list;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -622,9 +622,9 @@ namespace Badger
                     ? _list
                     : default( IList<string> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -647,9 +647,9 @@ namespace Badger
 
                 _notify.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -668,9 +668,9 @@ namespace Badger
 
                 _splash.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -684,9 +684,9 @@ namespace Badger
                 TimeLabel.Content = DateTime.Now.ToLongTimeString( );
                 DateLabel.Content = DateTime.Now.ToLongDateString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -699,9 +699,9 @@ namespace Badger
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -717,9 +717,9 @@ namespace Badger
                 _image = new BitmapImage( _uri );
                 PictureBox.Source = _image;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -743,9 +743,9 @@ namespace Badger
                 RegisterRadioButtonEvents( );
                 SetImage( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -770,9 +770,9 @@ namespace Badger
                 PopulateListBox( _filePaths );
                 SetImage( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

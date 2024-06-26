@@ -142,9 +142,9 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>> );
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -166,10 +166,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<DirectoryInfo> );
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -203,9 +203,9 @@ namespace Badger
                         ? _async.Task
                         : default( Task<IDictionary<string, FileInfo>> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Task<IDictionary<string, FileInfo>> );
                 }
             }
@@ -244,9 +244,9 @@ namespace Badger
                         ? _async.Task
                         : default( Task<IDictionary<string, DirectoryInfo>> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Task<IDictionary<string, DirectoryInfo>> );
                 }
             }
@@ -307,10 +307,10 @@ namespace Badger
                         ? _async.Task
                         : default( Task<IList<string>> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    _async.SetException( _ex );
-                    Fail( _ex );
+                    _async.SetException( ex );
+                    Fail( ex );
                     return default( Task<IList<string>> );
                 }
             }

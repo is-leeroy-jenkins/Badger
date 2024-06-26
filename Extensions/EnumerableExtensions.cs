@@ -86,9 +86,9 @@ namespace Badger
                     ? _bindingList
                     : default( BindingList<T> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( BindingList<T> );
             }
         }
@@ -119,9 +119,9 @@ namespace Badger
 
                 return default( ObservableCollection<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ObservableCollection<DataRow> );
             }
         }
@@ -148,9 +148,9 @@ namespace Badger
             {
                 return source.Where( element => !predicate( element ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -177,9 +177,9 @@ namespace Badger
             {
                 return source.Where( ( element, index ) => !predicate( element, index ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -214,9 +214,9 @@ namespace Badger
 
                 return default( IEnumerable<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -243,9 +243,9 @@ namespace Badger
                         ? _rows
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -282,9 +282,9 @@ namespace Badger
                 _range?.LoadFromCollection( type, true, style );
                 return _excel;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelPackage );
             }
         }
@@ -391,9 +391,9 @@ namespace Badger
             {
                 return CycleIterator( source );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }

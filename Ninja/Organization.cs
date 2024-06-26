@@ -162,9 +162,9 @@ namespace Badger
                     ? _map
                     : default( IDictionary<string, object> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -179,9 +179,9 @@ namespace Badger
                 ThrowIf.Null( code, nameof( code ) );
                 return new Dictionary<string, object> { [ "Code" ] = code };
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

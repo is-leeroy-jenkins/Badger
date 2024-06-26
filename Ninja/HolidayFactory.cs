@@ -112,9 +112,9 @@ namespace Badger
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, DateTime> );
             }
         }
@@ -138,9 +138,9 @@ namespace Badger
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, DateTime> );
             }
         }
@@ -157,9 +157,9 @@ namespace Badger
                     ? _map
                     : default( IDictionary<string, object> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

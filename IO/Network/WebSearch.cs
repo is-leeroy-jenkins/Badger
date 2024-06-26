@@ -151,10 +151,10 @@ namespace Badger
                     _status = _reply.Status == IPStatus.Success;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _status = false;
-                Fail( _ex );
+                Fail( ex );
             }
             
             return _status;
@@ -171,9 +171,9 @@ namespace Badger
                 var _notify = new SplashMessage( message );
                 _notify.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -200,9 +200,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -229,9 +229,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

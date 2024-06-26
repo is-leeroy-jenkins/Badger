@@ -94,9 +94,9 @@ namespace Badger
                 var _source = new FileInfo( _fullPath );
                 _source.MoveTo( filePath );
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -117,10 +117,10 @@ namespace Badger
                 _async.SetResult( _source );
                 return _async.Task;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
         }
@@ -142,10 +142,10 @@ namespace Badger
 
                 return _async.Task;
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
         }
@@ -165,10 +165,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<FileStream> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<FileStream> );
             }
         }
@@ -198,9 +198,9 @@ namespace Badger
                         ? _async.Task
                         : default( Task<IList<string>> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( Task<IList<string>> );
                 }
             }
@@ -226,10 +226,10 @@ namespace Badger
                         ? _async.Task
                         : default( Task<byte[ ]> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    _async.SetException( _ex );
-                    Fail( _ex );
+                    _async.SetException( ex );
+                    Fail( ex );
                     return default( Task<byte[ ]> );
                 }
             }
@@ -262,10 +262,10 @@ namespace Badger
                         ? _async.Task 
                         : default( Task<string> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    _async.SetException( _ex );
-                    Fail( _ex );
+                    _async.SetException( ex );
+                    Fail( ex );
                     return default( Task<string> );
                 }
             }

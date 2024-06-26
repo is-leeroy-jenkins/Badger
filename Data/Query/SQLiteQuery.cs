@@ -200,9 +200,9 @@ namespace Badger
                     ? new SQLiteDataAdapter( command )
                     : default( SQLiteDataAdapter );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SQLiteDataAdapter );
             }
         }
@@ -245,9 +245,9 @@ namespace Badger
 
                     return _dataSet.Tables[ 0 ];
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -289,9 +289,9 @@ namespace Badger
                             : default( DataTable );
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -322,9 +322,9 @@ namespace Badger
                         ? _params
                         : default( IEnumerable<SQLiteParameter> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IEnumerable<SQLiteParameter> );
                 }
             }
@@ -346,9 +346,9 @@ namespace Badger
                     ? new SQLiteCommandBuilder( adapter )
                     : default( SQLiteCommandBuilder );
             }
-            catch( SystemException _ex )
+            catch( SystemException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SQLiteCommandBuilder );
             }
         }
@@ -379,9 +379,9 @@ namespace Badger
 
                 return _fileName;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -410,9 +410,9 @@ namespace Badger
 
                 return false;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

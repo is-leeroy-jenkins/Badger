@@ -92,9 +92,9 @@ namespace Badger
                     ? new DataGenerator( Source, Map )
                     : default( DataGenerator );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDataModel );
             }
         }

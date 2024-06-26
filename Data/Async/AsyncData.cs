@@ -78,10 +78,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IQuery> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IQuery> );
             }
         }
@@ -113,10 +113,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<int>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<int>> );
             }
         }
@@ -140,10 +140,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IDictionary<string, object>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, object>> );
             }
         }
@@ -180,10 +180,10 @@ namespace Badger
                     return _async.Task ?? default( Task<IDictionary<string, Type>> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, Type>> );
             }
         }
@@ -222,10 +222,10 @@ namespace Badger
                     return default( Task<IList<DataColumn>> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<DataColumn>> );
             }
         }
@@ -264,10 +264,10 @@ namespace Badger
                     return default( Task<IList<string>> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }

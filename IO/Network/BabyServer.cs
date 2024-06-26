@@ -119,10 +119,10 @@
                     _status = _reply.Status == IPStatus.Success;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _status = false;
-                Fail( _ex );
+                Fail( ex );
             }
 
             return _status;
@@ -139,9 +139,9 @@
                 var _notify = new Notification( message );
                 _notify.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -168,9 +168,9 @@
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -197,9 +197,9 @@
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

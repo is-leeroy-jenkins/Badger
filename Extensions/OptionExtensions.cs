@@ -66,9 +66,9 @@ namespace Badger
                     .Select( x => (Option<T>)new Some<T>( x ) )
                     .FirstOrDefault( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Option<T> );
             }
         }
@@ -89,9 +89,9 @@ namespace Badger
                     .Where( predicate )
                     .FirstOrNone( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Option<T> );
             }
         }
@@ -113,9 +113,9 @@ namespace Badger
                     .Select( map ).OfType<Some<TResult>>( )
                     .Select( s => s.IsSome );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<TResult> );
             }
         }

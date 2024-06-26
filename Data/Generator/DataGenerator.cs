@@ -324,9 +324,9 @@ namespace Badger
                     return Provider.Access;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Provider );
             }
         }
@@ -368,9 +368,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Provider );
             }
         }
@@ -400,9 +400,9 @@ namespace Badger
 
                 return default( Source );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Source );
             }
         }

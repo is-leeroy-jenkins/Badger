@@ -253,9 +253,9 @@ namespace Badger
                 _adapter.Fill( _dataSet );
                 return _dataSet.Tables[ 0 ];
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
         }
@@ -296,9 +296,9 @@ namespace Badger
                 _adapter.Fill( _dataSet );
                 return _dataSet.Tables[ 0 ];
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
         }
@@ -331,9 +331,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -351,9 +351,9 @@ namespace Badger
                     var _fileInfo = new FileInfo( filePath );
                     return new ExcelPackage( _fileInfo );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( ExcelPackage );
                 }
             }
@@ -386,9 +386,9 @@ namespace Badger
 
                 return _fileName;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -416,9 +416,9 @@ namespace Badger
 
                 return false;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

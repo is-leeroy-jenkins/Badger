@@ -302,9 +302,9 @@ namespace Badger
             {
                 return BFY == CurrentYear.ToString( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( bool );
             }
         }
@@ -329,9 +329,9 @@ namespace Badger
                         [ "BFY" ] = bfy
                     };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

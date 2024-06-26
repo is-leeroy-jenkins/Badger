@@ -306,9 +306,9 @@ namespace Badger
                     return false;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -333,9 +333,9 @@ namespace Badger
                 var _vals = dict[ _keys ];
                 return _vals.Equals( Code ) && _keys.Equals( Name );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -362,9 +362,9 @@ namespace Badger
                     return true;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
 
@@ -384,9 +384,9 @@ namespace Badger
                     ? int.Parse( _record[ 0 ]?.ToString( ) ?? "0" )
                     : -1;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( int );
             }
         }
@@ -404,9 +404,9 @@ namespace Badger
                 ThrowIf.Null( dataRow, nameof( dataRow ) );
                 return int.Parse( dataRow[ 0 ]?.ToString( ) ?? "0" );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( int );
             }
         }

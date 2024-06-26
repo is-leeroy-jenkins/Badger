@@ -224,10 +224,10 @@ namespace Badger
                 _client.EnableSsl = true;
                 _client.Send( message );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
                 message?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -258,9 +258,9 @@ namespace Badger
                     Marshal.ReleaseComObject( _item );
                 }
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
             finally
             {
@@ -281,9 +281,9 @@ namespace Badger
                 var _message = CreateMessage( );
                 Send( _message );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -335,9 +335,9 @@ namespace Badger
                     ? _message
                     : default( MailMessage );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( MailMessage );
             }
         }
@@ -353,9 +353,9 @@ namespace Badger
                 ThrowIf.Null( address, nameof( address ) );
                 _emailConfig.Recipients.Add( address );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -370,9 +370,9 @@ namespace Badger
                 ThrowIf.Null( address, nameof( address ) );
                 _emailConfig.Copies.Add( address );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -389,9 +389,9 @@ namespace Badger
                 var _message = new MailMessage( );
                 _message.Attachments.Add( _attachment );
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -410,9 +410,9 @@ namespace Badger
                     ? _emailContent.Message
                     : string.Empty;
             }
-            catch( System.Exception _ex )
+            catch( System.Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

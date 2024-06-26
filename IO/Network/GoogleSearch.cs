@@ -180,9 +180,9 @@ namespace Badger
                     return default( IList<SearchResult> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<SearchResult> );
             }
         }
@@ -243,10 +243,10 @@ namespace Badger
                     return default( Task<IList<SearchResult>> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<IList<SearchResult>> );
             }
         }

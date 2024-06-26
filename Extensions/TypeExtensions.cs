@@ -76,9 +76,9 @@ namespace Badger
                     ? _json
                     : string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -102,9 +102,9 @@ namespace Badger
                 using var _reader = new StringReader( _string );
                 return _reader?.ReadToEnd( ) ?? string.Empty;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -128,9 +128,9 @@ namespace Badger
                     control.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -153,9 +153,9 @@ namespace Badger
                     window.Dispatcher.BeginInvoke( action );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

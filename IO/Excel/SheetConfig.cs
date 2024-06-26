@@ -392,9 +392,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -425,9 +425,9 @@ namespace Badger
                 _headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _headerRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -457,9 +457,9 @@ namespace Badger
                     _dataRange[ _header, _i ].Value = names[ _i ];
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }
@@ -490,9 +490,9 @@ namespace Badger
                 _footerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _footerRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 Dispose( );
             }
         }

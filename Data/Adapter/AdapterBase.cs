@@ -149,9 +149,9 @@ namespace Badger
                     return _adapter;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SQLiteDataAdapter );
             }
         }
@@ -185,9 +185,9 @@ namespace Badger
                     return _adapter;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SqlDataAdapter );
             }
         }
@@ -224,9 +224,9 @@ namespace Badger
                     return _adapter;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( OleDbDataAdapter );
             }
         }
@@ -260,9 +260,9 @@ namespace Badger
                     return _adapter;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SqlCeDataAdapter );
             }
         }

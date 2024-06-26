@@ -219,9 +219,9 @@ namespace Badger
                         : default( DataTable );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
 
@@ -253,9 +253,9 @@ namespace Badger
 
                 return _fileName;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -285,9 +285,9 @@ namespace Badger
 
                 return false;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }

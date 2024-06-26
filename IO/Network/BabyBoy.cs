@@ -282,10 +282,10 @@ namespace Badger
                 _socket.Send( _data );
                 SendNotification( _message );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _socket?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -310,10 +310,10 @@ namespace Badger
                     _socket.Send( _data );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _socket?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -339,10 +339,10 @@ namespace Badger
                     _socket.Send( _data );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 _socket?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -357,10 +357,10 @@ namespace Badger
                 var _notify = new SplashMessage( message );
                 _notify.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 Socket?.Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

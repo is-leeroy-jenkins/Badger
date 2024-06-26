@@ -117,9 +117,9 @@ namespace Badger
             {
                 return new None<TResult>( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Option<TResult> );
             }
         }
@@ -136,9 +136,9 @@ namespace Badger
             {
                 return noneFunc( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( TResult );
             }
         }

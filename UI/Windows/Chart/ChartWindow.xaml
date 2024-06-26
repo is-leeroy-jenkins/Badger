@@ -298,13 +298,25 @@
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>
-        <local:MetroLabel x:Name="FirstLabel" Content="Source: " Canvas.Left="30" Canvas.Top="617" Width="404"
-                HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <local:MetroLabel x:Name="SecondLabel" Content="Records: 0.0" Canvas.Left="470" Canvas.Top="617" Width="100"
-                HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <local:MetroLabel x:Name="ThirdLabel" Content="Fields: 0.0" Canvas.Left="600" Canvas.Top="617" Width="100"
-                HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <local:MetroLabel x:Name="FourthLabel" Content="Numerics: 0.0" Canvas.Left="735" Canvas.Top="617" Width="100"
-                HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <local:MetroLabel x:Name="FirstLabel" Content="Source: " Canvas.Left="32" Canvas.Top="612" Width="548"
+                HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <local:MetroLabel x:Name="SecondLabel" Content="Total Records: 0.0" Canvas.Left="32" Canvas.Top="649"
+                Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"
+                HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="ThirdLabel" Content="Total Fields: 0.0" Canvas.Left="188" Canvas.Top="648" Width="150"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="FourthLabel" Content="Total Numerics: 0.0" Canvas.Left="358" Canvas.Top="649"
+                Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"
+                HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="FifthLabel" Content="Selected Filters: 0.0" Canvas.Left="32" Canvas.Top="674"
+                Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="SixthLabel" Content="Selected Fields: 0.0" Canvas.Left="188" Canvas.Top="673"
+                Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="SeventhLabel" Content="Selected Numerics: 0.0" Canvas.Left="358" Canvas.Top="674"
+                Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
     </Canvas>
 </Window>

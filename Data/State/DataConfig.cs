@@ -155,9 +155,9 @@ namespace Badger
             {
                 return $"{_provider}";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

@@ -137,9 +137,9 @@ namespace Badger
 
                 return count;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( int );
             }
         }
@@ -171,9 +171,9 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 return ( c >= '0' ) && ( c <= '9' );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -193,9 +193,9 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 return ( ( c >= 'A' ) && ( c <= 'Z' ) ) || ( ( c >= 'a' ) && ( c <= 'z' ) );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -214,9 +214,9 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 return IsLetter( c ) || IsDigit( c );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -243,9 +243,9 @@ namespace Badger
                     ? IsLetterOrDigit( c ) || ( AtomCharacters.Contains( c.ToString( ) ) )
                     : allowInternational && !char.IsWhiteSpace( c );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -290,9 +290,9 @@ namespace Badger
 
                 return false;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -338,9 +338,9 @@ namespace Badger
                     type = SubDomainType.None;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 type = SubDomainType.None;
             }
 
@@ -370,9 +370,9 @@ namespace Badger
 
                 return index > startIndex;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
 
             return false;

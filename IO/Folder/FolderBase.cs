@@ -135,9 +135,9 @@ namespace Badger
                     ? _folders
                     : default( string[ ] );
             }
-            catch( IOException _ex )
+            catch( IOException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -172,9 +172,9 @@ namespace Badger
                         ? _data
                         : default( IDictionary<string, FileInfo> );
                 }
-                catch( IOException _ex )
+                catch( IOException ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IDictionary<string, FileInfo> );
                 }
             }
@@ -213,9 +213,9 @@ namespace Badger
                         ? _data
                         : default( IDictionary<string, DirectoryInfo> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IDictionary<string, DirectoryInfo> );
                 }
             }
@@ -274,9 +274,9 @@ namespace Badger
                         ? _list
                         : default( IEnumerable<string> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IEnumerable<string> );
                 }
             }

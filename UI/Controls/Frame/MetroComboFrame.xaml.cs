@@ -194,12 +194,12 @@ namespace Badger
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Fails the specified _ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
+        /// <param name="_ex">The _ex.</param>
+        private protected void Fail( Exception _ex )
         {
-            var _error = new ErrorWindow( ex );
+            var _error = new ErrorWindow( _ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

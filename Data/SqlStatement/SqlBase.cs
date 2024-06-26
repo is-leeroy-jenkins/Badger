@@ -311,9 +311,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -408,9 +408,9 @@ namespace Badger
                 var _values = _update.TrimEnd( ", ".ToCharArray( ) );
                 return $"UPDATE {_source} SET {_values} WHERE {_where};";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -447,9 +447,9 @@ namespace Badger
 
                 return $"INSERT INTO {_source} {_columnValues};";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -465,9 +465,9 @@ namespace Badger
                     ? $"DELETE * FROM {_source} WHERE {_where};"
                     : $"DELETE * FROM {_source};";
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

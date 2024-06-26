@@ -78,9 +78,9 @@ namespace Badger
 
                 SearchMessages( folder, search );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -108,9 +108,9 @@ namespace Badger
                         }
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                 }
             }
         }
@@ -129,9 +129,9 @@ namespace Badger
                     obj = null;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

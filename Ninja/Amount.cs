@@ -245,9 +245,9 @@ namespace Badger
                 Delta = increment;
                 Value += increment;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -262,9 +262,9 @@ namespace Badger
                 Delta = decrement;
                 Value -= decrement;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -286,9 +286,9 @@ namespace Badger
                     return ( ( amount?.Value == Value )
                         && ( amount?.Numeric?.Equals( Numeric ) == true ) );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -314,9 +314,9 @@ namespace Badger
                     return ( ( first?.Numeric == second?.Numeric )
                         && ( first.Value == second.Value ) );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -337,9 +337,9 @@ namespace Badger
                 var _message = new SplashMessage( "Not Yet Implemented" );
                 _message.Show( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

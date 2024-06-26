@@ -161,9 +161,9 @@ namespace Badger
                 Foreground = new SolidColorBrush( _foreHover );
                 BorderBrush = new SolidColorBrush( _borderHover );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -182,9 +182,9 @@ namespace Badger
                 Foreground = new SolidColorBrush( _foreColor );
                 BorderBrush = new SolidColorBrush( _borderColor );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

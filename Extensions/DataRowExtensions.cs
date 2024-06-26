@@ -145,9 +145,9 @@ namespace Badger
                         return default( IList<DbParameter> );
                     }
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IList<DbParameter> );
                 }
             }
@@ -185,9 +185,9 @@ namespace Badger
 
                 return default( IDictionary<string, object> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -226,9 +226,9 @@ namespace Badger
 
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
@@ -248,9 +248,9 @@ namespace Badger
                 ThrowIf.Null( columnName, nameof( columnName ) );
                 return dataRow[ columnName ] as byte[ ];
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }

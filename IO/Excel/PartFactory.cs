@@ -145,9 +145,9 @@ namespace Badger
                 FormatFooter( _dataRange );
                 return _excelTable;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelTable );
             }
         }
@@ -183,9 +183,9 @@ namespace Badger
                     ? _table
                     : default( DataTable );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataTable );
             }
         }
@@ -261,9 +261,9 @@ namespace Badger
                 _pivotTable.PivotTableStyle = PivotTableStyles.Light15;
                 return _pivotTable;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelPivotTable );
             }
         }
@@ -310,9 +310,9 @@ namespace Badger
                 _pieChart.StyleManager.SetChartStyle( ePresetChartStyle.Pie3dChartStyle6 );
                 return _pieChart;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelPieChart );
             }
         }
@@ -357,9 +357,9 @@ namespace Badger
                 _barChart.StyleManager.SetChartStyle( ePresetChartStyle.BarChartStyle1 );
                 return _barChart;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelBarChart );
             }
         }
@@ -404,9 +404,9 @@ namespace Badger
                 _areaChart.StyleManager.SetChartStyle( ePresetChartStyle.Area3dChartStyle1 );
                 return _areaChart;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ExcelAreaChart );
             }
         }
@@ -441,10 +441,10 @@ namespace Badger
                 _comment.Font.Color = Color.FromArgb( 106, 189, 252 );
                 _comment.Text = text;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
                 Dispose( );
-                Fail( _ex );
+                Fail( ex );
             }
         }
     }

@@ -1,12 +1,12 @@
 ﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 15-03-2024
+//     Created:                 20-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        20-03-2024
 // ****************************************************************************************
-// <copyright file="PathBase.cs" company="Terry D. Eppler">
+// <copyright file="AsyncBasicPath.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  PathBase.cs
+//  AsyncBasicPath.cs
 // </summary>
 // ****************************************************************************************
 
@@ -50,12 +50,14 @@ namespace Badger
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class PathBase
+    public abstract class AsyncBasicPath
     {
+        /// <summary>
+        /// The drive
+        /// </summary>
+        private protected string _drive;
+
         /// <summary>
         /// The has extension
         /// </summary>
@@ -74,6 +76,16 @@ namespace Badger
         private protected bool _hasParent;
 
         /// <summary>
+        /// The parent name
+        /// </summary>
+        private protected string _parentName;
+
+        /// <summary>
+        /// The parent path
+        /// </summary>
+        private protected string _parentPath;
+
+        /// <summary>
         /// The directory separator
         /// </summary>
         private protected char _folderSeparator;
@@ -87,11 +99,6 @@ namespace Badger
         /// The drive separator
         /// </summary>
         private protected char _driveSeparator;
-
-        /// <summary>
-        /// The drive 
-        /// </summary>
-        private protected string _drive;
 
         /// <summary>
         /// Gets or sets the buffer.
@@ -191,12 +198,30 @@ namespace Badger
         private protected char[ ] _invalidNameChars;
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Gets or sets the absolute path.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        /// <value>
+        /// The absolute path.
+        /// </value>
+        public string AbsolutePath
         {
-            var _error = new ErrorWindow( ex );
+            get
+            {
+                return _absolutePath;
+            }
+            private protected set
+            {
+                _absolutePath = value;
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="_ex">The _ex.</param>
+        private protected static void Fail( Exception _ex )
+        {
+            var _error = new ErrorWindow( _ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }

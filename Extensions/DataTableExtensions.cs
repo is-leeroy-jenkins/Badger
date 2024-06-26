@@ -96,9 +96,9 @@ namespace Badger
 
                 return _xml;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( XDocument );
             }
         }
@@ -142,9 +142,9 @@ namespace Badger
 
                 _excel.SaveAs( filePath );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -187,9 +187,9 @@ namespace Badger
 
                 return default( IEnumerable<int> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -223,9 +223,9 @@ namespace Badger
                         : default( string[ ] );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -261,9 +261,9 @@ namespace Badger
                         : default( string[ ] );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -287,9 +287,9 @@ namespace Badger
                     ? _query
                     : default( IEnumerable<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -318,9 +318,9 @@ namespace Badger
                     ? _names
                     : default( string[ ] );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -357,9 +357,9 @@ namespace Badger
                     ? _columns
                     : default( IList<DataColumn> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -392,9 +392,9 @@ namespace Badger
                     ? _columns
                     : default( IList<DataColumn> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -413,9 +413,9 @@ namespace Badger
                 dataTable.Columns.RemoveAt( _index );
                 dataTable.AcceptChanges( );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -438,9 +438,9 @@ namespace Badger
                     ? _bindingList
                     : default( BindingList<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( BindingList<DataRow> );
             }
         }
@@ -473,9 +473,9 @@ namespace Badger
 
                 return default( SortedList<int, DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( SortedList<int, DataRow> );
             }
         }
@@ -504,9 +504,9 @@ namespace Badger
 
                 return default( ObservableCollection<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( ObservableCollection<DataRow> );
             }
         }

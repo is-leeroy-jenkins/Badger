@@ -162,9 +162,9 @@ namespace Badger
 
                 Items.Add( _item );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 

@@ -88,7 +88,7 @@ namespace Badger
         /// <returns> </returns>
         public abstract TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc );
 
-        /// <summary> Fails the specified _ex. </summary>
+        /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
         protected void Fail( Exception ex )
         {

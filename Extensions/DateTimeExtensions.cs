@@ -66,9 +66,9 @@ namespace Badger
             {
                 return DateTime.TryParse( date.ToString( ), out _ );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -88,9 +88,9 @@ namespace Badger
                 return ( dateTime.DayOfWeek != DayOfWeek.Saturday )
                     && ( dateTime.DayOfWeek != DayOfWeek.Sunday );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -110,9 +110,9 @@ namespace Badger
                 return ( dateTime.DayOfWeek == DayOfWeek.Saturday )
                     || ( dateTime.DayOfWeek == DayOfWeek.Sunday );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -163,9 +163,9 @@ namespace Badger
                         : default( IEnumerable<DateTime> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -216,9 +216,9 @@ namespace Badger
                         : default( IEnumerable<DateTime> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -271,9 +271,9 @@ namespace Badger
                         : default( IEnumerable<DateTime> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -327,9 +327,9 @@ namespace Badger
                         : default( IEnumerable<DateTime> );
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -353,9 +353,9 @@ namespace Badger
                     ? ( dateTime >= startDate ) && ( dateTime <= endDate )
                     : ( dateTime.Date >= startDate.Date ) && ( dateTime.Date <= endDate.Date );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -389,9 +389,9 @@ namespace Badger
 
                 return startDate;
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DateTime );
             }
         }
@@ -443,9 +443,9 @@ namespace Badger
                         : 0;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -498,9 +498,9 @@ namespace Badger
                         : 0;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -554,9 +554,9 @@ namespace Badger
                         : 0;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -605,9 +605,9 @@ namespace Badger
                     return _holidays;
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return 0;
             }
         }

@@ -177,9 +177,9 @@ namespace Badger
                         ? _table
                         : default( DataTable );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -211,10 +211,10 @@ namespace Badger
                         ? _async.Task
                         : default( Task<DataTable> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    _async.SetException( _ex );
-                    Fail( _ex );
+                    _async.SetException( ex );
+                    Fail( ex );
                     return default( Task<DataTable> );
                 }
             }
@@ -238,9 +238,9 @@ namespace Badger
                     ? _row
                     : default( DataRow );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( DataRow );
             }
         }
@@ -263,10 +263,10 @@ namespace Badger
                     ? _async.Task
                     : default( Task<DataRow> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                _async.SetException( _ex );
-                Fail( _ex );
+                _async.SetException( ex );
+                Fail( ex );
                 return default( Task<DataRow> );
             }
         }
@@ -295,10 +295,10 @@ namespace Badger
                         ? _task.Task
                         : default( Task<DataSet> );
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    _task.SetException( _ex );
-                    Fail( _ex );
+                    _task.SetException( ex );
+                    Fail( ex );
                     return default( Task<DataSet> );
                 }
             }
@@ -326,9 +326,9 @@ namespace Badger
                     }
                 }
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
             }
         }
 
@@ -359,9 +359,9 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -399,9 +399,9 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -437,9 +437,9 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<string>>);
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -467,9 +467,9 @@ namespace Badger
                     ? _async.Task
                     : default( Task<IList<int>> );
             }
-            catch( Exception _ex )
+            catch( Exception ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( Task<IList<int>> );
             }
         }

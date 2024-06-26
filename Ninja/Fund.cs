@@ -385,9 +385,9 @@ namespace Badger
                 {
                     return new Dictionary<string, object> { [ "Code" ] = fundCode };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
             }
@@ -399,9 +399,9 @@ namespace Badger
                 {
                     return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -422,9 +422,9 @@ namespace Badger
                     ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
                     : default( Dictionary<string, object> );
             }
-            catch( SystemException _ex )
+            catch( SystemException ex )
             {
-                Fail( _ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
