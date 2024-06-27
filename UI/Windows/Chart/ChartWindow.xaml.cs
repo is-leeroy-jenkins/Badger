@@ -1,42 +1,7 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-26-2024
-// 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-26-2024
-// ******************************************************************************************
-// <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
-// 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
-// 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
-// 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ChartWindow.xaml.cs
-// </summary>
-// ******************************************************************************************
+
 
 // ******************************************************************************************
 //     Assembly:                Badger
@@ -71,7 +36,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartWindow.xaml.cs
@@ -115,6 +80,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -522,7 +488,9 @@ namespace Badger
                 ColumnChart.RightWallBrush = new SolidColorBrush( _wallColor );
                 ColumnChart.SecondaryAxis = _yAxis;
                 ColumnChart.PrimaryAxis = _xAxis;
-                ColumnChart.Header = "Column Chart";
+                ColumnChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Column Chart";
             }
             catch( Exception ex )
             {
@@ -538,11 +506,13 @@ namespace Badger
             try
             {
                 PieChart.FontSize = 10;
-                PieChart.Header = "Pie Chart";
                 PieChart.Series?.Clear( );
                 PieChart.Background = new SolidColorBrush( _backColor );
                 PieChart.Foreground = new SolidColorBrush( _foreColor );
                 PieChart.BorderBrush = new SolidColorBrush( _borderColor );
+                PieChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Pie Chart";
             }
             catch( Exception ex )
             {
@@ -558,10 +528,12 @@ namespace Badger
             try
             {
                 SunburstChart.FontSize = 10;
-                SunburstChart.Header = "Sun Chart";
                 SunburstChart.Background = new SolidColorBrush( _backColor );
                 SunburstChart.Foreground = new SolidColorBrush( _foreColor );
                 SunburstChart.BorderBrush = new SolidColorBrush( _borderColor );
+                SunburstChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Sunburst Chart";
             }
             catch( Exception ex )
             {
@@ -586,12 +558,76 @@ namespace Badger
                     FontSize = 10
                 };
 
-                SmithChart.Header = "Smith Chart";
                 SmithChart.RadialAxis = _radial;
                 SmithChart.HorizontalAxis = _horizontal;
                 SmithChart.Background = new SolidColorBrush( _backColor );
                 SmithChart.Foreground = new SolidColorBrush( _foreColor );
                 SmithChart.BorderBrush = new SolidColorBrush( _borderColor );
+                SmithChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Smith Chart";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the area chart.
+        /// </summary>
+        private void InitializeAreaChart( )
+        {
+            try
+            {
+                AreaChart.FontSize = 10;
+                AreaChart.Series?.Clear( );
+                AreaChart.Background = new SolidColorBrush( _backColor );
+                AreaChart.Foreground = new SolidColorBrush( _foreColor );
+                AreaChart.BorderBrush = new SolidColorBrush( _borderColor );
+                AreaChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Area Chart";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the histogram.
+        /// </summary>
+        private void InitializeHistogram( )
+        {
+            try
+            {
+                HistogramChart.FontSize = 10;
+                HistogramChart.Series?.Clear( );
+                HistogramChart.Background = new SolidColorBrush( _backColor );
+                HistogramChart.Foreground = new SolidColorBrush( _foreColor );
+                HistogramChart.BorderBrush = new SolidColorBrush( _borderColor );
+                HistogramChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Histogram";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        private void InitializeScatterChart( )
+        {
+            try
+            {
+                ScatterChart.FontSize = 10;
+                ScatterChart.Background = new SolidColorBrush( _backColor );
+                ScatterChart.Foreground = new SolidColorBrush( _foreColor );
+                ScatterChart.BorderBrush = new SolidColorBrush( _borderColor );
+                ScatterChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Area Chart";
             }
             catch( Exception ex )
             {
@@ -1167,16 +1203,8 @@ namespace Badger
             {
                 try
                 {
-                    if( FirstComboBox.Items?.Count > 0 )
-                    {
-                        FirstComboBox.Items.Clear( );
-                    }
-
-                    if( FirstListBox.Items?.Count > 0 )
-                    {
-                        FirstListBox.Items?.Clear( );
-                    }
-
+                    FirstComboBox.Items?.Clear( );
+                    FirstListBox.Items?.Clear( );
                     for( var _index = 0; _index < _fields.Count; _index++ )
                     {
                         var _name = _fields[ _index ];
@@ -1334,10 +1362,6 @@ namespace Badger
                             NumericListBox.Items.Add( _item );
                         }
                     }
-
-                    NumericListBox.SelectionMode = SelectionMode.Multiple;
-                    GetData( );
-                    UpdateLabels( );
                 }
                 catch( Exception ex )
                 {
@@ -1557,7 +1581,7 @@ namespace Badger
         {
             try
             {
-                PopulateFirstComboBoxItems( );
+                _filter?.Clear( );
                 FilterTab.IsSelected = true;
                 FilterTab.Visibility = Visibility.Hidden;
                 GroupTab.Visibility = Visibility.Hidden;
@@ -1565,6 +1589,7 @@ namespace Badger
                 SourceTab.Visibility = Visibility.Hidden;
                 SecondComboBox.Visibility = Visibility.Hidden;
                 SecondListBox.Visibility = Visibility.Hidden;
+                PopulateFirstComboBoxItems( );
             }
             catch( Exception ex )
             {
@@ -1586,7 +1611,6 @@ namespace Badger
                 CalendarTab.Visibility = Visibility.Hidden;
                 PopulateFieldListBox( );
                 PopulateNumericListBox( );
-                NumericsLabel.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1635,13 +1659,9 @@ namespace Badger
         {
             try
             {
-                ClearSelections( );
-                ClearFilter( );
-                ClearCollections( );
-                _selectedTable = string.Empty;
                 _data = null;
                 _dataTable = null;
-                _current = null;
+                _dataSource = null;
             }
             catch( Exception ex )
             {
@@ -1652,11 +1672,11 @@ namespace Badger
         /// <summary>
         /// Clears the filter.
         /// </summary>
-        private void ClearFilter( )
+        private void ClearFilters( )
         {
             try
             {
-                if( _filter?.Any( ) == true )
+                if( _filter?.Keys?.Count > 0 )
                 {
                     _filter.Clear( );
                 }
@@ -1674,19 +1694,19 @@ namespace Badger
         {
             try
             {
-                if( _selectedColumns?.Any( ) == true )
+                if( _columns?.Count > 0 ) 
                 {
-                    _selectedColumns.Clear( );
+                    _columns.Clear( );
                 }
 
-                if( _selectedFields?.Any( ) == true )
+                if( _fields?.Count > 0 ) 
                 {
-                    _selectedFields.Clear( );
+                    _fields.Clear( );
                 }
 
-                if( _selectedNumerics?.Any( ) == true )
+                if( _numerics?.Count > 0 ) 
                 {
-                    _selectedNumerics.Clear( );
+                    _numerics.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1702,11 +1722,20 @@ namespace Badger
         {
             try
             {
-                _secondCategory = string.Empty;
-                _secondValue = string.Empty;
-                _firstCategory = string.Empty;
-                _firstValue = string.Empty;
-                _selectedTable = string.Empty;
+                if( _selectedColumns?.Count > 0 )
+                {
+                    _selectedColumns.Clear( );
+                }
+
+                if( _selectedFields?.Count > 0 )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Count > 0 )
+                {
+                    _selectedNumerics.Clear( );
+                }
             }
             catch( Exception ex )
             {
@@ -1767,29 +1796,47 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    var _table = _dataTable.TableName.SplitPascal( ) ?? string.Empty;
                     var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _vals = _numerics?.Count ?? 0;
-                    FirstLabel.Content = $"Source: {_table}";
                     SecondLabel.Content = $"Total Records: {_rows}";
                     ThirdLabel.Content = $"Total Fields: {_cols}";
                     FourthLabel.Content = $"Total Measures: {_vals}";
                     if( _filter?.Count > 0 )
                     {
-                        FifthLabel.Visibility = Visibility.Visible;
                         FifthLabel.Content = $"Selected Filters: {_filter.Count}";
-                    } 
+                    }
+                    else
+                    {
+                        FifthLabel.Content = $"Selected Filters: 0.0";
+                    }
+
+                    if( _selectedFields?.Count > 0 )
+                    {
+                        SixthLabel.Content = $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
+                    }
+                    else
+                    {
+                        SixthLabel.Content = "Selected Fields: 0.0";
+                    }
+
+                    if( _selectedFields?.Count > 0 )
+                    {
+                        SeventhLabel.Content = $"Selected Numerics: {NumericListBox.SelectedItems?.Count}";
+                    }
+                    else
+                    {
+                        SeventhLabel.Content = "Selected Numerics: 0.0";
+                    }
                 }
                 else
                 {
-                    FirstLabel.Content = $"Provider:  {_provider}";
                     SecondLabel.Content = "Total Records: 0.0";
                     ThirdLabel.Content = "Total Fields: 0.0";
                     FourthLabel.Content = "Total Measures: 0.0";
-                    FifthLabel.Visibility = Visibility.Hidden;
-                    SixthLabel.Visibility = Visibility.Hidden;
-                    SeventhLabel.Visibility = Visibility.Hidden;
+                    FifthLabel.Content = "Selected Filters: 0.0";
+                    SixthLabel.Content = "Selected Fields: 0.0";
+                    SeventhLabel.Content = "Selected Numerics: 0.0";
                 }
             }
             catch( Exception ex )
@@ -2060,9 +2107,7 @@ namespace Badger
         {
             try
             {
-                ClearData( );
                 ActivateFilterTab( );
-                UpdateLabels( );
             }
             catch( Exception ex )
             {
@@ -2092,7 +2137,6 @@ namespace Badger
         {
             try
             {
-                ClearData( );
                 ActivateSourceTab( );
             }
             catch( Exception ex )
@@ -2463,6 +2507,12 @@ namespace Badger
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                        ColumnChart.Header = _title;
+                        PieChart.Header = _title;
+                        AreaChart.Header = _title;
+                        SunburstChart.Header = _title;
+                        SmithChart.Header = _title;
+                        HistogramChart.Header = _title;
                     }
 
                     GetData( );
@@ -2642,15 +2692,11 @@ namespace Badger
                     _sqlQuery = string.Empty;
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
-                    if( SecondListBox.Items?.Count > 0 )
-                    {
-                        SecondListBox.Items?.Clear( );
-                    }
-
                     var _selection = _comboBox.SelectedItem as MetroComboBoxItem;
                     _secondCategory = _selection?.Content?.ToString( );
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
+                        SecondListBox.Items?.Clear( );
                         var _names = _data.DataElements[ _secondCategory ];
                         foreach( var _name in _names )
                         {
@@ -2683,7 +2729,11 @@ namespace Badger
             {
                 try
                 {
-                    ClearFilter( );
+                    if( _filter.Count > 0 )
+                    {
+                        _filter.Clear( );
+                    }
+
                     var _item = _listBox.SelectedItem as MetroListBoxItem;
                     _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
@@ -2720,13 +2770,14 @@ namespace Badger
 
                 if( NumericListBox.Visibility == Visibility.Hidden )
                 {
+                    NumericsLabel.Visibility = Visibility.Visible;
                     NumericListBox.Visibility = Visibility.Visible;
                 }
 
                 if( _selectedFields?.Count > 0 )
                 {
                     SixthLabel.Visibility = Visibility.Visible;
-                    SixthLabel.Content = $"Selected Fields: {_selectedFields.Count}";
+                    SixthLabel.Content = $"Selected Fields: {_listBox?.SelectedItems?.Count}";
                 }
                 else
                 {
@@ -2760,7 +2811,7 @@ namespace Badger
                 if( _selectedNumerics?.Count > 0 )
                 {
                     SeventhLabel.Visibility = Visibility.Visible;
-                    SeventhLabel.Content = $"Selected Measures: {_selectedNumerics.Count}";
+                    SeventhLabel.Content = $"Selected Measures: {_listBox?.SelectedItems?.Count}";
                 }
                 else
                 {

@@ -1646,10 +1646,11 @@ namespace Badger
         {
             try
             {
-                if( _filter?.Any( ) == true )
-                {
-                    _filter.Clear( );
-                }
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _filter?.Clear( );
             }
             catch( Exception ex )
             {
@@ -1664,20 +1665,19 @@ namespace Badger
         {
             try
             {
-                if( !string.IsNullOrEmpty( _secondValue ) )
+                if( _selectedColumns?.Any( ) == true )
                 {
-                    SecondComboBox.Items?.Clear( );
-                    SecondListBox.Items?.Clear( );
-                    _secondCategory = string.Empty;
-                    _secondValue = string.Empty;
+                    _selectedColumns.Clear( );
                 }
 
-                if( !string.IsNullOrEmpty( _firstValue ) )
+                if( _selectedFields?.Any( ) == true )
                 {
-                    FirstComboBox.Items?.Clear( );
-                    FirstListBox.Items?.Clear( );
-                    _firstCategory = string.Empty;
-                    _firstValue = string.Empty;
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Any( ) == true )
+                {
+                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1706,21 +1706,6 @@ namespace Badger
                 if( _numerics?.Any( ) == true )
                 {
                     _numerics.Clear( );
-                }
-
-                if( _selectedColumns?.Any( ) == true )
-                {
-                    _selectedColumns.Clear( );
-                }
-
-                if( _selectedFields?.Any( ) == true )
-                {
-                    _selectedFields.Clear( );
-                }
-
-                if( _selectedNumerics?.Any( ) == true )
-                {
-                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception ex )

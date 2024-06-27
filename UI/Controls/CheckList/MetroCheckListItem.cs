@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-31-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="MetroCheckList.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroCheckList.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -49,11 +49,10 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Syncfusion.Windows.Tools.Controls.CheckListBox" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <seealso cref="T:Syncfusion.Windows.Tools.Controls.CheckListBoxItem" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class MetroCheckList : CheckListBox
+    public class MetroCheckListItem : CheckListBoxItem
     {
         /// <summary>
         /// The back color
@@ -89,6 +88,17 @@ namespace Badger
         };
 
         /// <summary>
+        /// The fore hover
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
         /// The border color
         /// </summary>
         private readonly Color _borderColor = new Color( )
@@ -99,7 +109,21 @@ namespace Badger
             B = 212
         };
 
-        private protected Color _itemBackColor = new Color( )
+        /// <summary>
+        /// The border hover
+        /// </summary>
+        private protected Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The item hover
+        /// </summary>
+        private protected Color _itemHover = new Color( )
         {
             A = 255,
             R = 70,
@@ -107,41 +131,91 @@ namespace Badger
             B = 180
         };
 
+        /// <summary>
+        /// Gets or sets an arbitrary object value that can be
+        /// used to store custom information about this element.
+        /// </summary>
+        public new object Tag { get; set; }
+
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Badger.MetroCheckList" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.MetroCheckListItem" /> class.
         /// </summary>
-        /// <remarks>
-        /// The <see cref="T:Syncfusion.Windows.Tools.Controls.CheckListBox" />
-        /// displays items with a checkbox to enable multiple selection of items.
-        /// </remarks>
-        public MetroCheckList( )
-            : base( )
+        public MetroCheckListItem( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( CheckListBox ) );
+            SetResourceReference( StyleProperty, typeof( CheckListBoxItem ) );
             Width = 225;
-            Height = 200;
+            Height = 30;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
-            MouseOverBackground = new SolidColorBrush( _backHover );
-            SelectedItemBackground = new SolidColorBrush( _itemBackColor );
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalAlignment = HorizontalAlignment.Center;
             HorizontalContentAlignment = HorizontalAlignment.Left;
             VerticalContentAlignment = VerticalAlignment.Bottom;
+
+            // Event Wiring
+            MouseEnter += OnItemMouseEnter;
+            MouseLeave += OnItemMouseLeave;
         }
 
         /// <summary>
-        /// Fails the specified _ex.
+        /// Called when [item mouse enter].
         /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected void Fail( Exception _ex )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnItemMouseEnter( object sender, EventArgs e )
         {
-            var _error = new ErrorWindow( _ex );
+            try
+            {
+                if( sender is MetroCheckListItem _item )
+                {
+                    _item.Foreground = new SolidColorBrush( _foreHover );
+                    _item.Background = new SolidColorBrush( _backHover );
+                    _item.BorderBrush = new SolidColorBrush( _borderHover );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [item mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnItemMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is MetroCheckListItem _item )
+                {
+                    _item.Foreground = new SolidColorBrush( _foreColor );
+                    _item.Background = new SolidColorBrush( _backColor );
+                    _item.BorderBrush = new SolidColorBrush( _backColor );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
