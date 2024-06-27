@@ -454,6 +454,8 @@ namespace Badger
                 FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
+                FieldListBox.SelectionChanged += OnFieldListBoxSelectionChanged;
+                NumericListBox.SelectionChanged += OnNumericListBoxSelectionChanged;
             }
             catch( Exception ex )
             {
@@ -650,6 +652,8 @@ namespace Badger
         {
             try
             {
+                FieldListBox.SelectionMode = SelectionMode.Multiple;
+                NumericListBox.SelectionMode = SelectionMode.Multiple;
             }
             catch( Exception ex )
             {
@@ -1293,8 +1297,6 @@ namespace Badger
 
                         FieldListBox.Items.Add( _item );
                     }
-
-                    FieldListBox.SelectionMode = SelectionMode.Multiple;
                 }
                 catch( Exception ex )
                 {
@@ -1334,6 +1336,8 @@ namespace Badger
                     }
 
                     NumericListBox.SelectionMode = SelectionMode.Multiple;
+                    GetData( );
+                    UpdateLabels( );
                 }
                 catch( Exception ex )
                 {
@@ -1581,8 +1585,8 @@ namespace Badger
                 GroupTab.Visibility = Visibility.Hidden;
                 CalendarTab.Visibility = Visibility.Hidden;
                 PopulateFieldListBox( );
+                PopulateNumericListBox( );
                 NumericsLabel.Visibility = Visibility.Hidden;
-                NumericListBox.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1770,7 +1774,12 @@ namespace Badger
                     FirstLabel.Content = $"Source: {_table}";
                     SecondLabel.Content = $"Total Records: {_rows}";
                     ThirdLabel.Content = $"Total Fields: {_cols}";
-                    FourthLabel.Content = $"Total Measures: {_vals}"; 
+                    FourthLabel.Content = $"Total Measures: {_vals}";
+                    if( _filter?.Count > 0 )
+                    {
+                        FifthLabel.Visibility = Visibility.Visible;
+                        FifthLabel.Content = $"Selected Filters: {_filter.Count}";
+                    } 
                 }
                 else
                 {
@@ -1778,6 +1787,9 @@ namespace Badger
                     SecondLabel.Content = "Total Records: 0.0";
                     ThirdLabel.Content = "Total Fields: 0.0";
                     FourthLabel.Content = "Total Measures: 0.0";
+                    FifthLabel.Visibility = Visibility.Hidden;
+                    SixthLabel.Visibility = Visibility.Hidden;
+                    SeventhLabel.Visibility = Visibility.Hidden;
                 }
             }
             catch( Exception ex )
@@ -1912,6 +1924,7 @@ namespace Badger
                 InitializeTabControls( );
                 InitializeLabels( );
                 InitializeToolbar( );
+                InitializeListBoxes( );
                 PopulateExecutionTables( );
                 UpdateLabels( );
                 Opacity = 0;
@@ -2118,180 +2131,6 @@ namespace Badger
             {
                 var _message = "NOT YET IMPLEMENTED!";
                 SendMessage( _message );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [lookup button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnColumnButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                ActivateColumnTab( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [undo button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnPieButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivatePieTab( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [delete button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSunButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivateSunTab( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [export button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnHistogramButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivateHistogramTab( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [save button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSmithButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivateSmithTab( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [heat button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnAreaButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivateAreaTab( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [gantt button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnScatterButtonClick( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                if( _dataTable == null )
-                {
-                    var _message = "Verify data source!";
-                    SendMessage( _message );
-                }
-                else
-                {
-                    ActivateScatterTab( );
-                }
             }
             catch( Exception ex )
             {
@@ -2851,11 +2690,86 @@ namespace Badger
                     _filter.Add( _secondCategory, _secondValue );
                     GetData( );
                     UpdateLabels( );
+                    ActivateGroupTab( );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [field ListBox selected value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnFieldListBoxSelectionChanged( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                _sqlQuery = string.Empty;
+                var _listBox = sender as MetroListBox;
+                var _item = _listBox?.SelectedItem as MetroListBoxItem;
+                var _selectedItem = _item?.Content.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem )
+                    && !_selectedFields.Contains( _selectedItem ) )
+                {
+                    _selectedFields.Add( _selectedItem );
+                    _selectedColumns.Add( _selectedItem );
+                }
+
+                if( NumericListBox.Visibility == Visibility.Hidden )
+                {
+                    NumericListBox.Visibility = Visibility.Visible;
+                }
+
+                if( _selectedFields?.Count > 0 )
+                {
+                    SixthLabel.Visibility = Visibility.Visible;
+                    SixthLabel.Content = $"Selected Fields: {_selectedFields.Count}";
+                }
+                else
+                {
+                    SixthLabel.Visibility = Visibility.Hidden;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [numeric ListBox selected value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnNumericListBoxSelectionChanged( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                _selectedNumerics?.Clear( );
+                var _listBox = sender as MetroListBox;
+                var _item = _listBox?.SelectedItem as MetroListBoxItem;
+                var _selectedItem = _item?.Content.ToString( );
+                if( !string.IsNullOrEmpty( _selectedItem ) )
+                {
+                    _selectedNumerics?.Add( _selectedItem );
+                    _selectedColumns.Add( _selectedItem );
+                }
+
+                if( _selectedNumerics?.Count > 0 )
+                {
+                    SeventhLabel.Visibility = Visibility.Visible;
+                    SeventhLabel.Content = $"Selected Measures: {_selectedNumerics.Count}";
+                }
+                else
+                {
+                    SeventhLabel.Visibility = Visibility.Hidden;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

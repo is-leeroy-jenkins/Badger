@@ -118,7 +118,7 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = new SolidColorBrush( Colors.Transparent );
-            Foreground = new SolidColorBrush( _foreColor );
+            Foreground = new SolidColorBrush( _borderColor );
             BorderBrush = new SolidColorBrush( Colors.Transparent );
         }
 
