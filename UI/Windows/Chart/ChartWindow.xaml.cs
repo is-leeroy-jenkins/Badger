@@ -779,7 +779,7 @@ namespace Badger
         {
             try
             {
-                if( _filter?.Any( ) == true )
+                if( _filter?.Keys?.Count > 0 )
                 {
                     _data = new DataGenerator( _source, _provider, _filter );
                 }
@@ -2107,6 +2107,8 @@ namespace Badger
         {
             try
             {
+                GetData( );
+                UpdateLabels( );
                 ActivateFilterTab( );
             }
             catch( Exception ex )

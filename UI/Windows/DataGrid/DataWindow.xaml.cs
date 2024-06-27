@@ -197,6 +197,7 @@ namespace Badger
 
         /// <summary>
         /// The selected fields
+        /// 
         /// </summary>
         private IList<string> _selectedFields;
 
