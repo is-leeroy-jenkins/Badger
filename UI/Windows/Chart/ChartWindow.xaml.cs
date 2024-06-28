@@ -1179,6 +1179,33 @@ namespace Badger
         }
 
         /// <summary>
+        /// Hides the tab items.
+        /// </summary>
+        private void HideTabItems( )
+        {
+            try
+            {
+                HistogramTab.Visibility = Visibility.Hidden;
+                ScatterTab.Visibility = Visibility.Hidden;
+                ColumnTab.Visibility = Visibility.Hidden;
+                PieTab.Visibility = Visibility.Hidden;
+                SunTab.Visibility = Visibility.Hidden;
+                SmithTab.Visibility = Visibility.Hidden;
+                AreaTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                SourceTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+                CalendarTab.Visibility = Visibility.Hidden;
+                MetricsTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainWindow( )
@@ -1197,14 +1224,13 @@ namespace Badger
         /// <summary>
         /// Populates the first ComboBox items.
         /// </summary>
-        public void PopulateFirstComboBoxItems( )
+        private void PopulateFirstComboBoxItems( )
         {
             if( _fields?.Any( ) == true )
             {
                 try
                 {
                     FirstComboBox.Items?.Clear( );
-                    FirstListBox.Items?.Clear( );
                     for( var _index = 0; _index < _fields.Count; _index++ )
                     {
                         var _name = _fields[ _index ];
@@ -1228,14 +1254,13 @@ namespace Badger
         /// <summary>
         /// Populates the second ComboBox items.
         /// </summary>
-        public void PopulateSecondComboBoxItems( )
+        private void PopulateSecondComboBoxItems( )
         {
             if( _fields?.Any( ) == true )
             {
                 try
                 {
                     SecondComboBox.Items?.Clear( );
-                    SecondListBox.Items?.Clear( );
                     if( !string.IsNullOrEmpty( _firstValue ) )
                     {
                         for( var _index = 0; _index < _fields.Count; _index++ )
@@ -1378,14 +1403,6 @@ namespace Badger
             try
             {
                 ColumnTab.IsSelected = true;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1401,14 +1418,6 @@ namespace Badger
             try
             {
                 PieTab.IsSelected = true;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1424,14 +1433,6 @@ namespace Badger
             try
             {
                 SunTab.IsSelected = true;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1447,14 +1448,6 @@ namespace Badger
             try
             {
                 SmithTab.IsSelected = true;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1470,14 +1463,6 @@ namespace Badger
             try
             {
                 AreaTab.IsSelected = true;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1493,14 +1478,6 @@ namespace Badger
             try
             {
                 ScatterTab.IsSelected = true;
-                ScatterTab.Visibility = Visibility.Hidden;
-                ColumnTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1516,14 +1493,6 @@ namespace Badger
             try
             {
                 HistogramTab.IsSelected = true;
-                HistogramTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                BusyTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1539,14 +1508,6 @@ namespace Badger
             try
             {
                 BusyTab.IsSelected = true;
-                BusyTab.Visibility = Visibility.Visible;
-                ColumnTab.Visibility = Visibility.Hidden;
-                PieTab.Visibility = Visibility.Hidden;
-                SunTab.Visibility = Visibility.Hidden;
-                SmithTab.Visibility = Visibility.Hidden;
-                AreaTab.Visibility = Visibility.Hidden;
-                ScatterTab.Visibility = Visibility.Hidden;
-                HistogramTab.Visibility = Visibility.Hidden;
             }
             catch( Exception ex )
             {
@@ -1562,10 +1523,6 @@ namespace Badger
             try
             {
                 SourceTab.IsSelected = true;
-                SourceTab.Visibility = Visibility.Hidden;
-                FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
                 PopulateExecutionTables( );
             }
             catch( Exception ex )
@@ -1581,14 +1538,7 @@ namespace Badger
         {
             try
             {
-                _filter?.Clear( );
                 FilterTab.IsSelected = true;
-                FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
-                SourceTab.Visibility = Visibility.Hidden;
-                SecondComboBox.Visibility = Visibility.Hidden;
-                SecondListBox.Visibility = Visibility.Hidden;
                 PopulateFirstComboBoxItems( );
             }
             catch( Exception ex )
@@ -1605,12 +1555,38 @@ namespace Badger
             try
             {
                 GroupTab.IsSelected = true;
-                SourceTab.Visibility = Visibility.Hidden;
-                FilterTab.Visibility = Visibility.Hidden;
-                GroupTab.Visibility = Visibility.Hidden;
-                CalendarTab.Visibility = Visibility.Hidden;
                 PopulateFieldListBox( );
                 PopulateNumericListBox( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the calendar tab.
+        /// </summary>
+        private void ActivateCalendarTab( )
+        {
+            try
+            {
+                CalendarTab.IsSelected = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the metrics tab.
+        /// </summary>
+        private void ActivateMetricsTab( )
+        {
+            try
+            {
+                MetricsTab.IsSelected = true;
             }
             catch( Exception ex )
             {
@@ -1676,7 +1652,7 @@ namespace Badger
         {
             try
             {
-                if( _filter?.Keys?.Count > 0 )
+                if( _filter.Count > 0 )
                 {
                     _filter.Clear( );
                 }
@@ -2107,9 +2083,11 @@ namespace Badger
         {
             try
             {
+                ClearFilters( );
+                ClearSelections( );
                 GetData( );
                 UpdateLabels( );
-                ActivateFilterTab( );
+                FilterTab.IsSelected = true;
             }
             catch( Exception ex )
             {
@@ -2127,7 +2105,7 @@ namespace Badger
         {
             try
             {
-                ActivateFilterTab( );
+                FilterTab.IsSelected = true;
             }
             catch( Exception ex )
             {
@@ -2139,7 +2117,7 @@ namespace Badger
         {
             try
             {
-                ActivateSourceTab( );
+                SourceTab.IsSelected = true;
             }
             catch( Exception ex )
             {
@@ -2157,7 +2135,7 @@ namespace Badger
         {
             try
             {
-                ActivateGroupTab( );
+                GroupTab.IsSelected = true;
             }
             catch( Exception ex )
             {
@@ -2629,6 +2607,8 @@ namespace Badger
 
                         FirstListBox.Items?.Add( _item );
                     }
+
+                    PopulateSecondComboBoxItems( );
                 }
             }
             catch( Exception ex )
@@ -2741,8 +2721,8 @@ namespace Badger
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
                     GetData( );
-                    UpdateLabels( );
                     ActivateGroupTab( );
+                    UpdateLabels( );
                 }
                 catch( Exception ex )
                 {
