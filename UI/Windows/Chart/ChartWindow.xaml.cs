@@ -1316,6 +1316,8 @@ namespace Badger
 
                         DataTableListBox.Items?.Add( _item );
                     }
+
+                    DataTableListBox.SelectionMode = SelectionMode.Single;
                 }
             }
             catch( Exception ex )
@@ -2498,6 +2500,7 @@ namespace Badger
                     GetData( );
                     ActivateFilterTab( );
                     UpdateLabels( );
+                    ShowToolbar( );
                 }
                 catch( Exception ex )
                 {
@@ -2525,49 +2528,41 @@ namespace Badger
                         case "Column":
                         {
                             ActivateColumnTab( );
-
                             break;
                         }
                         case "Pie":
                         {
                             ActivatePieTab( );
-
                             break;
                         }
                         case "Sunburst":
                         {
                             ActivateSunTab( );
-
                             break;
                         }
                         case "Histogram":
                         {
                             ActivateHistogramTab( );
-
                             break;
                         }
                         case "Smith":
                         {
                             ActivateSmithTab( );
-
                             break;
                         }
                         case "Area":
                         {
                             ActivateAreaTab( );
-
                             break;
                         }
                         case "Scatter":
                         {
                             ActivateScatterTab( );
-
                             break;
                         }
                         default:
                         {
                             ActivateColumnTab( );
-
                             break;
                         }
                     }
