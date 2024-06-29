@@ -51,15 +51,36 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class View 
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class View
     {
+        /// <summary>
+        /// The name
+        /// </summary>
+        private protected string _category;
+
+        /// <summary>
+        /// The value
+        /// </summary>
+        private protected double _value;
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public string Category
+        {
+            get
+            {
+                return _category;
+            }
+            set
+            {
+                _category = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the value.
@@ -67,7 +88,17 @@ namespace Badger
         /// <value>
         /// The value.
         /// </value>
-        public double Value { get; set; }
+        public double Value
+        {
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -81,12 +112,23 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="View"/> class.
         /// </summary>
-        /// <param name="name">The name.</param>
+        /// <param name="category">The name.</param>
         /// <param name="value">The value.</param>
-        public View( string name, double value = 0.0 )
+        public View( string category, double value = 0.0 )
         {
-            Name = name;
-            Value = value;
+            _category = category;
+            _value = value;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="View"/> class.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        public View( View view )
+        {
+            _category = view.Category;
+            _value = view.Value;
         }
 
         /// <summary>
@@ -96,8 +138,8 @@ namespace Badger
         /// <param name="value">The value.</param>
         public void Deconstruct( out string name, out double value )
         {
-            name = Name;
-            value = Value;
+            name = _category;
+            value = _value;
         }
 
         /// <summary>
@@ -109,7 +151,9 @@ namespace Badger
         /// </returns>
         public override string ToString( )
         {
-            return Value.ToString( );
+            return _value != 0.0
+                ? _value.ToString( )
+                : "0.0";
         }
 
         /// <summary>

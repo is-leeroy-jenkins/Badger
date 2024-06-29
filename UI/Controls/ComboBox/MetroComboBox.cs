@@ -136,7 +136,6 @@ namespace Badger
             AllowMultiSelect = false;
             IsTextSearchEnabled = false;
             AllowSelectAll = false;
-            DefaultText = "  Category";
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );

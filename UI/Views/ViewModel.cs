@@ -48,15 +48,33 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class ViewModel : ObservableCollection<View>
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "WrongIndentSize" ) ]
+    public class ViewModel 
     {
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected ObservableCollection<View> _data;
+
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
         /// <value>
         /// The data.
         /// </value>
-        public IList<View> Data { get; set; }
+        public ObservableCollection<View> Data
+        {
+            get
+            {
+                return _data;
+            }
+            private protected set
+            {
+                _data = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -65,7 +83,76 @@ namespace Badger
         /// </summary>
         public ViewModel( )
         {
-            Data = new List<View>( );
+            _data = new ObservableCollection<View>( );
+        }
+
+        /// <summary>
+        /// Adds the specified name.
+        /// </summary>
+        /// <param name="category">The name.</param>
+        /// <param name="value">The value.</param>
+        public void Add( string category, double value = 0.0 )
+        {
+            try
+            {
+                ThrowIf.Null( category, nameof( category ) );
+                var _view = new View( category, value );
+                _data.Add( _view );
+            }
+            catch( Exception _ex )
+            { 
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified view.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        public void Add( View view )
+        {
+            try
+            {
+                ThrowIf.Null( view.Category, nameof( view.Category ) );
+                var _view = new View( view );
+                _data.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Removes the specified view.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        public void Remove( View view )
+        {
+            try
+            {
+                if( _data.Contains( view ) )
+                {
+                    var _index = _data.IndexOf( view );
+                    _data.RemoveAt( _index );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Cycles this instance.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<View> Cycle( )
+        {
+            foreach( var _item in _data )
+            {
+                yield return _item;
+            }
         }
 
         /// <summary>

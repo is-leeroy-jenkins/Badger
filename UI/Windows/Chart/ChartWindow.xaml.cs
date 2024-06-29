@@ -1,15 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-
-
-// ******************************************************************************************
-//     Assembly:                Badger
-//     Author:                  Terry D. Eppler
-//     Created:                 06-26-2024
+//     Created:                 06-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-26-2024
+//     Last Modified On:        06-28-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -36,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartWindow.xaml.cs
@@ -59,6 +54,7 @@ namespace Badger
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Charts;
     using Syncfusion.UI.Xaml.SmithChart;
+    using Syncfusion.Windows.Tools.Controls;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -117,7 +113,12 @@ namespace Badger
         /// <summary>
         /// The current
         /// </summary>
-        private protected DataRow _current;
+        private protected int _current;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _record;
 
         /// <summary>
         /// The first category
@@ -162,7 +163,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ObservableCollection<DataRow> _dataSource;
+        private protected ViewModel _dataSource;
 
         /// <summary>
         /// The filter
@@ -358,16 +359,16 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
+            Width = 1400.0;
+            MinWidth = 1200.0;
+            MaxWidth = 1500.0;
+            Height = 800.0;
+            MinHeight = 600.0;
+            MaxHeight = 900.0;
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            FontSize = 12.0;
+            Padding = new Thickness( 1.0 );
+            BorderThickness = new Thickness( 1.0 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Visualization";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -420,8 +421,8 @@ namespace Badger
                 FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
-                FieldListBox.SelectionChanged += OnFieldListBoxSelectionChanged;
-                NumericListBox.SelectionChanged += OnNumericListBoxSelectionChanged;
+                FieldListBox.ItemChecked += OnFieldCheckListItemChecked;
+                NumericListBox.ItemChecked += OnNumericCheckListItemChecked;
             }
             catch( Exception ex )
             {
@@ -459,35 +460,6 @@ namespace Badger
                     B = 55
                 };
 
-                var _chartColorModel = new ChartColorModel( );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _green ) );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
-                _chartColorModel.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
-                ColumnChart.Palette = ChartColorPalette.Custom;
-                var _yAxis = new NumericalAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Foreground = new SolidColorBrush( _foreColor ),
-                    ShowGridLines = true
-                };
-
-                var _xAxis = new CategoryAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Foreground = new SolidColorBrush( _foreColor ),
-                    ShowGridLines = true
-                };
-
-                ColumnChart.BackWallBrush = new SolidColorBrush( _wallColor );
-                ColumnChart.BottomWallBrush = new SolidColorBrush( _wallColor );
-                ColumnChart.LeftWallBrush = new SolidColorBrush( _wallColor );
-                ColumnChart.RightWallBrush = new SolidColorBrush( _wallColor );
-                ColumnChart.SecondaryAxis = _yAxis;
-                ColumnChart.PrimaryAxis = _xAxis;
                 ColumnChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
                     : "Column Chart";
@@ -688,8 +660,6 @@ namespace Badger
         {
             try
             {
-                FieldListBox.SelectionMode = SelectionMode.Multiple;
-                NumericListBox.SelectionMode = SelectionMode.Multiple;
             }
             catch( Exception ex )
             {
@@ -779,21 +749,17 @@ namespace Badger
         {
             try
             {
-                if( _filter?.Keys?.Count > 0 )
-                {
-                    _data = new DataGenerator( _source, _provider, _filter );
-                }
-                else
-                {
-                    _data = new DataGenerator( _source, _provider );
-                }
+                _data = _filter?.Keys?.Count > 0
+                    ? new DataGenerator( _source, _provider, _filter )
+                    : new DataGenerator( _source, _provider );
 
                 _dataTable = _data.DataTable;
-                _dataSource = _dataTable?.ToObservable( );
-                _current = _data.Record;
+                _record = _data.Record;
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
+                _dataSource = CreateViewModel( );
+                _current = _dataTable.Rows.IndexOf( _record );
             }
             catch( Exception ex )
             {
@@ -920,14 +886,12 @@ namespace Badger
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-
                     return $"SELECT * FROM {_selectedTable} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return string.Empty;
                 }
             }
@@ -968,7 +932,6 @@ namespace Badger
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-
                     return $"SELECT {_values} "
                         + $"FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
@@ -977,7 +940,6 @@ namespace Badger
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return string.Empty;
                 }
             }
@@ -1009,7 +971,6 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-
                     return $"SELECT {_names} FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
@@ -1017,7 +978,6 @@ namespace Badger
                 catch( Exception ex )
                 {
                     Fail( ex );
-
                     return string.Empty;
                 }
             }
@@ -1078,8 +1038,42 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default( Notifier );
+            }
+        }
+
+        /// <summary>
+        /// Creates the view model.
+        /// </summary>
+        /// <returns></returns>
+        private ViewModel CreateViewModel( )
+        {
+            try
+            {
+                if( _dataTable != null 
+                    && _numerics?.Count > 0 )
+                {
+                    var _viewModel = new ViewModel( );
+                    var _total = _dataTable.Rows?.Count;
+                    var _column = _numerics[ 0 ];
+                    for( var _index = 0; _index < _total; _index++ )
+                    {
+                        var _category = $"{_index}";
+                        var _row = _dataTable.Rows[ _index ];
+                        var _value = (double)_row[ _column ];
+                        var _view = new View( _category, _value );
+                        _viewModel.Add( _view );
+                    }
+
+                    return _viewModel;
+                }
+
+                return default( ViewModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ViewModel );
             }
         }
 
@@ -1329,7 +1323,7 @@ namespace Badger
         /// <summary>
         /// Populates the field ListBox.
         /// </summary>
-        private void PopulateFieldListBox( )
+        private void PopulateFieldCheckListBox( )
         {
             if( _fields?.Any( ) == true )
             {
@@ -1343,7 +1337,7 @@ namespace Badger
                     for( var _index = 0; _index < _fields.Count; _index++ )
                     {
                         var _name = _fields[ _index ];
-                        var _item = new MetroListBoxItem
+                        var _item = new MetroCheckListItem
                         {
                             Content = _name,
                             ToolTip = _name.SplitPascal( ),
@@ -1363,7 +1357,7 @@ namespace Badger
         /// <summary>
         /// Populates the numeric ListBox.
         /// </summary>
-        private void PopulateNumericListBox( )
+        private void PopulateNumericsCheckListBox( )
         {
             if( _numerics?.Any( ) == true )
             {
@@ -1379,7 +1373,7 @@ namespace Badger
                         var _name = _numerics[ _index ];
                         if( !string.IsNullOrEmpty( _numerics[ _index ] ) )
                         {
-                            var _item = new MetroListBoxItem
+                            var _item = new MetroCheckListItem
                             {
                                 Content = _name,
                                 ToolTip = _name.SplitPascal( ),
@@ -1557,8 +1551,8 @@ namespace Badger
             try
             {
                 GroupTab.IsSelected = true;
-                PopulateFieldListBox( );
-                PopulateNumericListBox( );
+                PopulateFieldCheckListBox( );
+                PopulateNumericsCheckListBox( );
             }
             catch( Exception ex )
             {
@@ -1603,8 +1597,8 @@ namespace Badger
         {
             try
             {
-                FirstComboBox.Items?.Clear( );
-                SecondComboBox.Items?.Clear( );
+                FirstComboBox.SelectedIndex = -1;
+                SecondComboBox.SelectedIndex = -1;
             }
             catch( Exception ex )
             {
@@ -1620,9 +1614,13 @@ namespace Badger
             try
             {
                 FirstListBox.Items?.Clear( );
+                FirstListBox.SelectedItems?.Clear( );
                 SecondListBox.Items?.Clear( );
+                SecondListBox.SelectedItems?.Clear( );
                 FieldListBox.Items?.Clear( );
+                FieldListBox.SelectedItems?.Clear( );
                 NumericListBox.Items?.Clear( );
+                NumericListBox.SelectedItems?.Clear( );
             }
             catch( Exception ex )
             {
@@ -1672,17 +1670,17 @@ namespace Badger
         {
             try
             {
-                if( _columns?.Count > 0 ) 
+                if( _columns?.Count > 0 )
                 {
                     _columns.Clear( );
                 }
 
-                if( _fields?.Count > 0 ) 
+                if( _fields?.Count > 0 )
                 {
                     _fields.Clear( );
                 }
 
-                if( _numerics?.Count > 0 ) 
+                if( _numerics?.Count > 0 )
                 {
                     _numerics.Clear( );
                 }
@@ -1728,6 +1726,12 @@ namespace Badger
         {
             try
             {
+                SecondLabel.Content = "Total Records: 0.0";
+                ThirdLabel.Content = "Total Fields: 0.0";
+                FourthLabel.Content = "Total Measures: 0.0";
+                FifthLabel.Content = "Selected Filters: 0.0";
+                SixthLabel.Content = "Selected Fields: 0.0";
+                SeventhLabel.Content = "Selected Numerics: 0.0";
             }
             catch( Exception ex )
             {
@@ -1786,21 +1790,23 @@ namespace Badger
                     }
                     else
                     {
-                        FifthLabel.Content = $"Selected Filters: 0.0";
+                        FifthLabel.Content = "Selected Filters: 0.0";
                     }
 
-                    if( _selectedFields?.Count > 0 )
+                    if( FieldListBox.SelectedItems?.Count > 0 )
                     {
-                        SixthLabel.Content = $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
+                        SixthLabel.Content =
+                            $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
                     }
                     else
                     {
                         SixthLabel.Content = "Selected Fields: 0.0";
                     }
 
-                    if( _selectedFields?.Count > 0 )
+                    if( NumericListBox.SelectedItems?.Count > 0 )
                     {
-                        SeventhLabel.Content = $"Selected Numerics: {NumericListBox.SelectedItems?.Count}";
+                        SeventhLabel.Content =
+                            $"Selected Numerics: {NumericListBox.SelectedItems?.Count}";
                     }
                     else
                     {
@@ -1815,118 +1821,6 @@ namespace Badger
                     FifthLabel.Content = "Selected Filters: 0.0";
                     SixthLabel.Content = "Selected Fields: 0.0";
                     SeventhLabel.Content = "Selected Numerics: 0.0";
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the active data tab.
-        /// </summary>
-        private void SetPrimaryTabControl( )
-        {
-            try
-            {
-                switch( PrimaryTabControl.SelectedIndex )
-                {
-                    case 0:
-                    {
-                        ActivateColumnTab( );
-
-                        break;
-                    }
-                    case 1:
-                    {
-                        ActivatePieTab( );
-
-                        break;
-                    }
-                    case 2:
-                    {
-                        ActivateSunTab( );
-
-                        break;
-                    }
-                    case 3:
-                    {
-                        ActivateHistogramTab( );
-
-                        break;
-                    }
-                    case 4:
-                    {
-                        ActivateSmithTab( );
-
-                        break;
-                    }
-                    case 5:
-                    {
-                        ActivateAreaTab( );
-
-                        break;
-                    }
-                    case 6:
-                    {
-                        ActivateScatterTab( );
-
-                        break;
-                    }
-                    case 7:
-                    {
-                        ActivateBusyTab( );
-
-                        break;
-                    }
-                    default:
-                    {
-                        ActivateColumnTab( );
-
-                        break;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the active tab.
-        /// </summary>
-        private void SetSecondaryTabControl( )
-        {
-            try
-            {
-                switch( SecondaryTabControl.SelectedIndex )
-                {
-                    case 0:
-                    {
-                        ActivateSourceTab( );
-
-                        break;
-                    }
-                    case 1:
-                    {
-                        ActivateFilterTab( );
-
-                        break;
-                    }
-                    case 2:
-                    {
-                        ActivateGroupTab( );
-
-                        break;
-                    }
-                    default:
-                    {
-                        ActivateSourceTab( );
-
-                        break;
-                    }
                 }
             }
             catch( Exception ex )
@@ -2085,11 +1979,12 @@ namespace Badger
         {
             try
             {
+                FilterTab.IsSelected = true;
                 ClearFilters( );
                 ClearSelections( );
-                GetData( );
+                ClearCollections( );
                 UpdateLabels( );
-                FilterTab.IsSelected = true;
+                GetData( );
             }
             catch( Exception ex )
             {
@@ -2107,7 +2002,15 @@ namespace Badger
         {
             try
             {
-                FilterTab.IsSelected = true;
+                if( _dataTable == null )
+                {
+                    var _message = "Verify a data table!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    FilterTab.IsSelected = true;
+                }
             }
             catch( Exception ex )
             {
@@ -2115,11 +2018,23 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [data source button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnDataSourceButtonClick( object sender, RoutedEventArgs e )
         {
             try
             {
                 SourceTab.IsSelected = true;
+                ClearData( );
+                ClearFilters( );
+                ClearSelections( );
+                ClearCollections( );
+                UpdateLabels( );
+                GetData( );
             }
             catch( Exception ex )
             {
@@ -2137,7 +2052,15 @@ namespace Badger
         {
             try
             {
-                GroupTab.IsSelected = true;
+                if( _dataTable == null )
+                {
+                    var _message = "Verify a data table!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    GroupTab.IsSelected = true;
+                }
             }
             catch( Exception ex )
             {
@@ -2404,42 +2327,6 @@ namespace Badger
                 {
                     HideToolbar( );
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnPrimaryActiveTabChanged( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                SetPrimaryTabControl( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [active tab changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnSecondaryActiveTabChanged( object sender, RoutedEventArgs e )
-        {
-            try
-            {
-                SetSecondaryTabControl( );
             }
             catch( Exception ex )
             {
@@ -2730,36 +2617,36 @@ namespace Badger
         /// Called when [field ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnFieldListBoxSelectionChanged( object sender, RoutedEventArgs e )
+        private void OnFieldCheckListItemChecked( object sender, ItemCheckedEventArgs e )
         {
             try
             {
-                _sqlQuery = string.Empty;
-                var _listBox = sender as MetroListBox;
-                var _item = _listBox?.SelectedItem as MetroListBoxItem;
-                var _selectedItem = _item?.Content.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem )
-                    && !_selectedFields.Contains( _selectedItem ) )
+                _selectedFields?.Clear( );
+                var _listBox = sender as MetroCheckList;
+                if( _listBox?.SelectedItems.Count > 0 )
                 {
-                    _selectedFields.Add( _selectedItem );
-                    _selectedColumns.Add( _selectedItem );
+                    foreach( var _listItem in _listBox.SelectedItems )
+                    {
+                        var _item = _listItem as MetroCheckListItem;
+                        var _name = _item?.Content?.ToString( );
+                        _selectedFields?.Add( _name );
+                    }
                 }
 
-                if( NumericListBox.Visibility == Visibility.Hidden )
-                {
-                    NumericsLabel.Visibility = Visibility.Visible;
-                    NumericListBox.Visibility = Visibility.Visible;
-                }
-
-                if( _selectedFields?.Count > 0 )
+                if( FieldListBox.SelectedItems?.Count > 0 )
                 {
                     SixthLabel.Visibility = Visibility.Visible;
-                    SixthLabel.Content = $"Selected Fields: {_listBox?.SelectedItems?.Count}";
+                    SixthLabel.Content = $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
                 }
                 else
                 {
                     SixthLabel.Visibility = Visibility.Hidden;
                 }
+
+                NumericsLabel.Visibility = Visibility.Visible;
+                NumericListBox.Visibility = Visibility.Visible;
+                GetData( );
+                UpdateLabels( );
             }
             catch( Exception ex )
             {
@@ -2771,29 +2658,34 @@ namespace Badger
         /// Called when [numeric ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnNumericListBoxSelectionChanged( object sender, RoutedEventArgs e )
+        private void OnNumericCheckListItemChecked( object sender, ItemCheckedEventArgs e )
         {
             try
             {
                 _selectedNumerics?.Clear( );
-                var _listBox = sender as MetroListBox;
-                var _item = _listBox?.SelectedItem as MetroListBoxItem;
-                var _selectedItem = _item?.Content.ToString( );
-                if( !string.IsNullOrEmpty( _selectedItem ) )
+                var _listBox = sender as MetroCheckList;
+                if( _listBox?.SelectedItems.Count > 0 )
                 {
-                    _selectedNumerics?.Add( _selectedItem );
-                    _selectedColumns.Add( _selectedItem );
+                    foreach( MetroCheckListItem _listItem in _listBox.SelectedItems )
+                    {
+                        var _name = _listItem?.Content?.ToString( );
+                        _selectedNumerics?.Add( _name );
+                    }
                 }
 
-                if( _selectedNumerics?.Count > 0 )
+                if( NumericListBox.SelectedItems?.Count > 0 )
                 {
                     SeventhLabel.Visibility = Visibility.Visible;
-                    SeventhLabel.Content = $"Selected Measures: {_listBox?.SelectedItems?.Count}";
+                    SeventhLabel.Content =
+                        $"Selected Measures: {NumericListBox.SelectedItems?.Count}";
                 }
                 else
                 {
                     SeventhLabel.Visibility = Visibility.Hidden;
                 }
+
+                GetData( );
+                UpdateLabels( );
             }
             catch( Exception ex )
             {

@@ -53,6 +53,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroCheckList : CheckListBox
     {
         /// <summary>
@@ -109,7 +111,8 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Badger.MetroCheckList" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.MetroCheckList" /> class.
         /// </summary>
         /// <remarks>
         /// The <see cref="T:Syncfusion.Windows.Tools.Controls.CheckListBox" />
@@ -120,14 +123,14 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( CheckListBox ) );
-            Width = 225;
-            Height = 200;
+            Width = 225.0;
+            Height = 200.0;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             MouseOverBackground = new SolidColorBrush( _backHover );
             SelectedItemBackground = new SolidColorBrush( _itemBackColor );
-            Padding = new Thickness( 1 );
+            Padding = new Thickness( 10, 1, 1, 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalAlignment = HorizontalAlignment.Center;

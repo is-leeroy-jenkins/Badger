@@ -76,9 +76,7 @@
             <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDD4" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="PieCanvas" Background="#FF141414">
-                    <local:PieChart x:Name="PieChart" Canvas.Left="30" Canvas.Top="12" HorizontalAlignment="Center"
-                            VerticalAlignment="Top" Width="800" Height="454" BorderThickness="1,1,1,1"
-                            Background="#FF141414" />
+                    <local:PieChart x:Name="PieChart" Canvas.Left="30" Canvas.Top="12" Height="454" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="SunTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
@@ -219,9 +217,9 @@
                     <Frame x:Name="SourceFrame" Content="" Height="454" Width="420" Canvas.Left="39" Canvas.Top="12"
                             HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" Background="#FF141414" />
-                    <local:MetroListBox x:Name="DataTableListBox" Height="318" Width="250"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Center" Canvas.Top="66"
-                            VerticalAlignment="Top" Canvas.Left="137" />
+                    <local:MetroListBox x:Name="DataTableListBox" Height="318" Width="266"
+                            d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Canvas.Top="66"
+                            VerticalAlignment="Center" Canvas.Left="121" />
                 </Canvas>
             </TabItem>
             <TabItem x:Name="FilterTab" Header="Filter" Background="#FF141414" BorderBrush="#FF141414"
@@ -262,15 +260,19 @@
                             BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" HorizontalAlignment="Left"
                             VerticalAlignment="Top" />
                     <local:MetroLabel x:Name="FieldsLabel" Content="Fields" Width="170" HorizontalAlignment="Left"
-                            Canvas.Left="156" Canvas.Top="48" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroListBox x:Name="NumericListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Height="136"
-                            Canvas.Left="160" Canvas.Top="294" VerticalAlignment="Top" Width="200"
-                            HorizontalAlignment="Left" />
+                            Canvas.Left="170" Canvas.Top="48" VerticalAlignment="Top" Foreground="#FF0078D4" />
                     <local:MetroLabel x:Name="NumericsLabel" Content="Numerics" Width="170" HorizontalAlignment="Left"
-                            Canvas.Left="158" Canvas.Top="261" VerticalAlignment="Top" Foreground="#FF0078D4" />
-                    <local:MetroListBox x:Name="FieldListBox" Height="145" Width="197"
-                            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="150" Canvas.Top="83"
-                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            Canvas.Left="170" Canvas.Top="261" VerticalAlignment="Top" Foreground="#FF0078D4" />
+                    <local:MetroCheckList x:Name="NumericListBox" Height="130" Width="180" Canvas.Left="173"
+                            Canvas.Top="295" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <syncfusion:CheckListBoxItem Content="CheckListBoxItem1" />
+                        <syncfusion:CheckListBoxItem Content="CheckListBoxItem2" />
+                    </local:MetroCheckList>
+                    <local:MetroCheckList x:Name="FieldListBox" Height="130" Width="180" HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Canvas.Left="173" Canvas.Top="80">
+                        <syncfusion:CheckListBoxItem Content="CheckListBoxItem1" />
+                        <syncfusion:CheckListBoxItem Content="CheckListBoxItem2" />
+                    </local:MetroCheckList>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="CalendarTab" Height="24" Header="Calendar" Width="100" Background="#FF141414"
@@ -301,23 +303,23 @@
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>
-        <local:MetroLabel x:Name="SecondLabel" Content="Total Records: 0.0" Canvas.Left="74" Canvas.Top="574"
-                Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"
+        <local:MetroLabel x:Name="SecondLabel" Content="Total Records: 0.0" Canvas.Left="64" Canvas.Top="514"
+                Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25"
                 HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
-        <local:MetroLabel x:Name="ThirdLabel" Content="Total Fields: 0.0" Canvas.Left="230" Canvas.Top="573" Width="150"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Left"
+        <local:MetroLabel x:Name="ThirdLabel" Content="Total Fields: 0.0" Canvas.Left="220" Canvas.Top="513" Width="150"
+                HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" HorizontalContentAlignment="Left"
                 VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
-        <local:MetroLabel x:Name="FourthLabel" Content="Total Numerics: 0.0" Canvas.Left="400" Canvas.Top="574"
-                Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"
+        <local:MetroLabel x:Name="FourthLabel" Content="Total Numerics: 0.0" Canvas.Left="390" Canvas.Top="514"
+                Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25"
                 HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="1,1,1,1" />
-        <local:MetroLabel x:Name="FifthLabel" Content="Selected Filters: 0.0" Canvas.Left="74" Canvas.Top="599"
+        <local:MetroLabel x:Name="FifthLabel" Content="Selected Filters: 0.0" Canvas.Left="64" Canvas.Top="539"
                 Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
-        <local:MetroLabel x:Name="SixthLabel" Content="Selected Fields: 0.0" Canvas.Left="230" Canvas.Top="598"
+                HorizontalAlignment="Left" VerticalAlignment="Center" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="SixthLabel" Content="Selected Fields: 0.0" Canvas.Left="220" Canvas.Top="538"
                 Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
-        <local:MetroLabel x:Name="SeventhLabel" Content="Selected Numerics: 0.0" Canvas.Left="400" Canvas.Top="599"
+                HorizontalAlignment="Left" VerticalAlignment="Center" Padding="1,1,1,1" />
+        <local:MetroLabel x:Name="SeventhLabel" Content="Selected Numerics: 0.0" Canvas.Left="390" Canvas.Top="539"
                 Width="150" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,1,1,1" />
+                HorizontalAlignment="Left" VerticalAlignment="Center" Padding="1,1,1,1" />
     </Canvas>
 </Window>

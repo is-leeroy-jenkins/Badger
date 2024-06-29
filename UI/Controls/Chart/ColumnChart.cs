@@ -140,6 +140,7 @@ namespace Badger
             Depth = 250;
             EnableSegmentSelection = true;
             EnableSeriesSelection = true;
+            EnableRotation = true;
             PerspectiveAngle = 100;
             SideBySideSeriesPlacement = true;
             Padding = new Thickness( 1 );
@@ -152,6 +153,21 @@ namespace Badger
             LeftWallBrush = new SolidColorBrush( _wallColor );
             RightWallBrush = new SolidColorBrush( _wallColor );
             Header = "Column Chart";
+            PrimaryAxis = new CategoryAxis3D
+            {
+                FontSize = 10,
+                ShowOrigin = true,
+                Foreground = new SolidColorBrush( _borderColor ),
+                ShowGridLines = true
+            };
+
+            SecondaryAxis = new NumericalAxis3D
+            {
+                FontSize = 10,
+                ShowOrigin = true,
+                Foreground = new SolidColorBrush( _borderColor ),
+                ShowGridLines = true
+            };
         }
 
         /// <summary>

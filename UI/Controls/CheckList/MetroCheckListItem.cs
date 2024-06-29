@@ -52,6 +52,8 @@ namespace Badger
     /// <seealso cref="T:Syncfusion.Windows.Tools.Controls.CheckListBoxItem" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroCheckListItem : CheckListBoxItem
     {
         /// <summary>
@@ -63,17 +65,6 @@ namespace Badger
             R = 45,
             G = 45,
             B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 1,
-            G = 35,
-            B = 64
         };
 
         /// <summary>
@@ -96,17 +87,6 @@ namespace Badger
             R = 255,
             G = 255,
             B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
         };
 
         /// <summary>
@@ -147,11 +127,11 @@ namespace Badger
             // Control Properties
             SetResourceReference( StyleProperty, typeof( CheckListBoxItem ) );
             Width = 225;
-            Height = 30;
+            Height = 24;
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Padding = new Thickness( 1 );
+            BorderBrush = new SolidColorBrush( _backColor );
+            Padding = new Thickness( 10, 1, 1, 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalAlignment = HorizontalAlignment.Center;
@@ -176,8 +156,8 @@ namespace Badger
                 if( sender is MetroCheckListItem _item )
                 {
                     _item.Foreground = new SolidColorBrush( _foreHover );
-                    _item.Background = new SolidColorBrush( _backHover );
-                    _item.BorderBrush = new SolidColorBrush( _borderHover );
+                    _item.Background = new SolidColorBrush( _itemHover );
+                    _item.BorderBrush = new SolidColorBrush( _itemHover );
                 }
             }
             catch( Exception ex )
