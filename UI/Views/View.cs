@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 //
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ${File.FileName}
@@ -57,7 +57,7 @@ namespace Badger
         /// <summary>
         /// The name
         /// </summary>
-        private protected string _category;
+        private protected string _name;
 
         /// <summary>
         /// The value
@@ -70,15 +70,15 @@ namespace Badger
         /// <value>
         /// The name.
         /// </value>
-        public string Category
+        public string Name
         {
             get
             {
-                return _category;
+                return _name;
             }
             set
             {
-                _category = value;
+                _name = value;
             }
         }
 
@@ -112,11 +112,11 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="View"/> class.
         /// </summary>
-        /// <param name="category">The name.</param>
+        /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public View( string category, double value = 0.0 )
+        public View( string name, double value = 0.0 )
         {
-            _category = category;
+            _name = name;
             _value = value;
         }
 
@@ -127,7 +127,7 @@ namespace Badger
         /// <param name="view">The view.</param>
         public View( View view )
         {
-            _category = view.Category;
+            _name = view.Name;
             _value = view.Value;
         }
 
@@ -138,7 +138,7 @@ namespace Badger
         /// <param name="value">The value.</param>
         public void Deconstruct( out string name, out double value )
         {
-            name = _category;
+            name = _name;
             value = _value;
         }
 

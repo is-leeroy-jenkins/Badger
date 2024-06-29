@@ -51,31 +51,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "WrongIndentSize" ) ]
-    public class ViewModel 
+    public class ViewModel : ObservableCollection<View>
     {
-        /// <summary>
-        /// The data
-        /// </summary>
-        private protected ObservableCollection<View> _data;
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public ObservableCollection<View> Data
-        {
-            get
-            {
-                return _data;
-            }
-            private protected set
-            {
-                _data = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -83,21 +60,20 @@ namespace Badger
         /// </summary>
         public ViewModel( )
         {
-            _data = new ObservableCollection<View>( );
         }
 
         /// <summary>
         /// Adds the specified name.
         /// </summary>
-        /// <param name="category">The name.</param>
+        /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public void Add( string category, double value = 0.0 )
+        public void Add( string name, double value = 0.0 )
         {
             try
             {
-                ThrowIf.Null( category, nameof( category ) );
-                var _view = new View( category, value );
-                _data.Add( _view );
+                ThrowIf.Null( name, nameof( name ) );
+                var _view = new View( name, value );
+                Items.Add( _view );
             }
             catch( Exception _ex )
             { 
@@ -109,13 +85,13 @@ namespace Badger
         /// Adds the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        public void Add( View view )
+        public new void Add( View view )
         {
             try
             {
-                ThrowIf.Null( view.Category, nameof( view.Category ) );
+                ThrowIf.Null( view.Name, nameof( view.Name ) );
                 var _view = new View( view );
-                _data.Add( _view );
+                Items.Add( _view );
             }
             catch( Exception _ex )
             {
@@ -127,14 +103,14 @@ namespace Badger
         /// Removes the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        public void Remove( View view )
+        public new void Remove( View view )
         {
             try
             {
-                if( _data.Contains( view ) )
+                if( Items.Contains( view ) )
                 {
-                    var _index = _data.IndexOf( view );
-                    _data.RemoveAt( _index );
+                    var _index = Items.IndexOf( view );
+                    Items.RemoveAt( _index );
                 }
             }
             catch( Exception _ex )
@@ -149,7 +125,7 @@ namespace Badger
         /// <returns></returns>
         public IEnumerator<View> Cycle( )
         {
-            foreach( var _item in _data )
+            foreach( var _item in Items )
             {
                 yield return _item;
             }

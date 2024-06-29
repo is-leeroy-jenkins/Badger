@@ -152,7 +152,7 @@ namespace Badger
             TopWallBrush = new SolidColorBrush( _wallColor );
             LeftWallBrush = new SolidColorBrush( _wallColor );
             RightWallBrush = new SolidColorBrush( _wallColor );
-            Header = "Column Chart";
+            BottomWallBrush = new SolidColorBrush( Colors.Black );
             PrimaryAxis = new CategoryAxis3D
             {
                 FontSize = 10,

@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartWindow.xaml.cs
@@ -77,6 +77,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -163,7 +164,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ViewModel _dataSource;
+        private protected ObservableCollection<View> _dataSource;
 
         /// <summary>
         /// The filter
@@ -463,6 +464,24 @@ namespace Badger
                 ColumnChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
                     : "Column Chart";
+
+                ColumnChart.PrimaryAxis = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Name",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                ColumnChart.SecondaryAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Value",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
             }
             catch( Exception ex )
             {
@@ -745,21 +764,42 @@ namespace Badger
         /// <summary>
         /// Binds the context.
         /// </summary>
-        private protected void GetData( )
+        private protected void BindData( )
         {
             try
             {
-                _data = _filter?.Keys?.Count > 0
+                _data = ( _filter?.Count > 0 )
                     ? new DataGenerator( _source, _provider, _filter )
                     : new DataGenerator( _source, _provider );
 
                 _dataTable = _data.DataTable;
-                _record = _data.Record;
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
                 _dataSource = CreateViewModel( );
-                _current = _dataTable.Rows.IndexOf( _record );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the column series.
+        /// </summary>
+        private protected void BindColumnSeries( )
+        {
+            try
+            {
+                ColumnChart.Series?.Clear( );
+                var _series = new ColumnSeries3D
+                {
+                    ItemsSource = _dataSource,
+                    XBindingPath = "Category",
+                    YBindingPath = "Value"
+                };
+
+                ColumnChart.Series?.Add( _series );
             }
             catch( Exception ex )
             {
@@ -1050,19 +1090,20 @@ namespace Badger
         {
             try
             {
-                if( _dataTable != null 
-                    && _numerics?.Count > 0 )
+                if( _dataTable != null
+                    && _numerics?.Count > 0
+                    && _fields?.Count > 0 )
                 {
                     var _viewModel = new ViewModel( );
-                    var _total = _dataTable.Rows?.Count;
-                    var _column = _numerics[ 0 ];
-                    for( var _index = 0; _index < _total; _index++ )
+                    for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
-                        var _category = $"{_index}";
                         var _row = _dataTable.Rows[ _index ];
-                        var _value = (double)_row[ _column ];
-                        var _view = new View( _category, _value );
-                        _viewModel.Add( _view );
+                        foreach( var _num in _numerics )
+                        {
+                            var _value = double.Parse( _row[ _num ]?.ToString( ) );
+                            var _view = new View( _num, _value );
+                            _viewModel.Add( _view );
+                        }
                     }
 
                     return _viewModel;
@@ -1614,9 +1655,7 @@ namespace Badger
             try
             {
                 FirstListBox.Items?.Clear( );
-                FirstListBox.SelectedItems?.Clear( );
                 SecondListBox.Items?.Clear( );
-                SecondListBox.SelectedItems?.Clear( );
                 FieldListBox.Items?.Clear( );
                 FieldListBox.SelectedItems?.Clear( );
                 NumericListBox.Items?.Clear( );
@@ -1784,34 +1823,17 @@ namespace Badger
                     SecondLabel.Content = $"Total Records: {_rows}";
                     ThirdLabel.Content = $"Total Fields: {_cols}";
                     FourthLabel.Content = $"Total Measures: {_vals}";
-                    if( _filter?.Count > 0 )
-                    {
-                        FifthLabel.Content = $"Selected Filters: {_filter.Count}";
-                    }
-                    else
-                    {
-                        FifthLabel.Content = "Selected Filters: 0.0";
-                    }
+                    FifthLabel.Content = _filter?.Count > 0
+                        ? $"Selected Filters: {_filter.Count}"
+                        : "Selected Filters: 0.0";
 
-                    if( FieldListBox.SelectedItems?.Count > 0 )
-                    {
-                        SixthLabel.Content =
-                            $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
-                    }
-                    else
-                    {
-                        SixthLabel.Content = "Selected Fields: 0.0";
-                    }
+                    SixthLabel.Content = _selectedFields?.Count > 0
+                        ? $"Selected Fields: {_selectedFields?.Count}"
+                        : "Selected Fields: 0.0";
 
-                    if( NumericListBox.SelectedItems?.Count > 0 )
-                    {
-                        SeventhLabel.Content =
-                            $"Selected Numerics: {NumericListBox.SelectedItems?.Count}";
-                    }
-                    else
-                    {
-                        SeventhLabel.Content = "Selected Numerics: 0.0";
-                    }
+                    SeventhLabel.Content = _selectedNumerics?.Count > 0
+                        ? $"Selected Numerics: {_selectedNumerics?.Count}"
+                        : "Selected Numerics: 0.0";
                 }
                 else
                 {
@@ -1846,6 +1868,7 @@ namespace Badger
                 InitializeListBoxes( );
                 PopulateExecutionTables( );
                 UpdateLabels( );
+                InitializeColumnChart( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -1865,8 +1888,15 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data table!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _first = _dataSource[ Index.Start ];
+                }
             }
             catch( Exception ex )
             {
@@ -1922,8 +1952,15 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                if( _dataTable == null )
+                {
+                    var _message = "Verify data table!";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    var _last = _dataSource[ Index.End ];
+                }
             }
             catch( Exception ex )
             {
@@ -1941,8 +1978,12 @@ namespace Badger
         {
             try
             {
-                var _fileBrowser = new FileBrowser( );
-                _fileBrowser.ShowDialog( );
+                var _fileBrowser = new FileBrowser
+                {
+                    Owner = this
+                };
+
+                _fileBrowser.Show( );
             }
             catch( Exception ex )
             {
@@ -1980,11 +2021,12 @@ namespace Badger
             try
             {
                 FilterTab.IsSelected = true;
-                ClearFilters( );
-                ClearSelections( );
-                ClearCollections( );
+                _filter?.Clear( );
+                _selectedNumerics?.Clear( );
+                _selectedFields?.Clear( );
+                _selectedColumns?.Clear( );
+                BindData( );
                 UpdateLabels( );
-                GetData( );
             }
             catch( Exception ex )
             {
@@ -2034,7 +2076,7 @@ namespace Badger
                 ClearSelections( );
                 ClearCollections( );
                 UpdateLabels( );
-                GetData( );
+                BindData( );
             }
             catch( Exception ex )
             {
@@ -2384,7 +2426,7 @@ namespace Badger
                         HistogramChart.Header = _title;
                     }
 
-                    GetData( );
+                    BindData( );
                     ActivateFilterTab( );
                     UpdateLabels( );
                     ShowToolbar( );
@@ -2530,7 +2572,7 @@ namespace Badger
                         SecondListBox.Visibility = Visibility.Visible;
                     }
 
-                    GetData( );
+                    BindData( );
                     PopulateSecondComboBoxItems( );
                     UpdateLabels( );
                 }
@@ -2602,7 +2644,7 @@ namespace Badger
                     _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    GetData( );
+                    BindData( );
                     ActivateGroupTab( );
                     UpdateLabels( );
                 }
@@ -2631,12 +2673,9 @@ namespace Badger
                         var _name = _item?.Content?.ToString( );
                         _selectedFields?.Add( _name );
                     }
-                }
 
-                if( FieldListBox.SelectedItems?.Count > 0 )
-                {
                     SixthLabel.Visibility = Visibility.Visible;
-                    SixthLabel.Content = $"Selected Fields: {FieldListBox.SelectedItems?.Count}";
+                    SixthLabel.Content = $"Selected Fields: {_selectedFields?.Count}";
                 }
                 else
                 {
@@ -2645,7 +2684,7 @@ namespace Badger
 
                 NumericsLabel.Visibility = Visibility.Visible;
                 NumericListBox.Visibility = Visibility.Visible;
-                GetData( );
+                BindData( );
                 UpdateLabels( );
             }
             catch( Exception ex )
@@ -2671,20 +2710,17 @@ namespace Badger
                         var _name = _listItem?.Content?.ToString( );
                         _selectedNumerics?.Add( _name );
                     }
-                }
 
-                if( NumericListBox.SelectedItems?.Count > 0 )
-                {
                     SeventhLabel.Visibility = Visibility.Visible;
                     SeventhLabel.Content =
-                        $"Selected Measures: {NumericListBox.SelectedItems?.Count}";
+                        $"Selected Measures: {_selectedNumerics?.Count}";
                 }
                 else
                 {
                     SeventhLabel.Visibility = Visibility.Hidden;
                 }
 
-                GetData( );
+                BindData( );
                 UpdateLabels( );
             }
             catch( Exception ex )
