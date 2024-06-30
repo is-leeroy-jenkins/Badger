@@ -482,6 +482,15 @@ namespace Badger
                     Foreground = new SolidColorBrush( _borderColor ),
                     ShowGridLines = true
                 };
+
+                var _series = new ColumnSeries3D
+                {
+                    ItemsSource = _dataSource,
+                    XBindingPath = "Name",
+                    YBindingPath = "Value"
+                };
+
+                ColumnChart.Series.Add( _series ); 
             }
             catch( Exception ex )
             {
@@ -777,29 +786,7 @@ namespace Badger
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
                 _dataSource = CreateViewModel( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Binds the column series.
-        /// </summary>
-        private protected void BindColumnSeries( )
-        {
-            try
-            {
-                ColumnChart.Series?.Clear( );
-                var _series = new ColumnSeries3D
-                {
-                    ItemsSource = _dataSource,
-                    XBindingPath = "Category",
-                    YBindingPath = "Value"
-                };
-
-                ColumnChart.Series?.Add( _series );
+                DataContext = _dataSource;
             }
             catch( Exception ex )
             {
