@@ -7,8 +7,8 @@
 //     Last Modified On:        03-23-2024
 // ******************************************************************************************
 // <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Badger is a small federal budget, finance, and accounting data management
+//    application for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,6 +54,7 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "ReplaceSubstringWithRangeIndexer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public static class StringExtensions
     {
         /// <summary>
@@ -69,7 +70,7 @@ namespace Badger
             try
             {
                 if( !string.IsNullOrEmpty( text )
-                   && ( text.Length > 4 ) )
+                    && ( text.Length > 4 ) )
                 {
                     var _pascal = Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled )
                         ?.Trim( );
