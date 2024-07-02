@@ -436,9 +436,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="IO\Excel\" />
-    <Folder Include="IO\Interfaces\" />
     <Folder Include="Libraries\" />
     <Folder Include="Ninja\" />
     <Folder Include="Properties\" />

@@ -7,8 +7,7 @@
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
 // <copyright file="IPath.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    Badger is a federal budget, finance, and accounting application for EPA analysts.
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy

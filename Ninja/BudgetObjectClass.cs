@@ -247,27 +247,6 @@ namespace Badger
         /// <summary>
         /// Gets the amount.
         /// </summary>
-        /// <param name="prc">The PRC.</param>
-        /// <returns></returns>
-        public double GetAmount( IProgramResultsCode prc )
-        {
-            try
-            {
-                var _amount = prc.Amount;
-                return _amount > -1
-                    ? _amount
-                    : 0;
-            }
-            catch( Exception ex )
-            {
-                BudgetObjectClass.Fail( ex );
-                return -1D;
-            }
-        }
-
-        /// <summary>
-        /// Gets the amount.
-        /// </summary>
         /// <returns></returns>
         public double GetAmount( )
         {

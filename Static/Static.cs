@@ -42,9 +42,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Text;
 
     /// <summary>
@@ -54,100 +52,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
-        /// <summary>
-        /// Gets the type of the SQL.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns>
-        /// string
-        /// </returns>
-        public static string GetSqlType( this Type type )
-        {
-            try
-            {
-                type = Nullable.GetUnderlyingType( type ) ?? type;
-                switch( type.Name )
-                {
-                    case "String":
-                    case "Boolean":
-                    {
-                        return "Text";
-                    }
-                    case "DateTime":
-                    {
-                        return "Date";
-                    }
-                    case "Int32":
-                    {
-                        return "Double";
-                    }
-                    case "Decimal":
-                    {
-                        return "Currency";
-                    }
-                    default:
-                    {
-                        return type.Name;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( string );
-            }
-        }
-
-        /// <summary>
-        /// Creates a command from a IDbConnection.
-        /// </summary>
-        /// <param name="connection">The connection.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <returns>
-        /// IDbCommand
-        /// </returns>
-        /// <exception cref="System.ArgumentNullException">connection</exception>
-        public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
-        {
-            try
-            {
-                ThrowIf.Null( sql, nameof( sql ) );
-                var _command = connection.CreateCommand( );
-                _command.CommandText = sql;
-                return !string.IsNullOrEmpty( _command?.CommandText )
-                    ? _command
-                    : default( IDbCommand );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDbCommand );
-            }
-        }
-
-        /// <summary>
-        /// Executes the non query.
-        /// </summary>
-        /// <param name="connection">The connection.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <returns>
-        /// int
-        /// </returns>
-        public static int ExecuteNonQuery( this IDbConnection connection, string sql )
-        {
-            try
-            {
-                ThrowIf.Null( sql, nameof( sql ) );
-                using var _command = connection?.CreateCommand( sql );
-                return _command?.ExecuteNonQuery( ) ?? 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
         /// <summary>
         /// Converts to log string.
         /// </summary>
