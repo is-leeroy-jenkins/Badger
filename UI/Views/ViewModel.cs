@@ -51,15 +51,53 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "WrongIndentSize" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ViewModel : ObservableCollection<View>
     {
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected ObservableCollection<View> _data;
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public ObservableCollection<View> Data
+        {
+            get
+            {
+                return _data;
+            }
+            private protected set
+            {
+                _data = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the number of elements actually contained in the
+        /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
+        /// </summary>
+        public new int Count
+        {
+            get
+            {
+                return Items.Count;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        public ViewModel( )
+        public ViewModel( ) 
+            : base( )
         {
+            _data = new ObservableCollection<View>( );
         }
 
         /// <summary>
@@ -74,6 +112,7 @@ namespace Badger
                 ThrowIf.Null( name, nameof( name ) );
                 var _view = new View( name, value );
                 Items.Add( _view );
+                _data.Add( _view );
             }
             catch( Exception _ex )
             { 
@@ -89,9 +128,10 @@ namespace Badger
         {
             try
             {
-                ThrowIf.Null( view.Name, nameof( view.Name ) );
+                ThrowIf.Null( view.Category, nameof( view.Category ) );
                 var _view = new View( view );
                 Items.Add( _view );
+                _data.Add( _view );
             }
             catch( Exception _ex )
             {
@@ -111,6 +151,7 @@ namespace Badger
                 {
                     var _index = Items.IndexOf( view );
                     Items.RemoveAt( _index );
+                    _data.RemoveAt( _index );
                 }
             }
             catch( Exception _ex )
@@ -123,11 +164,35 @@ namespace Badger
         /// Cycles this instance.
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<View> Cycle( )
+        public IEnumerator<View> IterItems( )
         {
             foreach( var _item in Items )
             {
                 yield return _item;
+            }
+        }
+
+        /// <summary>
+        /// Iters the names.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<string> IterNames( )
+        {
+            foreach( var _item in Items )
+            {
+                yield return _item.Category;
+            }
+        }
+
+        /// <summary>
+        /// Iters the values.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<double> IterValues( )
+        {
+            foreach( var _item in Items )
+            {
+                yield return _item.Value;
             }
         }
 

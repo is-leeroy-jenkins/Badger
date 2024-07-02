@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="DarkTheme.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application 
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,188 +30,109 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DarkTheme.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class DarkTheme : ColorCache
+    public class DarkTheme
+        : Palette
     {
         /// <summary>
-        /// The back color brush
+        /// Initializes a new instance of the
+        /// <see cref="DarkTheme"/> class.
         /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _darkBackColor = new Color( )
+        public DarkTheme( ) 
+            : base( )
         {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
+            ForeColor = new SolidColorBrush( _foreColor );
+            BackColor = new SolidColorBrush( _backColor );
+            BorderColor = new SolidColorBrush( _borderColor );
+            WallColor = new SolidColorBrush( _wallColor );
+            ControlColor = new SolidColorBrush( _controlColor );
+            LightBlue = new SolidColorBrush( _lightBlue );
+            HoverColor = new SolidColorBrush( _hoverColor );
+            GrayColor = new SolidColorBrush( Colors.DarkGray );
+            YellowColor = new SolidColorBrush( _yellowColor );
+            RedColor = new SolidColorBrush( _redColor );
+            KhakiColor = new SolidColorBrush( _khakiColor );
+            GreenColor = new SolidColorBrush( _greenColor );
+            _colorModel = CreateColorModel( );
+            _colorMap = CreateColorMap( );
+        }
 
+        /// <inheritdoc />
         /// <summary>
-        /// The back hover color
+        /// Creates the color model.
         /// </summary>
-        private protected Color _backHover = new Color( )
+        /// <returns>
+        /// List( Brush )
+        /// </returns>
+        public override IList<Brush> CreateColorModel( )
         {
-            A = 255,
-            R = 25,
-            G = 76,
-            B = 120
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _blueBorderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHoverColor = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        /// <summary>
-        /// Gets or sets the background.
-        /// </summary>
-        /// <value>
-        /// The background.
-        /// </value>
-        public SolidColorBrush Background
-        {
-            get
+            try
             {
-                return _backColorBrush;
+                var _list = new List<Brush>
+                {
+                    HoverColor,
+                    GrayColor,
+                    YellowColor,
+                    RedColor,
+                    KhakiColor,
+                    GreenColor
+                };
+
+                return _list?.Count > 0
+                    ? _list
+                    : default( IList<Brush> );
             }
-            set
+            catch( Exception ex )
             {
-                _backColorBrush = value;
+                Fail( ex );
+                return default( IList<Brush> );
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the foreground.
+        /// Creates the color map.
         /// </summary>
-        /// <value>
-        /// The foreground.
-        /// </value>
-        public SolidColorBrush Foreground
+        /// <returns>
+        /// Dictionary(string, Brush )
+        /// </returns>
+        public override IDictionary<string, Brush> CreateColorMap( )
         {
-            get
+            try
             {
-                return _foreColorBrush;
+                var _map = new Dictionary<string, Brush>( );
+                _map.Add( "HoverColor", HoverColor );
+                _map.Add( "GrayColor", GrayColor );
+                _map.Add( "YellowColor", YellowColor );
+                _map.Add( "RedColor", RedColor );
+                _map.Add( "KhakiColor", KhakiColor );
+                _map.Add( "GreenColor", GreenColor );
+                return _map?.Count > 0
+                    ? _map
+                    : default( IDictionary<string, Brush> );
             }
-            set
+            catch( Exception ex )
             {
-                _foreColorBrush = value;
+                Fail( ex );
+                return default( IDictionary<string, Brush> );
             }
-        }
-
-        /// <summary>
-        /// Gets or sets the border brush.
-        /// </summary>
-        /// <value>
-        /// The border brush.
-        /// </value>
-        public SolidColorBrush BorderBrush
-        {
-            get
-            {
-                return _borderColorBrush;
-            }
-            set
-            {
-                _borderColorBrush = value;
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DarkTheme"/> class.
-        /// </summary>
-        public DarkTheme( )
-        {
-            _backColorBrush = new SolidColorBrush( _darkBackColor );
-            _borderColorBrush = new SolidColorBrush( _blueBorderColor );
-            _foreColorBrush = new SolidColorBrush( _foreColor );
-            _backHoverBrush = new SolidColorBrush( _backHover );
-            _borderHoverBrush = new SolidColorBrush( _borderHoverColor );
-            _foreHoverBrush = new SolidColorBrush( _foreHover );
-            Background = _backColorBrush;
-            Foreground = _foreColorBrush;
-            BorderBrush = _borderColorBrush;
         }
     }
 }

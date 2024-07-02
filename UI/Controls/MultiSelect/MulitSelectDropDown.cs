@@ -42,6 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Grid;
 
@@ -51,7 +52,8 @@ namespace Badger
     /// <seealso cref="Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class MetroMultiSelect : SfMultiColumnDropDownControl
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class MulitSelectDropDown : SfMultiColumnDropDownControl
     {
         /// <summary>
         /// The back color
@@ -135,7 +137,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.MetroMultiSelect" /> class.
         /// </summary>
-        public MetroMultiSelect( )
+        public MulitSelectDropDown( )
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfMultiColumnDropDownControl ) );
@@ -146,6 +148,7 @@ namespace Badger
             Background = new SolidColorBrush( _backColor );
             Foreground = new SolidColorBrush( _foreColor );
             BorderBrush = new SolidColorBrush( _borderColor );
+            PopupBorderThickness = new Thickness( 1 );
             PopupBackground = new SolidColorBrush( _popupBackColor );
             PopupBorderBrush = new SolidColorBrush( _popupBorder );
         }

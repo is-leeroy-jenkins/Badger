@@ -53,6 +53,11 @@ namespace Badger
     public class PieChart : SfChart3D
     {
         /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected ChartColorModel _modelPalette;
+
+        /// <summary>
         /// The steel blue
         /// </summary>
         private protected Color _steelBlue = Colors.SteelBlue;
@@ -89,6 +94,17 @@ namespace Badger
         };
 
         /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
+        };
+
+        /// <summary>
         /// The fore color
         /// </summary>
         private protected Color _foreColor = new Color( )
@@ -102,13 +118,42 @@ namespace Badger
         /// <summary>
         /// The border color
         /// </summary>
-        private Color _borderColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
             R = 0,
             G = 120,
             B = 212
         };
+
+        /// <summary>
+        /// The light blue
+        /// </summary>
+        private protected Color _lightBlue = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// Gets the model palette.
+        /// </summary>
+        /// <value>
+        /// The model palette.
+        /// </value>
+        public ChartColorModel ModelPalette
+        {
+            get
+            {
+                return _modelPalette;
+            }
+            private protected set
+            {
+                _modelPalette = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -121,20 +166,52 @@ namespace Badger
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
-            Height = 400;
+            Height = 500;
+            FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             EnableRotation = true;
             Depth = 250;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
             EnableSegmentSelection = true;
             EnableSeriesSelection = true;
-            PerspectiveAngle = 100;
-            FontFamily = new FontFamily( "Segoe UI" );
+            EnableRotation = true;
+            PerspectiveAngle = 90;
+            SideBySideSeriesPlacement = true;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
             Header = "Pie Chart";
+            _modelPalette = CreateColorModel( );
+        }
+
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _lightBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _green ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( Colors.DarkGray ) );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
+            }
         }
 
         /// <summary>

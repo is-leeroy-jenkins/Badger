@@ -8,6 +8,7 @@
         x:Name="ChartView" x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization" Height="800" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen"
         BorderThickness="1,1,1,1" MinWidth="1200" MinHeight="650" MaxWidth="1500" MaxHeight="900">
+
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
             <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
@@ -66,20 +67,43 @@
         <local:MetroTabControl x:Name="PrimaryTabControl" Height="513" Width="863" Canvas.Top="1"
                 HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="3">
             <TabItem x:Name="ColumnTab" Header="Column" Background="#FF141414" BorderBrush="#FF141414"
-                    Foreground="#FFA0BDFC" Width="100" IsSelected="True" Height="24" Padding="6,2,6,5"
+                    Foreground="#FFA0BDFC" Width="90" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
                 <Canvas x:Name="ColumnCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:ColumnChart x:Name="ColumnChart" Canvas.Left="30" Canvas.Top="12" Background="#FF141414"
-                            BorderThickness="1,1,1,1" HorizontalAlignment="Center" Height="454" VerticalAlignment="Top" />
+                    <local:ColumnChart x:Name="ColumnChart" Canvas.Left="30" Canvas.Top="10" Height="454"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" Palette="Custom">
+                    </local:ColumnChart>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="100" Background="#FF141414" BorderBrush="#FF141414"
+            <TabItem x:Name="LineTab" HorizontalAlignment="Center" Height="24" Header="Line" VerticalAlignment="Center"
+                    Width="80" Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC">
+                <Canvas x:Name="LineCanvas" Background="#FF141414">
+                    <local:LineChart x:Name="LineChart" Canvas.Left="30" Canvas.Top="10" HorizontalAlignment="Center"
+                            Height="454" VerticalAlignment="Center" BottomWallBrush="Black" Foreground="#FFDEDEDE"
+                            LeftWallBrush="#FF373737" RightWallBrush="#FF373737" TopWallBrush="#FF373737"
+                            BackWallBrush="#FF373737">
+                        <local:LineChart.PrimaryAxis>
+                            <syncfusion:NumericalAxis3D />
+                        </local:LineChart.PrimaryAxis>
+                        <syncfusion:LineSeries3D EnableAnimation="True" />
+                    </local:LineChart>
+                </Canvas>
+            </TabItem>
+            <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="90" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDD4" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="PieCanvas" Background="#FF141414">
-                    <local:PieChart x:Name="PieChart" Canvas.Left="30" Canvas.Top="12" Height="454" />
+                    <local:PieChart x:Name="PieChart" Canvas.Left="30" Canvas.Top="12" Height="454"
+                            BackWallBrush="#FF373737" BottomWallBrush="Black" LeftWallBrush="#FF373737"
+                            RightWallBrush="#FF373737" TopWallBrush="#FF373737" Palette="Custom">
+                        <local:PieChart.PrimaryAxis>
+                            <syncfusion:CategoryAxis3D />
+                        </local:PieChart.PrimaryAxis>
+                        <syncfusion:PieSeries3D ExplodeOnMouseClick="True" Interior="#FF223BA0"
+                                LabelPosition="OutsideExtended" Palette="Custom" />
+                    </local:PieChart>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="SunTab" Header="Sunburst" Width="100" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
+            <TabItem x:Name="SunTab" Header="Sunburst" Width="90" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
                 <Canvas x:Name="SunCanvas" Background="#FF141414">
                     <SunburstChart:SfSunburstChart x:Name="SunburstChart" Canvas.Left="30" Canvas.Top="12"
@@ -88,7 +112,7 @@
                 </Canvas>
             </TabItem>
             <TabItem x:Name="HistogramTab" HorizontalAlignment="Center" Height="24" Header="Histogram"
-                    VerticalAlignment="Center" Width="70" Background="#FF141414" BorderBrush="#FF141414"
+                    VerticalAlignment="Center" Width="90" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC">
                 <Canvas x:Name="HistogramCanvas" Background="#FF141414">
                     <syncfusion:SfChart x:Name="HistogramChart" Canvas.Left="26" Canvas.Top="12" Width="806"
@@ -101,7 +125,7 @@
                     </syncfusion:SfChart>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="SmithTab" Height="24" Header="Smith" Width="100" Margin="0,0,0,0" Background="#FF141414"
+            <TabItem x:Name="SmithTab" Height="24" Header="Smith" Width="90" Margin="0,0,0,0" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
                 <Canvas x:Name="SmithCanvas" Background="#FF141414">
@@ -110,7 +134,7 @@
                             Header="Smith Chart" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="458" />
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="AreaTab" Height="24" Header="Area" Width="100" Background="#FF141414"
+            <TabItem x:Name="AreaTab" Height="24" Header="Area" Width="90" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="AreaCanvas" Background="#FF141414">
                     <syncfusion:SfChart3D x:Name="AreaChart" Width="800" BackWallBrush="#FF1E1E1E"
@@ -119,15 +143,14 @@
                             Height="458" Canvas.Left="30" Canvas.Top="12" Depth="250" EnableRotation="True"
                             Header="Area Series" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
                             HorizontalAlignment="Center" VerticalAlignment="Top" PerspectiveAngle="100" Rotation="0.01">
-                        <syncfusion:AreaSeries3D />
-                        <syncfusion:AreaSeries3D />
-                        <syncfusion:AreaSeries3D />
-                        <syncfusion:AreaSeries3D />
+                        <syncfusion:AreaSeries3D x:Name="AreaSeries" Background="#FF141414" BorderBrush="#FF0078D4"
+                                SegmentSelectionBrush="#FFA7A9AB" Interior="SteelBlue" EnableAnimation="True"
+                                Palette="Custom" ShowTooltip="True" SortDirection="Descending" SortBy="Y" />
                     </syncfusion:SfChart3D>
                 </Canvas>
             </TabItem>
             <TabItem x:Name="ScatterTab" HorizontalAlignment="Center" Height="24" Header="Scatter"
-                    VerticalAlignment="Center" Width="100" Background="#FF141414" BorderBrush="#FF141414"
+                    VerticalAlignment="Center" Width="90" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Margin="0,0,0,0">
                 <Canvas x:Name="ScatterCanvas" Background="#FF141414">
                     <syncfusion:SfChart3D x:Name="ScatterChart" Width="800" BackWallBrush="#FF1E1E1E"
@@ -136,10 +159,7 @@
                             Height="458" Canvas.Left="30" Canvas.Top="12" Depth="250" EnableRotation="True"
                             Header="Scatter Series" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1"
                             PerspectiveAngle="100" Rotation="0.01" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <syncfusion:ScatterSeries3D />
-                        <syncfusion:ScatterSeries3D />
-                        <syncfusion:ScatterSeries3D />
-                        <syncfusion:ScatterSeries3D />
+                        <syncfusion:ScatterSeries3D x:Name="ScatterSeries" />
                     </syncfusion:SfChart3D>
                 </Canvas>
             </TabItem>
@@ -171,6 +191,7 @@
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <local:MetroComboBox x:Name="ToolStripComboBox" AllowMultiSelect="false">
                 <local:MetroComboBoxItem Content="Column" />
+                <local:MetroComboBoxItem Content="Line" />
                 <local:MetroComboBoxItem Content="Pie" />
                 <local:MetroComboBoxItem Content="Sunburst" />
                 <local:MetroComboBoxItem Content="Smith" />
@@ -214,8 +235,8 @@
             <TabItem x:Name="SourceTab" Height="24" Header="Sources" Width="100" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" IsSelected="True" Margin="0,0,0,0">
                 <Canvas x:Name="SourceCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <Frame x:Name="SourceFrame" Content="" Height="454" Width="420" Canvas.Left="39" Canvas.Top="12"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF0078D4"
+                    <Frame x:Name="SourceFrame" Content="" Height="454" Width="420" Canvas.Left="41" Canvas.Top="2"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="#FF0078D4"
                             BorderThickness="1,1,1,1" Background="#FF141414" />
                     <local:MetroListBox x:Name="DataTableListBox" Height="318" Width="266"
                             d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalAlignment="Left" Canvas.Top="66"

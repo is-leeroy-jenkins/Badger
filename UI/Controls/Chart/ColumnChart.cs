@@ -41,18 +41,27 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing.Imaging;
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.Windows.Controls.Media;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class ColumnChart : SfChart3D
     {
+        /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected ChartColorModel _modelPalette;
+
         /// <summary>
         /// The steel blue
         /// </summary>
@@ -122,6 +131,35 @@ namespace Badger
             B = 212
         };
 
+        /// <summary>
+        /// The light blue
+        /// </summary>
+        private protected Color _lightBlue = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// Gets the model palette.
+        /// </summary>
+        /// <value>
+        /// The model palette.
+        /// </value>
+        public ChartColorModel ModelPalette
+        {
+            get
+            {
+                return _modelPalette;
+            }
+            private protected set
+            {
+                _modelPalette = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -153,21 +191,42 @@ namespace Badger
             LeftWallBrush = new SolidColorBrush( _wallColor );
             RightWallBrush = new SolidColorBrush( _wallColor );
             BottomWallBrush = new SolidColorBrush( Colors.Black );
-            PrimaryAxis = new CategoryAxis3D
-            {
-                FontSize = 10,
-                ShowOrigin = true,
-                Foreground = new SolidColorBrush( _borderColor ),
-                ShowGridLines = true
-            };
+            PrimaryAxis = new CategoryAxis3D( );
+            PrimaryAxis.Header = "X-Axis";
+            PrimaryAxis.Name = "Category";
+            SecondaryAxis = new NumericalAxis3D( );
+            SecondaryAxis.Header = "Y-Axis";
+            SecondaryAxis.Name = "Value";
+            _modelPalette = CreateColorModel( );
+        }
 
-            SecondaryAxis = new NumericalAxis3D
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
             {
-                FontSize = 10,
-                ShowOrigin = true,
-                Foreground = new SolidColorBrush( _borderColor ),
-                ShowGridLines = true
-            };
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _lightBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _green ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( Colors.DarkGray ) );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
+            }
         }
 
         /// <summary>

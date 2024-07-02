@@ -112,16 +112,6 @@ namespace Badger
         private protected string _selectedTable;
 
         /// <summary>
-        /// The current
-        /// </summary>
-        private protected int _current;
-
-        /// <summary>
-        /// The current
-        /// </summary>
-        private protected DataRow _record;
-
-        /// <summary>
         /// The first category
         /// </summary>
         private protected string _firstCategory;
@@ -152,6 +142,16 @@ namespace Badger
         private protected STAT _metric;
 
         /// <summary>
+        /// The current
+        /// </summary>
+        private protected int _current;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _record;
+
+        /// <summary>
         /// The data model
         /// </summary>
         private protected DataGenerator _data;
@@ -164,7 +164,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ObservableCollection<View> _dataSource;
+        private protected ObservableCollection<DataRow> _dataSource;
 
         /// <summary>
         /// The filter
@@ -313,6 +313,24 @@ namespace Badger
         };
 
         /// <summary>
+        /// Gets the data source.
+        /// </summary>
+        /// <value>
+        /// The data source.
+        /// </value>
+        public ObservableCollection<DataRow> DataSource
+        {
+            get
+            {
+                return _dataSource;
+            }
+            private protected set
+            {
+                _dataSource = value;
+            }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -360,16 +378,16 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400.0;
-            MinWidth = 1200.0;
-            MaxWidth = 1500.0;
-            Height = 800.0;
-            MinHeight = 600.0;
-            MaxHeight = 900.0;
+            Width = 1400;
+            MinWidth = 1200;
+            MaxWidth = 1500;
+            Height = 800;
+            MinHeight = 600;
+            MaxHeight = 900;
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12.0;
-            Padding = new Thickness( 1.0 );
-            BorderThickness = new Thickness( 1.0 );
+            FontSize = 12;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Visualization";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -453,44 +471,11 @@ namespace Badger
         {
             try
             {
-                var _wallColor = new Color( )
-                {
-                    A = 255,
-                    R = 55,
-                    G = 55,
-                    B = 55
-                };
-
                 ColumnChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
                     : "Column Chart";
 
-                ColumnChart.PrimaryAxis = new CategoryAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "Name",
-                    Foreground = new SolidColorBrush( _borderColor ),
-                    ShowGridLines = true
-                };
-
-                ColumnChart.SecondaryAxis = new NumericalAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "Value",
-                    Foreground = new SolidColorBrush( _borderColor ),
-                    ShowGridLines = true
-                };
-
-                var _series = new ColumnSeries3D
-                {
-                    ItemsSource = _dataSource,
-                    XBindingPath = "Name",
-                    YBindingPath = "Value"
-                };
-
-                ColumnChart.Series.Add( _series ); 
+                BindColumnAxis( );
             }
             catch( Exception ex )
             {
@@ -505,7 +490,6 @@ namespace Badger
         {
             try
             {
-                PieChart.FontSize = 10;
                 PieChart.Series?.Clear( );
                 PieChart.Background = new SolidColorBrush( _backColor );
                 PieChart.Foreground = new SolidColorBrush( _foreColor );
@@ -721,6 +705,7 @@ namespace Badger
                 ColumnTab.IsSelected = true;
                 SourceTab.IsSelected = true;
                 ColumnTab.Visibility = Visibility.Hidden;
+                LineTab.Visibility = Visibility.Hidden;
                 PieTab.Visibility = Visibility.Hidden;
                 SunTab.Visibility = Visibility.Hidden;
                 SmithTab.Visibility = Visibility.Hidden;
@@ -785,8 +770,102 @@ namespace Badger
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
-                _dataSource = CreateViewModel( );
-                DataContext = _dataSource;
+                DataContext = _dataTable;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the column chart.
+        /// </summary>
+        private protected void BindColumnSeries( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    ColumnChart.Series?.Clear( );
+                    foreach( DataRow _row in _dataTable.Rows )
+                    {
+                        var _name = _columns[ 0 ];
+                        foreach( var _measure in _numerics )
+                        {
+                            var _value = double.Parse( _row[ _measure ].ToString( ) );
+                            var _adornment = new ChartAdornmentInfo3D
+                            {
+                                ShowLabel = true,
+                                ShowMarker = true,
+                                ShowConnectorLine = true,
+                                FontSize = 10,
+                                AdornmentsPosition = AdornmentsPosition.Top,
+                                LabelPosition = AdornmentsLabelPosition.Outer,
+                                UseSeriesPalette = false,
+                                BorderThickness = new Thickness( 1 ),
+                                HighlightOnSelection = true,
+                                ConnectorRotationAngle = 45,
+                                Symbol = ChartSymbol.Diamond,
+                                SymbolInterior = new SolidColorBrush( _foreHover ),
+                                SymbolHeight = 8,
+                                BorderBrush = new SolidColorBrush( _borderColor ),
+                                Foreground = new SolidColorBrush( _foreHover ),
+                                Background = new SolidColorBrush( Colors.Black )
+                            };
+
+                            var _series = new ColumnSeries3D
+                            {
+                                ItemsSource = _row,
+                                XBindingPath = _name,
+                                YBindingPath = _measure,
+                                EnableAnimation = true,
+                                Label = _measure,
+                                Name = _measure,
+                                ShowEmptyPoints = false,
+                                ToolTip = $"{_measure} = {_value:N1}",
+                                AdornmentsInfo = _adornment,
+                                ShowTooltip = true
+                            };
+
+                            ColumnChart.Series.Add( _series );
+                        }
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the column axis.
+        /// </summary>
+        private void BindColumnAxis( )
+        {
+            try
+            {
+                ColumnChart.PrimaryAxis = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "X-Axis",
+                    Interval = 1,
+                    Name = "Categories",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                ColumnChart.SecondaryAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Y-Axis",
+                    Name = "Values",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
             }
             catch( Exception ex )
             {
@@ -946,14 +1025,14 @@ namespace Badger
                     ThrowIf.Empty( numerics, nameof( numerics ) );
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
-                    foreach( var _name in fields )
+                    foreach( var _field in fields )
                     {
-                        _cols += $"{_name}, ";
+                        _cols += $"{_field}, ";
                     }
 
-                    foreach( var _colname in numerics )
+                    foreach( var _name in numerics )
                     {
-                        _aggr += $"SUM({_colname}) AS {_colname}, ";
+                        _aggr += $"SUM({_name}) AS {_name}, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
@@ -1434,6 +1513,18 @@ namespace Badger
             }
         }
 
+        private void ActivateLineTab( )
+        {
+            try
+            {
+                LineTab.IsSelected = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Activates the pie tab.
         /// </summary>
@@ -1853,9 +1944,9 @@ namespace Badger
                 InitializeLabels( );
                 InitializeToolbar( );
                 InitializeListBoxes( );
+                InitializeColumnChart( );
                 PopulateExecutionTables( );
                 UpdateLabels( );
-                InitializeColumnChart( );
                 Opacity = 0;
                 FadeInAsync( this );
             }
@@ -2414,6 +2505,7 @@ namespace Badger
                     }
 
                     BindData( );
+                    BindColumnSeries( );
                     ActivateFilterTab( );
                     UpdateLabels( );
                     ShowToolbar( );
@@ -2444,6 +2536,11 @@ namespace Badger
                         case "Column":
                         {
                             ActivateColumnTab( );
+                            break;
+                        }
+                        case "Line":
+                        {
+                            ActivateLineTab( );
                             break;
                         }
                         case "Pie":
@@ -2632,6 +2729,7 @@ namespace Badger
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
                     BindData( );
+                    BindColumnSeries( );
                     ActivateGroupTab( );
                     UpdateLabels( );
                 }

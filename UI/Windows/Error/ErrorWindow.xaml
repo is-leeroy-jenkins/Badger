@@ -6,11 +6,10 @@
         mc:Ignorable="d" Height="250" Width="560" Background="#FF280000"
         BorderBrush="Red" Foreground="White" WindowStartupLocation="CenterScreen" WindowStyle="None"
         BorderThickness="1,1,1,1" SnapsToDevicePixels="True"
-        Icon="/UI/Windows/Error/SplashNotification.png" Margin="3,3,3,3" ResizeMode="NoResize">
+        Margin="3,3,3,3" ResizeMode="NoResize">
     <Canvas x:Name="ErrorCanvas">
-        <Image x:Name="PictureBox" Height="18" Width="20"
-                Source="/UI/Windows/Error/SplashNotification.png" HorizontalAlignment="Left"
-                Canvas.Left="2" Canvas.Top="3" VerticalAlignment="Top" />
+        <Image x:Name="PictureBox" Height="18" Width="20" HorizontalAlignment="Left"
+                Canvas.Left="2" Canvas.Top="3" VerticalAlignment="Top" Source="/UI/Windows/Error/SplashNotification.png" />
         <Label x:Name="Title" Content="Label" Width="305" Foreground="White"
                 HorizontalAlignment="Left" Canvas.Left="35" VerticalAlignment="Center" />
         <local:MetroLabel x:Name="StatusLabel" Content="MetroLabel" Width="165" Height="20"

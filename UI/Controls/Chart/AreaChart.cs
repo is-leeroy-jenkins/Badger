@@ -53,6 +53,11 @@ namespace Badger
     public class AreaChart : SfChart3D
     {
         /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected ChartColorModel _modelPalette;
+
+        /// <summary>
         /// The steel blue
         /// </summary>
         private protected Color _steelBlue = Colors.SteelBlue;
@@ -121,6 +126,35 @@ namespace Badger
             B = 212
         };
 
+        /// <summary>
+        /// The light blue
+        /// </summary>
+        private protected Color _lightBlue = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// Gets the model palette.
+        /// </summary>
+        /// <value>
+        /// The model palette.
+        /// </value>
+        public ChartColorModel ModelPalette
+        {
+            get
+            {
+                return _modelPalette;
+            }
+            private protected set
+            {
+                _modelPalette = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -139,12 +173,51 @@ namespace Badger
             Depth = 250;
             EnableSegmentSelection = true;
             EnableSeriesSelection = true;
+            EnableRotation = true;
+            PerspectiveAngle = 100;
+            SideBySideSeriesPlacement = true;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
             Header = "Area Chart";
+            PrimaryAxis = new CategoryAxis3D( );
+            PrimaryAxis.Header = "X-Axis";
+            PrimaryAxis.Name = "Category";
+            SecondaryAxis = new NumericalAxis3D( );
+            SecondaryAxis.Header = "Y-Axis";
+            SecondaryAxis.Name = "Value";
+            _modelPalette = CreateColorModel( );
+        }
+
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _lightBlue ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( _green ) );
+                _model.CustomBrushes.Add( new SolidColorBrush( Colors.DarkGray ) );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
+            }
         }
 
         /// <summary>

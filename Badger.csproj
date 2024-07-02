@@ -80,6 +80,7 @@
     <None Remove="UI\Windows\Datagrid\GroupButton.png" />
     <None Remove="UI\Windows\Datagrid\SchemaButton.png" />
     <None Remove="UI\Windows\Datagrid\SqlButton.png" />
+    <None Remove="UI\Windows\Error\SplashNotification.png" />
   </ItemGroup>
 
   <ItemGroup>

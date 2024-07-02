@@ -57,7 +57,7 @@ namespace Badger
         /// <summary>
         /// The name
         /// </summary>
-        private protected string _name;
+        private protected string _category;
 
         /// <summary>
         /// The value
@@ -70,15 +70,15 @@ namespace Badger
         /// <value>
         /// The name.
         /// </value>
-        public string Name
+        public string Category
         {
             get
             {
-                return _name;
+                return _category;
             }
             set
             {
-                _name = value;
+                _category = value;
             }
         }
 
@@ -112,11 +112,11 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="View"/> class.
         /// </summary>
-        /// <param name="name">The name.</param>
+        /// <param name="category">The name.</param>
         /// <param name="value">The value.</param>
-        public View( string name, double value = 0.0 )
+        public View( string category, double value = 0.0 )
         {
-            _name = name;
+            _category = category;
             _value = value;
         }
 
@@ -127,18 +127,18 @@ namespace Badger
         /// <param name="view">The view.</param>
         public View( View view )
         {
-            _name = view.Name;
+            _category = view.Category;
             _value = view.Value;
         }
 
         /// <summary>
         /// Deconstructs the specified name.
         /// </summary>
-        /// <param name="name">The name.</param>
+        /// <param name="category">The name.</param>
         /// <param name="value">The value.</param>
-        public void Deconstruct( out string name, out double value )
+        public void Deconstruct( out string category, out double value )
         {
-            name = _name;
+            category = _category;
             value = _value;
         }
 
