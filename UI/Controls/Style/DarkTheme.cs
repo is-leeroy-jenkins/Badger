@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-04-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-04-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
+// <copyright file="DarkTheme.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
-//
+//    Copyright ©  2024  Terry Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +19,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +30,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   DarkTheme.cs
 // </summary>
 // ******************************************************************************************
 
@@ -55,7 +55,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="DarkTheme"/> class.
         /// </summary>
-        public DarkTheme( ) 
+        public DarkTheme( )
             : base( )
         {
             ForeColor = new SolidColorBrush( _foreColor );
@@ -70,8 +70,39 @@ namespace Badger
             RedColor = new SolidColorBrush( _redColor );
             KhakiColor = new SolidColorBrush( _khakiColor );
             GreenColor = new SolidColorBrush( _greenColor );
+            _color = CreateColors( );
             _colorModel = CreateColorModel( );
             _colorMap = CreateColorMap( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Creates the colors.
+        /// </summary>
+        /// <returns></returns>
+        private protected override SolidColorBrush[ ] CreateColors( )
+        {
+            try
+            {
+                var _array = new[ ]
+                {
+                    HoverColor,
+                    GrayColor,
+                    YellowColor,
+                    RedColor,
+                    KhakiColor,
+                    GreenColor
+                };
+
+                return _array?.Length > 0
+                    ? _array
+                    : default( SolidColorBrush[ ] );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( SolidColorBrush[ ] );
+            }
         }
 
         /// <inheritdoc />
@@ -81,7 +112,7 @@ namespace Badger
         /// <returns>
         /// List( Brush )
         /// </returns>
-        public override IList<Brush> CreateColorModel( )
+        private protected override IList<Brush> CreateColorModel( )
         {
             try
             {
@@ -113,7 +144,7 @@ namespace Badger
         /// <returns>
         /// Dictionary(string, Brush )
         /// </returns>
-        public override IDictionary<string, Brush> CreateColorMap( )
+        private protected override IDictionary<string, Brush> CreateColorMap( )
         {
             try
             {

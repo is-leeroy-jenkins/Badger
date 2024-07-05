@@ -49,7 +49,6 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
-    using Syncfusion.Windows.Controls.PivotGrid;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Position;

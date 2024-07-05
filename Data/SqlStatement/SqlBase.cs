@@ -7,9 +7,9 @@
 //     Last Modified On:        19-03-2024
 // ****************************************************************************************
 // <copyright file="SqlBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="SqlStatement.cs" company="Terry D. Eppler">
+//    Badger is a federal budget, finance, and accounting application for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -121,163 +121,6 @@ namespace Badger
         private protected string _commandText;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlBase"/>
-        /// class.
-        /// </summary>
-        protected SqlBase( )
-        {
-            _criteria = new Dictionary<string, object>( );
-            _fields = new List<string>( );
-            _numerics = new List<string>( );
-            _groups = new List<string>( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, Command commandType = Command.SELECTALL )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _commandText = $"SELECT * FROM {source}";
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, string sqlText,
-            Command commandType = Command.SELECTALL )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _commandText = sqlText;
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            Command commandType = Command.SELECTALL )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _criteria = where;
-            _commandText = $@"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, Command commandType = Command.UPDATE )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _updates = updates;
-            _criteria = where;
-            _fields = updates.Keys.ToList( );
-            _commandText = GetCommandText( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, Command commandType = Command.SELECT )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _criteria = where;
-            _fields = columns.ToList( );
-            _commandText = GetCommandText( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="having"> The having. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> having,
-            Command commandType = Command.SELECT )
-            : this( )
-        {
-            _dbPath = new BudgetConnection( source, provider ).DataPath;
-            _commandType = commandType;
-            _source = source;
-            _provider = provider;
-            _tableName = source.ToString( );
-            _criteria = having;
-            _fields = fields.ToList( );
-            _numerics = numerics.ToList( );
-            _commandText = GetCommandText( );
-        }
-
-        /// <summary>
         /// Gets the command text.
         /// </summary>
         /// <returns>
@@ -325,8 +168,8 @@ namespace Badger
         private protected string CreateSelectStatement( )
         {
             if( ( _fields?.Any( ) == true )
-               && ( _criteria?.Any( ) == true )
-               && ( _numerics?.Any( ) == true ) )
+                && ( _criteria?.Any( ) == true )
+                && ( _numerics?.Any( ) == true ) )
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
@@ -348,8 +191,8 @@ namespace Badger
                     + $"GROUP BY {_group};";
             }
             else if( ( _fields?.Any( ) == true )
-                    && ( _criteria?.Any( ) == true )
-                    && ( _numerics?.Any( ) == false ) )
+                && ( _criteria?.Any( ) == true )
+                && ( _numerics?.Any( ) == false ) )
             {
                 var _cols = string.Empty;
                 foreach( var _name in _fields )
@@ -364,15 +207,15 @@ namespace Badger
                     + $"GROUP BY {_columns};";
             }
             else if( ( _fields?.Any( ) == false )
-                    && ( _criteria?.Any( ) == true )
-                    && ( _numerics?.Any( ) == false ) )
+                && ( _criteria?.Any( ) == true )
+                && ( _numerics?.Any( ) == false ) )
             {
                 var _where = _criteria.ToCriteria( );
                 return $"SELECT * FROM {_source} WHERE {_where};";
             }
             else if( ( _fields?.Any( ) == false )
-                    && ( _criteria?.Any( ) == false )
-                    && ( _numerics?.Any( ) == false ) )
+                && ( _criteria?.Any( ) == false )
+                && ( _numerics?.Any( ) == false ) )
             {
                 return $"SELECT * FROM {_source};";
             }

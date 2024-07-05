@@ -41,8 +41,6 @@
 namespace Badger
 {
     using System;
-    using System.Collections.Specialized;
-    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Net.NetworkInformation;
     using System.Text;

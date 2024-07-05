@@ -44,13 +44,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Misc\**" />
-    <EmbeddedResource Remove="Misc\**" />
-    <None Remove="Misc\**" />
-    <Page Remove="Misc\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Resources\Assets\FormImages\Application.ico" />
     <None Remove="Resources\Assets\FormImages\Main.png" />
     <None Remove="Resources\Assets\ToolStripImages\DataSourceButton.png" />
@@ -342,6 +335,7 @@
     <PackageReference Include="CefSharp.Common" Version="125.0.210" />
     <PackageReference Include="CefSharp.Common.NETCore" Version="125.0.210" />
     <PackageReference Include="CefSharp.Wpf" Version="125.0.210" />
+    <PackageReference Include="Charts.WPF" Version="1.0.0" />
     <PackageReference Include="chromiumembeddedframework.runtime" Version="125.0.21" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="125.0.21" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="125.0.21" />
@@ -353,6 +347,7 @@
     <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.2.20220510" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
     <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
+    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="Mapsui.Wpf" Version="4.1.6" />
     <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
@@ -438,8 +433,7 @@
   <ItemGroup>
     <Folder Include="IO\Excel\" />
     <Folder Include="Libraries\" />
-    <Folder Include="Ninja\" />
-    <Folder Include="Properties\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -872,7 +866,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Other\LICENSE.txt">
+    <None Update="LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

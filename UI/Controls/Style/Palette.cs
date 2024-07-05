@@ -48,9 +48,205 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExplicitArrayCreation" ) ]
     public abstract class Palette
         : IPalette
     {
+        /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected IList<Brush> _colorModel;
+
+        /// <summary>
+        /// The color map
+        /// </summary>
+        private protected IDictionary<string, Brush> _colorMap;
+
+        /// <summary>
+        /// The colors
+        /// </summary>
+        private protected SolidColorBrush[ ] _color;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _hoverColor = Colors.SteelBlue;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _redColor = Colors.Maroon;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _greenColor = Colors.DarkOliveGreen;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khakiColor = Colors.DarkKhaki;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellowColor = Colors.Yellow;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The back color
+        /// </summary>
+        private protected Color _backColor = new Color( )
+        {
+            A = 255,
+            R = 20,
+            G = 20,
+            B = 20
+        };
+
+        /// <summary>
+        /// The control color
+        /// </summary>
+        private protected Color _controlColor = new Color( )
+        {
+            A = 255,
+            R = 45,
+            G = 45,
+            B = 45
+        };
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 222,
+            G = 222,
+            B = 222
+        };
+
+        /// <summary>
+        /// The border color
+        /// </summary>
+        private protected Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The light blue
+        /// </summary>
+        private protected Color _lightBlue = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The black color
+        /// </summary>
+        private protected Color _blackColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 0,
+            B = 0
+        };
+
+        /// <summary>
+        /// The transparent color
+        /// </summary>
+        private protected Color _transparentColor = new Color( )
+        {
+            A = 0,
+            R = 0,
+            G = 0,
+            B = 0
+        };
+
+        protected Palette( )
+        {
+        }
+
+        /// <summary>
+        /// Gets or sets the colors.
+        /// </summary>
+        /// <value>
+        /// The colors.
+        /// </value>
+        public SolidColorBrush[ ] Color
+        {
+            get
+            {
+                return _color;
+            }
+            set
+            {
+                _color = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the color map.
+        /// </summary>
+        /// <value>
+        /// The color map.
+        /// </value>
+        public IDictionary<string, Brush> ColorMap
+        {
+            get
+            {
+                return _colorMap;
+            }
+            private protected set
+            {
+                _colorMap = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the color model.
+        /// </summary>
+        /// <value>
+        /// The color model.
+        /// </value>
+        public IList<Brush> ColorModel
+        {
+            get
+            {
+                return _colorModel;
+            }
+            private protected set
+            {
+                _colorModel = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the color of the fore.
@@ -177,174 +373,32 @@ namespace Badger
         /// </value>
         public SolidColorBrush GrayColor { get; private protected init; }
 
-        /// <inheritdoc />
         /// <summary>
-        /// The steel blue
+        /// Creates the colors.
         /// </summary>
-        private protected Color _hoverColor = Colors.SteelBlue;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _redColor = Colors.Maroon;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _greenColor = Colors.DarkOliveGreen;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khakiColor = Colors.DarkKhaki;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellowColor = Colors.Yellow;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
+        /// <returns></returns>
+        private protected virtual SolidColorBrush[ ] CreateColors( )
         {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The control color
-        /// </summary>
-        private protected Color _controlColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The light blue
-        /// </summary>
-        private protected Color _lightBlue = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The black color
-        /// </summary>
-        private protected Color _blackColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The transparent color
-        /// </summary>
-        private protected Color _transparentColor = new Color( )
-        {
-            A = 0,
-            R = 0,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The model palette
-        /// </summary>
-        private protected IList<Brush> _colorModel;
-
-        /// <summary>
-        /// The color map
-        /// </summary>
-        private protected IDictionary<string, Brush> _colorMap;
-
-        private SolidColorBrush _transparentColor1;
-
-        private SolidColorBrush _blackColor1;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the color map.
-        /// </summary>
-        /// <value>
-        /// The color map.
-        /// </value>
-        public IDictionary<string, Brush> ColorMap
-        {
-            get
+            try
             {
-                return _colorMap;
+                var _array = new SolidColorBrush[ ]
+                {
+                    HoverColor,
+                    GrayColor,
+                    YellowColor,
+                    RedColor,
+                    KhakiColor,
+                    GreenColor
+                };
+
+                return _array?.Length > 0
+                    ? _array
+                    : default( SolidColorBrush[ ] );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _colorMap = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the color model.
-        /// </summary>
-        /// <value>
-        /// The color model.
-        /// </value>
-        public IList<Brush> ColorModel
-        {
-            get
-            {
-                return _colorModel;
-            }
-            private protected set
-            {
-                _colorModel = value;
+                Fail( ex );
+                return default( SolidColorBrush[ ] );
             }
         }
 
@@ -353,7 +407,7 @@ namespace Badger
         /// Creates the color model.
         /// </summary>
         /// <returns></returns>
-        public virtual IList<Brush> CreateColorModel( )
+        private protected virtual IList<Brush> CreateColorModel( )
         {
             try
             {
@@ -383,7 +437,7 @@ namespace Badger
         /// Creates the color map.
         /// </summary>
         /// <returns></returns>
-        public virtual IDictionary<string, Brush> CreateColorMap( )
+        private protected virtual IDictionary<string, Brush> CreateColorMap( )
         {
             try
             {
@@ -410,7 +464,7 @@ namespace Badger
         /// Fails the specified _ex.
         /// </summary>
         /// <param name="_ex">The _ex.</param>
-        public void Fail( Exception _ex )
+        private protected void Fail( Exception _ex )
         {
             var _error = new ErrorWindow( _ex );
             _error?.SetText( );

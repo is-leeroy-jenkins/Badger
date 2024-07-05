@@ -6,10 +6,9 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        19-03-2024
 // ****************************************************************************************
-// <copyright file="SqlBuilder.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="SqlStatement.cs" company="Terry D. Eppler">
+//    Badger is a federal budget, finance, and accounting application for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -54,6 +53,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class SqlBuilder
     {
         /// <summary>
@@ -239,7 +239,7 @@ namespace Badger
             Source = source;
             CommandType = commandType;
             Extension = ext;
-            DirectoryPath = GetSqlDirectoryPath( );
+            DirectoryPath = CreateRepositoryPath( );
             Files = Directory.GetFiles( DirectoryPath );
             Commands = GetCommands( );
         }
@@ -254,8 +254,8 @@ namespace Badger
         public string GetCommandText( string commandName )
         {
             if( !string.IsNullOrEmpty( commandName )
-               && ( Commands?.Any( ) == true )
-               && ( Commands.Keys?.Contains( commandName ) == true ) )
+                && ( Commands?.Any( ) == true )
+                && ( Commands.Keys?.Contains( commandName ) == true ) )
             {
                 try
                 {
@@ -281,8 +281,8 @@ namespace Badger
         public string GetCommandText( Command sqlCommand )
         {
             if( Enum.IsDefined( typeof( Command ), sqlCommand )
-               && ( Commands?.Any( ) == true )
-               && ( Commands.Keys?.Contains( $"{sqlCommand}" ) == true ) )
+                && ( Commands?.Any( ) == true )
+                && ( Commands.Keys?.Contains( $"{sqlCommand}" ) == true ) )
             {
                 try
                 {
@@ -302,7 +302,7 @@ namespace Badger
         /// Gets the SQL directory path.
         /// </summary>
         /// <returns></returns>
-        private string GetSqlDirectoryPath( )
+        private string CreateRepositoryPath( )
         {
             if( Enum.IsDefined( typeof( EXT ), Extension ) )
             {
@@ -339,7 +339,7 @@ namespace Badger
         private IDictionary<string, string> GetCommands( )
         {
             if( Enum.IsDefined( typeof( Command ), CommandType )
-               && ( Files?.Any( ) == true ) )
+                && ( Files?.Any( ) == true ) )
             {
                 var _repository = new Dictionary<string, string>( );
                 foreach( var _file in Files )

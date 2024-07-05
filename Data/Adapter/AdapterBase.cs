@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-03-2024
 // ******************************************************************************************
 // <copyright file="AdapterBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -67,34 +67,9 @@ namespace Badger
     public class AdapterBase : DbDataAdapter
     {
         /// <summary>
-        /// The source
+        /// The command factory
         /// </summary>
-        private protected Source _source;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private protected Provider _provider;
-
-        /// <summary>
-        /// The command type
-        /// </summary>
-        private protected Command _commandType;
-
-        /// <summary>
-        /// The data connection
-        /// </summary>
-        private protected DbConnection _dataConnection;
-
-        /// <summary>
-        /// The SQL statement
-        /// </summary>
-        private protected ISqlStatement _sqlStatement;
-
-        /// <summary>
-        /// The criteria
-        /// </summary>
-        private protected IDictionary<string, object> _criteria;
+        private protected IBudgetCommand _budgetCommand;
 
         /// <summary>
         /// The commands
@@ -102,14 +77,39 @@ namespace Badger
         private protected IDictionary<string, DbCommand> _commands;
 
         /// <summary>
-        /// The command factory
-        /// </summary>
-        private protected IBudgetCommand _budgetCommand;
-
-        /// <summary>
         /// The command text
         /// </summary>
         private protected string _commandText;
+
+        /// <summary>
+        /// The command type
+        /// </summary>
+        private protected Command _commandType;
+
+        /// <summary>
+        /// The criteria
+        /// </summary>
+        private protected IDictionary<string, object> _criteria;
+
+        /// <summary>
+        /// The data connection
+        /// </summary>
+        private protected DbConnection _dataConnection;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The SQL statement
+        /// </summary>
+        private protected ISqlStatement _sqlStatement;
 
         /// <inheritdoc />
         /// <summary>
@@ -136,12 +136,13 @@ namespace Badger
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   | _commandText.StartsWith( "SELECT ALL" ) )
+                    | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SQLiteCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+
                     return _adapter;
                 }
                 else
@@ -152,6 +153,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default( SQLiteDataAdapter );
             }
         }
@@ -164,7 +166,7 @@ namespace Badger
         {
             try
             {
-                var _adapter = 
+                var _adapter =
                     new SqlDataAdapter( _commandText, _dataConnection as SqlConnection );
 
                 _adapter.ContinueUpdateOnError = true;
@@ -172,12 +174,13 @@ namespace Badger
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   | _commandText.StartsWith( "SELECT ALL" ) )
+                    | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+
                     return _adapter;
                 }
                 else
@@ -188,6 +191,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default( SqlDataAdapter );
             }
         }
@@ -201,21 +205,22 @@ namespace Badger
         {
             try
             {
-                var _adapter = 
+                var _adapter =
                     new OleDbDataAdapter( _commandText, _dataConnection as OleDbConnection );
 
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( @"SELECT *" ) 
-                   | _commandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( @"SELECT *" )
+                    | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new OleDbCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                    return ( _adapter != null )
+
+                    return _adapter != null
                         ? _adapter
                         : default( OleDbDataAdapter );
                 }
@@ -227,6 +232,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default( OleDbDataAdapter );
             }
         }
@@ -239,7 +245,7 @@ namespace Badger
         {
             try
             {
-                var _adapter = 
+                var _adapter =
                     new SqlCeDataAdapter( _commandText, _dataConnection as SqlCeConnection );
 
                 _adapter.ContinueUpdateOnError = true;
@@ -247,12 +253,13 @@ namespace Badger
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   | _commandText.StartsWith( "SELECT ALL" ) )
+                    | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCeCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
+
                     return _adapter;
                 }
                 else
@@ -263,6 +270,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+
                 return default( SqlCeDataAdapter );
             }
         }

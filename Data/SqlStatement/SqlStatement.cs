@@ -7,8 +7,7 @@
 //     Last Modified On:        19-03-2024
 // ****************************************************************************************
 // <copyright file="SqlStatement.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
+//    Badger is a federal budget, finance, and accounting application for EPA analysts.
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,6 +44,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -309,6 +309,10 @@ namespace Badger
         /// </summary>
         public SqlStatement( )
         {
+            _criteria = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _numerics = new List<string>( );
+            _groups = new List<string>( );
         }
 
         /// <inheritdoc/>
@@ -320,54 +324,38 @@ namespace Badger
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, Command commandType = Command.SELECTALL )
-            : base( source, provider, commandType )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlStatement"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        public SqlStatement( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlStatement"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, string sqlText, Command commandType )
-            : base( source, provider, sqlText, commandType )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.SqlStatement"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> </param>
-        /// <param name="commandType"> </param>
-        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where,
+        public SqlStatement( Source source, Provider provider, 
             Command commandType = Command.SELECTALL )
-            : base( source, provider, where, commandType )
+            : this( )
         {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _commandText = $"SELECT * FROM {source}";
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.SqlStatement"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name = "commandType" > </param>
+        public SqlStatement( Source source, Provider provider, string sqlText,
+            Command commandType = Command.SELECTALL )
+            : this( )
+        {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _commandText = sqlText;
         }
 
         /// <inheritdoc/>
@@ -383,8 +371,17 @@ namespace Badger
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : this( )
         {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _updates = updates;
+            _criteria = where;
+            _fields = updates.Keys.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -397,10 +394,17 @@ namespace Badger
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="where"> The arguments. </param>
-        public SqlStatement( Source source, Provider provider, Command commandType,
-            IDictionary<string, object> where )
-            : base( source, provider, where, commandType )
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where,
+            Command commandType = Command.SELECTALL )
+            : this( )
         {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = where;
+            _commandText = $@"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
         /// <inheritdoc/>
@@ -416,8 +420,16 @@ namespace Badger
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
-            : base( source, provider, columns, where, commandType )
+            : this( )
         {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = where;
+            _fields = columns.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -435,9 +447,17 @@ namespace Badger
         public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
             Command commandType = Command.SELECT )
-            : base( source, provider, fields, numerics, having,
-                commandType )
+            : this( )
         {
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = having;
+            _fields = fields.ToList( );
+            _numerics = numerics.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <summary> Converts to string. </summary>

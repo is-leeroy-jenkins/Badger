@@ -41,7 +41,6 @@
 namespace Badger
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 

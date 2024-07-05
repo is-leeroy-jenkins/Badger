@@ -152,7 +152,7 @@ namespace Badger
         public override string ToString( )
         {
             return _value != 0.0
-                ? _value.ToString( )
+                ? _value.ToString( "N0" )
                 : "0.0";
         }
 

@@ -49,11 +49,11 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Syncfusion.UI.Xaml.Charts.SfChart3D" />
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Charts.SfChart" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class LineChart : SfChart3D
+    public class LineChart : SfChart
     {
         /// <summary>
         /// The model palette
@@ -167,28 +167,21 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            EnableRotation = true;
-            Depth = 250;
-            EnableSegmentSelection = true;
-            EnableSeriesSelection = true;
-            EnableRotation = true;
-            PerspectiveAngle = 100;
-            SideBySideSeriesPlacement = true;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
             Header = "Line Chart";
-            PrimaryAxis = new CategoryAxis3D( );
+            PrimaryAxis = new CategoryAxis( );
             PrimaryAxis.Header = "X-Axis";
             PrimaryAxis.Name = "Category";
-            SecondaryAxis = new NumericalAxis3D( );
+            SecondaryAxis = new NumericalAxis( );
             SecondaryAxis.Header = "Y-Axis";
             SecondaryAxis.Name = "Value";
             _modelPalette = CreateColorModel( );

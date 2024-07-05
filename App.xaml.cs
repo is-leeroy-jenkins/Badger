@@ -77,12 +77,7 @@ namespace Badger
             "CalendarEdit",
             "PivotGridControl",
             "MetroPivotGrid",
-            "MetroChart",
-            "SfChart3D",
             "SfChart",
-            "SfSmithChart",
-            "SfSunburstChart",
-            "SfSurfaceChart",
             "SfHeatMap",
             "SfMap",
             "MetroMap",
@@ -104,7 +99,8 @@ namespace Badger
             "MenuItemAdv",
             "ButtonAdv",
             "Carousel",
-            "ColorEdit"
+            "ColorEdit",
+            "SfMultiColumnDropDownControl"
         };
 
         /// <summary>

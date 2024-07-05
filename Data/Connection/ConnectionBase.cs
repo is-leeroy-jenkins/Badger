@@ -43,7 +43,6 @@ namespace Badger
     using System;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
     using System.Linq;
     using static System.Configuration.ConfigurationManager;
     using static System.IO.Path;

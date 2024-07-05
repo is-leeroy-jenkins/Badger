@@ -43,11 +43,9 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing.Imaging;
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
-    using Syncfusion.Windows.Controls.Media;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -55,12 +53,12 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    public class ColumnChart : SfChart3D
+    public class ColumnChart : SfChart
     {
         /// <summary>
         /// The model palette
         /// </summary>
-        private protected ChartColorModel _modelPalette;
+        private protected ChartColorModel _palette;
 
         /// <summary>
         /// The steel blue
@@ -142,24 +140,6 @@ namespace Badger
             B = 252
         };
 
-        /// <summary>
-        /// Gets the model palette.
-        /// </summary>
-        /// <value>
-        /// The model palette.
-        /// </value>
-        public ChartColorModel ModelPalette
-        {
-            get
-            {
-                return _modelPalette;
-            }
-            private protected set
-            {
-                _modelPalette = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -169,35 +149,86 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            EnableRotation = true;
-            Depth = 250;
-            EnableSegmentSelection = true;
-            EnableSeriesSelection = true;
-            EnableRotation = true;
-            PerspectiveAngle = 100;
             SideBySideSeriesPlacement = true;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             Background = new SolidColorBrush( _backColor );
             BorderBrush = new SolidColorBrush( _borderColor );
             Foreground = new SolidColorBrush( _foreColor );
-            BackWallBrush = new SolidColorBrush( _wallColor );
-            TopWallBrush = new SolidColorBrush( _wallColor );
-            LeftWallBrush = new SolidColorBrush( _wallColor );
-            RightWallBrush = new SolidColorBrush( _wallColor );
-            BottomWallBrush = new SolidColorBrush( Colors.Black );
-            PrimaryAxis = new CategoryAxis3D( );
+            PrimaryAxis = new CategoryAxis( );
             PrimaryAxis.Header = "X-Axis";
             PrimaryAxis.Name = "Category";
-            SecondaryAxis = new NumericalAxis3D( );
+            SecondaryAxis = new NumericalAxis( );
             SecondaryAxis.Header = "Y-Axis";
             SecondaryAxis.Name = "Value";
-            _modelPalette = CreateColorModel( );
+            Palette = ChartColorPalette.Custom;
+            ColorModel = CreateColorModel( );
+        }
+
+        /// <summary>
+        /// Creates the categorical axis.
+        /// </summary>
+        /// <returns>
+        /// CategoryAxis3D
+        /// </returns>
+        private CategoryAxis CreateCategoricalAxis( )
+        {
+            try
+            {
+                var _categoricalAxis = new CategoryAxis
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "X-Axis",
+                    Interval = 1,
+                    Name = "Category",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return ( _categoricalAxis != null )
+                    ? _categoricalAxis
+                    : default( CategoryAxis );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( CategoryAxis );
+            }
+        }
+
+        /// <summary>
+        /// Creates the numerical axis.
+        /// </summary>
+        /// <returns>
+        /// NumericalAxis3D 
+        /// </returns>
+        private NumericalAxis3D CreateNumericalAxis( )
+        {
+            try
+            {
+                var _numericalAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Y-Axis",
+                    Name = "Values",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return _numericalAxis;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( NumericalAxis3D );
+            }
         }
 
         /// <summary>
@@ -226,6 +257,51 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartColorModel );
+            }
+        }
+
+        /// <summary>
+        /// Creates the palette.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<Brush> CreatePalette( )
+        {
+            try
+            {
+                var _model = new List<Brush>( );
+                _model.Add( new SolidColorBrush( _steelBlue ) );
+                _model.Add( new SolidColorBrush( _khaki ) );
+                _model.Add( new SolidColorBrush( _maroon ) );
+                _model.Add( new SolidColorBrush( _lightBlue ) );
+                _model.Add( new SolidColorBrush( _yellow ) );
+                _model.Add( new SolidColorBrush( _green ) );
+                _model.Add( new SolidColorBrush( Colors.DarkGray ) );
+                return ( _model.Count > 0 )
+                    ? _model
+                    : default( IList<Brush> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<Brush> );
+            }
+        }
+
+        /// <summary>
+        /// Called when [loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnLoaded( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                ColorModel = CreateColorModel( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

@@ -1,49 +1,43 @@
 ﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Badger"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-        x:Name="MapView" x:Class="Badger.MapWindow" mc:Ignorable="d" Title=" GIS Data" Height="800"
-        Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="12"
-        Background="#FF141414" WindowStartupLocation="CenterScreen"
-        Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1" BorderThickness="1,1,1,1">
+        x:Name="MapView" x:Class="Badger.MapWindow" mc:Ignorable="d" Title=" GIS Data" Height="800" Width="1400"
+        BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="12" Background="#FF141414"
+        WindowStartupLocation="CenterScreen" Icon="/UI/Windows/Map/Application.png" Padding="1,1,1,1"
+        BorderThickness="1,1,1,1">
     <Window.ContextMenu>
         <ContextMenu Name="MapWindowContextMenu">
-            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System"
-                    Click="OnFileMenuOptionClick">
+            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
-                    Click="OnFolderMenuOptionClick">
+            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories" Click="OnFolderMenuOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
-            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser"
-                    Click="OnChromeOptionClick">
+            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser" Click="OnChromeOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser"
-                    Click="OnEdgeOptionClick">
+            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser" Click="OnEdgeOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
-                    Click="OnFirefoxOptionClick">
+            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser" Click="OnFirefoxOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
-            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
-                    Click="OnCalculatorMenuOptionClick">
+            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator" Click="OnCalculatorMenuOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/UI/Windows/Command/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
@@ -61,8 +55,7 @@
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
-            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
-                    Click="OnCloseOptionClick">
+            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application" Click="OnCloseOptionClick">
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
@@ -70,28 +63,20 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas x:Name="MapCanvas">
-        <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="400"
-                Canvas.Left="30" Canvas.Top="85" VerticalAlignment="Top" Width="620"
-                NavigationControlPosition="Right" HorizontalAlignment="Center" MaxZoom="102"
-                ShowCoords="True" ShowNavigationControl="True" BorderThickness="1,1,1,1"
+        <syncfusion:SfMap x:Name="Map" RenderTransformOrigin="0.555,0.503" Height="400" Canvas.Left="30" Canvas.Top="85"
+                VerticalAlignment="Top" Width="620" NavigationControlPosition="Right" HorizontalAlignment="Center"
+                MaxZoom="102" ShowCoords="True" ShowNavigationControl="True" BorderThickness="1,1,1,1"
                 BorderBrush="#FF0078D4">
             <syncfusion:SfMap.Layers>
                 <syncfusion:ImageryLayer x:Name="ImageLayer" Margin="265,0,242,0" Height="352"
                         RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
-        <local:ColumnChart x:Name="Chart" Width="605" HorizontalAlignment="Center" Height="400"
-                Canvas.Left="740" Canvas.Top="85" VerticalAlignment="Top" BorderBrush="#FF0078D4"
-                BottomWallBrush="#FF323232" LeftWallBrush="#FF323232" RightWallBrush="#FF323232"
-                TopWallBrush="#FF323232" PerspectiveAngle="100" EnableRotation="True"
-                Header="Chart Title" EnableSeriesSelection="True" BorderThickness="1,1,1,1" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400" Canvas.Top="720" Canvas.Left="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="65" Padding="3,1,1,1"
                     HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
             <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
                     ImageSource="/UI/Windows/Map/FirstButton.png" Height="30" />
@@ -101,38 +86,35 @@
                     ImageSource="/UI/Windows/Map/NextButton.png" Height="30" />
             <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
                     ImageSource="/UI/Windows/Map/LastButton.png" Height="30" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
-                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25" Padding="10,1,1,1"
+                    VerticalContentAlignment="Center" Width="200" />
+            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
                     ImageSource="/UI/Windows/Map/LookUpButton.png" Height="30" />
             <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
                     ImageSource="/UI/Windows/Map/RefreshButton.png" Height="30" />
             <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC" ToolTip="Filters"
                     ImageSource="/UI/Windows/Map/FilterButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Map/EditButton.png" Height="30" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Map/BackButton.png" Height="30" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Map/SaveButton.png" Height="30" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/Map/DeleteButton.png" Height="30" />
-            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
-                    ImageSource="/UI/Windows/Map/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Map/BrowseButton.png" Height="30" />
+            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit" ImageSource="/UI/Windows/Map/EditButton.png"
+                    Height="30" />
+            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last" ImageSource="/UI/Windows/Map/BackButton.png"
+                    Height="30" />
+            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save" ImageSource="/UI/Windows/Map/SaveButton.png"
+                    Height="30" />
+            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete" ImageSource="/UI/Windows/Map/DeleteButton.png"
+                    Height="30" />
+            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export" ImageSource="/UI/Windows/Map/ExportButton.png" />
+            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse" ImageSource="/UI/Windows/Map/BrowseButton.png"
+                    Height="30" />
             <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
             <Separator Background="{x:Null}" BorderBrush="{x:Null}" Width="30" />
-            <local:ToolStripButton x:Name="ToggleButton"
-                    ImageSource="/UI/Windows/Map/ToggleButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Map/MenuButton.png" Height="30" />
+            <local:ToolStripButton x:Name="ToggleButton" ImageSource="/UI/Windows/Map/ToggleButton.png" />
+            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu" ImageSource="/UI/Windows/Map/MenuButton.png"
+                    Height="30" />
         </local:ToolStrip>
+        <syncfusion:SfChart x:Name="ColumnChart" Canvas.Left="790" Canvas.Top="85" HorizontalAlignment="Center" Height="400"
+                VerticalAlignment="Center" Width="550" />
     </Canvas>
 </Window>

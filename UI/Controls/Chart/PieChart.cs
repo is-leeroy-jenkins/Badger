@@ -50,7 +50,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    public class PieChart : SfChart3D
+    public class PieChart : SfChart
     {
         /// <summary>
         /// The model palette
@@ -164,17 +164,11 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            EnableRotation = true;
-            Depth = 250;
-            EnableSegmentSelection = true;
-            EnableSeriesSelection = true;
-            EnableRotation = true;
-            PerspectiveAngle = 90;
             SideBySideSeriesPlacement = true;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );

@@ -176,17 +176,5 @@ namespace Badger
         /// The color model.
         /// </value>
         IList<Brush> ColorModel { get; }
-
-        /// <summary>
-        /// Creates the color model.
-        /// </summary>
-        /// <returns></returns>
-        IList<Brush> CreateColorModel( );
-
-        /// <summary>
-        /// Creates the color map.
-        /// </summary>
-        /// <returns></returns>
-        IDictionary<string, Brush> CreateColorMap( );
     }
 }

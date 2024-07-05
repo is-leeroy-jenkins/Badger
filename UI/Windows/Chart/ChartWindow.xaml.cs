@@ -78,6 +78,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -324,7 +325,7 @@ namespace Badger
             {
                 return _dataSource;
             }
-            private protected set
+            set
             {
                 _dataSource = value;
             }
@@ -475,7 +476,9 @@ namespace Badger
                     ? _dataTable.TableName.SplitPascal( )
                     : "Column Chart";
 
-                BindColumnAxis( );
+                ColumnChart.PrimaryAxis = CreateCategoricalAxis3D( );
+                ColumnChart.SecondaryAxis = CreateNumericalAxis3D( );
+                ColumnChart.Name = "ColumnChart";
             }
             catch( Exception ex )
             {
@@ -770,7 +773,8 @@ namespace Badger
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
-                DataContext = _dataTable;
+                _dataSource = _dataTable.ToObservable( );
+                DataContext = _dataSource;
             }
             catch( Exception ex )
             {
@@ -788,47 +792,23 @@ namespace Badger
                 if( _dataTable != null )
                 {
                     ColumnChart.Series?.Clear( );
-                    foreach( DataRow _row in _dataTable.Rows )
+                    foreach( DataRow _item in _dataSource )
                     {
-                        var _name = _columns[ 0 ];
                         foreach( var _measure in _numerics )
                         {
-                            var _value = double.Parse( _row[ _measure ].ToString( ) );
-                            var _adornment = new ChartAdornmentInfo3D
-                            {
-                                ShowLabel = true,
-                                ShowMarker = true,
-                                ShowConnectorLine = true,
-                                FontSize = 10,
-                                AdornmentsPosition = AdornmentsPosition.Top,
-                                LabelPosition = AdornmentsLabelPosition.Outer,
-                                UseSeriesPalette = false,
-                                BorderThickness = new Thickness( 1 ),
-                                HighlightOnSelection = true,
-                                ConnectorRotationAngle = 45,
-                                Symbol = ChartSymbol.Diamond,
-                                SymbolInterior = new SolidColorBrush( _foreHover ),
-                                SymbolHeight = 8,
-                                BorderBrush = new SolidColorBrush( _borderColor ),
-                                Foreground = new SolidColorBrush( _foreHover ),
-                                Background = new SolidColorBrush( Colors.Black )
-                            };
-
-                            var _series = new ColumnSeries3D
-                            {
-                                ItemsSource = _row,
-                                XBindingPath = _name,
-                                YBindingPath = _measure,
-                                EnableAnimation = true,
-                                Label = _measure,
-                                Name = _measure,
-                                ShowEmptyPoints = false,
-                                ToolTip = $"{_measure} = {_value:N1}",
-                                AdornmentsInfo = _adornment,
-                                ShowTooltip = true
-                            };
-
-                            ColumnChart.Series.Add( _series );
+                            var _series = new ColumnSeries3D( );
+                            var _adornment = CreateAdornment( );
+                            _series.ItemsSource = _item;
+                            _series.XBindingPath = _columns[ 0 ];
+                            _series.YBindingPath = _measure;
+                            _series.EnableAnimation = true;
+                            _series.Label = _measure;
+                            _series.ShowEmptyPoints = true;
+                            _series.Interior = new SolidColorBrush( _steelBlue );
+                            _series.AdornmentsInfo = _adornment;
+                            _series.ShowTooltip = true;
+                            _series.IsSeriesVisible = true;
+                            ColumnChart.Series?.Add( _series );
                         }
                     }
                 }
@@ -840,32 +820,46 @@ namespace Badger
         }
 
         /// <summary>
-        /// Binds the column axis.
+        /// Fades the in asynchronous.
         /// </summary>
-        private void BindColumnAxis( )
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
         {
             try
             {
-                ColumnChart.PrimaryAxis = new CategoryAxis3D
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
                 {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "X-Axis",
-                    Interval = 1,
-                    Name = "Categories",
-                    Foreground = new SolidColorBrush( _borderColor ),
-                    ShowGridLines = true
-                };
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
 
-                ColumnChart.SecondaryAxis = new NumericalAxis3D
+                form.Opacity = 1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
                 {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "Y-Axis",
-                    Name = "Values",
-                    Foreground = new SolidColorBrush( _borderColor ),
-                    ShowGridLines = true
-                };
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
             }
             catch( Exception ex )
             {
@@ -924,54 +918,6 @@ namespace Badger
                         _busy = false;
                     }
                 }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Window form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Window form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
-
-                form.Opacity = 0;
             }
             catch( Exception ex )
             {
@@ -1123,6 +1069,45 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the adornment.
+        /// </summary>
+        /// <returns>
+        /// ChartAdornmentInfo3D
+        /// </returns>
+        private ChartAdornmentInfo3D CreateAdornment( )
+        {
+            try
+            {
+                var _adornment = new ChartAdornmentInfo3D
+                {
+                    ShowLabel = true,
+                    ShowMarker = true,
+                    ShowConnectorLine = true,
+                    FontSize = 10,
+                    AdornmentsPosition = AdornmentsPosition.Top,
+                    LabelPosition = AdornmentsLabelPosition.Outer,
+                    UseSeriesPalette = false,
+                    BorderThickness = new Thickness( 1 ),
+                    HighlightOnSelection = true,
+                    ConnectorRotationAngle = 45,
+                    Symbol = ChartSymbol.Diamond,
+                    SymbolInterior = new SolidColorBrush( _foreHover ),
+                    SymbolHeight = 8,
+                    BorderBrush = new SolidColorBrush( _borderColor ),
+                    Foreground = new SolidColorBrush( _foreHover ),
+                    Background = new SolidColorBrush( Colors.Black )
+                };
+
+                return _adornment;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartAdornmentInfo3D );
+            }
+        }
+
+        /// <summary>
         /// Creates the notifier.
         /// </summary>
         /// <returns></returns>
@@ -1181,6 +1166,274 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ViewModel );
+            }
+        }
+
+        /// <summary>
+        /// Creates the categorical axis.
+        /// </summary>
+        /// <returns>
+        /// CategoryAxis3D
+        /// </returns>
+        private CategoryAxis CreateCategoricalAxis( )
+        {
+            try
+            {
+                var _categoricalAxis = new CategoryAxis
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "X-Axis",
+                    Interval = 1,
+                    Name = "Categories",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return ( _categoricalAxis != null )
+                    ? _categoricalAxis
+                    : default( CategoryAxis );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( CategoryAxis );
+            }
+        }
+
+        /// <summary>
+        /// Creates the numerical axis.
+        /// </summary>
+        /// <returns>
+        /// NumericalAxis3D 
+        /// </returns>
+        private NumericalAxis CreateNumericalAxis( )
+        {
+            try
+            {
+                var _numericalAxis = new NumericalAxis
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Y-Axis",
+                    Name = "Values",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return _numericalAxis;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( NumericalAxis );
+            }
+        }
+
+        /// <summary>
+        /// Creates the categorical axis3 d.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private CategoryAxis3D CreateCategoricalAxis3D( )
+        {
+            try
+            {
+                var _categoricalAxis = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "X-Axis",
+                    Interval = 1,
+                    Name = "Categories",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return ( _categoricalAxis != null )
+                    ? _categoricalAxis
+                    : default( CategoryAxis3D );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( CategoryAxis3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the numerical axis.
+        /// </summary>
+        /// <returns>
+        /// NumericalAxis3D 
+        /// </returns>
+        private NumericalAxis3D CreateNumericalAxis3D( )
+        {
+            try
+            {
+                var _numericalAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Y-Axis",
+                    Name = "Values",
+                    Foreground = new SolidColorBrush( _borderColor ),
+                    ShowGridLines = true
+                };
+
+                return _numericalAxis;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( NumericalAxis3D );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstComboBox.SelectedIndex = -1;
+                SecondComboBox.SelectedIndex = -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                FieldListBox.Items?.Clear( );
+                FieldListBox.SelectedItems?.Clear( );
+                NumericListBox.Items?.Clear( );
+                NumericListBox.SelectedItems?.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                _data = null;
+                _dataTable = null;
+                _dataSource = null;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilters( )
+        {
+            try
+            {
+                if( _filter.Count > 0 )
+                {
+                    _filter.Clear( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( _columns?.Count > 0 )
+                {
+                    _columns.Clear( );
+                }
+
+                if( _fields?.Count > 0 )
+                {
+                    _fields.Clear( );
+                }
+
+                if( _numerics?.Count > 0 )
+                {
+                    _numerics.Clear( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                if( _selectedColumns?.Count > 0 )
+                {
+                    _selectedColumns.Clear( );
+                }
+
+                if( _selectedFields?.Count > 0 )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Count > 0 )
+                {
+                    _selectedNumerics.Clear( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+                SecondLabel.Content = "Total Records: 0.0";
+                ThirdLabel.Content = "Total Fields: 0.0";
+                FourthLabel.Content = "Total Measures: 0.0";
+                FifthLabel.Content = "Selected Filters: 0.0";
+                SixthLabel.Content = "Selected Fields: 0.0";
+                SeventhLabel.Content = "Selected Numerics: 0.0";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1702,153 +1955,6 @@ namespace Badger
             try
             {
                 MetricsTab.IsSelected = true;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the combo boxes.
-        /// </summary>
-        private void ClearComboBoxes( )
-        {
-            try
-            {
-                FirstComboBox.SelectedIndex = -1;
-                SecondComboBox.SelectedIndex = -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the list boxes.
-        /// </summary>
-        private void ClearListBoxes( )
-        {
-            try
-            {
-                FirstListBox.Items?.Clear( );
-                SecondListBox.Items?.Clear( );
-                FieldListBox.Items?.Clear( );
-                FieldListBox.SelectedItems?.Clear( );
-                NumericListBox.Items?.Clear( );
-                NumericListBox.SelectedItems?.Clear( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                _data = null;
-                _dataTable = null;
-                _dataSource = null;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the filter.
-        /// </summary>
-        private void ClearFilters( )
-        {
-            try
-            {
-                if( _filter.Count > 0 )
-                {
-                    _filter.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
-        private void ClearCollections( )
-        {
-            try
-            {
-                if( _columns?.Count > 0 )
-                {
-                    _columns.Clear( );
-                }
-
-                if( _fields?.Count > 0 )
-                {
-                    _fields.Clear( );
-                }
-
-                if( _numerics?.Count > 0 )
-                {
-                    _numerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
-        private void ClearSelections( )
-        {
-            try
-            {
-                if( _selectedColumns?.Count > 0 )
-                {
-                    _selectedColumns.Clear( );
-                }
-
-                if( _selectedFields?.Count > 0 )
-                {
-                    _selectedFields.Clear( );
-                }
-
-                if( _selectedNumerics?.Count > 0 )
-                {
-                    _selectedNumerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the label text.
-        /// </summary>
-        private void ClearLabels( )
-        {
-            try
-            {
-                SecondLabel.Content = "Total Records: 0.0";
-                ThirdLabel.Content = "Total Fields: 0.0";
-                FourthLabel.Content = "Total Measures: 0.0";
-                FifthLabel.Content = "Selected Filters: 0.0";
-                SixthLabel.Content = "Selected Fields: 0.0";
-                SeventhLabel.Content = "Selected Numerics: 0.0";
             }
             catch( Exception ex )
             {

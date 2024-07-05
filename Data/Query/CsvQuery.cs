@@ -48,7 +48,6 @@ namespace Badger
     using System.IO;
     using Microsoft.Win32;
     using OfficeOpenXml;
-    using Syncfusion.Windows.Controls;
 
     /// <inheritdoc/>
     /// <summary> </summary>
