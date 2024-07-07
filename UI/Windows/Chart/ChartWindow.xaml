@@ -8,7 +8,6 @@
         x:Name="ChartView" x:Class="Badger.ChartWindow" mc:Ignorable="d" Title="Visualization" Height="800" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" WindowStartupLocation="CenterScreen"
         BorderThickness="1,1,1,1" MinWidth="1200" MinHeight="650" MaxWidth="1500" MaxHeight="900">
-
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
             <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
@@ -69,32 +68,19 @@
             <TabItem x:Name="ColumnTab" Header="Column" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDFC" Width="90" IsSelected="True" Height="24" Padding="6,2,6,5"
                     HeaderStringFormat="Pie">
-                <Canvas x:Name="ColumnCanvas" Background="#FF141414" Margin="0,10,0,0">
-                    <local:MetroColumnChart x:Name="ColumnChart" Canvas.Left="10" Canvas.Top="10"
-                            HorizontalAlignment="Center" Height="453" VerticalAlignment="Top" />
-                </Canvas>
+                <Canvas x:Name="ColumnChartCanvas" Background="#FF141414" Margin="0,10,0,0" />
             </TabItem>
             <TabItem x:Name="LineTab" HorizontalAlignment="Center" Height="24" Header="Line" VerticalAlignment="Center"
                     Width="80" Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC">
-                <Canvas x:Name="LineCanvas" Background="#FF141414">
-                    <local:MetroLineChart x:Name="LineChart" Canvas.Left="10" Canvas.Top="10"
-                            HorizontalAlignment="Center" Height="463" VerticalAlignment="Center" />
-                </Canvas>
+                <Canvas x:Name="LineCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="PieTab" Height="24" Header="Pie" Width="90" Background="#FF141414" BorderBrush="#FF141414"
                     Foreground="#FFA0BDD4" Margin="0,0,0,0" Padding="6,2,6,5">
-                <Canvas x:Name="PieCanvas" Background="#FF141414">
-                    <local:MetroPieChart x:Name="PieChart" Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" Height="463"
-                            VerticalAlignment="Center" />
-                </Canvas>
+                <Canvas x:Name="PieChartCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="SunTab" Header="Sunburst" Width="90" BorderBrush="#FF141414" Foreground="#FFA0BDFC"
                     Height="24" Background="#FF141414" Margin="0,0,0,0" Padding="6,2,6,5">
-                <Canvas x:Name="SunCanvas" Background="#FF141414">
-                    <SunburstChart:SfSunburstChart x:Name="SunburstChart" Canvas.Left="30" Canvas.Top="12"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" BorderBrush="#FF0078D4"
-                            BorderThickness="1,1,1,1" Height="454" Header="Sunburst Chart" EnableAnimation="True" />
-                </Canvas>
+                <Canvas x:Name="SunburstCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="HistogramTab" HorizontalAlignment="Center" Height="24" Header="Histogram"
                     VerticalAlignment="Center" Width="90" Background="#FF141414" BorderBrush="#FF141414"
@@ -113,18 +99,11 @@
             <TabItem x:Name="SmithTab" Height="24" Header="Smith" Width="90" Margin="0,0,0,0" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-                <Canvas x:Name="SmithCanvas" Background="#FF141414">
-                    <SmithChart:SfSmithChart x:Name="SmithChart" Canvas.Left="30" Canvas.Top="12"
-                            HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Foreground="#FFA0BDFC"
-                            Header="Smith Chart" BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" Height="458" />
-                </Canvas>
+                <Canvas x:Name="SmithCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="AreaTab" Height="24" Header="Area" Width="90" Background="#FF141414"
                     BorderBrush="#FF141414" Foreground="#FFA0BDFC" Margin="0,0,0,0">
-                <Canvas x:Name="AreaCanvas" Background="#FF141414">
-                    <syncfusion:SfChart x:Name="AreaChart" Canvas.Left="49" Canvas.Top="29" HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
-                </Canvas>
+                <Canvas x:Name="AreaCanvas" Background="#FF141414" />
             </TabItem>
             <TabItem x:Name="ScatterTab" HorizontalAlignment="Center" Height="24" Header="Scatter"
                     VerticalAlignment="Center" Width="90" Background="#FF141414" BorderBrush="#FF141414"

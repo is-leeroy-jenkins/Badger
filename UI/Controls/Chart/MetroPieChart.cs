@@ -50,6 +50,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroPieChart : SfChart3D
     {
         /// <summary>
@@ -164,6 +166,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );

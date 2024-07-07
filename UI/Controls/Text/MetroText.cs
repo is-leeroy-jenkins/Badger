@@ -43,18 +43,31 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
+    using System.Windows.Media;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class MetroTextBlock : TextBlock
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class MetroText : TextBlock
     {
+        /// <summary>
+        /// The dark
+        /// </summary>
+        private protected readonly DarkPalette _theme;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:Badger.MetroTextBlock" /> class.
         /// </summary>
-        public MetroTextBlock( )
+        public MetroText( )
             : base( )
         {
+            _theme = new DarkPalette( );
+            Background = _theme.Transparent;
+            Foreground = _theme.BorderColor;
+            FontSize = 12;
+            FontFamily = new FontFamily( "Segoe UI" );
         }
 
         /// <summary>

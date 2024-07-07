@@ -53,76 +53,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class SmithChart : SfSmithChart
     {
         /// <summary>
-        /// The steel blue
+        /// The theme
         /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _green = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khaki = Colors.DarkKhaki;
-
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellow = Colors.Yellow;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -139,10 +76,9 @@ namespace Badger
             FontSize = 12;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            FontFamily = new FontFamily( "Segoe UI" );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
             Header = "Smith Chart";
         }
 

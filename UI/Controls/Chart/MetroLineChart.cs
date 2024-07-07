@@ -50,110 +50,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class MetroLineChart : SfChart3D
     {
         /// <summary>
-        /// The model palette
+        /// The theme
         /// </summary>
-        private protected ChartColorModel _modelPalette;
-
-        /// <summary>
-        /// The steel blue
-        /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _green = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khaki = Colors.DarkKhaki;
-
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellow = Colors.Yellow;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The light blue
-        /// </summary>
-        private protected Color _lightBlue = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// Gets the model palette.
-        /// </summary>
-        /// <value>
-        /// The model palette.
-        /// </value>
-        public ChartColorModel ModelPalette
-        {
-            get
-            {
-                return _modelPalette;
-            }
-            set
-            {
-                _modelPalette = value;
-            }
-        }
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -164,6 +68,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
@@ -178,14 +83,14 @@ namespace Badger
             BorderThickness = new Thickness( 1 );
             Palette = ChartColorPalette.Custom;
             ColorModel = CreateColorModel( );
-            Background = new SolidColorBrush( _backColor );
-            RightWallBrush = new SolidColorBrush( _wallColor );
-            LeftWallBrush = new SolidColorBrush( _wallColor );
-            BackWallBrush = new SolidColorBrush( _wallColor );
-            TopWallBrush = new SolidColorBrush( _wallColor );
-            BottomWallBrush = new SolidColorBrush( Colors.Black );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            Background = _theme.BackColor;
+            RightWallBrush = _theme.WallColor;
+            LeftWallBrush = _theme.WallColor;
+            BackWallBrush = _theme.WallColor;
+            TopWallBrush = _theme.WallColor;
+            BottomWallBrush = _theme.BlackColor;
+            BorderBrush = _theme.WallColor;
+            Foreground = _theme.WallColor;
             Header = "Line Chart";
             PrimaryAxis = CreateCategoricalAxis( );
             SecondaryAxis = CreateNumericalAxis( );
@@ -207,7 +112,7 @@ namespace Badger
                     Header = "X-Axis",
                     Interval = 1,
                     Name = "Categories",
-                    Foreground = new SolidColorBrush( _borderColor ),
+                    Foreground = _theme.BorderColor,
                     ShowGridLines = true
                 };
 
@@ -238,7 +143,7 @@ namespace Badger
                     ShowOrigin = true,
                     Header = "Y-Axis",
                     Name = "Values",
-                    Foreground = new SolidColorBrush( _borderColor ),
+                    Foreground = _theme.BorderColor,
                     ShowGridLines = true
                 };
 
@@ -248,35 +153,6 @@ namespace Badger
             {
                 Fail( ex );
                 return default( NumericalAxis3D );
-            }
-        }
-
-        /// <summary>
-        /// Creates the color model.
-        /// </summary>
-        /// <returns>
-        /// ChartColorModel
-        /// </returns>
-        private protected ChartColorModel CreateColorModel( )
-        {
-            try
-            {
-                var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( new SolidColorBrush( _steelBlue ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( _khaki ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( _maroon ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( _lightBlue ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( _green ) );
-                _model.CustomBrushes.Add( new SolidColorBrush( Colors.DarkGray ) );
-                return ( _model.CustomBrushes.Count > 0 )
-                    ? _model
-                    : default( ChartColorModel );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ChartColorModel );
             }
         }
 
@@ -301,11 +177,11 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = new SolidColorBrush( _lightBlue ),
+                    SymbolInterior = _theme.HoverColor,
                     SymbolHeight = 8,
-                    BorderBrush = new SolidColorBrush( _borderColor ),
-                    Foreground = new SolidColorBrush( _lightBlue ),
-                    Background = new SolidColorBrush( Colors.Black )
+                    BorderBrush = _theme.BorderColor,
+                    Foreground = _theme.ForeColor,
+                    Background = _theme.BlackColor
                 };
 
                 return _adornment;
@@ -314,6 +190,27 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartAdornmentInfo3D );
+            }
+        }
+
+        private ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( ChartColorPalette.Custom );
+                _model.CustomBrushes.Add( _theme.HoverColor );
+                _model.CustomBrushes.Add( _theme.YellowColor );
+                _model.CustomBrushes.Add( _theme.RedColor );
+                _model.CustomBrushes.Add( _theme.KhakiColor );
+                _model.CustomBrushes.Add( _theme.GreenColor );
+                _model.CustomBrushes.Add( _theme.GrayColor );
+                _model.CustomBrushes.Add( _theme.LightBlue );
+                return _model;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
             }
         }
 

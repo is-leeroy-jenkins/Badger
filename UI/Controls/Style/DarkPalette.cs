@@ -48,14 +48,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class DarkTheme
+    public class DarkPalette
         : Palette
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DarkTheme"/> class.
+        /// <see cref="DarkPalette"/> class.
         /// </summary>
-        public DarkTheme( )
+        public DarkPalette( )
             : base( )
         {
             ForeColor = new SolidColorBrush( _foreColor );

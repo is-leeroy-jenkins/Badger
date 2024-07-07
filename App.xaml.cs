@@ -78,6 +78,7 @@ namespace Badger
             "PivotGridControl",
             "MetroPivotGrid",
             "SfChart",
+            "SfChart3D",
             "SfHeatMap",
             "SfMap",
             "MetroMap",

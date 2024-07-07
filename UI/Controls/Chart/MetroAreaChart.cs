@@ -165,6 +165,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );

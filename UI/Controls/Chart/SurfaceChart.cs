@@ -52,109 +52,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class SurfaceChart : SfSurfaceChart
     {
         /// <summary>
-        /// The steel blue
+        /// The theme
         /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _green = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khaki = Colors.DarkKhaki;
-
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellow = Colors.Yellow;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -172,9 +76,9 @@ namespace Badger
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             FontFamily = new FontFamily( "Segoe UI" );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
             Header = "Surface Chart";
         }
 

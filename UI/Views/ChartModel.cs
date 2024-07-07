@@ -59,7 +59,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class BindingSource 
+    public class ChartModel 
     {
         /// <summary>
         /// The index
@@ -79,22 +79,12 @@ namespace Badger
         /// <summary>
         /// The data
         /// </summary>
-        private protected BindingList<DataRow> _list;
+        private protected IList<DataRow> _list;
 
         /// <summary>
         /// The current
         /// </summary>
         private protected DataRow _current;
-
-        /// <summary>
-        /// The next
-        /// </summary>
-        private protected DataRow _next;
-
-        /// <summary>
-        /// The previous
-        /// </summary>
-        private protected DataRow _previous;
 
         /// <summary>
         /// The table name
@@ -105,6 +95,11 @@ namespace Badger
         /// The columns
         /// </summary>
         private IList<string> _columns;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _numerics;
 
         /// <summary>
         /// Gets or sets the index.
@@ -178,7 +173,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public BindingList<DataRow> List
+        public IList<DataRow> List
         {
             get
             {
@@ -190,32 +185,50 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public ObservableCollection<DataRow> Data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                _data = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BindingSource" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
-        public BindingSource( ) 
+        public ChartModel( ) 
             : base( )
         {
             _index = 0;
             _count = 0;
             _data = new ObservableCollection<DataRow>( );
-            _list = new BindingList<DataRow>( );
+            _list = new List<DataRow>( );
             _columns = new List<string>( );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BindingSource" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public BindingSource( DataTable dataTable )
+        public ChartModel( DataTable dataTable )
             : this( )
         {
             _data = dataTable?.ToObservable( );
-            _list = _data?.ToBindingList( );
+            _list = _data?.ToList( );
             _current = _data?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
@@ -225,16 +238,16 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BindingSource" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
         /// <param name="dataRows">The data rows.</param>
-        public BindingSource( IEnumerable<DataRow> dataRows )
+        public ChartModel( IEnumerable<DataRow> dataRows )
             : this( )
         {
             _data = dataRows?.ToObservable( );
-            _list = _data.ToBindingList( );
+            _list = dataRows?.ToList( );
             _current = _data?[ _index ];
-            _count = _data?.Count ?? 0;
+            _count = dataRows?.Count( ) ?? 0;
             _tableName = _current?.Table?.TableName;
             _columns = _current?.Table?.GetColumnNames( );
         }
@@ -242,14 +255,14 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.BindingSource" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
         /// <param name="record">The record.</param>
-        public BindingSource( DataRow record )
+        public ChartModel( DataRow record )
             : this( )
         {
             _data[ _index ] = record;
-            _list = _data.ToBindingList( );
+            _list.Add( record );
             _current = record;
             _count = _data.Count;
             _tableName = record.Table?.TableName;
@@ -262,7 +275,7 @@ namespace Badger
         /// <returns>
         /// IEnumerator( DataRow )
         /// </returns>
-        public IEnumerator<DataRow> IterData( )
+        public IEnumerator<DataRow> IterRows( )
         {
             foreach( var _item in _data )
             {

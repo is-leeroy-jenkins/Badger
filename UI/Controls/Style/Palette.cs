@@ -80,6 +80,17 @@ namespace Badger
         /// </summary>
         private protected Color _redColor = Colors.Maroon;
 
+        /// <summary>
+        /// The gray color
+        /// </summary>
+        private protected Color _grayColor = Colors.DarkGray;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellowColor = Colors.Yellow;
+
         /// <inheritdoc />
         /// <summary>
         /// The green
@@ -91,12 +102,6 @@ namespace Badger
         /// The yellow
         /// </summary>
         private protected Color _khakiColor = Colors.DarkKhaki;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellowColor = Colors.Yellow;
 
         /// <inheritdoc />
         /// <summary>
@@ -312,15 +317,6 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets the light blue.
-        /// </summary>
-        /// <value>
-        /// The light blue.
-        /// </value>
-        public SolidColorBrush LightBlue { get; private protected init; }
-
-        /// <inheritdoc />
-        /// <summary>
         /// Gets the color of the hover.
         /// </summary>
         /// <value>
@@ -357,6 +353,15 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
+        /// Gets the light blue.
+        /// </summary>
+        /// <value>
+        /// The light blue.
+        /// </value>
+        public SolidColorBrush LightBlue { get; private protected init; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Gets the color of the yellow.
         /// </summary>
         /// <value>
@@ -384,11 +389,12 @@ namespace Badger
                 var _array = new SolidColorBrush[ ]
                 {
                     HoverColor,
+                    RedColor,
                     GrayColor,
                     YellowColor,
-                    RedColor,
                     KhakiColor,
-                    GreenColor
+                    GreenColor,
+                    LightBlue
                 };
 
                 return _array?.Length > 0
@@ -414,11 +420,12 @@ namespace Badger
                 var _list = new List<Brush>
                 {
                     HoverColor,
+                    RedColor,
                     GrayColor,
                     YellowColor,
-                    RedColor,
                     KhakiColor,
-                    GreenColor
+                    GreenColor,
+                    LightBlue
                 };
 
                 return _list?.Count > 0
@@ -443,11 +450,12 @@ namespace Badger
             {
                 var _map = new Dictionary<string, Brush>( );
                 _map.Add( "HoverColor", HoverColor );
+                _map.Add( "RedColor", RedColor );
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
-                _map.Add( "RedColor", RedColor );
                 _map.Add( "KhakiColor", KhakiColor );
                 _map.Add( "GreenColor", GreenColor );
+                _map.Add( "LightBlue", LightBlue );
                 return _map?.Count > 0
                     ? _map
                     : default( IDictionary<string, Brush> );
