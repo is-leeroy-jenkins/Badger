@@ -111,7 +111,7 @@ namespace Badger
         /// <value>
         /// The light blue.
         /// </value>
-        SolidColorBrush LightBlue { get; }
+        SolidColorBrush LightBlueColor { get; }
 
         /// <summary>
         /// Gets the color of the hover.

@@ -70,7 +70,7 @@ namespace Badger
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
-            Height = 500;
+            Height = 454;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             EnableRotation = true;
@@ -204,7 +204,7 @@ namespace Badger
                 _model.CustomBrushes.Add( _theme.KhakiColor );
                 _model.CustomBrushes.Add( _theme.GreenColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.LightBlue );
+                _model.CustomBrushes.Add( _theme.LightBlueColor );
                 return _model;
             }
             catch( Exception ex )

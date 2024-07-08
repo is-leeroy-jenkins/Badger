@@ -248,7 +248,6 @@ namespace Badger
         /// </summary>
         private protected MetroScatterChart _scatterChart;
 
-
         /// <summary>
         /// The sunburst chart
         /// </summary>
@@ -1205,7 +1204,7 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.LightBlue,
+                    SymbolInterior = _theme.LightBlueColor,
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.ForeColor,
@@ -1557,6 +1556,9 @@ namespace Badger
                     _series.Label = _numerics[ 0 ];
                     _series.ShowEmptyPoints = true;
                     _series.Interior = _theme.HoverColor;
+                    _series.Area.BackWallBrush = _theme.WallColor;
+                    _series.Area.BottomWallBrush = _theme.BlackColor;
+                    _series.Area.Depth = _areaChart.Depth;
                     _series.AdornmentsInfo = CreateAdornment( );
                     _series.ShowTooltip = true;
                     _areaChart.Series?.Add( _series );
@@ -1929,6 +1931,7 @@ namespace Badger
             try
             {
                 ColumnTab.IsSelected = true;
+                InitializeColumnChart( );
             }
             catch( Exception ex )
             {
@@ -3129,6 +3132,13 @@ namespace Badger
             if( disposing )
             {
                 _timer?.Dispose( );
+                _columnChart?.Dispose( );
+                _lineChart?.Dispose( );
+                _scatterChart?.Dispose( );
+                _pieChart?.Dispose( );
+                _sunburstChart?.Dispose( );
+                _smithChart?.Dispose( );
+                _histogram?.Dispose( );
             }
         }
 

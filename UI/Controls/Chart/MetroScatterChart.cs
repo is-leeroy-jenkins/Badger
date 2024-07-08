@@ -42,6 +42,8 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
+    using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
 
     /// <inheritdoc />
@@ -51,6 +53,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroScatterChart : SfChart3D
     {
         /// <summary>
@@ -66,13 +70,65 @@ namespace Badger
         public MetroScatterChart( ) 
             : base( )
         {
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            Width = 800;
+            Height = 454;
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12;
+            EnableRotation = true;
+            Depth = 250;
+            EnableSegmentSelection = true;
+            EnableSeriesSelection = true;
+            PerspectiveAngle = 100;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            Palette = ChartColorPalette.Custom;
+            ColorModel = CreateColorModel( );
+            Background = _theme.BackColor;
+            RightWallBrush = _theme.WallColor;
+            LeftWallBrush = _theme.WallColor;
+            BackWallBrush = _theme.WallColor;
+            TopWallBrush = _theme.WallColor;
+            BottomWallBrush = _theme.BlackColor;
+            BorderBrush = _theme.WallColor;
+            Foreground = _theme.WallColor;
+        }
+
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( _theme.HoverColor );
+                _model.CustomBrushes.Add( _theme.GrayColor );
+                _model.CustomBrushes.Add( _theme.YellowColor );
+                _model.CustomBrushes.Add( _theme.RedColor );
+                _model.CustomBrushes.Add( _theme.KhakiColor );
+                _model.CustomBrushes.Add( _theme.GreenColor );
+                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
+            }
         }
 
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
+        private void Fail( Exception ex )
         {
             var _error = new ErrorWindow( ex );
             _error?.SetText( );

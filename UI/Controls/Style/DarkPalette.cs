@@ -63,13 +63,13 @@ namespace Badger
             BorderColor = new SolidColorBrush( _borderColor );
             WallColor = new SolidColorBrush( _wallColor );
             ControlColor = new SolidColorBrush( _controlColor );
-            LightBlue = new SolidColorBrush( _lightBlue );
             HoverColor = new SolidColorBrush( _hoverColor );
             GrayColor = new SolidColorBrush( Colors.DarkGray );
             YellowColor = new SolidColorBrush( _yellowColor );
             RedColor = new SolidColorBrush( _redColor );
             KhakiColor = new SolidColorBrush( _khakiColor );
             GreenColor = new SolidColorBrush( _greenColor );
+            LightBlueColor = new SolidColorBrush( _lightBlue );
             _color = CreateColors( );
             _colorModel = CreateColorModel( );
             _colorMap = CreateColorMap( );
@@ -91,7 +91,8 @@ namespace Badger
                     YellowColor,
                     RedColor,
                     KhakiColor,
-                    GreenColor
+                    GreenColor, 
+                    LightBlueColor
                 };
 
                 return _array?.Length > 0
@@ -123,7 +124,8 @@ namespace Badger
                     YellowColor,
                     RedColor,
                     KhakiColor,
-                    GreenColor
+                    GreenColor,
+                    LightBlueColor
                 };
 
                 return _list?.Count > 0
@@ -155,6 +157,7 @@ namespace Badger
                 _map.Add( "RedColor", RedColor );
                 _map.Add( "KhakiColor", KhakiColor );
                 _map.Add( "GreenColor", GreenColor );
+                _map.Add( "LightBlue", LightBlueColor );
                 return _map?.Count > 0
                     ? _map
                     : default( IDictionary<string, Brush> );
