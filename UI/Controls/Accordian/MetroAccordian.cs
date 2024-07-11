@@ -7,8 +7,7 @@
 //     Last Modified On:        06-16-2024
 // ******************************************************************************************
 // <copyright file="MetroAccordian.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a Budget, Finance, and Accounting application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,48 +52,9 @@ namespace Badger
     public class MetroAccordian : SfAccordion
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The accent color
-        /// </summary>
-        private protected Color _accentColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -110,10 +70,10 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             Width = 250;
             Height = 250;
-            AccentBrush = new SolidColorBrush( _accentColor );
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            AccentBrush = _theme.HoverColor;
+            Background = _theme.BackColor;
+            BorderBrush = _theme.BorderColor;
+            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

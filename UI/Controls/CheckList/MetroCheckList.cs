@@ -7,8 +7,7 @@
 //     Last Modified On:        05-31-2024
 // ******************************************************************************************
 // <copyright file="MetroCheckList.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,7 +42,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
@@ -58,56 +56,9 @@ namespace Badger
     public class MetroCheckList : CheckListBox
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 1,
-            G = 35,
-            B = 64
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        private protected Color _itemBackColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -125,11 +76,9 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( CheckListBox ) );
             Width = 225.0;
             Height = 200.0;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            MouseOverBackground = new SolidColorBrush( _backHover );
-            SelectedItemBackground = new SolidColorBrush( _itemBackColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
             Padding = new Thickness( 10, 1, 1, 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;

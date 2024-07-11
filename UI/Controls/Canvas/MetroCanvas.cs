@@ -7,8 +7,7 @@
 //     Last Modified On:        05-31-2024
 // ******************************************************************************************
 // <copyright file="MetroCanvas.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a Budget, Finance, and Accounting tool for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,15 +51,9 @@ namespace Badger
     public class MetroCanvas : Canvas
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -76,7 +69,7 @@ namespace Badger
             HorizontalAlignment = HorizontalAlignment.Center;
             VerticalAlignment = VerticalAlignment.Stretch;
             Margin = new Thickness( 3 );
-            Background = new SolidColorBrush( _backColor );
+            Background = _theme.BorderColor;
         }
 
         /// <summary>

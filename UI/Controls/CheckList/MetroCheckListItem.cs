@@ -7,9 +7,8 @@
 //     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
 // <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//    Badger is a data analysis and reporting tool for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -43,7 +42,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
@@ -57,59 +55,9 @@ namespace Badger
     public class MetroCheckListItem : CheckListBoxItem
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore hover
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border hover
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The item hover
-        /// </summary>
-        private protected Color _itemHover = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <summary>
         /// Gets or sets an arbitrary object value that can be
@@ -128,9 +76,9 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( CheckListBoxItem ) );
             Width = 225;
             Height = 24;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.ControlColor;
             Padding = new Thickness( 10, 1, 1, 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;
@@ -155,9 +103,9 @@ namespace Badger
             {
                 if( sender is MetroCheckListItem _item )
                 {
-                    _item.Foreground = new SolidColorBrush( _foreHover );
-                    _item.Background = new SolidColorBrush( _itemHover );
-                    _item.BorderBrush = new SolidColorBrush( _itemHover );
+                    _item.Foreground = _theme.WhiteColor;
+                    _item.Background = _theme.HoverColor;
+                    _item.BorderBrush = _theme.HoverColor;
                 }
             }
             catch( Exception ex )
@@ -178,9 +126,9 @@ namespace Badger
             {
                 if( sender is MetroCheckListItem _item )
                 {
-                    _item.Foreground = new SolidColorBrush( _foreColor );
-                    _item.Background = new SolidColorBrush( _backColor );
-                    _item.BorderBrush = new SolidColorBrush( _backColor );
+                    _item.Foreground = _theme.ForeColor;
+                    _item.Background = _theme.ControlColor;
+                    _item.BorderBrush = _theme.ControlColor;
                 }
             }
             catch( Exception ex )

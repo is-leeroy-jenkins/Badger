@@ -7,8 +7,7 @@
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="Editor.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,70 +51,9 @@ namespace Badger
     public class MetroEditor : EditControl
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 25,
-            G = 76,
-            B = 120
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -131,9 +69,9 @@ namespace Badger
             FontSize = 12;
             Width = 800;
             Height = 400;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

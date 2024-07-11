@@ -7,8 +7,7 @@
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="MetroRichText.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MetroRichText.cs
@@ -54,78 +53,9 @@ namespace Badger
     public class MetroRichText : RichTextBox
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 25,
-            G = 76,
-            B = 120
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        private readonly Color _selectColor = new Color( )
-        {
-            A = 255,
-            R = 70,
-            G = 130,
-            B = 180
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -136,16 +66,16 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Width = 330;
             Height = 150;
             BorderThickness = new Thickness( 1 );
             Padding = new Thickness( 10 );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
-            SelectionBrush = new SolidColorBrush( _selectColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.ControlColor;
+            SelectionBrush = _theme.HoverColor;
         }
 
         /// <summary>

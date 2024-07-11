@@ -7,9 +7,8 @@
 //     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
 // <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//    Badger is a data analysis and reporting tool for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),

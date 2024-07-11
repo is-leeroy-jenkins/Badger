@@ -7,8 +7,7 @@
 //     Last Modified On:        06-21-2024
 // ******************************************************************************************
 // <copyright file="MetroMultiSelect.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,81 +55,9 @@ namespace Badger
     public class MulitSelectDropDown : SfMultiColumnDropDownControl
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The item back color
-        /// </summary>
-        private protected Color _popupBackColor = new Color( )
-        {
-            A = 255,
-            R = 75,
-            G = 75,
-            B = 75
-        };
-
-        /// <summary>
-        /// The popup border
-        /// </summary>
-        private protected Color _popupBorder = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The popup dropdown
-        /// </summary>
-        private protected Color _popupDropdown = new Color( )
-        {
-            A = 255,
-            R = 10,
-            G = 10,
-            B = 10
-        };
-
-        /// <summary>
-        /// The item fore color
-        /// </summary>
-        private protected Color _itemForeColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -145,12 +72,12 @@ namespace Badger
             Height = 30;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BorderColor;
             PopupBorderThickness = new Thickness( 1 );
-            PopupBackground = new SolidColorBrush( _popupBackColor );
-            PopupBorderBrush = new SolidColorBrush( _popupBorder );
+            PopupBackground = _theme.BlackColor;
+            PopupBorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

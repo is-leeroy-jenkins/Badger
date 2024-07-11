@@ -7,8 +7,7 @@
 //     Last Modified On:        05-31-2024
 // ******************************************************************************************
 // <copyright file="MetroContent.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,48 +52,9 @@ namespace Badger
     public class MetroContent : ContentControl
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 1,
-            G = 35,
-            B = 54
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 186,
-            G = 207,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -109,6 +69,9 @@ namespace Badger
             Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            Background = _theme.BackColor;
+            BorderBrush = _theme.BorderColor;
+            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

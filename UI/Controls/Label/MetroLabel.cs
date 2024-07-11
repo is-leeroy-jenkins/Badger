@@ -7,8 +7,7 @@
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="MetroLabel.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,31 +58,9 @@ namespace Badger
     public class MetroLabel : Label
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = Colors.Transparent;
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -99,8 +76,8 @@ namespace Badger
             Width = 100;
             HorizontalAlignment = HorizontalAlignment.Center;
             VerticalAlignment = VerticalAlignment.Center;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            Background = _theme.Transparent;
+            Foreground = _theme.BorderColor;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
@@ -118,8 +95,8 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreHover );
+                Background = _theme.Transparent;
+                Foreground = _theme.WhiteColor;
             }
             catch( Exception ex )
             {
@@ -138,8 +115,8 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreColor );
+                Background = _theme.Transparent;
+                Foreground = _theme.BorderColor;
             }
             catch( Exception ex )
             {

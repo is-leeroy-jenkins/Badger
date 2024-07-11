@@ -513,6 +513,17 @@ namespace Badger
         {
             try
             {
+                _smithChart = new SmithChart( );
+                _smithChart.Height = 454;
+                _smithChart.Width = 800;
+                _smithChart.Background = _theme.BackColor;
+                _smithChart.Foreground = _theme.ForeColor;
+                _smithChart.BorderBrush = _theme.BorderColor;
+                _smithChart.Visibility = Visibility.Visible;
+                _smithChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Smith Chart";
+
                 var _radial = new RadialAxis( )
                 {
                     FontSize = 10
@@ -523,19 +534,8 @@ namespace Badger
                     FontSize = 10
                 };
 
-                _smithChart = new SmithChart( );
-                _smithChart.Height = 454;
-                _smithChart.Width = 800;
                 _smithChart.RadialAxis = _radial;
                 _smithChart.HorizontalAxis = _horizontal;
-                _smithChart.Background = _theme.BackColor;
-                _smithChart.Foreground = _theme.ForeColor;
-                _smithChart.BorderBrush = _theme.BorderColor;
-                _smithChart.Visibility = Visibility.Visible;
-                _smithChart.Header = ( _dataTable != null )
-                    ? _dataTable.TableName.SplitPascal( )
-                    : "Smith Chart";
-
                 SmithCanvas.Children.Add( _smithChart );
             }
             catch( Exception ex )
@@ -2801,11 +2801,6 @@ namespace Badger
                     {
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                         _columnChart.Header = _title;
-                        _pieChart.Header = _title;
-                        _areaChart.Header = _title;
-                        _sunburstChart.Header = _title;
-                        _smithChart.Header = _title;
-                        _histogram.Header = _title;
                     }
 
                     CreateData( );

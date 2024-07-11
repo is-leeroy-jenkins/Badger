@@ -7,8 +7,7 @@
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="MetroCalendar.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a Budget, Finance, and Accounting application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,6 +52,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroCalendar : CalendarEdit
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The back color
         /// </summary>

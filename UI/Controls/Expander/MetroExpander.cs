@@ -7,9 +7,8 @@
 //     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
 // <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//    Badger is a data analysis and reporting tool for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -48,73 +47,13 @@ namespace Badger
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroExpander : Expander
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 1,
-            G = 35,
-            B = 54
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -136,6 +75,9 @@ namespace Badger
             Margin = new Thickness( 3 );
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

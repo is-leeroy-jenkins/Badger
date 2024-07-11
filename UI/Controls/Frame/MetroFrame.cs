@@ -6,9 +6,8 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2024
 // ******************************************************************************************
-// <copyright file="MetroInput.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+// <copyright file="MetroFrame.cs" company="Terry D. Eppler">
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +33,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroInput.cs
+//   MetroFrame.cs
 // </summary>
 // ******************************************************************************************
 
@@ -58,59 +57,9 @@ namespace Badger
     public class MetroFrame : SfTextInputLayout
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _containerColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The focused text
-        /// </summary>
-        private readonly Color _focusedText = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <summary>
         /// The text box
@@ -131,12 +80,12 @@ namespace Badger
             Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = new SolidColorBrush( _containerColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            ContainerBackground = new SolidColorBrush( _containerColor );
-            FocusedBorderBrush = new SolidColorBrush( _foreColor );
-            FocusedForeground = new SolidColorBrush( _focusedText );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
+            ContainerBackground = _theme.ControlColor;
+            FocusedBorderBrush = _theme.ForeColor;
+            FocusedForeground = _theme.WhiteColor;
             Hint = "Name";
         }
 

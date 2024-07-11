@@ -80,6 +80,12 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class DataWindow : Window, IDisposable
     {
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The first category
         /// </summary>
@@ -247,83 +253,6 @@ namespace Badger
         private IDictionary<string, object> _statements;
 
         /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The item color
-        /// </summary>
-        private protected Color _itemColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
         /// Gets the filter.
         /// </summary>
         /// <value>
@@ -403,9 +332,9 @@ namespace Badger
             WindowStyle = WindowStyle.SingleBorderWindow;
             Title = "Data Management";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Initialize Default Provider
             _provider = Provider.Access;
@@ -495,13 +424,13 @@ namespace Badger
             try
             {
                 StatusLabel.FontSize = 10;
-                DataHeader.Foreground = new SolidColorBrush( _borderColor );
+                DataHeader.Foreground = _theme.ForeColor;
                 DataHeader.Visibility = Visibility.Hidden;
-                SchemaHeader.Foreground = new SolidColorBrush( _borderColor );
+                SchemaHeader.Foreground = _theme.ForeColor;
                 SchemaHeader.Visibility = Visibility.Hidden;
-                DataColumnLabel.Foreground = new SolidColorBrush( _borderColor );
-                DataTypeLabel.Foreground = new SolidColorBrush( _borderColor );
-                ColumnNameLabel.Foreground = new SolidColorBrush( _borderColor );
+                DataColumnLabel.Foreground = _theme.ForeColor;
+                DataTypeLabel.Foreground = _theme.ForeColor;
+                ColumnNameLabel.Foreground = _theme.ForeColor;
             }
             catch( Exception ex )
             {
@@ -516,9 +445,9 @@ namespace Badger
         {
             try
             {
-                ExecutionRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                ExecutionRadioButton.Foreground = _theme.ForeColor;
                 ExecutionRadioButton.Tag = "EXECUTION";
-                ReferenceRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                ReferenceRadioButton.Foreground = _theme.ForeColor; 
                 ReferenceRadioButton.Tag = "REFERENCE";
                 AccessRadioButton.Tag = "Access";
                 AccessRadioButton.IsChecked = true;
@@ -553,8 +482,8 @@ namespace Badger
         {
             try
             {
-                FirstComboBox.Background = new SolidColorBrush( _itemColor );
-                SecondComboBox.Background = new SolidColorBrush( _itemColor );
+                FirstComboBox.Background = _theme.BackColor;
+                SecondComboBox.Background = _theme.BackColor;
             }
             catch( Exception ex )
             {

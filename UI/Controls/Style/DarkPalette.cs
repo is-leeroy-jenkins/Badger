@@ -7,8 +7,7 @@
 //     Last Modified On:        07-04-2024
 // ******************************************************************************************
 // <copyright file="DarkTheme.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,6 +47,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DarkPalette
         : Palette
     {
@@ -70,6 +71,10 @@ namespace Badger
             KhakiColor = new SolidColorBrush( _khakiColor );
             GreenColor = new SolidColorBrush( _greenColor );
             LightBlueColor = new SolidColorBrush( _lightBlue );
+            BlackColor = new SolidColorBrush( _blackColor );
+            WhiteColor = new SolidColorBrush( _whiteColor );
+            FontFamily = new FontFamily( "Segoe UI" );
+            FontSize = 12;
             _color = CreateColors( );
             _colorModel = CreateColorModel( );
             _colorMap = CreateColorMap( );

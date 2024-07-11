@@ -7,8 +7,7 @@
 //     Last Modified On:        06-11-2024
 // ******************************************************************************************
 // <copyright file="MetroCarousel.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,48 +54,9 @@ namespace Badger
     public class MetroCarousel : Carousel
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -112,9 +72,9 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             Height = 500;
             Width = 350;
-            Background = new SolidColorBrush( Colors.Transparent );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            Background = _theme.BackColor;
+            BorderBrush = _theme.BorderColor;
+            Foreground = _theme.ForeColor;
             EnableRotationAnimation = true;
             ScalingEnabled = true;
             RadiusX = 250;

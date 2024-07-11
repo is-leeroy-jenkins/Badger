@@ -7,8 +7,7 @@
 //     Last Modified On:        07-02-2024
 // ******************************************************************************************
 // <copyright file="PaletteB.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,6 +43,9 @@ namespace Badger
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
+    using ExCSS;
+    using Color = System.Windows.Media.Color;
+    using Colors = System.Windows.Media.Colors;
 
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -53,6 +55,16 @@ namespace Badger
     public abstract class Palette
         : IPalette
     {
+        /// <summary>
+        /// The font famly
+        /// </summary>
+        private protected FontFamily _fontFamly;
+
+        /// <summary>
+        /// The font size
+        /// </summary>
+        private protected double _fontSize;
+
         /// <summary>
         /// The model palette
         /// </summary>
@@ -179,6 +191,17 @@ namespace Badger
             R = 0,
             G = 0,
             B = 0
+        };
+
+        /// <summary>
+        /// The black color
+        /// </summary>
+        private protected Color _whiteColor = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
         };
 
         /// <summary>
@@ -369,6 +392,14 @@ namespace Badger
         /// </value>
         public SolidColorBrush YellowColor { get; private protected init; }
 
+        /// <summary>
+        /// Gets the color of the white.
+        /// </summary>
+        /// <value>
+        /// The color of the white.
+        /// </value>
+        public SolidColorBrush WhiteColor { get; private protected init; }
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the color of the gray.
@@ -377,6 +408,22 @@ namespace Badger
         /// The color of the gray.
         /// </value>
         public SolidColorBrush GrayColor { get; private protected init; }
+
+        /// <summary>
+        /// Gets the font family.
+        /// </summary>
+        /// <value>
+        /// The font family.
+        /// </value>
+        public FontFamily FontFamily { get; private protected init; }
+
+        /// <summary>
+        /// Gets the size of the font.
+        /// </summary>
+        /// <value>
+        /// The size of the font.
+        /// </value>
+        public double FontSize { get; private protected init; }
 
         /// <summary>
         /// Creates the colors.

@@ -7,8 +7,7 @@
 //     Last Modified On:        06-03-2024
 // ******************************************************************************************
 // <copyright file="MetroDropDown.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,48 +56,9 @@ namespace Badger
     public class MetroDropDown : DropDownButtonAdv
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <inheritdoc />
         /// <summary>
@@ -108,7 +68,8 @@ namespace Badger
         public MetroDropDown( )
             : base( )
         {
-            // Basic Properties
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( DropDownButtonAdv ) );
             Width = 200;
             Height = 35;
             FontFamily = new FontFamily( "Segoe UI" );
@@ -119,9 +80,10 @@ namespace Badger
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalContentAlignment = HorizontalAlignment.Left;
             VerticalContentAlignment = VerticalAlignment.Center;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
+            DropDirection = DropDirection.BottomLeft;
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

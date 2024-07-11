@@ -7,8 +7,7 @@
 //     Last Modified On:        05-28-2024
 // ******************************************************************************************
 // <copyright file="MetroDataGrid.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy

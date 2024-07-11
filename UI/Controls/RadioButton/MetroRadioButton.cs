@@ -7,8 +7,7 @@
 //     Last Modified On:        05-31-2024
 // ******************************************************************************************
 // <copyright file="MetroRadioButton.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is a data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,6 +54,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class MetroRadioButton : RadioButton
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -135,9 +139,9 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             BorderThickness = new Thickness( 1 );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.WhiteColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BackColor;
 
             // Wire Events
             MouseEnter += OnMouseEnter;

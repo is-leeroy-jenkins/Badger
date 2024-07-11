@@ -6,10 +6,9 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+// <copyright file="MetroListBoxItem.cs" company="Terry D. Eppler">
+//    Badger is a data analysis and reporting tool for EPA analysts.
+//    Copyright ©  2024  Terry Eppler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +30,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 //
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   MetroListBoxItem.cs
 // </summary>
 // ******************************************************************************************
 
@@ -56,77 +55,15 @@ namespace Badger
     public class MetroListBoxItem : ListBoxItem
     {
         /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
+        /// <summary>
         /// Gets or sets an arbitrary object value that can be used
         /// to store custom information about this element.
         /// </summary>
         public new object Tag { get; set; }
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 11,
-            G = 36,
-            B = 59
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        /// 
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
 
         /// <inheritdoc />
         /// <summary>
@@ -137,9 +74,9 @@ namespace Badger
             : base( )
         {
             Height = 40;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _backColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.ControlColor;
 
             // Event Wiring
             MouseEnter += OnItemMouseEnter;
@@ -158,9 +95,9 @@ namespace Badger
             {
                 if( sender is MetroListBoxItem _item )
                 {
-                    _item.Foreground = new SolidColorBrush( _foreHover );
-                    _item.Background = new SolidColorBrush( _backHover );
-                    _item.BorderBrush = new SolidColorBrush( _backHover );
+                    _item.Foreground = _theme.WhiteColor;
+                    _item.Background = _theme.HoverColor;
+                    _item.BorderBrush = _theme.HoverColor;
                 }
             }
             catch( Exception ex )
@@ -181,9 +118,9 @@ namespace Badger
             {
                 if( sender is MetroListBoxItem _item )
                 {
-                    _item.Foreground = new SolidColorBrush( _foreColor );
-                    _item.Background = new SolidColorBrush( _backColor );
-                    _item.BorderBrush = new SolidColorBrush( _backColor );
+                    _item.Foreground = _theme.ForeColor;
+                    _item.Background = _theme.ControlColor;
+                    _item.BorderBrush = _theme.ControlColor;
                 }
             }
             catch( Exception ex )
