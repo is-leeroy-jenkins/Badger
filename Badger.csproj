@@ -44,6 +44,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\Windows\Folder\**" />
+    <EmbeddedResource Remove="UI\Windows\Folder\**" />
+    <None Remove="UI\Windows\Folder\**" />
+    <Page Remove="UI\Windows\Folder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Assets\FormImages\Application.ico" />
     <None Remove="Resources\Assets\FormImages\Main.png" />
     <None Remove="Resources\Assets\ToolStripImages\DataSourceButton.png" />
@@ -760,7 +767,6 @@
     <Resource Include="UI\Windows\Excel\SaveButton.png" />
     <Resource Include="UI\Windows\Excel\ToggleButton.png" />
     <Resource Include="UI\Windows\File\FileBrowse.png" />
-    <Resource Include="UI\Windows\Folder\FolderBrowse.png" />
     <Resource Include="UI\Windows\Grid\Application.png" />
     <Resource Include="UI\Windows\Grid\BackButton.png" />
     <Resource Include="UI\Windows\Grid\BrowseButton.png" />

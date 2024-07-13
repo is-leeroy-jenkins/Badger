@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="DictionaryExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DictionaryExtensions.cs
@@ -90,7 +90,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( TValue );
             }
         }
@@ -120,7 +120,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( NameValueCollection );
             }
         }
@@ -141,7 +141,7 @@ namespace Badger
                     {
                         var _key = dict.GetPrimaryKey( );
                         if( !string.IsNullOrEmpty( _key.Key )
-                           & ( int.Parse( _key.Value.ToString( ) ) > -1 ) )
+                            & ( int.Parse( _key.Value.ToString( ) ) > -1 ) )
                         {
                             foreach( var _kvp in dict )
                             {
@@ -170,7 +170,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DictionaryExtensions.Fail( ex );
                     return string.Empty;
                 }
             }
@@ -200,7 +200,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( BindingList<KeyValuePair<string, object>> );
             }
         }
@@ -225,9 +225,9 @@ namespace Badger
                     for( var _i = 0; _i < dict?.Count; _i++ )
                     {
                         if( _values[ _i ] != null
-                           && !string.IsNullOrEmpty( _keys[ _i ] ) )
+                            && !string.IsNullOrEmpty( _keys[ _i ] ) )
                         {
-                            var _kvp = 
+                            var _kvp =
                                 new KeyValuePair<string, object>( _keys[ _i ], _values[ _i ] );
 
                             _sortedList?.Add( _i, _kvp );
@@ -243,7 +243,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
@@ -343,7 +343,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( List<DbParameter> );
             }
         }
@@ -378,7 +378,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DictionaryExtensions.Fail( ex );
                 return default( bool );
             }
         }
@@ -391,8 +391,8 @@ namespace Badger
         public static KeyValuePair<string, object> GetPrimaryKey(
             this IDictionary<string, object> dict )
         {
-            if( ( dict?.Any( ) == true )
-               && dict.HasPrimaryKey( ) )
+            if( dict?.Any( ) == true
+                && dict.HasPrimaryKey( ) )
             {
                 try
                 {
@@ -407,7 +407,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DictionaryExtensions.Fail( ex );
                     return default( KeyValuePair<string, object> );
                 }
             }
@@ -440,7 +440,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DictionaryExtensions.Fail( ex );
                     return default( BindingList<string> );
                 }
             }
@@ -473,7 +473,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DictionaryExtensions.Fail( ex );
                     return default( BindingList<object> );
                 }
             }

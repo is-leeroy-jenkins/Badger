@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-17-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataTableExtensions.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -98,7 +98,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( XDocument );
             }
         }
@@ -144,7 +144,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
             }
         }
 
@@ -189,7 +189,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -225,7 +225,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -263,7 +263,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -289,7 +289,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -320,7 +320,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( string[ ] );
             }
         }
@@ -359,7 +359,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -394,7 +394,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -415,7 +415,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
             }
         }
 
@@ -440,7 +440,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( BindingList<DataRow> );
             }
         }
@@ -475,7 +475,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( SortedList<int, DataRow> );
             }
         }
@@ -506,7 +506,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataTableExtensions.Fail( ex );
                 return default( ObservableCollection<DataRow> );
             }
         }

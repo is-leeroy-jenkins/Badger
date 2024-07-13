@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-17-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ExcelWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -68,6 +68,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class ExcelWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The path
         /// </summary>
@@ -219,50 +224,6 @@ namespace Badger
         private protected Source _source;
 
         /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -316,19 +277,19 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            FontFamily = _theme.FontFamily;
+            ResizeMode = _theme.SizeMode;
+            WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Padding = new Thickness( 1 );
+            Padding = _theme.Padding;
             Margin = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            BorderThickness = new Thickness( 1 );
+            WindowStyle = _theme.WindowStyle;
+            BorderThickness = _theme.BorderThickness;
             Title = "Excel Data";
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Default Provider
             _provider = Provider.Access;

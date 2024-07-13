@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
-// 
+// <copyright file="BudgetFiscalYear.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -78,7 +78,7 @@ namespace Badger
         /// The federal holidays
         /// </summary>
         private protected IDictionary<Holiday, DateTime> _federalHolidays;
-        
+
         /// <summary>
         /// Gets or sets the availability.
         /// </summary>
@@ -233,7 +233,7 @@ namespace Badger
             _expiringYear = _record[ "ExpiringYear" ].ToString( );
             _startDate = DateTime.Parse( _record[ "StartDate" ].ToString( ) );
             _endDate = DateTime.Parse( _record[ "EndDate" ].ToString( ) );
-            _cancellationDate = 
+            _cancellationDate =
                 DateTime.Parse( dataBuilder.Record[ "CancellationDate" ].ToString( ) );
 
             _holidays = new HolidayFactory( _record );
@@ -320,7 +320,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                BudgetFiscalYear.Fail( ex );
                 return default( IDictionary<Holiday, DateTime> );
             }
         }
@@ -339,7 +339,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                BudgetFiscalYear.Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -362,7 +362,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                BudgetFiscalYear.Fail( ex );
                 return string.Empty;
             }
         }
@@ -379,7 +379,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                BudgetFiscalYear.Fail( ex );
                 return default( BudgetFiscalYear );
             }
         }

@@ -1,15 +1,15 @@
-﻿// ************************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:              19-10-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        13-02-2024
-// ************************************************************************************************
-// <copyright file="CommandBase.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
+// <copyright file="CommandBase.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,12 +31,12 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   CommandBase.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -90,7 +90,7 @@ namespace Badger
         ///  
         /// </value>
         private protected DbConnection _connection;
-        
+
         /// <summary>
         ///  
         /// </summary>
@@ -216,8 +216,8 @@ namespace Badger
         /// <returns> </returns>
         private protected DbCommand GetSQLiteCommand( )
         {
-            if( ( _sqlStatement != null )
-               && ( _connection != null ) )
+            if( _sqlStatement != null
+                && _connection != null )
             {
                 try
                 {
@@ -255,7 +255,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    CommandBase.Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -270,8 +270,8 @@ namespace Badger
         /// </returns>
         private protected DbCommand GetSqlCeCommand( )
         {
-            if( ( _sqlStatement != null )
-               && ( _connection != null ) )
+            if( _sqlStatement != null
+                && _connection != null )
             {
                 try
                 {
@@ -317,7 +317,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    CommandBase.Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -332,8 +332,8 @@ namespace Badger
         /// </returns>
         private protected DbCommand GetSqlCommand( )
         {
-            if( ( _sqlStatement != null )
-               && ( _connection != null ) )
+            if( _sqlStatement != null
+                && _connection != null )
             {
                 try
                 {
@@ -369,7 +369,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    CommandBase.Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -381,9 +381,9 @@ namespace Badger
         /// <returns> </returns>
         private protected DbCommand GetOleDbCommand( )
         {
-            if( ( _sqlStatement != null )
-               && Enum.IsDefined( typeof( Command ), _sqlStatement.CommandType )
-               && ( _connection != null ) )
+            if( _sqlStatement != null
+                && Enum.IsDefined( typeof( Command ), _sqlStatement.CommandType )
+                && _connection != null )
             {
                 try
                 {
@@ -419,7 +419,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    CommandBase.Fail( ex );
                     return default( DbCommand );
                 }
             }

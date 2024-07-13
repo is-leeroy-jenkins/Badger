@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="SqlServerQuery.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -47,7 +47,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary> </summary>
     /// <seealso cref="T:Badger.Query" />
-    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlServerQuery : BudgetQuery
     {
         /// <inheritdoc />
@@ -94,7 +94,8 @@ namespace Badger
         /// <param name="source"> The source Data. </param>
         /// <param name="dict"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
-        public SqlServerQuery( Source source, IDictionary<string, object> dict, Command commandType )
+        public SqlServerQuery( Source source, IDictionary<string, object> dict,
+            Command commandType )
             : base( source, Provider.SqlServer, dict, commandType )
         {
         }
@@ -165,7 +166,8 @@ namespace Badger
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="sqlText"> </param>
         /// <param name="commandType"> The commandType. </param>
-        public SqlServerQuery( string fullPath, string sqlText, Command commandType = Command.SELECT )
+        public SqlServerQuery( string fullPath, string sqlText,
+            Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
@@ -179,7 +181,8 @@ namespace Badger
         /// <param name="fullPath"> The full path. </param>
         /// <param name="commandType"> The commandType. </param>
         /// <param name="dict"> The dictionary. </param>
-        public SqlServerQuery( string fullPath, Command commandType, IDictionary<string, object> dict )
+        public SqlServerQuery( string fullPath, Command commandType,
+            IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }

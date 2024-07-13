@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-02-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-02-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="PaletteB.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA analysts.
+// <copyright file="Palette.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   PaletteB.cs
+//   Palette.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,6 +43,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
     using ExCSS;
     using Color = System.Windows.Media.Color;
@@ -424,6 +426,22 @@ namespace Badger
         /// The size of the font.
         /// </value>
         public double FontSize { get; private protected init; }
+
+        /// <summary>
+        /// Gets the padding.
+        /// </summary>
+        /// <value>
+        /// The padding.
+        /// </value>
+        public Thickness Padding { get; private protected init; }
+
+        /// <summary>
+        /// Gets the border thickness.
+        /// </summary>
+        /// <value>
+        /// The border thickness.
+        /// </value>
+        public Thickness BorderThickness { get; private protected init; }
 
         /// <summary>
         /// Creates the colors.

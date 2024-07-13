@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="TransType.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -222,7 +222,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.TransTypes" /> class.
         /// </summary>
-        public TransType( ) 
+        public TransType( )
             : base( )
         {
         }
@@ -233,7 +233,7 @@ namespace Badger
         /// <see cref="T:Badger.TransTypes" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public TransType( IQuery query ) 
+        public TransType( IQuery query )
             : base( query )
         {
             _source = query.Source;
@@ -264,7 +264,7 @@ namespace Badger
         /// <see cref="T:Badger.TransTypes" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public TransType( IDataModel builder ) 
+        public TransType( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -293,7 +293,7 @@ namespace Badger
         /// <see cref="T:Badger.TransTypes" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public TransType( DataRow dataRow ) 
+        public TransType( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;

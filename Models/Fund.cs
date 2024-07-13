@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Fund.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -153,7 +153,7 @@ namespace Badger
         /// <see cref="T:Badger.Funds" />
         /// class.
         /// </summary>
-        public Fund( ) 
+        public Fund( )
             : base( )
         {
             _source = Source.Funds;
@@ -379,29 +379,38 @@ namespace Badger
         protected IDictionary<string, object> GetArgs( string fundCode )
         {
             if( !string.IsNullOrEmpty( fundCode )
-               && ( fundCode.Length < 5 ) )
+                && fundCode.Length < 5 )
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = fundCode };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Code" ] = fundCode
+                    };
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
-                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
+                    Fund.Fail( ex );
+                    return new Dictionary<string, object>
+                    {
+                        [ "Name" ] = fundCode
+                    };
                 }
             }
 
             if( !string.IsNullOrEmpty( fundCode )
-               && ( fundCode.Length > 5 ) )
+                && fundCode.Length > 5 )
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Name" ] = fundCode
+                    };
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    Fund.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -419,12 +428,15 @@ namespace Badger
             try
             {
                 return Enum.IsDefined( typeof( FundCode ), fundCode )
-                    ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
+                    ? new Dictionary<string, object>
+                    {
+                        [ "Code" ] = fundCode.ToString( )
+                    }
                     : default( Dictionary<string, object> );
             }
             catch( SystemException ex )
             {
-                Fail( ex );
+                Fund.Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

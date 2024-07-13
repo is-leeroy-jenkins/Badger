@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="PivotWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -70,6 +70,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class PivotWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The locked object
         /// </summary>
@@ -231,72 +236,6 @@ namespace Badger
         private protected Timer _timer;
 
         /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -331,7 +270,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.PivotWindow" /> class.
         /// </summary>
-        public PivotWindow( ) 
+        public PivotWindow( )
             : base( )
         {
             // Theme Properties
@@ -350,18 +289,17 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Padding = new Thickness( 1 );
-            Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = _theme.WindowStyle;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Title = "Analysis";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            WindowStartupLocation = _theme.StartLocation;
+            Background = _theme.BackColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BorderColor;
 
             // Default Provider
             _provider = Provider.Access;
@@ -489,9 +427,9 @@ namespace Badger
         {
             try
             {
-                SourceLabel.Foreground = new SolidColorBrush( _borderColor );
-                FirstCategoryLabel.Foreground = new SolidColorBrush( _borderColor );
-                SecondCategoryLabel.Foreground = new SolidColorBrush( _borderColor );
+                SourceLabel.Foreground = _theme.BorderColor;
+                FirstCategoryLabel.Foreground = _theme.BorderColor;
+                SecondCategoryLabel.Foreground = _theme.BorderColor;
             }
             catch( Exception ex )
             {
@@ -624,7 +562,8 @@ namespace Badger
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlSelectQuery( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlSelectQuery( IEnumerable<string> fields,
+            IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _selectedTable ) )

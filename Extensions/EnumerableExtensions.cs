@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="EnumerableExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   EnumerableExtensions.cs
@@ -88,7 +88,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( BindingList<T> );
             }
         }
@@ -100,14 +100,15 @@ namespace Badger
         /// <returns>
         /// ObservableCollection
         /// </returns>
-        public static ObservableCollection<DataRow> ToObservable( this IEnumerable<DataRow> enumerable )
+        public static ObservableCollection<DataRow> ToObservable(
+            this IEnumerable<DataRow> enumerable )
         {
             try
             {
                 if( enumerable.Any( ) )
                 {
                     var _rows = new ObservableCollection<DataRow>( );
-                    foreach( DataRow _row in enumerable )
+                    foreach( var _row in enumerable )
                     {
                         _rows.Add( _row );
                     }
@@ -121,7 +122,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( ObservableCollection<DataRow> );
             }
         }
@@ -150,7 +151,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -179,7 +180,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -216,7 +217,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -232,8 +233,8 @@ namespace Badger
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
             IDictionary<string, object> where )
         {
-            if( ( dataRow?.Any( ) == true )
-               && ( where?.Any( ) == true ) )
+            if( dataRow?.Any( ) == true
+                && where?.Any( ) == true )
             {
                 try
                 {
@@ -245,7 +246,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    EnumerableExtensions.Fail( ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -267,8 +268,8 @@ namespace Badger
             TableStyles style = TableStyles.Light1 )
         {
             if( string.IsNullOrEmpty( path )
-               && ( type?.Any( ) == true )
-               && Enum.IsDefined( typeof( TableStyles ), style ) )
+                && type?.Any( ) == true
+                && Enum.IsDefined( typeof( TableStyles ), style ) )
             {
                 throw new ArgumentException( "Verify Path" );
             }
@@ -284,7 +285,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( ExcelPackage );
             }
         }
@@ -334,8 +335,8 @@ namespace Badger
             {
                 var _countdown = count;
                 var _index = startIndex;
-                while( ( _index < listCount )
-                      && ( _countdown-- > 0 ) )
+                while( _index < listCount
+                    && _countdown-- > 0 )
                 {
                     yield return indexer( _index++ );
                 }
@@ -389,11 +390,11 @@ namespace Badger
         {
             try
             {
-                return CycleIterator( source );
+                return EnumerableExtensions.CycleIterator( source );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                EnumerableExtensions.Fail( ex );
                 return default( IEnumerable<T> );
             }
         }

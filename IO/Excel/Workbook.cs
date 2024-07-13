@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Workbook.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -72,7 +72,7 @@ namespace Badger
             {
                 return _fontColor;
             }
-            
+
             private protected set
             {
                 _fontColor = value;
@@ -91,7 +91,7 @@ namespace Badger
             {
                 return _font;
             }
-            
+
             private protected set
             {
                 _font = value;
@@ -110,7 +110,7 @@ namespace Badger
             {
                 return _titleFont;
             }
-            
+
             private protected set
             {
                 _titleFont = value;
@@ -237,7 +237,7 @@ namespace Badger
                 _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row + 1;
                 var _endColumn = excelRange.End.Column;
-                _footerRange = _dataWorksheet.Cells[ _footer, _startColumn, 
+                _footerRange = _dataWorksheet.Cells[ _footer, _startColumn,
                     _endRow, _endColumn ];
 
                 foreach( var _item in labels )
@@ -270,7 +270,7 @@ namespace Badger
                 _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn,
                     _endRow, _endColumn ];
 
                 for( var _i = _startRow; _i < _endRow; _i++ )
@@ -337,7 +337,7 @@ namespace Badger
                 _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn,
                     _endRow, _endColumn ];
 
                 _dataRange.Style.Fill.PatternType = ExcelFillStyle.Solid;

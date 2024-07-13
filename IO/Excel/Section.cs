@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Section.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -193,7 +193,7 @@ namespace Badger
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="range">The range.</param>
-        public Section( ExcelPackage excel, ExcelRange range ) 
+        public Section( ExcelPackage excel, ExcelRange range )
             : base( excel, range )
         {
             _anchor = ( range.Start.Row, range.Start.Column );
@@ -214,7 +214,7 @@ namespace Badger
         /// <param name="endRow">To row.</param>
         /// <param name="endColumn">To column.</param>
         public Section( ExcelPackage excel, int startRow = 1, int startColumn = 1,
-            int endRow = 55, int endColumn = 12 ) 
+            int endRow = 55, int endColumn = 12 )
             : base( excel, startRow, startColumn, endRow, endColumn )
         {
             _anchor = ( startRow, startColumn );
@@ -231,7 +231,7 @@ namespace Badger
         /// </summary>
         /// <param name="excel">The worksheet.</param>
         /// <param name="cell">The cell.</param>
-        public Section( ExcelPackage excel, IList<int> cell ) 
+        public Section( ExcelPackage excel, IList<int> cell )
             : base( excel, cell )
         {
             _anchor = ( cell[ 0 ], cell[ 1 ] );
@@ -284,8 +284,8 @@ namespace Badger
         /// <param name="excelWorksheet">The excel worksheet.</param>
         /// <param name="excelRange">The excel range.</param>
         /// <param name="excelAddress">The excel address.</param>
-        public void Deconstruct( out ( int Row, int Column ) from, 
-            out ( int Row, int Column ) to, out ExcelWorksheet excelWorksheet, 
+        public void Deconstruct( out ( int Row, int Column ) from,
+            out ( int Row, int Column ) to, out ExcelWorksheet excelWorksheet,
             out ExcelRange excelRange, out ExcelAddress excelAddress )
         {
             from = _from;

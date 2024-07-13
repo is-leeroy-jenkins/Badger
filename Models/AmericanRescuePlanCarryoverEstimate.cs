@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 04-28-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
-// 
+// <copyright file="AmericanRescuePlanCarryoverEstimate.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -58,7 +58,7 @@ namespace Badger
         /// <see cref="T:Badger.AmericanRescuePlanCarryoverEstimate"/>
         /// class.
         /// </summary>
-        public AmericanRescuePlanCarryoverEstimate( ) 
+        public AmericanRescuePlanCarryoverEstimate( )
             : base( )
         {
             _source = Source.AmericanRescuePlanCarryoverEstimates;
@@ -106,7 +106,9 @@ namespace Badger
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( Record[ "AmericanRescuePlanCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            _id = int.Parse( Record[ "AmericanRescuePlanCarryoverEstimatesId" ].ToString( )
+                ?? "0" );
+
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );

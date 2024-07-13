@@ -1,15 +1,15 @@
-﻿// ****************************************************************************************
-//     Assembly:                Budget Execution
+﻿// ******************************************************************************************
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 21-03-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        21-03-2024
-// ****************************************************************************************
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
 // <copyright file="AsyncFolder.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -23,22 +23,20 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
-//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
-//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
-//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-//     TORT OR OTHERWISE, ARISING FROM,
-//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  AsyncFolder.cs
+//   AsyncFolder.cs
 // </summary>
-// ****************************************************************************************
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -106,7 +104,7 @@ namespace Badger
         /// <see cref="T:Badger.Folder" /> class.
         /// </summary>
         /// <param name="input"></param>
-        public AsyncFolder( string input ) 
+        public AsyncFolder( string input )
             : base( input )
         {
             _input = input;
@@ -128,7 +126,8 @@ namespace Badger
         /// <see cref="T:Badger.Folder" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
-        public AsyncFolder( Folder folder ) : base( folder)
+        public AsyncFolder( Folder folder )
+            : base( folder )
         {
             _input = folder.Input;
             _fullPath = folder.FullPath;
@@ -182,7 +181,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    Fail( ex );
+                    AsyncFolder.Fail( ex );
                     return default( Task<string> );
                 }
             }
@@ -212,7 +211,7 @@ namespace Badger
             catch( IOException ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return _async.Task;
             }
         }
@@ -232,7 +231,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<string> );
             }
         }
@@ -267,7 +266,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -290,7 +289,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<object> );
             }
 
@@ -319,7 +318,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<object> );
             }
 
@@ -355,7 +354,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -380,7 +379,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<object> );
             }
 
@@ -394,7 +393,7 @@ namespace Badger
         /// <param name="destination">
         /// The destination.
         /// </param>
-        public Task<object>ZipAsync( string destination )
+        public Task<object> ZipAsync( string destination )
         {
             var _async = new TaskCompletionSource<object>( );
             try
@@ -406,7 +405,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<object> );
             }
 
@@ -432,7 +431,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return default( Task<object> );
             }
 
@@ -483,7 +482,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                Fail( ex );
+                AsyncFolder.Fail( ex );
                 return string.Empty;
             }
         }

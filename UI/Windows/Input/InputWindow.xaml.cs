@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="MessageWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="InputWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MessageWindow.xaml.cs
+//   InputWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -60,6 +60,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class InputWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The back color
         /// </summary>

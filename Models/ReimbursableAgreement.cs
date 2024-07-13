@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ReimbursableAgreement.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -43,7 +43,7 @@ namespace Badger
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -333,7 +333,7 @@ namespace Badger
                 _vendorName = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the amount.
         /// </summary>
@@ -429,7 +429,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ReimbursableAgreement" /> class.
         /// </summary>
-        public ReimbursableAgreement( ) 
+        public ReimbursableAgreement( )
             : base( )
         {
             _source = Source.ReimbursableAgreements;
@@ -441,7 +441,7 @@ namespace Badger
         /// <see cref="T:Badger.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ReimbursableAgreement( IQuery query ) 
+        public ReimbursableAgreement( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -464,7 +464,9 @@ namespace Badger
             _amount = double.Parse( _record[ "Amount" ].ToString( ) );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) );
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) );
-            _unliquidatedObligations = double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+
             _available = double.Parse( _record[ "Available" ].ToString( ) );
             _mainAccount = _record[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
@@ -501,7 +503,9 @@ namespace Badger
             _amount = double.Parse( _record[ "Amount" ].ToString( ) );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) );
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) );
-            _unliquidatedObligations = double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+
             _available = double.Parse( _record[ "Available" ].ToString( ) );
             _mainAccount = _record[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
@@ -538,7 +542,9 @@ namespace Badger
             _amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
             _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
             _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) );
-            _unliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligatios" ].ToString( ) );
+            _unliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligatios" ].ToString( ) );
+
             _available = double.Parse( dataRow[ "Available" ].ToString( ) );
             _mainAccount = dataRow[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );

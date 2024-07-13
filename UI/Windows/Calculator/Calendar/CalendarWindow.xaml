@@ -3,144 +3,142 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         x:Name="Calendar" x:Class="Badger.CalendarWindow" mc:Ignorable="d" Title="Fiscal Year Data"
         Height="800" Width="1400" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC" FontSize="9"
         Background="#FF141414" WindowStartupLocation="CenterScreen" BorderThickness="1,1,1,1"
         Margin="1,1,1,1">
-
-        <Window.ContextMenu>
-        <ContextMenu Name="CalendarWindowContextMenu">
-            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/FileItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories" Click="OnFolderMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/FolderItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator/>
-            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser" Click="OnChromeOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/ChromeItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser" Click="OnEdgeOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/EdgeItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser" Click="OnFirefoxOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/FirefoxItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator/>
-            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator" Click="OnCalculatorMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/CalculatorItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel" Click="OnControlPanelOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/ControlPanelItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager" Click="OnTaskManagerOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                <Image Source="/UI/Windows/Command/TaskManagerItem.png"/>
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator/>
-            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
-                    Click="OnCloseOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-        </ContextMenu>
-        </Window.ContextMenu>
-
-        <Canvas x:Name="CalendarCanvas" Width="1400" Margin="0,0,-2,8">
-        <syncfusion:SfChart3D x:Name="CalendarChart" RenderTransformOrigin="0.788,0.533"
-                Background="#00000000" BackWallBrush="#FF464646" BottomWallBrush="#FF464646"
-                RightWallBrush="#FF464646" LeftWallBrush="#FF464646" TopWallBrush="#FF464646"
-                BorderBrush="#FF0078D4" Padding="1,1,1,1" Width="790" HorizontalAlignment="Center"
-                Height="419" Canvas.Left="526" Canvas.Top="87" VerticalAlignment="Top"
-                BorderThickness="1,1,1,1">
-            <syncfusion:SfChart3D.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform AngleX="0.01" />
-                    <RotateTransform Angle="0.126" />
-                    <TranslateTransform X="-0.001" Y="0.843" />
-                </TransformGroup>
-            </syncfusion:SfChart3D.RenderTransform>
-        </syncfusion:SfChart3D>
-        <local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="215" Width="284"
-                BorderBrush="#FF2D2D2D" Padding="1,1,1,1" BorderThickness="1,1,1,1"
-                HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="334" VerticalAlignment="Top" />
-        <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="210"
-                ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1"
-                BorderBrush="#FF2D2D2D" BorderThickness="1,1,1,1" Canvas.Left="80" Canvas.Top="69"
-                VerticalAlignment="Top" Width="290" />
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400"
-                Canvas.Top="720" Canvas.Left="0" HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Padding="5,1,1,1" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="140" />
-            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/Calendar/FirstButton.png" Height="30" />
-            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/Calendar/PreviousButton.png" Height="30" />
-            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/Calendar/NextButton.png" Height="30" />
-            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/Calendar/LastButton.png" Height="30" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" Margin="15,6,0,6" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" Margin="15,6,0,6" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
-                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
-            <syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3"
-                    Foreground="#006ABDFC" Width="1" Margin="20,6,0,6" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Calendar/LookUpButton.png" Height="30" />
-            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Calendar/RefreshButton.png" Height="30" />
-            <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
-                    ImageSource="/UI/Windows/Datagrid/FilterButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Calendar/EditButton.png" Height="30" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Calendar/BackButton.png" Height="30" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Calendar/SaveButton.png" Height="30" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/Calendar/DeleteButton.png" Height="30" />
-            <local:ToolStripButton x:Name="ExportButton"
-                    ImageSource="/UI/Windows/Calendar/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Calendar/BrowseButton.png" Height="30" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="25,6,0,6" />
-            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" Margin="20,6,0,6" />
-            <local:ToolStripButton x:Name="ToggleButton"
-                    ImageSource="/UI/Windows/Calendar/ToggleButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Calendar/MenuButton.png" Height="30" />
-        </local:ToolStrip>
-        <local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="75"
-                Canvas.Top="39" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" />
-        <local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="85"
-                Canvas.Top="304" HorizontalAlignment="Center" VerticalAlignment="Center" Width="260"
-                Height="25" />
-        <local:MetroHeaderBox Height="40" Header="MetroHeaderBox" Width="785" Canvas.Left="530"
-                Canvas.Top="529" HorizontalAlignment="Center" VerticalAlignment="Top" />
-    </Canvas>
+<Window.ContextMenu>
+<ContextMenu Name="CalendarWindowContextMenu">
+<syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FileItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
+                        Click="OnFolderMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FolderItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser" Click="OnChromeOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/ChromeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser" Click="OnEdgeOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/EdgeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
+                        Click="OnFirefoxOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FirefoxItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
+                        Click="OnCalculatorMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/CalculatorItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel"
+                        Click="OnControlPanelOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager"
+                        Click="OnTaskManagerOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application" Click="OnCloseOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+</ContextMenu>
+</Window.ContextMenu>
+<Canvas x:Name="CalendarCanvas" Width="1400" Margin="0,0,-2,8">
+<syncfusion:SfChart3D x:Name="CalendarChart" RenderTransformOrigin="0.788,0.533"
+                      Background="#00000000" BackWallBrush="#FF464646" BottomWallBrush="#FF464646"
+                      RightWallBrush="#FF464646" LeftWallBrush="#FF464646" TopWallBrush="#FF464646"
+                      BorderBrush="#FF0078D4" Padding="1,1,1,1" Width="790"
+                      HorizontalAlignment="Center" Height="419" Canvas.Left="526" Canvas.Top="87"
+                      VerticalAlignment="Top" BorderThickness="1,1,1,1">
+<syncfusion:SfChart3D.RenderTransform>
+<TransformGroup>
+<ScaleTransform />
+<SkewTransform AngleX="0.01" />
+<RotateTransform Angle="0.126" />
+<TranslateTransform X="-0.001" Y="0.843" />
+</TransformGroup>
+</syncfusion:SfChart3D.RenderTransform>
+</syncfusion:SfChart3D>
+<local:MetroCalendar x:Name="SecondCalendar" Date="1/1/2020" Height="215" Width="284"
+                     BorderBrush="#FF2D2D2D" Padding="1,1,1,1" BorderThickness="1,1,1,1"
+                     HorizontalAlignment="Left" Canvas.Left="85" Canvas.Top="334"
+                     VerticalAlignment="Top" />
+<local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="210"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1"
+                     BorderBrush="#FF2D2D2D" BorderThickness="1,1,1,1" Canvas.Left="80"
+                     Canvas.Top="69" VerticalAlignment="Top" Width="290" />
+<local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Height="40" Width="1400" Canvas.Top="720"
+                 Canvas.Left="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+<local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Padding="5,1,1,1" />
+<Separator Background="#FF141414" BorderBrush="#FF141414" Width="140" />
+<local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                       ImageSource="/UI/Windows/Calendar/FirstButton.png" Height="30" />
+<local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                       ImageSource="/UI/Windows/Calendar/PreviousButton.png" Height="30" />
+<local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                       ImageSource="/UI/Windows/Calendar/NextButton.png" Height="30" />
+<local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                       ImageSource="/UI/Windows/Calendar/LastButton.png" Height="30" />
+<syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3" Foreground="#006ABDFC"
+                              Width="1" Margin="15,6,0,6" />
+<syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3" Foreground="#006ABDFC"
+                              Width="1" Margin="15,6,0,6" />
+<local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                        Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
+<syncfusion:MenuItemSeparator Background="#00D3D3D3" BorderBrush="#00D3D3D3" Foreground="#006ABDFC"
+                              Width="1" Margin="20,6,0,6" />
+<local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                       ImageSource="/UI/Windows/Calendar/LookUpButton.png" Height="30" />
+<local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                       ImageSource="/UI/Windows/Calendar/RefreshButton.png" Height="30" />
+<local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
+                       ImageSource="/UI/Windows/Datagrid/FilterButton.png" />
+<local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                       ImageSource="/UI/Windows/Calendar/EditButton.png" Height="30" />
+<local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                       ImageSource="/UI/Windows/Calendar/BackButton.png" Height="30" />
+<local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                       ImageSource="/UI/Windows/Calendar/SaveButton.png" Height="30" />
+<local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                       ImageSource="/UI/Windows/Calendar/DeleteButton.png" Height="30" />
+<local:ToolStripButton x:Name="ExportButton" ImageSource="/UI/Windows/Calendar/ExportButton.png" />
+<local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                       ImageSource="/UI/Windows/Calendar/BrowseButton.png" Height="30" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"
+                              Margin="25,6,0,6" />
+<ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"
+                              Margin="20,6,0,6" />
+<local:ToolStripButton x:Name="ToggleButton" ImageSource="/UI/Windows/Calendar/ToggleButton.png" />
+<local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                       ImageSource="/UI/Windows/Calendar/MenuButton.png" Height="30" />
+</local:ToolStrip>
+<local:MetroLabel x:Name="FirstCalendarLabel" Content="First" Canvas.Left="75" Canvas.Top="39"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" />
+<local:MetroLabel x:Name="SecondCalendarLabel" Content="Second" Canvas.Left="85" Canvas.Top="304"
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Width="260" Height="25" />
+<local:MetroHeaderBox Height="40" Header="MetroHeaderBox" Width="785" Canvas.Left="530"
+                      Canvas.Top="529" HorizontalAlignment="Center" VerticalAlignment="Top" />
+</Canvas>
 </Window>

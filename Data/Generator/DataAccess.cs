@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Badger
-//      Filename:                DataAccess.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Badger
+//     Author:                  Terry D. Eppler
+//     Created:                 07-13-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="DataAccess.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
+// <copyright file="DataAccess.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    DataAccess.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   DataAccess.cs
+// </summary>
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -179,7 +176,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -202,7 +199,9 @@ namespace Badger
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new BudgetQuery( _sqlStatement );
                 using var _adapter = _query.DataAdapter;
-                _adapter.FillSchema( _dataSet, System.Data.SchemaType.Source, _dataTable.TableName );
+                _adapter.FillSchema( _dataSet, System.Data.SchemaType.Source,
+                    _dataTable.TableName );
+
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;
@@ -213,7 +212,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( DataTable );
             }
         }
@@ -224,7 +223,7 @@ namespace Badger
         /// <returns>
         /// </returns>
         private protected Task<DataTable> GetTableAsync( )
-        { 
+        {
             var _tcs = new TaskCompletionSource<DataTable>( );
             try
             {
@@ -232,7 +231,7 @@ namespace Badger
                 var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{_provider}" );
                 _dataTable = new DataTable( $"{_source}" );
-                _dataTable.TableName =_source.ToString( );
+                _dataTable.TableName = _source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new BudgetQuery( _sqlStatement );
                 using var _adapter = _query.DataAdapter;
@@ -246,7 +245,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _tcs.SetException( ex );
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( Task<DataTable> );
             }
         }
@@ -273,7 +272,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
             }
         }
 
@@ -305,7 +304,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -326,13 +325,13 @@ namespace Badger
 
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    if( ( !_col.ColumnName.EndsWith( "Id" ) 
-                           && ( _col.DataType == typeof( double ) ) )
-                       || ( _col.DataType == typeof( short ) )
-                       || ( _col.DataType == typeof( ushort ) )
-                       || ( _col.DataType == typeof( long ) )
-                       || ( _col.DataType == typeof( decimal ) )
-                       || ( _col.DataType == typeof( float ) ) )
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                            && _col.DataType == typeof( double ) )
+                        || _col.DataType == typeof( short )
+                        || _col.DataType == typeof( ushort )
+                        || _col.DataType == typeof( long )
+                        || _col.DataType == typeof( decimal )
+                        || _col.DataType == typeof( float ) )
                     {
                         _list.Add( _col.ColumnName );
                     }
@@ -344,7 +343,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -365,13 +364,13 @@ namespace Badger
 
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    if( ( _col.Ordinal > 0 )
-                       && ( ( _col.DataType == typeof( DateTime ) )
-                           || ( _col.DataType == typeof( DateTimeOffset ) )
-                           || ( _col.ColumnName.EndsWith( "Day" ) 
-                               && _col.DataType == typeof( string ) )
-                           || ( _col.ColumnName.EndsWith( "Date" ) 
-                               && _col.DataType == typeof( string ) ) ) )
+                    if( _col.Ordinal > 0
+                        && ( _col.DataType == typeof( DateTime )
+                            || _col.DataType == typeof( DateTimeOffset )
+                            || ( _col.ColumnName.EndsWith( "Day" )
+                                && _col.DataType == typeof( string ) )
+                            || ( _col.ColumnName.EndsWith( "Date" )
+                                && _col.DataType == typeof( string ) ) ) )
                     {
                         _list.Add( _col.ColumnName );
                     }
@@ -383,7 +382,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -409,7 +408,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
                 return default( IList<int> );
             }
         }
@@ -439,7 +438,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
             }
         }
 
@@ -468,7 +467,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataAccess.Fail( ex );
             }
         }
     }

@@ -2,47 +2,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Badger" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        x:Name="InputView" x:Class="Badger.InputWindow" mc:Ignorable="d" Height="350" Width="700"
-        Background="#FF031017" BorderBrush="#FF81A7FB" BorderThickness="1,1,1,1"
-        WindowStartupLocation="CenterScreen" Foreground="#FFFDFEFF" WindowStyle="None"
-        Icon="/UI/Windows/Message/SplashNotification.png" ResizeMode="NoResize">
-    <Canvas x:Name="MessageCanvas">
-        <Image x:Name="ImageBox" Height="18" Width="20" HorizontalAlignment="Left" Canvas.Left="3"
-                Canvas.Top="3" VerticalAlignment="Top" Source="/UI/Windows/Message/InputDialog.png" />
-        <Label x:Name="Title" Content="Input Requested" Foreground="#FFFFFEFE" Width="352"
-                Height="17" Padding="1,1,1,1" HorizontalAlignment="Left" Canvas.Left="38"
-                Canvas.Top="3" VerticalAlignment="Top" />
-        <local:MetroLabel x:Name="Caption" Content="Message text goes here." Height="25"
-                Width="527" Foreground="#FFFBFDFD" HorizontalAlignment="Left" Canvas.Left="75"
-                Canvas.Top="50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
-            <local:MetroLabel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="-0.025" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </local:MetroLabel.RenderTransform>
-        </local:MetroLabel>
-        <local:MetroLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="105" Height="20"
-                Foreground="#FFF7F9F9" Padding="1,1,1,1" FontSize="9"
-                HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
-                HorizontalAlignment="Left" Canvas.Left="580" VerticalAlignment="Center"
-                Canvas.Top="5" />
-        <local:MetroTextBox x:Name="Input" Canvas.Left="75" TextWrapping="Wrap"
-                Text="Enter text here" Canvas.Top="85" Width="530" HorizontalAlignment="Center"
-                VerticalAlignment="Top" Height="124" BorderThickness="1,1,1,1" Padding="10,5,5,5"
-                Foreground="#FFD8E7F3" />
-        <Button x:Name="CloseButton" Content="Close" Canvas.Left="540" Canvas.Top="285" Height="40"
-                Width="65" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF031017"
-                BorderBrush="#FF031017" Foreground="#FFA0BDD4" />
-        <Button x:Name="ClearButton" Content="Clear" Canvas.Left="75" Canvas.Top="285" Height="40"
-                Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
-                HorizontalAlignment="Left" VerticalAlignment="Top"
-                RenderTransformOrigin="0.462,0.625" />
-        <Button x:Name="SelectButton" Content="Enter" Canvas.Left="300" Canvas.Top="285" Height="40"
-                Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
-                HorizontalAlignment="Center" VerticalAlignment="Top" />
-    </Canvas>
+        xmlns:local="clr-namespace:Badger" x:Name="InputView" x:Class="Badger.InputWindow"
+        mc:Ignorable="d" Height="350" Width="700" Background="#FF031017" BorderBrush="#FF81A7FB"
+        BorderThickness="1,1,1,1" WindowStartupLocation="CenterScreen" Foreground="#FFFDFEFF"
+        WindowStyle="None" Icon="/UI/Windows/Message/SplashNotification.png" ResizeMode="NoResize">
+<Canvas x:Name="MessageCanvas">
+<Image x:Name="ImageBox" Height="18" Width="20" HorizontalAlignment="Left" Canvas.Left="3"
+       Canvas.Top="3" VerticalAlignment="Top" Source="/UI/Windows/Message/InputDialog.png" />
+<Label x:Name="Title" Content="Input Requested" Foreground="#FFFFFEFE" Width="352" Height="17"
+       Padding="1,1,1,1" HorizontalAlignment="Left" Canvas.Left="38" Canvas.Top="3"
+       VerticalAlignment="Top" />
+<local:MetroLabel x:Name="Caption" Content="Message text goes here." Height="25" Width="527"
+                  Foreground="#FFFBFDFD" HorizontalAlignment="Left" Canvas.Left="75"
+                  Canvas.Top="50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+<local:MetroLabel.RenderTransform>
+<TransformGroup>
+<ScaleTransform />
+<SkewTransform />
+<RotateTransform Angle="-0.025" />
+<TranslateTransform />
+</TransformGroup>
+</local:MetroLabel.RenderTransform>
+</local:MetroLabel>
+<local:MetroLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="105" Height="20"
+                  Foreground="#FFF7F9F9" Padding="1,1,1,1" FontSize="9"
+                  HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+                  HorizontalAlignment="Left" Canvas.Left="580" VerticalAlignment="Center"
+                  Canvas.Top="5" />
+<local:MetroTextBox x:Name="Input" Canvas.Left="75" TextWrapping="Wrap" Text="Enter text here"
+                    Canvas.Top="85" Width="530" HorizontalAlignment="Center"
+                    VerticalAlignment="Top" Height="124" BorderThickness="1,1,1,1"
+                    Padding="10,5,5,5" Foreground="#FFD8E7F3" />
+<Button x:Name="CloseButton" Content="Close" Canvas.Left="540" Canvas.Top="285" Height="40"
+        Width="65" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF031017"
+        BorderBrush="#FF031017" Foreground="#FFA0BDD4" />
+<Button x:Name="ClearButton" Content="Clear" Canvas.Left="75" Canvas.Top="285" Height="40"
+        Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
+        HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.625" />
+<Button x:Name="SelectButton" Content="Enter" Canvas.Left="300" Canvas.Top="285" Height="40"
+        Width="65" Background="#FF031017" BorderBrush="#FF031017" Foreground="#FFA0BDD4"
+        HorizontalAlignment="Center" VerticalAlignment="Top" />
+</Canvas>
 </Window>

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-16-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="EmailContent.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -54,7 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class EmailContent 
+    public class EmailContent
     {
         /// <summary>
         /// The is HTML
@@ -167,7 +167,7 @@ namespace Badger
         /// </summary>
         /// <param name="subject"></param>
         /// <param name="message"></param>
-        public EmailContent( string subject, string message ) 
+        public EmailContent( string subject, string message )
             : this( )
         {
             _message = message;
@@ -210,7 +210,7 @@ namespace Badger
         /// The content.
         /// </param>
         /// <param name="attachments"></param>
-        public void Deconstruct( out string subject, out string message, 
+        public void Deconstruct( out string subject, out string message,
             out IList<string> attachments )
         {
             subject = _subject;

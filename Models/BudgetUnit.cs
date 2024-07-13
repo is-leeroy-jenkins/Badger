@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
-// 
+// <copyright file="BudgetUnit.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -299,7 +299,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.BudgetUnit" /> class.
         /// </summary>
-        protected BudgetUnit( ) 
+        protected BudgetUnit( )
             : base( )
         {
         }
@@ -310,7 +310,7 @@ namespace Badger
         /// <see cref="T:Badger.BudgetUnit" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected BudgetUnit( IQuery query ) 
+        protected BudgetUnit( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -332,7 +332,7 @@ namespace Badger
         /// <see cref="T:Badger.BudgetUnit" /> class.
         /// </summary>
         /// <param name="dataBuilder">The query.</param>
-        protected BudgetUnit( IDataModel dataBuilder ) 
+        protected BudgetUnit( IDataModel dataBuilder )
             : base( dataBuilder )
         {
             _record = dataBuilder.Record;
@@ -354,7 +354,7 @@ namespace Badger
         /// <see cref="T:Badger.BudgetUnit" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        protected BudgetUnit( DataRow dataRow ) 
+        protected BudgetUnit( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;

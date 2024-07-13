@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
-// 
+// <copyright file="BudgetDocument.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -61,7 +61,7 @@ namespace Badger
         /// The document date
         /// </summary>
         private DateTime _documentDate;
-        
+
         /// <summary>
         /// Gets or sets the document date.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.BudgetDocuments" /> class.
         /// </summary>
-        public BudgetDocument( ) 
+        public BudgetDocument( )
             : base( )
         {
             _source = Source.BudgetDocuments;
@@ -289,7 +289,7 @@ namespace Badger
         /// <see cref="T:Badger.BudgetDocuments" /> class.
         /// </summary>
         /// <param name="budgetDocument">The budget document.</param>
-        public BudgetDocument( BudgetDocument budgetDocument ) 
+        public BudgetDocument( BudgetDocument budgetDocument )
             : this( )
         {
             _record = budgetDocument.Record;

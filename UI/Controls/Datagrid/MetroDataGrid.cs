@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroDataGrid.cs" company="Terry D. Eppler">
-//    Badger is a data analysis and reporting tool for EPA analysts.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -115,7 +116,7 @@ namespace Badger
             R = 50,
             G = 93,
             B = 129
-        }; 
+        };
 
         /// <inheritdoc />
         /// <summary>
@@ -126,7 +127,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
+            SetResourceReference( MetroDataGrid.StyleProperty, typeof( SfDataGrid ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             AllowEditing = true;

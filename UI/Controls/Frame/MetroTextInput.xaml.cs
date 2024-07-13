@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-10-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-10-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroTextInput.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -216,7 +216,7 @@ namespace Badger
             InitializeComponent( );
 
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( TextBoxExt ) );
+            SetResourceReference( MetroTextInput.StyleProperty, typeof( TextBoxExt ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 240;

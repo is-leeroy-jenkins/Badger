@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-22-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="SheetConfig.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   SheetConfig.cs
@@ -78,7 +78,7 @@ namespace Badger
             {
                 return _dataConnection;
             }
-            
+
             private protected set
             {
                 _dataConnection = value;
@@ -97,7 +97,7 @@ namespace Badger
             {
                 return _dataCommand;
             }
-            
+
             private protected set
             {
                 _dataCommand = value;
@@ -116,7 +116,7 @@ namespace Badger
             {
                 return _dataAdapter;
             }
-            
+
             private protected set
             {
                 _dataAdapter = value;
@@ -135,7 +135,7 @@ namespace Badger
             {
                 return _fileInfo;
             }
-            
+
             private protected set
             {
                 _fileInfo = value;
@@ -154,7 +154,7 @@ namespace Badger
             {
                 return _excelPackage;
             }
-            
+
             private protected set
             {
                 _excelPackage = value;
@@ -173,7 +173,7 @@ namespace Badger
             {
                 return _excelWorkbook;
             }
-            
+
             private protected set
             {
                 _excelWorkbook = value;
@@ -272,7 +272,7 @@ namespace Badger
             {
                 return _dataWorksheet;
             }
-            
+
             private protected set
             {
                 _dataWorksheet = value;
@@ -310,7 +310,7 @@ namespace Badger
                 _pivotWorksheet = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
@@ -323,7 +323,7 @@ namespace Badger
             {
                 return _comments;
             }
-            
+
             private protected set
             {
                 _comments = value;
@@ -342,7 +342,7 @@ namespace Badger
             {
                 return _dataTable;
             }
-            
+
             private protected set
             {
                 _dataTable = value;
@@ -452,7 +452,7 @@ namespace Badger
                 _dataRange.Style.Font.Size = 9;
                 _dataRange.Style.Font.Bold = false;
                 _dataRange.Style.Font.Italic = false;
-                for( int _i = _startColumn; _i < _endColumn; _i++ )
+                for( var _i = _startColumn; _i < _endColumn; _i++ )
                 {
                     _dataRange[ _header, _i ].Value = names[ _i ];
                 }

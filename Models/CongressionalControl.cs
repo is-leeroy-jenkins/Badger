@@ -1,20 +1,20 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="CongressionalControl.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
-//    including without limitation the rights to use, 
+//    including without limitation the rights to use,
 //    copy, modify, merge, publish, distribute, sublicense,
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
@@ -293,7 +293,7 @@ namespace Badger
         /// <see cref="T:Badger.CongressionalControl" />
         /// class.
         /// </summary>
-        public CongressionalControl( ) 
+        public CongressionalControl( )
             : base( )
         {
             _source = Source.CongressionalControls;
@@ -311,19 +311,19 @@ namespace Badger
         {
             _record = new DataGenerator( query ).Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record["CongressionalControlsId" ]?.ToString( ) ?? "0" );
-            _fundCode = _record["FundCode" ]?.ToString( );
-            _fundName = _record["FundName" ]?.ToString( );
-            _programProjectCode = _record["ProgramProjectCode" ]?.ToString( );
-            _programProjectName = _record["ProgramProjectName" ]?.ToString( );
-            _subProjectCode = _record["SubProjectCode" ]?.ToString( );
-            _subProjectName = _record["SubProjectName" ]?.ToString( );
-            _programAreaCode = _record["ProgramAreaCode" ]?.ToString( );
-            _programAreaName = _record["ProgramAreaName" ]?.ToString( );
-            _increaseRestriction = bool.Parse( _record["IncreaseRestriction" ]?.ToString( ) );
-            _decreaseRestriction = bool.Parse( _record["DecreaseRestriction" ]?.ToString( ) );
+            _id = int.Parse( _record[ "CongressionalControlsId" ]?.ToString( ) ?? "0" );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
+            _subProjectCode = _record[ "SubProjectCode" ]?.ToString( );
+            _subProjectName = _record[ "SubProjectName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
+            _increaseRestriction = bool.Parse( _record[ "IncreaseRestriction" ]?.ToString( ) );
+            _decreaseRestriction = bool.Parse( _record[ "DecreaseRestriction" ]?.ToString( ) );
             _memoRequirement = bool.Parse( _record[ "MemoRequirement" ]?.ToString( ) );
-            _reprogrammingRestriction = 
+            _reprogrammingRestriction =
                 bool.Parse( _record[ "ReprogrammingRestriction" ]?.ToString( ) );
         }
 
@@ -390,7 +390,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="control">The control.</param>
-        public CongressionalControl( CongressionalControl control ) 
+        public CongressionalControl( CongressionalControl control )
             : this( )
         {
             _id = control.ID;

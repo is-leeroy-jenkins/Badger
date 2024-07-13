@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 1-20-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        1-20-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="InnerWebs.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="WebSearch.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   InnerWebs.cs
+//   WebSearch.cs
 // </summary>
 // ******************************************************************************************
 
@@ -136,13 +136,13 @@ namespace Badger
         /// </returns>
         private protected bool PingNetwork( string ipAddress )
         {
-            bool _status = false;
+            var _status = false;
             try
             {
                 ThrowIf.Null( ipAddress, nameof( ipAddress ) );
                 using var _ping = new Ping( );
                 var _buffer = Encoding.ASCII.GetBytes( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" );
-                var _timeout = 5000; // 5sg
+                var _timeout = 5000;// 5sg
                 var _reply = _ping.Send( ipAddress, _timeout, _buffer );
                 if( _reply != null )
                 {
@@ -154,7 +154,7 @@ namespace Badger
                 _status = false;
                 Fail( ex );
             }
-            
+
             return _status;
         }
 

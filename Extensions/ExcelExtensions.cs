@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="ExcelExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ExcelExtensions.cs
@@ -78,7 +78,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ExcelExtensions.Fail( ex );
                 return default( DataSet );
             }
         }
@@ -141,7 +141,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ExcelExtensions.Fail( ex );
                 return default( DataSet );
             }
         }
@@ -161,7 +161,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ExcelExtensions.Fail( ex );
             }
         }
 
@@ -190,7 +190,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ExcelExtensions.Fail( ex );
                 return false;
             }
         }
@@ -214,8 +214,8 @@ namespace Badger
 
                     var _second = width - _first;
                     var _third = width >= 1.0
-                        ? Math.Round( ( 7.0 * _second ) - 0.0, 0 ) / 7.0
-                        : ( Math.Round( ( 12.0 * _second ) - 0.0, 0 ) / 12.0 ) + 0.0;
+                        ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
+                        : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
 
                     column.Width = _first > 0.0
                         ? width + _third
@@ -223,7 +223,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                 }
             }
         }
@@ -243,7 +243,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                 }
             }
         }
@@ -266,7 +266,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -292,7 +292,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -319,7 +319,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -346,7 +346,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -368,7 +368,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ExcelExtensions.Fail( ex );
             }
         }
 
@@ -390,7 +390,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ExcelExtensions.Fail( ex );
                 }
             }
         }

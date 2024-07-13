@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ViewModel.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, accounting, and finance application for EPA analysts in WPF and
-//    written in C#.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -94,7 +94,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        public ViewModel( ) 
+        public ViewModel( )
             : base( )
         {
             _data = new ObservableCollection<View>( );
@@ -115,7 +115,7 @@ namespace Badger
                 _data.Add( _view );
             }
             catch( Exception _ex )
-            { 
+            {
                 Fail( _ex );
             }
         }

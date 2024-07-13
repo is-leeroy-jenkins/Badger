@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataModel.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -137,7 +137,7 @@ namespace Badger
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, Command.SELECTALL );
             _dataTable = GetDataTable( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -161,7 +161,7 @@ namespace Badger
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -194,7 +194,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -221,7 +221,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -252,7 +252,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -276,7 +276,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -301,7 +301,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -326,7 +326,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -349,7 +349,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _elements = DataModel.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -376,7 +376,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataModel.Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -406,7 +406,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataModel.Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -462,7 +462,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataModel.Fail( ex );
                 return default( DataTable );
             }
 
@@ -489,9 +489,9 @@ namespace Badger
                 for( var _i = 0; _i < _columns?.Count; _i++ )
                 {
                     if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
-                       && ( _columns[ _i ]?.DataType == typeof( string ) ) )
+                        && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
-                        var _name = GetValues( _rows, _columns[ _i ]?.ColumnName );
+                        var _name = DataModel.GetValues( _rows, _columns[ _i ]?.ColumnName );
                         _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                     }
                 }
@@ -502,7 +502,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataModel.Fail( ex );
                 return default( IDictionary<string, IEnumerable<string>> );
             }
         }

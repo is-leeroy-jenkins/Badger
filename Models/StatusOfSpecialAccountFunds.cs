@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="StatusOfSpecialAccountFunds.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -43,7 +43,7 @@ namespace Badger
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:Badger.PRC"/>
@@ -133,7 +133,7 @@ namespace Badger
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
             _collectionsAndInterest =
                 double.Parse( _record[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
-            
+
             _unliquidatedObligations =
                 double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }
@@ -207,7 +207,7 @@ namespace Badger
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
             _collectionsAndInterest =
                 double.Parse( _record[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
-            
+
             _unliquidatedObligations =
                 double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }
@@ -281,7 +281,7 @@ namespace Badger
             _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
             _collectionsAndInterest =
                 double.Parse( dataRow[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
-            
+
             _unliquidatedObligations =
                 double.Parse( dataRow[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }

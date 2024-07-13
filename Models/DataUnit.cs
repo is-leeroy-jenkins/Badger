@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-04-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataUnit.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -45,7 +45,7 @@ namespace Badger
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    
+
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -259,7 +259,7 @@ namespace Badger
         /// <see cref="DataUnit"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected DataUnit( IQuery query ) 
+        protected DataUnit( IQuery query )
         {
             _record = new DataGenerator( query ).Record;
             _code = _record[ "Code" ]?.ToString( );
@@ -272,7 +272,7 @@ namespace Badger
         /// <see cref="DataUnit"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        protected DataUnit( DataRow dataRow ) 
+        protected DataUnit( DataRow dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
@@ -296,8 +296,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( unit, nameof( unit ) );
-                if( ( unit.Code?.Equals( _code ) == true )
-                   && unit.Name.Equals( _name ) )
+                if( unit.Code?.Equals( _code ) == true
+                    && unit.Name.Equals( _name ) )
                 {
                     return true;
                 }
@@ -308,7 +308,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataUnit.Fail( ex );
                 return false;
             }
         }
@@ -335,7 +335,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataUnit.Fail( ex );
                 return false;
             }
         }
@@ -357,14 +357,14 @@ namespace Badger
                 ThrowIf.Null( primary, nameof( primary ) );
                 ThrowIf.Null( secondary, nameof( secondary ) );
                 if( primary.Code.Equals( secondary.Code )
-                   && primary.Name.Equals( secondary.Name ) )
+                    && primary.Name.Equals( secondary.Name ) )
                 {
                     return true;
                 }
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataUnit.Fail( ex );
                 return false;
             }
 
@@ -380,13 +380,13 @@ namespace Badger
         {
             try
             {
-                return _record != null 
+                return _record != null
                     ? int.Parse( _record[ 0 ]?.ToString( ) ?? "0" )
                     : -1;
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataUnit.Fail( ex );
                 return default( int );
             }
         }
@@ -406,7 +406,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataUnit.Fail( ex );
                 return default( int );
             }
         }

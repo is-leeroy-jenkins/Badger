@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="StatusOfFunds.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -104,7 +104,7 @@ namespace Badger
         /// The available
         /// </summary>
         private protected double _available;
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the amount.
@@ -281,7 +281,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.StatusOfFunds" /> class.
         /// </summary>
-        public StatusOfFunds( ) 
+        public StatusOfFunds( )
             : base( )
         {
             _source = Source.StatusOfFunds;
@@ -528,7 +528,7 @@ namespace Badger
             _budgetLevel = status.BudgetLevel;
             _fiscalYear = status.FiscalYear;
             _bfy = status.BFY;
-            _efy = status.EFY; 
+            _efy = status.EFY;
             _fundCode = status.FundCode;
             _fundName = status.FundName;
             _rpioCode = status.RpioCode;

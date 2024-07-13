@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ToolStrip.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -73,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
+            SetResourceReference( ToolStrip.StyleProperty, typeof( ToolBarAdv ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Height = 40;

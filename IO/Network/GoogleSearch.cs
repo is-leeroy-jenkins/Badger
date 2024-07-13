@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 1-20-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        1-20-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="GoogleSearch.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for analysts with the US Environmental Protection Agency (US EPA).
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   GoogleSearch.cs
@@ -79,7 +79,7 @@ namespace Badger
         /// The engine
         /// </summary>
         private readonly string _engine;
-        
+
         /// <summary>
         /// Gets or sets the query.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.GoogleSearch" /> class.
         /// </summary>
-        public GoogleSearch( ) 
+        public GoogleSearch( )
             : base( )
         {
             _key = ConfigurationManager.AppSettings[ "ApiKey" ];
@@ -118,7 +118,7 @@ namespace Badger
         /// <param name="keywords">
         /// The keywords.
         /// </param>
-        public GoogleSearch( string keywords ) 
+        public GoogleSearch( string keywords )
             : this( )
         {
             _query = keywords;
@@ -160,7 +160,7 @@ namespace Badger
                             var _lines = _list[ _i ].Link ?? string.Empty;
                             var _titles = _list[ _i ].Title ?? string.Empty;
                             var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
-                            var _searchResults = new SearchResult( _snippet, _lines, 
+                            var _searchResults = new SearchResult( _snippet, _lines,
                                 _titles, _htmlTitle );
 
                             _results.Add( _searchResults );
@@ -224,7 +224,9 @@ namespace Badger
                             var _line = _list[ _i ].Link ?? string.Empty;
                             var _titles = _list[ _i ].Title ?? string.Empty;
                             var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
-                            var _searchResults = new SearchResult( _snippet, _line, _titles, _htmlTitle );
+                            var _searchResults =
+                                new SearchResult( _snippet, _line, _titles, _htmlTitle );
+
                             _results.Add( _searchResults );
                         }
 

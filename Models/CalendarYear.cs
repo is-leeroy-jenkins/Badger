@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="CalendarYear.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -109,7 +109,7 @@ namespace Badger
                 _workDays = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the week days.
         /// </summary>
@@ -127,7 +127,7 @@ namespace Badger
                 _weekDays = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the week ends.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Badger
                 _weekEnds = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the current date.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Badger
                 _currentDate = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the current month.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Badger
                 _currentMonth = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the current day.
         /// </summary>
@@ -199,7 +199,7 @@ namespace Badger
                 _currentDay = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the current year.
         /// </summary>
@@ -223,7 +223,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.CalendarYear" /> class.
         /// </summary>
-        protected CalendarYear( ) 
+        protected CalendarYear( )
             : base( )
         {
         }

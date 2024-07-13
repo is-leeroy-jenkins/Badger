@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Grid.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   Grid.cs
@@ -216,14 +216,14 @@ namespace Badger
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="range">The range.</param>
-        public Grid( ExcelPackage excel, ExcelRange range ) 
+        public Grid( ExcelPackage excel, ExcelRange range )
             : base( range.Start.Row, range.Start.Column )
         {
             _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
             _excelRange = range;
             _from = ( range.Start.Row, range.Start.Column );
             _to = ( range.End.Row, range.End.Column );
-            _excelAddress = new ExcelAddress( range.Start.Row, range.Start.Column, 
+            _excelAddress = new ExcelAddress( range.Start.Row, range.Start.Column,
                 range.End.Row, range.End.Column );
 
             _cells = GetCells( );
@@ -338,7 +338,7 @@ namespace Badger
         /// <param name="excelAddress">The excel address.</param>
         /// <param name="cells"> </param>
         public void Deconstruct( out (int Row, int Column) from,
-            out (int Row, int Column) to, out ExcelWorksheet excelWorksheet, 
+            out (int Row, int Column) to, out ExcelWorksheet excelWorksheet,
             out ExcelRange excelRange, out ExcelAddress excelAddress,
             out IList<ExcelRangeBase> cells )
         {

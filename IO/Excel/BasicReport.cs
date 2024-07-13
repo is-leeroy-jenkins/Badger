@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 1-20-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        1-20-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="BasicReport.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application
-//    for analysts with the US Environmental Protection Agency (US EPA).
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   BasicReport.cs
@@ -384,8 +384,8 @@ namespace Badger
                     return ( (char)( 'A' + columnIndex ) ).ToString( );
                 }
 
-                var _first = (char)( 'A' + ( columnIndex / 26 ) - 1 );
-                var _second = (char)( 'A' + ( columnIndex % 26 ) );
+                var _first = (char)( 'A' + columnIndex / 26 - 1 );
+                var _second = (char)( 'A' + columnIndex % 26 );
                 return $"{_first}{_second}";
             }
             catch( Exception ex )

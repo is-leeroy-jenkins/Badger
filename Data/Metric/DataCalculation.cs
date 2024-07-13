@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-14-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataCalculation.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -402,13 +402,13 @@ namespace Badger
                 foreach( DataColumn _dataColumn in _dataTable.Columns )
                 {
                     if( ( !_dataColumn.ColumnName.EndsWith( "Id" )
-                           && ( _dataColumn.Ordinal > 0 )
-                           && ( _dataColumn.DataType == typeof( double ) ) )
-                       | ( _dataColumn.DataType == typeof( short ) )
-                       | ( _dataColumn.DataType == typeof( ushort ) )
-                       | ( _dataColumn.DataType == typeof( long ) )
-                       | ( _dataColumn.DataType == typeof( decimal ) )
-                       | ( _dataColumn.DataType == typeof( float ) ) )
+                            && ( _dataColumn.Ordinal > 0 )
+                            && ( _dataColumn.DataType == typeof( double ) ) )
+                        | ( _dataColumn.DataType == typeof( short ) )
+                        | ( _dataColumn.DataType == typeof( ushort ) )
+                        | ( _dataColumn.DataType == typeof( long ) )
+                        | ( _dataColumn.DataType == typeof( decimal ) )
+                        | ( _dataColumn.DataType == typeof( float ) ) )
                     {
                         _names.Add( _dataColumn.ColumnName );
                     }
@@ -439,10 +439,10 @@ namespace Badger
                 foreach( DataColumn _dataColumn in _dataTable.Columns )
                 {
                     if( ( _dataColumn.Ordinal > 0 )
-                       && ( ( _dataColumn.DataType == typeof( DateTime ) )
-                           | ( _dataColumn.DataType == typeof( DateTimeOffset ) )
-                           | _dataColumn.ColumnName.EndsWith( "Day" )
-                           | _dataColumn.ColumnName.EndsWith( "Date" ) ) )
+                        && ( ( _dataColumn.DataType == typeof( DateTime ) )
+                            | ( _dataColumn.DataType == typeof( DateTimeOffset ) )
+                            | _dataColumn.ColumnName.EndsWith( "Day" )
+                            | _dataColumn.ColumnName.EndsWith( "Date" ) ) )
                     {
                         _names.Add( _dataColumn.ColumnName );
                     }

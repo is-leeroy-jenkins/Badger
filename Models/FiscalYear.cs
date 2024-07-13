@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="FiscalYear.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -127,7 +127,7 @@ namespace Badger
                 _bfy = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the efy.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Badger
                 _efy = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the first year.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Badger
                 _firstYear = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the last year.
         /// </summary>
@@ -181,7 +181,7 @@ namespace Badger
                 _lastYear = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the expiring year.
         /// </summary>
@@ -199,7 +199,7 @@ namespace Badger
                 _expiringYear = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the input year.
         /// </summary>
@@ -217,7 +217,7 @@ namespace Badger
                 _inputYear = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the start date.
         /// </summary>
@@ -235,7 +235,7 @@ namespace Badger
                 _startDate = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the end date.
         /// </summary>
@@ -253,7 +253,7 @@ namespace Badger
                 _endDate = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the cancellation date.
         /// </summary>
@@ -304,7 +304,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FiscalYear.Fail( ex );
                 return default( bool );
             }
         }
@@ -314,24 +314,23 @@ namespace Badger
         /// </summary>
         /// <param name="bfy">The bfy.</param>
         /// <returns></returns>
-        private protected IDictionary<string, object> SetArgs
-            ( string bfy )
+        private protected IDictionary<string, object> SetArgs( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
-               && ( bfy.Length == 4 )
-               && ( int.Parse( bfy ) > 2018 )
-               && ( int.Parse( bfy ) < 2040 ) )
+                && bfy.Length == 4
+                && int.Parse( bfy ) > 2018
+                && int.Parse( bfy ) < 2040 )
             {
                 try
                 {
-                    return new Dictionary<string, object> 
+                    return new Dictionary<string, object>
                     {
                         [ "BFY" ] = bfy
                     };
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    FiscalYear.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -344,7 +343,7 @@ namespace Badger
         /// <see cref="FiscalYear"/> class.
         /// </summary>
         /// <inheritdoc />
-        protected FiscalYear( ) 
+        protected FiscalYear( )
             : base( )
         {
         }

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-03-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-03-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="AdapterBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -142,7 +142,6 @@ namespace Badger
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-
                     return _adapter;
                 }
                 else
@@ -153,7 +152,6 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default( SQLiteDataAdapter );
             }
         }
@@ -180,7 +178,6 @@ namespace Badger
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-
                     return _adapter;
                 }
                 else
@@ -191,7 +188,6 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default( SqlDataAdapter );
             }
         }
@@ -219,7 +215,6 @@ namespace Badger
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-
                     return _adapter != null
                         ? _adapter
                         : default( OleDbDataAdapter );
@@ -232,7 +227,6 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default( OleDbDataAdapter );
             }
         }
@@ -259,7 +253,6 @@ namespace Badger
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-
                     return _adapter;
                 }
                 else
@@ -270,7 +263,6 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-
                 return default( SqlCeDataAdapter );
             }
         }

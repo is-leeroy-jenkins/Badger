@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="CapitalPlanningInvestmentCode.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -58,7 +58,7 @@ namespace Badger
         /// The type
         /// </summary>
         private string _type;
-        
+
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Badger
         /// <see cref="T:Badger.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
-        public CapitalPlanningInvestmentCode( ) 
+        public CapitalPlanningInvestmentCode( )
             : base( )
         {
             _source = Source.CapitalPlanningInvestmentCodes;
@@ -114,7 +114,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public CapitalPlanningInvestmentCode( IDataModel builder ) 
+        public CapitalPlanningInvestmentCode( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -132,7 +132,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public CapitalPlanningInvestmentCode( DataRow dataRow ) 
+        public CapitalPlanningInvestmentCode( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;
@@ -149,7 +149,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code ) 
+        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code )
             : this( )
         {
             _id = code.ID;

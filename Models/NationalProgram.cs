@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="NationalProgram.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -76,7 +76,7 @@ namespace Badger
         /// The NPM
         /// </summary>
         private protected NPM _npm;
-        
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
-        public NationalProgram( ) 
+        public NationalProgram( )
             : base( )
         {
         }
@@ -147,7 +147,7 @@ namespace Badger
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public NationalProgram( IQuery query ) 
+        public NationalProgram( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query )?.Record;
@@ -166,7 +166,7 @@ namespace Badger
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public NationalProgram( IDataModel builder ) 
+        public NationalProgram( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -185,7 +185,7 @@ namespace Badger
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public NationalProgram( DataRow dataRow ) 
+        public NationalProgram( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;
@@ -204,7 +204,7 @@ namespace Badger
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
-        public NationalProgram( string code ) 
+        public NationalProgram( string code )
             : base( )
         {
             _record = new DataGenerator( _source, GetArgs( code ) )?.Record;
@@ -223,7 +223,7 @@ namespace Badger
         /// <see cref="T:Badger.NationalProgram" /> class.
         /// </summary>
         /// <param name="npm">The NPM.</param>
-        public NationalProgram( NationalProgram npm ) 
+        public NationalProgram( NationalProgram npm )
             : base( )
         {
             ID = npm.ID;
@@ -245,11 +245,14 @@ namespace Badger
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Code" ] = code
+                    };
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    NationalProgram.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

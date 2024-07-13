@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ProgramProject.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -76,7 +76,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public ProgramProject( IQuery query ) 
+        public ProgramProject( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query )?.Record;
@@ -93,7 +93,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
-        public ProgramProject( IDataModel dataBuilder ) 
+        public ProgramProject( IDataModel dataBuilder )
             : base( dataBuilder )
         {
             _record = dataBuilder?.Record;
@@ -110,7 +110,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
-        public ProgramProject( DataRow dataRow ) 
+        public ProgramProject( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;
@@ -127,7 +127,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public ProgramProject( string code ) 
+        public ProgramProject( string code )
             : base( )
         {
             _record = new DataGenerator( _source, GetArgs( code ) )?.Record;
@@ -143,7 +143,7 @@ namespace Badger
         /// <see cref="T:Badger.ProgramProjects" /> class.
         /// </summary>
         /// <param name="project">The project.</param>
-        public ProgramProject( ProgramProject project ) 
+        public ProgramProject( ProgramProject project )
             : base( )
         {
             _id = project.ID;
@@ -169,7 +169,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                ProgramProject.Fail( ex );
                 return default( int );
             }
         }
@@ -190,7 +190,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    ProgramProject.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

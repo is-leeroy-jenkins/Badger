@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-04-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-04-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ErrorWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -62,6 +62,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class ErrorWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The back color
         /// </summary>

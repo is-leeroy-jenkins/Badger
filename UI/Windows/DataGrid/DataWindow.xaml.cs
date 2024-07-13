@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-18-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-18-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -80,7 +80,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class DataWindow : Window, IDisposable
     {
-
         /// <summary>
         /// The theme
         /// </summary>
@@ -447,7 +446,7 @@ namespace Badger
             {
                 ExecutionRadioButton.Foreground = _theme.ForeColor;
                 ExecutionRadioButton.Tag = "EXECUTION";
-                ReferenceRadioButton.Foreground = _theme.ForeColor; 
+                ReferenceRadioButton.Foreground = _theme.ForeColor;
                 ReferenceRadioButton.Tag = "REFERENCE";
                 AccessRadioButton.Tag = "Access";
                 AccessRadioButton.IsChecked = true;
@@ -760,8 +759,8 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names}" 
-                        + $"FROM {_dataTable} " 
+                    return $"SELECT {_names}"
+                        + $"FROM {_dataTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
@@ -805,8 +804,8 @@ namespace Badger
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} " 
-                    + "FROM {Source} " 
+                return $"SELECT {_names} "
+                    + "FROM {Source} "
                     + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
@@ -1236,7 +1235,7 @@ namespace Badger
                     {
                         CommandComboBox.Items.Add( "CREATE VIEW" );
                     }
-                    else if( _sql.Contains( list[ _i ] ) 
+                    else if( _sql.Contains( list[ _i ] )
                         && list[ _i ].Equals( $"{Command.SELECTALL}" ) )
                     {
                         CommandComboBox.Items.Add( "SELECT ALL" );
@@ -3158,14 +3157,14 @@ namespace Badger
 
         private void OnPreviewMouseWheel( object sender, MouseWheelEventArgs e )
         {
-            if( sender is ScrollViewer 
+            if( sender is ScrollViewer
                 && !e.Handled )
             {
                 try
                 {
                     e.Handled = true;
                     var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta );
-                    eventArg.RoutedEvent = UIElement.MouseWheelEvent;
+                    eventArg.RoutedEvent = DataWindow.MouseWheelEvent;
                     eventArg.Source = sender;
                     var parent = ( (Control)sender ).Parent as UIElement;
                     parent.RaiseEvent( eventArg );

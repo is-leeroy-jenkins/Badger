@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="DataGenerator.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataGenerator.cs.cs
+//   DataGenerator.cs
 // </summary>
 // ******************************************************************************************
 
@@ -268,7 +268,8 @@ namespace Badger
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataGenerator( string fullPath, string sqlText, Command commandType = Command.SELECT )
+        public DataGenerator( string fullPath, string sqlText,
+            Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
@@ -326,7 +327,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataGenerator.Fail( ex );
                 return default( Provider );
             }
         }
@@ -370,7 +371,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataGenerator.Fail( ex );
                 return default( Provider );
             }
         }
@@ -402,7 +403,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataGenerator.Fail( ex );
                 return default( Source );
             }
         }

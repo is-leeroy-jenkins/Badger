@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-05-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-05-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="WebWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -46,7 +46,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -66,6 +65,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class WebWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The home page
         /// </summary>
@@ -111,78 +115,12 @@ namespace Badger
         /// </summary>
         private protected Timer _timer;
 
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:Badger.WebWindow" /> class.
         /// </summary>
-        public WebWindow( ) 
+        public WebWindow( )
             : base( )
         {
             // Theme Properties
@@ -201,19 +139,22 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = _theme.WindowStyle;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            WindowStartupLocation = _theme.StartLocation;
             Margin = new Thickness( 3 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
+            WindowStyle = _theme.WindowStyle;
             Title = "Internet";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Web Properties
             _homePage = @"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
@@ -547,7 +488,7 @@ namespace Badger
         private void UpdateStatus( )
         {
             try
-            {  
+            {
                 StatusLabel.Content = DateTime.Now.ToLongTimeString( );
             }
             catch( Exception ex )

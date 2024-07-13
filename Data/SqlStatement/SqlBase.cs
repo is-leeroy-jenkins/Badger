@@ -1,14 +1,14 @@
-﻿// ****************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 15-03-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        19-03-2024
-// ****************************************************************************************
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
 // <copyright file="SqlBase.cs" company="Terry D. Eppler">
-// <copyright file="SqlStatement.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,22 +23,20 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
-//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
-//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
-//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-//     TORT OR OTHERWISE, ARISING FROM,
-//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  SqlBase.cs
+//   SqlBase.cs
 // </summary>
-// ****************************************************************************************
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -167,9 +165,9 @@ namespace Badger
         /// <returns></returns>
         private protected string CreateSelectStatement( )
         {
-            if( ( _fields?.Any( ) == true )
-                && ( _criteria?.Any( ) == true )
-                && ( _numerics?.Any( ) == true ) )
+            if( _fields?.Any( ) == true
+                && _criteria?.Any( ) == true
+                && _numerics?.Any( ) == true )
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
@@ -190,9 +188,9 @@ namespace Badger
                     + $"WHERE {_where} "
                     + $"GROUP BY {_group};";
             }
-            else if( ( _fields?.Any( ) == true )
-                && ( _criteria?.Any( ) == true )
-                && ( _numerics?.Any( ) == false ) )
+            else if( _fields?.Any( ) == true
+                && _criteria?.Any( ) == true
+                && _numerics?.Any( ) == false )
             {
                 var _cols = string.Empty;
                 foreach( var _name in _fields )
@@ -206,16 +204,16 @@ namespace Badger
                     + $"WHERE {_where} "
                     + $"GROUP BY {_columns};";
             }
-            else if( ( _fields?.Any( ) == false )
-                && ( _criteria?.Any( ) == true )
-                && ( _numerics?.Any( ) == false ) )
+            else if( _fields?.Any( ) == false
+                && _criteria?.Any( ) == true
+                && _numerics?.Any( ) == false )
             {
                 var _where = _criteria.ToCriteria( );
                 return $"SELECT * FROM {_source} WHERE {_where};";
             }
-            else if( ( _fields?.Any( ) == false )
-                && ( _criteria?.Any( ) == false )
-                && ( _numerics?.Any( ) == false ) )
+            else if( _fields?.Any( ) == false
+                && _criteria?.Any( ) == false
+                && _numerics?.Any( ) == false )
             {
                 return $"SELECT * FROM {_source};";
             }

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
-// 
+// <copyright file="Appropriation.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -57,7 +57,7 @@ namespace Badger
         /// <see cref="T:Badger.Appropriations" />
         /// class.
         /// </summary>
-        public Appropriation( ) 
+        public Appropriation( )
             : base( )
         {
             _source = Source.Appropriations;
@@ -70,7 +70,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Appropriation( IQuery query ) 
+        public Appropriation( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -88,7 +88,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Appropriation( IDataModel builder ) 
+        public Appropriation( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -106,9 +106,9 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Appropriation( DataRow dataRow ) 
+        public Appropriation( DataRow dataRow )
             : base( dataRow )
-        { 
+        {
             _record = dataRow;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationsId" ].ToString( ) ?? "0" );

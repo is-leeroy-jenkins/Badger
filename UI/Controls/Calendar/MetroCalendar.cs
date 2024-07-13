@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroCalendar.cs" company="Terry D. Eppler">
-//    Badger is a Budget, Finance, and Accounting application for EPA Analysts.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -135,7 +136,7 @@ namespace Badger
             BorderThickness = new Thickness( 0 );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            SetResourceReference( StyleProperty, typeof( CalendarEdit ) );
+            SetResourceReference( MetroCalendar.StyleProperty, typeof( CalendarEdit ) );
             Background = new SolidColorBrush( _backColor );
             BlackoutDatesBackground = new SolidColorBrush( _backColor );
             BlackoutDatesCrossBrush = new SolidColorBrush( _backColor );

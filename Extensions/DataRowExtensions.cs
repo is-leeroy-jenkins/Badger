@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="DataRowExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataRowExtensions.cs
@@ -67,8 +67,8 @@ namespace Badger
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow,
             Provider provider )
         {
-            if( ( dataRow?.ItemArray.Length > 0 )
-               && Enum.IsDefined( typeof( Provider ), provider ) )
+            if( dataRow?.ItemArray.Length > 0
+                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
                 {
@@ -147,7 +147,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    DataRowExtensions.Fail( ex );
                     return default( IList<DbParameter> );
                 }
             }
@@ -172,7 +172,7 @@ namespace Badger
                         var _name = dataRow.Table.Columns[ _i ].ColumnName;
                         var _value = dataRow?.ItemArray[ _i ];
                         if( !string.IsNullOrEmpty( _name )
-                           && _value != null ) 
+                            && _value != null )
                         {
                             _dictionary?.Add( _name, _value );
                         }
@@ -187,7 +187,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataRowExtensions.Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -199,7 +199,7 @@ namespace Badger
         /// <returns>
         /// SortedList(string, object)
         /// </returns>
-        public static SortedList<int, KeyValuePair<string, object>> ToSortedList( 
+        public static SortedList<int, KeyValuePair<string, object>> ToSortedList(
             this DataRow dataRow )
         {
             try
@@ -211,8 +211,8 @@ namespace Badger
                     for( var _i = 0; _i < dataRow?.ItemArray.Length; _i++ )
                     {
                         var _key = dataRow?.Table.Columns[ _i ].ColumnName;
-                        if( _items[ _i ] != null 
-                           && !string.IsNullOrEmpty( _key ) )
+                        if( _items[ _i ] != null
+                            && !string.IsNullOrEmpty( _key ) )
                         {
                             var _kvp = new KeyValuePair<string, object>( _key, _items[ _i ] );
                             _sortedList?.Add( _i, _kvp );
@@ -228,7 +228,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataRowExtensions.Fail( ex );
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
@@ -250,7 +250,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DataRowExtensions.Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }

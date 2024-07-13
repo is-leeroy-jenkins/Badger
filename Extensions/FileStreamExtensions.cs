@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="FileStreamExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   FileStreamExtensions.cs
@@ -85,7 +85,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
             }
         }
 
@@ -104,7 +104,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -126,7 +126,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -148,7 +148,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( StreamWriter );
             }
         }
@@ -172,7 +172,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    FileStreamExtensions.Fail( ex );
                     return default( StreamWriter );
                 }
             }
@@ -195,7 +195,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return string.Empty;
             }
         }
@@ -217,7 +217,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return string.Empty;
             }
         }
@@ -240,7 +240,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    FileStreamExtensions.Fail( ex );
                     return default( Stream );
                 }
             }
@@ -266,7 +266,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    FileStreamExtensions.Fail( ex );
                     return default( Stream );
                 }
             }
@@ -285,9 +285,9 @@ namespace Badger
         /// </returns>
         public static Stream CopyTo( this Stream stream, Stream target, int buffer )
         {
-            if( ( target != null )
-               && stream.CanRead
-               && target.CanWrite )
+            if( target != null
+                && stream.CanRead
+                && target.CanWrite )
             {
                 try
                 {
@@ -302,7 +302,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fail( ex );
+                    FileStreamExtensions.Fail( ex );
                     return default( MemoryStream );
                 }
             }
@@ -327,7 +327,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( MemoryStream );
             }
         }
@@ -348,7 +348,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -384,7 +384,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -403,7 +403,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                FileStreamExtensions.Fail( ex );
             }
         }
 

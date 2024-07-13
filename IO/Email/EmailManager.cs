@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 1-20-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        1-20-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="MailManager.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="EmailManager.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MailManager.cs
+//   EmailManager.cs
 // </summary>
 // ******************************************************************************************
 
@@ -63,13 +63,13 @@ namespace Badger
         {
             try
             {
-                Office.Folders _folders = folder.Folders;
+                var _folders = folder.Folders;
                 if( _folders.Count > 0 )
                 {
                     foreach( Office.Folder _child in _folders )
                     {
                         if( _child.FolderPath.Contains( "Inbox" )
-                           || _child.FolderPath.Contains( "Deleted" ) )
+                            || _child.FolderPath.Contains( "Deleted" ) )
                         {
                             EnumerateFolders( _child, search );
                         }
@@ -96,10 +96,10 @@ namespace Badger
             {
                 try
                 {
-                    foreach( Object item in _folderItems )
+                    foreach( var item in _folderItems )
                     {
-                        Office.MailItem mailitem = (Office.MailItem)item;
-                        string body = mailitem.Body.ToLower( );
+                        var mailitem = (Office.MailItem)item;
+                        var body = mailitem.Body.ToLower( );
                         if( body.Contains( search.ToLower( ) ) )
                         {
                         }

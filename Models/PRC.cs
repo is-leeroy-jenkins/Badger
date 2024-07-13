@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="PRC.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -44,7 +44,7 @@ namespace Badger
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -69,67 +69,67 @@ namespace Badger
         /// The rpio code
         /// </summary>
         private protected string _rpioCode;
-        
+
         /// <summary>
         /// The rpio name
         /// </summary>
         private protected string _rpioName;
-        
+
         /// <summary>
         /// The ah code
         /// </summary>
         private protected string _ahCode;
-        
+
         /// <summary>
         /// The ah name
         /// </summary>
         private protected string _ahName;
-        
+
         /// <summary>
         /// The org code
         /// </summary>
         private protected string _orgCode;
-        
+
         /// <summary>
         /// The org name
         /// </summary>
         private protected string _orgName;
-        
+
         /// <summary>
         /// The account code
         /// </summary>
         private protected string _accountCode;
-        
+
         /// <summary>
         /// The boc code
         /// </summary>
         private protected string _bocCode;
-        
+
         /// <summary>
         /// The boc name
         /// </summary>
         private protected string _bocName;
-        
+
         /// <summary>
         /// The rc code
         /// </summary>
         private protected string _rcCode;
-        
+
         /// <summary>
         /// The rc name
         /// </summary>
         private protected string _rcName;
-        
+
         /// <summary>
         /// The program area code
         /// </summary>
         private protected string _programAreaCode;
-        
+
         /// <summary>
         /// The program area name
         /// </summary>
         private protected string _programAreaName;
-        
+
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -147,7 +147,7 @@ namespace Badger
                 _budgetLevel = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
@@ -165,7 +165,7 @@ namespace Badger
                 _rpioCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the rpio.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Badger
                 _rpioName = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the ah code.
         /// </summary>
@@ -201,7 +201,7 @@ namespace Badger
                 _ahCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the ah.
         /// </summary>
@@ -219,7 +219,7 @@ namespace Badger
                 _ahCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the org code.
         /// </summary>
@@ -237,7 +237,7 @@ namespace Badger
                 _orgCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the org.
         /// </summary>
@@ -255,7 +255,7 @@ namespace Badger
                 _orgName = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the account code.
         /// </summary>
@@ -273,7 +273,7 @@ namespace Badger
                 _accountCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the boc code.
         /// </summary>
@@ -291,7 +291,7 @@ namespace Badger
                 _bocCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the boc.
         /// </summary>
@@ -309,7 +309,7 @@ namespace Badger
                 _bocName = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the rc code.
         /// </summary>
@@ -327,7 +327,7 @@ namespace Badger
                 _rcCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the rc.
         /// </summary>
@@ -345,7 +345,7 @@ namespace Badger
                 _rcName = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the program area code.
         /// </summary>
@@ -363,7 +363,7 @@ namespace Badger
                 _programAreaCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the program area.
         /// </summary>
@@ -381,17 +381,17 @@ namespace Badger
                 _programAreaName = value;
             }
         }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:Badger.PRC" /> class.
         /// </summary>
-        protected PRC( ) 
+        protected PRC( )
             : base( )
         {
         }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -419,7 +419,7 @@ namespace Badger
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
         }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -447,7 +447,7 @@ namespace Badger
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
         }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Badger.PRC" /> class.
@@ -474,7 +474,7 @@ namespace Badger
             _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );
         }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the

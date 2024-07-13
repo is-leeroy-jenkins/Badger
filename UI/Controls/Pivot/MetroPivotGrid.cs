@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroPivotGrid.cs" company="Terry D. Eppler">
-//    Badger is a data analysis and reporting tool for EPA analysts.
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,7 +71,7 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            SetResourceReference( StyleProperty, typeof( PivotGridControl ) );
+            SetResourceReference( MetroPivotGrid.StyleProperty, typeof( PivotGridControl ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Background = _theme.ControlColor;

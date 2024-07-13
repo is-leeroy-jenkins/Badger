@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-17-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-17-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DocumentWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -72,6 +72,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class DocumentWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The path
         /// </summary>
@@ -158,72 +163,6 @@ namespace Badger
         private protected Timer _timer;
 
         /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -295,19 +234,20 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Padding = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Padding = _theme.Padding;
             Margin = new Thickness( 3 );
-            BorderThickness = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
+            BorderThickness = _theme.BorderThickness;
+            WindowStyle = _theme.WindowStyle;
             Title = "PDF Document Viewer";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Initialize Default Provider
             _source = Source.Resources;
@@ -562,7 +502,7 @@ namespace Badger
                     _documentPaths.Add( _fileName, _filePath );
                 }
 
-                return ( _documentPaths?.Any( ) == true )
+                return _documentPaths?.Any( ) == true
                     ? _documentPaths
                     : default( IDictionary<string, string> );
             }

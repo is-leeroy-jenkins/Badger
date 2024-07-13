@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="TransferActivity.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -59,7 +59,7 @@ namespace Badger
         /// <see cref="T:Badger.TransferActivity" />
         /// class.
         /// </summary>
-        public TransferActivity( ) 
+        public TransferActivity( )
             : base( )
         {
         }
@@ -71,7 +71,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public TransferActivity( IQuery query ) 
+        public TransferActivity( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -119,7 +119,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public TransferActivity( IDataModel builder ) 
+        public TransferActivity( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;

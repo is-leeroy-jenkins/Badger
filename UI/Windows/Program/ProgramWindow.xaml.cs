@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-02-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-02-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ProgramWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -66,48 +66,9 @@ namespace Badger
     public partial class ProgramWindow : Window
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 186,
-            G = 207,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <summary>
         /// The path
@@ -179,7 +140,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.ProgramProjectWindow" /> class.
         /// </summary>
-        public ProgramWindow( ) 
+        public ProgramWindow( )
             : base( )
         {
             // Theme Properties
@@ -198,18 +159,17 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Padding = new Thickness( 1 );
-            Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = _theme.WindowStyle;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Title = "Environmental Programs";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            WindowStartupLocation = _theme.StartLocation;
+            Background = _theme.BackColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BorderColor;
 
             // Window Events
             Loaded += OnLoaded;

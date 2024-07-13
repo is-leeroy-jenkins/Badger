@@ -60,48 +60,9 @@ namespace Badger
     public partial class FolderBrowser : Window
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
+        private protected readonly DarkPalette _theme = new DarkPalette( );
 
         /// <summary>
         /// The dir paths
@@ -196,19 +157,19 @@ namespace Badger
             // Basic Properties
             Width = 800;
             Height = 450;
-            ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Padding = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = _theme.WindowStyle;
+            Padding = _theme.Padding;
             Margin = new Thickness( 3 );
-            BorderThickness = new Thickness( 1 );
+            BorderThickness = _theme.BorderThickness;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

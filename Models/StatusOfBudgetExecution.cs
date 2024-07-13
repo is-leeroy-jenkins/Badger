@@ -1,15 +1,15 @@
-﻿// ***********************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:              20-10-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        20-10-2023
-// ***********************************************************************************************
-// <copyright file="StatusOfBudgetExecution.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
+// <copyright file="StatusOfBudgetExecution.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -34,9 +34,9 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   StatusOfBudgetExecution.cs
 // </summary>
-// ***********************************************************************************************
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -47,7 +47,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
@@ -152,7 +152,7 @@ namespace Badger
         /// <see cref="T:Badger.StatusOfBudgetExecution" />
         /// class.
         /// </summary>
-        public StatusOfBudgetExecution( ) 
+        public StatusOfBudgetExecution( )
             : base( )
         {
             _source = Source.StatusOfBudgetExecution;
@@ -165,7 +165,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StatusOfBudgetExecution( IQuery query ) 
+        public StatusOfBudgetExecution( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -181,7 +181,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="builder">The data builder.</param>
-        public StatusOfBudgetExecution( IDataModel builder ) 
+        public StatusOfBudgetExecution( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -197,7 +197,7 @@ namespace Badger
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StatusOfBudgetExecution( DataRow dataRow ) 
+        public StatusOfBudgetExecution( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;

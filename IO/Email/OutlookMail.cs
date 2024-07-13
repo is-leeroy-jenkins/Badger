@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-16-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="EmailManager.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="OutlookMail.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   EmailManager.cs
+//   OutlookMail.cs
 // </summary>
 // ******************************************************************************************
 
@@ -47,6 +47,8 @@ namespace Badger
     using System.Runtime.InteropServices;
     using System.Text;
     using Microsoft.Office.Interop.Outlook;
+    using Attachment = System.Net.Mail.Attachment;
+    using Exception = System.Exception;
 
     /// <inheritdoc />
     /// <summary>
@@ -167,7 +169,7 @@ namespace Badger
         /// <param name="emailCredentials"></param>
         /// <param name="emailConfig"></param>
         /// <param name="emailContent"></param>
-        public OutlookMail( EmailCredential emailCredentials, EmailConfig emailConfig, 
+        public OutlookMail( EmailCredential emailCredentials, EmailConfig emailConfig,
             EmailContent emailContent )
         {
             _hostName = emailConfig.HostName;
@@ -224,7 +226,7 @@ namespace Badger
                 _client.EnableSsl = true;
                 _client.Send( message );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 message?.Dispose( );
                 Fail( ex );
@@ -258,7 +260,7 @@ namespace Badger
                     Marshal.ReleaseComObject( _item );
                 }
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -281,7 +283,7 @@ namespace Badger
                 var _message = CreateMessage( );
                 Send( _message );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -314,7 +316,7 @@ namespace Badger
                     }
                 }
 
-                _message.From = new MailAddress( _emailConfig.Sender, 
+                _message.From = new MailAddress( _emailConfig.Sender,
                     _emailConfig.DisplayName, Encoding.UTF8 );
 
                 _message.IsBodyHtml = _emailContent.IsHtml;
@@ -325,17 +327,17 @@ namespace Badger
                 _message.SubjectEncoding = Encoding.UTF8;
                 if( _emailContent.Attachments != null )
                 {
-                    var _attachment = 
-                        new System.Net.Mail.Attachment( _emailContent.Attachments[ 0 ] );
+                    var _attachment =
+                        new Attachment( _emailContent.Attachments[ 0 ] );
 
                     _message.Attachments.Add( _attachment );
                 }
 
-                return ( _message != null )
+                return _message != null
                     ? _message
                     : default( MailMessage );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
                 return default( MailMessage );
@@ -353,7 +355,7 @@ namespace Badger
                 ThrowIf.Null( address, nameof( address ) );
                 _emailConfig.Recipients.Add( address );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -370,7 +372,7 @@ namespace Badger
                 ThrowIf.Null( address, nameof( address ) );
                 _emailConfig.Copies.Add( address );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -385,11 +387,11 @@ namespace Badger
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                var _attachment = new System.Net.Mail.Attachment( filePath );
+                var _attachment = new Attachment( filePath );
                 var _message = new MailMessage( );
                 _message.Attachments.Add( _attachment );
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
             }
@@ -410,7 +412,7 @@ namespace Badger
                     ? _emailContent.Message
                     : string.Empty;
             }
-            catch( System.Exception ex )
+            catch( Exception ex )
             {
                 Fail( ex );
                 return string.Empty;

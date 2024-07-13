@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-04-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-04-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="DarkTheme.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA analysts.
+// <copyright file="DarkPalette.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DarkTheme.cs
+//   DarkPalette.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,6 +43,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Media;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -52,6 +54,30 @@ namespace Badger
     public class DarkPalette
         : Palette
     {
+        /// <summary>
+        /// Gets the window style.
+        /// </summary>
+        /// <value>
+        /// The window style.
+        /// </value>
+        public WindowStyle WindowStyle { get; private protected init; }
+
+        /// <summary>
+        /// Gets the size mode.
+        /// </summary>
+        /// <value>
+        /// The size mode.
+        /// </value>
+        public ResizeMode SizeMode { get; private protected init; }
+
+        /// <summary>
+        /// Gets the start location.
+        /// </summary>
+        /// <value>
+        /// The start location.
+        /// </value>
+        public WindowStartupLocation StartLocation { get; private protected init; }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DarkPalette"/> class.
@@ -75,6 +101,11 @@ namespace Badger
             WhiteColor = new SolidColorBrush( _whiteColor );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
+            Padding = new Thickness( 1 );
+            BorderThickness = new Thickness( 1 );
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            SizeMode = ResizeMode.CanResize;
+            StartLocation = WindowStartupLocation.CenterScreen;
             _color = CreateColors( );
             _colorModel = CreateColorModel( );
             _colorMap = CreateColorMap( );
@@ -96,7 +127,7 @@ namespace Badger
                     YellowColor,
                     RedColor,
                     KhakiColor,
-                    GreenColor, 
+                    GreenColor,
                     LightBlueColor
                 };
 

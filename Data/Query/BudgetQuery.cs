@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Query.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="BudgetQuery.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Query.cs
+//   BudgetQuery.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,7 +51,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ValueParameterNotUsed" ) ]
-    public class BudgetQuery : Query 
+    public class BudgetQuery : Query
     {
         /// <inheritdoc/>
         /// <summary>
@@ -246,7 +246,8 @@ namespace Badger
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="commandType"> The commandType. </param>
         /// <param name="where"> The dictionary. </param>
-        public BudgetQuery( string fullPath, Command commandType, IDictionary<string, object> where )
+        public BudgetQuery( string fullPath, Command commandType,
+            IDictionary<string, object> where )
         {
             _criteria = where;
             _commandType = commandType;

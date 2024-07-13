@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ReimbursableFund.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -48,7 +48,7 @@ namespace Badger
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Badger.PRC" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
@@ -88,7 +88,7 @@ namespace Badger
         /// The available
         /// </summary>
         private double _available;
-        
+
         /// <summary>
         /// Gets or sets the document control number.
         /// </summary>
@@ -219,7 +219,7 @@ namespace Badger
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Badger.ReimbursableFunds" /> class.
         /// </summary>
-        public ReimbursableFund( ) 
+        public ReimbursableFund( )
             : base( )
         {
             _source = Source.ReimbursableFunds;
@@ -230,7 +230,7 @@ namespace Badger
         /// Initializes a new instance of the <see cref="T:Badger.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ReimbursableFund( IQuery query ) 
+        public ReimbursableFund( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -258,7 +258,7 @@ namespace Badger
         /// <see cref="T:Badger.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="builder"></param>
-        public ReimbursableFund( IDataModel builder ) 
+        public ReimbursableFund( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -286,7 +286,7 @@ namespace Badger
         /// <see cref="T:Badger.ReimbursableFunds" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public ReimbursableFund( DataRow dataRow ) 
+        public ReimbursableFund( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;

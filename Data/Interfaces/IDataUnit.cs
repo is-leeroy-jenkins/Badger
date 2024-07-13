@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 04-19-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        04-19-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Badger is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="IDataUnit.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   IDataUnit.cs
@@ -42,7 +42,7 @@ namespace Badger
 {
     using System.Collections.Generic;
     using System.Data;
-    
+
     /// <summary>
     /// 
     /// </summary>
@@ -54,19 +54,19 @@ namespace Badger
         /// </summary>
         /// <inheritdoc />
         int ID { get; }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the field.
         /// </summary>
         string Code { get; }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// The name
         /// </summary>
         string Name { get; }
-        
+
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
@@ -74,12 +74,12 @@ namespace Badger
         /// The value.
         /// </value>
         object Value { get; }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// </summary>
         DataRow Record { get; }
-        
+
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Badger
         /// The data.
         /// </value>
         IDictionary<string, object> Map { get; }
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Determines whether the specified element is match.
@@ -100,7 +100,7 @@ namespace Badger
         /// .
         /// </returns>
         bool IsMatch( IDataUnit unit );
-        
+
         /// <inheritdoc />
         /// <summary>
         /// Determines whether the specified dictionary is match.
@@ -113,7 +113,7 @@ namespace Badger
         /// .
         /// </returns>
         bool IsMatch( IDictionary<string, object> dict );
-        
+
         /// <summary>
         /// Determines whether the specified primary is match.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Badger
         /// otherwise, <c>false</c>.
         /// </returns>
         bool IsMatch( IDataUnit primary, IDataUnit secondary );
-        
+
         /// <summary>
         /// Gets the identifier.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Badger
         /// <param name="primaryKey">The primary key.</param>
         /// <returns></returns>
         int GetId( );
-        
+
         /// <summary>
         /// Gets the identifier.
         /// </summary>

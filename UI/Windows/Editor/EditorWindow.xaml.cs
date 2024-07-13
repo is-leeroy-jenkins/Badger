@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-28-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-28-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="SqlWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="EditorWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlWindow.xaml.cs
+//   EditorWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -65,6 +65,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class EditorWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
         /// <summary>
         /// The back color
         /// </summary>
@@ -201,7 +206,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.SqlWindow" /> class.
         /// </summary>
-        public EditorWindow( ) 
+        public EditorWindow( )
             : base( )
         {
             // Theme Properties

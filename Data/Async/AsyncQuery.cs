@@ -1,15 +1,15 @@
-﻿// ****************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ****************************************************************************************
-// <copyright file="Query.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//     Last Modified On:        07-13-2024
+// ******************************************************************************************
+// <copyright file="AsyncQuery.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -34,9 +34,9 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Query.cs
+//   AsyncQuery.cs
 // </summary>
-// ****************************************************************************************
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -61,7 +61,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    public class AsyncQuery : AsyncBase 
+    public class AsyncQuery : AsyncBase
     {
         /// <inheritdoc/>
         /// <summary>
@@ -279,7 +279,7 @@ namespace Badger
             _dataAdapter = GetAdapterAsync( );
             _disposed = false;
         }
-        
+
         /// <summary>
         /// Gets the adapter.
         /// </summary>
@@ -341,7 +341,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                AsyncQuery.Fail( ex );
                 return default( Task<DbDataAdapter> );
             }
         }

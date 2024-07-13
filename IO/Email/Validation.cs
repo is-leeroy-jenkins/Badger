@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-23-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-23-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="ValidationBase.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
+// <copyright file="Validation.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ValidationBase.cs
+//   Validation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -120,8 +120,8 @@ namespace Badger
                     count = 0;
                     while( index < endIndex )
                     {
-                        if( ( ( index + 1 ) < endIndex )
-                           && char.IsSurrogatePair( text, index ) )
+                        if( index + 1 < endIndex
+                            && char.IsSurrogatePair( text, index ) )
                         {
                             index++;
                         }
@@ -139,7 +139,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return default( int );
             }
         }
@@ -153,7 +153,7 @@ namespace Badger
         /// </returns>
         private protected static bool IsControl( char c )
         {
-            return ( c <= 31 ) || ( c == 127 );
+            return c <= 31 || c == 127;
         }
 
         /// <summary>
@@ -169,11 +169,11 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                return ( c >= '0' ) && ( c <= '9' );
+                return c >= '0' && c <= '9';
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return false;
             }
         }
@@ -191,11 +191,11 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                return ( ( c >= 'A' ) && ( c <= 'Z' ) ) || ( ( c >= 'a' ) && ( c <= 'z' ) );
+                return ( c >= 'A' && c <= 'Z' ) || ( c >= 'a' && c <= 'z' );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return false;
             }
         }
@@ -212,11 +212,11 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                return IsLetter( c ) || IsDigit( c );
+                return Validation.IsLetter( c ) || Validation.IsDigit( c );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return false;
             }
         }
@@ -234,18 +234,19 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                if( IsControl( c ) )
+                if( Validation.IsControl( c ) )
                 {
                     return false;
                 }
 
                 return c < 128
-                    ? IsLetterOrDigit( c ) || ( AtomCharacters.Contains( c.ToString( ) ) )
+                    ? Validation.IsLetterOrDigit( c )
+                    || Validation.AtomCharacters.Contains( c.ToString( ) )
                     : allowInternational && !char.IsWhiteSpace( c );
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return false;
             }
         }
@@ -266,14 +267,14 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
-                    if( IsLetter( c )
-                       || ( c == '-' ) )
+                    if( Validation.IsLetter( c )
+                        || c == '-' )
                     {
                         type |= SubDomainType.Alphabetic;
                         return true;
                     }
 
-                    if( IsDigit( c ) )
+                    if( Validation.IsDigit( c ) )
                     {
                         type |= SubDomainType.Numeric;
                         return true;
@@ -292,7 +293,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 return false;
             }
         }
@@ -313,13 +314,13 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
-                    if( IsLetter( c ) )
+                    if( Validation.IsLetter( c ) )
                     {
                         type = SubDomainType.Alphabetic;
                         return true;
                     }
 
-                    if( IsDigit( c ) )
+                    if( Validation.IsDigit( c ) )
                     {
                         type = SubDomainType.Numeric;
                         return true;
@@ -340,7 +341,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
                 type = SubDomainType.None;
             }
 
@@ -362,8 +363,8 @@ namespace Badger
                 ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var startIndex = index;
-                while( ( index < text.Length )
-                      && IsAtom( text[ index ], allowInternational ) )
+                while( index < text.Length
+                    && Validation.IsAtom( text[ index ], allowInternational ) )
                 {
                     index++;
                 }
@@ -372,7 +373,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Validation.Fail( ex );
             }
 
             return false;
@@ -391,26 +392,26 @@ namespace Badger
             bool allowInternational, out SubDomainType type )
         {
             var startIndex = index;
-            if( !IsDomainStart( text[ index ], allowInternational, out type ) )
+            if( !Validation.IsDomainStart( text[ index ], allowInternational, out type ) )
             {
                 return false;
             }
 
             index++;
-            while( ( index < text.Length )
-                  && IsDomain( text[ index ], allowInternational, ref type ) )
+            while( index < text.Length
+                && Validation.IsDomain( text[ index ], allowInternational, ref type ) )
             {
                 index++;
             }
 
-            var length = Measure( text, startIndex, index, allowInternational );
-            if( ( index == text.Length )
-               && ( length == 1 ) )
+            var length = Validation.Measure( text, startIndex, index, allowInternational );
+            if( index == text.Length
+                && length == 1 )
             {
                 return false;
             }
 
-            return ( length <= MaxDomainLabelLength ) && ( text[ index - 1 ] != '-' );
+            return length <= Validation.MaxDomainLabelLength && text[ index - 1 ] != '-';
         }
 
         /// <summary>

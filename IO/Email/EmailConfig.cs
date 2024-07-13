@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 05-16-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="EmailConfig.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -187,7 +187,7 @@ namespace Badger
         /// <param name="copies">The copies.</param>
         /// <param name="priority">The priority.</param>
         public EmailConfig( string sender, IList<string> recipients, IList<string> copies,
-            MailPriority priority = MailPriority.Normal ) 
+            MailPriority priority = MailPriority.Normal )
             : this( )
         {
             _sender = sender;
@@ -220,7 +220,7 @@ namespace Badger
         /// <param name="recipients">The recipients.</param>
         /// <param name="copies">The copies.</param>
         /// <param name="priority"> </param>
-        public void Deconstruct( out string sender, out string displayName, 
+        public void Deconstruct( out string sender, out string displayName,
             out IList<string> recipients, out IList<string> copies, out MailPriority priority )
         {
             sender = _sender;

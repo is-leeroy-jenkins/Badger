@@ -1,14 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="AppropriationLevelAuthority.cs" company="Terry D. Eppler">
-//    Badger is a federal budget, finance, and accounting application for EPA analysts.
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -152,7 +153,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.AppropriationLevelAuthority" /> class.
         /// </summary>
-        public AppropriationLevelAuthority( ) 
+        public AppropriationLevelAuthority( )
             : base( )
         {
             _source = Source.AppropriationLevelAuthority;
@@ -164,7 +165,7 @@ namespace Badger
         /// <see cref="T:Badger.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AppropriationLevelAuthority( IQuery query ) 
+        public AppropriationLevelAuthority( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -191,7 +192,7 @@ namespace Badger
         /// <see cref="T:Badger.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="builder"></param>
-        public AppropriationLevelAuthority( IDataModel builder ) 
+        public AppropriationLevelAuthority( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -218,7 +219,7 @@ namespace Badger
         /// <see cref="T:Badger.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AppropriationLevelAuthority( DataRow dataRow ) 
+        public AppropriationLevelAuthority( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;
@@ -245,7 +246,7 @@ namespace Badger
         /// <see cref="T:Badger.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="authority">The authority.</param>
-        public AppropriationLevelAuthority( AppropriationLevelAuthority authority ) 
+        public AppropriationLevelAuthority( AppropriationLevelAuthority authority )
             : base( )
         {
             _id = authority.ID;

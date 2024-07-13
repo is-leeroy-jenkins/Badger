@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Deobligation.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -58,7 +58,7 @@ namespace Badger
         /// <see cref="Deobligation"/>
         /// class.
         /// </summary>
-        public Deobligation( ) 
+        public Deobligation( )
             : base( )
         {
             _source = Source.Deobligations;
@@ -117,7 +117,7 @@ namespace Badger
         public Deobligation( IDataModel builder )
             : base( builder )
         {
-            _record = builder.Record; 
+            _record = builder.Record;
             _map = _record.ToDictionary( );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
@@ -159,7 +159,7 @@ namespace Badger
         public Deobligation( DataRow dataRow )
             : base( dataRow )
         {
-            _record = dataRow; 
+            _record = dataRow;
             _map = dataRow.ToDictionary( );
             _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
             _bfy = dataRow[ "BFY" ]?.ToString( );

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-10-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-10-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="SQLiteQuery.cs" company="Terry D. Eppler">
-//    Badger is a Federal Budget, Finance, and Accounting application
+//    This is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   SQLiteQuery.cs
@@ -214,7 +214,7 @@ namespace Badger
         public DataTable CreateTableFromExcelFile( string filePath, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( filePath )
-               && !string.IsNullOrEmpty( sheetName ) )
+                && !string.IsNullOrEmpty( sheetName ) )
             {
                 try
                 {
@@ -227,7 +227,7 @@ namespace Badger
                     _connection?.Open( );
                     var _table = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
                     if( ( _table?.Rows.Count > 0 )
-                       && CheckIfSheetNameExists( sheetName, _table ) )
+                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
                         var _message = new SplashMessage( _msg );
                         _message?.ShowDialog( );
@@ -266,7 +266,7 @@ namespace Badger
         public DataTable CreateTableFromCsvFile( string fileName, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( fileName )
-               && !string.IsNullOrEmpty( sheetName ) )
+                && !string.IsNullOrEmpty( sheetName ) )
             {
                 try
                 {

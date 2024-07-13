@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-08-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="GridWindow.xaml.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -65,6 +65,11 @@ namespace Badger
     public partial class GridWindow : Window
     {
         /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkPalette _theme = new DarkPalette( );
+
+        /// <summary>
         /// The path
         /// </summary>
         private protected object _path;
@@ -104,39 +109,6 @@ namespace Badger
         /// </summary>
         private protected DataTable _dataTable;
 
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -160,19 +132,19 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Margin = new Thickness( 3 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
+            WindowStyle = _theme.WindowStyle;
             Title = "Internet";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.ControlColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Window Events
             Loaded += OnLoaded;

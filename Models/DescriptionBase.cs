@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DescriptionBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -43,7 +43,7 @@ namespace Badger
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -78,7 +78,7 @@ namespace Badger
         /// The program area name
         /// </summary>
         private protected string _programAreaName;
-        
+
         /// <summary>
         /// Gets or sets the definition.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Badger
                 _definition = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the laws.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Badger
                 _laws = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Badger
                 _title = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the program area code.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Badger
                 _programAreaCode = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the name of the program area.
         /// </summary>

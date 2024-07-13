@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="TreasurySymbol.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -143,7 +143,7 @@ namespace Badger
                 _agencyTreasurySymbol = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the lapsed.
         /// </summary>
@@ -221,7 +221,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.TreasurySymbol" /> class.
         /// </summary>
-        public TreasurySymbol( ) 
+        public TreasurySymbol( )
             : base( )
         {
             _source = Source.TreasurySymbols;
@@ -233,7 +233,7 @@ namespace Badger
         /// </summary>
         /// <param name="query">The query.</param>
         /// <inheritdoc />
-        public TreasurySymbol( IQuery query ) 
+        public TreasurySymbol( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -248,7 +248,7 @@ namespace Badger
             _endingPeriodOfAvailability = _record[ "EndingPeriodOfAvailability" ].ToString( );
             _preventNewUse = bool.Parse( _record[ "PreventNerwUse" ].ToString( ) );
             _inUse = bool.Parse( _record[ "InUse" ].ToString( ) );
-            _useCancelledYearSpendingAccounts = 
+            _useCancelledYearSpendingAccounts =
                 bool.Parse( _record[ "UseCancelledYearSpendingAccounts" ].ToString( ) );
         }
 
@@ -258,7 +258,7 @@ namespace Badger
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <inheritdoc />
-        public TreasurySymbol( IDataModel builder ) 
+        public TreasurySymbol( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;

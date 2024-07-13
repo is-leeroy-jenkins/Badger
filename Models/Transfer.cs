@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Transfer.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -47,7 +47,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
@@ -330,7 +330,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.Transfer" /> class.
         /// </summary>
-        protected Transfer( ) 
+        protected Transfer( )
             : base( )
         {
         }
@@ -341,7 +341,7 @@ namespace Badger
         /// <see cref="T:Badger.Transfer" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected Transfer( IQuery query ) 
+        protected Transfer( IQuery query )
             : base( query )
         {
             _record = new DataGenerator( query ).Record;
@@ -364,7 +364,7 @@ namespace Badger
         /// <see cref="T:Badger.Transfer" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        protected Transfer( IDataModel builder ) 
+        protected Transfer( IDataModel builder )
             : base( builder )
         {
             _record = builder.Record;
@@ -387,7 +387,7 @@ namespace Badger
         /// <see cref="T:Badger.Transfer" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        protected Transfer( DataRow dataRow ) 
+        protected Transfer( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;

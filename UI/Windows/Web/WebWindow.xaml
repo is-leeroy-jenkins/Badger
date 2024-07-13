@@ -3,142 +3,130 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Badger" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" x:Name="WebView"
         x:Class="Badger.WebWindow" mc:Ignorable="d" Title="Internet " Height="800" Width="1400"
         Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FFA0BDFC" Margin="3,3,3,3"
         Padding="1,1,1,1" ScrollViewer.CanContentScroll="True" BorderThickness="1,1,1,1"
         Icon="/UI/Windows/Web/Application.png" WindowStartupLocation="CenterScreen">
-    <Window.ContextMenu>
-        <ContextMenu Name="WebWindowContextMenu">
-            <syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System"
-                    Click="OnFileMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FileItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
-                    Click="OnFolderMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FolderItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator />
-            <syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser"
-                    Click="OnChromeOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser"
-                    Click="OnEdgeOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
-                    Click="OnFirefoxOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator />
-            <syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
-                    Click="OnCalculatorMenuOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel"
-                    Click="OnControlPanelOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager"
-                    Click="OnTaskManagerOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-            <Separator />
-            <syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application"
-                    Click="OnCloseOptionClick">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-        </ContextMenu>
-    </Window.ContextMenu>
-    <Canvas x:Name="WebCanvas" Background="#FF141414">
-        <local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40"
-                HorizontalAlignment="Center" Canvas.Left="0" Canvas.Top="720"
-                VerticalAlignment="Top">
-            <local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70"
-                    HorizontalAlignment="Left"
-                    Padding="3,1,1,1" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
-            <local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
-                    ImageSource="/UI/Windows/Web/FirstButton.png" Height="30" />
-            <local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
-                    ImageSource="/UI/Windows/Web/PreviousButton.png" Height="30" />
-            <local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
-                    ImageSource="/UI/Windows/Web/NextButton.png" Height="30" />
-            <local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
-                    ImageSource="/UI/Windows/Web/LastButton.png" Height="30" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
-                    Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
-            <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}"
-                    Foreground="{x:Null}" />
-            <local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
-                    ImageSource="/UI/Windows/Web/LookUpButton.png" Height="30" />
-            <local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
-                    ImageSource="/UI/Windows/Web/RefreshButton.png" Height="30" />
-            <local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC" ToolTip="Filters"
-                    ImageSource="/UI/Windows/Web/FilterButton.png" />
-            <local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
-                    ImageSource="/UI/Windows/Web/EditButton.png" Height="30" />
-            <local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
-                    ImageSource="/UI/Windows/Web/BackButton.png" Height="30" />
-            <local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
-                    ImageSource="/UI/Windows/Web/SaveButton.png" Height="30" />
-            <local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
-                    ImageSource="/UI/Windows/Web/DeleteButton.png" Height="30" />
-            <local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
-                    ImageSource="/UI/Windows/Web/ExportButton.png" />
-            <local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
-                    ImageSource="/UI/Windows/Web/BrowseButton.png" Height="30" />
-            <ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
-            <Separator Background="{x:Null}" BorderBrush="{x:Null}" Width="35" />
-            <local:ToolStripButton x:Name="ToggleButton"
-                    ImageSource="/UI/Windows/Web/ToggleButton.png" />
-            <local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
-                    ImageSource="/UI/Windows/Web/MenuButton.png" Height="30" />
-        </local:ToolStrip>
-        <local:MetroTabControl x:Name="TabControl" Height="714" Width="1380"
-                HorizontalAlignment="Center" Canvas.Left="11" Canvas.Top="3" VerticalAlignment="Top">
-            <TabItem x:Name="BrowserTab" Header="Badger" Background="#FF141414"
-                    BorderBrush="#FF141414" Foreground="#FFDEDEDE" Width="100">
-                <Canvas x:Name="BrowserGrid" Background="#FF141414">
-                    <WebBrowser x:Name="Browser" Height="600" Width="1330" Canvas.Left="27"
-                            Canvas.Top="27" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                </Canvas>
-            </TabItem>
-            <TabItem x:Name="BabyTab" Header="Baby" BorderBrush="#FF141414" Background="#FF141414"
-                    Foreground="#FFDEDEDE" Width="100" Height="24" Margin="0,0,0,0"
-                    BorderThickness="1,1,1,1">
-                <Grid x:Name="BabyGrid" Background="#FF141414">
-                    <wpf:ChromiumWebBrowser
-                            Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions"
-                            Grid.Row="0"></wpf:ChromiumWebBrowser>
-                </Grid>
-            </TabItem>
-        </local:MetroTabControl>
-    </Canvas>
+<Window.ContextMenu>
+<ContextMenu Name="WebWindowContextMenu">
+<syncfusion:MenuItemAdv Header="File" ToolTip="Browse File System" Click="OnFileMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FileItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Folder" ToolTip="Browse Directories"
+                        Click="OnFolderMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FolderItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Chrome" ToolTip="Launch Chrome Browser" Click="OnChromeOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/ChromeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Edge" ToolTip="Launch Edge Browser" Click="OnEdgeOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/EdgeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="FireFox" ToolTip="Launch Firefox Browser"
+                        Click="OnFirefoxOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/FirefoxItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Calculator" ToolTip="Open Calculator"
+                        Click="OnCalculatorMenuOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/CalculatorItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Control Panel" ToolTip="Windows 10 Control Panel"
+                        Click="OnControlPanelOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Header="Task Manager" ToolTip="Windows 10 Task Manager"
+                        Click="OnTaskManagerOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Header="Close" ToolTip="Exit Application" Click="OnCloseOptionClick">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+</ContextMenu>
+</Window.ContextMenu>
+<Canvas x:Name="WebCanvas" Background="#FF141414">
+<local:ToolStrip x:Name="Toolbar" Padding="1,1,1,1" Width="1400" Height="40"
+                 HorizontalAlignment="Center" Canvas.Left="0" Canvas.Top="720"
+                 VerticalAlignment="Top">
+<local:ToolStripLabel x:Name="StatusLabel" Content="Date &amp; Time" Width="70"
+                      HorizontalAlignment="Left" Padding="3,1,1,1"
+                      VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+<Separator Background="#FF141414" BorderBrush="#FF141414" Width="100" />
+<local:ToolStripButton x:Name="FirstButton" ToolTip="First Record"
+                       ImageSource="/UI/Windows/Web/FirstButton.png" Height="30" />
+<local:ToolStripButton x:Name="PreviousButton" ToolTip="Previous Record"
+                       ImageSource="/UI/Windows/Web/PreviousButton.png" Height="30" />
+<local:ToolStripButton x:Name="NextButton" ToolTip="Next Record"
+                       ImageSource="/UI/Windows/Web/NextButton.png" Height="30" />
+<local:ToolStripButton x:Name="LastButton" ToolTip="Last Record"
+                       ImageSource="/UI/Windows/Web/LastButton.png" Height="30" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+<local:ToolStripTextBox x:Name="ToolStripTextBox" HorizontalAlignment="Left" Height="25"
+                        Padding="10,1,1,1" VerticalContentAlignment="Center" Width="200" />
+<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
+<local:ToolStripButton x:Name="LookupButton" ToolTip="Look Up"
+                       ImageSource="/UI/Windows/Web/LookUpButton.png" Height="30" />
+<local:ToolStripButton x:Name="RefreshButton" ToolTip="Refresh"
+                       ImageSource="/UI/Windows/Web/RefreshButton.png" Height="30" />
+<local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC" ToolTip="Filters"
+                       ImageSource="/UI/Windows/Web/FilterButton.png" />
+<local:ToolStripButton x:Name="EditButton" ToolTip="Edit"
+                       ImageSource="/UI/Windows/Web/EditButton.png" Height="30" />
+<local:ToolStripButton x:Name="UndoButton" ToolTip="Undo Last"
+                       ImageSource="/UI/Windows/Web/BackButton.png" Height="30" />
+<local:ToolStripButton x:Name="SaveButton" ToolTip="Save"
+                       ImageSource="/UI/Windows/Web/SaveButton.png" Height="30" />
+<local:ToolStripButton x:Name="DeleteButton" ToolTip="Delete"
+                       ImageSource="/UI/Windows/Web/DeleteButton.png" Height="30" />
+<local:ToolStripButton x:Name="ExportButton" ToolTip="Export"
+                       ImageSource="/UI/Windows/Web/ExportButton.png" />
+<local:ToolStripButton x:Name="BrowseButton" ToolTip="Browse"
+                       ImageSource="/UI/Windows/Web/BrowseButton.png" Height="30" />
+<ProgressBar Background="#FF141414" BorderBrush="#FF141414" Width="140" />
+<Separator Background="{x:Null}" BorderBrush="{x:Null}" Width="35" />
+<local:ToolStripButton x:Name="ToggleButton" ImageSource="/UI/Windows/Web/ToggleButton.png" />
+<local:ToolStripButton x:Name="MenuButton" ToolTip="Main Menu"
+                       ImageSource="/UI/Windows/Web/MenuButton.png" Height="30" />
+</local:ToolStrip>
+<local:MetroTabControl x:Name="TabControl" Height="714" Width="1380" HorizontalAlignment="Center"
+                       Canvas.Left="11" Canvas.Top="3" VerticalAlignment="Top">
+<TabItem x:Name="BrowserTab" Header="Badger" Background="#FF141414" BorderBrush="#FF141414"
+         Foreground="#FFDEDEDE" Width="100">
+<Canvas x:Name="BrowserGrid" Background="#FF141414">
+<WebBrowser x:Name="Browser" Height="600" Width="1330" Canvas.Left="27" Canvas.Top="27"
+            HorizontalAlignment="Center" VerticalAlignment="Top" />
+</Canvas>
+</TabItem>
+<TabItem x:Name="BabyTab" Header="Baby" BorderBrush="#FF141414" Background="#FF141414"
+         Foreground="#FFDEDEDE" Width="100" Height="24" Margin="0,0,0,0" BorderThickness="1,1,1,1">
+<Grid x:Name="BabyGrid" Background="#FF141414">
+<wpf:ChromiumWebBrowser
+    Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" Grid.Row="0" />
+</Grid>
+</TabItem>
+</local:MetroTabControl>
+</Canvas>
 </Window>

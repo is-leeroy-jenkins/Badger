@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Goal.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -159,16 +159,19 @@ namespace Badger
         /// <returns></returns>
         public IDictionary<string, object> GetArgs( int goal )
         {
-            if( ( goal > 0 )
-               && ( goal < 5 ) )
+            if( goal > 0
+                && goal < 5 )
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
+                    return new Dictionary<string, object>
+                    {
+                        [ "Code" ] = goal.ToString( )
+                    };
                 }
                 catch( SystemException ex )
                 {
-                    Fail( ex );
+                    Goal.Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -190,7 +193,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Goal.Fail( ex );
                 return default( Source );
             }
         }
@@ -205,11 +208,14 @@ namespace Badger
             try
             {
                 ThrowIf.Null( code, nameof( code ) );
-                return new Dictionary<string, object> { [ "Code" ] = code };
+                return new Dictionary<string, object>
+                {
+                    [ "Code" ] = code
+                };
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                Goal.Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

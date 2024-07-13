@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             Badger
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        03-23-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler" company="Terry D. Eppler">
-//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
-//    application for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="DateTimeExtensions.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DateTimeExtensions.cs
@@ -68,7 +68,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return false;
             }
         }
@@ -90,7 +90,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return false;
             }
         }
@@ -112,7 +112,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return false;
             }
         }
@@ -165,7 +165,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -218,7 +218,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -273,7 +273,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -298,7 +298,7 @@ namespace Badger
                     {
                         var _dateTime = startDate.AddDays( _days );
                         if( !_dateTime.IsFederalHoliday( )
-                           && !_dateTime.IsWeekEnd( ) )
+                            && !_dateTime.IsWeekEnd( ) )
                         {
                             _workdays.Add( _dateTime );
                         }
@@ -316,7 +316,7 @@ namespace Badger
                     {
                         var _dateTime = endDate.AddDays( _days );
                         if( !_dateTime.IsFederalHoliday( )
-                           && !_dateTime.IsWeekEnd( ) )
+                            && !_dateTime.IsWeekEnd( ) )
                         {
                             _workdays.Add( _dateTime );
                         }
@@ -329,7 +329,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -355,7 +355,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return false;
             }
         }
@@ -391,7 +391,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return default( DateTime );
             }
         }
@@ -445,7 +445,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return 0;
             }
         }
@@ -500,7 +500,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return 0;
             }
         }
@@ -525,7 +525,7 @@ namespace Badger
                     {
                         var _dateTime = startDate.AddDays( _i );
                         if( !_dateTime.IsFederalHoliday( )
-                           && !_dateTime.IsWeekEnd( ) )
+                            && !_dateTime.IsWeekEnd( ) )
                         {
                             _workdays += 1;
                         }
@@ -543,7 +543,7 @@ namespace Badger
                     {
                         var _dateTime = endDate.AddDays( _i );
                         if( !_dateTime.IsFederalHoliday( )
-                           && !_dateTime.IsWeekEnd( ) )
+                            && !_dateTime.IsWeekEnd( ) )
                         {
                             _workdays += 1;
                         }
@@ -556,7 +556,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return 0;
             }
         }
@@ -607,7 +607,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                DateTimeExtensions.Fail( ex );
                 return 0;
             }
         }

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-25-2024
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-25-2024
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="AreaChart.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application
@@ -164,7 +164,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( AreaChart.StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
             FontFamily = new FontFamily( "Segoe UI" );
@@ -209,7 +209,7 @@ namespace Badger
                 _model.CustomBrushes.Add( new SolidColorBrush( _yellow ) );
                 _model.CustomBrushes.Add( new SolidColorBrush( _green ) );
                 _model.CustomBrushes.Add( new SolidColorBrush( Colors.DarkGray ) );
-                return ( _model.CustomBrushes.Count > 0 )
+                return _model.CustomBrushes.Count > 0
                     ? _model
                     : default( ChartColorModel );
             }

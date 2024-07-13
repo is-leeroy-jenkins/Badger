@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Baby
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:         11-16-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
-// <copyright file="SafeDictionary.cs" company="Terry D. Eppler">
-//    Baby is a small web browser used in a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="BudgetCommand.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SafeDictionary.cs
+//   BudgetCommand.cs
 // </summary>
 // ******************************************************************************************
 
@@ -237,7 +237,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Fail( ex );
+                BudgetCommand.Fail( ex );
                 return default( DbCommand );
             }
         }
@@ -295,7 +295,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                Fail( ex );
+                BudgetCommand.Fail( ex );
                 return default( Task<DbCommand> );
             }
         }

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 07-13-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ConnectionBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    This is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -54,7 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    public abstract class ConnectionBase 
+    public abstract class ConnectionBase
     {
         /// <summary>
         /// The source
@@ -111,7 +111,7 @@ namespace Badger
         /// 
         /// </value>
         private protected string _pathExtension;
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -454,14 +454,14 @@ namespace Badger
         }
 
         /// <summary>
-            /// Fails the specified ex.
-            /// </summary>
-            /// <param name="ex">The ex.</param>
-            private protected void Fail( Exception ex )
-            {
-                var _error = new ErrorWindow( ex );
-                _error?.SetText( );
-                _error?.ShowDialog( );
-            }
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
     }
 }
