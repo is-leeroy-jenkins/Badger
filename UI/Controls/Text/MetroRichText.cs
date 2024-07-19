@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroRichText.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +41,6 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
     using System.Windows.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -70,8 +68,8 @@ namespace Badger
             FontSize = _theme.FontSize;
             Width = 330;
             Height = 150;
-            BorderThickness = new Thickness( 1 );
-            Padding = new Thickness( 10 );
+            BorderThickness = _theme.BorderThickness;
+            Padding = _theme.Padding;
             Background = _theme.ControlColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.ControlColor;

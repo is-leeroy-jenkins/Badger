@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroTreeGrid.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +41,6 @@ namespace Badger.UI.Controls
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media;
     using Syncfusion.UI.Xaml.TreeGrid;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -51,70 +49,9 @@ namespace Badger.UI.Controls
     public class MetroTreeGrid : SfTreeGrid
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
+        private protected DarkMode _theme = new DarkMode( );
 
         /// <inheritdoc />
         /// <summary>
@@ -125,14 +62,14 @@ namespace Badger.UI.Controls
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTreeGrid.StyleProperty, typeof( SfTreeGrid ) );
+            SetResourceReference( StyleProperty, typeof( SfTreeGrid ) );
             Width = 400;
             Height = 400;
-            FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            FontSize = _theme.FontSize;
+            FontFamily = _theme.FontFamily;
+            Background = _theme.DarkBlueColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

@@ -171,8 +171,8 @@ namespace Badger
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( @"SELECT *" )
-                    | _commandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( @"SELECT * " )
+                    | _commandText.StartsWith( "SELECT ALL " ) )
                 {
                     var _builder = new SqlCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -208,8 +208,8 @@ namespace Badger
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( @"SELECT *" )
-                    | _commandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( @"SELECT * " )
+                    | _commandText.StartsWith( "SELECT ALL " ) )
                 {
                     var _builder = new OleDbCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -246,8 +246,8 @@ namespace Badger
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( @"SELECT *" )
-                    | _commandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( @"SELECT * " )
+                    | _commandText.StartsWith( "SELECT ALL " ) )
                 {
                     var _builder = new SqlCeCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );

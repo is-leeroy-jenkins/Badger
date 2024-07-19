@@ -48,7 +48,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Charts;
     using Syncfusion.UI.Xaml.SmithChart;
@@ -59,7 +58,6 @@ namespace Badger
     using ToastNotifications.Position;
     using Action = System.Action;
     using Application = System.Windows.Application;
-    using ChartSeries = Syncfusion.UI.Xaml.Charts.ChartSeries;
     using Exception = System.Exception;
     using LabelPlacement = Syncfusion.UI.Xaml.Charts.LabelPlacement;
     using SelectionMode = System.Windows.Controls.SelectionMode;

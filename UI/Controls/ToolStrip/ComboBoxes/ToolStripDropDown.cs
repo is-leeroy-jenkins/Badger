@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ToolStripDropDown.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,8 +50,15 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class ToolStripDropDown : MetroComboBox
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkMode _theme = new DarkMode( );
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripDropDown"/> class.
@@ -60,8 +66,8 @@ namespace Badger
         /// <inheritdoc />
         public ToolStripDropDown( )
         {
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Height = 30;
             Width = 150;
         }

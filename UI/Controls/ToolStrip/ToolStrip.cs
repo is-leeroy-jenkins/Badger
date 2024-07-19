@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ToolStrip.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,21 +43,19 @@ namespace Badger
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
-    using static ToolStrip;
 
     /// <summary>
     ///
     /// </summary>
-    /// <seealso cref="Badger.BasicBar" />
+    /// <seealso cref="ToolbarBase" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ToolStrip : BasicBar
+    public class ToolStrip : ToolbarBase
     {
         /// <summary>
         /// The theme

@@ -371,19 +371,18 @@
     <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="126.2.7" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="126.2.7" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="126.2.7" />
-    <PackageReference Include="EPPlus" Version="7.1.2" />
+    <PackageReference Include="EPPlus" Version="7.2.1" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
     <PackageReference Include="linq2db" Version="5.4.1" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
     <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
-    <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-    <PackageReference Include="Microsoft.SqlServer.Compact" Version="4.0.8876.1" />
     <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
@@ -459,6 +458,9 @@
     </Reference>
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe">
+      <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
   </ItemGroup>
 
