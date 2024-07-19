@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="SunburstChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,31 +57,6 @@ namespace Badger
     public class SunburstChart : SfSunburstChart
     {
         /// <summary>
-        /// The steel blue
-        /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _green = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khaki = Colors.DarkKhaki;
-
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellow = Colors.Yellow;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -93,14 +68,14 @@ namespace Badger
         };
 
         /// <summary>
-        /// The wall color
+        /// The border color
         /// </summary>
-        private protected Color _wallColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
-            R = 55,
-            G = 55,
-            B = 55
+            R = 0,
+            G = 120,
+            B = 212
         };
 
         /// <summary>
@@ -115,15 +90,40 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border color
+        /// The green
         /// </summary>
-        private protected Color _borderColor = new Color( )
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 120,
-            B = 212
+            R = 55,
+            G = 55,
+            B = 55
         };
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
 
         /// <inheritdoc />
         /// <summary>

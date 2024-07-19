@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroListBoxItem.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,7 +43,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -58,7 +57,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <summary>
         /// Gets or sets an arbitrary object value that can be used
@@ -97,8 +96,8 @@ namespace Badger
                 if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.HoverColor;
-                    _item.BorderBrush = _theme.HoverColor;
+                    _item.Background = _theme.ItemHoverColor;
+                    _item.BorderBrush = _theme.ItemHoverColor;
                 }
             }
             catch( Exception ex )

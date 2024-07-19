@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Notification.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,80 +59,6 @@ namespace Badger
     public partial class Notification : Window
     {
         /// <summary>
-        /// The back color brush
-        /// </summary>
-        private protected SolidColorBrush _backColorBrush;
-
-        /// <summary>
-        /// The border color brush
-        /// </summary>
-        private protected SolidColorBrush _borderColorBrush;
-
-        /// <summary>
-        /// The fore color brush
-        /// </summary>
-        private protected SolidColorBrush _foreColorBrush;
-
-        /// <summary>
-        /// The back hover brush
-        /// </summary>
-        private protected SolidColorBrush _backHoverBrush;
-
-        /// <summary>
-        /// The border hover brush
-        /// </summary>
-        private protected SolidColorBrush _borderHoverBrush;
-
-        /// <summary>
-        /// The fore hover brush
-        /// </summary>
-        private protected SolidColorBrush _foreHoverBrush;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The border color
         /// </summary>
         private Color _borderColor = new Color( )
@@ -155,14 +81,14 @@ namespace Badger
         };
 
         /// <summary>
-        /// The time
-        /// </summary>
-        private int _time;
-
-        /// <summary>
         /// The seconds
         /// </summary>
         private int _seconds;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private Action _statusUpdate;
 
         /// <summary>
         /// The message
@@ -170,9 +96,83 @@ namespace Badger
         private string _text;
 
         /// <summary>
-        /// The update status
+        /// The time
         /// </summary>
-        private Action _statusUpdate;
+        private int _time;
+
+        /// <summary>
+        /// The back color
+        /// </summary>
+        private protected Color _backColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
+        /// The back color brush
+        /// </summary>
+        private protected SolidColorBrush _backColorBrush;
+
+        /// <summary>
+        /// The back hover color
+        /// </summary>
+        private protected Color _backHover = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The back hover brush
+        /// </summary>
+        private protected SolidColorBrush _backHoverBrush;
+
+        /// <summary>
+        /// The border color brush
+        /// </summary>
+        private protected SolidColorBrush _borderColorBrush;
+
+        /// <summary>
+        /// The border hover brush
+        /// </summary>
+        private protected SolidColorBrush _borderHoverBrush;
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The fore color brush
+        /// </summary>
+        private protected SolidColorBrush _foreColorBrush;
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The fore hover brush
+        /// </summary>
+        private protected SolidColorBrush _foreHoverBrush;
 
         /// <summary>
         /// Gets the message.
@@ -220,6 +220,21 @@ namespace Badger
             : this( )
         {
             _text = message;
+        }
+
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -363,21 +378,6 @@ namespace Badger
             {
                 Opacity = 0;
                 FadeInAsync( this );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Notifications the close.
-        /// </summary>
-        public void OnClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Close( );
             }
             catch( Exception ex )
             {

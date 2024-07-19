@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroCheckListItem.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,7 +58,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <summary>
         /// Gets or sets an arbitrary object value that can be
@@ -93,29 +93,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [item mouse enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private protected void OnItemMouseEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is MetroCheckListItem _item )
-                {
-                    _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.HoverColor;
-                    _item.BorderBrush = _theme.HoverColor;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [item mouse leave].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -130,6 +107,29 @@ namespace Badger
                     _item.Foreground = _theme.ForeColor;
                     _item.Background = _theme.ControlColor;
                     _item.BorderBrush = _theme.ControlColor;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [item mouse enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnItemMouseEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is MetroCheckListItem _item )
+                {
+                    _item.Foreground = _theme.WhiteColor;
+                    _item.Background = _theme.ItemHoverColor;
+                    _item.BorderBrush = _theme.ItemHoverColor;
                 }
             }
             catch( Exception ex )

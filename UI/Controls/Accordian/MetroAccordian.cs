@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroAccordian.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng tool for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,7 +54,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -66,12 +65,12 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroAccordian.StyleProperty, typeof( SfAccordion ) );
+            SetResourceReference( StyleProperty, typeof( SfAccordion ) );
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
             Width = 250;
             Height = 250;
-            AccentBrush = _theme.HoverColor;
+            AccentBrush = _theme.ItemHoverColor;
             Background = _theme.BackColor;
             BorderBrush = _theme.BorderColor;
             Foreground = _theme.ForeColor;

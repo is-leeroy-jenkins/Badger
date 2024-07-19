@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroCalendar.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,9 +54,26 @@ namespace Badger
     public class MetroCalendar : CalendarEdit
     {
         /// <summary>
-        /// The theme
+        /// The border color
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private readonly Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The border hover color
+        /// </summary>
+        private readonly Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 50,
+            G = 93,
+            B = 129
+        };
 
         /// <summary>
         /// The back color
@@ -103,26 +120,9 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border color
+        /// The theme
         /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>

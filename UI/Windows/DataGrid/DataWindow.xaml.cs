@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -81,9 +81,34 @@ namespace Badger
     public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
-        /// The theme
+        /// The yvalues
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The commands
+        /// </summary>
+        private IList<string> _commands;
+
+        /// <summary>
+        /// The data types
+        /// </summary>
+        private IList<string> _dataTypes;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _dates;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
 
         /// <summary>
         /// The first category
@@ -96,6 +121,11 @@ namespace Badger
         private string _firstValue;
 
         /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
         /// The second category
         /// </summary>
         private string _secondCategory;
@@ -106,99 +136,14 @@ namespace Badger
         private string _secondValue;
 
         /// <summary>
-        /// The SQL command
-        /// </summary>
-        private string _sqlQuery;
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
-
-        /// <summary>
-        /// The data model
-        /// </summary>
-        private protected DataGenerator _dataGen;
-
-        /// <summary>
-        /// The binding source
-        /// </summary>
-        private protected ObservableCollection<DataRow> _dataSource;
-
-        /// <summary>
-        /// The current
-        /// </summary>
-        private protected DataRow _current;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private IDictionary<string, object> _filter;
-
-        /// <summary>
-        /// The yvalues
-        /// </summary>
-        private IList<string> _columns;
-
-        /// <summary>
-        /// The fields
-        /// </summary>
-        private IList<string> _fields;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private IList<string> _numerics;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private IList<string> _dates;
-
-        /// <summary>
-        /// The selected table
-        /// </summary>
-        private string _selectedTable;
-
-        /// <summary>
         /// The selected columns
         /// </summary>
         private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _selectedCommand;
 
         /// <summary>
         /// The selected fields
@@ -212,14 +157,49 @@ namespace Badger
         private IList<string> _selectedNumerics;
 
         /// <summary>
-        /// The provider
+        /// The selected command
         /// </summary>
-        private protected Provider _provider;
+        private string _selectedQuery;
 
         /// <summary>
-        /// The source
+        /// The selected table
         /// </summary>
-        private protected Source _source;
+        private string _selectedTable;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The statements
+        /// </summary>
+        private IDictionary<string, object> _statements;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _current;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataGenerator _dataGen;
+
+        /// <summary>
+        /// The binding source
+        /// </summary>
+        private protected ObservableCollection<DataRow> _dataSource;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The frames
@@ -227,29 +207,49 @@ namespace Badger
         private protected IList<MetroTextInput> _frames;
 
         /// <summary>
-        /// The selected command
+        /// The path
         /// </summary>
-        private string _selectedQuery;
+        private protected object _path;
 
         /// <summary>
-        /// The SQL command
+        /// The provider
         /// </summary>
-        private string _selectedCommand;
+        private protected Provider _provider;
 
         /// <summary>
-        /// The commands
+        /// The seconds
         /// </summary>
-        private IList<string> _commands;
+        private protected int _seconds;
 
         /// <summary>
-        /// The data types
+        /// The source
         /// </summary>
-        private IList<string> _dataTypes;
+        private protected Source _source;
 
         /// <summary>
-        /// The statements
+        /// The update status
         /// </summary>
-        private IDictionary<string, object> _statements;
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets the filter.
@@ -351,6 +351,83 @@ namespace Badger
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
+            }
         }
 
         /// <summary>
@@ -622,54 +699,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action<object> action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( null );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -870,39 +899,6 @@ namespace Badger
             {
                 Fail( ex );
                 return default( Notifier );
-            }
-        }
-
-        /// <summary>
-        /// Populates the edit stack.
-        /// </summary>
-        private protected IList<MetroTextInput> CreateFrames( )
-        {
-            try
-            {
-                var _list = new List<MetroTextInput>( );
-                for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
-                {
-                    var _column = _dataTable.Columns[ _index ].ColumnName;
-                    var _name = _column?.SplitPascal( );
-                    var _frame = new MetroTextInput
-                    {
-                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
-                        Caption = _name,
-                        Input = _current.ItemArray[ _index ]?.ToString( )
-                    };
-
-                    _list.Add( _frame );
-                }
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<MetroTextInput> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IList<MetroTextInput> );
             }
         }
 
@@ -1259,62 +1255,6 @@ namespace Badger
                         && list[ _i ].Equals( $"{Command.SELECT}" ) )
                     {
                         CommandComboBox.Items.Add( "SELECT" );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
-        private protected void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
-        {
-            try
-            {
-                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
-                DataTypeListBox.Items?.Clear( );
-                var _types = dataTypes.ToArray( );
-                for( var _i = 0; _i < _types?.Length; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                    {
-                        var _item = new MetroListBoxItem
-                        {
-                            Content = _types[ _i ]
-                        };
-
-                        DataTypeListBox.Items.Add( _item );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data column ListBox.
-        /// </summary>
-        private protected void PopulateDataColumnListBox( )
-        {
-            try
-            {
-                DataColumnListBox.Items?.Clear( );
-                for( var _i = 0; _i < _columns?.Count; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _columns[ _i ] ) )
-                    {
-                        var _item = new MetroListBoxItem
-                        {
-                            Content = _columns[ _i ]
-                        };
-
-                        DataColumnListBox.Items.Add( _item );
                     }
                 }
             }
@@ -1931,43 +1871,6 @@ namespace Badger
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Gets the data types.
-        /// </summary>
-        /// <param name="provider">
-        /// The provider.
-        /// </param>
-        /// <returns>
-        /// IEnumerable
-        /// </returns>
-        private protected IList<string> GetDataTypes( Provider provider )
-        {
-            if( Enum.IsDefined( typeof( Provider ), provider ) )
-            {
-                try
-                {
-                    var _database = provider.ToString( );
-                    var _db = new DataGenerator( Source.SchemaTypes, Provider.Access );
-                    var _data = _db.DataTable;
-                    var _list = _data.AsEnumerable( )
-                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
-                        ?.Select( c => c.Field<string>( "TypeName" ) )
-                        ?.ToList( );
-
-                    return _list.Count > 0
-                        ? _list
-                        : default( IList<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IList<string> );
-                }
-            }
-
-            return default( IList<string> );
         }
 
         /// <summary>
@@ -3177,32 +3080,129 @@ namespace Badger
         }
 
         /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
+        /// Populates the edit stack.
         /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
+        private protected IList<MetroTextInput> CreateFrames( )
         {
-            if( disposing )
+            try
             {
-                _timer?.Dispose( );
+                var _list = new List<MetroTextInput>( );
+                for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
+                {
+                    var _column = _dataTable.Columns[ _index ].ColumnName;
+                    var _name = _column?.SplitPascal( );
+                    var _frame = new MetroTextInput
+                    {
+                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
+                        Caption = _name,
+                        Input = _current.ItemArray[ _index ]?.ToString( )
+                    };
+
+                    _list.Add( _frame );
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<MetroTextInput> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<MetroTextInput> );
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
+        /// Populates the data type ComboBox items.
         /// </summary>
-        public void Dispose( )
+        private protected void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
         {
-            Dispose( true );
-            GC.SuppressFinalize( this );
+            try
+            {
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeListBox.Items?.Clear( );
+                var _types = dataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _types[ _i ]
+                        };
+
+                        DataTypeListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data column ListBox.
+        /// </summary>
+        private protected void PopulateDataColumnListBox( )
+        {
+            try
+            {
+                DataColumnListBox.Items?.Clear( );
+                for( var _i = 0; _i < _columns?.Count; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _columns[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _columns[ _i ]
+                        };
+
+                        DataColumnListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the data types.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
+        private protected IList<string> GetDataTypes( Provider provider )
+        {
+            if( Enum.IsDefined( typeof( Provider ), provider ) )
+            {
+                try
+                {
+                    var _database = provider.ToString( );
+                    var _db = new DataGenerator( Source.SchemaTypes, Provider.Access );
+                    var _data = _db.DataTable;
+                    var _list = _data.AsEnumerable( )
+                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
+                        ?.Select( c => c.Field<string>( "TypeName" ) )
+                        ?.ToList( );
+
+                    return _list.Count > 0
+                        ? _list
+                        : default( IList<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
         }
 
         /// <summary>

@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,6 +59,7 @@ namespace Badger
     using ToastNotifications.Position;
     using Action = System.Action;
     using Application = System.Windows.Application;
+    using ChartSeries = Syncfusion.UI.Xaml.Charts.ChartSeries;
     using Exception = System.Exception;
     using LabelPlacement = Syncfusion.UI.Xaml.Charts.LabelPlacement;
     using SelectionMode = System.Windows.Controls.SelectionMode;
@@ -82,15 +82,15 @@ namespace Badger
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
-        /// The locked object
-        /// </summary>
-        private object _path;
-
-        /// <summary>
         /// 
         /// The busy
         /// </summary>
         private bool _busy;
+
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
 
         /// <summary>
         /// The status update
@@ -98,19 +98,49 @@ namespace Badger
         private Action _statusUpdate;
 
         /// <summary>
+        /// The area chart
+        /// </summary>
+        private protected MetroAreaChart _areaChart;
+
+        /// <summary>
+        /// The data source
+        /// </summary>
+        private protected ChartModel _chartModel;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private protected IList<string> _columns;
+
+        /// <summary>
         /// The count
         /// </summary>
         private protected int _count;
 
         /// <summary>
-        /// The hover text
+        /// The current
         /// </summary>
-        private protected string _hoverText;
+        private protected int _current;
 
         /// <summary>
-        /// The selected table
+        /// The data model
         /// </summary>
-        private protected string _selectedTable;
+        private protected DataGenerator _data;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
 
         /// <summary>
         /// The first category
@@ -123,6 +153,56 @@ namespace Badger
         private protected string _firstValue;
 
         /// <summary>
+        /// The histogram
+        /// </summary>
+        private protected Histogram _histogram;
+
+        /// <summary>
+        /// The hover text
+        /// </summary>
+        private protected string _hoverText;
+
+        /// <summary>
+        /// The line chart
+        /// </summary>
+        private protected MetroLineChart _lineChart;
+
+        /// <summary>
+        /// The line chart
+        /// </summary>
+        private protected MetroColumnChart _columnChart;
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        private protected STAT _metric;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The pie chart
+        /// </summary>
+        private protected MetroPieChart _pieChart;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _record;
+
+        /// <summary>
+        /// The scatter chart
+        /// </summary>
+        private protected MetroScatterChart _scatterChart;
+
+        /// <summary>
         /// The second category
         /// </summary>
         private protected string _secondCategory;
@@ -131,41 +211,6 @@ namespace Badger
         /// The second value
         /// </summary>
         private protected string _secondValue;
-
-        /// <summary>
-        /// The SQL command
-        /// </summary>
-        private protected string _sqlQuery;
-
-        /// <summary>
-        /// The stat
-        /// </summary>
-        private protected STAT _metric;
-
-        /// <summary>
-        /// The current
-        /// </summary>
-        private protected int _current;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private protected IDictionary<string, object> _filter;
-
-        /// <summary>
-        /// The fields
-        /// </summary>
-        private protected IList<string> _fields;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private protected IList<string> _columns;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private protected IList<string> _numerics;
 
         /// <summary>
         /// The selected columns
@@ -183,69 +228,9 @@ namespace Badger
         private protected IList<string> _selectedNumerics;
 
         /// <summary>
-        /// The source
+        /// The selected table
         /// </summary>
-        private protected Source _source;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private protected Provider _provider;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The current
-        /// </summary>
-        private protected DataRow _record;
-
-        /// <summary>
-        /// The data model
-        /// </summary>
-        private protected DataGenerator _data;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
-
-        /// <summary>
-        /// The data source
-        /// </summary>
-        private protected ChartModel _chartModel;
-
-        /// <summary>
-        /// The pie chart
-        /// </summary>
-        private protected MetroPieChart _pieChart;
-
-        /// <summary>
-        /// The area chart
-        /// </summary>
-        private protected MetroAreaChart _areaChart;
-
-        /// <summary>
-        /// The line chart
-        /// </summary>
-        private protected MetroLineChart _lineChart;
-
-        /// <summary>
-        /// The scatter chart
-        /// </summary>
-        private protected MetroScatterChart _scatterChart;
-
-        /// <summary>
-        /// The sunburst chart
-        /// </summary>
-        private protected SunburstChart _sunburstChart;
+        private protected string _selectedTable;
 
         /// <summary>
         /// The smith chart
@@ -253,19 +238,39 @@ namespace Badger
         private protected SmithChart _smithChart;
 
         /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The sunburst chart
+        /// </summary>
+        private protected SunburstChart _sunburstChart;
+
+        /// <summary>
         /// The surface chart
         /// </summary>
         private protected SurfaceChart _surfaceChart;
 
         /// <summary>
-        /// The histogram
-        /// </summary>
-        private protected Histogram _histogram;
-
-        /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets the data source.
@@ -286,7 +291,8 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
+        /// Gets a value indicating
+        /// whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -333,24 +339,25 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Visualization";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
+            Width = _theme.Width;
+            MinWidth = _theme.MinWidth;
+            MaxWidth = _theme.MaxWidth;
+            Height = _theme.Height;
+            MinHeight = _theme.MinHeight;
+            MaxHeight = _theme.MaxHeight;
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            WindowStyle = _theme.WindowStyle;
+            WindowStartupLocation = _theme.StartLocation;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+            VerticalAlignment = VerticalAlignment.Bottom;
+            Title = "Visualization";
 
             // Default Provider
             _provider = Provider.Access;
@@ -426,19 +433,20 @@ namespace Badger
         {
             try
             {
-                ColumnChart = new MetroColumnChart
+                _columnChart = new MetroColumnChart
                 {
                     Height = 454,
                     Width = 800,
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName.SplitPascal( )
-                        : "Column Chart",
+                    Margin = new Thickness( 0 ),
                     PrimaryAxis = CreateCategoricalAxis( ),
                     SecondaryAxis = CreateNumericalAxis( ),
-                    Visibility = Visibility.Visible
+                    Visibility = Visibility.Visible,
+                    Header = ( _dataTable != null )
+                        ? _dataTable.TableName?.SplitPascal( )
+                        : "Pie Chart"
                 };
 
-                ColumnChartCanvas.Children.Add( ColumnChart );
+                ColumnChartCanvas.Children.Add( _columnChart );
             }
             catch( Exception ex )
             {
@@ -456,7 +464,8 @@ namespace Badger
                 _pieChart = new MetroPieChart
                 {
                     Height = 454,
-                    Width = 800
+                    Width = 800,
+                    Margin = new Thickness( 0 )
                 };
 
                 _pieChart.Series?.Clear( );
@@ -483,17 +492,20 @@ namespace Badger
         {
             try
             {
-                _sunburstChart = new SunburstChart( );
-                _sunburstChart.Height = 454;
-                _sunburstChart.Width = 800;
-                _sunburstChart.FontSize = 10;
-                _sunburstChart.Background = _theme.BackColor;
-                _sunburstChart.Foreground = _theme.ForeColor;
-                _sunburstChart.BorderBrush = _theme.BorderColor;
-                _sunburstChart.Visibility = Visibility.Visible;
-                _sunburstChart.Header = ( _dataTable != null )
-                    ? _dataTable.TableName.SplitPascal( )
-                    : "Sunburst Chart";
+                _sunburstChart = new SunburstChart
+                {
+                    Height = 454,
+                    Width = 800,
+                    FontSize = 10,
+                    Background = _theme.BackColor,
+                    Foreground = _theme.ForeColor,
+                    BorderBrush = _theme.BorderColor,
+                    Visibility = Visibility.Visible,
+                    Margin = new Thickness( 0 ),
+                    Header = ( _dataTable != null )
+                        ? _dataTable.TableName.SplitPascal( )
+                        : "Sunburst Chart"
+                };
 
                 SunburstCanvas.Children.Add( _sunburstChart );
             }
@@ -518,6 +530,7 @@ namespace Badger
                     Foreground = _theme.ForeColor,
                     BorderBrush = _theme.BorderColor,
                     Visibility = Visibility.Visible,
+                    Margin = new Thickness( 0 ),
                     Header = ( _dataTable != null )
                         ? _dataTable.TableName.SplitPascal( )
                         : "Smith Chart"
@@ -535,7 +548,6 @@ namespace Badger
 
                 _smithChart.RadialAxis = _radial;
                 _smithChart.HorizontalAxis = _horizontal;
-                SmithCanvas.Children.Add( _smithChart );
             }
             catch( Exception ex )
             {
@@ -558,7 +570,8 @@ namespace Badger
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.ForeColor,
                     Background = _theme.BackColor,
-                    Visibility = Visibility.Visible
+                    Visibility = Visibility.Visible,
+                    Margin = new Thickness( 0 )
                 };
 
                 _areaChart.Series?.Clear( );
@@ -589,7 +602,8 @@ namespace Badger
                     Background = _theme.BackColor,
                     Foreground = _theme.ForeColor,
                     BorderBrush = _theme.BorderColor,
-                    Visibility = Visibility.Visible
+                    Visibility = Visibility.Visible,
+                    Margin = new Thickness( 0 )
                 };
 
                 _histogram.Series?.Clear( );
@@ -612,18 +626,21 @@ namespace Badger
         {
             try
             {
-                _lineChart = new MetroLineChart( );
-                _lineChart.Height = 454;
-                _lineChart.Width = 800;
-                _lineChart.FontSize = 10;
-                _lineChart.Background = _theme.BackColor;
-                _lineChart.Foreground = _theme.ForeColor;
-                _lineChart.BorderBrush = _theme.BorderColor;
-                _lineChart.Header = ( _dataTable != null )
-                    ? _dataTable.TableName.SplitPascal( )
-                    : "Line Chart";
+                _lineChart = new MetroLineChart
+                {
+                    Height = 454,
+                    Width = 800,
+                    FontSize = 10,
+                    Background = _theme.BackColor,
+                    Foreground = _theme.ForeColor,
+                    BorderBrush = _theme.BorderColor,
+                    Margin = new Thickness( 0 ),
+                    Header = ( _dataTable != null )
+                        ? _dataTable.TableName.SplitPascal( )
+                        : "Line Chart"
+                };
 
-                LineCanvas.Children.Add( _lineChart );
+                LineChartCanvas.Children.Add( _lineChart );
             }
             catch( Exception ex )
             {
@@ -635,18 +652,19 @@ namespace Badger
         {
             try
             {
-                _scatterChart = new MetroScatterChart( );
-                _scatterChart.Height = 454;
-                _scatterChart.Width = 800;
-                _scatterChart.FontSize = 10;
-                _scatterChart.Background = _theme.BackColor;
-                _scatterChart.Foreground = _theme.ForeColor;
-                _scatterChart.BorderBrush = _theme.BorderColor;
-                _scatterChart.Header = ( _dataTable != null )
-                    ? _dataTable.TableName.SplitPascal( )
-                    : "Line Chart";
-
-                LineCanvas.Children.Add( _lineChart );
+                _scatterChart = new MetroScatterChart
+                {
+                    Height = 454,
+                    Width = 800,
+                    FontSize = 10,
+                    Background = _theme.BackColor,
+                    Foreground = _theme.ForeColor,
+                    BorderBrush = _theme.BorderColor,
+                    Margin = new Thickness( 0 ),
+                    Header = ( _dataTable != null )
+                        ? _dataTable.TableName.SplitPascal( )
+                        : "Scatter Chart"
+                };
             }
             catch( Exception ex )
             {
@@ -897,145 +915,21 @@ namespace Badger
         }
 
         /// <summary>
-        /// Clears the combo boxes.
+        /// Binds the context.
         /// </summary>
-        private void ClearComboBoxes( )
+        private protected void Requery( )
         {
             try
             {
-                FirstComboBox.SelectedIndex = -1;
-                SecondComboBox.SelectedIndex = -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
+                _data = ( _filter?.Count > 0 )
+                    ? new DataGenerator( _source, _provider, _filter )
+                    : new DataGenerator( _source, _provider );
 
-        /// <summary>
-        /// Clears the list boxes.
-        /// </summary>
-        private void ClearListBoxes( )
-        {
-            try
-            {
-                FirstListBox.Items?.Clear( );
-                SecondListBox.Items?.Clear( );
-                FieldListBox.Items?.Clear( );
-                FieldListBox.SelectedItems?.Clear( );
-                NumericListBox.Items?.Clear( );
-                NumericListBox.SelectedItems?.Clear( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                _data = null;
-                _dataTable = null;
-                _chartModel = null;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the filter.
-        /// </summary>
-        private void ClearFilters( )
-        {
-            try
-            {
-                if( _filter.Count > 0 )
-                {
-                    _filter.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
-        private void ClearCollections( )
-        {
-            try
-            {
-                if( _columns?.Count > 0 )
-                {
-                    _columns.Clear( );
-                }
-
-                if( _fields?.Count > 0 )
-                {
-                    _fields.Clear( );
-                }
-
-                if( _numerics?.Count > 0 )
-                {
-                    _numerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
-        private void ClearSelections( )
-        {
-            try
-            {
-                if( _selectedColumns?.Count > 0 )
-                {
-                    _selectedColumns.Clear( );
-                }
-
-                if( _selectedFields?.Count > 0 )
-                {
-                    _selectedFields.Clear( );
-                }
-
-                if( _selectedNumerics?.Count > 0 )
-                {
-                    _selectedNumerics.Clear( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the label text.
-        /// </summary>
-        private void ClearLabels( )
-        {
-            try
-            {
-                SecondLabel.Content = "Total Records: 0.0";
-                ThirdLabel.Content = "Total Fields: 0.0";
-                FourthLabel.Content = "Total Measures: 0.0";
-                FifthLabel.Content = "Selected Filters: 0.0";
-                SixthLabel.Content = "Selected Fields: 0.0";
-                SeventhLabel.Content = "Selected Numerics: 0.0";
+                _dataTable = _data.DataTable;
+                _columns = _data.ColumnNames;
+                _fields = _data.Fields;
+                _numerics = _data.Numerics;
+                ColumnChartCanvas.DataContext = _dataTable;
             }
             catch( Exception ex )
             {
@@ -1056,7 +950,8 @@ namespace Badger
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    return $"SELECT * FROM {_selectedTable} "
+                    return "SELECT *"
+                        + $"FROM {_selectedTable} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
@@ -1192,7 +1087,7 @@ namespace Badger
         /// <returns>
         /// ChartAdornmentInfo3D
         /// </returns>
-        private ChartAdornmentInfo3D CreateAdornment( )
+        private ChartAdornmentInfo3D CreateAdornmentInfo( )
         {
             try
             {
@@ -1205,7 +1100,7 @@ namespace Badger
                     AdornmentsPosition = AdornmentsPosition.Top,
                     LabelPosition = AdornmentsLabelPosition.Outer,
                     UseSeriesPalette = false,
-                    BorderThickness = new Thickness( 1 ),
+                    BorderThickness = _theme.BorderThickness,
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
@@ -1213,7 +1108,7 @@ namespace Badger
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.ForeColor,
-                    Background = new SolidColorBrush( Colors.Black )
+                    Background = _theme.ControlColor
                 };
 
                 return _adornment;
@@ -1222,6 +1117,40 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartAdornmentInfo3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the adornment.
+        /// </summary>
+        /// <returns></returns>
+        private protected ChartAdornment3D CreateAdornment( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    var _adornment = new ChartAdornment3D
+                    {
+                        FontSize = 10,
+                        FontFamily = _theme.FontFamily,
+                        BorderThickness = _theme.BorderThickness,
+                        ConnectorRotationAngle = 45,
+                        BorderBrush = _theme.BorderColor,
+                        Foreground = _theme.LightBlueColor,
+                        Background = _theme.ControlColor,
+                        Stroke = _theme.ItemHoverColor
+                    };
+
+                    return _adornment;
+                }
+
+                return default( ChartAdornment3D );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartAdornment3D );
             }
         }
 
@@ -1261,16 +1190,17 @@ namespace Badger
             {
                 if( _dataTable != null
                     && _numerics?.Count > 0
-                    && _fields?.Count > 0 )
+                    && _columns?.Count > 0 )
                 {
                     var _viewModel = new ViewModel( );
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
-                        foreach( var _num in _numerics )
+                        var _category = _columns[ 0 ];
+                        foreach( var _measure in _numerics )
                         {
-                            var _value = double.Parse( _row[ _num ]?.ToString( ) );
-                            var _view = new View( _num, _value );
+                            var _value = double.Parse( _row[ _measure ]?.ToString( ) );
+                            var _view = new View( _index, _category, _measure, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1300,8 +1230,8 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "X-Axis",
-                    Interval = 1,
+                    Header = "Category",
+                    Interval = 10,
                     IsIndexed = true,
                     IsEnabled = true,
                     LabelPlacement = LabelPlacement.OnTicks,
@@ -1336,7 +1266,7 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Y-Axis",
+                    Header = "Value",
                     Interval = 1,
                     Name = "Value",
                     IsEnabled = true,
@@ -1355,22 +1285,14 @@ namespace Badger
         }
 
         /// <summary>
-        /// Binds the context.
+        /// Clears the combo boxes.
         /// </summary>
-        private protected void CreateData( )
+        private void ClearComboBoxes( )
         {
             try
             {
-                _data = ( _filter?.Count > 0 )
-                    ? new DataGenerator( _source, _provider, _filter )
-                    : new DataGenerator( _source, _provider );
-
-                _dataTable = _data.DataTable;
-                _columns = _data.ColumnNames;
-                _fields = _data.Fields;
-                _numerics = _data.Numerics;
-                _chartModel = new ChartModel( _dataTable );
-                ColumnChart.DataContext = _chartModel.Data;
+                FirstComboBox.SelectedIndex = -1;
+                SecondComboBox.SelectedIndex = -1;
             }
             catch( Exception ex )
             {
@@ -1379,46 +1301,35 @@ namespace Badger
         }
 
         /// <summary>
-        /// Binds the column chart.
+        /// Clears the list boxes.
         /// </summary>
-        private protected void SetColumnConfiguration( )
+        private void ClearListBoxes( )
         {
             try
             {
-                if( _dataTable != null )
-                {
-                    ColumnChart.Series?.Clear( );
-                    var _series = new ColumnSeries3D
-                    {
-                        ItemsSource = _chartModel.List,
-                        XBindingPath = _columns[ 0 ],
-                        YBindingPath = _numerics[ 0 ],
-                        EnableAnimation = true,
-                        Label = _numerics[ 0 ],
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        SegmentSpacing = .25,
-                        Visibility = Visibility.Visible
-                    };
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                FieldListBox.Items?.Clear( );
+                FieldListBox.SelectedItems?.Clear( );
+                NumericListBox.Items?.Clear( );
+                NumericListBox.SelectedItems?.Clear( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
-                    ColumnChart.Series?.Add( _series );
-                }
-                else
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilters( )
+        {
+            try
+            {
+                if( _filter.Count > 0 )
                 {
-                    var _series = new ColumnSeries3D
-                    {
-                        EnableAnimation = true,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        SegmentSpacing = .25,
-                        Visibility = Visibility.Visible
-                    };
-
-                    ColumnChart.Series?.Add( _series );
+                    _filter.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1428,44 +1339,25 @@ namespace Badger
         }
 
         /// <summary>
-        /// Sets the line configuration.
+        /// Clears the collections.
         /// </summary>
-        private protected void SetLineConfiguration( )
+        private void ClearCollections( )
         {
             try
             {
-                if( _dataTable != null )
+                if( _columns?.Count > 0 )
                 {
-                    _lineChart.Series?.Clear( );
-                    var _series = new LineSeries3D
-                    {
-                        ItemsSource = _chartModel.List,
-                        XBindingPath = _columns[ 0 ],
-                        YBindingPath = _numerics[ 0 ],
-                        EnableAnimation = true,
-                        Label = _numerics[ 0 ],
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
-
-                    _lineChart.Series?.Add( _series );
+                    _columns.Clear( );
                 }
-                else
-                {
-                    var _series = new LineSeries3D
-                    {
-                        EnableAnimation = true,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
 
-                    _lineChart.Series?.Add( _series );
+                if( _fields?.Count > 0 )
+                {
+                    _fields.Clear( );
+                }
+
+                if( _numerics?.Count > 0 )
+                {
+                    _numerics.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1475,44 +1367,25 @@ namespace Badger
         }
 
         /// <summary>
-        /// Sets the pie configuration.
+        /// Clears the selections.
         /// </summary>
-        private protected void SetPieConfiguration( )
+        private void ClearSelections( )
         {
             try
             {
-                if( _dataTable != null )
+                if( _selectedColumns?.Count > 0 )
                 {
-                    _pieChart.Series?.Clear( );
-                    var _series = new PieSeries3D
-                    {
-                        ItemsSource = _dataTable.DefaultView,
-                        XBindingPath = _columns[ 0 ],
-                        YBindingPath = _numerics[ 0 ],
-                        EnableAnimation = true,
-                        Label = _numerics[ 0 ],
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
-
-                    _pieChart.Series?.Add( _series );
+                    _selectedColumns.Clear( );
                 }
-                else
-                {
-                    var _series = new PieSeries3D
-                    {
-                        EnableAnimation = true,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
 
-                    _pieChart.Series?.Add( _series );
+                if( _selectedFields?.Count > 0 )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Count > 0 )
+                {
+                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1522,44 +1395,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Sets the scatter configuration.
+        /// Clears the label text.
         /// </summary>
-        private protected void SetScatterConfiguration( )
+        private void ClearLabels( )
         {
             try
             {
-                if( _dataTable != null )
-                {
-                    _scatterChart.Series?.Clear( );
-                    var _series = new ScatterSeries3D
-                    {
-                        ItemsSource = _chartModel.List,
-                        XBindingPath = _columns[ 0 ],
-                        YBindingPath = _numerics[ 0 ],
-                        EnableAnimation = true,
-                        Label = _numerics[ 0 ],
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true
-                    };
-
-                    _scatterChart.Series?.Add( _series );
-                }
-                else
-                {
-                    var _series = new ScatterSeries3D
-                    {
-                        EnableAnimation = true,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
-
-                    _scatterChart.Series?.Add( _series );
-                }
+                SecondLabel.Content = "Total Records: 0.0";
+                ThirdLabel.Content = "Total Fields: 0.0";
+                FourthLabel.Content = "Total Measures: 0.0";
+                FifthLabel.Content = "Selected Filters: 0.0";
+                SixthLabel.Content = "Selected Fields: 0.0";
+                SeventhLabel.Content = "Selected Numerics: 0.0";
             }
             catch( Exception ex )
             {
@@ -1568,78 +1415,15 @@ namespace Badger
         }
 
         /// <summary>
-        /// Sets the area configuration.
+        /// Clears the data.
         /// </summary>
-        private protected void SetAreaConfiguration( )
+        public void ClearData( )
         {
             try
             {
-                if( _dataTable != null )
-                {
-                    _areaChart.Series?.Clear( );
-                    var _series = new AreaSeries3D
-                    {
-                        ItemsSource = _chartModel.List,
-                        XBindingPath = _columns[ 0 ],
-                        YBindingPath = _numerics[ 0 ],
-                        EnableAnimation = true,
-                        Label = _numerics[ 0 ],
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        Area =
-                        {
-                            BackWallBrush = _theme.WallColor,
-                            BottomWallBrush = _theme.BlackColor,
-                            Depth = _areaChart.Depth
-                        },
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true
-                    };
-
-                    _areaChart.Series?.Add( _series );
-                }
-                else
-                {
-                    var _series = new AreaSeries3D
-                    {
-                        EnableAnimation = true,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.HoverColor,
-                        AdornmentsInfo = CreateAdornment( ),
-                        ShowTooltip = true,
-                        Visibility = Visibility.Visible
-                    };
-
-                    _areaChart.Series?.Add( _series );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the surface configuration.
-        /// </summary>
-        private protected void SetSurfaceConfiguration( )
-        {
-            try
-            {
-                if( _dataTable != null )
-                {
-                    var _xAxis = new SurfaceAxis( );
-                    _surfaceChart.XAxis = _xAxis;
-                    var _yAxis = new SurfaceAxis( );
-                    _surfaceChart.YAxis = _yAxis;
-                }
-                else
-                {
-                    var _xAxis = new SurfaceAxis( );
-                    _surfaceChart.XAxis = _xAxis;
-                    var _yAxis = new SurfaceAxis( );
-                    _surfaceChart.YAxis = _yAxis;
-                }
+                _data = null;
+                _dataTable = null;
+                _chartModel = null;
             }
             catch( Exception ex )
             {
@@ -1977,6 +1761,9 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the line tab.
+        /// </summary>
         private void ActivateLineTab( )
         {
             try
@@ -2252,6 +2039,283 @@ namespace Badger
                 Fail( ex );
             }
         }
+        
+        /// <summary>
+        /// Binds the column chart.
+        /// </summary>
+        private protected void SetColumnConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    _columnChart.Header = _dataTable.TableName.SplitPascal( );
+                    _columnChart.Series?.Clear( );
+                    var _category = _columns[ 0 ];
+                    var _measure = _numerics[ 0 ];
+                    var _series = new ColumnSeries3D
+                    {
+                        ItemsSource = _dataTable.DefaultView,
+                        XBindingPath = _category,
+                        YBindingPath = _measure,
+                        EnableAnimation = true,
+                        Label = _measure,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.Color[ 0 ],
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        SegmentSpacing = .25,
+                        IsSeriesVisible = true
+                    };
+
+                    _columnChart.Series?.Add( _series );
+                    _columnChart.SeriesSelectedIndex = 0;
+                }
+                else
+                {
+                    _columnChart.Header = "Column Chart";
+                    _columnChart.Series?.Clear( );
+                    var _series = new ColumnSeries3D
+                    {
+                        EnableAnimation = true,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.Color[ 0 ],
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        SegmentSpacing = .25,
+                        IsSeriesVisible = true
+                    };
+
+                    _columnChart.Series?.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the line configuration.
+        /// </summary>
+        private protected void SetLineConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    var _series = new LineSeries3D
+                    {
+                        ItemsSource = _dataTable.DefaultView,
+                        XBindingPath = _columns[ 0 ],
+                        YBindingPath = _numerics[ 0 ],
+                        EnableAnimation = true,
+                        Label = _numerics[ 0 ],
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        IsSeriesVisible = true
+                    };
+
+                    _lineChart.Series?.Add( _series );
+                }
+                else
+                {
+                    var _series = new LineSeries3D
+                    {
+                        EnableAnimation = true,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        IsSeriesVisible = true
+                    };
+
+                    _lineChart.Series?.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the pie configuration.
+        /// </summary>
+        private protected void SetPieConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    _pieChart.Series?.Clear( );
+                    var _series = new PieSeries3D
+                    {
+                        ItemsSource = _dataTable.DefaultView,
+                        XBindingPath = _columns[ 0 ],
+                        YBindingPath = _numerics[ 0 ],
+                        EnableAnimation = true,
+                        Label = _numerics[ 0 ],
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        IsSeriesVisible = true
+                    };
+
+                    _pieChart.Series?.Add( _series );
+                }
+                else
+                {
+                    var _series = new PieSeries3D
+                    {
+                        EnableAnimation = true,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        IsSeriesVisible = true
+                    };
+
+                    _pieChart.Series?.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the scatter configuration.
+        /// </summary>
+        private protected void SetScatterConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    _scatterChart.Series?.Clear( );
+                    foreach( DataRow _row in _dataTable.Rows )
+                    {
+                        var _series = new ScatterSeries3D
+                        {
+                            ItemsSource = _row,
+                            XBindingPath = _columns[ 0 ],
+                            YBindingPath = _numerics[ 0 ],
+                            EnableAnimation = true,
+                            Label = _numerics[ 0 ],
+                            ShowEmptyPoints = true,
+                            Interior = _theme.ItemHoverColor,
+                            AdornmentsInfo = CreateAdornmentInfo( ),
+                            ShowTooltip = true
+                        };
+
+                        _scatterChart.Series?.Add( _series );
+                    }
+                }
+                else
+                {
+                    var _series = new ScatterSeries3D
+                    {
+                        EnableAnimation = true,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        Visibility = Visibility.Visible
+                    };
+
+                    _scatterChart.Series?.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the area configuration.
+        /// </summary>
+        private protected void SetAreaConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    _areaChart.Series?.Clear( );
+                    var _series = new AreaSeries3D
+                    {
+                        ItemsSource = _chartModel.Items,
+                        XBindingPath = _columns[ 0 ],
+                        YBindingPath = _numerics[ 0 ],
+                        EnableAnimation = true,
+                        Label = _numerics[ 0 ],
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        Area =
+                        {
+                            BackWallBrush = _theme.WallColor,
+                            BottomWallBrush = _theme.BlackColor,
+                            Depth = _areaChart.Depth
+                        },
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true
+                    };
+
+                    _areaChart.Series?.Add( _series );
+                }
+                else
+                {
+                    var _series = new AreaSeries3D
+                    {
+                        EnableAnimation = true,
+                        ShowEmptyPoints = true,
+                        Interior = _theme.ItemHoverColor,
+                        AdornmentsInfo = CreateAdornmentInfo( ),
+                        ShowTooltip = true,
+                        Visibility = Visibility.Visible
+                    };
+
+                    _areaChart.Series?.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the surface configuration.
+        /// </summary>
+        private protected void SetSurfaceConfiguration( )
+        {
+            try
+            {
+                if( _dataTable != null )
+                {
+                    var _xAxis = new SurfaceAxis( );
+                    _surfaceChart.XAxis = _xAxis;
+                    var _yAxis = new SurfaceAxis( );
+                    _surfaceChart.YAxis = _yAxis;
+                }
+                else
+                {
+                    var _xAxis = new SurfaceAxis( );
+                    _surfaceChart.XAxis = _xAxis;
+                    var _yAxis = new SurfaceAxis( );
+                    _surfaceChart.YAxis = _yAxis;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Called when [load].
@@ -2263,16 +2327,13 @@ namespace Badger
         {
             try
             {
-                Opacity = 0;
                 InitializeTimer( );
                 InitializeTabControls( );
                 InitializeLabels( );
                 InitializeToolbar( );
-                InitializeListBoxes( );
                 InitializeColumnChart( );
                 PopulateExecutionTables( );
                 UpdateLabels( );
-                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -2445,7 +2506,7 @@ namespace Badger
                 _selectedNumerics?.Clear( );
                 _selectedFields?.Clear( );
                 _selectedColumns?.Clear( );
-                CreateData( );
+                Requery( );
                 UpdateLabels( );
             }
             catch( Exception ex )
@@ -2466,7 +2527,7 @@ namespace Badger
             {
                 if( _dataTable == null )
                 {
-                    var _message = "Verify a data table!";
+                    var _message = "Verify data table!";
                     SendMessage( _message );
                 }
                 else
@@ -2496,7 +2557,7 @@ namespace Badger
                 ClearSelections( );
                 ClearCollections( );
                 UpdateLabels( );
-                CreateData( );
+                Requery( );
             }
             catch( Exception ex )
             {
@@ -2838,10 +2899,10 @@ namespace Badger
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                        ColumnChart.Header = _title;
+                        _columnChart.Header = _title;
                     }
 
-                    CreateData( );
+                    Requery( );
                     SetColumnConfiguration( );
                     ActivateFilterTab( );
                     UpdateLabels( );
@@ -2993,7 +3054,7 @@ namespace Badger
                         SecondListBox.Visibility = Visibility.Visible;
                     }
 
-                    CreateData( );
+                    Requery( );
                     PopulateSecondComboBoxItems( );
                     UpdateLabels( );
                 }
@@ -3065,7 +3126,7 @@ namespace Badger
                     _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    CreateData( );
+                    Requery( );
                     SetColumnConfiguration( );
                     ActivateGroupTab( );
                     UpdateLabels( );
@@ -3106,7 +3167,7 @@ namespace Badger
 
                 NumericsLabel.Visibility = Visibility.Visible;
                 NumericListBox.Visibility = Visibility.Visible;
-                CreateData( );
+                Requery( );
                 UpdateLabels( );
             }
             catch( Exception ex )
@@ -3142,13 +3203,25 @@ namespace Badger
                     SeventhLabel.Visibility = Visibility.Hidden;
                 }
 
-                CreateData( );
+                Requery( );
                 UpdateLabels( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
         }
 
         /// <summary>
@@ -3165,7 +3238,7 @@ namespace Badger
             if( disposing )
             {
                 _timer?.Dispose( );
-                ColumnChart?.Dispose( );
+                _columnChart?.Dispose( );
                 _lineChart?.Dispose( );
                 _scatterChart?.Dispose( );
                 _pieChart?.Dispose( );
@@ -3173,18 +3246,6 @@ namespace Badger
                 _smithChart?.Dispose( );
                 _histogram?.Dispose( );
             }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
         }
 
         /// <summary>

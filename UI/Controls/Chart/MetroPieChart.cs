@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroPieChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,14 +55,14 @@ namespace Badger
     public class MetroPieChart : SfChart3D
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
         /// The model palette
         /// </summary>
         private protected ChartColorModel _colorModel;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -73,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroPieChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
             FontFamily = new FontFamily( "Segoe UI" );
@@ -103,43 +103,12 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the categorical axis3 d.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private CategoryAxis3D CreateCategoricalAxis( )
-        {
-            try
-            {
-                var _categoricalAxis = new CategoryAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "X-Axis",
-                    Interval = 1,
-                    Name = "Categories",
-                    Foreground = _theme.BorderColor,
-                    ShowGridLines = true
-                };
-
-                return ( _categoricalAxis != null )
-                    ? _categoricalAxis
-                    : default( CategoryAxis3D );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( CategoryAxis3D );
-            }
-        }
-
-        /// <summary>
         /// Creates the numerical axis.
         /// </summary>
         /// <returns>
         /// NumericalAxis3D 
         /// </returns>
-        private NumericalAxis3D CreateNumericalAxis( )
+        private NumericalAxis3D CreateNumericalAxis( int min = 0, int max = 1 )
         {
             try
             {
@@ -147,9 +116,11 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Y-Axis",
-                    Interval = 1,
-                    Name = "Values",
+                    Header = "Value",
+                    Name = "Value",
+                    Minimum = min,
+                    Maximum = max,
+                    Interval = ( max - min ) / 10,
                     Foreground = _theme.BorderColor,
                     ShowGridLines = true
                 };
@@ -164,31 +135,33 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the color model.
+        /// Creates the categorical axis3 d.
         /// </summary>
         /// <returns>
-        /// ChartColorModel
         /// </returns>
-        private protected ChartColorModel CreateColorModel( )
+        private CategoryAxis3D CreateCategoricalAxis( )
         {
             try
             {
-                var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.HoverColor );
-                _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.YellowColor );
-                _model.CustomBrushes.Add( _theme.RedColor );
-                _model.CustomBrushes.Add( _theme.KhakiColor );
-                _model.CustomBrushes.Add( _theme.GreenColor );
-                _model.CustomBrushes.Add( _theme.LightBlueColor );
-                return ( _model.CustomBrushes.Count > 0 )
-                    ? _model
-                    : default( ChartColorModel );
+                var _categoricalAxis = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Category",
+                    Interval = 1,
+                    Name = "Category",
+                    Foreground = _theme.BorderColor,
+                    ShowGridLines = true
+                };
+
+                return ( _categoricalAxis != null )
+                    ? _categoricalAxis
+                    : default( CategoryAxis3D );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ChartColorModel );
+                return default( CategoryAxis3D );
             }
         }
 
@@ -208,12 +181,11 @@ namespace Badger
                     FontSize = 10,
                     AdornmentsPosition = AdornmentsPosition.Top,
                     LabelPosition = AdornmentsLabelPosition.Outer,
-                    UseSeriesPalette = false,
-                    BorderThickness = new Thickness( 1 ),
+                    UseSeriesPalette = true,
+                    BorderThickness = _theme.BorderThickness,
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.LightBlueColor,
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.LightBlueColor,
@@ -226,6 +198,35 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartAdornmentInfo3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( _theme.ItemHoverColor );
+                _model.CustomBrushes.Add( _theme.GrayColor );
+                _model.CustomBrushes.Add( _theme.YellowColor );
+                _model.CustomBrushes.Add( _theme.RedColor );
+                _model.CustomBrushes.Add( _theme.KhakiColor );
+                _model.CustomBrushes.Add( _theme.GreenColor );
+                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
             }
         }
 

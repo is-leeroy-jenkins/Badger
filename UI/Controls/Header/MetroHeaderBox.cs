@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroHeaderBox.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,6 +54,17 @@ namespace Badger
     public class MetroHeaderBox : MetroHeader
     {
         /// <summary>
+        /// The border color
+        /// </summary>
+        private readonly Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -84,17 +95,6 @@ namespace Badger
             R = 186,
             G = 207,
             B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
         };
 
         /// <summary>

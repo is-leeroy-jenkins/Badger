@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="DocumentWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,7 +52,6 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -73,66 +72,6 @@ namespace Badger
     public partial class DocumentWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        private Source _source;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private Provider _provider;
-
-        /// <summary>
-        /// The ext
-        /// </summary>
-        private EXT _extension;
-
-        /// <summary>
-        /// The SQL command
-        /// </summary>
-        private string _sqlQuery;
-
-        /// <summary>
-        /// The selected path
-        /// </summary>
-        private string _selectedPath;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private IDictionary<string, string> _documents;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private IDictionary<string, object> _filter;
-
-        /// <summary>
         /// The data model
         /// </summary>
         private DataGenerator _dataModel;
@@ -143,9 +82,59 @@ namespace Badger
         private DataTable _dataTable;
 
         /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, string> _documents;
+
+        /// <summary>
+        /// The ext
+        /// </summary>
+        private EXT _extension;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
         /// The prefix
         /// </summary>
         private string _prefix;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private string _selectedPath;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
 
         /// <summary>
         /// The update status
@@ -153,14 +142,24 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The timer
+        /// The theme
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
 
         /// <summary>
         /// The timer
         /// </summary>
         private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -228,12 +227,12 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
+            Width = _theme.Width;
+            MinWidth = _theme.MinWidth;
+            MaxWidth = _theme.MaxWidth;
+            Height = _theme.Height;
+            MinHeight = _theme.MinHeight;
+            MaxHeight = _theme.MaxHeight;
             ResizeMode = _theme.SizeMode;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
@@ -242,7 +241,7 @@ namespace Badger
             BorderThickness = _theme.BorderThickness;
             WindowStyle = _theme.WindowStyle;
             Title = "PDF Document Viewer";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Background = _theme.BackColor;

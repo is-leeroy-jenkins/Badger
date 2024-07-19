@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="CommandWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,6 @@ namespace Badger
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
 
     /// <inheritdoc />
@@ -60,9 +59,9 @@ namespace Badger
     public partial class CommandWindow : Window
     {
         /// <summary>
-        /// The theme
+        /// The busy
         /// </summary>
-        private protected DarkPalette _theme = new DarkPalette( );
+        private protected bool _busy;
 
         /// <summary>
         /// The tiles
@@ -75,16 +74,6 @@ namespace Badger
         private protected object _path;
 
         /// <summary>
-        /// The busy
-        /// </summary>
-        private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
         /// The seconds
         /// </summary>
         private protected int _seconds;
@@ -93,6 +82,16 @@ namespace Badger
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
 
         /// <summary>
         /// Gets the menu items.

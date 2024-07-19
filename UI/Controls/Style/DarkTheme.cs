@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-14-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-14-2024
 // ******************************************************************************************
-// <copyright file="DarkPalette.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+// <copyright file="DarkTheme.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DarkPalette.cs
+//   DarkTheme.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,43 +46,39 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class DarkPalette
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class DarkTheme
         : Palette
     {
         /// <summary>
-        /// Gets the window style.
+        /// The dark blue color
         /// </summary>
-        /// <value>
-        /// The window style.
-        /// </value>
-        public WindowStyle WindowStyle { get; private protected init; }
+        private protected Color _darkBlueColor = new Color( )
+        {
+            A = 255,
+            R = 30,
+            G = 70,
+            B = 100
+        };
 
         /// <summary>
-        /// Gets the size mode.
+        /// Gets the color of the dark blue.
         /// </summary>
         /// <value>
-        /// The size mode.
+        /// The color of the dark blue.
         /// </value>
-        public ResizeMode SizeMode { get; private protected init; }
+        public SolidColorBrush DarkBlueColor { get; private protected init; }
 
-        /// <summary>
-        /// Gets the start location.
-        /// </summary>
-        /// <value>
-        /// The start location.
-        /// </value>
-        public WindowStartupLocation StartLocation { get; private protected init; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DarkPalette"/> class.
+        /// <see cref="T:Badger.DarkTheme" /> class.
         /// </summary>
-        public DarkPalette( )
+        public DarkTheme( )
             : base( )
         {
             ForeColor = new SolidColorBrush( _foreColor );
@@ -90,7 +86,7 @@ namespace Badger
             BorderColor = new SolidColorBrush( _borderColor );
             WallColor = new SolidColorBrush( _wallColor );
             ControlColor = new SolidColorBrush( _controlColor );
-            HoverColor = new SolidColorBrush( _hoverColor );
+            ItemHoverColor = new SolidColorBrush( _itemHoverColor );
             GrayColor = new SolidColorBrush( Colors.DarkGray );
             YellowColor = new SolidColorBrush( _yellowColor );
             RedColor = new SolidColorBrush( _redColor );
@@ -99,6 +95,7 @@ namespace Badger
             LightBlueColor = new SolidColorBrush( _lightBlue );
             BlackColor = new SolidColorBrush( _blackColor );
             WhiteColor = new SolidColorBrush( _whiteColor );
+            DarkBlueColor = new SolidColorBrush( _darkBlueColor );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 1 );
@@ -122,7 +119,7 @@ namespace Badger
             {
                 var _array = new[ ]
                 {
-                    HoverColor,
+                    ItemHoverColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -149,13 +146,13 @@ namespace Badger
         /// <returns>
         /// List( Brush )
         /// </returns>
-        private protected override IList<Brush> CreateColorModel( )
+        private protected override List<Brush> CreateColorModel( )
         {
             try
             {
                 var _list = new List<Brush>
                 {
-                    HoverColor,
+                    ItemHoverColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -166,12 +163,12 @@ namespace Badger
 
                 return _list?.Count > 0
                     ? _list
-                    : default( IList<Brush> );
+                    : default( List<Brush> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<Brush> );
+                return default( List<Brush> );
             }
         }
 
@@ -187,7 +184,7 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "HoverColor", HoverColor );
+                _map.Add( "ItemHoverColor", ItemHoverColor );
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
                 _map.Add( "RedColor", RedColor );

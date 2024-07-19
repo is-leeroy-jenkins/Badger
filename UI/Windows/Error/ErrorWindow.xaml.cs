@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ErrorWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,9 +63,14 @@ namespace Badger
     public partial class ErrorWindow : Window
     {
         /// <summary>
-        /// The theme
+        /// The busy
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private bool _busy;
+
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
 
         /// <summary>
         /// The back color
@@ -87,28 +92,6 @@ namespace Badger
             R = 128,
             G = 0,
             B = 0
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
         };
 
         /// <summary>
@@ -134,24 +117,31 @@ namespace Badger
         };
 
         /// <summary>
-        /// The locked object
-        /// </summary>
-        private object _path;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private bool _busy;
-
-        /// <summary>
         /// The exception
         /// </summary>
         private protected Exception _exception;
 
         /// <summary>
-        /// The title
+        /// The fore color
         /// </summary>
-        private protected string _text;
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The fore hover color
+        /// </summary>
+        private protected Color _foreHover = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
 
         /// <summary>
         /// The message
@@ -159,14 +149,24 @@ namespace Badger
         private protected string _message;
 
         /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
         /// The status update
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The title
+        /// </summary>
+        private protected string _text;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
 
         /// <inheritdoc />
         /// <summary>
@@ -259,6 +259,42 @@ namespace Badger
         }
 
         /// <summary>
+        /// Sets the text.
+        /// </summary>
+        public void SetText( )
+        {
+            try
+            {
+                MessageText.Content = _exception?.ToLogString( "" );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                InitializeTimer( );
+                FadeInAsync( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the timer.
         /// </summary>
         private void InitializeTimer( )
@@ -326,30 +362,6 @@ namespace Badger
         {
             try
             {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        private protected void InvokeIf( Action action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
             }
             catch( Exception ex )
             {
@@ -435,50 +447,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        private protected void Chill( )
-        {
-            try
-            {
-                if( _path == null )
-                {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        public void SetText( )
-        {
-            try
-            {
-                MessageText.Content = _exception?.ToLogString( "" );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -501,27 +469,6 @@ namespace Badger
             try
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                InitializeTimer( );
-                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -554,6 +501,59 @@ namespace Badger
         private void Fail( Exception ex )
         {
             Console.WriteLine( ex.Message );
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        private protected void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void Chill( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

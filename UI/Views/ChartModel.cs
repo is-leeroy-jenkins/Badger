@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-18-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-18-2024
 // ******************************************************************************************
 // <copyright file="ChartModel.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,12 +43,9 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <inheritdoc />
     /// <summary>
@@ -59,12 +56,15 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class ChartModel
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class ChartModel : ObservableCollection<DataRow>
     {
         /// <summary>
-        /// The index
+        /// The columns
         /// </summary>
-        private protected int _index;
+        private readonly IList<string> _columns;
 
         /// <summary>
         /// The count
@@ -72,34 +72,29 @@ namespace Badger
         private protected int _count;
 
         /// <summary>
-        /// The data
-        /// </summary>
-        private protected ObservableCollection<DataRow> _data;
-
-        /// <summary>
-        /// The data
-        /// </summary>
-        private protected IList<DataRow> _list;
-
-        /// <summary>
         /// The current
         /// </summary>
         private protected DataRow _current;
 
         /// <summary>
+        /// The data
+        /// </summary>
+        private protected ObservableCollection<DataRow> _data;
+
+        /// <summary>
+        /// The index
+        /// </summary>
+        private protected int _index;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected IList<DataRow> _items;
+
+        /// <summary>
         /// The table name
         /// </summary>
         private protected string _tableName;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private IList<string> _columns;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private IList<string> _numerics;
 
         /// <summary>
         /// Gets or sets the index.
@@ -123,7 +118,7 @@ namespace Badger
         /// Gets the number of elements actually contained in the
         /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
         /// </summary>
-        public int Count
+        public new int Count
         {
             get
             {
@@ -173,15 +168,15 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public IList<DataRow> List
+        public new IList<DataRow> Items
         {
             get
             {
-                return _list;
+                return _items;
             }
             set
             {
-                _list = value;
+                _items = value;
             }
         }
 
@@ -214,7 +209,7 @@ namespace Badger
             _index = 0;
             _count = 0;
             _data = new ObservableCollection<DataRow>( );
-            _list = new List<DataRow>( );
+            _items = new List<DataRow>( );
             _columns = new List<string>( );
         }
 
@@ -228,7 +223,7 @@ namespace Badger
             : this( )
         {
             _data = dataTable?.ToObservable( );
-            _list = _data?.ToList( );
+            _items = _data?.ToList( );
             _current = _data?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
@@ -245,7 +240,7 @@ namespace Badger
             : this( )
         {
             _data = dataRows?.ToObservable( );
-            _list = dataRows?.ToList( );
+            _items = dataRows?.ToList( );
             _current = _data?[ _index ];
             _count = dataRows?.Count( ) ?? 0;
             _tableName = _current?.Table?.TableName;
@@ -258,11 +253,11 @@ namespace Badger
         /// <see cref="ChartModel" /> class.
         /// </summary>
         /// <param name="record">The record.</param>
-        public ChartModel( DataRow record )
+        public ChartModel( DataRow record ) 
             : this( )
         {
             _data[ _index ] = record;
-            _list.Add( record );
+            _items.Add( record );
             _current = record;
             _count = _data.Count;
             _tableName = record.Table?.TableName;
@@ -382,18 +377,22 @@ namespace Badger
             try
             {
                 if( _data != null
-                    && _count > 0 )
+                    && _count > 0
+                    && _columns?.Count > 0 )
                 {
                     ThrowIf.Null( numerics, nameof( numerics ) );
                     var _viewModel = new ViewModel( );
-                    foreach( var _row in _data )
+                    var _category = _columns[ 0 ];
+                    for( var _r = 0; _r < _data.Count; _r++ )
                     {
-                        foreach( var _item in numerics )
+                        var _row = _data[ _r ];
+                        for( var _c = 0; _c < numerics.Count; _c++ )
                         {
-                            if( _columns.Contains( _item ) )
+                            var _measure = numerics[ _c ];
+                            if( _columns.Contains( _measure ) )
                             {
-                                var _value = double.Parse( _row[ _item ]?.ToString( ) );
-                                var _view = new View( _item, _value );
+                                var _value = double.Parse( _row[ _measure ]?.ToString( ) );
+                                var _view = new View( _r, _category, _measure, _value );
                                 _viewModel.Add( _view );
                             }
                         }

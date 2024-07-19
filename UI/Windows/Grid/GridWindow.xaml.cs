@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="GridWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,7 +47,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -65,24 +64,19 @@ namespace Badger
     public partial class GridWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
 
         /// <summary>
-        /// The time
+        /// The data table
         /// </summary>
-        private protected int _time;
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
 
         /// <summary>
         /// The seconds
@@ -95,9 +89,14 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The timer
+        /// The theme
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
 
         /// <summary>
         /// The timer
@@ -105,9 +104,9 @@ namespace Badger
         private protected Timer _timer;
 
         /// <summary>
-        /// The data table
+        /// The timer
         /// </summary>
-        private protected DataTable _dataTable;
+        private protected TimerCallback _timerCallback;
 
         /// <inheritdoc />
         /// <summary>

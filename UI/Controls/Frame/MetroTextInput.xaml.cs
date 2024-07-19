@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroTextInput.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,14 +61,26 @@ namespace Badger
     public partial class MetroTextInput : UserControl
     {
         /// <summary>
-        /// The tag
+        /// The border color
         /// </summary>
-        private protected object _tag;
+        private readonly Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
 
         /// <summary>
-        /// The ordinal
+        /// The focused text
         /// </summary>
-        private protected int _ordinal;
+        private readonly Color _focusedText = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
 
         /// <summary>
         /// The back color
@@ -93,17 +105,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
         /// The fore alternate
         /// </summary>
         private protected Color _foreAlternate = new Color( )
@@ -115,26 +116,25 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border color
+        /// The fore color
         /// </summary>
-        private readonly Color _borderColor = new Color( )
+        private protected Color _foreColor = new Color( )
         {
             A = 255,
-            R = 0,
-            G = 120,
-            B = 212
+            R = 222,
+            G = 222,
+            B = 222
         };
 
         /// <summary>
-        /// The focused text
+        /// The ordinal
         /// </summary>
-        private readonly Color _focusedText = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
+        private protected int _ordinal;
+
+        /// <summary>
+        /// The tag
+        /// </summary>
+        private protected object _tag;
 
         /// <summary>
         /// Gets or sets an arbitrary object value that can

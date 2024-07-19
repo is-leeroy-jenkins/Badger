@@ -7,8 +7,7 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="Palette.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,9 +42,7 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
     using System.Windows.Media;
-    using ExCSS;
     using Color = System.Windows.Media.Color;
     using Colors = System.Windows.Media.Colors;
 
@@ -54,80 +51,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantExplicitArrayCreation" ) ]
-    public abstract class Palette
-        : IPalette
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public abstract class Palette : Dimensions
     {
-        /// <summary>
-        /// The font famly
-        /// </summary>
-        private protected FontFamily _fontFamly;
-
-        /// <summary>
-        /// The font size
-        /// </summary>
-        private protected double _fontSize;
-
-        /// <summary>
-        /// The model palette
-        /// </summary>
-        private protected IList<Brush> _colorModel;
-
-        /// <summary>
-        /// The color map
-        /// </summary>
-        private protected IDictionary<string, Brush> _colorMap;
-
-        /// <summary>
-        /// The colors
-        /// </summary>
-        private protected SolidColorBrush[ ] _color;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The steel blue
-        /// </summary>
-        private protected Color _hoverColor = Colors.SteelBlue;
-
-        /// <summary>
-        /// The gray color
-        /// </summary>
-        private protected Color _grayColor = Colors.DarkGray;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellowColor = Colors.Yellow;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _redColor = Colors.Maroon;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khakiColor = Colors.DarkKhaki;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _greenColor = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The light blue
-        /// </summary>
-        private protected Color _lightBlue = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
         /// <inheritdoc />
         /// <summary>
         /// The back color
@@ -138,50 +64,6 @@ namespace Badger
             R = 20,
             G = 20,
             B = 20
-        };
-
-        /// <summary>
-        /// The control color
-        /// </summary>
-        private protected Color _controlColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
         };
 
         /// <summary>
@@ -196,15 +78,103 @@ namespace Badger
         };
 
         /// <summary>
-        /// The black color
+        /// The border color
         /// </summary>
-        private protected Color _whiteColor = new Color( )
+        private protected Color _borderColor = new Color( )
         {
             A = 255,
-            R = 255,
-            G = 255,
-            B = 255
+            R = 0,
+            G = 120,
+            B = 212
         };
+
+        /// <summary>
+        /// The colors
+        /// </summary>
+        private protected SolidColorBrush[ ] _color;
+
+        /// <summary>
+        /// The color map
+        /// </summary>
+        private protected IDictionary<string, Brush> _colorMap;
+
+        /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected List<Brush> _colorModel;
+
+        /// <summary>
+        /// The control color
+        /// </summary>
+        private protected Color _controlColor = new Color( )
+        {
+            A = 255,
+            R = 45,
+            G = 45,
+            B = 45
+        };
+
+        /// <summary>
+        /// The control hover color
+        /// </summary>
+        private protected Color _darkBlueColor = new Color( )
+        {
+            A = 255,
+            R = 17,
+            G = 53,
+            B = 84
+        };
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 222,
+            G = 222,
+            B = 222
+        };
+
+        /// <summary>
+        /// The gray color
+        /// </summary>
+        private protected Color _grayColor = Colors.DarkGray;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _greenColor = Colors.DarkOliveGreen;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _itemHoverColor = Colors.SteelBlue;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khakiColor = Colors.DarkKhaki;
+
+        /// <summary>
+        /// The light blue
+        /// </summary>
+        private protected Color _lightBlue = new Color( )
+        {
+            A = 255,
+            R = 160,
+            G = 189,
+            B = 252
+        };
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _redColor = Colors.Maroon;
 
         /// <summary>
         /// The transparent color
@@ -217,9 +187,51 @@ namespace Badger
             B = 0
         };
 
-        protected Palette( )
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
+        };
+
+        /// <summary>
+        /// The black color
+        /// </summary>
+        private protected Color _whiteColor = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <inheritdoc />
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellowColor = Colors.Yellow;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.Palette" /> class.
+        /// </summary>
+        protected Palette( ) 
+            : base( )
         {
         }
+
+        /// <summary>
+        /// Gets the color of the white.
+        /// </summary>
+        /// <value>
+        /// The color of the white.
+        /// </value>
+        public SolidColorBrush WhiteColor { get; private protected init; }
 
         /// <summary>
         /// Gets or sets the colors.
@@ -265,7 +277,7 @@ namespace Badger
         /// <value>
         /// The color model.
         /// </value>
-        public IList<Brush> ColorModel
+        public List<Brush> ColorModel
         {
             get
             {
@@ -347,7 +359,7 @@ namespace Badger
         /// <value>
         /// The color of the hover.
         /// </value>
-        public SolidColorBrush HoverColor { get; private protected init; }
+        public SolidColorBrush ItemHoverColor { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -394,14 +406,6 @@ namespace Badger
         /// </value>
         public SolidColorBrush YellowColor { get; private protected init; }
 
-        /// <summary>
-        /// Gets the color of the white.
-        /// </summary>
-        /// <value>
-        /// The color of the white.
-        /// </value>
-        public SolidColorBrush WhiteColor { get; private protected init; }
-
         /// <inheritdoc />
         /// <summary>
         /// Gets the color of the gray.
@@ -410,38 +414,6 @@ namespace Badger
         /// The color of the gray.
         /// </value>
         public SolidColorBrush GrayColor { get; private protected init; }
-
-        /// <summary>
-        /// Gets the font family.
-        /// </summary>
-        /// <value>
-        /// The font family.
-        /// </value>
-        public FontFamily FontFamily { get; private protected init; }
-
-        /// <summary>
-        /// Gets the size of the font.
-        /// </summary>
-        /// <value>
-        /// The size of the font.
-        /// </value>
-        public double FontSize { get; private protected init; }
-
-        /// <summary>
-        /// Gets the padding.
-        /// </summary>
-        /// <value>
-        /// The padding.
-        /// </value>
-        public Thickness Padding { get; private protected init; }
-
-        /// <summary>
-        /// Gets the border thickness.
-        /// </summary>
-        /// <value>
-        /// The border thickness.
-        /// </value>
-        public Thickness BorderThickness { get; private protected init; }
 
         /// <summary>
         /// Creates the colors.
@@ -453,7 +425,7 @@ namespace Badger
             {
                 var _array = new SolidColorBrush[ ]
                 {
-                    HoverColor,
+                    ItemHoverColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -484,7 +456,7 @@ namespace Badger
             {
                 var _list = new List<Brush>
                 {
-                    HoverColor,
+                    ItemHoverColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -514,7 +486,7 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "HoverColor", HoverColor );
+                _map.Add( "HoverColor", ItemHoverColor );
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
                 _map.Add( "RedColor", RedColor );

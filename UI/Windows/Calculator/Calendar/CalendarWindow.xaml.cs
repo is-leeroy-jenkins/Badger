@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="CalendarWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -66,6 +66,138 @@ namespace Badger
     public partial class CalendarWindow : Window
     {
         /// <summary>
+        /// The border color
+        /// </summary>
+        private readonly Color _borderColor = new Color( )
+        {
+            A = 255,
+            R = 0,
+            G = 120,
+            B = 212
+        };
+
+        /// <summary>
+        /// The border hover color
+        /// </summary>
+        private readonly Color _borderHover = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private DataSet _dataSet;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The date string
+        /// </summary>
+        private string _dateString;
+
+        /// <summary>
+        /// The end date
+        /// </summary>
+        private DateTime _endDate;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fiscal years
+        /// </summary>
+        private DataTable _fiscalYears;
+
+        /// <summary>
+        /// The holidays
+        /// </summary>
+        private DataTable _holidays;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected dates
+        /// </summary>
+        private readonly IList<DateTime> _selectedDates;
+
+        /// <summary>
+        /// The selected end
+        /// </summary>
+        private string _selectedEnd;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected start
+        /// </summary>
+        private string _selectedStart;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The start date
+        /// </summary>
+        private DateTime _startDate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -110,128 +242,6 @@ namespace Badger
         };
 
         /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The locked object
-        /// </summary>
-        private object _path;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private int _seconds;
-
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private bool _busy;
-
-        /// <summary>
-        /// The start date
-        /// </summary>
-        private DateTime _startDate;
-
-        /// <summary>
-        /// The end date
-        /// </summary>
-        private DateTime _endDate;
-
-        /// <summary>
-        /// The date string
-        /// </summary>
-        private string _dateString;
-
-        /// <summary>
-        /// The selected start
-        /// </summary>
-        private string _selectedStart;
-
-        /// <summary>
-        /// The selected end
-        /// </summary>
-        private string _selectedEnd;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private IDictionary<string, object> _filter;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private IList<string> _columns;
-
-        /// <summary>
-        /// The fields
-        /// </summary>
-        private IList<string> _fields;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private IList<string> _numerics;
-
-        /// <summary>
-        /// The selected columns
-        /// </summary>
-        private IList<string> _selectedColumns;
-
-        /// <summary>
-        /// The selected fields
-        /// </summary>
-        private IList<string> _selectedFields;
-
-        /// <summary>
-        /// The data set
-        /// </summary>
-        private DataSet _dataSet;
-
-        /// <summary>
-        /// The holidays
-        /// </summary>
-        private DataTable _holidays;
-
-        /// <summary>
-        /// The fiscal years
-        /// </summary>
-        private DataTable _fiscalYears;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private DataTable _dataTable;
-
-        /// <summary>
-        /// The selected dates
-        /// </summary>
-        private IList<DateTime> _selectedDates;
-
-        /// <summary>
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
@@ -239,22 +249,12 @@ namespace Badger
         /// <summary>
         /// The timer
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private protected Timer _timer;
 
         /// <summary>
         /// The timer
         /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private Provider _provider;
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        private Source _source;
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.

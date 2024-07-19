@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-18-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-18-2024
 // ******************************************************************************************
 // <copyright file="View.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,28 +41,61 @@
 namespace Badger
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantJumpStatement" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class View
     {
+        /// <summary>
+        /// The data row
+        /// </summary>
+        private protected double _index;
+
         /// <summary>
         /// The name
         /// </summary>
         private protected string _category;
 
         /// <summary>
+        /// The measure
+        /// </summary>
+        private protected string _measure;
+
+        /// <summary>
         /// The value
         /// </summary>
         private protected double _value;
+
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
+        public double Index
+        {
+            get
+            {
+                return _index;
+            }
+            set
+            {
+                _index = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name.
@@ -79,6 +112,24 @@ namespace Badger
             set
             {
                 _category = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Measure
+        {
+            get
+            {
+                return _measure;
+            }
+            set
+            {
+                _measure = value;
             }
         }
 
@@ -106,17 +157,23 @@ namespace Badger
         /// </summary>
         public View( )
         {
+            _index = 0.0;
         }
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="View"/> class.
         /// </summary>
+        /// <param name = "index" > </param>
         /// <param name="category">The name.</param>
+        /// <param name = "measure" > </param>
         /// <param name="value">The value.</param>
-        public View( string category, double value = 0.0 )
+        public View( int index, string category, string measure, double value = 0 ) 
+            : this( )
         {
+            _index = index;
             _category = category;
+            _measure = measure;
             _value = value;
         }
 
@@ -127,18 +184,24 @@ namespace Badger
         /// <param name="view">The view.</param>
         public View( View view )
         {
+            _index = view.Index;
             _category = view.Category;
+            _measure = view.Measure;
             _value = view.Value;
         }
 
         /// <summary>
         /// Deconstructs the specified name.
         /// </summary>
+        /// <param name = "index" > </param>
         /// <param name="category">The name.</param>
+        /// <param name = "measure" > </param>
         /// <param name="value">The value.</param>
-        public void Deconstruct( out string category, out double value )
+        public void Deconstruct( out double index, out string category, out string measure, out double value )
         {
+            index = _index;
             category = _category;
+            measure = _measure;
             value = _value;
         }
 

@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ExcelWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,7 +49,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -69,104 +68,14 @@ namespace Badger
     public partial class ExcelWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
 
         /// <summary>
-        /// The time
+        /// The columns
         /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The update status
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The first category
-        /// </summary>
-        private protected string _firstCategory;
-
-        /// <summary>
-        /// The first value
-        /// </summary>
-        private protected string _firstValue;
-
-        /// <summary>
-        /// The second category
-        /// </summary>
-        private protected string _secondCategory;
-
-        /// <summary>
-        /// The second value
-        /// </summary>
-        private protected string _secondValue;
-
-        /// <summary>
-        /// The third category
-        /// </summary>
-        private protected string _thirdCategory;
-
-        /// <summary>
-        /// The third value
-        /// </summary>
-        private protected string _thirdValue;
-
-        /// <summary>
-        /// The fourth category
-        /// </summary>
-        private protected string _fourthCategory;
-
-        /// <summary>
-        /// The fourth value
-        /// </summary>
-        private protected string _fourthValue;
-
-        /// <summary>
-        /// The SQL command
-        /// </summary>
-        private protected string _sqlQuery;
-
-        /// <summary>
-        /// The xaxis
-        /// </summary>
-        private protected string _xaxis;
-
-        /// <summary>
-        /// The yvalues
-        /// </summary>
-        private protected IList<string> _yvalues;
-
-        /// <summary>
-        /// The stat
-        /// </summary>
-        private protected STAT _metric;
+        private protected IList<string> _columns;
 
         /// <summary>
         /// The data model
@@ -179,24 +88,69 @@ namespace Badger
         private protected DataTable _dataTable;
 
         /// <summary>
-        /// The filter
-        /// </summary>
-        private protected IDictionary<string, object> _filter;
-
-        /// <summary>
         /// The fields
         /// </summary>
         private protected IList<string> _fields;
 
         /// <summary>
-        /// The columns
+        /// The filter
         /// </summary>
-        private protected IList<string> _columns;
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private protected string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private protected string _firstValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private protected string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private protected string _fourthValue;
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        private protected STAT _metric;
 
         /// <summary>
         /// The numerics
         /// </summary>
         private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private protected string _secondCategory;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private protected string _secondValue;
 
         /// <summary>
         /// The selected columns
@@ -214,14 +168,59 @@ namespace Badger
         private protected IList<string> _selectedNumerics;
 
         /// <summary>
-        /// The provider
-        /// </summary>
-        private protected Provider _provider;
-
-        /// <summary>
         /// The source
         /// </summary>
         private protected Source _source;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The update status
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private protected string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private protected string _thirdValue;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
+        /// The xaxis
+        /// </summary>
+        private protected string _xaxis;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private protected IList<string> _yvalues;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -306,6 +305,35 @@ namespace Badger
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
+            }
         }
 
         /// <summary>
@@ -1194,35 +1222,6 @@ namespace Badger
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                _timer?.Dispose( );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
         }
 
         /// <summary>

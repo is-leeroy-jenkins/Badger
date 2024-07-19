@@ -236,7 +236,7 @@ dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary:w
 dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:warning
 dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary:warning
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
-file_header_template = ******************************************************************************************\n    Assembly:                Badger\n    Author:                  Terry D. Eppler\n    Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}\n\n    Last Modified By:        Terry D. Eppler\n    Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}\n******************************************************************************************\n<copyright file="${File.FileName}" company="Terry D. Eppler">\n   This is a Federal Budget, Finance, and Accounting application \n   for the US Environmental Protection Agency (US EPA).\n   Copyright ©  ${CurrentDate.Year}  Terry Eppler\n\n   Permission is hereby granted, free of charge, to any person obtaining a copy\n   of this software and associated documentation files (the “Software”),\n   to deal in the Software without restriction,\n   including without limitation the rights to use,\n   copy, modify, merge, publish, distribute, sublicense,\n   and/or sell copies of the Software,\n   and to permit persons to whom the Software is furnished to do so,\n   subject to the following conditions:\n\n   The above copyright notice and this permission notice shall be included in all\n   copies or substantial portions of the Software.\n\n   THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,\n   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n   FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.\n   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,\n   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,\n   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n   DEALINGS IN THE SOFTWARE.\n\n   You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov\n</copyright>\n<summary>\n  ${File.FileName}\n</summary>\n******************************************************************************************
+file_header_template = ******************************************************************************************\n    Assembly:                Badger\n    Author:                  Terry D. Eppler\n    Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}\n\n    Last Modified By:        Terry D. Eppler\n    Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}\n******************************************************************************************\n<copyright file="${File.FileName}" company="Terry D. Eppler">\n   Badger is data analysis and reporitng application \n   for EPA Analysts.\n   Copyright ©  ${CurrentDate.Year}  Terry Eppler\n\n   Permission is hereby granted, free of charge, to any person obtaining a copy\n   of this software and associated documentation files (the “Software”),\n   to deal in the Software without restriction,\n   including without limitation the rights to use,\n   copy, modify, merge, publish, distribute, sublicense,\n   and/or sell copies of the Software,\n   and to permit persons to whom the Software is furnished to do so,\n   subject to the following conditions:\n\n   The above copyright notice and this permission notice shall be included in all\n   copies or substantial portions of the Software.\n\n   THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,\n   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n   FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.\n   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,\n   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,\n   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\n   DEALINGS IN THE SOFTWARE.\n\n   You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov\n</copyright>\n<summary>\n  ${File.FileName}\n</summary>\n******************************************************************************************
 
 # ReSharper properties
 resharper_accessor_owner_body = accessors_with_block_body
@@ -472,7 +472,7 @@ resharper_xmldoc_spaces_inside_tags = true
 resharper_xmldoc_space_after_last_attribute = true
 resharper_xmldoc_space_after_last_pi_attribute = true
 resharper_xmldoc_space_before_self_closing = false
-resharper_xmldoc_use_indent_from_vs = false
+resharper_xmldoc_use_indent_from_vs = true
 resharper_xmldoc_wrap_tags_and_pi = false
 resharper_xml_alignment_tab_fill_style = optimal_fill
 resharper_xml_attribute_style = on_single_line
@@ -491,7 +491,7 @@ resharper_xml_spaces_around_eq_in_pi_attribute = false
 resharper_xml_spaces_inside_tags = true
 resharper_xml_space_after_last_pi_attribute = true
 resharper_xml_space_before_self_closing = true
-resharper_xml_use_indent_from_vs = false
+resharper_xml_use_indent_from_vs = true
 resharper_xml_wrap_tags_and_pi = true
 resharper_xml_wrap_text = true
 

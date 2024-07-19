@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ToolStripButton.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,15 +59,9 @@ namespace Badger
     public class ToolStripButton : MetroTile
     {
         /// <summary>
-        /// The border hover color
+        /// The theme
         /// </summary>
-        private protected Color _darkHover = new Color( )
-        {
-            A = 255,
-            R = 9,
-            G = 65,
-            B = 112
-        };
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <summary>
         /// The dark back
@@ -81,6 +75,17 @@ namespace Badger
         };
 
         /// <summary>
+        /// The border hover color
+        /// </summary>
+        private protected Color _darkHover = new Color( )
+        {
+            A = 255,
+            R = 9,
+            G = 65,
+            B = 112
+        };
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripButton"/> class.
         /// </summary>
@@ -89,15 +94,15 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Width = 45;
             Height = 30;
-            Padding = new Thickness( 3 );
-            BorderThickness = new Thickness( 1 );
-            Background = new SolidColorBrush( _darkBack );
-            Foreground = new SolidColorBrush( _darkBack );
-            BorderBrush = new SolidColorBrush( _darkBack );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            Background = _theme.BackColor;
+            Foreground = _theme.BackColor;
+            BorderBrush = _theme.BackColor;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
@@ -116,9 +121,9 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _darkHover );
-                Foreground = new SolidColorBrush( _darkBack );
-                BorderBrush = new SolidColorBrush( _borderHover );
+                Background = _theme.ItemHoverColor;
+                Foreground = _theme.BackColor;
+                BorderBrush = _theme.LightBlueColor;
             }
             catch( Exception ex )
             {
@@ -138,9 +143,9 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _darkBack );
-                Foreground = new SolidColorBrush( _darkBack );
-                BorderBrush = new SolidColorBrush( _darkBack );
+                Background = _theme.BackColor;
+                Foreground = _theme.BackColor;
+                BorderBrush = _theme.BackColor;
             }
             catch( Exception ex )
             {

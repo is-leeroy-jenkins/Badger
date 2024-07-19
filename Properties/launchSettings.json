@@ -2,7 +2,8 @@
   "profiles": {
     "Badger": {
       "commandName": "Project",
-      "nativeDebugging": true
+      "nativeDebugging": false,
+      "hotReloadEnabled": false
     }
   }
 }

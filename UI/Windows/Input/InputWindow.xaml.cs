@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="InputWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,11 +61,6 @@ namespace Badger
     public partial class InputWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -74,17 +69,6 @@ namespace Badger
             R = 3,
             G = 16,
             B = 23
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
         };
 
         /// <summary>
@@ -99,39 +83,25 @@ namespace Badger
         };
 
         /// <summary>
-        /// The locked object
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
 
         /// <summary>
-        /// The timer
+        /// The fore color
         /// </summary>
-        private protected Timer _timer;
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
 
         /// <summary>
-        /// The status update
+        /// The input
         /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        ///
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        ///
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The title
-        /// </summary>
-        private protected string _text;
+        private protected string _input;
 
         /// <summary>
         /// The message
@@ -139,9 +109,39 @@ namespace Badger
         private protected string _message;
 
         /// <summary>
-        /// The input
+        /// The locked object
         /// </summary>
-        private protected string _input;
+        private protected object _path;
+
+        /// <summary>
+        ///
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The title
+        /// </summary>
+        private protected string _text;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        ///
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
 
         /// <inheritdoc />
         /// <summary>
@@ -201,6 +201,54 @@ namespace Badger
         {
             Title.Content = title;
             Caption.Content = message;
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -274,54 +322,6 @@ namespace Badger
             try
             {
                 _input = Input.Text;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action<object> action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( null );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
             }
             catch( Exception ex )
             {

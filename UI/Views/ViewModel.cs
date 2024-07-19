@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-18-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-18-2024
 // ******************************************************************************************
 // <copyright file="ViewModel.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,12 +45,17 @@ namespace Badger
     using System.Collections.ObjectModel;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantJumpStatement" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "WrongIndentSize" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ViewModel : ObservableCollection<View>
     {
@@ -58,6 +63,11 @@ namespace Badger
         /// The data
         /// </summary>
         private protected ObservableCollection<View> _data;
+
+        /// <summary>
+        /// The measure
+        /// </summary>
+        private protected string _measure;
 
         /// <summary>
         /// Gets the data.
@@ -100,17 +110,34 @@ namespace Badger
             _data = new ObservableCollection<View>( );
         }
 
-        /// <summary>
-        /// Adds the specified name.
-        /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="value">The value.</param>
-        public void Add( string name, double value = 0.0 )
+        public void Add( int index, string category, double value = 0 )
         {
             try
             {
-                ThrowIf.Null( name, nameof( name ) );
-                var _view = new View( name, value );
+                ThrowIf.Null( category, nameof( category ) );
+                var _view = new View( index, category, "Amount", value );
+                Items.Add( _view );
+                _data.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified name.
+        /// </summary>
+        /// <param name = "index" > </param>
+        /// <param name="category">The name.</param>
+        /// <param name = "measure" > </param>
+        /// <param name="value">The value.</param>
+        public void Add( int index, string category, string measure, double value = 0.0 )
+        {
+            try
+            {
+                ThrowIf.Null( category, nameof( category ) );
+                var _view = new View( index, category, measure, value );
                 Items.Add( _view );
                 _data.Add( _view );
             }
@@ -169,30 +196,6 @@ namespace Badger
             foreach( var _item in Items )
             {
                 yield return _item;
-            }
-        }
-
-        /// <summary>
-        /// Iters the names.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator<string> IterNames( )
-        {
-            foreach( var _item in Items )
-            {
-                yield return _item.Category;
-            }
-        }
-
-        /// <summary>
-        /// Iters the values.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator<double> IterValues( )
-        {
-            foreach( var _item in Items )
-            {
-                yield return _item.Value;
             }
         }
 

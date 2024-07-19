@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,7 +46,6 @@ namespace Badger
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -68,24 +67,14 @@ namespace Badger
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
 
         /// <summary>
-        /// The time
+        /// The path
         /// </summary>
-        private protected int _time;
+        private protected object _path;
 
         /// <summary>
         /// The seconds
@@ -98,9 +87,19 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
         /// The tiles
         /// </summary>
         private protected IList<MetroTile> _tiles;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -176,6 +175,54 @@ namespace Badger
         }
 
         /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the callbacks.
         /// </summary>
         private void RegisterCallbacks( )
@@ -236,54 +283,6 @@ namespace Badger
         {
             try
             {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action<object> action )
-        {
-            try
-            {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( null );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
             }
             catch( Exception ex )
             {

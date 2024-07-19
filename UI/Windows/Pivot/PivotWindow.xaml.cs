@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="PivotWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -51,7 +51,6 @@ namespace Badger
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -71,9 +70,9 @@ namespace Badger
     public partial class PivotWindow : Window
     {
         /// <summary>
-        /// The theme
+        /// The busy
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private bool _busy;
 
         /// <summary>
         /// The locked object
@@ -81,14 +80,14 @@ namespace Badger
         private object _path;
 
         /// <summary>
-        /// The busy
-        /// </summary>
-        private bool _busy;
-
-        /// <summary>
         /// The status update
         /// </summary>
         private Action _statusUpdate;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private protected IList<string> _columns;
 
         /// <summary>
         /// The count
@@ -96,14 +95,29 @@ namespace Badger
         private protected int _count;
 
         /// <summary>
-        /// The hover text
+        /// The data model
         /// </summary>
-        private protected string _hoverText;
+        private protected DataGenerator _dataModel;
 
         /// <summary>
-        /// The selected table
+        /// The data source
         /// </summary>
-        private protected string _selectedTable;
+        private protected ObservableCollection<DataRow> _dataSource;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
 
         /// <summary>
         /// The first category
@@ -116,26 +130,6 @@ namespace Badger
         private protected string _firstValue;
 
         /// <summary>
-        /// The second category
-        /// </summary>
-        private protected string _secondCategory;
-
-        /// <summary>
-        /// The second value
-        /// </summary>
-        private protected string _secondValue;
-
-        /// <summary>
-        /// The third category
-        /// </summary>
-        private protected string _thirdCategory;
-
-        /// <summary>
-        /// The third value
-        /// </summary>
-        private protected string _thirdValue;
-
-        /// <summary>
         /// The fourth category
         /// </summary>
         private protected string _fourthCategory;
@@ -146,19 +140,9 @@ namespace Badger
         private protected string _fourthValue;
 
         /// <summary>
-        /// The SQL command
+        /// The hover text
         /// </summary>
-        private protected string _sqlQuery;
-
-        /// <summary>
-        /// The xaxis
-        /// </summary>
-        private protected string _xaxis;
-
-        /// <summary>
-        /// The yvalues
-        /// </summary>
-        private protected IList<string> _yvalues;
+        private protected string _hoverText;
 
         /// <summary>
         /// The stat
@@ -166,39 +150,24 @@ namespace Badger
         private protected STAT _metric;
 
         /// <summary>
-        /// The data model
-        /// </summary>
-        private protected DataGenerator _dataModel;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
-
-        /// <summary>
-        /// The data source
-        /// </summary>
-        private protected ObservableCollection<DataRow> _dataSource;
-
-        /// <summary>
-        /// The filter
-        /// </summary>
-        private protected IDictionary<string, object> _filter;
-
-        /// <summary>
-        /// The fields
-        /// </summary>
-        private protected IList<string> _fields;
-
-        /// <summary>
-        /// The columns
-        /// </summary>
-        private protected IList<string> _columns;
-
-        /// <summary>
         /// The numerics
         /// </summary>
         private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private protected string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private protected string _secondValue;
 
         /// <summary>
         /// The selected columns
@@ -216,14 +185,39 @@ namespace Badger
         private protected IList<string> _selectedNumerics;
 
         /// <summary>
+        /// The selected table
+        /// </summary>
+        private protected string _selectedTable;
+
+        /// <summary>
         /// The source
         /// </summary>
         private protected Source _source;
 
         /// <summary>
-        /// The provider
+        /// The SQL command
         /// </summary>
-        private protected Provider _provider;
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private protected string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private protected string _thirdValue;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
 
         /// <summary>
         /// The timer
@@ -231,9 +225,14 @@ namespace Badger
         private protected TimerCallback _timerCallback;
 
         /// <summary>
-        /// The timer
+        /// The xaxis
         /// </summary>
-        private protected Timer _timer;
+        private protected string _xaxis;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private protected IList<string> _yvalues;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -317,6 +316,125 @@ namespace Badger
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
+        }
+
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        public void PopulateFirstComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FirstCategoryComboBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryComboBox.Items.Clear( );
+                    }
+
+                    if( FirstCategoryListBox.Items?.Count > 0 )
+                    {
+                        FirstCategoryListBox.Items?.Clear( );
+                    }
+
+                    for( var _index = 0; _index < _fields.Count; _index++ )
+                    {
+                        var _item = _fields[ _index ];
+                        FirstCategoryComboBox.Items?.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        public void PopulateSecondComboBoxItems( )
+        {
+            if( _fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( SecondCategoryComboBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryComboBox.Items.Clear( );
+                    }
+
+                    if( SecondCategoryListBox.Items?.Count > 0 )
+                    {
+                        SecondCategoryListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( _firstValue ) )
+                    {
+                        for( var _index = 0; _index < _fields.Count; _index++ )
+                        {
+                            var item = _fields[ _index ];
+                            if( !item.Equals( _firstCategory ) )
+                            {
+                                SecondCategoryComboBox.Items?.Add( item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                _selectedTable = string.Empty;
+                _dataModel = null;
+                _dataTable = null;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
+            }
         }
 
         /// <summary>
@@ -777,76 +895,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Populates the first ComboBox items.
-        /// </summary>
-        public void PopulateFirstComboBoxItems( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( FirstCategoryComboBox.Items?.Count > 0 )
-                    {
-                        FirstCategoryComboBox.Items.Clear( );
-                    }
-
-                    if( FirstCategoryListBox.Items?.Count > 0 )
-                    {
-                        FirstCategoryListBox.Items?.Clear( );
-                    }
-
-                    for( var _index = 0; _index < _fields.Count; _index++ )
-                    {
-                        var _item = _fields[ _index ];
-                        FirstCategoryComboBox.Items?.Add( _item );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Populates the second ComboBox items.
-        /// </summary>
-        public void PopulateSecondComboBoxItems( )
-        {
-            if( _fields?.Any( ) == true )
-            {
-                try
-                {
-                    if( SecondCategoryComboBox.Items?.Count > 0 )
-                    {
-                        SecondCategoryComboBox.Items.Clear( );
-                    }
-
-                    if( SecondCategoryListBox.Items?.Count > 0 )
-                    {
-                        SecondCategoryListBox.Items?.Clear( );
-                    }
-
-                    if( !string.IsNullOrEmpty( _firstValue ) )
-                    {
-                        for( var _index = 0; _index < _fields.Count; _index++ )
-                        {
-                            var item = _fields[ _index ];
-                            if( !item.Equals( _firstCategory ) )
-                            {
-                                SecondCategoryComboBox.Items?.Add( item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
         /// Populates the field ListBox.
         /// </summary>
         private void PopulateFieldListBox( )
@@ -1138,26 +1186,6 @@ namespace Badger
                 SecondCategoryListBox.Items.Clear( );
                 FieldListBox.Items.Clear( );
                 NumericListBox.Items.Clear( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                ClearFilter( );
-                _selectedTable = string.Empty;
-                _dataModel = null;
-                _dataTable = null;
             }
             catch( Exception ex )
             {
@@ -1860,35 +1888,6 @@ namespace Badger
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                _timer?.Dispose( );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
         }
 
         /// <summary>

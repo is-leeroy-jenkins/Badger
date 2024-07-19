@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="SurfaceChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,7 +58,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -69,13 +69,13 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( SurfaceChart.StyleProperty, typeof( SfSurfaceChart ) );
+            SetResourceReference( StyleProperty, typeof( SfSurfaceChart ) );
             Width = 800;
             Height = 400;
-            FontSize = 12;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            FontFamily = new FontFamily( "Segoe UI" );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;

@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroTile.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,9 +42,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
     using System.Windows.Input;
-    using System.Windows.Media;
     using Syncfusion.Windows.Controls.Notification;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -57,70 +55,9 @@ namespace Badger
     public class MetroTile : SfHubTile
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 40,
-            G = 40,
-            B = 40
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -131,15 +68,15 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTile.StyleProperty, typeof( SfHubTile ) );
+            SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            BorderThickness = new Thickness( 1 );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            BorderThickness = _theme.BorderThickness;
+            Background = _theme.ControlColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.ControlColor;
 
             // Wire Events
             MouseEnter += OnMouseEnter;
@@ -157,9 +94,9 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( _foreHover );
-                BorderBrush = new SolidColorBrush( _borderHover );
+                Background = _theme.DarkBlueColor;
+                Foreground = _theme.WhiteColor;
+                BorderBrush = _theme.LightBlueColor;
             }
             catch( Exception ex )
             {
@@ -178,9 +115,9 @@ namespace Badger
         {
             try
             {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreColor );
-                BorderBrush = new SolidColorBrush( _borderColor );
+                Background = _theme.ControlColor;
+                Foreground = _theme.LightBlueColor;
+                BorderBrush = _theme.ControlColor;
             }
             catch( Exception ex )
             {

@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroDataGrid.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,70 +53,9 @@ namespace Badger
     public class MetroDataGrid : SfDataGrid
     {
         /// <summary>
-        /// The back color
+        /// The theme
         /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -127,9 +66,9 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroDataGrid.StyleProperty, typeof( SfDataGrid ) );
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             AllowEditing = true;
             AllowSorting = true;
             AllowDraggingColumns = true;
@@ -147,13 +86,13 @@ namespace Badger
             ShowGroupDropArea = true;
             SelectionMode = GridSelectionMode.Single;
             ShowColumnWhenGrouped = true;
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            CurrentCellBorderBrush = new SolidColorBrush( _borderHover );
-            GroupRowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
-            RowSelectionBrush = new SolidColorBrush( Colors.SteelBlue );
-            RowHoverHighlightingBrush = new SolidColorBrush( _backHover );
+            Background = _theme.BackColor;
+            BorderBrush = _theme.BorderColor;
+            Foreground = _theme.ForeColor;
+            CurrentCellBorderBrush = _theme.LightBlueColor;
+            GroupRowSelectionBrush = _theme.ItemHoverColor;
+            RowSelectionBrush = _theme.ItemHoverColor;
+            RowHoverHighlightingBrush = _theme.ItemHoverColor;
         }
 
         /// <summary>

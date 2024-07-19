@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="ProgramWindow.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,7 +46,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Media;
     using Syncfusion.SfSkinManager;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
@@ -66,24 +65,14 @@ namespace Badger
     public partial class ProgramWindow : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
 
         /// <summary>
-        /// The time
+        /// The path
         /// </summary>
-        private protected int _time;
+        private protected object _path;
 
         /// <summary>
         /// The seconds
@@ -96,14 +85,24 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The timer
+        /// The theme
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
 
         /// <summary>
         /// The timer
         /// </summary>
         private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -174,6 +173,35 @@ namespace Badger
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
+            }
         }
 
         /// <summary>
@@ -995,35 +1023,6 @@ namespace Badger
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                _timer?.Dispose( );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
         }
 
         /// <summary>

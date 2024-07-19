@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroAreaChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,14 +54,14 @@ namespace Badger
     public class MetroAreaChart : SfChart3D
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
         /// The model palette
         /// </summary>
         private protected ChartColorModel _colorModel;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <summary>
         /// Gets the model palette.
@@ -93,8 +93,8 @@ namespace Badger
             SetResourceReference( MetroAreaChart.StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             EnableRotation = true;
             Depth = 250;
             EnableSegmentSelection = true;
@@ -103,8 +103,8 @@ namespace Badger
             PerspectiveAngle = 100;
             SideBySideSeriesPlacement = true;
             PerspectiveAngle = 100;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             RightWallBrush = _theme.WallColor;
             LeftWallBrush = _theme.WallColor;
@@ -155,7 +155,7 @@ namespace Badger
         /// <returns>
         /// NumericalAxis3D 
         /// </returns>
-        private NumericalAxis3D CreateNumericalAxis( )
+        private NumericalAxis3D CreateNumericalAxis( int min = 0, int max = 1 )
         {
             try
             {
@@ -165,6 +165,9 @@ namespace Badger
                     ShowOrigin = true,
                     Header = "Y-Axis",
                     Name = "Values",
+                    Minimum = min,
+                    Maximum = max,
+                    Interval = ( max - min ) / 10,
                     Foreground = _theme.BorderColor,
                     ShowGridLines = true
                 };
@@ -175,35 +178,6 @@ namespace Badger
             {
                 Fail( ex );
                 return default( NumericalAxis3D );
-            }
-        }
-
-        /// <summary>
-        /// Creates the color model.
-        /// </summary>
-        /// <returns>
-        /// ChartColorModel
-        /// </returns>
-        private protected ChartColorModel CreateColorModel( )
-        {
-            try
-            {
-                var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.HoverColor );
-                _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.YellowColor );
-                _model.CustomBrushes.Add( _theme.RedColor );
-                _model.CustomBrushes.Add( _theme.KhakiColor );
-                _model.CustomBrushes.Add( _theme.GreenColor );
-                _model.CustomBrushes.Add( _theme.LightBlueColor );
-                return ( _model.CustomBrushes.Count > 0 )
-                    ? _model
-                    : default( ChartColorModel );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ChartColorModel );
             }
         }
 
@@ -228,7 +202,7 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.HoverColor,
+                    SymbolInterior = _theme.ItemHoverColor,
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.LightBlueColor,
@@ -241,6 +215,35 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartAdornmentInfo3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns>
+        /// ChartColorModel
+        /// </returns>
+        private protected ChartColorModel CreateColorModel( )
+        {
+            try
+            {
+                var _model = new ChartColorModel( );
+                _model.CustomBrushes.Add( _theme.ItemHoverColor );
+                _model.CustomBrushes.Add( _theme.GrayColor );
+                _model.CustomBrushes.Add( _theme.YellowColor );
+                _model.CustomBrushes.Add( _theme.RedColor );
+                _model.CustomBrushes.Add( _theme.KhakiColor );
+                _model.CustomBrushes.Add( _theme.GreenColor );
+                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                return ( _model.CustomBrushes.Count > 0 )
+                    ? _model
+                    : default( ChartColorModel );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartColorModel );
             }
         }
 

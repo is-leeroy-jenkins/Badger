@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="SplashMessage.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,6 +63,11 @@ namespace Badger
     public partial class SplashMessage : Window
     {
         /// <summary>
+        /// The allow focus
+        /// </summary>
+        private protected bool _allowFocus;
+
+        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -71,28 +76,6 @@ namespace Badger
             R = 0,
             G = 35,
             B = 54
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _titleColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _messageColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
         };
 
         /// <summary>
@@ -107,34 +90,9 @@ namespace Badger
         };
 
         /// <summary>
-        /// The path
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private protected int _seconds;
-
-        /// <summary>
-        /// The allow focus
-        /// </summary>
-        private protected bool _allowFocus;
-
-        /// <summary>
-        /// The without activation
-        /// </summary>
-        private protected bool _withoutActivation;
 
         /// <summary>
         /// The lines
@@ -142,14 +100,56 @@ namespace Badger
         private protected IList<string> _lines;
 
         /// <summary>
-        /// The message
+        /// The fore hover color
         /// </summary>
-        private protected string _text;
+        private protected Color _messageColor = new Color( )
+        {
+            A = 255,
+            R = 255,
+            G = 255,
+            B = 255
+        };
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
 
         /// <summary>
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The message
+        /// </summary>
+        private protected string _text;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _titleColor = new Color( )
+        {
+            A = 255,
+            R = 106,
+            G = 189,
+            B = 252
+        };
+
+        /// <summary>
+        /// The without activation
+        /// </summary>
+        private protected bool _withoutActivation;
 
         /// <summary>
         /// Gets or sets the lines.

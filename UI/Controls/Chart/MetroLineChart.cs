@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroLineChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,10 +41,10 @@
 namespace Badger
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
-    using System.Diagnostics.CodeAnalysis;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -57,7 +57,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -68,91 +68,29 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroLineChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             EnableRotation = true;
             Depth = 250;
             EnableSegmentSelection = true;
             EnableSeriesSelection = true;
             EnableRotation = true;
             PerspectiveAngle = 100;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            Palette = ChartColorPalette.Custom;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             RightWallBrush = _theme.WallColor;
             LeftWallBrush = _theme.WallColor;
             BackWallBrush = _theme.WallColor;
             TopWallBrush = _theme.WallColor;
             BottomWallBrush = _theme.BlackColor;
-            BorderBrush = _theme.WallColor;
+            BorderBrush = _theme.BorderColor;
             Foreground = _theme.WallColor;
-            Header = "Line Chart";
             PrimaryAxis = CreateCategoricalAxis( );
             SecondaryAxis = CreateNumericalAxis( );
-        }
-
-        /// <summary>
-        /// Creates the categorical axis3 d.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private protected CategoryAxis3D CreateCategoricalAxis( )
-        {
-            try
-            {
-                var _categoricalAxis = new CategoryAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "X-Axis",
-                    Interval = 1,
-                    Name = "Categories",
-                    Foreground = _theme.BorderColor,
-                    ShowGridLines = true
-                };
-
-                return ( _categoricalAxis != null )
-                    ? _categoricalAxis
-                    : default( CategoryAxis3D );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( CategoryAxis3D );
-            }
-        }
-
-        /// <summary>
-        /// Creates the numerical axis.
-        /// </summary>
-        /// <returns>
-        /// NumericalAxis3D 
-        /// </returns>
-        private protected NumericalAxis3D CreateNumericalAxis( )
-        {
-            try
-            {
-                var _numericalAxis = new NumericalAxis3D
-                {
-                    FontSize = 10,
-                    ShowOrigin = true,
-                    Header = "Y-Axis",
-                    Name = "Values",
-                    Foreground = _theme.BorderColor,
-                    ShowGridLines = true
-                };
-
-                return _numericalAxis;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( NumericalAxis3D );
-            }
         }
 
         /// <summary>
@@ -176,7 +114,7 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.HoverColor,
+                    SymbolInterior = _theme.ItemHoverColor,
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.ForeColor,
@@ -197,7 +135,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( ChartColorPalette.Custom );
-                _model.CustomBrushes.Add( _theme.HoverColor );
+                _model.CustomBrushes.Add( _theme.ItemHoverColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );
                 _model.CustomBrushes.Add( _theme.KhakiColor );
@@ -210,6 +148,69 @@ namespace Badger
             {
                 Fail( ex );
                 return default( ChartColorModel );
+            }
+        }
+
+        /// <summary>
+        /// Creates the categorical axis3 d.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected CategoryAxis3D CreateCategoricalAxis( )
+        {
+            try
+            {
+                var _categoricalAxis = new CategoryAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "X-Axis",
+                    Interval = 1,
+                    Name = "Category",
+                    Foreground = _theme.BorderColor,
+                    ShowGridLines = true
+                };
+
+                return ( _categoricalAxis != null )
+                    ? _categoricalAxis
+                    : default( CategoryAxis3D );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( CategoryAxis3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the numerical axis.
+        /// </summary>
+        /// <returns>
+        /// NumericalAxis3D 
+        /// </returns>
+        private NumericalAxis3D CreateNumericalAxis( int min = 0, int max = 1 )
+        {
+            try
+            {
+                var _numericalAxis = new NumericalAxis3D
+                {
+                    FontSize = 10,
+                    ShowOrigin = true,
+                    Header = "Y-Axis",
+                    Name = "Values",
+                    Minimum = min,
+                    Maximum = max,
+                    Interval = ( max - min ) / 10,
+                    Foreground = _theme.BorderColor,
+                    ShowGridLines = true
+                };
+
+                return _numericalAxis;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( NumericalAxis3D );
             }
         }
 

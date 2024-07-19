@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="AreaChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,36 +53,6 @@ namespace Badger
     public class AreaChart : SfChart3D
     {
         /// <summary>
-        /// The model palette
-        /// </summary>
-        private protected ChartColorModel _modelPalette;
-
-        /// <summary>
-        /// The steel blue
-        /// </summary>
-        private protected Color _steelBlue = Colors.SteelBlue;
-
-        /// <summary>
-        /// The maroon
-        /// </summary>
-        private protected Color _maroon = Colors.Maroon;
-
-        /// <summary>
-        /// The green
-        /// </summary>
-        private protected Color _green = Colors.DarkOliveGreen;
-
-        /// <summary>
-        /// The yellow
-        /// </summary>
-        private protected Color _khaki = Colors.DarkKhaki;
-
-        /// <summary>
-        /// The orange
-        /// </summary>
-        private protected Color _yellow = Colors.Yellow;
-
-        /// <summary>
         /// The back color
         /// </summary>
         private protected Color _backColor = new Color( )
@@ -91,28 +61,6 @@ namespace Badger
             R = 20,
             G = 20,
             B = 20
-        };
-
-        /// <summary>
-        /// The wall color
-        /// </summary>
-        private protected Color _wallColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 55,
-            B = 55
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
         };
 
         /// <summary>
@@ -127,6 +75,27 @@ namespace Badger
         };
 
         /// <summary>
+        /// The fore color
+        /// </summary>
+        private protected Color _foreColor = new Color( )
+        {
+            A = 255,
+            R = 222,
+            G = 222,
+            B = 222
+        };
+
+        /// <summary>
+        /// The green
+        /// </summary>
+        private protected Color _green = Colors.DarkOliveGreen;
+
+        /// <summary>
+        /// The yellow
+        /// </summary>
+        private protected Color _khaki = Colors.DarkKhaki;
+
+        /// <summary>
         /// The light blue
         /// </summary>
         private protected Color _lightBlue = new Color( )
@@ -136,6 +105,37 @@ namespace Badger
             G = 189,
             B = 252
         };
+
+        /// <summary>
+        /// The maroon
+        /// </summary>
+        private protected Color _maroon = Colors.Maroon;
+
+        /// <summary>
+        /// The model palette
+        /// </summary>
+        private protected ChartColorModel _modelPalette;
+
+        /// <summary>
+        /// The steel blue
+        /// </summary>
+        private protected Color _steelBlue = Colors.SteelBlue;
+
+        /// <summary>
+        /// The wall color
+        /// </summary>
+        private protected Color _wallColor = new Color( )
+        {
+            A = 255,
+            R = 55,
+            G = 55,
+            B = 55
+        };
+
+        /// <summary>
+        /// The orange
+        /// </summary>
+        private protected Color _yellow = Colors.Yellow;
 
         /// <summary>
         /// Gets the model palette.

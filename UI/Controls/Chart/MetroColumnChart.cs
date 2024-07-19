@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroColumnChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,10 +42,10 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.UI.Xaml.Charts;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
     /// <summary>
@@ -56,17 +56,19 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroColumnChart : SfChart3D
     {
-        /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
         /// <summary>
         /// The model palette
         /// </summary>
         private protected ChartColorModel _palette;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -77,11 +79,11 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroColumnChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             SideBySideSeriesPlacement = true;
             EnableRotation = true;
             Depth = 250;
@@ -89,8 +91,8 @@ namespace Badger
             EnableSeriesSelection = true;
             EnableRotation = true;
             PerspectiveAngle = 100;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             RightWallBrush = _theme.WallColor;
             LeftWallBrush = _theme.WallColor;
@@ -101,7 +103,6 @@ namespace Badger
             Foreground = _theme.ForeColor;
             PrimaryAxis = CreateCategoricalAxis( );
             SecondaryAxis = CreateNumericalAxis( );
-            Palette = ChartColorPalette.Custom;
             ColorModel = CreateColorModel( );
         }
 
@@ -118,11 +119,14 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "X-Axis",
+                    Header = "Category",
                     Interval = 1,
-                    Name = "Categories",
+                    Name = "Category",
                     Foreground = _theme.BorderColor,
-                    ShowGridLines = true
+                    ShowGridLines = true,
+                    IsIndexed = true,
+                    IsEnabled = true,
+                    LabelPlacement = LabelPlacement.OnTicks
                 };
 
                 return ( _categoricalAxis != null )
@@ -142,7 +146,7 @@ namespace Badger
         /// <returns>
         /// NumericalAxis3D 
         /// </returns>
-        private NumericalAxis3D CreateNumericalAxis( )
+        private NumericalAxis3D CreateNumericalAxis( int min = 0, int max = 1 )
         {
             try
             {
@@ -150,10 +154,14 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Y-Axis",
-                    Name = "Values",
+                    Header = "Value",
+                    Name = "Value",
+                    Minimum = min,
+                    Maximum = max,
+                    Interval = ( max - min ) / 10,
                     Foreground = _theme.BorderColor,
-                    ShowGridLines = true
+                    ShowGridLines = true,
+                    LabelsPosition = AxisElementPosition.Outside
                 };
 
                 return _numericalAxis;
@@ -162,6 +170,43 @@ namespace Badger
             {
                 Fail( ex );
                 return default( NumericalAxis3D );
+            }
+        }
+
+        /// <summary>
+        /// Creates the adornment.
+        /// </summary>
+        /// <returns></returns>
+        private ChartAdornmentInfo3D CreateAdornmentInfo( )
+        {
+            try
+            {
+                var _adornment = new ChartAdornmentInfo3D
+                {
+                    ShowLabel = true,
+                    ShowMarker = true,
+                    ShowConnectorLine = true,
+                    FontSize = 10,
+                    AdornmentsPosition = AdornmentsPosition.Top,
+                    LabelPosition = AdornmentsLabelPosition.Outer,
+                    UseSeriesPalette = true,
+                    BorderThickness = _theme.BorderThickness,
+                    HighlightOnSelection = true,
+                    ConnectorRotationAngle = 45,
+                    Symbol = ChartSymbol.Diamond,
+                    SymbolInterior = _theme.LightBlueColor,
+                    SymbolHeight = 8,
+                    BorderBrush = _theme.BorderColor,
+                    Foreground = _theme.ForeColor,
+                    Background = _theme.ControlColor
+                };
+
+                return _adornment;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ChartAdornmentInfo3D );
             }
         }
 
@@ -176,7 +221,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.HoverColor );
+                _model.CustomBrushes.Add( _theme.ItemHoverColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );
@@ -195,43 +240,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the adornment.
-        /// </summary>
-        /// <returns></returns>
-        private ChartAdornmentInfo3D CreateAdornment( )
-        {
-            try
-            {
-                var _adornment = new ChartAdornmentInfo3D
-                {
-                    ShowLabel = true,
-                    ShowMarker = true,
-                    ShowConnectorLine = true,
-                    FontSize = 10,
-                    AdornmentsPosition = AdornmentsPosition.Top,
-                    LabelPosition = AdornmentsLabelPosition.Outer,
-                    UseSeriesPalette = false,
-                    BorderThickness = new Thickness( 1 ),
-                    HighlightOnSelection = true,
-                    ConnectorRotationAngle = 45,
-                    Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.LightBlueColor,
-                    SymbolHeight = 8,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.LightBlueColor,
-                    Background = _theme.BlackColor
-                };
-
-                return _adornment;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ChartAdornmentInfo3D );
-            }
-        }
-
-        /// <summary>
         /// Creates the palette.
         /// </summary>
         /// <returns></returns>
@@ -240,7 +248,7 @@ namespace Badger
             try
             {
                 var _model = new List<Brush>( );
-                _model.Add( _theme.HoverColor );
+                _model.Add( _theme.ItemHoverColor );
                 _model.Add( _theme.GrayColor );
                 _model.Add( _theme.YellowColor );
                 _model.Add( _theme.RedColor );

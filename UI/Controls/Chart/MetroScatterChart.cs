@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="MetroScatterChart.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -60,7 +60,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkTheme _theme = new DarkTheme( );
 
         /// <inheritdoc />
         /// <summary>
@@ -71,19 +71,18 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroScatterChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             EnableRotation = true;
             Depth = 250;
             EnableSegmentSelection = true;
             EnableSeriesSelection = true;
             PerspectiveAngle = 100;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            Palette = ChartColorPalette.Custom;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             ColorModel = CreateColorModel( );
             Background = _theme.BackColor;
             RightWallBrush = _theme.WallColor;
@@ -106,7 +105,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.HoverColor );
+                _model.CustomBrushes.Add( _theme.ItemHoverColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );

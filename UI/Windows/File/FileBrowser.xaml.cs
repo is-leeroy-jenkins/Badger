@@ -7,8 +7,8 @@
 //     Last Modified On:        07-13-2024
 // ******************************************************************************************
 // <copyright file="FileBrowser.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    Badger is data analysis and reporitng application
+//    for EPA Analysts.
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,7 +48,6 @@ namespace Badger
     using System.Linq;
     using System.Threading;
     using System.Windows;
-    using System.Windows.Media;
     using System.Windows.Media.Imaging;
 
     /// <inheritdoc />
@@ -65,39 +64,9 @@ namespace Badger
     public partial class FileBrowser : Window
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
-
-        /// <summary>
-        /// The locked object
-        /// </summary>
-        private protected object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
-
-        /// <summary>
-        /// The status update
-        /// </summary>
-        private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The timer
-        /// </summary>
-        private protected Timer _timer;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private protected int _time;
 
         /// <summary>
         /// The count
@@ -105,9 +74,9 @@ namespace Badger
         private protected int _count;
 
         /// <summary>
-        /// The seconds
+        /// The data
         /// </summary>
-        private protected int _seconds;
+        private protected string _data;
 
         /// <summary>
         /// The duration
@@ -115,29 +84,9 @@ namespace Badger
         private protected double _duration;
 
         /// <summary>
-        /// The data
+        /// The extension
         /// </summary>
-        private protected string _data;
-
-        /// <summary>
-        /// The radio buttons
-        /// </summary>
-        private protected IList<MetroRadioButton> _radioButtons;
-
-        /// <summary>
-        /// The selected path
-        /// </summary>
-        private protected string _selectedPath;
-
-        /// <summary>
-        /// The selected file
-        /// </summary>
-        private protected string _selectedFile;
-
-        /// <summary>
-        /// The initial directory
-        /// </summary>
-        private protected string _initialDirectory;
+        private protected EXT _extension;
 
         /// <summary>
         /// The file extension
@@ -145,14 +94,19 @@ namespace Badger
         private protected string _fileExtension;
 
         /// <summary>
-        /// The extension
-        /// </summary>
-        private protected EXT _extension;
-
-        /// <summary>
         /// The file paths
         /// </summary>
         private protected IList<string> _filePaths;
+
+        /// <summary>
+        /// The image
+        /// </summary>
+        private protected BitmapImage _image;
+
+        /// <summary>
+        /// The initial directory
+        /// </summary>
+        private protected string _initialDirectory;
 
         /// <summary>
         /// The initial dir paths
@@ -160,9 +114,54 @@ namespace Badger
         private protected IList<string> _initialPaths;
 
         /// <summary>
-        /// The image
+        /// The locked object
         /// </summary>
-        private protected BitmapImage _image;
+        private protected object _path;
+
+        /// <summary>
+        /// The radio buttons
+        /// </summary>
+        private protected IList<MetroRadioButton> _radioButtons;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The selected file
+        /// </summary>
+        private protected string _selectedFile;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedPath;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkTheme _theme = new DarkTheme( );
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected Timer _timer;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
+        private protected TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets or sets the selected path.
@@ -355,6 +354,126 @@ namespace Badger
                 BrowseButton.Content = "Browse";
                 ClearButton.Content = "Clear";
                 SelectButton.Content = "Select";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        private void SendNotification( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notify = new Notification( message )
+                {
+                    Owner = this
+                };
+
+                _notify.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        private void SendMessage( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _splash = new SplashMessage( message )
+                {
+                    Owner = this
+                };
+
+                _splash.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                TimeLabel.Content = DateTime.Now.ToLongTimeString( );
+                DateLabel.Content = DateTime.Now.ToLongDateString( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( object state )
+        {
+            try
+            {
+                Dispatcher.BeginInvoke( _statusUpdate );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the extension.
+        /// </summary>
+        private void SetImage( )
+        {
+            try
+            {
+                var _file = $@"/UI/Windows/File/{_fileExtension.ToUpper( )}.png";
+                var _uri = new Uri( _file, UriKind.Relative );
+                _image = new BitmapImage( _uri );
+                PictureBox.Source = _image;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        {
+            try
+            {
+                ExcelRadioButton.IsChecked = true;
+                _filePaths = GetFilePaths( );
+                _count = _filePaths.Count;
+                InitializeTimer( );
+                PopulateListBox( );
+                InitializeLabels( );
+                InitializeButtons( );
+                RegisterRadioButtonEvents( );
+                SetImage( );
             }
             catch( Exception ex )
             {
@@ -586,126 +705,6 @@ namespace Badger
             {
                 Fail( ex );
                 return default( IList<string> );
-            }
-        }
-
-        /// <summary>
-        /// Sends the notification.
-        /// </summary>
-        /// <param name="message">
-        /// The message.
-        /// </param>
-        private void SendNotification( string message )
-        {
-            try
-            {
-                ThrowIf.Null( message, nameof( message ) );
-                var _notify = new Notification( message )
-                {
-                    Owner = this
-                };
-
-                _notify.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the splash message.
-        /// </summary>
-        private void SendMessage( string message )
-        {
-            try
-            {
-                ThrowIf.Null( message, nameof( message ) );
-                var _splash = new SplashMessage( message )
-                {
-                    Owner = this
-                };
-
-                _splash.Show( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Updates the status.
-        /// </summary>
-        private void UpdateStatus( )
-        {
-            try
-            {
-                TimeLabel.Content = DateTime.Now.ToLongTimeString( );
-                DateLabel.Content = DateTime.Now.ToLongDateString( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Updates the status.
-        /// </summary>
-        private void UpdateStatus( object state )
-        {
-            try
-            {
-                Dispatcher.BeginInvoke( _statusUpdate );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the extension.
-        /// </summary>
-        private void SetImage( )
-        {
-            try
-            {
-                var _file = $@"/UI/Windows/File/{_fileExtension.ToUpper( )}.png";
-                var _uri = new Uri( _file, UriKind.Relative );
-                _image = new BitmapImage( _uri );
-                PictureBox.Source = _image;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
-        {
-            try
-            {
-                ExcelRadioButton.IsChecked = true;
-                _filePaths = GetFilePaths( );
-                _count = _filePaths.Count;
-                InitializeTimer( );
-                PopulateListBox( );
-                InitializeLabels( );
-                InitializeButtons( );
-                RegisterRadioButtonEvents( );
-                SetImage( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 
