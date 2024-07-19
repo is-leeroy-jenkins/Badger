@@ -86,7 +86,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected DarkTheme _theme = new DarkTheme( );
+        private protected DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// The time

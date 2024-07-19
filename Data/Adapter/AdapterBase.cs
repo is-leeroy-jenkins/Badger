@@ -53,7 +53,7 @@ namespace Badger
     /// <summary> </summary>
     /// <seealso cref="T:System.Data.Common.DbDataAdapter"/>
     /// <seealso cref="T:Badger.ISource"/>
-    /// <seealso cref="T:Badger.IProvider"/>
+    /// <seealso cref="T:Badger.IProvider"/>                                                  
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]

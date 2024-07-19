@@ -57,7 +57,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkTheme _theme = new DarkTheme( );
+        private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <inheritdoc />
         /// <summary>

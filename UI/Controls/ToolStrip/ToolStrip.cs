@@ -46,6 +46,7 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
     using Syncfusion.Windows.Tools.Controls;
+    using static ToolStrip;
 
     /// <summary>
     ///
@@ -60,6 +61,11 @@ namespace Badger
     public class ToolStrip : BasicBar
     {
         /// <summary>
+        /// The theme
+        /// </summary>
+        private protected DarkMode _theme = new DarkMode( );
+
+        /// <summary>
         /// The buttons
         /// </summary>
         private protected IList<object> _items;
@@ -73,18 +79,18 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( ToolStrip.StyleProperty, typeof( ToolBarAdv ) );
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Height = 40;
             Width = 1400;
             GripperVisibility = Visibility.Hidden;
             OverflowButtonVisibility = Visibility.Collapsed;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
         }
 
         /// <summary>

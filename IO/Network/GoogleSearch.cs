@@ -47,8 +47,8 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
-    using Google.Apis.Services;
     using Google.Apis.CustomSearchAPI.v1;
+    using Google.Apis.Services;
 
     /// <inheritdoc />
     /// <summary>
