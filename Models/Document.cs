@@ -127,7 +127,7 @@ namespace Badger
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "DocumentsId" ].ToString( ) ?? "0" );
             _code = _record[ "Code" ].ToString( );
-            _category = _record[ "Category" ].ToString( );
+            _category = _record[ "Dimension" ].ToString( );
             _name = _record[ "Name" ].ToString( );
             _system = _record[ "System" ].ToString( );
         }
@@ -145,7 +145,7 @@ namespace Badger
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "DocumentsId" ].ToString( ) ?? "0" );
             _code = _record[ "Code" ].ToString( );
-            _category = _record[ "Category" ].ToString( );
+            _category = _record[ "Dimension" ].ToString( );
             _name = _record[ "Name" ].ToString( );
             _system = _record[ "System" ].ToString( );
         }
@@ -163,7 +163,7 @@ namespace Badger
             _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "DocumentsId" ].ToString( ) ?? "0" );
             _code = dataRow[ "Code" ].ToString( );
-            _category = dataRow[ "Category" ].ToString( );
+            _category = dataRow[ "Dimension" ].ToString( );
             _name = dataRow[ "Name" ].ToString( );
             _system = dataRow[ "System" ].ToString( );
         }

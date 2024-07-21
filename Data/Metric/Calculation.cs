@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
-// <copyright file="DataCalculation.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
+// <copyright file="Calculation.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +30,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataCalculation.cs
+//   Calculation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -58,7 +57,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    public abstract class DataCalculation : DataDimension
+    public abstract class Calculation : Dimension
     {
         /// <summary>
         /// Counts the values.
@@ -72,7 +71,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( numeric, nameof( numeric ) );
-                var _dataRows = _dataTable?.AsEnumerable( )
+                var _dataRows = _dataTable
+                    ?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) );
 
                 return _dataRows?.Any( ) == true
@@ -100,7 +100,8 @@ namespace Badger
             {
                 ThrowIf.Null( numeric, nameof( numeric ) );
                 ThrowIfNotCriteria( where );
-                var _dataRows = _dataTable?.Filter( where )
+                var _dataRows = _dataTable
+                    ?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) );
 
                 return _dataRows?.Any( ) == true
@@ -126,7 +127,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( numeric, nameof( numeric ) );
-                var _select = _dataTable?.AsEnumerable( )
+                var _select = _dataTable
+                    ?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
 
@@ -153,7 +155,8 @@ namespace Badger
             {
                 ThrowIfNotNumeric( numeric );
                 ThrowIfNotCriteria( where );
-                var _select = _dataTable?.Filter( where )
+                var _select = _dataTable
+                    ?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
 
@@ -178,7 +181,8 @@ namespace Badger
             try
             {
                 ThrowIfNotNumeric( numeric );
-                var _query = _dataTable.AsEnumerable( )
+                var _query = _dataTable
+                    ?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Average( );
 
@@ -205,37 +209,13 @@ namespace Badger
             {
                 ThrowIfNotNumeric( numeric );
                 ThrowIfNotCriteria( where );
-                var _query = _dataTable?.Filter( where )
+                var _query = _dataTable
+                    ?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Average( );
 
                 return _query > 0
                     ? double.Parse( _query?.ToString( "N1" ) )
-                    : 0.0d;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return 0.0d;
-            }
-        }
-
-        /// <summary>
-        /// Calculates the percentage.
-        /// </summary>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
-        public double CalculatePercentage( string numeric )
-        {
-            try
-            {
-                ThrowIf.Null( numeric, nameof( numeric ) );
-                var _select = _dataTable?.AsEnumerable( )
-                    ?.Select( p => p.Field<double>( numeric ) )
-                    ?.Sum( );
-
-                return _select > 0
-                    ? double.Parse( _select?.ToString( "N1" ) )
                     : 0.0d;
             }
             catch( Exception ex )
@@ -257,12 +237,19 @@ namespace Badger
             {
                 ThrowIfNotCriteria( where );
                 ThrowIf.Null( numeric, nameof( numeric ) );
-                var _select = _dataTable?.Filter( where )
-                    ?.Select( p => p.Field<double>( numeric ) )
-                    ?.Sum( );
+                var _total = _dataTable
+                    .AsEnumerable( )
+                    .Select( p => p.Field<double>( numeric ) )
+                    .Sum( );
 
-                return _select > 0
-                    ? double.Parse( _select?.ToString( "N1" ) )
+                var _select = _dataTable
+                    .Filter( where )
+                    .Select( p => p.Field<double>( numeric ) )
+                    .Sum( );
+
+                var _ratio = ( _select / _total ) * 100;
+                return ( _ratio > 0 )
+                    ? _ratio
                     : 0.0d;
             }
             catch( Exception ex )
@@ -282,7 +269,8 @@ namespace Badger
             try
             {
                 ThrowIfNotNumeric( numeric );
-                var _query = _dataTable?.AsEnumerable( )
+                var _query = _dataTable
+                    ?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.StandardDeviation( );
 
@@ -311,7 +299,8 @@ namespace Badger
             {
                 ThrowIfNotNumeric( numeric );
                 ThrowIfNotCriteria( where );
-                var _query = _dataTable?.Filter( where )
+                var _query = _dataTable
+                    ?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.StandardDeviation( );
 
@@ -340,7 +329,8 @@ namespace Badger
             try
             {
                 ThrowIfNotNumeric( numeric );
-                var _query = _dataTable?.AsEnumerable( )
+                var _query = _dataTable
+                    ?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );
 
@@ -373,7 +363,8 @@ namespace Badger
             {
                 ThrowIfNotCriteria( where );
                 ThrowIfNotNumeric( numeric );
-                var _query = _dataTable?.Filter( where )
+                var _query = _dataTable
+                    ?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );
 

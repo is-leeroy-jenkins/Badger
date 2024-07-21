@@ -49,6 +49,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Net.Mail;
+    using System.Windows;
     using System.Windows.Controls;
     using OfficeOpenXml;
 
@@ -92,9 +93,9 @@ namespace Badger
 
                     break;
                 }
-                case Control _control:
+                case Window _window:
                 {
-                    if( _control == null )
+                    if( _window == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );

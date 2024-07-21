@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataWindow.xaml.cs
@@ -978,6 +977,132 @@ namespace Badger
                 Fail( ex );
                 return default( IList<string> );
             }
+        }
+
+        /// <summary>
+        /// Populates the edit stack.
+        /// </summary>
+        private protected IList<MetroTextInput> CreateFrames( )
+        {
+            try
+            {
+                var _list = new List<MetroTextInput>( );
+                for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
+                {
+                    var _column = _dataTable.Columns[ _index ].ColumnName;
+                    var _name = _column?.SplitPascal( );
+                    var _frame = new MetroTextInput
+                    {
+                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
+                        Caption = _name,
+                        Input = _current.ItemArray[ _index ]?.ToString( )
+                    };
+
+                    _list.Add( _frame );
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<MetroTextInput> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<MetroTextInput> );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        private protected void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
+        {
+            try
+            {
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeListBox.Items?.Clear( );
+                var _types = dataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _types[ _i ]
+                        };
+
+                        DataTypeListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data column ListBox.
+        /// </summary>
+        private protected void PopulateDataColumnListBox( )
+        {
+            try
+            {
+                DataColumnListBox.Items?.Clear( );
+                for( var _i = 0; _i < _columns?.Count; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _columns[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = _columns[ _i ]
+                        };
+
+                        DataColumnListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the data types.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
+        private protected IList<string> GetDataTypes( Provider provider )
+        {
+            if( Enum.IsDefined( typeof( Provider ), provider ) )
+            {
+                try
+                {
+                    var _database = provider.ToString( );
+                    var _db = new DataGenerator( Source.SchemaTypes, Provider.Access );
+                    var _data = _db.DataTable;
+                    var _list = _data.AsEnumerable( )
+                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
+                        ?.Select( c => c.Field<string>( "TypeName" ) )
+                        ?.ToList( );
+
+                    return _list.Count > 0
+                        ? _list
+                        : default( IList<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
         }
 
         /// <summary>
@@ -3077,132 +3202,6 @@ namespace Badger
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Populates the edit stack.
-        /// </summary>
-        private protected IList<MetroTextInput> CreateFrames( )
-        {
-            try
-            {
-                var _list = new List<MetroTextInput>( );
-                for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
-                {
-                    var _column = _dataTable.Columns[ _index ].ColumnName;
-                    var _name = _column?.SplitPascal( );
-                    var _frame = new MetroTextInput
-                    {
-                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
-                        Caption = _name,
-                        Input = _current.ItemArray[ _index ]?.ToString( )
-                    };
-
-                    _list.Add( _frame );
-                }
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<MetroTextInput> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IList<MetroTextInput> );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
-        private protected void PopulateDataTypeListBoxItems( IEnumerable<string> dataTypes )
-        {
-            try
-            {
-                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
-                DataTypeListBox.Items?.Clear( );
-                var _types = dataTypes.ToArray( );
-                for( var _i = 0; _i < _types?.Length; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                    {
-                        var _item = new MetroListBoxItem
-                        {
-                            Content = _types[ _i ]
-                        };
-
-                        DataTypeListBox.Items.Add( _item );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data column ListBox.
-        /// </summary>
-        private protected void PopulateDataColumnListBox( )
-        {
-            try
-            {
-                DataColumnListBox.Items?.Clear( );
-                for( var _i = 0; _i < _columns?.Count; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _columns[ _i ] ) )
-                    {
-                        var _item = new MetroListBoxItem
-                        {
-                            Content = _columns[ _i ]
-                        };
-
-                        DataColumnListBox.Items.Add( _item );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the data types.
-        /// </summary>
-        /// <param name="provider">
-        /// The provider.
-        /// </param>
-        /// <returns>
-        /// IEnumerable
-        /// </returns>
-        private protected IList<string> GetDataTypes( Provider provider )
-        {
-            if( Enum.IsDefined( typeof( Provider ), provider ) )
-            {
-                try
-                {
-                    var _database = provider.ToString( );
-                    var _db = new DataGenerator( Source.SchemaTypes, Provider.Access );
-                    var _data = _db.DataTable;
-                    var _list = _data.AsEnumerable( )
-                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
-                        ?.Select( c => c.Field<string>( "TypeName" ) )
-                        ?.ToList( );
-
-                    return _list.Count > 0
-                        ? _list
-                        : default( IList<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IList<string> );
-                }
-            }
-
-            return default( IList<string> );
         }
 
         /// <summary>

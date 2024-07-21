@@ -244,7 +244,7 @@ namespace Badger
             _rowCount = dataTable.Rows.Count;
             _fileName = dataTable.TableName + ".xlsx";
             _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
-            _dataMetric = new DataMetric( dataTable );
+            DataMeasure = new DataMeasure( dataTable );
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
@@ -368,8 +368,8 @@ namespace Badger
                 else
                 {
                     _excelTable = CreateExcelTable( _dataTable );
-                    var _fields = _dataMetric?.Fields;
-                    var _numerics = _dataMetric?.Numerics;
+                    var _fields = DataMeasure?.Fields;
+                    var _numerics = DataMeasure?.Numerics;
                     _pivotTable = CreatePivotTable( _dataRange, "PivotData", _fields, _numerics );
                 }
             }

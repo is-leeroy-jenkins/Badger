@@ -174,7 +174,7 @@ namespace Badger
             _number = _record[ "Number" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );
             _caption = _record[ "Caption" ]?.ToString( );
-            _category = _record[ "Category" ]?.ToString( );
+            _category = _record[ "Dimension" ]?.ToString( );
             _range = _record[ "Range" ]?.ToString( );
         }
 
@@ -194,7 +194,7 @@ namespace Badger
             _number = _record[ "Number" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );
             _caption = _record[ "Caption" ]?.ToString( );
-            _category = _record[ "Category" ]?.ToString( );
+            _category = _record[ "Dimension" ]?.ToString( );
             _range = _record[ "Range" ]?.ToString( );
         }
 
@@ -214,7 +214,7 @@ namespace Badger
             _number = dataRow[ "Number" ]?.ToString( );
             _name = dataRow[ "Name" ]?.ToString( );
             _caption = dataRow[ "Caption" ]?.ToString( );
-            _category = dataRow[ "Category" ]?.ToString( );
+            _category = dataRow[ "Dimension" ]?.ToString( );
             _range = dataRow[ "Range" ]?.ToString( );
         }
     }

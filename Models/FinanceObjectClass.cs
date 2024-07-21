@@ -157,7 +157,7 @@ namespace Badger
             _code = _record[ "Code" ].ToString( );
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
-            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Dimension" ].ToString( ) );
             _map = _record?.ToDictionary( );
         }
 
@@ -176,7 +176,7 @@ namespace Badger
             _code = _record[ "Code" ].ToString( );
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
-            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Dimension" ].ToString( ) );
             _map = _record?.ToDictionary( );
         }
 
@@ -195,7 +195,7 @@ namespace Badger
             _code = dataRow[ "Code" ].ToString( );
             _bocCode = dataRow[ "BocCode" ].ToString( );
             _bocName = dataRow[ "BocName" ].ToString( );
-            _category = (BOC)Enum.Parse( typeof( BOC ), dataRow[ "Category" ].ToString( ) );
+            _category = (BOC)Enum.Parse( typeof( BOC ), dataRow[ "Dimension" ].ToString( ) );
             _map = dataRow?.ToDictionary( );
         }
 
@@ -214,7 +214,7 @@ namespace Badger
             _code = _record[ "Code" ].ToString( );
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
-            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Dimension" ].ToString( ) );
             _map = _record?.ToDictionary( );
         }
 

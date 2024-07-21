@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartWindow.xaml.cs
@@ -96,16 +96,6 @@ namespace Badger
         private Action _statusUpdate;
 
         /// <summary>
-        /// The area chart
-        /// </summary>
-        private protected MetroAreaChart _areaChart;
-
-        /// <summary>
-        /// The data source
-        /// </summary>
-        private protected ChartModel _chartModel;
-
-        /// <summary>
         /// The columns
         /// </summary>
         private protected IList<string> _columns;
@@ -119,16 +109,6 @@ namespace Badger
         /// The current
         /// </summary>
         private protected int _current;
-
-        /// <summary>
-        /// The data model
-        /// </summary>
-        private protected DataGenerator _data;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
 
         /// <summary>
         /// The fields
@@ -151,24 +131,9 @@ namespace Badger
         private protected string _firstValue;
 
         /// <summary>
-        /// The histogram
-        /// </summary>
-        private protected Histogram _histogram;
-
-        /// <summary>
         /// The hover text
         /// </summary>
         private protected string _hoverText;
-
-        /// <summary>
-        /// The line chart
-        /// </summary>
-        private protected MetroLineChart _lineChart;
-
-        /// <summary>
-        /// The line chart
-        /// </summary>
-        private protected MetroColumnChart _columnChart;
 
         /// <summary>
         /// The stat
@@ -179,26 +144,6 @@ namespace Badger
         /// The numerics
         /// </summary>
         private protected IList<string> _numerics;
-
-        /// <summary>
-        /// The pie chart
-        /// </summary>
-        private protected MetroPieChart _pieChart;
-
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private protected Provider _provider;
-
-        /// <summary>
-        /// The current
-        /// </summary>
-        private protected DataRow _record;
-
-        /// <summary>
-        /// The scatter chart
-        /// </summary>
-        private protected MetroScatterChart _scatterChart;
 
         /// <summary>
         /// The second category
@@ -231,9 +176,14 @@ namespace Badger
         private protected string _selectedTable;
 
         /// <summary>
-        /// The smith chart
+        /// The SQL command
         /// </summary>
-        private protected SmithChart _smithChart;
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
 
         /// <summary>
         /// The source
@@ -241,9 +191,59 @@ namespace Badger
         private protected Source _source;
 
         /// <summary>
-        /// The SQL command
+        /// The data model
         /// </summary>
-        private protected string _sqlQuery;
+        private protected DataGenerator _data;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _record;
+
+        /// <summary>
+        /// The data source
+        /// </summary>
+        private protected ChartModel _chartModel;
+
+        /// <summary>
+        /// The data metric
+        /// </summary>
+        private protected DataMeasure _dataMetric;
+
+        /// <summary>
+        /// The histogram
+        /// </summary>
+        private protected Histogram _histogram;
+
+        /// <summary>
+        /// The scatter chart
+        /// </summary>
+        private protected MetroScatterChart _scatterChart;
+
+        /// <summary>
+        /// The line chart
+        /// </summary>
+        private protected MetroLineChart _lineChart;
+
+        /// <summary>
+        /// The line chart
+        /// </summary>
+        private protected MetroColumnChart _columnChart;
+
+        /// <summary>
+        /// The area chart
+        /// </summary>
+        private protected MetroAreaChart _areaChart;
+
+        /// <summary>
+        /// The pie chart
+        /// </summary>
+        private protected MetroPieChart _pieChart;
 
         /// <summary>
         /// The sunburst chart
@@ -254,6 +254,11 @@ namespace Badger
         /// The surface chart
         /// </summary>
         private protected SurfaceChart _surfaceChart;
+
+        /// <summary>
+        /// The smith chart
+        /// </summary>
+        private protected SmithChart _smithChart;
 
         /// <summary>
         /// The theme
@@ -927,6 +932,8 @@ namespace Badger
                 _columns = _data.ColumnNames;
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
+                _dataMetric = new DataMeasure( _dataTable );
+                _chartModel = new ChartModel( _dataTable );
                 ColumnChartCanvas.DataContext = _dataTable;
             }
             catch( Exception ex )
@@ -1187,18 +1194,16 @@ namespace Badger
             try
             {
                 if( _dataTable != null
-                    && _numerics?.Count > 0
-                    && _columns?.Count > 0 )
+                    && _numerics?.Count > 0 )
                 {
                     var _viewModel = new ViewModel( );
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
-                        var _category = _columns[ 0 ];
-                        foreach( var _measure in _numerics )
+                        foreach( var _name in _numerics )
                         {
-                            var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                            var _view = new View( _index, _category, _measure, _value );
+                            var _value = double.Parse( _row[ _name ]?.ToString( ) );
+                            var _view = new View( _index, _name, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1228,13 +1233,13 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Category",
+                    Header = "Dimension",
                     Interval = 10,
                     IsIndexed = true,
                     IsEnabled = true,
                     LabelPlacement = LabelPlacement.OnTicks,
                     TickLinesPosition = AxisElementPosition.Outside,
-                    Name = "Category",
+                    Name = "Dimension",
                     Foreground = _theme.BorderColor,
                     ShowGridLines = true
                 };
@@ -2037,7 +2042,7 @@ namespace Badger
                 Fail( ex );
             }
         }
-        
+
         /// <summary>
         /// Binds the column chart.
         /// </summary>

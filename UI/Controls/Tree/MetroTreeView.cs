@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="MetroTreeView.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -41,7 +41,6 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media;
     using Syncfusion.UI.Xaml.TreeView;
 
     /// <inheritdoc />
@@ -66,7 +65,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( StyleProperty, typeof( SfTreeView ) );
+            SetResourceReference( MetroTreeView.StyleProperty, typeof( SfTreeView ) );
             Width = 400;
             Height = 400;
             FontSize = _theme.FontSize;

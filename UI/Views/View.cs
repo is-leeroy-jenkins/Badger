@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-18-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-18-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="View.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   View.cs
@@ -41,7 +40,6 @@
 namespace Badger
 {
     using System;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
@@ -62,22 +60,17 @@ namespace Badger
         /// <summary>
         /// The data row
         /// </summary>
-        private protected double _index;
-
-        /// <summary>
-        /// The name
-        /// </summary>
-        private protected string _category;
+        private protected double _id;
 
         /// <summary>
         /// The measure
         /// </summary>
-        private protected string _measure;
+        private protected string _x;
 
         /// <summary>
         /// The value
         /// </summary>
-        private protected double _value;
+        private protected double _y;
 
         /// <summary>
         /// Gets or sets the index.
@@ -85,15 +78,15 @@ namespace Badger
         /// <value>
         /// The index.
         /// </value>
-        public double Index
+        public double Id
         {
             get
             {
-                return _index;
+                return _id;
             }
             set
             {
-                _index = value;
+                _id = value;
             }
         }
 
@@ -103,33 +96,15 @@ namespace Badger
         /// <value>
         /// The name.
         /// </value>
-        public string Category
+        public string X
         {
             get
             {
-                return _category;
+                return _x;
             }
             set
             {
-                _category = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Measure
-        {
-            get
-            {
-                return _measure;
-            }
-            set
-            {
-                _measure = value;
+                _x = value;
             }
         }
 
@@ -139,15 +114,15 @@ namespace Badger
         /// <value>
         /// The value.
         /// </value>
-        public double Value
+        public double Y
         {
             get
             {
-                return _value;
+                return _y;
             }
             set
             {
-                _value = value;
+                _y = value;
             }
         }
 
@@ -157,24 +132,15 @@ namespace Badger
         /// </summary>
         public View( )
         {
-            _index = 0.0;
+            _id = 0.0;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="View"/> class.
-        /// </summary>
-        /// <param name = "index" > </param>
-        /// <param name="category">The name.</param>
-        /// <param name = "measure" > </param>
-        /// <param name="value">The value.</param>
-        public View( int index, string category, string measure, double value = 0 ) 
+        public View( int id, string x, double y = 0 )
             : this( )
         {
-            _index = index;
-            _category = category;
-            _measure = measure;
-            _value = value;
+            _id = id;
+            _x = x;
+            _y = y;
         }
 
         /// <summary>
@@ -184,25 +150,16 @@ namespace Badger
         /// <param name="view">The view.</param>
         public View( View view )
         {
-            _index = view.Index;
-            _category = view.Category;
-            _measure = view.Measure;
-            _value = view.Value;
+            _id = view.Id;
+            _x = view.X;
+            _y = view.Y;
         }
 
-        /// <summary>
-        /// Deconstructs the specified name.
-        /// </summary>
-        /// <param name = "index" > </param>
-        /// <param name="category">The name.</param>
-        /// <param name = "measure" > </param>
-        /// <param name="value">The value.</param>
-        public void Deconstruct( out double index, out string category, out string measure, out double value )
+        public void Deconstruct( out double id, out string x, out double y )
         {
-            index = _index;
-            category = _category;
-            measure = _measure;
-            value = _value;
+            id = _id;
+            x = _x;
+            y = _y;
         }
 
         /// <summary>
@@ -214,8 +171,8 @@ namespace Badger
         /// </returns>
         public override string ToString( )
         {
-            return _value != 0.0
-                ? _value.ToString( "N0" )
+            return _y != 0.0
+                ? _y.ToString( "N0" )
                 : "0.0";
         }
 

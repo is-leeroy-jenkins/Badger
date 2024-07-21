@@ -254,7 +254,7 @@ namespace Badger
         /// <summary>
         /// The data metric
         /// </summary>
-        private protected DataMetric _dataMetric;
+        private protected DataMeasure DataMeasure;
 
         /// <summary>
         /// The internal path

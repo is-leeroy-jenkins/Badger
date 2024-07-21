@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-18-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-18-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="ViewModel.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ViewModel.cs
@@ -115,29 +114,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( category, nameof( category ) );
-                var _view = new View( index, category, "Amount", value );
-                Items.Add( _view );
-                _data.Add( _view );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Adds the specified name.
-        /// </summary>
-        /// <param name = "index" > </param>
-        /// <param name="category">The name.</param>
-        /// <param name = "measure" > </param>
-        /// <param name="value">The value.</param>
-        public void Add( int index, string category, string measure, double value = 0.0 )
-        {
-            try
-            {
-                ThrowIf.Null( category, nameof( category ) );
-                var _view = new View( index, category, measure, value );
+                var _view = new View( index, category, value );
                 Items.Add( _view );
                 _data.Add( _view );
             }
@@ -155,7 +132,7 @@ namespace Badger
         {
             try
             {
-                ThrowIf.Null( view.Category, nameof( view.Category ) );
+                ThrowIf.Null( view.X, nameof( view.X ) );
                 var _view = new View( view );
                 Items.Add( _view );
                 _data.Add( _view );

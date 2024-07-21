@@ -1,0 +1,167 @@
+﻿// ******************************************************************************************
+//     Assembly:                Badger
+//     Author:                  Terry D. Eppler
+//     Created:                 07-20-2024
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        07-20-2024
+// ******************************************************************************************
+// <copyright file="WindowExtenstions.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporitng application for EPA Analysts.
+//    Copyright ©  2024  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   WindowExtenstions.cs
+// </summary>
+// ******************************************************************************************
+
+namespace Badger
+{
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Threading.Tasks;
+    using System.Windows;
+
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public static class WindowExtenstions
+    {
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="window">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private static async void FadeInAsync( this Window window, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( window, nameof( window ) );
+                while( window.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    window.Opacity += 0.05;
+                }
+
+                window.Opacity = 1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="window">The o.</param>
+        /// <param name="interval">The interval.</param>
+        public static async void FadeOutAsync( this Window window, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( window, nameof( window ) );
+                while( window.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    window.Opacity -= 0.05;
+                }
+
+                window.Opacity = 0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name = "window" > </param>
+        /// <param name="action">The action.</param>
+        public static void InvokeIf( this Window window, Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( window.Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    window.Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name = "window" > </param>
+        /// <param name="action">The action.</param>
+        public static void InvokeIf( this Window window, Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( window.Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    window.Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+    }
+}

@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-18-2024
+//     Created:                 07-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-18-2024
+//     Last Modified On:        07-20-2024
 // ******************************************************************************************
 // <copyright file="ChartModel.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporitng application
-//    for EPA Analysts.
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartModel.cs
@@ -59,12 +58,22 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ChartModel : ObservableCollection<DataRow>
+    public class ChartModel 
     {
         /// <summary>
         /// The columns
         /// </summary>
         private readonly IList<string> _columns;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private readonly IList<string> _numerics;
+
+        /// <summary>
+        /// The views
+        /// </summary>
+        private protected IList<View> _views;
 
         /// <summary>
         /// The count
@@ -115,14 +124,20 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets the number of elements actually contained in the
-        /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
+        /// Gets or sets the count.
         /// </summary>
-        public new int Count
+        /// <value>
+        /// The count.
+        /// </value>
+        public int Count
         {
             get
             {
                 return _count;
+            }
+            set
+            {
+                _count = value;
             }
         }
 
@@ -168,7 +183,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public new IList<DataRow> Items
+        public IList<DataRow> Items
         {
             get
             {
@@ -177,6 +192,24 @@ namespace Badger
             set
             {
                 _items = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the views.
+        /// </summary>
+        /// <value>
+        /// The views.
+        /// </value>
+        public IList<View> Views
+        {
+            get
+            {
+                return _views;
+            }
+            set
+            {
+                _views = value;
             }
         }
 
@@ -210,7 +243,8 @@ namespace Badger
             _count = 0;
             _data = new ObservableCollection<DataRow>( );
             _items = new List<DataRow>( );
-            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _views = new List<View>( );
         }
 
         /// <inheritdoc />
@@ -227,41 +261,11 @@ namespace Badger
             _current = _data?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
-            _columns = _current?.Table?.GetColumnNames( );
-        }
+            _numerics = dataTable.GetNumericColumns( )
+                ?.Select( n => n.ColumnName )
+                ?.ToList( );
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartModel" /> class.
-        /// </summary>
-        /// <param name="dataRows">The data rows.</param>
-        public ChartModel( IEnumerable<DataRow> dataRows )
-            : this( )
-        {
-            _data = dataRows?.ToObservable( );
-            _items = dataRows?.ToList( );
-            _current = _data?[ _index ];
-            _count = dataRows?.Count( ) ?? 0;
-            _tableName = _current?.Table?.TableName;
-            _columns = _current?.Table?.GetColumnNames( );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartModel" /> class.
-        /// </summary>
-        /// <param name="record">The record.</param>
-        public ChartModel( DataRow record ) 
-            : this( )
-        {
-            _data[ _index ] = record;
-            _items.Add( record );
-            _current = record;
-            _count = _data.Count;
-            _tableName = record.Table?.TableName;
-            _columns = record?.Table?.GetColumnNames( );
+            _views = CreateViewList( );
         }
 
         /// <summary>
@@ -369,6 +373,43 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the views.
+        /// </summary>
+        /// <returns></returns>
+        public IList<View> CreateViewList( )
+        {
+            try
+            {
+                if( _data != null )
+                {
+                    _views = new List<View>( );
+                    for( var _r = 0; _r < _data.Count; _r++ )
+                    {
+                        var _dataRow = _data[ _r ];
+                        for( var _c = 0; _c < _numerics.Count; _c++ )
+                        {
+                            var _columnName = _numerics[ _c ];
+                            var _value = double.Parse( _dataRow[ _columnName ].ToString( ) );
+                            var _view = new View( _r, _columnName, _value );
+                            _views.Add( _view );
+                        }
+                    }
+
+                    return ( _views?.Any( ) == true )
+                        ? _views
+                        : default( IList<View> );
+                }
+
+                return default( IList<View> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<View> );
+            }
+        }
+
+        /// <summary>
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
@@ -376,25 +417,19 @@ namespace Badger
         {
             try
             {
-                if( _data != null
-                    && _count > 0
-                    && _columns?.Count > 0 )
+                if( _data != null )
                 {
                     ThrowIf.Null( numerics, nameof( numerics ) );
                     var _viewModel = new ViewModel( );
-                    var _category = _columns[ 0 ];
                     for( var _r = 0; _r < _data.Count; _r++ )
                     {
-                        var _row = _data[ _r ];
+                        var _dataRow = _data[ _r ];
                         for( var _c = 0; _c < numerics.Count; _c++ )
                         {
-                            var _measure = numerics[ _c ];
-                            if( _columns.Contains( _measure ) )
-                            {
-                                var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                                var _view = new View( _r, _category, _measure, _value );
-                                _viewModel.Add( _view );
-                            }
+                            var _col = numerics[ _c ];
+                            var _value = double.Parse( _dataRow[ _col ].ToString( ) );
+                            var _view = new View( _r, _col, _value );
+                            _viewModel.Add( _view );
                         }
                     }
 
