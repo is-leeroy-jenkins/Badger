@@ -439,7 +439,7 @@ namespace Badger
                 if( _dataTable != null )
                 {
                     DataContext = _chartModel.Data;
-                    _columnChart = new MetroColumnChart
+                    _columnChart = new MetroColumnChart( )
                     {
                         Height = 454,
                         Width = 800,
@@ -482,13 +482,12 @@ namespace Badger
                 }
                 else
                 {
-                    _columnChart = new MetroColumnChart
+                    _columnChart = new MetroColumnChart( )
                     {
                         Height = 454,
                         Width = 800,
                         Margin = new Thickness( 1 ),
-                        Visibility = Visibility.Visible,
-                        Header = "Column Chart"
+                        Visibility = Visibility.Visible
                     };
 
                     _columnChart.PrimaryAxis = CreateCategoricalAxis( );

@@ -63,11 +63,11 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.Tile" /> class.
         /// </summary>
-        public MetroTile( )
+        public MetroTile( ) 
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTile.StyleProperty, typeof( SfHubTile ) );
+            SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
             FontFamily = _theme.FontFamily;

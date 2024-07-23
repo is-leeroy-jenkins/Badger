@@ -75,8 +75,8 @@ namespace Badger
             SetResourceReference( MetroComboBox.StyleProperty, typeof( ComboBoxAdv ) );
             Width = 150;
             Height = 30;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Padding = new Thickness( 10, 1, 1, 1 );
             Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );

@@ -375,7 +375,6 @@
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
-    <PackageReference Include="linq2db" Version="5.4.1" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
     <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
@@ -399,7 +398,9 @@
     <PackageReference Include="Syncfusion.GridExcelExport.Wpf" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Grouping.Base" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Licensing" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.OfficeChartToImageConverter.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Pdf.OCR.Wpf" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="26.1.35" />
     <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="26.1.35" />
     <PackageReference Include="Syncfusion.PivotTableExport.Wpf" Version="26.1.35" />
@@ -418,6 +419,7 @@
     <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.SfKanban.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfMaps.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="26.1.35" />
@@ -430,17 +432,18 @@
     <PackageReference Include="Syncfusion.SfSpreadsheetHelper.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfSunburstChart.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="26.1.35" />
-    <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Themes.MaterialDark.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="26.1.35" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="26.1.35" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
-    <PackageReference Include="Wpf.Themes.ExpressionDark" Version="1.1.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
   </ItemGroup>

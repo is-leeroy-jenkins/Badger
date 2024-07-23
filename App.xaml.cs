@@ -1,15 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 06-08-2024
+//     Created:                 07-23-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2024
+//     Last Modified On:        07-23-2024
 // ******************************************************************************************
 // <copyright file="App.xaml.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   App.xaml.cs
@@ -40,6 +39,7 @@
 
 namespace Badger
 {
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
@@ -122,7 +122,7 @@ namespace Badger
             var _key = ConfigurationManager.AppSettings[ "UI" ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            ActiveWindows = new Dictionary<string, Window>( );
+            App.ActiveWindows = new Dictionary<string, Window>( );
             RegisterTheme( );
         }
 
@@ -133,7 +133,7 @@ namespace Badger
         {
             var _theme = new FluentDarkThemeSettings
             {
-                PrimaryBackground = new SolidColorBrush( Color.FromRgb( 20, 20, 20) ),
+                PrimaryBackground = new SolidColorBrush( Color.FromRgb( 20, 20, 20 ) ),
                 PrimaryColorForeground = new SolidColorBrush( Color.FromRgb( 0, 120, 212 ) ),
                 PrimaryForeground = new SolidColorBrush( Color.FromRgb( 222, 222, 222 ) ),
                 BodyFontSize = 12,
