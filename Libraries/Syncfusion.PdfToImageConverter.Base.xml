@@ -88,6 +88,13 @@
             <param name="stream">Stream of the file</param>
             <param name="password">Pasword for the file</param>
         </member>
+        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.ScaleFactor">
+            <summary>
+            Scales the page while rendering in the PDF Viewer control for improving the quality of the image.
+            Positive float values can be set. Recommended Value is 1 or 1.5f.
+            If the value is greater than the recommended value, there might be any distortion in the performance of the PDF Viewer.
+            </summary>
+        </member>
         <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.ReferencePath">
             <summary>
             Gets or sets the reference path of the Pdfium library.
@@ -282,14 +289,6 @@
             </summary>
             <returns>Returns the base directory.</returns>
         </member>
-        <member name="M:Syncfusion.PdfToImageConverter.PdfToImageConverter.ExtractText(System.Int32,System.Collections.Generic.List{Syncfusion.PdfToImageConverter.TextData}@)">
-            <summary>
-            Extracts text along with its format.
-            </summary>
-            <param name=" pageIndex">The page index in which the text has be extracted</param>
-            <param name=" textDataCollection">Provides the text data collection </param>
-            <returns>Returns the extracted text for the provided page</returns>
-        </member>
         <member name="M:Syncfusion.PdfToImageConverter.PdfToImageConverter.ExtractText(System.Int32,System.Collections.Generic.List{Syncfusion.PdfToImageConverter.TextData}@,System.Boolean)">
             <summary>
             Extracts text along with its format.
@@ -298,6 +297,17 @@
             <param name=" textDataCollection">Provides the text data collection </param>
             <param name=" isLayout">maintains the layout if it is true </param>
             <returns>Returns the extracted text for the provided page</returns>
+        </member>
+        <member name="M:Syncfusion.PdfToImageConverter.PdfToImageConverter.TextExtraction(System.Int32,System.Collections.Generic.List{Syncfusion.PdfToImageConverter.TextData}@,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Extracts the text from the specified page index.
+            </summary>
+            <param name="index">Page index</param>
+            <param name="textDataCollection">Text collection</param>
+            <param name="isLayout">Text format</param>
+            <param name="isRotated">Whether rotated or not</param>
+            <param name="rotateAngle">Angle of rotation</param>
+            <returns>Returns the extracted text from the provided page index</returns>
         </member>
         <member name="M:Syncfusion.PdfToImageConverter.PdfToImageConverter.ExtractTextWithPageSize(System.Int32,System.Collections.Generic.Dictionary{System.Int32,Syncfusion.PdfToImageConverter.PageTextData}@)">
             <summary>

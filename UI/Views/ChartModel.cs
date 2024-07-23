@@ -80,7 +80,7 @@ namespace Badger
         /// <summary>
         /// The views
         /// </summary>
-        private protected BindingList<View> _views;
+        private protected BindingList<IView> _views;
 
         /// <summary>
         /// The count
@@ -105,7 +105,7 @@ namespace Badger
         /// <summary>
         /// The data
         /// </summary>
-        private protected IList<DataRow> _items;
+        private protected BindingList<DataRow> _items;
 
         /// <summary>
         /// The table name
@@ -172,7 +172,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public IList<DataRow> Items
+        public BindingList<DataRow> Items
         {
             get
             {
@@ -190,7 +190,7 @@ namespace Badger
         /// <value>
         /// The views.
         /// </value>
-        public BindingList<View> Views
+        public BindingList<IView> Views
         {
             get
             {
@@ -231,11 +231,11 @@ namespace Badger
             _index = 0;
             _count = 0;
             _data = new ObservableCollection<DataRow>( );
-            _items = new List<DataRow>( );
+            _items = new BindingList<DataRow>( );
             _columns = new List<string>( );
             _numerics = new List<string>( );
             _fields = new List<string>( );
-            _views = new BindingList<View>( );
+            _views = new BindingList<IView>( );
         }
 
         /// <inheritdoc />
@@ -248,7 +248,7 @@ namespace Badger
             : this( )
         {
             _data = dataTable?.ToObservable( );
-            _items = _data?.ToList( );
+            _items = dataTable.ToBindingList( );
             _current = _data?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
@@ -405,13 +405,13 @@ namespace Badger
         /// Creates the views.
         /// </summary>
         /// <returns></returns>
-        public BindingList<View> CreateViewList( )
+        public BindingList<IView> CreateViewList( )
         {
             try
             {
                 if( _data != null )
                 {
-                    _views = new BindingList<View>( );
+                    _views = new BindingList<IView>( );
                     for( var _index = 0; _index < _data.Count; _index++ )
                     {
                         var _dataRow = _data[ _index ];
@@ -420,22 +420,22 @@ namespace Badger
                         {
                             var _measure = _numerics[ _c ];
                             var _value = double.Parse( _dataRow[ _measure ].ToString( ) );
-                            var _view = new View( _index, _dimension, _measure, _value );
+                            var _view = new RowView( _index, _dimension, _measure, _value );
                             _views.Add( _view );
                         }
                     }
 
                     return ( _views?.Any( ) == true )
                         ? _views
-                        : default( BindingList<View> );
+                        : default( BindingList<IView> );
                 }
 
-                return default( BindingList<View> );
+                return default( BindingList<IView> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( BindingList<View> );
+                return default( BindingList<IView> );
             }
         }
 
@@ -443,13 +443,13 @@ namespace Badger
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
-        public ViewModel CreateViewModel( )
+        public IViewModel CreateViewModel( )
         {
             try
             {
                 if( _data != null )
                 {
-                    var _viewModel = new ViewModel( );
+                    var _viewModel = new RowModel( );
                     for( var _index = 0; _index < _data.Count; _index++ )
                     {
                         var _dataRow = _data[ _index ];
@@ -458,7 +458,7 @@ namespace Badger
                         {
                             var _numeric = _numerics[ _c ];
                             var _value = double.Parse( _dataRow[ _numeric ].ToString( ) );
-                            var _view = new View( _index, _dimension, _numeric, _value );
+                            var _view = new RowView( _index, _dimension, _numeric, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -466,12 +466,12 @@ namespace Badger
                     return _viewModel;
                 }
 
-                return default( ViewModel );
+                return default( IViewModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ViewModel );
+                return default( IViewModel );
             }
         }
 

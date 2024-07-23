@@ -700,7 +700,7 @@
         </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.IsArgumentIsNumber(System.String)">
             <summary>
-            Below method has been used to find the negative values(_ex formula:=LARGE({6,23,-5,2.3}, 2)).
+            Below method has been used to find the negative values(ex formula:=LARGE({6,23,-5,2.3}, 2)).
             </summary>
             <param name="arg">string contains negative values(eg:-2,-2,-2) or possitve value.</param>
             <returns> True if the values are number.else false.</returns>
@@ -1214,6 +1214,14 @@
             Compute the NestedIF formulas using new parse and compute technique.
             </summary>
             <param name="formula">formula to execute / compute</param>
+        </member>
+        <member name="M:Syncfusion.Calculate.CalcEngine.GetExactResultsFromCellReference(System.String,System.String)">
+            <summary>
+            This method is used to retrieve the exact results from a cell reference based on the cell formula.
+            </summary>
+            <param name="cellReference">This parameter represents the Parameter of IF formulas it can be either logical true or logical false.</param>
+            <param name="result">This parameter represents the result of the IF formulas parameter.</param>
+            <returns>Returns zero if the cell reference does not have any formula; otherwise, it returns the value of the formula in the cell reference.</returns>
         </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.ComputeFormula(System.String)">
             <summary>
@@ -4474,6 +4482,12 @@
             <param name="range">Range, mu, sigma.</param>
             <returns>Kth smallest value.</returns>
         </member>
+        <member name="M:Syncfusion.Calculate.CalcEngine.CalculateMultiRange(System.String@)">
+            <summary>
+            Calculate muti range and return cell value
+            </summary>
+            <param name="range"> contains multi cell range(eg:A1:A100)</param>
+        </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.ComputeMax(System.String)">
             <summary>
             Returns the maximum value of all values listed in the argument.
@@ -7100,9 +7114,9 @@
             <summary>
             This method is used to split the range and logical value when the range contains logical value.
             </summary>
-            <param name="range">Range with logical value(_ex:\u0092C1:C3\"1,2\"m\u0092)</param>
-            <param name="rangeValue">Spilt the range _ex("C1:C3")</param>
-            <param name="logicalValue">Split the logical value _ex("\"1,2\"m")</param>
+            <param name="range">Range with logical value(ex:\u0092C1:C3\"1,2\"m\u0092)</param>
+            <param name="rangeValue">Spilt the range ex("C1:C3")</param>
+            <param name="logicalValue">Split the logical value ex("\"1,2\"m")</param>
         </member>
         <member name="M:Syncfusion.Calculate.LinearRegression.Dispose">
             <summary>

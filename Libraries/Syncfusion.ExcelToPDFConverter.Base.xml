@@ -1999,6 +1999,16 @@
             <param name="startX">The x value.</param>
             <param name="startY">The y value.</param>
         </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.GetImageHasStyleProperties(Syncfusion.XlsIO.Implementation.Shapes.BitmapShapeImpl,System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+            Get Image has external properties or not.
+            </summary>
+            <param name="bitmapShape">BitmapShape</param>
+            <param name="pictureRect">Image rectangle</param>
+            <param name="width">Image width</param>
+            <param name="height">Image height</param>
+            <returns>True if image has external properties style, otherwise false</returns>
+        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ApplyImageTransparency(System.Drawing.Imaging.ImageAttributes,System.Single)">
             <summary>
             Apply Image transparency.
@@ -2948,6 +2958,15 @@
             <param name="charSet">The Charset of the font.</param>
             <param name="fontName">The name of the font.</param>
             <returns></returns>
+        </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.GetFallbackFont(System.String,System.String,System.Collections.Generic.List{Syncfusion.Office.FallbackFont})">
+            <summary>
+            Gets fall back font extension to preserve the text in converted Image.
+            </summary>
+            <param name="fontName">Represent fontName.</param>
+            <param name="testString">Represent testString.</param>
+            <param name="FallbackFonts">Represent FallbackFonts.</param>
+            <returns>Returns a fall back font instance, if it has; otherwise returns original Font.</returns>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CheckForUnicodeSymbols(System.String)">
             <summary>

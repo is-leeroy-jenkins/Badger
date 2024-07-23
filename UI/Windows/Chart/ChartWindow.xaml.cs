@@ -453,6 +453,32 @@ namespace Badger
                     _columnChart.PrimaryAxis = CreateCategoricalAxis( );
                     _columnChart.SecondaryAxis = CreateNumericalAxis( );
                     ColumnChartCanvas.Children.Add( _columnChart );
+                    _columnChart.Series?.Clear( );
+                    for( var _r = 0; _r < _chartModel.Data.Count; _r++ )
+                    {
+                        var _dimension = _columns[ 0 ];
+                        for( var _c = 0; _c < _numerics.Count; _c++ )
+                        {
+                            var _measure = _numerics[ _c ];
+                            var _series = new ColumnSeries3D
+                            {
+                                ItemsSource = _chartModel.Items,
+                                XBindingPath = _dimension,
+                                YBindingPath = _measure,
+                                EnableAnimation = true,
+                                FontSize = 10,
+                                Label = _measure,
+                                ShowEmptyPoints = true,
+                                Interior = _theme.Color[ 0 ],
+                                AdornmentsInfo = CreateAdornmentInfo( ),
+                                ShowTooltip = true,
+                                SegmentSpacing = .25,
+                                IsSeriesVisible = true,
+                            };
+
+                            _columnChart.Series?.Add( _series );
+                        }
+                    }
                 }
                 else
                 {
@@ -467,6 +493,8 @@ namespace Badger
 
                     _columnChart.PrimaryAxis = CreateCategoricalAxis( );
                     _columnChart.SecondaryAxis = CreateNumericalAxis( );
+                    var _series = new ColumnSeries3D( );
+                    _columnChart.Series.Add( _series ); 
                     ColumnChartCanvas.Children.Add( _columnChart );
                 }
             }
@@ -1203,14 +1231,14 @@ namespace Badger
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
-        private ViewModel CreateViewModel( )
+        private IViewModel CreateViewModel( )
         {
             try
             {
                 if( _dataTable != null
                     && _numerics?.Count > 0 )
                 {
-                    var _viewModel = new ViewModel( );
+                    var _viewModel = new RowModel( );
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
@@ -1219,7 +1247,7 @@ namespace Badger
                         {
                             var _measure = _numerics[ _i ];
                             var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                            var _view = new View( _index, _dimension, _measure, _value );
+                            var _view = new RowView( _index, _dimension, _measure, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1227,12 +1255,12 @@ namespace Badger
                     return _viewModel;
                 }
 
-                return default( ViewModel );
+                return default( IViewModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ViewModel );
+                return default( ViewModelBase );
             }
         }
 

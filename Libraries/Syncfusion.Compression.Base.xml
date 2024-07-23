@@ -3215,12 +3215,36 @@
             <param name="inputCharacter">Represent a input character to check.</param>
             <returns>Returns a FontScriptType of input character.</returns>
         </member>
+        <member name="M:Syncfusion.Office.TextSplitter.GetFontScriptSubType(System.Char)">
+            <summary>
+            Gets the fontscript subtype of an input character.
+            </summary>
+            <param name="inputCharacter">The input character to check.</param>
+            <returns>The fontscript subtype of the input character.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.TextSplitter.GetUnicodeRange(Syncfusion.Office.FontScriptType,System.Boolean)">
+            <summary>
+            Get Unicode range for a given font script type.
+            </summary>
+            <param name="fontScriptType">Represent the font script type.</param>
+            <param name="isStartRange">Represent whether to get start unicode range or not.</param>
+            <returns></returns>
+        </member>
         <member name="M:Syncfusion.Office.TextSplitter.SplitTextByFontScriptType(System.String,System.Collections.Generic.List{Syncfusion.Office.FontScriptType}@)">
             <summary>
             Split the input text based on the FontScriptType.
             </summary>
             <param name="inputText">Represent the input text to split.</param>
             <param name="fontScriptTypes">Represent the FontScriptType of a splitted text.</param>
+            <returns>Retruns the array of splitted text.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.TextSplitter.SplitTextByFontScriptType(System.String,System.Collections.Generic.List{Syncfusion.Office.FontScriptType}@,System.Boolean)">
+            <summary>
+            Split the input text based on the fontscript type.
+            </summary>
+            <param name="inputText">Represent the input text to split.</param>
+            <param name="fontScriptTypes">Represent the fontscript type of a splitted text.</param>
+            <param name="splitTextBasedOnSubType">Represent whether to split textrange based on fontscript subtype.</param>
             <returns>Retruns the array of splitted text.</returns>
         </member>
         <member name="M:Syncfusion.Office.TextSplitter.SplitTextByConsecutiveLtrAndRtl(System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Syncfusion.Office.CharacterRangeType}@,System.Nullable{System.Boolean}@,System.Boolean@)">
@@ -3335,6 +3359,12 @@
             Gets or Sets a Unicode range of end character which use a fall back font.
             </summary>
         </member>
+        <member name="P:Syncfusion.Office.FallbackFont.ScriptType">
+            <summary>
+            Gets the <see cref="T:Syncfusion.Office.ScriptType"/> of the fallback font.
+            </summary>
+            <remarks>Script type is unknown for the custom Unicode ranges.</remarks>
+        </member>
         <member name="P:Syncfusion.Office.FallbackFont.FontNames">
             <summary>
             Gets or Sets a fall back font names (split by comma).
@@ -3346,6 +3376,79 @@
             </summary>
             <param name="inputText">Represent a input text to check.</param>
             <returns>Returns true, if any character of input text is in-between start and end Unicode range; Otherwise false.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.GetScriptType">
+            <summary>
+            Get the fallback font script type.
+            </summary>
+            <returns>Returns the script type of a fallback font if is valid range. Otherwise, it is unknown for the custom Unicode ranges.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsArabicUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Arabic are the same.
+            </summary>
+            <returns>Return true if the specified range are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsHebrewUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Hebrew are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsHindiUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Hindi are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsKoreanUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Korean are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsJapaneseUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Japanese are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsThaiUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Thai are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFont.IsChineseUnicodeRange">
+            <summary>
+            Check if the start and end Unicode ranges for Chinese are the same.
+            </summary>
+            <returns>Return true if the specified ranges are same.</returns>
+        </member>
+        <member name="T:Syncfusion.Office.FallbackFonts">
+            <summary>
+            Represents a collection of <see cref="T:Syncfusion.Office.FallbackFont"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFonts.Add(Syncfusion.Office.ScriptType,System.String)">
+            <summary>
+            Adds a set of fallback fonts based on given script type.
+            </summary>
+            <param name="scriptType">Represents a <see cref="T:Syncfusion.Office.ScriptType"/>.</param>
+            <param name="fontNames">Represents a fall back font name or names (split by a comma).</param>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFonts.AddFallbackFont(System.UInt32,System.UInt32,System.String)">
+            <summary>
+            Adds a fallback font to the collection.
+            </summary>
+            <param name=" startUnicodeRange ">Represent a start Unicode range of fallback font.</param>
+            <param name=" endUnicodeRange ">Represent a end Unicode range of fallback font.</param>
+            <param name="fontNames">Represent a fallback font names.</param>
+        </member>
+        <member name="M:Syncfusion.Office.FallbackFonts.InitializeDefault">
+            <summary>
+            Initializes a set of default fallback fonts.
+            </summary>
         </member>
         <member name="T:Syncfusion.Office.LocaleIDs">
             <summary>
@@ -4577,6 +4680,51 @@
             Japanese.
             </summary>
         </member>
+        <member name="T:Syncfusion.Office.ScriptType">
+            <summary>
+            Specifies the script, or language.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Unknown">
+            <summary>
+            Unknown script type.
+            </summary>   
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Hindi">
+            <summary>
+            Hindi.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Korean">
+            <summary>
+            Korean.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Chinese">
+            <summary>
+            Chinese.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Arabic">
+            <summary>
+            Arabic.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Hebrew">
+            <summary>
+            Hebrew.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Japanese">
+            <summary>
+            Japanese.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Office.ScriptType.Thai">
+            <summary>
+            Thai.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Office.FontScriptType">
             <summary>
             Used to represent the font script type of the text.
@@ -4585,6 +4733,420 @@
         <member name="T:Syncfusion.Office.CharacterRangeType">
             <summary>
             Used to represent the character range type of the text.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Office.ICrop">
+            <summary>
+            Represents the crop properties used to define the portion of an image to be cropped.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.OffsetX">
+            <summary> 
+            Gets or sets the x-axis offset of the image to be cropped.
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.OffsetX"/> is outside the valid range of -169092 to 169092. 
+            </exception>
+            <remarks>
+            The bounding box properties (<see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/>, <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerRight"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerBottom"/>) must be set before this cropping property for proper functionality.
+            </remarks>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.OffsetY">
+            <summary> 
+            Gets or sets the y-axis offset of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.OffsetY"/> is outside the valid range of -169092 to 169092. 
+            </exception>
+            <remarks>
+            The bounding box properties (<see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/>, <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerRight"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerBottom"/>) must be set before this cropping property for proper functionality.
+            </remarks>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.Width">
+            <summary> 
+            Gets or sets the width of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.Width"/> is outside the valid range of 0 to 169092. 
+            </exception>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.Height">
+            <summary> 
+            Gets or sets the height of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.Height"/> is outside the valid range of 0 to 169092. 
+            </exception>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.ContainerLeft">
+            <summary> 
+            Gets or sets the location of the left side of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/> is outside the valid range of -169092 to 169092. 
+            </exception> 
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.ContainerTop">
+            <summary> 
+            Gets or sets the location of the top of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/> is outside the valid range of -169092 to 169092. 
+            </exception>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.ContainerWidth">
+            <summary> 
+            Gets or sets the width of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerWidth"/> is outside the valid range of 0 to 169092. 
+            </exception>
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Office.ICrop.ContainerHeight">
+            <summary> 
+            Gets or sets the height of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerHeight"/> is outside the valid range of 0 to 169092. 
+            </exception> 
+            <example>
+            <code lang="CS">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            <code lang="VB.NET">
+            //Apply bounding box size and position.
+            picture.Crop.ContainerWidth = 280.8F;
+            picture.Crop.ContainerHeight = 180F;
+            picture.Crop.ContainerLeft = 360F;
+            picture.Crop.ContainerTop = 180.5F;
+            //Apply cropping size and offsets.
+            picture.Crop.Width =  410.4F;
+            picture.Crop.Height = 252F;
+            picture.Crop.OffsetX = -28.8F;
+            picture.Crop.OffsetY = 7.2F;
+            </code>
+            </example>
+        </member>
+        <member name="T:Syncfusion.Office.Crop">
+            <summary>
+            Represents the crop properties used to define the portion of an image to be cropped.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.BottomCrop">
+            <summary>
+            Gets or sets the value representing the bottom crop of an image.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.LeftCrop">
+            <summary>
+            Gets or sets the value representing the left crop of an image.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.RightCrop">
+            <summary>
+            Gets or sets the value representing the right crop of an image.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.TopCrop">
+            <summary>
+            Gets or sets the value representing the top crop of an image.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.OffsetX">
+            <summary> 
+            Gets or sets the x-axis offset of the image to be cropped.
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.OffsetX"/> is outside the valid range of -169092 to 169092. 
+            </exception>
+            <remarks>
+            The bounding box properties (<see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/>, <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerRight"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerBottom"/>) must be set before this cropping property for proper functionality.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.OffsetY">
+            <summary> 
+            Gets or sets the y-axis offset of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.OffsetY"/> is outside the valid range of -169092 to 169092. 
+            </exception>
+            <remarks>
+            The bounding box properties (<see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/>, <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerRight"/>, <see cref="!:Syncfusion.Office.ICrop.ContainerBottom"/>) must be set before this cropping property for proper functionality.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.Width">
+            <summary> 
+            Gets or sets the width of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.Width"/> is outside the valid range of 0 to 169092. 
+            </exception>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.Height">
+            <summary> 
+            Gets or sets the height of the image to be cropped. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.Height"/> is outside the valid range of 0 to 169092. 
+            </exception>
+        </member>
+        <member name="P:Syncfusion.Office.Crop.ContainerLeft">
+            <summary> 
+            Gets or sets the location of the left side of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerLeft"/> is outside the valid range of -169092 to 169092. 
+            </exception> 
+        </member>
+        <member name="P:Syncfusion.Office.Crop.ContainerTop">
+            <summary> 
+            Gets or sets the location of the top of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerTop"/> is outside the valid range of -169092 to 169092. 
+            </exception> 
+        </member>
+        <member name="P:Syncfusion.Office.Crop.ContainerWidth">
+            <summary> 
+            Gets or sets the width of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerWidth"/> is outside the valid range of 0 to 169092. 
+            </exception> 
+        </member>
+        <member name="P:Syncfusion.Office.Crop.ContainerHeight">
+            <summary> 
+            Gets or sets the height of a shape used to crop an image. 
+            </summary> 
+            <exception cref="T:System.ArgumentOutOfRangeException"> 
+            Thrown if the specified value for <see cref="P:Syncfusion.Office.ICrop.ContainerHeight"/> is outside the valid range of 0 to 169092. 
+            </exception>
+        </member>
+        <member name="M:Syncfusion.Office.Crop.Clone">
+            <summary>
+            Creates a copy of the <see cref="T:Syncfusion.Office.Crop"/> instance.
+            </summary>
+            <returns>A cloned instance of the <see cref="T:Syncfusion.Office.Crop"/> object.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.Crop.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:Syncfusion.Office.Crop"/> class.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Office.IShapeFrame">
+            <summary>
+            Represents the shape properties.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.IShapeFrame.Left">
+            <summary>
+            Gets or sets left value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.IShapeFrame.Top">
+            <summary>
+            Gets or sets top value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.IShapeFrame.Width">
+            <summary>
+            Gets or sets width value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Office.IShapeFrame.Height">
+            <summary>
+            Gets or sets height value.
             </summary>
         </member>
         <member name="P:Syncfusion.Office.MatrixColumnProperties.Count">
@@ -5217,6 +5779,7 @@
             Gets the owner.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Office.IOfficeMathParagraph.LaTeX" -->
         <member name="T:Syncfusion.Office.IOfficeMathPhantom">
              <summary>
             Represents a phantom object, which has two primary uses: (1) adding the spacing of the phantom base without displaying that base or (2) suppressing part of the glyph from spacing considerations
@@ -7642,6 +8205,516 @@
             <param name="value">float value</param>
             <returns></returns>
         </member>
+        <member name="T:Syncfusion.Office.LaTeXConverter">
+            <summary>
+            Represents the parser for MathML items from LaTeX string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathPara(System.String,Syncfusion.Office.IOfficeMathParagraph,Syncfusion.Office.DocumentLaTeXConverter)">
+            <summary>
+            Parse OMathPara which holds the MathML item using the LaTeX string.
+            </summary>
+            <param name="laTexString">LaTex string to parse</param>
+            <param name="mathPara">MathPara to store the parsed LaTeX string</param>
+            <param name="documentLaTeXConverter">DocIO LaTeX parser instance</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathEquation">
+            <summary>
+            Parse the math para according to the math function type
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathAccent">
+            <summary>
+            Parse Math Accent equation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathBar">
+            <summary>
+            Parse Math Bar equation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathBox">
+            <summary>
+            Parse Math Box equation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathBorderBox">
+            <summary>
+            Parse Math BorderBox equation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathDelimiter">
+            <summary>
+            Parse math delimiter equation
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.CheckDelimiterSyntax(System.String@,System.String@,System.String@,System.Collections.Generic.List{System.String}@,System.String@)">
+            <summary>
+            Check whether the LaTeX string has proper delimiter syntax
+            </summary>
+            <param name="beginChar"></param>
+            <param name="endChar"></param>
+            <param name="sepChar"></param>
+            <param name="inBetweenStrings"></param>
+            <returns>Returns true, if the syntax matches; else false</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetDelimiterString(System.String@)">
+            <summary>
+            Get the delimiter string
+            </summary>
+            <returns>Returns the delimiter string to set</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseEquationArray">
+            <summary>
+            Parse math equation array
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.SplitEquationArray(System.String)">
+            <summary>
+            Split the equation array into list of equations.
+            </summary>
+            <param name="equationString">The entire equation string of the equation array.</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathFraction">
+            <summary>
+            Parse math fraction
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathNoFractionBar(System.String,System.Int32)">
+            <summary>
+            Parse math NoFractionBar FractionType.
+            </summary>
+            <param name="numerator">Numerator of fraction equation</param>
+            <param name="startLaTexPos">LaTex string start position</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathFunction">
+            <summary>
+            Parse math Function equation
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathGroupCharacter">
+            <summary>
+            Parse Group Character equation.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathLimit(System.String,System.Int32)">
+            <summary>
+            Parse the math limit.
+            </summary>
+            <param name="equationText">Equation text of math limit</param>
+            <param name="startLaTexPos">The math limit start position</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathMatrix">
+            <summary>
+            Parse Math Matrix
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.CheckMatrixSyntax(System.Collections.Generic.List{System.Collections.Generic.List{System.String}}@,System.Int32@)">
+            <summary>
+            Check the matrix equation syntax
+            </summary>
+            <param name="matrixRows"></param>
+            <param name="maxColCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathNArray">
+            <summary>
+            Parse Math N-Array.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathRadical">
+            <summary>
+            Parse math radical
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.CheckRadicalSyntax(System.String@,System.String@)">
+            <summary>
+            Check the radical syntax
+            </summary>
+            <param name="degree"></param>
+            <param name="equation"></param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.IsValidGroup(System.String@)">
+            <summary>
+            Check whether the current group start have proper group end
+            </summary>
+            <returns>Returns the string between the group start and group end</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.CheckSquareBracSyntax">
+            <summary>
+            Check whether the current group start have proper group end
+            </summary>
+            <returns>Returns the string between the group start and group end</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathGroupStart">
+            <summary>
+            Parse the group start ("{").
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathSubSuperScript(System.String,System.Int32)">
+            <summary>
+            Parse Math SubSuperscript
+            </summary>
+            <param name="equationString">SubSuperscript equation run element text string value.</param>
+            <param name="startLaTexPos">Group start index position</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathLeftSubSuperScript(System.String,System.Int32)">
+            <summary>
+            Parse math LeftSubSuperScript
+            </summary>
+            <param name="groupBetweenText">Script text inside the group</param>
+            <param name="startLaTexPos">Previous position of group start.</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseMathRightSubSuperScript(System.String,System.String,Syncfusion.Office.MathScriptType,System.Int32)">
+            <summary>
+            Parse the math RightSubSuperScript.
+            </summary>
+            <param name="equationString">Equation run element string</param>
+            <param name="scriptString">The script string can be sub or super script.</param>
+            <param name="scriptType">Previous script type</param>
+            <param name="startLaTexPos">LaTex string first start position.</param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ParseDefaultLaTeXElement">
+            <summary>
+            Parse the run element.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.SetRunElement(System.String)">
+            <summary>
+            Set the run element for the given string
+            </summary>
+            <param name="runElementString"></param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ResetAndParseMath(System.String,Syncfusion.Office.OfficeMath)">
+            <summary>
+            Reset the global values and parse the math for the given string
+            </summary>
+            <param name="currString"></param>
+            <param name="currMath"></param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetEquationString">
+            <summary>
+            Get the equation string.
+            </summary>
+            <returns>The equation string. If equation not in proper group or invalid characters return null.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetLaTexElement">
+            <summary>
+            Get the each LaTex element from LaTex string.
+            </summary>
+            <returns>Returns the each LaTex element</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.Close">
+            <summary>
+            Reset the values once the parsing is done.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetSymbol(System.String)">
+            <summary>
+            Get the equal symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return the same laTexString</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetBasicMathCharString(System.String)">
+            <summary>
+            Get the equal basic math symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetGreekLetterCharString(System.String)">
+            <summary>
+            Get the equal greek letters symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetLetterLikeSymbolCharString(System.String)">
+            <summary>
+            Get the equal letter-like symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetOperatorsSymbolCharString(System.String)">
+            <summary>
+            Get the equal basic math symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetCommonBinaryOperatorCharString(System.String)">
+            <summary>
+            Get the equal common binary opertaors symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetCommonRelationalOperatorCharString(System.String)">
+            <summary>
+            Get the equal common relational operators symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetBasicNaryOperatorCharString(System.String)">
+            <summary>
+            Get the equal basic N-ary operators symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetAdvancedBinaryOperatorsCharString(System.String)">
+            <summary>
+            Get the advanced binary operators symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetAdvancedRelationalOperatorCharString(System.String)">
+            <summary>
+            Get the equal advanced relational operator symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetArrowCharString(System.String)">
+            <summary>
+            Get the equal arrows symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetNegatedCharString(System.String)">
+            <summary>
+            Get the equal negated relations symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetGeometryCharString(System.String)">
+            <summary>
+            Get the equal geometry symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetNonRenderableCharString(System.String)">
+            <summary>
+            Get the equal non renderable symbol for LatexString.
+            </summary>
+            <param name="latexString">LaTex string to convert symbol</param>
+            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetLaTeX(Syncfusion.Office.IOfficeMathParagraph)">
+            <summary>
+            Get the LaTeX string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMath(Syncfusion.Office.IOfficeMath)">
+            <summary>
+            Process IOfficeMath.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathFunctions(Syncfusion.Office.IOfficeMathBaseCollection)">
+            <summary>
+            Process IOfficeMathBaseCollection.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessFunction(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process IOfficeMathFunctionBase.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathAccent(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Accent.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathBar(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Bar.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathBox(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Box.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathBorderBox(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Border Bar.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathFraction(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Fraction.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathFunction(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Function.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathDelimiter(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Delimiter.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.AppendDelimiterCharacter(System.String)">
+            <summary>
+            Helper method to append the delimiter character.
+            </summary>
+            <param name="delimiterCharacter"></param>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathGroupCharacter(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Group Character.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathLimit(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Limit.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathMatrix(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Matrix.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathNArray(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math NArray.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathRadical(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math Radical.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathSubSuperscript(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math SubSuperscript.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathLeftSubSuperscript(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math LeftSubSuperscript.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathRightSubSuperscript(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Math RightSubSuperscript.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessEquationArrayElement(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Equation Array Element
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessRunElement(Syncfusion.Office.IOfficeMathFunctionBase)">
+            <summary>
+            Process Run Element.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathFontType(Syncfusion.Office.MathFontType)">
+            <summary>
+             Processes the math font type and appends corresponding LaTeX string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessMathStyleType(Syncfusion.Office.MathStyleType)">
+            <summary>
+             Processes the math style type and appends corresponding LaTeX string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.ProcessHasNormalText(System.Boolean)">
+            <summary>
+            Processes the hasNormalText flag and appends corresponding LaTeX string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetSymbolLaTeX(System.Char,Syncfusion.Office.MathFontType)">
+            <summary>
+            Process Symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetBasicMathLaTeX(System.Char)">
+            <summary>
+            Process Basic Math symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Basic Math symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetGreekLetterLaTeX(System.Char)">
+            <summary>
+            Process Greek Letter symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Greek Letter symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetLetterLikeSymbolLaTeX(System.Char,Syncfusion.Office.MathFontType)">
+            <summary>
+            Process Letter-Like symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Letter-Like symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetCommonBinaryOperatorLaTeX(System.Char)">
+            <summary>
+            Process Common Binary Operator symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Common Binary Operator symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetCommonRelationalOperatorCharString(System.Char)">
+            <summary>
+            Process Common Relational Operator symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Common Relational Operator symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetAdvancedBinaryOperatorsCharString(System.Char)">
+            <summary>
+            Process Advanced Binary Operator symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Advanced Binary Operator symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetAdvancedRelationalOperatorCharString(System.Char)">
+            <summary>
+            Process Advanced Relational Operator symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Advanced Relational Operator symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetArrowLaTeX(System.Char)">
+            <summary>
+            Process Arrow symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Arrow symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetNegatedLaTeX(System.Char)">
+            <summary>
+            Process Negated Relation symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Negated Relation symbols.</returns>
+        </member>
+        <member name="M:Syncfusion.Office.LaTeXConverter.GetGeometryLaTeX(System.Char)">
+            <summary>
+            Process Geometry symbols.
+            </summary>
+            <param name="runElementText"></param>
+            <returns>LaTeX string for the Geometry symbols.</returns>
+        </member>
+        <member name="T:Syncfusion.Office.DocumentLaTeXConverter">
+            <summary>
+            LaTeX parser to connect the DocIO LaTeX parser and LaTeXParser.
+            </summary>
+        </member>
         <member name="F:Syncfusion.Office.OfficeMathNArray.m_equation">
             <summary>
              Specifies an <see cref="T:Syncfusion.Office.IOfficeMath"/> object that represents the base of the specified equation object.                                         
@@ -7814,6 +8887,19 @@
             <summary>
             Represents the default character format for functions in mathematical equation
             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Office.OfficeMathParagraph.LaTeX" -->
+        <member name="P:Syncfusion.Office.OfficeMathParagraph.LaTeXConverter">
+            <summary>
+            Get the instance of LaTeXConverter.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Office.OfficeMathParagraph.ConvertLaTeXToMath(System.String,Syncfusion.Office.DocumentLaTeXConverter)">
+            <summary>
+            Converts the LaTeX to MathML.
+            </summary>
+            <param name="laTeX">LaTeX string to convert</param>
+            <param name="documentLaTeXConverter">DocIO LaTeX parser instance</param>
         </member>
         <member name="M:Syncfusion.Office.OfficeMathParagraph.Clone">
             <summary>

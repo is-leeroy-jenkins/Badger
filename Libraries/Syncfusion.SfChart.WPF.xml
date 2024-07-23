@@ -42277,5 +42277,15 @@
             A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
             </returns>
         </member>
+        <member name="T:Syncfusion.Windows.Shared.LicensePopup">
+            <summary>
+            LicensePopup
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Shared.LicensePopup.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
     </members>
 </doc>

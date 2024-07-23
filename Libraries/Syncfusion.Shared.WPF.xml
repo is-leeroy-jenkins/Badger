@@ -2613,6 +2613,19 @@
             Using a DependencyProperty as the backing store for IsMultiLine.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Tools.Controls.ButtonAdv.CornerRadius">
+            <summary>
+            Gets or sets the corner radius of the button.
+            </summary>
+            <value>
+            The corner radius applied to the button's corners. The default value is 3.
+            </value>
+        </member>
+        <member name="F:Syncfusion.Windows.Tools.Controls.ButtonAdv.CornerRadiusProperty">
+            <summary>
+            Using a DependencyProperty as the backing store for CornerRadius.
+            </summary>
+        </member>
         <member name="E:Syncfusion.Windows.Tools.Controls.ButtonAdv.Checked">
             <summary>
             Occurs when button is [checked].
@@ -5269,9 +5282,24 @@
             Load the theme color panel with selected theme colors
             </summary>
         </member>
+        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.HighLightThemeColor">
+            <summary>
+            Theme color Highlighted when SelectedBrush/Color of the ColorPickerPalette is changed programmatically. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.UnSelectPreviousColor">
+            <summary>
+            To unselect the previous color.
+            </summary>
+        </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.StandardColors">
             <summary>
             Load the Standard color panel with predefined standard colors
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.HighlightStdColor">
+            <summary>
+            Standard color Highlighted when SelectedBrush/Color of the ColorPickerPalette is changed programmatically. 
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.RecentlyUsed">
@@ -5324,6 +5352,11 @@
             When color is changed,its presence is checked in RecentlyUsedCollection.If not present then added.
             </summary>
             <param name="e">Property change details, such as old value and new value</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.ChangeThemeAndStdColor">
+            <summary>
+            When theme or std color changes the selection is changed
+            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.standard_visibility_changed(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
@@ -11622,7 +11655,7 @@
             Stors the Storyboard Animation Position.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Shared.TileViewItemAnimationBase.ParentTileViewControl">
+        <member name="F:Syncfusion.Windows.Shared.TileViewItemAnimationBase.tileView">
             <summary>
             stores the details of rows in the TileViewControl
             </summary>
@@ -12037,6 +12070,21 @@
         <member name="F:Syncfusion.Windows.Shared.TileViewControl.MinimizeditemsOrder">
             <summary>
             stores all the item's minimized order
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.TileViewControl.vScrollBar">
+            <summary>
+            variable to store the vertical scroll bar associated with the TileViewControl.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.TileViewControl.hScrollBar">
+            <summary>
+            variable to store the horizontal scroll bar associated with the TileViewControl.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.TileViewControl.isContextMenuOpen">
+            <summary>
+            Boolean variable to store whether the scroll's context menu is opened or not.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Shared.TileViewControl.MinimizedVirtualItemSize">
@@ -12684,6 +12732,22 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="args">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Shared.TileViewControl.BringIntoView(System.Object)">
+            <summary>
+            Attempts to bring the specified element into view, within any scrollable regions it is contained within. 
+            </summary>
+            <param name="data">An element that should bring into the view.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Shared.TileViewControl.BringIntoView(System.Int32)">
+            <summary>
+            Bring the item into view, using the specified index.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Shared.TileViewControl.UpdateFirstVisibleIndex(System.Int32)">
+            <summary>
+            Update the FirstVisibleIndex and the scroll for the item into view.
+            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Shared.TileViewControl.IsItemItsOwnContainerOverride(System.Object)">
             <summary>
@@ -14078,6 +14142,11 @@
         <member name="F:Syncfusion.Windows.Shared.TileViewVirtualizingPanel.VirtualRow">
             <summary>
             Stores the default row count 
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.TileViewVirtualizingPanel.verticalBar">
+            <summary>
+            Stores the value of VerticalScrollBar.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Shared.TileViewVirtualizingPanel.parentItemsControl">
@@ -34942,6 +35011,11 @@
             </summary>
             <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> that contains the event data. This event data reports details about the mouse button that was pressed and the handled state.</param>
         </member>
+        <member name="M:Syncfusion.Windows.Shared.ChromelessWindow.DragMoveWindow">
+            <summary>
+            Initiates window dragging by simulating a left mouse button down click on the window's title bar.
+            </summary>
+        </member>
         <member name="M:Syncfusion.Windows.Shared.ChromelessWindow.OnApplyTemplate">
             <summary>
             Called when an internal process or application calls
@@ -35915,6 +35989,16 @@
         <member name="F:Syncfusion.Windows.Shared.ChromelessWindowInterop.WM_LBUTTONUP">
             <summary>
             Define button
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ChromelessWindowInterop.WM_NCLBUTTONDOWN">
+            <summary>
+            Defines the non-client area (NCA) left button down message.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ChromelessWindowInterop.HT_CAPTION">
+            <summary>
+            Specifies the portion of the window's non-client area (NC) that the message is directed to. 
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Shared.ChromelessWindowInterop.TPM_RETURNCMD">
@@ -42234,6 +42318,45 @@
             Calculates the background for RGB model.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorEdit.IsGradientOriginVisible">
+            <summary>?  
+             Gets or sets a value indicating whether the input box for the gradient origin of a radial gradient color is visible. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorEdit.IsCenterVisible">
+            <summary>?  
+             Gets or sets a value indicating whether the input box for the center of a radial gradient color is visible. 
+            </summary>? 
+        </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorEdit.IsRadiusVisible">
+            <summary>?  
+             Gets or sets a value indicating whether the input box for the radius of a radial gradient color is visible. 
+            </summary>? 
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorEdit.IsGradientOriginVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsGradientOriginVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorEdit.IsCenterVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsCenterVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorEdit.IsRadiusVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsRadiusVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
         <member name="M:Syncfusion.Windows.Shared.ColorEdit.CalculateHSVBackground">
             <summary>
             Calculates the background of H,S and V sliders with respective to selected color.
@@ -42562,6 +42685,21 @@
             Gets or sets a value indicating whether to show tooltip or not.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorPicker.IsGradientOriginVisible">
+            <summary>   
+             Gets or sets a value indicating whether the input box for the gradient origin of a radial gradient color is visible. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorPicker.IsCenterVisible">
+            <summary>   
+             Gets or sets a value indicating whether the input box for the center of a radial gradient color is visible. 
+            </summary>  
+        </member>
+        <member name="P:Syncfusion.Windows.Shared.ColorPicker.IsRadiusVisible">
+            <summary>   
+             Gets or sets a value indicating whether the input box for the radius of a radial gradient color is visible. 
+            </summary>  
+        </member>
         <member name="F:Syncfusion.Windows.Shared.ColorPicker.HeaderTemplateProperty">
             <summary>
             Identifies the <see cref="P:Syncfusion.Windows.Shared.ColorPicker.HeaderTemplate"/> dependency property.
@@ -42644,6 +42782,30 @@
             Type: <see cref="T:System.Boolean"/>
             </value>
         </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorPicker.IsGradientOriginVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsGradientOriginVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorPicker.IsCenterVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsCenterVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
+        <member name="F:Syncfusion.Windows.Shared.ColorPicker.IsRadiusVisibleProperty">
+            <summary>
+            Identifies ColorPicker.IsRadiusVisible dependency property.
+            </summary>
+            <value>
+            Type: <see cref="T:System.Boolean"/>
+            </value>
+        </member>
         <member name="M:Syncfusion.Windows.Shared.ColorPicker.#cctor">
             <summary>
             Initializes static members of the <see cref="T:Syncfusion.Windows.Shared.ColorPicker"/> class.
@@ -42658,6 +42820,14 @@
             <summary>
             Occurs when the <see cref="P:Syncfusion.Windows.Shared.ColorPicker.Color"/> property changed in ColorPicker.
             </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Shared.ColorPicker.SelectedColorChanged">
+            <summary>  
+            Occurs when the selected color changes.  
+            </summary>  
+            <remarks>  
+            This event is raised when the Color property of the control changes, indicating a change in the selected color.  
+            </remarks> 
         </member>
         <member name="E:Syncfusion.Windows.Shared.ColorPicker.EnableToolTipChanged">
             <summary>
@@ -54608,6 +54778,16 @@
             Brightness parameter.
             </summary>
         </member>
+        <member name="T:Syncfusion.Windows.Shared.LicensePopup">
+            <summary>
+            LicensePopup
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Shared.LicensePopup.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Converters.BrushToColorConverter">
             <summary>
             Represents a convertor that converts brush to color
@@ -56327,6 +56507,23 @@
             <summary>
             Assembly info class
             </summary>
+        </member>
+        <member name="T:SelectedColorChangedEventArgs">
+            <summary> 
+            Provides event data for the SelectedColorChanged event. 
+            </summary> 
+        </member>
+        <member name="P:SelectedColorChangedEventArgs.OldColor">
+            <summary>  
+            Gets the previously selected color of the color picker.  
+            </summary>  
+            <value>The previously selected color. </value> 
+        </member>
+        <member name="P:SelectedColorChangedEventArgs.NewColor">
+            <summary>  
+            Gets the newly selected color of the color picker.  
+            </summary>  
+            <value>The newly selected color.</value> 
         </member>
         <member name="F:Standard.IID.EnumIdList">
             <summary>IID_IEnumIDList</summary>
