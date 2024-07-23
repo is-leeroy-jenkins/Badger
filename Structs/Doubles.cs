@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-20-2024
+//     Created:                 07-21-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-20-2024
+//     Last Modified On:        07-21-2024
 // ******************************************************************************************
-// <copyright file="ToolStrip.cs" company="Terry D. Eppler">
+// <copyright file="Doubles.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry D. Eppler
 // 
@@ -33,72 +33,112 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ToolStrip.cs
+//   Doubles.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
-    using Syncfusion.Windows.Tools.Controls;
 
     /// <summary>
-    ///
+    /// 
     /// </summary>
-    /// <seealso cref="ToolbarBase" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ToolStrip : ToolbarBase
+    [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    public struct Doubles
     {
         /// <summary>
-        /// The theme
+        /// The start
         /// </summary>
-        private protected DarkMode _theme = new DarkMode( );
+        private double _start;
 
         /// <summary>
-        /// The buttons
+        /// The end
         /// </summary>
-        private protected IList<object> _items;
+        private double _end;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStrip"/> class.
+        /// The delta
         /// </summary>
-        /// <inheritdoc />
-        public ToolStrip( )
-            : base( )
+        private double _delta;
+
+        /// <summary>
+        /// The step
+        /// </summary>
+        private double _step;
+
+        public Doubles( double start, double end, double step = 1 )
         {
-            // Control Properties
-            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Height = 40;
-            Width = 1400;
-            GripperVisibility = Visibility.Hidden;
-            OverflowButtonVisibility = Visibility.Collapsed;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BackColor;
+            _start = start;
+            _end = end;
+            _delta = end - start;
+            _step = 1;
         }
 
         /// <summary>
-        /// Fails the specified _ex.
+        /// Gets or sets the start.
         /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected void Fail( Exception _ex )
+        /// <value>
+        /// The start.
+        /// </value>
+        public double Start
         {
-            var _error = new ErrorWindow( _ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            get
+            {
+                return _start;
+            }
+            private set
+            {
+                _start = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
+        /// <value>
+        /// The end.
+        /// </value>
+        public double End
+        {
+            get
+            {
+                return _end;
+            }
+            private set
+            {
+                _end = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
+        public double Delta
+        {
+            get
+            {
+                return _start;
+            }
+        }
+
+        /// <summary>
+        /// Gets the step.
+        /// </summary>
+        /// <value>
+        /// The step.
+        /// </value>
+        public double Step
+        {
+            get
+            {
+                return _start;
+            }
         }
     }
 }

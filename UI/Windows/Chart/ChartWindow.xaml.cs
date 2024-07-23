@@ -436,20 +436,39 @@ namespace Badger
         {
             try
             {
-                _columnChart = new MetroColumnChart
+                if( _dataTable != null )
                 {
-                    Height = 454,
-                    Width = 800,
-                    Margin = new Thickness( 0 ),
-                    PrimaryAxis = CreateCategoricalAxis( ),
-                    SecondaryAxis = CreateNumericalAxis( ),
-                    Visibility = Visibility.Visible,
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName?.SplitPascal( )
-                        : "Pie Chart"
-                };
+                    DataContext = _chartModel.Data;
+                    _columnChart = new MetroColumnChart
+                    {
+                        Height = 454,
+                        Width = 800,
+                        Margin = new Thickness( 1 ),
+                        PrimaryAxis = CreateCategoricalAxis( ),
+                        SecondaryAxis = CreateNumericalAxis( ),
+                        Visibility = Visibility.Visible,
+                        Header = _dataTable.TableName?.SplitPascal( )
+                    };
 
-                ColumnChartCanvas.Children.Add( _columnChart );
+                    _columnChart.PrimaryAxis = CreateCategoricalAxis( );
+                    _columnChart.SecondaryAxis = CreateNumericalAxis( );
+                    ColumnChartCanvas.Children.Add( _columnChart );
+                }
+                else
+                {
+                    _columnChart = new MetroColumnChart
+                    {
+                        Height = 454,
+                        Width = 800,
+                        Margin = new Thickness( 1 ),
+                        Visibility = Visibility.Visible,
+                        Header = "Column Chart"
+                    };
+
+                    _columnChart.PrimaryAxis = CreateCategoricalAxis( );
+                    _columnChart.SecondaryAxis = CreateNumericalAxis( );
+                    ColumnChartCanvas.Children.Add( _columnChart );
+                }
             }
             catch( Exception ex )
             {
@@ -934,7 +953,6 @@ namespace Badger
                 _numerics = _data.Numerics;
                 _dataMetric = new DataMeasure( _dataTable );
                 _chartModel = new ChartModel( _dataTable );
-                ColumnChartCanvas.DataContext = _dataTable;
             }
             catch( Exception ex )
             {
@@ -1104,6 +1122,7 @@ namespace Badger
                     FontSize = 10,
                     AdornmentsPosition = AdornmentsPosition.Top,
                     LabelPosition = AdornmentsLabelPosition.Outer,
+                    LabelRotationAngle = 0,
                     UseSeriesPalette = false,
                     BorderThickness = _theme.BorderThickness,
                     HighlightOnSelection = true,
@@ -1133,24 +1152,19 @@ namespace Badger
         {
             try
             {
-                if( _dataTable != null )
+                var _adornment = new ChartAdornment3D
                 {
-                    var _adornment = new ChartAdornment3D
-                    {
-                        FontSize = 10,
-                        FontFamily = _theme.FontFamily,
-                        BorderThickness = _theme.BorderThickness,
-                        ConnectorRotationAngle = 45,
-                        BorderBrush = _theme.BorderColor,
-                        Foreground = _theme.LightBlueColor,
-                        Background = _theme.ControlColor,
-                        Stroke = _theme.ItemHoverColor
-                    };
+                    FontSize = 10,
+                    FontFamily = _theme.FontFamily,
+                    BorderThickness = _theme.BorderThickness,
+                    ConnectorRotationAngle = 45,
+                    BorderBrush = _theme.BorderColor,
+                    Foreground = _theme.LightBlueColor,
+                    Background = _theme.ControlColor,
+                    Stroke = _theme.ItemHoverColor
+                };
 
-                    return _adornment;
-                }
-
-                return default( ChartAdornment3D );
+                return _adornment;
             }
             catch( Exception ex )
             {
@@ -1200,10 +1214,12 @@ namespace Badger
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
-                        foreach( var _name in _numerics )
+                        var _dimension = _fields[ 0 ];
+                        for( var _i = 0; _i < _numerics.Count; _i++ )
                         {
-                            var _value = double.Parse( _row[ _name ]?.ToString( ) );
-                            var _view = new View( _index, _name, _value );
+                            var _measure = _numerics[ _i ];
+                            var _value = double.Parse( _row[ _measure ]?.ToString( ) );
+                            var _view = new View( _index, _dimension, _measure, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1233,7 +1249,7 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Dimension",
+                    Header = "X-Axis",
                     Interval = 10,
                     IsIndexed = true,
                     IsEnabled = true,
@@ -1269,9 +1285,9 @@ namespace Badger
                 {
                     FontSize = 10,
                     ShowOrigin = true,
-                    Header = "Value",
+                    Header = "Y-Axis",
                     Interval = 1,
-                    Name = "Value",
+                    Name = "Measure",
                     IsEnabled = true,
                     TickLinesPosition = AxisElementPosition.Outside,
                     Foreground = _theme.BorderColor,
@@ -2003,6 +2019,7 @@ namespace Badger
         /// <summary>
         /// Updates the label text.
         /// </summary>
+        /// 
         private void UpdateLabels( )
         {
             try
@@ -2052,27 +2069,32 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    _columnChart.Header = _dataTable.TableName.SplitPascal( );
                     _columnChart.Series?.Clear( );
-                    var _category = _columns[ 0 ];
-                    var _measure = _numerics[ 0 ];
-                    var _series = new ColumnSeries3D
+                    for( var _r = 0; _r < _chartModel.Data.Count; _r++ )
                     {
-                        ItemsSource = _dataTable.DefaultView,
-                        XBindingPath = _category,
-                        YBindingPath = _measure,
-                        EnableAnimation = true,
-                        Label = _measure,
-                        ShowEmptyPoints = true,
-                        Interior = _theme.Color[ 0 ],
-                        AdornmentsInfo = CreateAdornmentInfo( ),
-                        ShowTooltip = true,
-                        SegmentSpacing = .25,
-                        IsSeriesVisible = true
-                    };
+                        var _dimension = _columns[ 0 ];
+                        for( var _c = 0; _c < _numerics.Count; _c++ )
+                        {
+                            var _measure = _numerics[ _c ];
+                            var _series = new ColumnSeries3D
+                            {
+                                ItemsSource = _chartModel.Items,
+                                XBindingPath = _dimension,
+                                YBindingPath = _measure,
+                                EnableAnimation = true,
+                                FontSize = 10,
+                                Label = _measure,
+                                ShowEmptyPoints = true,
+                                Interior = _theme.Color[ 0 ],
+                                AdornmentsInfo = CreateAdornmentInfo( ),
+                                ShowTooltip = true,
+                                SegmentSpacing = .25,
+                                IsSeriesVisible = true,
+                            };
 
-                    _columnChart.Series?.Add( _series );
-                    _columnChart.SeriesSelectedIndex = 0;
+                            _columnChart.Series?.Add( _series );
+                        }
+                    }
                 }
                 else
                 {
@@ -2081,6 +2103,7 @@ namespace Badger
                     var _series = new ColumnSeries3D
                     {
                         EnableAnimation = true,
+                        FontSize = 10,
                         ShowEmptyPoints = true,
                         Interior = _theme.Color[ 0 ],
                         AdornmentsInfo = CreateAdornmentInfo( ),
@@ -2109,7 +2132,7 @@ namespace Badger
                 {
                     var _series = new LineSeries3D
                     {
-                        ItemsSource = _dataTable.DefaultView,
+                        ItemsSource = _dataTable.ToBindingList( ),
                         XBindingPath = _columns[ 0 ],
                         YBindingPath = _numerics[ 0 ],
                         EnableAnimation = true,
@@ -2156,7 +2179,7 @@ namespace Badger
                     _pieChart.Series?.Clear( );
                     var _series = new PieSeries3D
                     {
-                        ItemsSource = _dataTable.DefaultView,
+                        ItemsSource = _dataTable,
                         XBindingPath = _columns[ 0 ],
                         YBindingPath = _numerics[ 0 ],
                         EnableAnimation = true,

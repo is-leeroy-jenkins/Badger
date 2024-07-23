@@ -42,7 +42,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Input;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     ///  <summary>
@@ -62,28 +61,6 @@ namespace Badger
         private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
-        /// The dark back
-        /// </summary>
-        private protected Color _darkBack = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _darkHover = new Color( )
-        {
-            A = 255,
-            R = 9,
-            G = 65,
-            B = 112
-        };
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripButton"/> class.
         /// </summary>
@@ -92,10 +69,10 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
             Width = 45;
             Height = 30;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
@@ -119,7 +96,7 @@ namespace Badger
         {
             try
             {
-                Background = _theme.ItemHoverColor;
+                Background = _theme.DarkBlueColor;
                 Foreground = _theme.BackColor;
                 BorderBrush = _theme.LightBlueColor;
             }

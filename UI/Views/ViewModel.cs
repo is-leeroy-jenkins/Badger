@@ -42,7 +42,9 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
@@ -62,6 +64,21 @@ namespace Badger
         /// The data
         /// </summary>
         private protected ObservableCollection<View> _data;
+
+        /// <summary>
+        /// The views
+        /// </summary>
+        private protected BindingList<View> _views;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private readonly IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private readonly IList<string> _numerics;
 
         /// <summary>
         /// The measure
@@ -87,6 +104,24 @@ namespace Badger
         }
 
         /// <summary>
+        /// Gets or sets the views.
+        /// </summary>
+        /// <value>
+        /// The views.
+        /// </value>
+        public BindingList<View> Views
+        {
+            get
+            {
+                return _views;
+            }
+            set
+            {
+                _views = value;
+            }
+        }
+
+        /// <summary>
         /// Gets the number of elements actually contained in the
         /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
         /// </summary>
@@ -107,16 +142,26 @@ namespace Badger
             : base( )
         {
             _data = new ObservableCollection<View>( );
+            _views = new BindingList<View>( );
         }
 
-        public void Add( int index, string category, double value = 0 )
+        /// <summary>
+        /// Adds the specified index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="dimension">The category.</param>
+        /// <param name = "measure" > </param>
+        /// <param name="value">The value.</param>
+        public void Add( int index, string dimension, string measure, double value = 0 )
         {
             try
             {
-                ThrowIf.Null( category, nameof( category ) );
-                var _view = new View( index, category, value );
+                ThrowIf.Null( dimension, nameof( dimension ) );
+                ThrowIf.Null( measure, nameof( measure ) );
+                var _view = new View( index, dimension, measure, value );
                 Items.Add( _view );
                 _data.Add( _view );
+                _views.Add( _view );
             }
             catch( Exception _ex )
             {
@@ -132,9 +177,11 @@ namespace Badger
         {
             try
             {
-                ThrowIf.Null( view.X, nameof( view.X ) );
+                ThrowIf.Null( view.Dimension, nameof( view.Dimension ) );
+                ThrowIf.Null( view.Measure, nameof( view.Measure ) );
                 var _view = new View( view );
                 Items.Add( _view );
+                _views.Add( _view );
                 _data.Add( _view );
             }
             catch( Exception _ex )
@@ -155,6 +202,7 @@ namespace Badger
                 {
                     var _index = Items.IndexOf( view );
                     Items.RemoveAt( _index );
+                    _views.Remove( view );
                     _data.RemoveAt( _index );
                 }
             }
@@ -173,6 +221,36 @@ namespace Badger
             foreach( var _item in Items )
             {
                 yield return _item;
+            }
+        }
+
+        /// <summary>
+        /// Creates the views.
+        /// </summary>
+        /// <returns></returns>
+        private protected BindingList<View> CreateViewList( )
+        {
+            try
+            {
+                if( _data != null )
+                {
+                    _views = new BindingList<View>( );
+                    foreach( var _view in _data )
+                    {
+                        _views.Add( _view );
+                    }
+
+                    return ( _views?.Any( ) == true )
+                        ? _views
+                        : default( BindingList<View> );
+                }
+
+                return default( BindingList<View> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( BindingList<View> );
             }
         }
 

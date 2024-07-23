@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-20-2024
+//     Created:                 07-21-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-20-2024
+//     Last Modified On:        07-21-2024
 // ******************************************************************************************
-// <copyright file="ToolStrip.cs" company="Terry D. Eppler">
+// <copyright file="Decimals.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry D. Eppler
 // 
@@ -33,72 +33,113 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ToolStrip.cs
+//   Decimals.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows;
-    using Syncfusion.Windows.Tools.Controls;
 
     /// <summary>
-    ///
+    /// 
     /// </summary>
-    /// <seealso cref="ToolbarBase" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ToolStrip : ToolbarBase
+    [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    public struct Decimals
     {
         /// <summary>
-        /// The theme
+        /// The start
         /// </summary>
-        private protected DarkMode _theme = new DarkMode( );
+        private decimal _start;
 
         /// <summary>
-        /// The buttons
+        /// The end
         /// </summary>
-        private protected IList<object> _items;
+        private decimal _end;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStrip"/> class.
+        /// The delta
         /// </summary>
-        /// <inheritdoc />
-        public ToolStrip( )
-            : base( )
+        private decimal _delta;
+
+        /// <summary>
+        /// The step
+        /// </summary>
+        private decimal _step;
+
+        public Decimals( decimal start, decimal end, decimal step = 1 )
         {
-            // Control Properties
-            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Height = 40;
-            Width = 1400;
-            GripperVisibility = Visibility.Hidden;
-            OverflowButtonVisibility = Visibility.Collapsed;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BackColor;
+            _start = start;
+            _end = end;
+            _delta = end - start;
+            _step = 1;
         }
 
         /// <summary>
-        /// Fails the specified _ex.
+        /// Gets or sets the start.
         /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected void Fail( Exception _ex )
+        /// <value>
+        /// The start.
+        /// </value>
+        public decimal Start
         {
-            var _error = new ErrorWindow( _ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            get
+            {
+                return _start;
+            }
+            private set
+            {
+                _start = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the end.
+        /// </summary>
+        /// <value>
+        /// The end.
+        /// </value>
+        public decimal End
+        {
+            get
+            {
+                return _end;
+            }
+            private set
+            {
+                _end = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
+        public decimal Delta
+        {
+            get
+            {
+                return _start;
+            }
+        }
+
+        /// <summary>
+        /// Gets the step.
+        /// </summary>
+        /// <value>
+        /// The step.
+        /// </value>
+        public decimal Step
+        {
+            get
+            {
+                return _start;
+            }
         }
     }
 }

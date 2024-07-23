@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-20-2024
+//     Created:                 07-21-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-20-2024
+//     Last Modified On:        07-21-2024
 // ******************************************************************************************
 // <copyright file="ChartModel.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
@@ -42,9 +42,11 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using Syncfusion.Data.Extensions;
 
     /// <inheritdoc />
     /// <summary>
@@ -58,12 +60,12 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ChartModel 
+    public class ChartModel
     {
         /// <summary>
         /// The columns
         /// </summary>
-        private readonly IList<string> _columns;
+        private readonly IList<string> _fields;
 
         /// <summary>
         /// The columns
@@ -71,9 +73,14 @@ namespace Badger
         private readonly IList<string> _numerics;
 
         /// <summary>
+        /// The columns
+        /// </summary>
+        private readonly IList<string> _columns;
+
+        /// <summary>
         /// The views
         /// </summary>
-        private protected IList<View> _views;
+        private protected BindingList<View> _views;
 
         /// <summary>
         /// The count
@@ -160,24 +167,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
-        public DataRow Current
-        {
-            get
-            {
-                return _current;
-            }
-            set
-            {
-                _current = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the data.
         /// </summary>
         /// <value>
@@ -201,7 +190,7 @@ namespace Badger
         /// <value>
         /// The views.
         /// </value>
-        public IList<View> Views
+        public BindingList<View> Views
         {
             get
             {
@@ -243,8 +232,10 @@ namespace Badger
             _count = 0;
             _data = new ObservableCollection<DataRow>( );
             _items = new List<DataRow>( );
+            _columns = new List<string>( );
             _numerics = new List<string>( );
-            _views = new List<View>( );
+            _fields = new List<string>( );
+            _views = new BindingList<View>( );
         }
 
         /// <inheritdoc />
@@ -261,7 +252,12 @@ namespace Badger
             _current = _data?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
-            _numerics = dataTable.GetNumericColumns( )
+            _columns = dataTable.GetColumnNames( );
+            _numerics = dataTable?.GetNumericColumns( )
+                ?.Select( n => n.ColumnName )
+                ?.ToList( );
+
+            _fields = dataTable.GetTextColumns( )
                 ?.Select( n => n.ColumnName )
                 ?.ToList( );
 
@@ -373,39 +369,73 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the views.
+        /// Gets the text fields.
         /// </summary>
         /// <returns></returns>
-        public IList<View> CreateViewList( )
+        private protected IList<string> GetTextFields( )
         {
             try
             {
                 if( _data != null )
                 {
-                    _views = new List<View>( );
-                    for( var _r = 0; _r < _data.Count; _r++ )
+                    var _cols = new List<string>( );
+                    foreach( var _col in _fields )
                     {
-                        var _dataRow = _data[ _r ];
+                        if( !_numerics.Contains( _col ) )
+                        {
+                            _cols.Add( _col );
+                        }
+                    }
+
+                    return ( _cols?.Any( ) == true )
+                        ? _cols
+                        : default( IList<string> );
+                }
+
+                return default( IList<string> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Creates the views.
+        /// </summary>
+        /// <returns></returns>
+        public BindingList<View> CreateViewList( )
+        {
+            try
+            {
+                if( _data != null )
+                {
+                    _views = new BindingList<View>( );
+                    for( var _index = 0; _index < _data.Count; _index++ )
+                    {
+                        var _dataRow = _data[ _index ];
+                        var _dimension = _columns[ 0 ];
                         for( var _c = 0; _c < _numerics.Count; _c++ )
                         {
-                            var _columnName = _numerics[ _c ];
-                            var _value = double.Parse( _dataRow[ _columnName ].ToString( ) );
-                            var _view = new View( _r, _columnName, _value );
+                            var _measure = _numerics[ _c ];
+                            var _value = double.Parse( _dataRow[ _measure ].ToString( ) );
+                            var _view = new View( _index, _dimension, _measure, _value );
                             _views.Add( _view );
                         }
                     }
 
                     return ( _views?.Any( ) == true )
                         ? _views
-                        : default( IList<View> );
+                        : default( BindingList<View> );
                 }
 
-                return default( IList<View> );
+                return default( BindingList<View> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<View> );
+                return default( BindingList<View> );
             }
         }
 
@@ -413,22 +443,22 @@ namespace Badger
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
-        public ViewModel CreateViewModel( IList<string> numerics )
+        public ViewModel CreateViewModel( )
         {
             try
             {
                 if( _data != null )
                 {
-                    ThrowIf.Null( numerics, nameof( numerics ) );
                     var _viewModel = new ViewModel( );
-                    for( var _r = 0; _r < _data.Count; _r++ )
+                    for( var _index = 0; _index < _data.Count; _index++ )
                     {
-                        var _dataRow = _data[ _r ];
-                        for( var _c = 0; _c < numerics.Count; _c++ )
+                        var _dataRow = _data[ _index ];
+                        var _dimension = _columns[ 0 ];
+                        for( var _c = 0; _c < _numerics.Count; _c++ )
                         {
-                            var _col = numerics[ _c ];
-                            var _value = double.Parse( _dataRow[ _col ].ToString( ) );
-                            var _view = new View( _r, _col, _value );
+                            var _numeric = _numerics[ _c ];
+                            var _value = double.Parse( _dataRow[ _numeric ].ToString( ) );
+                            var _view = new View( _index, _dimension, _numeric, _value );
                             _viewModel.Add( _view );
                         }
                     }

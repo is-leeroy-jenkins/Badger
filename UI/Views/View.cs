@@ -55,22 +55,28 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "OutParameterValueIsAlwaysDiscarded.Global" ) ]
     public class View
     {
         /// <summary>
         /// The data row
         /// </summary>
-        private protected double _id;
+        private protected double _index;
 
         /// <summary>
         /// The measure
         /// </summary>
-        private protected string _x;
+        private protected string _dimension;
+
+        /// <summary>
+        /// The measure
+        /// </summary>
+        private protected string _measure;
 
         /// <summary>
         /// The value
         /// </summary>
-        private protected double _y;
+        private protected double _value;
 
         /// <summary>
         /// Gets or sets the index.
@@ -78,15 +84,15 @@ namespace Badger
         /// <value>
         /// The index.
         /// </value>
-        public double Id
+        public double Index
         {
             get
             {
-                return _id;
+                return _index;
             }
             set
             {
-                _id = value;
+                _index = value;
             }
         }
 
@@ -96,15 +102,33 @@ namespace Badger
         /// <value>
         /// The name.
         /// </value>
-        public string X
+        public string Dimension
         {
             get
             {
-                return _x;
+                return _dimension;
             }
             set
             {
-                _x = value;
+                _dimension = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the measure.
+        /// </summary>
+        /// <value>
+        /// The measure.
+        /// </value>
+        public string Measure
+        {
+            get
+            {
+                return _measure;
+            }
+            set
+            {
+                _measure = value;
             }
         }
 
@@ -114,15 +138,15 @@ namespace Badger
         /// <value>
         /// The value.
         /// </value>
-        public double Y
+        public double Value
         {
             get
             {
-                return _y;
+                return _value;
             }
             set
             {
-                _y = value;
+                _value = value;
             }
         }
 
@@ -132,15 +156,21 @@ namespace Badger
         /// </summary>
         public View( )
         {
-            _id = 0.0;
         }
 
-        public View( int id, string x, double y = 0 )
-            : this( )
+        /// <summary>
+        /// Initializes a new instance of the <see cref="View"/> class.
+        /// </summary>
+        /// <param name="index">The identifier.</param>
+        /// <param name="dimension">The dimension.</param>
+        /// <param name="measure">The measure.</param>
+        /// <param name="value">The value.</param>
+        public View( int index, string dimension, string measure, double value = 0 )
         {
-            _id = id;
-            _x = x;
-            _y = y;
+            _index = index;
+            _dimension = dimension;
+            _measure = measure;
+            _value = value;
         }
 
         /// <summary>
@@ -150,16 +180,26 @@ namespace Badger
         /// <param name="view">The view.</param>
         public View( View view )
         {
-            _id = view.Id;
-            _x = view.X;
-            _y = view.Y;
+            _index = view.Index;
+            _dimension = view.Dimension;
+            _measure = view.Measure;
+            _value = view.Value;
         }
 
-        public void Deconstruct( out double id, out string x, out double y )
+        /// <summary>
+        /// Deconstructs the specified identifier.
+        /// </summary>
+        /// <param name="index">The identifier.</param>
+        /// <param name="dimension">The x.</param>
+        /// <param name = "measure" > </param>
+        /// <param name="value">The y.</param>
+        public void Deconstruct( out double index, out string dimension, 
+            out string measure, out double value )
         {
-            id = _id;
-            x = _x;
-            y = _y;
+            index = _index;
+            dimension = _dimension;
+            measure = _measure;
+            value = _value;
         }
 
         /// <summary>
@@ -171,9 +211,9 @@ namespace Badger
         /// </returns>
         public override string ToString( )
         {
-            return _y != 0.0
-                ? _y.ToString( "N0" )
-                : "0.0";
+            return _value != 0.0
+                ? _value.ToString( "N0" )
+                : "0";
         }
 
         /// <summary>
