@@ -2145,27 +2145,6 @@
             document.Save(stream);
             </example>
         </member>
-        <member name="P:Syncfusion.HtmlConverter.BlinkConverterSettings.ConversionTimeout">
-            <summary>
-            Get or Set the conversion timeout value in milliseconds. 
-            </summary>
-            <value>By default time out limit as 30000 ms.</value>
-            <example>
-            //Initialize the HTML to PDF converter with Blink rendering engine
-            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-            BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-            ////Set the conversion timeout value in milliseconds. 
-            blinkConverterSettings.ConversionTimeout = 30000;
-            //Assign Blink converter settings to HTML converter
-            htmlConverter.ConverterSettings = blinkConverterSettings;
-            //Convert URL to PDF
-            PdfDocument document = htmlConverter.Convert("https://www.google.com")
-            //Save the output PDF document
-            MemoryStream stream = new MemoryStream();
-            document.Save(stream);
-            </example>
-            <seealso cref="T:System.Drawing.Size"/>
-        </member>
         <member name="P:Syncfusion.HtmlConverter.BlinkConverterSettings.ViewPortSize">
             <summary>
             Gets or sets the Blink view port size.
@@ -2612,25 +2591,6 @@
             document.Close(true);
             </example>
         </member>
-        <member name="P:Syncfusion.HtmlConverter.BlinkConverterSettings.ImageBackgroundColor">
-            <summary>
-            Gets or sets the JavaScript to be executed during the HTML to PDF conversion.
-            </summary>
-            <example>
-            //Initialize HTML to PDF converter.
-            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
-            BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-            //Set the Image Background color.
-            settings.ImageBackgroundColor = Color.Transparent;
-            //Assign the BlinkConverterSettings to the ConverterSettings property of HtmlToPdfConverter.
-            htmlConverter.ConverterSettings = settings;
-            //Convert HTML to Image
-            Image image = converter.ConvertToImage("Input.html");
-            //Save the Image.
-            byte[] imageByte = image.ImageData;
-            File.WriteAllBytes("Output.png", imageByte);
-            </example>
-        </member>
         <!-- Badly formed XML comment ignored for member "P:Syncfusion.HtmlConverter.BlinkConverterSettings.HtmlHeader" -->
         <!-- Badly formed XML comment ignored for member "P:Syncfusion.HtmlConverter.BlinkConverterSettings.HtmlFooter" -->
         <member name="M:Syncfusion.HtmlConverter.BlinkConverterSettings.#ctor">
@@ -2793,48 +2753,6 @@
             Gets or sets the value is indicating EnableBookmarks is enable or not
             </summary>
         </member>
-        <member name="P:Syncfusion.HtmlConverter.BlinkConverter.EnableAccessibilityTags">
-             <summary>
-             Gets or sets a value indicating whether to preserve accessibility tags during HTML to PDF conversion.
-             When set to true, ensures that accessibility tags are retained for enhanced document accessibility.
-            </summary>
-             <example>
-             <code lang="C#">
-             //Initialize HTML to PDF converter 
-             HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-             //Initialize Blinkconverter settings
-             BlinkConverterSettings settings = new BlinkConverterSettings();
-             //Set Blink path
-             settings.BlinkPath = "/BlinkBinaries/";
-             //Set true to enable tagged PDF generation.
-             settings.EnableAccessibilityTags = true;
-             //Assign Blink settings to HTML converter
-             htmlConverter.ConverterSettings = settings;
-             //Convert URL to PDF
-             PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com/");
-             //Save and close the PDF document 
-             document.Save("Sample.pdf");
-             document.Close(true);
-             </code>
-             <code lang="VB">
-             'Initialize HTML to PDF converter 
-             Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-             'Initialize Blinkconverter settings
-             Dim settings As New BlinkConverterSettings()
-             'Set Blink path
-             settings.BlinkPath = "/BlinkBinaries/"
-             'Set true to enable tagged PDF generation.
-             settings.EnableAccessibilityTags = true
-             'Assign Blink settings to HTML converter
-             htmlConverter.ConverterSettings = settings
-             'Convert URL to PDF
-             Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com/")
-             'Save and close the PDF document 
-             document.Save("Sample.pdf")
-             document.Close(True)
-             </code> 
-             </example>
-        </member>
         <member name="P:Syncfusion.HtmlConverter.BlinkConverter.HtmlElementID">
             <summary>
             Gets or sets the HtmlElementID 
@@ -2886,48 +2804,6 @@
         <member name="P:Syncfusion.HtmlConverter.BlinkConverter.JavaScript">
             <summary>
             Gets or sets the JavaScript to be executed during the HTML to PDF conversion.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HtmlConverter.BlinkConverter.ConversionTimeout">
-            <summary>
-            Gets or sets the timeout for HTML to PDF conversion in milliseconds. 
-            </summary>
-            <value>By default time out limit as 30000 ms.</value>
-            <example>
-            <code lang = "C#">
-            //Initialize HTML to PDF converter with Blink rendering engine
-            HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-            BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-            //sets the timeout for HTML to PDF conversion in milliseconds.
-            blinkConverterSettings.ConversionTimeout = 30000;
-            //Assign Blink converter settings to HTML converter
-            htmlConverter.ConverterSettings = blinkConverterSettings;
-            //Convert URL to PDF
-            PdfDocument document = htmlConverter.Convert("https://www.google.com");
-            //Save and close the PDF document 
-            document.Save("Output.pdf");
-            document.Close(true);
-            </code>
-            <code lang = "VB">
-            'Initialize HTML to PDF converter with Blink rendering engine
-            Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-            Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-            'sets the timeout for HTML to PDF conversion in milliseconds.
-            blinkConverterSettings.ConversionTimeout = 30000
-            'Assign Blink converter settings to HTML converter
-            htmlConverter.ConverterSettings = blinkConverterSettings
-            'Convert URL to PDF
-            Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
-            'Save and close the PDF document 
-            document.Save("Output.pdf")
-            document.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.HtmlConverter.BlinkConverter.ImageBackgroundColor">
-            <summary>
-            Gets or sets the background color for the image during HTML to image conversion.
-            This property is applicable only when converting HTML to an image, allowing customization of the background color.
             </summary>
         </member>
         <member name="M:Syncfusion.HtmlConverter.BlinkConverter.DeleteFile(System.String)">

@@ -427,12 +427,6 @@
             Push the selected shape to one step back.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.DrawShapePanel.AddAnnotation(Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo)">
-            <summary>
-            Method to add a annotation to the annotation list.
-            </summary>
-            <param name="annotationInfo">The annotation information.</param>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.ImageEditor.DrawShapePanel.GetData(Syncfusion.UI.Xaml.ImageEditor.ShapeInfo)">
             <summary>
             To get data for line
@@ -492,11 +486,6 @@
         <member name="P:Syncfusion.UI.Xaml.ImageEditor.ShapeInfo.CustomViewSettings">
             <summary>
             Gets or sets the custom view settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ShapeInfo.EnableDrag">
-            <summary>
-            Gets or sets a value indicating whether shapes can be dragged or not.
             </summary>
         </member>
         <member name="P:Syncfusion.UI.Xaml.ImageEditor.ShapeInfo.PathStroke">
@@ -856,11 +845,6 @@
             To get original image size. It is a read-only property
             </summary>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.AnnotationsInfo">
-            <summary>
-            Gets or sets the annotations added into the image editor.
-            </summary>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.ResizableElements">
             <summary>
             Gets or sets the editor items that involve in resizing.
@@ -903,15 +887,6 @@
             </summary>
             <param name="d">Image editor</param>
             <param name="e">Event arguments</param>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.Annotations">
-            <summary>
-            Gets the collection of annotations added in the image editor.
-            </summary>
-            <remarks>
-            This property provides access to the annotations added in the image editor.
-            Annotations can only be retrieved and cannot be set. Any changes made to the image will reset these annotations.
-            </remarks>
         </member>
         <member name="M:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.OnCustomViewSettingsPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
@@ -1622,22 +1597,6 @@
             <param name="size">Saves the image in the specified size.</param>
             <param name="filePath">Location to save the image</param>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.Serialize(System.IO.Stream)">
-            <summary>
-            Serializes the SfImageEditor control to the XML document file that are stored in the specified Stream.
-            </summary>
-            <param name="stream">
-            Specifies the <see cref="T:System.IO.Stream"/> used to write the XML document file.
-            </param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.Deserialize(System.IO.Stream)">
-            <summary>
-            DeSerializes the SfImageEditor based on the XML document contained by the specified Stream.
-            </summary>
-            <param name="stream">
-            Specifies the <see cref="T:System.IO.Stream"/> that contains the XML document to deserialize.
-            </param>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor.SaveImage">
             <summary>
             Saves the editied image.
@@ -1971,75 +1930,6 @@
             Method gets called when the property value gets changed.
             </summary>
             <param name="propertyName">The proeprty name.</param>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.ImageEditor.SerializeAsJson">
-            <summary>
-            Class which represent the serialize as json.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.SerializeAsJson.#ctor">
-            <summary>
-             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.ImageEditor.SerializeAsJson"/> class.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.ImageEditor.Deserialize.canGenerateID">
-            <summary>
-            Field to identify whether we need to generate a new ID's for de-serializing shapes.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.Deserialize.SetShapesSettings(Syncfusion.UI.Xaml.ImageEditor.ShapeInfo)">
-            <summary>
-            To set the shape settings such as arrow, line, double arrow, dotted, dotted arrow, dotted double arrow.
-            </summary>
-            <param name="shape">The parameter contains the shape</param>
-            <returns></returns>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.ImageEditor.DeserializationController">
-            <summary>
-            Class which represents the deserialization of the controller.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.ImageEditor.DeserializationController.GetCustomView(System.String)">
-            <summary>
-            Virtual method called to get custom view.
-            </summary>
-            <param name="s">The string value.</param>
-            <returns>The null value.</returns>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo">
-            <summary>
-            Represents a class that holds the annotation details.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.Type">
-            <summary>
-            Gets the shape type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.PenSettings">
-            <summary>
-            Gets the shape annotation settings
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.TextSettings">
-            <summary>
-            Gets the text annotation settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.Text">
-            <summary>
-            Gets the text of the text annotation
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.CustomViewSettings">
-            <summary>
-            Gets the custom view settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.ImageEditor.ImageEditorAnnotationsInfo.CustomView">
-            <summary>
-            Gets the custom view.
-            </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.ImageEditor.ImageEditorLocalizationResourceAccessor">
             <inheritdoc cref="T:Syncfusion.Windows.Shared.LocalizationResourceAccessor"/>

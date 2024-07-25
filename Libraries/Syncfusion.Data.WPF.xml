@@ -1547,11 +1547,6 @@
             Checks whether the RowFilter value sets internally. 
             </summary>
         </member>
-        <member name="F:Syncfusion.Data.DataTableCollectionView.gridFilterString">
-            <summary>
-            Used to maintain the filter string based on the filter predicates.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Data.DataTableCollectionView.ViewSource">
             <summary>
             Gets the view source of the collection view.
@@ -5762,12 +5757,6 @@
             <param name="sortFields">The sort fields of the source which has to be queried.</param>
             <returns>The IQueryable source of the items which is queried.</returns>
         </member>
-        <member name="M:Syncfusion.Data.QueryableCollectionView.RefreshSortingForExpandedGroup(Syncfusion.Data.Group)">
-            <summary>
-            Refreshes the sorting order for records contains in the expanded group.
-            </summary>
-            <param name="group">The group in the view.</param>
-        </member>
         <member name="P:Syncfusion.Data.QueryableCollectionView.RowFilter">
             <summary>
             Gets or sets the predicate for the row filter.
@@ -8089,22 +8078,6 @@
             <param name="filterBehavior">The filter behavior.</param>
             <param name="isCaseSensitive">A boolean values indicating whether to consider the expression with case sensitive.</param>
             <param name="sourceType">The type of the source</param>
-            <returns>A predicate expression for the given values.</returns>
-        </member>
-        <member name="M:Syncfusion.Data.Extensions.QueryableExtensions.CreatePredicate(System.Linq.IQueryable,System.Linq.Expressions.ParameterExpression,System.String,System.Object,Syncfusion.Data.FilterType,Syncfusion.Data.FilterPredicate,System.Boolean,System.Type,System.Delegate,System.Type)">
-            <summary>
-            Generates a predicate expression for the given values when <see cref="T:Syncfusion.Data.ColumnFilter"/> is <see cref="F:Syncfusion.Data.ColumnFilter.Value"/>.
-            </summary>
-            <param name="source">The IQueryable source.</param>
-            <param name="parameterExpression">The parameter expression.</param>
-            <param name="propertyName">The property name.</param>
-            <param name="constValue">The object.</param>
-            <param name="filterType">The filter type.</param>
-            <param name="filterBehavior">The filter behavior.</param>
-            <param name="isCaseSensitive">A boolean values indicating whether to consider the expression with case sensitive.</param>
-            <param name="sourceType">The type of the source.</param>
-            <param name="expressionFunc">The expression func.</param>
-            <param name="memberType">The member type.</param>
             <returns>A predicate expression for the given values.</returns>
         </member>
         <member name="M:Syncfusion.Data.Extensions.QueryableExtensions.Predicate(System.Linq.IQueryable,System.Linq.Expressions.ParameterExpression,System.String,System.Object,Syncfusion.Data.FilterType,Syncfusion.Data.FilterBehavior,System.Boolean,System.Type,System.Delegate,System.Type)">

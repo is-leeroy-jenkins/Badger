@@ -6353,7 +6353,7 @@
             <param name="rowHeightGetter">Helper object to get row height faster.</param>
             <param name="columnWidthGetter">Helper object to get column width faster.</param>
         </member>
-        <member name="M:Syncfusion.XlsIO.Implementation.WorksheetImageConverter.DrawShape(Syncfusion.XlsIO.Implementation.Shapes.ShapeImpl,Syncfusion.XlsIO.Implementation.WorksheetImpl,Syncfusion.Drawing.SkiaSharpHelper.Graphics,System.Int32,System.Int32,System.Int32,System.Int32,Syncfusion.XlsIO.Implementation.ItemSizeHelper,Syncfusion.XlsIO.Implementation.ItemSizeHelper)">
+        <member name="M:Syncfusion.XlsIO.Implementation.WorksheetImageConverter.DrawShape(Syncfusion.XlsIO.Implementation.Shapes.ShapeImpl,Syncfusion.XlsIO.Implementation.WorksheetImpl,Syncfusion.Drawing.SkiaSharpHelper.Graphics)">
             <summary>
             Draws a shape onto the image.
             </summary>
@@ -6950,25 +6950,6 @@
             <param name="xf">Object containing background settings.</param>
             <param name="rect">Rectangle specifying coordinates of the drawn background.</param>
             <param name="graphics">Graphics to draw at.</param>
-        </member>
-        <member name="M:Syncfusion.XlsIO.Implementation.WorksheetImageConverter.DrawDataBar(Syncfusion.XlsIO.Implementation.ExtendedFormatStandAlone,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Syncfusion.XlsIO.Implementation.WorksheetImpl,Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.XlsIO.Implementation.MigrantRangeImpl)">
-            <summary>
-            Draw the data bar
-            </summary>
-            <param name="xf">ExtendedFormatStandAlone</param>
-            <param name="dataBarPercent">percent of the data bar</param>
-            <param name="left">left of the rectangle</param>
-            <param name="right">right of the rectangle</param>
-            <param name="top">top of the rectangle</param>
-            <param name="bottom">bottom of the rectangle</param>
-            <param name="x">x of the rectangle</param>
-            <param name="y">y of the rectangle</param>
-            <param name="width">width of the rectangle</param>
-            <param name="height">height of the rectangle</param>
-            <param name="sheet">The sheet</param>
-            <param name="graphics">The graphics</param>
-            <param name="cell">the cell range</param>
-            <returns>Return the rectangle in float</returns>
         </member>
         <member name="M:Syncfusion.XlsIO.Implementation.WorksheetImageConverter.GetBrush(Syncfusion.XlsIO.Interfaces.IInternalExtendedFormat,Syncfusion.Drawing.RectangleF)">
             <summary>
@@ -9413,16 +9394,6 @@
             Gets or sets the back interior
             </summary>
         </member>
-        <member name="P:Syncfusion.Chart.ChartTitle.rectangleF">
-            <summary>
-            Represents chart title rectangle 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartTitle.IsManualLayout">
-            <summary>
-            Determine whether manual layout applied or not
-            </summary>
-        </member>
         <member name="M:Syncfusion.Chart.ChartTitle.Measure(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.SizeF)">
             <summary>
             Measure the size of the title
@@ -10254,25 +10225,6 @@
             <param name="renderBounds">The render bounds.</param>
             <returns></returns>
             <internalonly/>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartAxis.SplitTextToFitRectangle(System.String,System.Single,Syncfusion.Drawing.SkiaSharpHelper.Graphics,System.Boolean,Syncfusion.Chart.ChartArea)">
-            <summary>
-            Method to split the text respective to the rectange width.
-            </summary>
-            <param name="text"></param>
-            <param name="rectwidth"></param>
-            <param name="g"></param>
-            <param name="updateAxisTitle"></param>
-            <param name="area"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartAxis.UpdatedAxisTitleLength(Syncfusion.Chart.ChartArea,System.Single@)">
-            <summary>
-            Returns the extended length of the chart title based on other axis titles dimensions.
-            </summary>
-            <param name="area"></param>
-            <param name="legendLength"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Chart.ChartAxis.DrawAxis(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartArea)">
             <summary>
@@ -13042,51 +12994,6 @@
             Initializes a new instance of <see cref="T:Syncfusion.Chart.ChartErrorBarsConfigItem"/> class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.MinusValues">
-            <summary>
-            Gets or sets the list of error bar minus values.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.PlusValues">
-            <summary>
-            Gets or sets the list of error bar plus values.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.FixedValue">
-            <summary>
-            Gets or sets the error bar fixed value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.Mean">
-            <summary>
-            Gets or sets the error bar mean value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.ValueType">
-            <summary>
-            Gets or sets the excel chart's error bar type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.Type">
-            <summary>
-            Gets or sets the excel chart's error bar direction.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.Color">
-            <summary>
-            Gets or sets the error bar color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.Width">
-            <summary>
-            Gets or sets the error bar width.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.DashStyle">
-            <summary>
-            Gets or sets the error bar dash style.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Chart.ChartErrorBarsConfigItem.SymbolSize">
             <summary>
             Gets or sets the size of the error bar symbol.
@@ -14259,12 +14166,6 @@
             Update the scatter chart plotarea width to ensure that the last label of category axis is not cropped
             </summary>
             <param name="rec"></param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartArea.UpdatePlotAreaTopPosition(Syncfusion.Drawing.RectangleF@)">
-            <summary>
-            Update the plotarea top position to ensure that the top y-axis label is not cropped.
-            </summary>
-            <param name="rec">plot area rectangle</param>
         </member>
         <member name="M:Syncfusion.Chart.ChartArea.CorrectionFrom(Syncfusion.Drawing.Point)">
             <summary>
@@ -16112,16 +16013,6 @@
             </summary>
             <value>The X.</value>
         </member>
-        <member name="F:Syncfusion.Chart.ChartPoint.m_dashStyle">
-            <summary>
-            Dash style
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartPoint.m_dashCap">
-            <summary>
-            Dash cap
-            </summary>
-        </member>
         <member name="P:Syncfusion.Chart.ChartPoint.YValues">
             <summary>
             Gets or sets the Y values associated with this point.
@@ -16736,26 +16627,6 @@
             Gets or sets a value indicating whether reset all the styles while modifying the ChartPoint properties.
             </summary>
         </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_beginArrow">
-            <summary>
-            Represents the begin arrow of the series.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_endArrow">
-            <summary>
-            Represents the end arrow of the series.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_beginArrows">
-            <summary>
-            Represents the begin arrows of each data points
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_endArrows">
-            <summary>
-            Represents the end arrows of each data points.
-            </summary>
-        </member>
         <member name="E:Syncfusion.Chart.ChartSeries.AppearanceChanged">
             <internalonly/>
             <summary>
@@ -17247,26 +17118,6 @@
             Resets the ChartSeries model.
             </summary>
         </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.BeginArrow">
-            <summary>
-            Gets or sets the begin arrow of the series.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.EndArrow">
-            <summary>
-            Gets or sets the end arrow of the series.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.BeginArrows">
-            <summary>
-            Gets or sets the begin arrow types of the data points.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.EndArrows">
-            <summary>
-            Gets or sets the end arrow types of the data points.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Chart.ChartSeries.#ctor">
             <summary>
             Initializes a new instance of the ChartSeries class.
@@ -17310,21 +17161,6 @@
         </member>
         <member name="M:Syncfusion.Chart.ChartSeries.GetOfflineStyle(System.Int32)">
             <internalonly/>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeries.GetDashStyle(Syncfusion.Drawing.SkiaSharpHelper.Pen,System.Single)">
-            <summary>
-            Get Dash styles of the line series
-            </summary>
-            <param name="pen"></param>
-            <param name="width"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeries.GetCapStyle(Syncfusion.Drawing.SkiaSharpHelper.Pen)">
-            <summary>
-            Get the Capstyle of the line series
-            </summary>
-            <param name="pen"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Chart.ChartSeries.GetStylesMap">
             <summary>
@@ -23956,13 +23792,6 @@
             </summary>
             <param name="args">The args.</param>
         </member>
-        <member name="M:Syncfusion.Chart.Renderers.AreaRenderer.RenderAdornment(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint)">
-            <summary>
-            Renders the adornment.
-            </summary>
-            <param name="g"></param>
-            <param name="point">The point.</param>
-        </member>
         <member name="M:Syncfusion.Chart.Renderers.AreaRenderer.DrawIcon(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.Rectangle,System.Boolean,Syncfusion.Drawing.Color)">
             <summary>
             Draws icon.
@@ -24369,23 +24198,6 @@
         <member name="M:Syncfusion.Chart.Renderers.FullStackingBarRenderer.#ctor(Syncfusion.Chart.ChartSeries)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Chart.Renderers.FullStackingBarRenderer"/> class.
-            </summary>
-            <param name="series">ChartSeries that will be rendered by this renderer instance.</param>
-        </member>
-        <member name="T:Syncfusion.Chart.Renderers.FullStackingLineRenderer">
-            <summary>
-            The FullStackingLine Renderering class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.Renderers.FullStackingLineRenderer.RegionDescription">
-            <summary>
-            Get description of regions.
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.FullStackingLineRenderer.#ctor(Syncfusion.Chart.ChartSeries)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Chart.Renderers.FullStackingLineRenderer"/> class.
             </summary>
             <param name="series">ChartSeries that will be rendered by this renderer instance.</param>
         </member>
@@ -26428,18 +26240,6 @@
             </summary>
             <param name="args">The args.</param>
         </member>
-        <member name="M:Syncfusion.Chart.Renderers.SplineRenderer.RenderAdornment(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint)">
-            <summary>
-            Renders the adornment.
-            </summary>
-            <param name="g"></param>
-            <param name="point">The point.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.SplineRenderer.DrawArrows(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,System.Int32)">
-            <summary>
-            Draws arrows between consecutive points in a chart based on the specified arrow styles.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Chart.Renderers.SplineRenderer.Render(Syncfusion.Chart.ChartRenderArgs3D)">
             <summary>
             Renders the specified args.
@@ -26523,13 +26323,6 @@
             </summary>
             <param name="g"></param>
         </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingAreaRenderer.RenderAdornment(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint)">
-            <summary>
-            Renders the adornment.
-            </summary>
-            <param name="g"></param>
-            <param name="point">The point.</param>
-        </member>
         <member name="M:Syncfusion.Chart.Renderers.StackingAreaRenderer.DrawIcon(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.Rectangle,System.Boolean,Syncfusion.Drawing.Color)">
             <summary>
             Draws the icon on the legend.
@@ -26561,62 +26354,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Chart.Renderers.StackingBarRenderer"/> class.
             </summary>
             <param name="series">ChartSeries that will be rendered by this renderer instance.</param>
-        </member>
-        <member name="T:Syncfusion.Chart.Renderers.StackingLineRenderer">
-            <summary>
-            The StackingLine Chart rendering Class
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.Renderers.StackingLineRenderer.FillSpaceType">
-            <summary>
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Syncfusion.Chart.Renderers.StackingLineRenderer.RequireYValuesCount">
-            <summary>
-            Gets count of require Y values of the points.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Syncfusion.Chart.Renderers.StackingLineRenderer.RegionDescription">
-            <summary>
-            Get description of regions.
-            </summary>
-            <value></value>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingLineRenderer.#ctor(Syncfusion.Chart.ChartSeries)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Chart.Renderers.StackingLineRenderer"/> class.
-            </summary>
-            <param name="series">ChartSeries that will be rendered by this renderer instance.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingLineRenderer.RenderAdornment(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint)">
-            <summary>
-            Renders the adornment.
-            </summary>
-            <param name="g"></param>
-            <param name="point">The point.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingLineRenderer.Render(Syncfusion.Chart.Graphics3D)">
-            <summary>
-            
-            </summary>
-            <param name="g"></param>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingLineRenderer.DrawIcon(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.Rectangle,System.Boolean,Syncfusion.Drawing.Color)">
-            <summary>
-            Draws chart's icon.
-            </summary>
-            <param name="g">The <see cref="!:System.Drawing.Graphics"/> to render icon.</param>
-            <param name="bounds">The icon bounds.</param>
-            <param name="isShadow">The value indicates to draw shadow or not.</param>
-            <param name="shadowColor">The <see cref="T:System.Drawing.Color"/> to render shadow.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.Renderers.StackingLineRenderer.GetYDataMeasure">
-            <summary>
-            Measures the X range.
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Syncfusion.Chart.Renderers.StackingColumnRenderer">
             <summary>
@@ -27912,41 +27649,6 @@
             <param name="y">The Y value.</param>
             <returns></returns>
         </member>
-        <member name="T:Syncfusion.Chart.Arrow">
-            <summary>
-            Represents the arrow properties.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.Arrow._type">
-            <summary>
-            Represents the arrow type.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.Arrow._arrowWidth">
-            <summary>
-            Represetns the arrow width.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.Arrow._arrowLength">
-            <summary>
-            Represents the arrow length.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.Arrow.Type">
-            <summary>
-            Gets or sets the arrow type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.Arrow.ArrowWidth">
-            <summary>
-            Gets or sets the arrow width.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.Arrow.ArrowLength">
-            <summary>
-            Gets or sets the arrow length.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Chart.ChartSeriesRenderer">
             <summary>
             <para>
@@ -27964,16 +27666,6 @@
         <member name="T:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint">
             <summary>
             This class is using for the caching points and styles.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.m_beginArrow">
-            <summary>
-            Represetns the begin arrow of the point.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.m_endArrow">
-            <summary>
-            Represents the end arrow of the point.
             </summary>
         </member>
         <member name="P:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.X">
@@ -28008,16 +27700,6 @@
         <member name="P:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.Style">
             <summary>
             Gets or sets the specified style of point.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.BeginArrow">
-            <summary>
-            Gets or sets the begin arrow of the point.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.EndArrow">
-            <summary>
-            Gets or sets the end arrow of the point.
             </summary>
         </member>
         <member name="M:Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint.#ctor(Syncfusion.Chart.ChartPoint,System.Int32)">
@@ -28456,78 +28138,6 @@
             Updates the points cache.
             </summary>
             <param name="args">The <see cref="T:System.ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawArrows(Syncfusion.Drawing.SkiaSharpHelper.Graphics)">
-            <summary>
-            Draws arrows between consecutive points in a chart based on the specified arrow styles.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawOpenArrow(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,System.Single,System.Single,Syncfusion.Drawing.Color,System.Single)">
-            <summary>
-            Draws an open arrow starting at startPoint, with the arrowhead narrowing based on the angle calculated from start point and endPoint
-            </summary>
-            <param name="g">The Graphics object on which to draw the arrow.</param>
-            <param name="startPoint">The starting point of the arrow.</param>
-            <param name="endPoint">The ending point of the arrow.</param>
-            <param name="arrowWidth">The width of the arrowhead.</param>
-            <param name="arrowLength">The length of the arrowhead.</param>
-            <param name="arrowColor">The color of the arrow.</param>
-            <param name="angle2">The angle parameter for determining the orientation of the arrow.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawSimpleArrow(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,System.Single,System.Single,Syncfusion.Drawing.Color,System.Single)">
-            <summary>
-            Draws a simple arrow from startPoint with customizable width, length, color, and orientation angle.
-            </summary>
-            <param name="g">Graphics object to draw on.</param>
-            <param name="startPoint">Starting point of the arrow.</param>
-            <param name="endPoint">Point used to calculate the arrow angle.</param>
-            <param name="arrowWidth">Width of the arrowhead.</param>
-            <param name="arrowLength">Length of the arrowhead.</param>
-            <param name="arrowColor">Color of the arrow.</param>
-            <param name="angle2">Orientation angle for the arrow.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawFilledOval(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,System.Single,System.Single,Syncfusion.Drawing.Color,System.Single)">
-            <summary>
-            Draws a filled oval on the specified graphics surface.
-            </summary>
-            <param name="g">The Graphics object on which to draw the oval.</param>
-            <param name="center">The center point of the oval.</param>
-            <param name="width">The width of the oval.</param>
-            <param name="height">The height of the oval.</param>
-            <param name="fillColor">The fill color of the oval.</param>
-            <param name="angle">The angle by which to rotate the oval.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawStealthArrow(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,System.Single,System.Single,Syncfusion.Drawing.Color,System.Single)">
-            <summary>
-            Draws a stealth arrow on the specified graphics surface.
-            </summary>
-            <param name="g">The Graphics object on which to draw the arrow.</param>
-            <param name="startPoint">The starting point of the arrow.</param>
-            <param name="endPoint">The ending point of the arrow.</param>
-            <param name="arrowWidth">The width of the arrow.</param>
-            <param name="arrowLength">The length of the arrow.</param>
-            <param name="arrowColor">The color of the arrow.</param>
-            <param name="angle2">The angle by which to rotate the arrow.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawDiamond(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Drawing.PointF,System.Single,System.Single,Syncfusion.Drawing.Color,System.Single)">
-            <summary>
-            Draws a diamond shape on the specified graphics surface.
-            </summary>
-            <param name="g">The Graphics object on which to draw the diamond.</param>
-            <param name="center">The center point of the diamond.</param>
-            <param name="width">The width of the diamond.</param>
-            <param name="height">The height of the diamond.</param>
-            <param name="fillColor">The fill color of the diamond.</param>
-            <param name="angle">The angle by which to rotate the diamond.</param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.RotatePoint(Syncfusion.Drawing.PointF,Syncfusion.Drawing.PointF,System.Single)">
-            <summary>
-            Rotates a PointF around a specified center point by a given angle.
-            </summary>
-            <param name="point">Point to rotate.</param>
-            <param name="center">Center point of rotation.</param>
-            <param name="angle">Angle of rotation in radians.</param>
-            <returns>Rotated PointF.</returns>
         </member>
         <member name="M:Syncfusion.Chart.ChartSeriesRenderer.DrawChartPoint(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartPoint,Syncfusion.Chart.ChartStyleInfo,System.Int32)">
             <summary>
@@ -29309,13 +28919,6 @@
             <param name="g">The g.</param>
             <param name="point">The point.</param>
         </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.RenderErrorBar(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint)">
-            <summary>
-            Render the Error bars.
-            </summary>
-            <param name="g"></param>
-            <param name="point"></param>
-        </member>
         <member name="M:Syncfusion.Chart.ChartSeriesRenderer.SetBoundsAndRange(Syncfusion.Chart.IChartAreaHost,Syncfusion.Drawing.RectangleF,Syncfusion.Chart.ChartAxis,Syncfusion.Chart.ChartAxis)">
             <summary>
             
@@ -29324,33 +28927,6 @@
             <param name="bounds"></param>
             <param name="xAxis"></param>
             <param name="yAxis"></param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.GetStyledPoints">
-            <summary>
-            Get the chart's styled points
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.GetStandardError">
-            <summary>
-            Calculate the Error bar Standard error value
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.GetMeanValue(Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint[])">
-            <summary>
-            Calculate the mean value of the standard error
-            </summary>
-            <param name="styledPoints"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartSeriesRenderer.GetStandardDeviation(Syncfusion.Chart.ChartSeriesRenderer.ChartStyledPoint[],System.Double)">
-            <summary>
-            Calculate the Error bar standard deviation value
-            </summary>
-            <param name="styledPoints"></param>
-            <param name="mean"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Chart.ChartSeriesRenderer.CreateBoundsPolygon(System.Single)">
             <summary>
@@ -31812,12 +31388,6 @@
             </summary>
             <internalonly/>
         </member>
-        <member name="F:Syncfusion.Chart.ChartLineInfoStore.DashCapProperty">
-            <summary>
-            Gets or sets the dash cap of the line represented by this object. 
-            </summary>
-            <internalonly/>
-        </member>
         <member name="P:Syncfusion.Chart.ChartLineInfoStore.StaticDataStore">
             <summary>
             Static data must be declared static in derived classes (this avoids collisions
@@ -31873,11 +31443,6 @@
             Store default <see cref="T:Syncfusion.Chart.ChartLineInfo"/>.
             </summary>
         </member>
-        <member name="F:Syncfusion.Chart.ChartLineInfo.m_dashCap">
-            <summary>
-            Represents cap style of the line.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Chart.ChartLineInfo.m_pen">
             <summary>
             Store pen to draw.
@@ -31910,11 +31475,6 @@
             Gets or sets the color of the line. For line based charts it works only when 3D is enabled.
             </summary>
             <value>The color.</value>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartLineInfo.DashCap">
-            <summary>
-            Represents cap style of the line.
-            </summary>
         </member>
         <member name="M:Syncfusion.Chart.ChartLineInfo.ResetColor">
             <summary>
@@ -36548,11 +36108,6 @@
              Stacking 100% column chart.
             </summary>
         </member>
-        <member name="F:Syncfusion.Chart.ChartSeriesType.StackingLine100">
-            <summary>
-            Stacking 100% Line chart.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Chart.ChartSeriesType.Pie">
             <summary>
              Pie chart.
@@ -38216,22 +37771,6 @@
             <param name="pt">The pt.</param>
             <param name="drawMarker">if set to <c>true</c> marker will be drawn.</param>
         </member>
-        <member name="M:Syncfusion.Chart.RenderingHelper.DrawPointSymbol(Syncfusion.Drawing.SkiaSharpHelper.Graphics,Syncfusion.Chart.ChartSymbolShape,Syncfusion.Chart.ChartMarker,Syncfusion.Drawing.SizeF,Syncfusion.Drawing.Size,System.Int32,Syncfusion.Drawing.SkiaSharpHelper.Brush,Syncfusion.Drawing.SkiaSharpHelper.Pen,Syncfusion.Chart.ChartImageCollection,Syncfusion.Drawing.PointF,System.Boolean)">
-            <summary>
-            Draws the point symbol.
-            </summary>
-            <param name="g">The <see cref="T:Syncfusion.Drawing.SkiaSharpHelper.Graphics"/>.</param>
-            <param name="symbolShape">The symbol shape.</param>
-            <param name="symbolMarker">The symbol marker.</param>
-            <param name="symbolSize">Size of the symbol.</param>
-            <param name="symbolOffset">The symbol offset.</param>
-            <param name="symbolImageIndex">Index of the symbol image.</param>
-            <param name="brush">The brush.</param>
-            <param name="pen">The pen.</param>
-            <param name="images">The images.</param>
-            <param name="pt">The pt.</param>
-            <param name="drawMarker">if set to <c>true</c> marker will be drawn.</param>
-        </member>
         <member name="M:Syncfusion.Chart.RenderingHelper.DrawPointSymbol(Syncfusion.Chart.ChartGraph,Syncfusion.Chart.ChartSymbolShape,Syncfusion.Chart.ChartMarker,Syncfusion.Drawing.Size,Syncfusion.Drawing.Size,System.Int32,Syncfusion.Drawing.SkiaSharpHelper.Brush,Syncfusion.Drawing.SkiaSharpHelper.Pen,Syncfusion.Chart.ChartImageCollection,Syncfusion.Drawing.PointF,System.Boolean)">
             <summary>
             Draws the point symbol.
@@ -39529,12 +39068,6 @@
             <param name="serie">chart serie</param>        
             <returns>SplineSeries</returns>
         </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.GetDashCapStyle(Syncfusion.Drawing.LineCap,Syncfusion.Drawing.DashCap@)">
-            <summary>
-            Get cap style of the line
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.SfPieSeries(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl,Syncfusion.Chart.ChartControl)">
             <summary>
             It returns the SfPie Serie.
@@ -39823,44 +39356,6 @@
             <param name="serie">XlsIo serie.</param>
             <param name="chartSeriesBase">SfChart series base</param>
             <param name="negativeIndexes">negative indexes by values</param>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.SetArrows(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl,Syncfusion.Chart.ChartSeries,System.Int32)">
-            <summary>
-            Set arrow in ChartSeries based on a ChartSerieImpl and the number of data points for image conversion.
-            </summary>
-            <param name="serie">ChartSerieImpl representing the series implementation.</param>
-            <param name="line">ChartSeries representing the chart series line to be configured.</param>
-            <param name="dataPointsCount">Number of data points in the series.</param>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.GetArrow(Syncfusion.XlsIO.Implementation.Charts.ChartBorderImpl,System.Boolean)">
-            <summary>
-            Creates an Arrow based on the arrow type, length, and width specified in the given ChartBorderImpl.
-            </summary>
-            <param name="line">The ChartBorderImpl object containing arrow properties.</param>
-            <param name="isBeginArrow">A boolean flag indicating whether the arrow is the beginning arrow.</param>
-            <returns>An Arrow object with the specified arrow type, length, and width.</returns>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.SetErrorBarConfiguration(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl,Syncfusion.Chart.ChartSeries)">
-            <summary>
-            Configure the both error bars
-            </summary>
-            <param name="serie"></param>
-            <param name="chartSeriesBase"></param>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.SetErrorBarProperties(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl,Syncfusion.Chart.ChartSeries,System.Boolean)">
-            <summary>
-            Set the error bar properties.
-            </summary>
-            <param name="serie"></param>
-            <param name="chartSeriesBase"></param>
-            <param name="isErrorBarX"></param>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.GetArrowLengthAndWidth(Syncfusion.XlsIO.ExcelShapeArrowWidthLength,Syncfusion.Chart.Arrow)">
-            <summary>
-            Sets the arrow length and width of the given Arrow object based on the specified ExcelShapeArrowWidthLength.
-            </summary>
-            <param name="arrowsize">The ExcelShapeArrowWidthLength specifying the desired arrow size.</param>
-            <param name="arrow">The Arrow object to be updated with the specified length and width for drawing.</param>
         </member>
         <member name="M:Syncfusion.ChartToImageConverter.ChartSeriesFactory.DetachEventsForRadarAxes(Syncfusion.Chart.ChartControl)">
             <summary>
@@ -40753,13 +40248,6 @@
             <param name="xlsioCatAxis">XlsIO category axis</param>
             <param name="xlsioValAxis">XlsIO Value axis</param>
         </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartUtilities.MultiLevelCategoryLable(Syncfusion.XlsIO.Implementation.Charts.ChartCategoryAxisImpl,Syncfusion.Chart.ChartAxis)">
-             <summary>
-             Multilevel category axis label
-             </summary>
-            <param name="sfCatAxis">Sfchart category axis</param>
-            <param name="xlsioCatAxis">XlsIO category axis</param>
-        </member>
         <member name="M:Syncfusion.ChartToImageConverter.ChartUtilities.CreateNewLineSeries(Syncfusion.Chart.ChartAxis,Syncfusion.XlsIO.Implementation.Charts.ChartCategoryAxisImpl,Syncfusion.XlsIO.Implementation.Charts.ChartValueAxisImpl)">
              <summary>
              Create the new line series and add to the collection.
@@ -40876,13 +40364,6 @@
             <param name="serie">chart serie</param>
             <param name="sfChartSeries">Sfchart serie base object</param>
             <returns>sfChart DataLabel</returns>
-        </member>
-        <member name="M:Syncfusion.ChartToImageConverter.ChartUtilities.IsRangesCollectionContainsExternalRange(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl)">
-            <summary>
-            If the RangesCollection contains ExternalRange return false, Otherwise return true
-            </summary>
-            <param name="serie"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.ChartToImageConverter.ChartUtilities.SetMarkerFormattings(Syncfusion.XlsIO.Implementation.Charts.ChartSerieImpl,System.Collections.Generic.List{System.Int32},Syncfusion.XlsIO.Implementation.Charts.ChartSerieDataFormatImpl,Syncfusion.Chart.ChartSeries,Syncfusion.Chart.ChartStyleInfo)">
             <summary>

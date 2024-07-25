@@ -45,7 +45,11 @@ namespace Badger
     using System.Windows.Controls;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Controls.TabControl" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -53,75 +57,14 @@ namespace Badger
     public class MetroTabControl : TabControl
     {
         /// <summary>
-        /// The border color
+        /// The theme
         /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 50,
-            G = 93,
-            B = 129
-        };
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 1,
-            G = 35,
-            B = 54
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
+        private protected DarkMode _theme = new DarkMode( );
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.TabControl" /> class.
+        /// <see cref="T:Badger.MetroTabControl" /> class.
         /// </summary>
         public MetroTabControl( )
             : base( )
@@ -135,12 +78,12 @@ namespace Badger
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Stretch;
-            Margin = new Thickness( 1 );
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            Background = _theme.BackColor;
+            BorderBrush = _theme.BackColor;
+            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

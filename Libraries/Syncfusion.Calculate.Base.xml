@@ -4482,12 +4482,6 @@
             <param name="range">Range, mu, sigma.</param>
             <returns>Kth smallest value.</returns>
         </member>
-        <member name="M:Syncfusion.Calculate.CalcEngine.CalculateMultiRange(System.String@)">
-            <summary>
-            Calculate muti range and return cell value
-            </summary>
-            <param name="range"> contains multi cell range(eg:A1:A100)</param>
-        </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.ComputeMax(System.String)">
             <summary>
             Returns the maximum value of all values listed in the argument.

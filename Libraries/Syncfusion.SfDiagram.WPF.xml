@@ -8657,69 +8657,6 @@
             </summary>
             <returns>Returns the <see cref="T:Syncfusion.UI.Xaml.Diagram.Controls.RulerSegment"/>class instance.</returns>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.MarkerBrush">
-            <summary>
-            Gets or sets the marker brush applied to the position indicator on rulers.
-            </summary>
-            <value>
-            The color of the ruler position indicator. Default is Black.
-            </value>
-            <example>
-            The following XAML demonstrates how to use the MarkerBrush property:
-            <code><![CDATA[
-            <syncfusion:SfDiagram.HorizontalRuler>
-                <syncfusion:Ruler MarkerBrush="Red"/>
-            </syncfusion:SfDiagram.HorizontalRuler>
-            <syncfusion:SfDiagram.VerticalRuler>
-                <syncfusion:Ruler Orientation="Vertical" MarkerBrush="Green"/>
-            </syncfusion:SfDiagram.VerticalRuler>
-            ]]></code>
-            </example>
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.MarkerBrushProperty">
-            <summary>
-            Provides information about the <see cref="P:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.MarkerBrush" /> property.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.OnMarkerBrushChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
-            <summary>
-            Handles the change in the MarkerBrush dependency property.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.UpdateMarkerBrush(System.Windows.Media.Brush)">
-            <summary>
-            Updates the marker brush with the specified SolidColorBrush.
-            </summary>
-            <param name="newColor">The new color to apply to the marker.</param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.Diagram_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Event handler for the mouse enter event of the diagram.
-            </summary>
-            <param name="sender">The object that raised the event.</param>
-            <param name="e">The MouseEventArgs containing event data.</param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.Diagram_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Event handler for the mouse leave event of the diagram.
-            </summary>
-            <param name="sender">The object that raised the event.</param>
-            <param name="e">The MouseEventArgs containing event data.</param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.MouseOver_ScrollBar(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Event handler for mouse movement over the scrollbar.
-            </summary>
-            <param name="sender">The object that raised the event.</param>
-            <param name="e">The MouseEventArgs containing event data.</param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.UpdatePositionMarker(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Updates the position marker based on mouse movement within the canvas.
-            </summary>
-            <param name="sender">The object that raised the event.</param>
-            <param name="e">The MouseEventArgs containing event data.</param>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Diagram.Controls.Ruler.#cctor">
             <summary>
              Initializes the new instance of the <see cref="T:Syncfusion.UI.Xaml.Diagram.Controls.Ruler"/> class.
@@ -17259,41 +17196,6 @@
             Gets or sets the background color of the diagram page.
             </summary>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.PageBorderBrush">
-            <summary>
-            Gets or sets the page border color of the diagram page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.PageBorderThickness">
-            <summary>
-            Gets or sets the page border thickness of the diagram page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.PageOrientation">
-            <summary>
-            Gets or sets the page orientation of the diagram page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.PageWidth">
-            <summary>
-            Gets or sets the page width of the diagram page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.PageHeight">
-            <summary>
-            Gets or sets the page height of the diagram page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.MultiplePage">
-            <summary>
-            Gets or sets a value indicates whether the multiple page is enable.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Serializer.Graph.ShowPageBreaks">
-            <summary>
-            Gets or sets a value indicates whether the page break is enable.
-            </summary>
-        </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Serializer.DiagramXmlSerializer`1">
             <summary>
             Provides custom formatting for XML serialization and deserialization.
@@ -18203,21 +18105,6 @@
             Gets or sets a collection of known types that may be present in the stencil for serialization. 
             </summary>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.CommandManager">
-            <summary>
-            Gets or sets the CommandManager of the Stencil to customize the keyboard commands.
-            </summary>  
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.SymbolGroupOnFocus">
-            <summary>
-            Represents the currently focused symbol group in the stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.Commands">
-            <summary>
-            Gets the commands associated with the stencil.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil"/> class.
@@ -18252,19 +18139,19 @@
             <param name="sender">The source of the event.</param>
             <param name="args">The event arguments.</param>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.SymbolGroupMenu">
+        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.HeaderMenu">
             <summary>
             Gets or sets the additional menu items for context menu.
             </summary>
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.SymbolGroupMenuProperty">
+        <member name="F:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.HeaderMenuProperty">
             <summary>
-            Identifies the <see cref="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.SymbolGroupMenu" /> dependency property.
+            Identifies the <see cref="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.HeaderMenu" /> dependency property.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.OnSymbolGroupMenuChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.OnHeaderMenuChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
-            Invokes when SymbolGroupMenu property of the tab item is changes.
+            Invokes when HeaderMenu property of the tab item is changes.
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="args">The event arguments.</param>
@@ -18328,11 +18215,6 @@
         <member name="F:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.SymbolSourceProperty">
             <summary>
             Identifies the Syncfusion.UI.Xaml.Diagram.Stencil.SymbolSource dependency property.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.GroupMappingNameProperty">
-            <summary>
-            Using a DependencyProperty as the backing store for <see cref="T:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroup"/> property. This enables animation, styling, binding, etc...
             </summary>
         </member>
         <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil.Title">
@@ -19007,86 +18889,6 @@
             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
             </value>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.SelectAll">
-            <summary>
-             Gets or sets the SelectAll command to invoke when to select all the symbol in stencil.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.UnSelect">
-            <summary>
-             Gets or sets the UnSelect command to invoke when to unselect all the selected symbol in stencil.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveToFirstInColumn">
-            <summary>
-             Gets or sets the command to select the first symbol in the columns of stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveToLastInColumn">
-            <summary>
-             Gets or sets the command to select the last symbol in the column of stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveToFirstInRow">
-            <summary>
-             Gets or sets the command to select the first symbol in the row of stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveToLastInRow">
-            <summary>
-             Gets or sets the command to select the last symbol in the row of stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveUp">
-            <summary>
-             Gets or sets the command to select the symbol above in stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveDown">
-            <summary>
-             Gets or sets the command to select the symbol below in stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveRight">
-            <summary>
-             Gets or sets the command to select the symbol to Right in stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.IStencilCommand.MoveLeft">
-            <summary>
-             Gets or sets the command to select the symbol to Left in stencil symbol group.
-            </summary>
-             <value>
-             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-             </value>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnCutCommand(System.Object)">
             <summary>
              Represents a method used to cut the selected elements in the diagram.
@@ -19137,106 +18939,6 @@
             Occurs when the command associated with this CommandBinding initiates a check to determine whether the delete command can be executed on the command target.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnSelectAllCommand(System.Object)">
-            <summary>
-             Represents a method used to select all the elements in the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanSelectAllExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the selectall command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnUnSelectCommand(System.Object)">
-            <summary>
-             Represents a method used to unselect the selected symbols in the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanUnSelectExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the unselect command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveToFirstInColumnCommand(System.Object)">
-            <summary>
-             Represents a method used to select the first symbol in the symbol group column.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveToFirstInColumnExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToFirstInColumn command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveToLastInColumnCommand(System.Object)">
-            <summary>
-             Represents a method used to select the last symbol in the symbol group column.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveToLastInColumnExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToLastInColumn command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveToFirstInRowCommand(System.Object)">
-            <summary>
-             Represents a method used to select the first symbol in the symbol group row.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveToFirstInRowExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToFirstInRow command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveToLastInRowCommand(System.Object)">
-            <summary>
-             Represents a method used to select the last symbol in the symbol group row.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveToLastInRowExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToLastInRow command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveUpCommand(System.Object)">
-            <summary>
-             Represents a method used to select the symbol above in the symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveUpExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveUp command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveDownCommand(System.Object)">
-            <summary>
-             Represents a method used to select the symbol below in the symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveDownExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveDown command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveRightCommand(System.Object)">
-            <summary>
-             Represents a method used to select the symbol Right in the symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveRightExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveRight command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.OnMoveLeftCommand(System.Object)">
-            <summary>
-             Represents a method used to select the symbol Left in the symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.IInternalStencilCommand.CanMoveLeftExecute(System.Object)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveLeft command can be executed on the command target.
-            </summary>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.Cut">
             <summary>
             Cuts the selected elements from the Diagram to the Diagram’s clipboard
@@ -19262,56 +18964,6 @@
             Gets or sets the Rename command invokes to rename the elements in the stencil.
             </summary>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.SelectAll">
-            <summary>
-            Select all the symbols in the active stencil symbol group
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.UnSelect">
-            <summary>
-            UnSelect the selection of all the selected symbols in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveToFirstInColumn">
-            <summary>
-            Move to the first symbol in the column of symbol group in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveToLastInColumn">
-            <summary>
-            Move to the last symbol in the column of symbol group in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveToFirstInRow">
-            <summary>
-            Move to the first symbol in the row of symbol group in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveToLastInRow">
-            <summary>
-            Move to the last symbol in the row of symbol group in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveUp">
-            <summary>
-            Move to the above symbol in the symbol group of stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveDown">
-            <summary>
-            Move to the below symbol in the symbol group of stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveRight">
-            <summary>
-            Move to the right symbol in the symbol group of stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.MoveLeft">
-            <summary>
-            Move to the left symbol in the symbol group of stencil.
-            </summary>
-        </member>
         <member name="E:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.PropertyChanged">
             <summary>
             Occurs when a property value changes.
@@ -19321,76 +18973,6 @@
             <summary>
             Invoked whenever the effective value of any dependency property on this FrameworkElement has been updated.
             The specific dependency property that changed is reported in the arguments parameter. Overrides OnPropertyChanged(name).
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.UnSelectAllSymbols">
-            <summary>
-            Unselects all currently selected symbols in the stencil symbolgroups
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandController.GetSelectedSymbolRowIndex(Syncfusion.UI.Xaml.Diagram.Stencil.Symbol,System.Collections.Generic.List{Syncfusion.UI.Xaml.Diagram.Stencil.RowInfo})">
-            <summary>
-            Gets the row index of the specified symbol in the symbol table.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager">
-            <summary>
-            Represents to manage the keyboard commands for the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.Init(Syncfusion.UI.Xaml.Diagram.Stencil.Stencil)">
-            <summary>
-            Initializes the StencilCommandManager with the stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.Commands">
-            <summary>
-            Gets or sets the collection of stencil commands.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.View">
-            <summary>
-            Gets or sets the view associated with the StencilCommandManager.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.LoadCommands">
-            <summary>
-            Loads default commands for the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.#ctor">
-            <summary>
-            Initializes a new instance of the StencilCommandManager class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.ClearGestureData">
-            <summary>
-            Clears all gesture-related data.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.HookView">
-            <summary>
-            Hooks event handlers to the view.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.UnHookView">
-            <summary>
-            Unhooks event handlers from the view.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.Execute">
-            <summary>
-            Executes the specified commands.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.View_KeyUp(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Handles the key up event.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommandManager.View_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Handles the key down event.
             </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands">
@@ -19433,86 +19015,6 @@
         <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.Rename">
             <summary>
             Gets the command that renames the selected stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.SelectAll">
-            <summary>
-            Gets the command that Selects All the stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.UnSelect">
-            <summary>
-            Gets the command that UnSelect the selection of stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveToFirstInColumn">
-            <summary>
-            Gets the command that selects first in column of stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveToLastInColumn">
-            <summary>
-            Gets the command that selects last in column of stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveToFirstInRow">
-            <summary>
-            Gets the command that selects first in row of stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveToLastInRow">
-            <summary>
-            Gets the command that selects last in row of stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveUp">
-            <summary>
-            Gets the command that Moves the selection to above stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveDown">
-            <summary>
-            Gets the command that Moves the selection to Below stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveRight">
-            <summary>
-            Gets the command that Moves the selection to Right stencil symbols.
-            </summary>
-            <value>
-            An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
-            </value>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.MoveLeft">
-            <summary>
-            Gets the command that Moves the selection to Left stencil symbols.
             </summary>
             <value>
             An object implementing the <see cref="T:System.Windows.Input.ICommand"/> interface.
@@ -19566,106 +19068,6 @@
         <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanRenameExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
             <summary>
             Occurs when the command associated with this CommandBinding initiates a check to determine whether the delete command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnSelectAllCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select all the elements in the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanSelectAllExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the select all command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnUnSelectCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to cancel selected elements in the stencil.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanUnSelectExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the cancel command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveToFirstInColumnCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the first symbol in column of the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveToFirstInColumnExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToFirstInColumn command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveToLastInColumnCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the last symbol in column of the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveToLastInColumnExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToLastInColumn command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveToFirstInRowCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the first symbol in row of the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveToFirstInRowExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToFirstInRow command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveToLastInRowCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the last symbol in row of the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveToLastInRowExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveToLastInRow command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveUpCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the above symbol in the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveUpExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveUp command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveDownCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the below symbol in the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveDownExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveDown command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveRightCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the Right symbol in the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveRightExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveRight command can be executed on the command target.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.OnMoveLeftCommandExecuted(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
-            <summary>
-             Represents a method used to select the Left symbol in the stencil's symbol group.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.StencilCommands.CanMoveLeftExecute(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
-            <summary>
-            Occurs when the command associated with this CommandBinding initiates a check to determine whether the MoveLeft command can be executed on the command target.
             </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.ItemAddingEventHandler">
@@ -19952,11 +19354,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Diagram.Stencil.Symbol"/> class.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.Symbol.BringSymbolIntoView">
-            <summary>
-            Brings the current symbol into view.
-            </summary>
-        </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.ISymbol">
             <summary>
             Represents to describe the symbol.
@@ -20234,6 +19631,15 @@
             <param name="sender">Instance of the <see cref="T:Syncfusion.UI.Xaml.Diagram.Stencil.Stencil"/>.</param>
             <param name="args">Contains the collapse event data.</param>
         </member>
+        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.GroupExtension.GroupByMany(System.Collections.Generic.IEnumerable{System.Object},Syncfusion.UI.Xaml.Diagram.Stencil.SymbolFilterProvider,System.Func{System.Object,System.Object}[])">
+            <summary>
+            Group by many without header.
+            </summary>
+            <param name="elements">Symbol collection</param>
+            <param name="selectedFilter">Filter to select symbols</param>
+            <param name="groupSelectors">Group selector</param>
+            <returns></returns>
+        </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolViewModel">
             <summary>
             SymbolViewModel is to describe the symbol.
@@ -20283,42 +19689,6 @@
             <summary>
             Gets or sets a unique name for symbol.
             </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel">
-            <summary>
-            Represents an arrangement of the SymbolGroups in Stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.Name">
-            <summary>
-            Gets or sets a key to create and arrange the Symbol Groups in stencil.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.Symbols">
-            <summary>
-            Gets or sets the symbol group header
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.Menu">
-            <summary>
-            Gets or sets the symbol group header
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.CategorySource">
-            <summary>
-            Gets or sets the stencil category source key name.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.OnPropertyChanged(System.String)">
-            <summary>
-            Invoked whenever the effective value of any dependency property on this FrameworkElement has been updated.
-            The specific dependency property that changed is reported in the arguments parameter. Overrides OnPropertyChanged(name).
-            </summary>
-        </member>
-        <member name="E:Syncfusion.UI.Xaml.Diagram.Stencil.SymbolGroupViewModel.PropertyChanged">
-            <summary>
-            Occurs when a property value changes.
-            </summary>   
         </member>
         <member name="T:Syncfusion.UI.Xaml.Diagram.Stencil.Header">
             <summary>
@@ -32653,11 +32023,6 @@
         <member name="F:Syncfusion.UI.Xaml.Diagram.StencilConstraints.ContextMenu">
             <summary>
             Enables or disables the context menu.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.Diagram.StencilConstraints.Commands">
-            <summary>
-            Enables or disables Commands behavior.
             </summary>
         </member>
         <member name="F:Syncfusion.UI.Xaml.Diagram.StencilConstraints.Default">

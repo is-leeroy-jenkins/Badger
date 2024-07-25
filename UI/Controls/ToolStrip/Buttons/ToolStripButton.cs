@@ -41,6 +41,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Input;
 
     /// <inheritdoc />
@@ -73,6 +74,7 @@ namespace Badger
             Height = 30;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
+            Margin = new Thickness( 3 );
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;

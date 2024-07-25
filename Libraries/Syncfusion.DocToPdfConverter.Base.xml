@@ -1539,12 +1539,6 @@
             <param name="ch">Specify the input character</param>
             <returns>Return the inversed character</returns>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.IsInversedCharacter(System.String)">
-            <summary>
-            Determines whether the characters are inverses in the input text.
-            </summary>
-            <param name="text">Specify the input text</param>
-        </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.DrawTextRange(Syncfusion.DocIO.DLS.WTextRange,Syncfusion.Layouting.LayoutedWidget,System.String)">
             <summary>
             Draws the text range.
@@ -1552,12 +1546,6 @@
             <param name="txtRange">The TXT range.</param>
             <param name="ltWidget">The lt widget.</param>
             <param name="text">The text.</param>
-        </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.GetTrimmedText(System.String)">
-            <summary>
-            Trim the space characters in the text.
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.IsValidFieldResult(Syncfusion.DocIO.DLS.WField,Syncfusion.Layouting.IWidget)">
             <summary>
@@ -1879,18 +1867,6 @@
             <param name="clipWidth">The clipwidth.</param>
             <param name="ltWidget">The layouted widget.</param>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.Rotate(System.Single,System.Boolean@,System.Boolean@,Syncfusion.DocIO.DLS.TextWrappingStyle,System.Boolean,System.Boolean,System.Single@)">
-            <summary>
-            Rotate a Graphics based on Shape Rotation.
-            </summary>
-            <param name="ang">Specified the rotation angle.</param>
-            <param name="flipH">Specifies whether text needs to vertically flip.</param>
-            <param name="flipV">Specifies whether text needs to horizontally flip.</param>
-            <param name="doNotRotateText">Specifies whether the text need to rotate.</param>
-            <param name="textWrappingStyle">Specifies the text wrapping style.</param>
-            <param name="isNeedToScale">Indicates whether the text need to scale or not.</param>
-            <param name="rotationAngle">Specifies the modified rotation angle.</param>
-        </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.CheckPreOrNextSiblingIsTab(Syncfusion.DocIO.DLS.WCharacterFormat@,System.Drawing.RectangleF@,Syncfusion.Layouting.LayoutedWidget,System.Boolean@)">
             <summary>
             Check that previous or next sibling is tab in that line paragraph
@@ -1910,7 +1886,7 @@
             <param name="format"></param>
             <param name="charFormat"></param>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.AddLineToCollection(System.String,System.Boolean,System.Drawing.Font,Syncfusion.DocIO.DLS.WCharacterFormat,System.Drawing.RectangleF,System.Boolean,Syncfusion.Office.FontScriptType)">
+        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.AddLineToCollection(System.String,System.Boolean,System.Drawing.Font,Syncfusion.DocIO.DLS.WCharacterFormat,System.Boolean,System.Drawing.RectangleF,System.Boolean,Syncfusion.Office.FontScriptType)">
             <summary>
             Add the line to the Dictionary collection
             </summary>
@@ -2040,17 +2016,6 @@
             <param name="text">Text</param>
             <param name="format">string format</param>
             <param name="charFormat">character Format</param>
-        </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.DrawStringBasedOnExpandedCharSpacing(Syncfusion.Office.FontScriptType,System.Drawing.Font,System.Drawing.RectangleF,System.String,System.Drawing.StringFormat,Syncfusion.DocIO.DLS.WCharacterFormat)">
-            <summary>
-            Draws a string based on expanded character spacing.
-            </summary>
-            <param name="scriptType">The script type of the text.</param>
-            <param name="font">The font used for drawing the text.</param>
-            <param name="bounds">The bounds within which the text is drawn.</param>
-            <param name="text">The text to be drawn.</param>
-            <param name="format">The string format.</param>
-            <param name="charFormat">The character format.</param>
         </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.TransformGraphicsPosition(Syncfusion.Layouting.LayoutedWidget,System.Boolean,System.Drawing.PointF@,System.Single@,Syncfusion.DocIO.DLS.WParagraph)">
             <summary>
@@ -2185,7 +2150,7 @@
                 <c>true</c> if owner paragraph is empty, set to <c>true</c>.
             </returns>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.RotateAndScaleTransform(System.Drawing.RectangleF@,System.Drawing.RectangleF@,System.Single,System.Drawing.PointF,System.Single,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.RotateAndScaleTransform(System.Drawing.RectangleF@,System.Drawing.RectangleF@,System.Single,System.Drawing.PointF,System.Single,System.Boolean)">
             <summary>
             Rotate and scale the graphics transform matrix
             </summary>
@@ -2195,7 +2160,7 @@
             <param name="translatePoints">Translation points</param>
             <param name="rotationAngle">Rotation angle</param>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.ScaleTransformMatrix(System.Single,System.Drawing.PointF,System.Single,System.Boolean,System.Boolean)">
+        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.ScaleTransformMatrix(System.Single,System.Drawing.PointF,System.Single)">
             <summary>
             Scale the graphics transform matrix.
             </summary>
@@ -2971,31 +2936,19 @@
             <param name="ltWidget">LayoutedWidget</param>
             <returns>Return true, if line items are drawn.</returns>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.DrawLine(System.Collections.Generic.Dictionary{Syncfusion.DocIO.DLS.WCharacterFormat,System.Collections.Generic.List{System.Drawing.RectangleF}},System.Collections.Generic.Dictionary{Syncfusion.DocIO.DLS.WCharacterFormat,System.Drawing.RectangleF},Syncfusion.Layouting.LayoutedWidget)">
+        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.DrawLine(System.Collections.Generic.Dictionary{Syncfusion.DocIO.DLS.WCharacterFormat,System.Collections.Generic.List{System.Drawing.RectangleF}},System.Collections.Generic.Dictionary{Syncfusion.DocIO.DLS.WCharacterFormat,System.Drawing.RectangleF})">
             <summary>
             Draw the Line Based in the collection.
             </summary>
             <param name="underLineValues">Contains the underline values</param>
             <param name="strikeThroughValues">Contains the strike through values</param>
         </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.TransformGraphics(Syncfusion.DocIO.DLS.WCharacterFormat,System.Boolean@,Syncfusion.Layouting.LayoutedWidget)">
+        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.ScaleTransform(Syncfusion.DocIO.DLS.WCharacterFormat,System.Boolean@)">
             <summary>
-            Transform the graphics based on the rotation and scaling.
+            Scale the graphics transform matrix.
             </summary>
             <param name="characterFormat">The character format.</param>
             <param name="isNeedToScale">Indicates whether the line need to scale or not.</param>
-            <param name="ltWidget">Line widget.</param>
-        </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.GetTextboxOrShapesRotationValue(System.Single@,System.Boolean@,System.Boolean@,System.Boolean@,Syncfusion.DocIO.DLS.TextWrappingStyle@,System.Boolean@,Syncfusion.DocIO.DLS.WTextRange)">
-            <summary>
-            Gets the rotation values from the textbox, shapes(ChildShapes/GroupShapes).
-            </summary>
-            <param name="ang">Specified the rotation angle.</param>
-            <param name="flipH">Specifies whether it is vertical flip.</param>
-            <param name="flipV">Specifies whether it is horizontally flip.</param>
-            <param name="doNotRotateText">Specifies whether the text need to rotate.</param>
-            <param name="textWrappingStyle">Specifies the text wrapping style.</param>
-            <param name="textRange">Specifies the current textrange.</param>
         </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.IsNeedToChangeUnderLineWidth(System.String)">
             <summary>
@@ -3469,16 +3422,6 @@
             Gets the font size for Text Watermark
             </summary>
             <param name="textWatermark">Text Watermark</param>
-        </member>
-        <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.AdjustPictureBrightnessAndContrast(System.Drawing.Bitmap,Syncfusion.DocIO.DLS.WPicture,System.Drawing.Imaging.ImageAttributes@,System.Boolean)">
-            <summary>
-            Adjust the brightness and contrast of the picture.
-            </summary>
-            <param name="bmp">Represents a image that we need to gets a graphics.</param>
-            <param name="picture">The image.</param>
-            <param name="imageAttributes">Represents image Attributes</param>
-            <param name="isWatermark">if set to <c>true</c> [is picture watermark].</param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.DocToPdfConverter.Rendering.PDFDrawingContext.DrawImageWatermark(Syncfusion.DocIO.DLS.PictureWatermark,System.Drawing.RectangleF,Syncfusion.DocIO.DLS.WPageSetup)">
             <summary>

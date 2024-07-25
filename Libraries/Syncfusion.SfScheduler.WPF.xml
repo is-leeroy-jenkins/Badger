@@ -579,11 +579,6 @@
             All day appointment control style to change appointment UI style.
             </summary>
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.cellRightPadding">
-            <summary>
-            The cell right padding for appointments.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings"/> class.
@@ -815,33 +810,6 @@
             ***
             </example>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.CellRightPadding">
-            <summary>
-            Gets or sets the option to include spacing between a cell's appointment and its border on the right side to interact with a scheduler cell that contains appointments.
-            </summary>
-            <value>The default value is 10.</value>
-            <remarks>
-            This property is applicable only when the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ItemsSource"/> property is enabled or when appointments are present in the scheduler.
-            </remarks>
-            <example>
-            #[C#](#tab/tabid-4)
-            <code Lang="C#">
-            <![CDATA[
-            this.scheduler.DaysViewSettings.CellRightPadding = 5;
-            ]]>
-            </code>
-            #[Xaml](#tab/tabid-5)
-            <code Lang="XAML">
-            <![CDATA[
-            <scheduler:SfScheduler x:Name="scheduler">
-               <scheduler:SfScheduler.DaysViewSettings>
-                   <scheduler:DaysViewSettings CellRightPadding = "5" />
-               </scheduler:SfScheduler.DaysViewSettings>
-            </scheduler:SfScheduler>
-            ]]>
-            </code>
-            </example>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.AllDayAppointmentStyle">
             <summary>
             Gets or sets the all day appointment control style to change appointment UI style.
@@ -870,11 +838,6 @@
         <member name="M:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.OnAllDayAppointmentTemplateChanged">
             <summary>
             Method to update all day appointment template change.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.OnCellRightPaddingChanged">
-            <summary>
-            Method to update the cell right padding value changes.
             </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.DaysViewSettings.OnAllDayAppointmentStyleChanged">
@@ -1428,6 +1391,11 @@
             The date range of particular view.
             </summary>
         </member>
+        <member name="F:Syncfusion.UI.Xaml.Scheduler.ViewControlBase.cellEndPadding">
+            <summary>
+            The cell end padding for the appointment arranging
+            </summary>
+        </member>
         <member name="F:Syncfusion.UI.Xaml.Scheduler.ViewControlBase.rowCount">
             <summary>
             The number of rows in the view.
@@ -1452,6 +1420,14 @@
             <summary>
             Gets or sets the day info.
             </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Scheduler.ViewControlBase.CellEndPadding">
+            <summary>
+            Gets or sets to add padding at the right end of a cell to interact when the timeslot cells have appointments.
+            </summary>
+            <remarks>
+            This property will be applicable to <see cref="F:Syncfusion.UI.Xaml.Scheduler.SchedulerViewType.Day"/>, <see cref="F:Syncfusion.UI.Xaml.Scheduler.SchedulerViewType.Week"/>, <see cref="F:Syncfusion.UI.Xaml.Scheduler.SchedulerViewType.WorkWeek"/>, <see cref="F:Syncfusion.UI.Xaml.Scheduler.SchedulerViewType.Month"/> views.
+            </remarks>
         </member>
         <member name="P:Syncfusion.UI.Xaml.Scheduler.ViewControlBase.DateRange">
             <summary>
@@ -3156,22 +3132,6 @@
             The identifier for <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ShowDatePickerButton"/> dependency property.
             </value> 
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.SfScheduler.EnableToolTipProperty">
-            <summary>
-            Identifies the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.EnableToolTip"/> dependency property.
-            </summary>        
-            <value>
-            The identifier for <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.EnableToolTip"/> dependency property.
-            </value> 
-        </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ToolTipTemplateProperty">
-            <summary>
-            Identifies the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ToolTipTemplate"/> dependency property.
-            </summary>        
-            <value>
-            The identifier for <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ToolTipTemplate"/> dependency property.
-            </value> 
-        </member>
         <member name="F:Syncfusion.UI.Xaml.Scheduler.SfScheduler.AllowedViewTypesProperty">
             <summary>
             Identifies the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.AllowedViewTypes"/> dependency property.
@@ -3805,77 +3765,6 @@
             <?xml version = "1.0" encoding="utf-8"?>
             <syncfusion:SfScheduler x:Name="Schedule"
                                ShowDatePickerButton="True">
-            </syncfusion:SfScheduler>
-            ]]>
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.EnableToolTip">
-            <summary>
-            Gets or sets a value indicating whether the tooltip should be displayed when the mouse hovered on the appointment in the <see cref="T:Syncfusion.UI.Xaml.Scheduler.SfScheduler"/>. 
-            </summary>
-            <value>
-            The default value is <c>false</c>.
-            </value>
-            <remarks>
-            This property determines whether tool tips are shown when users interact with appointments in the <see cref="T:Syncfusion.UI.Xaml.Scheduler.SfScheduler"/>.
-            The tool tips typically provide additional information about the appointment being interacted with, such as its appointment value.
-            </remarks>
-            <seealso cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ToolTipTemplate"/>
-            <example>
-            #[C#](#tab/tabid-65)
-            <code Lang="C#">
-            <![CDATA[
-            this.Schedule.EnableToolTip = true;
-            ]]>
-            </code>
-            #[Xaml](#tab/tabid-66)
-            <code Lang="XAML">
-            <![CDATA[
-            <syncfusion:SfScheduler x:Name="Schedule"
-                                    EnableToolTip="True">
-            </syncfusion:SfScheduler>
-            ]]>
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ToolTipTemplate">
-            <summary>
-            Gets or sets the data template to use for customizing the appearance of tool tips for appointments in the <see cref="T:Syncfusion.UI.Xaml.Scheduler.SfScheduler"/>.
-            </summary>
-            <value>
-            The default value is null.
-            </value>
-            <remarks>
-            The <see cref="T:Syncfusion.UI.Xaml.Scheduler.ScheduleAppointment"/> will be set as data context. This property will be applicable only when <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.EnableToolTip"/> property is enabled.
-            </remarks>
-            <example>
-            #[Xaml](#tab/tabid-67)
-            <code Lang="XAML">
-            <![CDATA[
-            <?xml version = "1.0" encoding="utf-8"?>
-            <syncfusion:SfScheduler x:Name="Schedule"
-                                    EnableToolTip="True">
-               <syncfusion:SfScheduler.ToolTipTemplate>
-                   <DataTemplate>
-                       <Border x:Name="PART_ToolTipBorder"
-                               BorderBrush="{Binding AppointmentBackground}"
-                               Background="{Binding AppointmentBackground}" 
-                               CornerRadius="4"
-                               VerticalAlignment="Stretch" 
-                               HorizontalAlignment="Stretch"
-                               Padding="5">
-                           <TextBlock x:Name="PART_DisplayTextBlock"
-                                      Text="{Binding Subject}" 
-                                      Foreground="White"
-                                      FontSize="12"
-                                      TextWrapping="Wrap"
-                                      TextTrimming="CharacterEllipsis"
-                                      VerticalAlignment="Center" 
-                                      HorizontalAlignment="Center" />
-                       </Border>
-                   </DataTemplate>
-               </syncfusion:SfScheduler.ToolTipTemplate>
             </syncfusion:SfScheduler>
             ]]>
             </code>
@@ -5254,11 +5143,6 @@
             Method to update agenda view.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.SfScheduler.UpdateScrollPosition">
-            <summary>
-            Method to update the scroll position on date picker's date change.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.SfScheduler.UpdateAgendaListView">
             <summary>
             Method to update items source of the agenda list view.
@@ -6317,11 +6201,6 @@
             It's used to indicates the timer to find the long press using mouse pointer.
             </summary>
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.AppointmentControl.toolTip">
-            <summary>
-            The tool tip is used to display additional information about appointments on mouse over.
-            </summary>
-        </member>
         <member name="F:Syncfusion.UI.Xaml.Scheduler.AppointmentControl.firstTouchTime">
             <summary>
             Gets or sets first touch time to start the appointment dragging on TouchMove by comparing touch down and holding time.
@@ -6624,16 +6503,6 @@
             Handles the mouse pointer leave event of the appointment control.
             </summary>
             <param name="e">The MouseEventArgs instance containing the event data.</param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.AppointmentControl.ShowToolTip">
-            <summary>
-            Method to show the tool tip view.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.AppointmentControl.HideTooltip">
-            <summary>
-            Method to remove the tool tip from the view.
-            </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.AppointmentControl.GetSelectedCellDateTime(System.Windows.Input.MouseButtonEventArgs,Syncfusion.UI.Xaml.Scheduler.ScheduleAppointment,Syncfusion.UI.Xaml.Scheduler.SfScheduler,System.DateTime)">
             <summary>
@@ -7264,11 +7133,6 @@
             Method to update on date range changed.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.DayViewControl.UpdateScrollPosition">
-            <summary>
-            Method to update the scroll position on date picker's date change.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.DayViewControl.ScrollToPosition(System.Double)">
             <summary>
             Method to scroll to position.
@@ -7732,11 +7596,6 @@
         <member name="P:Syncfusion.UI.Xaml.Scheduler.DayViewPanel.VisibleDatesAppointments">
             <summary>
             Gets or sets schedule appointment collection with in current visible date range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.DayViewPanel.IsMeasuredDayPanel">
-            <summary>
-            Gets or sets a value indicating whether the day view panel measure is called.
             </summary>
         </member>
         <member name="P:Syncfusion.UI.Xaml.Scheduler.DayViewPanel.AppointmentViews">
@@ -12084,13 +11943,6 @@
             <param name="scheduler">The scheduler.</param>
             <returns> True, is Windows11 theme, else false. </returns>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.ScheduleHelper.IsMaterial3Theme(Syncfusion.UI.Xaml.Scheduler.SfScheduler)">
-            <summary>
-            Method to check is Material3 theme.
-            </summary>
-            <param name="scheduler">The scheduler.</param>
-            <returns> True, is Material3 theme, else false. </returns>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.ScheduleHelper.CreateAppointmentControl(Syncfusion.UI.Xaml.Scheduler.ViewControlBase,Syncfusion.UI.Xaml.Scheduler.ScheduleAppointment,System.Object)">
             <summary>
             Method to create <see cref="T:Syncfusion.UI.Xaml.Scheduler.AppointmentControl"/> on Tab key navigation.
@@ -12540,6 +12392,11 @@
         <member name="F:Syncfusion.UI.Xaml.Scheduler.MonthCell.dateText">
             <summary>
             The date text.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.UI.Xaml.Scheduler.MonthCell.selectionBorder">
+            <summary>
+            The selection border.
             </summary>
         </member>
         <member name="F:Syncfusion.UI.Xaml.Scheduler.MonthCell.appointments">
@@ -13128,11 +12985,6 @@
             The week number template.
             </summary>
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.cellRightPadding">
-            <summary>
-            The cell right padding for appointments.
-            </summary>
-        </member>
         <member name="F:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.agendaViewHeight">
             <summary>
             The Agenda view height.
@@ -13405,33 +13257,6 @@
             Gets or sets the blackout dates for predefined events which is used  to restrict user interaction with the specific dates in <see cref="F:Syncfusion.UI.Xaml.Scheduler.SchedulerViewType.Month"/> view.
             </summary>.
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.CellRightPadding">
-            <summary>
-            Gets or sets the option to include spacing between a cell's appointment and its border on the right side to interact with a scheduler cell that contains appointments.
-            </summary>
-            <value>The default value is 10.</value>
-            <remarks>
-            This property is applicable only when the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ItemsSource"/> property is enabled or when appointments are present in the scheduler.
-            </remarks>
-            <example>
-            #[C#](#tab/tabid-10)
-            <code Lang="C#">
-            <![CDATA[
-            this.scheduler.MonthViewSettings.CellRightPadding = 5;
-            ]]>
-            </code>
-            #[Xaml](#tab/tabid-11)
-            <code Lang="XAML">
-            <![CDATA[
-            <scheduler:SfScheduler x:Name="scheduler">
-               <scheduler:SfScheduler.MonthViewSettings>
-                   <scheduler:MonthViewSettings CellRightPadding = "5" />
-               </scheduler:SfScheduler.MonthViewSettings>
-            </scheduler:SfScheduler>
-            ]]>
-            </code>
-            </example>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.HasWeekNumberTemplate">
             <summary>
             Gets or sets a value indicating whether has week number template.
@@ -13506,11 +13331,6 @@
         <member name="M:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.OnLeadingDayVisibilityChanged">
             <summary>
             Method to update on leading day visibility change.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.OnCellRightPaddingChanged">
-            <summary>
-            Method to update the cell right padding value changes.
             </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.MonthViewSettings.Dispose(System.Boolean)">
@@ -14511,7 +14331,7 @@
             </summary>
             <param name="cell">The cell.</param>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.SelectionController.UpdateAppointmentSelection(Syncfusion.UI.Xaml.Scheduler.AppointmentControl,Syncfusion.UI.Xaml.Scheduler.ScheduleAppointment,System.DateTime,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Syncfusion.UI.Xaml.Scheduler.SelectionController.UpdateAppointmentSelection(Syncfusion.UI.Xaml.Scheduler.AppointmentControl,Syncfusion.UI.Xaml.Scheduler.ScheduleAppointment,System.DateTime,System.Boolean,System.Boolean)">
             <summary>
             Updates appointment selection view.
             </summary>
@@ -14520,7 +14340,6 @@
             <param name="dateTime">The appointment start date.</param>
             <param name="isKeyBoardNavigation">The appointment key board navigation.</param>
             <param name="isAppointmentMouseOver">The appointment mouse hover.</param>
-            <param name="isAppContextMenuOpening">The appointment context menu opening.</param>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.SelectionController.ClearAppointmentSelection">
             <summary>
@@ -15513,11 +15332,6 @@
             The timeline row min height..
             </summary>
         </member>
-        <member name="F:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.cellBottomPadding">
-            <summary>
-            The cell bottom padding for appointments.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings"/> class.
@@ -15592,33 +15406,6 @@
             </code>
             </example>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.CellBottomPadding">
-            <summary>
-            Gets or sets the option to include spacing between a cell's appointment and its border on the bottom side to interact with a scheduler cell that contains appointments.
-            </summary>
-            <value>The default value is 10.</value>
-            <remarks>
-            This property is applicable only when the <see cref="P:Syncfusion.UI.Xaml.Scheduler.SfScheduler.ItemsSource"/> property is enabled or when appointments are present in the scheduler.
-            </remarks>
-            <example>
-            #[C#](#tab/tabid-5)
-            <code Lang="C#">
-            <![CDATA[
-            this.scheduler.TimelineViewSettings.CellBottomPadding = 5;
-            ]]>
-            </code>
-            #[Xaml](#tab/tabid-6)
-            <code Lang="XAML">
-            <![CDATA[
-             <scheduler:SfScheduler x:Name="scheduler">
-               <scheduler:SfScheduler.TimelineViewSettings>
-                   <scheduler:TimelineViewSettings CellBottomPadding = "5" />
-               </scheduler:SfScheduler.TimelineViewSettings>
-            </scheduler:SfScheduler>
-            ]]>
-            </code>
-            </example>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.GetTimelineAppointmentHeight">
             <summary>
             Method to get timeline appointment height.
@@ -15650,11 +15437,6 @@
             Method to get Row auto height or Row min height enabled or not.
             </summary>
             <returns>True if Row auto height or Row min height enabled, else false.</returns>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.OnCellBottomPaddingChanged">
-            <summary>
-            Method to update the cell bottom padding value changes.
-            </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Scheduler.TimelineViewSettings.Dispose(System.Boolean)">
             <summary>

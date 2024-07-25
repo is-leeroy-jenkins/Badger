@@ -153,15 +153,6 @@
             <param name="factor">Factor to apply on default color value</param>
             <returns>An instance of <see cref="!:System.Media.Color"/> value</returns>
         </member>
-        <member name="M:Syncfusion.SfSkinManager.ColorHelper.GetVariantBrush(System.Windows.Media.Brush,System.Windows.Media.Brush,System.Double)">
-            <summary>
-            Helper method to get variant brush by combining two solid color brush based on provided factor.
-            </summary>
-            <param name="surfaceBrush">The surface brush value.</param>
-            <param name="brush">The default brush value.</param>
-            <param name="opacity">Factor to be applied on color value of default brush.</param>
-            <returns>An instance of <see cref="T:System.Windows.Media.Brush"/> value</returns>
-        </member>
         <member name="M:Syncfusion.SfSkinManager.ColorHelper.HSLToRGB(System.Byte,System.Single,System.Single,System.Single)">
             <summary>
             Helper method to convert HSL to RGB color value
@@ -595,15 +586,6 @@
             <param name="opacity">opacity</param>
             <returns>An instance of <see cref="T:System.Windows.Media.Brush"/> value</returns>
         </member>
-        <member name="M:Syncfusion.SfSkinManager.ThemeSettingsHelper.GetVariantBrush(System.Windows.Media.Brush,System.Windows.Media.Brush,System.Double)">
-            <summary>
-            Helper method to get variant brush by combining two solid color brush based on provided factor.
-            </summary>
-            <param name="surfaceBrush">The surface brush value.</param>
-            <param name="brush">The default brush value.</param>
-            <param name="opacity">Factor to be applied on color value of default brush.</param>
-            <returns>An instance of <see cref="T:System.Windows.Media.Brush"/> value</returns>
-        </member>
         <member name="T:Syncfusion.SfSkinManager.FluentTheme">
             <summary>
             Represents a class which holds fluent theme info for <see cref="T:Syncfusion.SfSkinManager.SfSkinManager"/>.
@@ -866,16 +848,6 @@
         <member name="F:Syncfusion.SfSkinManager.VisualStyles.Windows11Dark">
             <summary>
             Represents the Windows11 dark theme. <see cref="T:Syncfusion.SfSkinManager.SfSkinManager"/> loads theme from Syncfusion.Themes.Windows11Dark.WPF assembly.
-            </summary>     
-        </member>
-        <member name="F:Syncfusion.SfSkinManager.VisualStyles.Material3Light">
-            <summary>
-            Represents the Material3 light theme. <see cref="T:Syncfusion.SfSkinManager.SfSkinManager"/> loads theme from Syncfusion.Themes.Material3Light.WPF assembly.
-            </summary>     
-        </member>
-        <member name="F:Syncfusion.SfSkinManager.VisualStyles.Material3Dark">
-            <summary>
-            Represents the Material3 dark theme. <see cref="T:Syncfusion.SfSkinManager.SfSkinManager"/> loads theme from Syncfusion.Themes.Material3Dark.WPF assembly.
             </summary>     
         </member>
         <member name="T:Syncfusion.SfSkinManager.SfSkinManager">

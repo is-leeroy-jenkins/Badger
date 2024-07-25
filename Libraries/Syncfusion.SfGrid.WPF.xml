@@ -12529,7 +12529,7 @@
             <typeparam name="T">type of the row.</typeparam>
             <returns>VirtualizingCellsControl</returns>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Grid.RowGenerator.UpdateBinding(Syncfusion.UI.Xaml.Grid.GridColumn,System.Int32)">
+        <member name="M:Syncfusion.UI.Xaml.Grid.RowGenerator.UpdateBinding(Syncfusion.UI.Xaml.Grid.GridColumn)">
             <summary>
             Updates the Binding Information for the DataColumn, when Editor APIs are Changed
             </summary>
@@ -18524,6 +18524,11 @@
             <remarks>
             The identifier for the DragInfo.DragCaption dependency property.
             </remarks>   
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Grid.DropStatusConverter">
+            <summary>
+            Derived from IValueConverter which returns the string value of DropStatus  of the row
+            </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Grid.AutoScroller">
             <summary>
@@ -26251,31 +26256,6 @@
         <member name="P:Syncfusion.UI.Xaml.Grid.SerializableGridTemplateColumn.VerticalAlignment">
             <summary>
             Gets or sets the vertical alignment for the SerializableGridTemplateColumn .
-            </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Grid.SerializableGridImageColumn">
-            <summary>
-            Represents a class that is used to serialize and deserialize GridImageColumn property settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.SerializableGridImageColumn.ImageHeight">
-            <summary>
-            Gets or sets the height of the image.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.SerializableGridImageColumn.ImageWidth">
-            <summary>
-            Gets or sets the width of the image.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.SerializableGridImageColumn.Stretch">
-            <summary>
-            Gets or sets a value that specifies how an Microsoft.UI.Xaml.Controls.Image can be stretched to fill the destination rectangle.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.SerializableGridImageColumn.StretchDirection">
-            <summary>
-            Gets or sets a value that indicates how the image is scaled.
             </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Grid.SerializableGridComboBoxColumn">
@@ -43283,11 +43263,6 @@
               Looks up a localized string similar to Narrow.
             </summary>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.Resources.Syncfusion_SfGrid_Wpf.Items">
-            <summary>
-              Looks up a localized string similar to Items.
-            </summary>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.Grid.Resources.Syncfusion_SfGrid_Wpf.NoItems">
             <summary>
               Looks up a localized string similar to No Items.
@@ -56795,11 +56770,6 @@
             The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains
                 event data.
             </param>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.TreeGrid.TreeGridModel.InitialFiltering">
-            <summary>
-            Performs initial filtering on the treegrid based on column filter predicates.
-            </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.TreeGrid.TreeGridModel.ApplyFilter">
             <summary>

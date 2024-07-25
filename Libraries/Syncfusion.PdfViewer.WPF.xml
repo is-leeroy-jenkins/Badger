@@ -340,16 +340,6 @@
             Gets or sets the value indicating whether the encoded text is hexa decimal string 
             </summary>
         </member>
-        <member name="P:Syncfusion.Pdf.FontStructure.FontMatrix">
-            <summary>
-            Gets the Font Matrix
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Pdf.FontStructure.FontBBox">
-            <summary>
-            Gets the Font BBox
-            </summary>
-        </member>
         <member name="P:Syncfusion.Pdf.FontStructure.FontName">
             <summary>
             Holds the font name associated with the text element
@@ -3242,11 +3232,6 @@
             Gets or sets the popup note bounds.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.InkSignature.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup">
             <summary>
             Class for annotation popup
@@ -3255,26 +3240,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.ParentAnnotation">
             <summary>
             Parent of the popup.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.CommentText">
-            <summary>
-            Gets or sets the comment text
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.CommentAuthor">
-            <summary>
-            Gets or sets the comment author
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.CommentModifiedDate">
-            <summary>
-            Gets or sets the comment modified date
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.CommentStatus">
-            <summary>
-            Gets or sets the comment status
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfAnnotationPopup.AnnotationTextBox">
@@ -3318,14 +3283,14 @@
             Action performed
             </summary>
         </member>
+        <member name="F:Syncfusion.Windows.PdfViewer.AnnotationHistory.PageIndex">
+            <summary>
+            Page index
+            </summary>
+        </member>
         <member name="P:Syncfusion.Windows.PdfViewer.AnnotationHistory.State">
              <summary>
             Gets or sets a value indicates start and end state of the composite transactions for undo/redo
-             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.AnnotationHistory.PageIndex">
-             <summary>
-            Gets or sets the Page index;
              </summary>
         </member>
         <member name="M:Syncfusion.Windows.PdfViewer.AnnotationHistory.#ctor(Syncfusion.Windows.PdfViewer.IAnnotation,Syncfusion.Windows.PdfViewer.PdfDocumentView.PdfViewerActionType,System.Int32,Syncfusion.Windows.PdfViewer.LayerHistory,Syncfusion.Windows.PdfViewer.RedactionHistory)">
@@ -3335,36 +3300,6 @@
             <param name="annotation">Annotation</param>
             <param name="actionType">Action performed</param>
             <param name="pageIndex">Page index</param>
-        </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.IUndoRedoHistory">
-            <summary>
-            Define interface for maintain a annotations and form field undo/redo operation.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.IUndoRedoHistory.PageIndex">
-             <summary>
-            Gets or sets the Page index;
-             </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.FormFieldHistory">
-            <summary>
-            Class for form fiels actions recorder for undo/redo operation
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.FormFieldHistory.PageIndex">
-             <summary>
-            Gets or sets the Page index;
-             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.FormFieldHistory.#ctor(System.String,System.Object,System.Object,System.Object,System.Int32)">
-            <summary>
-            Initializes backing up form field for undo/redo operations
-            </summary>
-            <param name="fieldName">Form field name</param>
-            <param name="fieldType">Form field type</param>
-            <param name="oldValue">Form field old value</param>
-            <param name="newValue">Form field new value</param>
-            <param name="PageIndex">Page index</param>
         </member>
         <member name="T:Syncfusion.Windows.PdfViewer.PdfAnnotationWindow">
             <summary>
@@ -3476,16 +3411,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerCircleSettings.CircleColor">
             <summary>
             Get and Set the circle color. The default value is System.Windows.Media.Colors.Red
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.PdfViewerComboBoxField.UpdateUndoRedoComboBox(Syncfusion.Windows.PdfViewer.PdfViewerComboBoxField,System.String,System.String,System.Object)">
-            <summary>
-            Update the combo box undo/redo operations
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerFreeTextAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerFreeTextAnnotation.PopupBounds">
@@ -3659,11 +3584,6 @@
             Get and Set the line color. The default value is System.Windows.Media.Colors.Red
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerPolygonAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerPolygonAnnotation.PopupBounds">
             <summary>
             Gets or sets the popup note bounds.
@@ -3762,11 +3682,6 @@
             Gets or Sets the stroke color of the polyline annotation when on inclusion. The default value is Red.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PolylineAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PolylineAnnotation.PopupBounds">
             <summary>
             Gets or sets the popup note bounds.
@@ -3837,11 +3752,6 @@
             Gets or sets the ReadOnly status of annotation
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.PdfViewerRadioButtonField.UpdateUndoRedoRadioButton(Syncfusion.Windows.PdfViewer.PdfViewerRadioButtonField,System.String,System.String,System.Object)">
-            <summary>
-            Update the radio button undo/redo operations
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.PdfViewer.PdfViewerRectangleSettings">
             <summary>
             Represents the settings for rectangle annotation.
@@ -3878,11 +3788,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStampSettings.Color">
             <summary>
             Gets and sets the color of the stamp annotation.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStickyNoteAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStickyNoteAnnotation.PopupBounds">
@@ -4015,11 +3920,6 @@
             Get and Set the underline color. The default value is System.Windows.Media.Colors.DarkGreen
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerInkAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerInkAnnotation.IsLoadedInkAnnotation">
             <summary>
             Gets or sets whether the annotation is loaded.
@@ -4110,11 +4010,6 @@
             Gets the clone of this class
             </summary>
             <returns>Memberwise clone</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerShapeAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerShapeAnnotation.PopupBounds">
             <summary>
@@ -4239,11 +4134,6 @@
             <param name="startindex"></param>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerTextMarkupAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerTextMarkupAnnotation.PopupBounds">
             <summary>
             Gets or sets the popup note bounds.
@@ -4322,11 +4212,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerTextMarkupAnnotation.Constraints">
             <summary>
             Gets or sets the constraint status of annotation
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.AnnotationCollection">
-            <summary>
-            Class for annotation collection.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.PdfViewer.AnnotationConstraints">
@@ -4490,16 +4375,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStampAnnotation.Text">
             <summary>
             Gets and sets the text for popup note of stamp the annotation.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStampAnnotation.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStampAnnotation.ImageTemplate">
-            <summary>
-            Gets or sets the image template of the stamp annotation.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerStampAnnotation.IsLocked">
@@ -4725,11 +4600,6 @@
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.DocumentView.OriginalStream">
-            <summary>
-            Gets or sets the original stream of the PDF document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.DocumentView.SignatureStream">
             <summary>
             Gets or sets the original stream of the PDF document.
             </summary>
@@ -4983,13 +4853,6 @@
             changes properties of stamp in canvas
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetCommentStatus(Syncfusion.Pdf.Parsing.PdfLoadedPopupAnnotationCollection)">
-            <summary>
-            Gets the status of the annotation comments.
-            </summary>
-            <param name="statusCollection">Review history collection of annotation</param>
-            <returns>Returns the status of the comments</returns>
-        </member>
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.RemoveInk(Syncfusion.Windows.PdfViewer.AnnotationHistory)">
             <summary>
             Removes stamp from canvas
@@ -5096,6 +4959,15 @@
             <summary>
             Redo the changes
             </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetBoundsBasedOnPageBox(System.Drawing.RectangleF,System.Int32,System.Drawing.RectangleF)">
+            <summary>
+            Provides the annotation bounds based on the page boundary box values
+            </summary>
+            <param name="bounds"></param>
+            <param name="pageIndex"></param>
+            <param name="mediaBox"></param>
+            <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.RefreshFreeTextAnnotationsLayers(System.Int32)">
             <summary>
@@ -5348,26 +5220,6 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.LoadAnnotationComments(Syncfusion.Windows.PdfViewer.IAnnotation,Syncfusion.Pdf.Parsing.PdfLoadedPopupAnnotationCollection,Syncfusion.Windows.PdfViewer.PdfAnnotationPopup)">
-            <summary>
-            Load the comments of the annotation.
-            </summary>
-            <param name="annotation">Annotation to be loaded</param>
-            <param name="loadedComments">Comments to be loaded</param>
-            <param name="initialComment">Initial comment</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.CreateComment(Syncfusion.Windows.PdfViewer.IAnnotation,System.String,System.String,System.DateTime,Syncfusion.Pdf.Interactive.PdfAnnotationState)">
-            <summary>
-            Create the comment for the annotation
-            </summary>
-            <param name="annotation">Annotation to be loaded</param>
-            <param name="author">Author of the comment</param>
-            <param name="text">Text of the comment</param>
-            <param name="modifiedDate">Modified date of the comment</param>
-            <param name="status">Status of the comment</param>
-            <returns></returns>
-        </member>
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.LoadShapes(Syncfusion.Pdf.Interactive.PdfLoadedAnnotation,System.Int32,Syncfusion.Windows.PdfViewer.DocumentView.PdfViewerShape,System.Int32,System.Boolean)">
             <summary>
             Loads shape annotations
@@ -5388,63 +5240,6 @@
             </summary>
             <param name="annotation">loaded annotation</param>
             <param name="pageIndex">page index</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetLoadedAnnotationCount(System.Int32)">
-            <summary>
-            Get the loaded annotation count.
-            </summary>
-            <param name="pageIndex">Page index</param>
-            <returns>Returns the count of the annotation</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetLoadedAnnotationCountRuntime(System.Int32)">
-            <summary>
-            Get the loaded annotation count at runtime.
-            </summary>
-            <param name="pageIndex">Page index</param>
-            <returns>Returns the count of the annotation</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetAnnotationCount(System.Int32,System.Int32)">
-            <summary>
-            Get the total annotation count.
-            </summary>
-            <param name="pageIndex">Page index</param>
-            <param name="count">Count of the annotation</param>
-            <returns>Returns the total count of the annotation</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetAnnotationName(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Get the annotation name.
-            </summary>
-            <param name="annotation">Selected Annotation</param>
-            <returns>Returns the name of the annotation</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.GetAnnotationFromIndex(System.Int32,System.Int32)">
-            <summary>
-            Get the annotation from the index.
-            </summary>
-            <param name="pageIndex">Page index</param>
-            <param name="annotationIndex">Annotatiion index</param>
-            <returns>Returns the annotation from the index</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.DeleteAnnotationFromComments(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Deletes the annotation from the comments panel.
-            </summary>
-            <param name="annotationToBeRemoved">Annotation to be removed</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.ExpandSelectedAnnotationComment(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Expands the selected annotation in annotation comments panel.
-            </summary>
-            <param name="annotationSelected">Selected annotation</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.SaveComments(Syncfusion.Windows.PdfViewer.PdfAnnotationPopup,System.String,System.Boolean)">
-            <summary>
-            Save the comments of the annotation.
-            </summary>
-            <param name="annotation">Viewer annotation</param>
-            <param name="isReviewHistory">Whether the control is from review history</param>
-            <returns>Returns the comment as popup</returns>
         </member>
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.SaveChanges">
             <summary>
@@ -5680,12 +5475,6 @@
             </summary>
             <param name="loadedDocument">The PdfLoadedDocument to be viewed in the PdfViewer</param>
         </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.AddAnnotationToCommentsPanel(Syncfusion.Windows.PdfViewer.IAnnotation,System.Boolean)">
-            <summary>
-            Adds the annotation to the comments panel
-            </summary>
-            <param name="annotationAdded">Annotation to be added</param>
-        </member>
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.ImportFormData(System.String,Syncfusion.Pdf.Parsing.DataFormat)">
             <summary>
             Import data into a form file.
@@ -5744,21 +5533,6 @@
         <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.UnloadAnnotations(System.Boolean)">
             <summary>
             Unload all the annotation and resets all the annotation properties
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.UpdateUndoRedoPassWordBox(System.Windows.Controls.PasswordBox,System.String,System.String,System.Object)">
-            <summary>
-            Update the password box undo/redo operations
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.UpdateUndoRedoCheckBox(System.Windows.Controls.CheckBox,System.String,System.String,System.Object)">
-            <summary>
-            Update the check box undo/redo operations
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.DocumentView.UpdateUndoRedoListBox(System.Windows.Controls.ListBox,System.String,System.String,System.Object)">
-            <summary>
-            Update the list box undo/redo operations
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.PdfViewer.ValueChange">
@@ -6078,16 +5852,6 @@
             Applies redaction to the marked region.
             </summary>
         </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.BookmarkSettings">
-             <summary>
-            Class for bookmark settings.
-             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.BookmarkSettings.IsExpanded">
-             <summary>
-            Gets or sets the visible state of thumbnail pane when loading PDF document. By default the value is false.
-             </summary>
-        </member>
         <member name="T:Syncfusion.Windows.PdfViewer.RedactionMark">
             <summary>
             This class represents the region which is redacted (or) marked for redaction in the PDF page.
@@ -6118,11 +5882,6 @@
             Gets or sets the rotation angle for the page through enum.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.PdfViewerTextbox.UpdateUndoRedoTextBox(Syncfusion.Windows.PdfViewer.PdfViewerTextbox,System.String,System.String,System.Object)">
-            <summary>
-            Update the text box undo/redo operations
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.PdfViewer.PageOrganizerPane">
             <summary>
             This class is not intended to be used in your application
@@ -6142,11 +5901,6 @@
         <member name="M:Syncfusion.Windows.PdfViewer.RedactAppearanceWindow.InitializeComponent">
             <summary>
             InitializeComponent
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.Redaction.Comments">
-            <summary>
-            Gets or sets the comments for the annotation.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.Redaction.PopupBounds">
@@ -6613,17 +6367,17 @@
             Occurs when the text selection is completed in <see cref="T:Syncfusion.Windows.PdfViewer.PdfDocumentView"/>.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfDocumentView.PrintProgress">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfDocumentView.PrintProgress">
             <summary>
              Occurs to provide information on how much of printing content were submitted to printing subsystem
              </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfDocumentView.BeginPrint">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfDocumentView.BeginPrint">
             <summary>
             Occurs when the print is called and before the first page of the document prints.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfDocumentView.EndPrint">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfDocumentView.EndPrint">
             <summary>
             Occurs when the last page of the document has printed. This event also occurs if the printing process is canceled or an exception occurs during the printing process.
             </summary>
@@ -6867,11 +6621,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfDocumentView.SelectorSettings">
             <summary>
             Gets or sets the default appearance of annotation selector.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfDocumentView.EnableFormFilling">
-            <summary>
-            Gets or sets the enable form fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfDocumentView.StampAnnotationSettings">
@@ -8783,17 +8532,17 @@
             Occurs when the text selection is completed in <see cref="T:Syncfusion.Windows.PdfViewer.PdfViewerControl"/>.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfViewerControl.PrintProgress">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfViewerControl.PrintProgress">
             <summary>
             Occurs to provide information on how much of printing content were submitted to printing subsystem
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfViewerControl.BeginPrint">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfViewerControl.BeginPrint">
             <summary>
             Occurs when the print is called and before the first page of the document prints.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.PdfViewer.PdfViewerControl.EndPrint">
+        <member name="F:Syncfusion.Windows.PdfViewer.PdfViewerControl.EndPrint">
             <summary>
             Occurs when the last page of the document has printed. This event also occurs if the printing process is canceled or an exception occurs during the printing process.
             </summary>
@@ -8934,11 +8683,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.SelectorSettings">
             <summary>
             Gets or sets the default appearance of annotation selector.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.EnableFormFilling">
-            <summary>
-            Gets or sets the enable form fields.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.MaximumZoomPercentage">
@@ -9183,16 +8927,6 @@
             <summary>
             Gets or sets the thumbnail settings.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.CommentSettings">
-            <summary>
-            Gets the comment settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.BookmarkSettings">
-             <summary>
-            Gets the bookmark settings.
-             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerControl.LineAnnotationSettings">
             <summary>
@@ -10905,326 +10639,6 @@
                 Returns the template element of the given name within the Control.
             </summary>
         </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.CommentsLabel">
-            <exclude />
-        </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.CommentsPane">
-            <summary>
-            This class is not intended to be used in your application
-            </summary>
-            <exclude />
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.OnApplyTemplate">
-            <summary>
-            Overrides the <see cref="M:System.Windows.FrameworkElement.OnApplyTemplate"/> method to get invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.ExpandSelectedAnnotation(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Expands the selected annotation in commets panel
-            </summary>
-            <param name="annotationSelected">Annotation selected</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.ExpandCommentsPane(Syncfusion.Windows.PdfViewer.DocumentView,Syncfusion.Windows.PdfViewer.IAnnotation,System.Int32)">
-            <summary>
-            Expand and load the annotations to the comments pane
-            </summary>
-            <param name="AnnotationParent">Parent of the comments pane</param>
-            <param name="annotationSelected">Selected annotation</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.AddAnnotationToCommentsPanel(Syncfusion.Windows.PdfViewer.IAnnotation,System.Boolean)">
-            <summary>
-            Adds the new annotation to the comments panel
-            </summary>
-            <param name="annotationAdded">New annotation</param>
-            <param name="isImported">Whether imported or not</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CreateAnnotationGrid(Syncfusion.Windows.PdfViewer.IAnnotation,System.Int32,System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Creates the annotation Grid for new annotation
-            </summary>
-            <param name="annotation">New annotation</param>
-            <param name="pageIndex">Page index</param>
-            <param name="annotationIndex">Annotation index</param>
-            <param name="isImported">Whether imported or not</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.AddComment(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Add the newly added Annotation to the comments panel at undo and redo
-            </summary>
-            <param name="annotationToBeAdded">Annotation to be added</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.AddComment(Syncfusion.Windows.PdfViewer.PdfAnnotationPopup,System.Int32,System.Boolean,Syncfusion.Windows.PdfViewer.IAnnotation,System.Boolean)">
-            <summary>
-            Add the comment to the comments panel
-            </summary>
-            <param name="comment">Comment to be added</param>
-            <param name="index">Page index</param>
-            <param name="hasSingleComment">Has single comment or not</param>
-            <param name="annotationType">Type of annotation</param>
-            <param name="isNewComment">Whether new comment or not</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CheckPdfViewerAnnotation(System.Int32)">
-            <summary>
-            Method to check whether the page contains any annotations or not
-            </summary>
-            <param name="pageIndex">Page index</param>
-            <returns></returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.PdfViewer.CommentsPane.AddRectangle" -->
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CheckAnnotationLockStatus">
-            <summary>
-            Checks whether the annotation is locked or not.
-            </summary>
-            <returns>Returns the annotation lock status</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetCommentsCount(System.Windows.Controls.Grid)">
-            <summary>
-            Method to get the comments count
-            </summary>
-            <param name="grid">Comment Grid</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.UpdateShapeAnnotation(System.String,System.String,System.DateTime,System.Int32,System.Int32)">
-            <summary>
-            Method to update the shape annotation
-            </summary>
-            <param name="author">Shape author</param>
-            <param name="text">Shape popup text</param>
-            <param name="modifiedDate">SHape modified date</param>
-            <param name="pageIndex">Shape page index</param>
-            <param name="annotationIndex">Shape page index</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.UpdateAnnotationModifiedDate(Syncfusion.Windows.PdfViewer.IAnnotation,System.String)">
-            <summary>
-            Method to update the modified time, author and text of the annotation
-            </summary>
-            <param name="annotationSelected">Selected annotation</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CollapseAnnotationGrid(System.Windows.Controls.Grid)">
-            <summary>
-            Method to collapse the annotation grid
-            </summary>
-            <param name="annotationGrid">Current annotation grid</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CollapsePreviousSelectedGrid(System.Windows.Controls.StackPanel)">
-            <summary>
-            Collapse the previous selected annotation grid
-            </summary>
-            <param name="annotationStack">Annotation stack panel</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CollapseTextGrid(System.Boolean)">
-            <summary>
-            Collapse the comment text grid
-            </summary>
-            <param name="fromCommentPanel">Whether from comments panel or not</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CreateNewPage(System.Int32,Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Creates new page in the comments panel
-            </summary>
-            <param name="index">Page index</param>
-            <param name="annotation">Annotation to be added</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.HideOrShowAnnotationComments(Syncfusion.Windows.PdfViewer.IAnnotation,System.Boolean)">
-            <summary>
-            Method to hide the selected annotation from comments panel
-            </summary>
-            <param name="selectedAnnotation">Annotation selected</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.TextBox_GotFocus(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Got focus event of the comment text box
-            </summary>
-            <param name="sender">Comment text box</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CommentExp_PreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Preview mouse down event of page expander control
-            </summary>
-            <param name="sender">Page Expander</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CommentsGrid_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Mouse leave event of annotation grid
-            </summary>
-            <param name="sender">Annotation Grid</param>
-            <param name="e">Evnet arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CommentsGrid_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>
-            Mouse enter event of annotation grid
-            </summary>
-            <param name="sender">Annotation Grid</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.AnnotationGrid_PreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Preview mouse down event of annotation grid
-            </summary>
-            <param name="sender">Annotation grid</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CommentGrid_PreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Preview mouse down event of comment grid
-            </summary>
-            <param name="sender">Comment Grid</param>
-            <param name="e">Event argumants</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.TextBox_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)">
-            <summary>
-            Text changed event of comment text box
-            </summary>
-            <param name="sender">Comment text box</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.StackPanel_PreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
-            <summary>
-            Preview mouse down event of annotation stack panel
-            </summary>
-            <param name="sender">Stack panel</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.CancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Cancel button click event of annotation
-            </summary>
-            <param name="sender">Cancel button</param>
-            <param name="e">Event handler</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.PostButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Post button click event of annotation
-            </summary>
-            <param name="sender">Button clcik</param>
-            <param name="e">Event handler</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.EditComment(System.Boolean)">
-            <summary>
-            Method to edit the comment
-            </summary>
-            <param name="isEdited">Whether edited or not</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.EditMenuItem_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Click event for the edit menu item
-            </summary>
-            <param name="sender">Menu item</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.EditPostButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Post button of the edit comment option
-            </summary>
-            <param name="sender">Edit menu item</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.EditCancelButton_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Cancel button of the edit comment option
-            </summary>
-            <param name="sender">Edit menu item</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.DeleteComment(Syncfusion.Windows.PdfViewer.IAnnotation)">
-            <summary>
-            Delete the comment from the comments panel
-            </summary>
-            <param name="annotationToBeRemoved"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.DeleteMenuItem_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Click event for delete menu item
-            </summary>
-            <param name="sender">Menu item</param>
-            <param name="e">Event argumets</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.MenuItem_Click(System.Object,System.Windows.RoutedEventArgs)">
-            <summary>
-            Click event for status menu item
-            </summary>
-            <param name="sender">Menu item</param>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetStatusType(System.String)">
-            <summary>
-            Method to get the status type
-            </summary>
-            <param name="statusName">Status Name</param>
-            <returns>Status type</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetStatusGrid(System.String,Syncfusion.Pdf.Interactive.PdfAnnotationState)">
-            <summary>
-            Method to get the status grid
-            </summary>
-            <param name="statusName"></param>
-            <param name="statusType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetAnnotationGridBackground(System.Boolean,Syncfusion.Windows.PdfViewer.PdfDocumentView)">
-            <summary>
-            Method to get the background color for the annotation grid.
-            </summary>
-            <param name="isPageExpanded">Page is expanded or not</param>
-            <param name="parent">Parent of the class</param>
-            <returns>Background color</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetSeperatorForeground">
-            <summary>
-            Method to get the foreground color for the seperator.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetAnnotationMouseHoverBackground">
-            <summary>
-            Method to get the background color for the annotation mouse hover.
-            </summary>
-            <returns>Background of annotation</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentsPane.GetTriggerValue``1(System.Windows.FrameworkElement,System.Windows.DependencyProperty,System.Windows.DependencyProperty,System.Object,System.String)">
-            <summary>
-            Method to get the background color from the button style.
-            </summary>
-            <typeparam name="T">Type of the background color</typeparam>
-            <param name="element">UI element</param>
-            <param name="template">Setter template of UI element</param>
-            <param name="property">Setter property of the UI element</param>
-            <param name="value">Value of the property</param>
-            <param name="targetProperty">Target property</param>
-            <returns>Returns the background color</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.PageExpansion.#ctor(Syncfusion.Windows.PdfViewer.PdfDocumentView)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.PdfViewer.PageExpansion"/> class.
-            </summary>
-            <param name="parent">Parent of the class</param>
-        </member>
-        <member name="T:Syncfusion.Windows.PdfViewer.CommentSettings">
-            <summary>
-            Class for the comment settings
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.PdfViewer.CommentSettings.#ctor(Syncfusion.Windows.PdfViewer.PdfViewerControl)">
-            <summary>
-            Initilaize a new instance of the <see cref="T:Syncfusion.Windows.PdfViewer.CommentSettings"/> class.
-            </summary>
-            <param name="pdfViewerControl">parent of this class</param>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.CommentSettings.IsExpanded">
-            <summary>
-            Gets or sets a value indicating whether the comment pane is expanded or collapsed. The default value is false.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.CommentSettings.IsVisible">
-            <summary>
-            Gets or sets a value indicating whether the comments pane button is visible in the toolbar. The default value is true.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.PdfViewer.FileLinkAnnotationSettings">
              <summary>
             Represents the class provides information of a file link annotation in <see cref="T:Syncfusion.Windows.PdfViewer.PdfViewerControl"/>.
@@ -11271,11 +10685,6 @@
         <member name="P:Syncfusion.Windows.PdfViewer.FileLinkAnnotationClickedEventArgs.Bounds">
             <summary>
             Gets the position and size of the file link annotation.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerFileLinkAnnotation.Comments">
-            <summary>
-            Gets or sets the comments.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.PdfViewer.PdfViewerFileLinkAnnotation.PopupBounds">

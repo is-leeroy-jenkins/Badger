@@ -3138,12 +3138,12 @@
             resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="T:Syncfusion.UI.Xaml.Kanban.LicensePopup">
+        <member name="T:Syncfusion.Windows.Shared.LicensePopup">
             <summary>
             LicensePopup
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Kanban.LicensePopup.InitializeComponent">
+        <member name="M:Syncfusion.Windows.Shared.LicensePopup.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

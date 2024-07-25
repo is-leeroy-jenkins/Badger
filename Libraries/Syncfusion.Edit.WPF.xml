@@ -7833,26 +7833,6 @@
             <param name="e">DependencyPropertyChangedEventArgs, returns old and new
             value</param>
         </member>
-        <member name="M:Syncfusion.Windows.Edit.CursorLayer.UpdateHorizontalScrollBar(Syncfusion.Windows.Edit.EditControl)">
-            <summary>
-            This method used to update horizontalScrollBar visibility based on the width of the content and width of the viewport
-            </summary>
-            <param name="editControl"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.Edit.CursorLayer.OnSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
-            <summary>
-            This method update the width of the viewPort
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.Edit.CursorLayer.OnTextChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
-            <summary>
-            This method update the textChange in the EditControl
-            </summary>
-            <param name="d"></param>
-            <param name="e"></param>
-        </member>
         <member name="P:Syncfusion.Windows.Edit.CursorLayer.CursorIndex">
             <summary>
             Gets or sets current index

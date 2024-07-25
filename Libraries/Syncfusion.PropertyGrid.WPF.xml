@@ -5537,12 +5537,6 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="M:Syncfusion.Windows.PropertyGrid.PropertyViewItem.OnKeyDown(System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Occurs when a key is pressed while focus is on <see cref="T:Syncfusion.Windows.PropertyGrid.PropertyViewItem"/>
-            </summary>
-            <param name="e">Provides data for the System.Windows.UIElement.KeyDown event</param>
-        </member>
         <member name="M:Syncfusion.Windows.PropertyGrid.PropertyViewItem.OnIsSelectedChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
             Called when [is selected changed].

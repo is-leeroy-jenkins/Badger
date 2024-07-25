@@ -80,13 +80,6 @@
             Resets the PDF graphics tag
             </summary>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.DrawHighlightColor(Syncfusion.Presentation.ColorObject,System.Drawing.RectangleF)">
-            <summary>
-            Draws a solid Rectangle to the PDF with the given rectangle object
-            </summary>
-            <param name="color">Highlight color of the textpart</param>
-            <param name="highlighColorBounds">Rectangle that has to be filled with the highlight color</param>
-        </member>
         <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.GetFallbackFont(Syncfusion.Pdf.Graphics.PdfTrueTypeFont,System.Collections.Generic.List{Syncfusion.Office.FallbackFont},System.Drawing.Font,System.String,Syncfusion.Pdf.Graphics.PdfStringFormat,System.Boolean,System.Boolean)">
             <summary>
             Gets fall back font to preserve the text in converted PDF document.
@@ -114,14 +107,6 @@
             </summary>
             <param name="ch">Specify the input character</param>
             <returns>Return the inversed character</returns>
-        </member>
-        <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.DrawNotesSlide(Syncfusion.Presentation.SlideImplementation.NotesSlide,Syncfusion.Pdf.PdfDocument,Syncfusion.PresentationToPdfConverter.PresentationToPdfConverterSettings)">
-            <summary>
-            Draws the notes slide content to the PDF document.
-            </summary>
-            <param name="notesSlide">Represents the notes slide to be drawn.</param>
-            <param name="pdfDocument">Represents the PDF document to draw.</param>
-            <param name="settings">Represents the settings for the PDF conversion.</param>
         </member>
         <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.GetRadialGradientBrush(Syncfusion.Pdf.Graphics.PdfPath,Syncfusion.Presentation.Drawing.GradientFill,Syncfusion.Pdf.Graphics.PdfColorBlend,System.Collections.Generic.List{Syncfusion.Pdf.Graphics.PdfColor})">
             <summary>

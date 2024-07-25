@@ -71,12 +71,6 @@
             <param name="treeView">The <see cref="T:Syncfusion.UI.Xaml.TreeView.SfTreeView"/> control.</param>
             <returns>Returns the <see cref="T:Syncfusion.UI.Xaml.TreeView.TreeNodeContainer"/>.</returns>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.TreeView.Helpers.TreeViewHelper.GetSelectedTreeViewNodes(Syncfusion.UI.Xaml.TreeView.SfTreeView)">
-            <summary>
-            Method to get the list of all nodes corresponding to the selected items.
-            </summary>
-            <returns>Returns the list of all selected nodes.</returns>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.TreeView.Helpers.TreeViewHelper.GetSourceListCollection(System.Collections.IEnumerable)">
             <summary>
             Gets the source list collcetion of <see cref="T:Syncfusion.UI.Xaml.TreeView.SfTreeView"/>.
@@ -3982,6 +3976,12 @@
             Method to remove the selected items from the node collection.
             </summary>
             <param name="nodesToRemove">The collection of nodes to be removed.</param>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.TreeView.SelectionController.GetSelectedTreeViewNodes">
+            <summary>
+            Method to get the list of all nodes corresponding to the selected items.
+            </summary>
+            <returns>Returns the list of all selected nodes.</returns>
         </member>
         <member name="M:Syncfusion.UI.Xaml.TreeView.SelectionController.ResolveTreeNodeContent(System.Object)">
             <summary>

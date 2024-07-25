@@ -305,612 +305,22 @@
             </code>
             </example>
         </member>
-        <member name="T:Syncfusion.Pdf.Graphics.PdfTiffImage">
-             <summary>
-             The <see cref="T:Syncfusion.Pdf.Graphics.PdfTiffImage"/> contains methods and properties to handle the Bitmap images
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="M:Syncfusion.Pdf.Graphics.PdfTiffImage.#ctor(System.IO.Stream)">
-             <summary>
-             Initializes a new instance of the <see cref="T:Syncfusion.Pdf.Graphics.PdfTiffImage"/> class from the specified data stream.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             Load multi frame TIFF image
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="M:Syncfusion.Pdf.Graphics.PdfTiffImage.#ctor(System.IO.Stream,System.Boolean)">
-             <summary>
-             Initializes a new instance of the <see cref="T:Syncfusion.Pdf.Graphics.PdfTiffImage"/> class from the specified data stream.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             Load multi frame TIFF image with enable XMP metadata extraction
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream, true);
-             //Get xmp metadata
-             XmpMetadata metadata = tiffImage.Metadata;    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image with enable XMP metadata extraction
-             Dim tiffImage As New PdfTiffImage(imageStream, true)
-             'Get xmp metadata
-             Dim metadata As XmpMetadata = tiffImage.Metadata
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:Syncfusion.Pdf.Graphics.PdfTiffImage" -->
+        <!-- Badly formed XML comment ignored for member "M:Syncfusion.Pdf.Graphics.PdfTiffImage.#ctor(System.IO.Stream)" -->
+        <!-- Badly formed XML comment ignored for member "M:Syncfusion.Pdf.Graphics.PdfTiffImage.#ctor(System.IO.Stream,System.Boolean)" -->
         <member name="M:Syncfusion.Pdf.Graphics.PdfTiffImage.Finalize">
             <summary>
             Releases unmanaged resources and performs other cleanup operations before the
             <see cref="T:Syncfusion.Pdf.Graphics.PdfTiffImage"/> is reclaimed by garbage collection.
             </summary>
         </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.FrameCount">
-            <summary>
-            Gets frame count of the image.
-            </summary>
-            <example>
-            <code lang="CS">
-            //Create a new PDF document
-            PdfDocument doc = new PdfDocument();
-            //Set page margins
-            doc.PageSettings.Margins.All = 0;
-            //Load the multi frame TIFF image from the disk
-            FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-            PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-            //Get the frame count
-            int frameCount = tiffImage.FrameCount;
-            //Access each frame and draw into the page
-            for (int i = 0; i &lt; frameCount; i++)
-            {
-            	PdfPage page = doc.Pages.Add();
-            	PdfGraphics graphics = page.Graphics;
-            	tiffImage.ActiveFrame = i;
-            	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-            }
-            //Creating the stream object
-            MemoryStream stream = new MemoryStream();
-            //Save the document as stream
-            doc.Save(stream);
-            //If the position is not set to '0' then the PDF will be empty
-            stream.Position = 0;
-            //Close the document
-            doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-            'Create a PDF document
-            Dim pdfDocument As New PdfDocument()
-            'Set page margins
-            pdfDocument.PageSettings.Margins.All = 0
-            'Load the image from the disk
-            Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-            'Load multi frame TIFF image
-            Dim tiffImage As New PdfTiffImage(imageStream)
-            'Get the frame count
-            Dim frameCount As Integer = tiffImage.FrameCount
-            'Access each frame and draw into the page
-            For i As Integer = 0 To frameCount - 1
-            Dim page As PdfPage = pdfDocument.Pages.Add()
-            Dim graphics As PdfGraphics = page.Graphics
-            tiffImage.ActiveFrame = i
-            graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-            Next
-            Dim stream As New MemoryStream()
-            'Save and close the document
-            pdfDocument.Save(stream)
-            pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.Height">
-            <summary>
-            Gets the height value of the image
-            </summary>
-            <example>
-            <code lang="C#">
-            // Create a new PDF document.
-            PdfDocument doc = new PdfDocument();
-            // Set page margins.
-            doc.PageSettings.Margins.All = 0;
-            // Load the multi-frame TIFF image from the disk.
-            FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-            PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-            // Get the frame count.
-            int frameCount = tiffImage.FrameCount;
-            // Get image height.
-            float imageHeight = tiffImage.Height;
-            // Access each frame and draw into the page.
-            for (int i = 0; i &lt; frameCount; i++)
-            {
-                // Add a new page to the document.
-                PdfPage page = doc.Pages.Add();
-                // Get PDF graphics for the page.
-                PdfGraphics graphics = page.Graphics;
-                // Set the active frame.
-                tiffImage.ActiveFrame = i;
-                // Draw the image onto the page.
-                graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-            }
-            // Create a stream object.
-            MemoryStream stream = new MemoryStream();
-            // Save the document as a stream.
-            doc.Save(stream);
-            // If the position is not set to '0', then the PDF will be empty.
-            stream.Position = 0;
-            // Close the document.
-            doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-            'Create a PDF document
-            Dim pdfDocument As New PdfDocument()
-            'Set page margins
-            pdfDocument.PageSettings.Margins.All = 0
-            'Load the multi frame TIFF image from the disk
-            Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-            'Load the image from stream
-            Dim tiffImage As New PdfTiffImage(imageStream)
-            'Get the frame count
-            Dim frameCount As Integer = tiffImage.FrameCount
-            'Get image height
-            Dim imageHeight As Single = image.Height
-            'Access each frame and draw into the page
-            For i As Integer = 0 To frameCount - 1
-            Dim page As PdfPage = pdfDocument.Pages.Add()
-            Dim graphics As PdfGraphics = page.Graphics
-            tiffImage.ActiveFrame = i
-            graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-            Next
-            Dim stream As New MemoryStream()
-            'Save and close the document
-            pdfDocument.Save(stream)
-            pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.Width">
-             <summary>
-             Gets the width value of the image
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Get image width
-             float imageWidth = tiffImage.Width;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Get image width
-             Dim imageWidth As Single = image.Width
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.ActiveFrame">
-             <summary>
-             Gets or sets the active frame of the image.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.VerticalResolution">
-             <summary>
-             Gets the vertical resolution of the image.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Get the vertical resolution of the image.
-             float vResolution = tiffImage.VerticalResolution;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Get the vertical resolution.
-            Dim vResolution As Single = tiffImage.VerticalResolution
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.HorizontalResolution">
-             <summary>
-             Gets the horizontal resolution of the image.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Get the horizontal resolution of the image.
-             float hResolution = tiffImage.HorizontalResolution;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-             </code>
-             <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Get the horizontal resolution.
-            Dim hResolution As Single = tiffImage.HorizontalResolution
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.PhysicalDimension">
-             <summary>
-             Get the image physical dimension.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             PdfTiffImage tiffImage = new PdfTiffImage(imageStream);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Get the physical dimension of the image.
-             float dimension = tiffImage.PhysicalDimension;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(imageStream)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Get the physical dimension
-            Dim dimenstion As Single = tiffImage.PhysicalDimension
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-            </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.FrameCount" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.Height" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.Width" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.ActiveFrame" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.VerticalResolution" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.HorizontalResolution" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Graphics.PdfTiffImage.PhysicalDimension" -->
         <member name="P:Syncfusion.Pdf.Graphics.PdfTiffImage.Tiff">
             <summary>
             Get the Tiff image
@@ -975,69 +385,7 @@
              </code>
              </example>
         </member>
-        <member name="M:Syncfusion.Pdf.Graphics.PdfTiffImage.Dispose">
-             <summary>
-             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-             </summary>
-             <example>
-             <code lang="CS">
-             //Create a new PDF document
-             PdfDocument doc = new PdfDocument();
-             //Set page margins
-             doc.PageSettings.Margins.All = 0;
-             //Load the multi frame TIFF image from the disk
-             FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
-             //Load the image from stream
-             Image image = Image.FromStream(imageStream)
-             PdfTiffImage tiffImage = new PdfTiffImage(image);    
-             //Get the frame count
-             int frameCount = tiffImage.FrameCount;
-             //Access each frame and draw into the page
-             for (int i = 0; i &lt; frameCount; i++)
-             {
-             	PdfPage page = doc.Pages.Add();
-             	PdfGraphics graphics = page.Graphics;
-             	tiffImage.ActiveFrame = i;
-             	graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
-             }
-             //Creating the stream object
-             MemoryStream stream = new MemoryStream();
-             //Save the document as stream
-             doc.Save(stream);
-             //If the position is not set to '0' then the PDF will be empty
-             stream.Position = 0;
-             //Close the document
-             doc.Close(true);
-             tiffImage.Dispose();
-            </code>
-            <code lang="VB.NET">
-             'Create a PDF document
-             Dim pdfDocument As New PdfDocument()
-             'Set page margins
-             pdfDocument.PageSettings.Margins.All = 0
-             'Load the image from the disk
-             Dim imageStream As New FileStream("image.tiff", FileMode.Open, FileAccess.Read)
-             Load the image from stream
-             Dim image As Image = Image.FromStream(imageStream)
-             'Load multi frame TIFF image
-             Dim tiffImage As New PdfTiffImage(Image)
-             'Get the frame count
-             Dim frameCount As Integer = tiffImage.FrameCount
-             'Access each frame and draw into the page
-             For i As Integer = 0 To frameCount - 1
-             Dim page As PdfPage = pdfDocument.Pages.Add()
-             Dim graphics As PdfGraphics = page.Graphics
-             tiffImage.ActiveFrame = i
-             graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
-             Next
-             Dim stream As New MemoryStream()
-             'Save and close the document
-             pdfDocument.Save(stream)
-             pdfDocument.Close(True)
-             tiffImage.Dispose()
-            </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Syncfusion.Pdf.Graphics.PdfTiffImage.Dispose" -->
         <member name="M:Syncfusion.Pdf.Graphics.PdfTiffImage.Dispose(System.Boolean)">
             <summary>
             Disposes the specified disposing.
@@ -1613,45 +961,7 @@
             <param name="resources">Page resource</param>
             <returns>XObject</returns>
         </member>
-        <member name="M:Syncfusion.Pdf.Exporting.PdfImageExtractor.GetImagesInfo(Syncfusion.Pdf.PdfPageBase)">
-            <summary>
-            Gets the information about the extracted image from the PDF page.
-            </summary>
-            <example>
-            <code lang="C#">
-            //Load PDF document.
-            FileStream input = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
-            PdfLoadedDocument document = new PdfLoadedDocument(input);
-            //Gets ImageInfo from the first page.
-            PdfImageInfo[] imageInfo = document.Pages[0].GetImagesInfo();
-            //Gets the Image Boundary location.
-            RectangleF imageBounds = imageInfo[0].Bounds;
-            //Gets the Image.
-            Image image = imageInfo[0].Image;
-            //Gets the Image index.
-            int imageIndex = imageInfo[0].Index;
-            //Closing the PDF document.
-            document.Close(true);
-            </code>
-            <code lang="VB">
-            'Load PDF document.
-            Dim input As New FileStream("Input.pdf", FileMode.Open, FileAccess.Read)
-            Dim document As New PdfLoadedDocument(input)
-            'Gets ImageInfo from the first page.
-            Dim imageInfo As PdfImageInfo() = document.Pages(0).GetImagesInfo()
-            'Gets the Image Boundary location.
-            Dim imageBounds As RectangleF = imageInfo(0).Bounds
-            'Gets the Image.
-            Dim image As Image = imageInfo(0).Image
-            'Gets the Image index.
-            Dim imageIndex As Integer = imageInfo(0).Index
-            'Closing the PDF document.
-            document.Close(True)
-            </code>
-            </example>
-            <seealso cref="T:Syncfusion.Pdf.PdfDocument"/> Class
-            <seealso cref="T:Syncfusion.Pdf.PdfPage"/> Class
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Syncfusion.Pdf.Exporting.PdfImageExtractor.GetImagesInfo(Syncfusion.Pdf.PdfPageBase)" -->
         <member name="M:Syncfusion.Pdf.Exporting.PdfImageExtractor.ExtractImages(Syncfusion.Pdf.PdfPageBase)">
             <summary>
             Extracts images from a PDF document and returns an array of images as a stream.
@@ -1772,41 +1082,7 @@
             The Syncfusion.Pdf.Exporting namespace contains classes to perform export operations.
             </summary>
         </member>
-        <member name="T:Syncfusion.Pdf.Exporting.PdfImageInfo">
-            <summary>
-            Represents the utility class to store information about Images and its location.
-            </summary>
-            <example>
-            <code lang="C#">
-            //Load PDF document.
-            PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
-            //Gets ImageInfo from the first page.
-            PdfImageInfo[] imageInfo = document.Pages[0].ExtractImages();
-            //Gets the Image Boundary location.
-            RectangleF imageBounds = imageInfo[0].Bounds;
-            //Gets the Image.
-            Image image = imageInfo[0].Image;
-            //Gets the Image index.
-            int imageIndex = imageInfo[0].Index;
-            //Closing the PDF document.
-            document.Close(true);
-            </code>
-            <code lang="VB">
-            'Load PDF document.
-            Dim document As New PdfLoadedDocument("Input.pdf")
-            'Gets ImageInfo from the first page.
-            Dim imageInfo As PdfImageInfo() = document.Pages(0).ExtractImages()
-            'Gets the Image Boundary location.
-            Dim imageBounds As RectangleF = imageInfo(0).Bounds
-            'Gets the Image.
-            Dim image As Image = imageInfo(0).Image
-            'Gets the Image index.
-            Dim imageIndex As Integer = imageInfo(0).Index
-            'Closing the PDF document.
-            document.Close(True)
-            </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:Syncfusion.Pdf.Exporting.PdfImageInfo" -->
         <member name="F:Syncfusion.Pdf.Exporting.PdfImageInfo.m_bounds">
             <summary>
             Local Variable to store the image bounds.
@@ -1863,80 +1139,8 @@
             Gets the image boundary location.
             </summary>
         </member>
-        <member name="P:Syncfusion.Pdf.Exporting.PdfImageInfo.ImageStream">
-            <summary>
-            Gets the image Stream.
-            </summary>
-            <example>
-            <code lang="C#">
-            //Load PDF document.
-            PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
-            //Gets ImageInfo from the first page.
-            PdfImageInfo[] imageInfo = document.Pages[0].ExtractImages();
-            //Gets the Image Boundary location.
-            RectangleF imageBounds = imageInfo[0].Bounds;
-            //Gets the Image stream.
-            Stream imageStream = imageInfo[0].ImageStream;
-            //Gets the Image index.
-            int imageIndex = imageInfo[0].Index;
-            //Closing the PDF document.
-            document.Close(true);
-            </code>
-            <code lang="VB">
-            'Load PDF document.
-            Dim document As New PdfLoadedDocument("Input.pdf")
-            'Gets ImageInfo from the first page.
-            Dim imageInfo As PdfImageInfo() = document.Pages(0).ExtractImages()
-            'Gets the Image Boundary location.
-            Dim imageBounds As RectangleF = imageInfo(0).Bounds
-            'Gets the Image stream.
-            Dim imageStream As Stream = imageInfo(0).ImageStream
-            'Gets the Image index.
-            Dim imageIndex As Integer = imageInfo(0).Index
-            'Closing the PDF document.
-            document.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Exporting.PdfImageInfo.ImageFilter">
-            <summary>
-            Gets the image filter.
-            </summary>
-            <example>
-            <code lang="C#">
-            //Load PDF document.
-            PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
-            //Gets ImageInfo from the first page.
-            PdfImageInfo[] imageInfo = document.Pages[0].ExtractImages();
-            //Gets the Image Boundary location.
-            RectangleF imageBounds = imageInfo[0].Bounds;
-            //Gets the Image stream.
-            Stream imageStream = imageInfo[0].ImageStream;
-            //Gets the Image index.
-            int imageIndex = imageInfo[0].Index;
-            //Gets the Image filter.
-            string[] imageFilter = imageInfo[0].ImageFilter;
-            //Closing the PDF document.
-            document.Close(true);
-            </code>
-            <code lang="VB">
-            'Load PDF document.
-            Dim document As New PdfLoadedDocument("Input.pdf")
-            'Gets ImageInfo from the first page.
-            Dim imageInfo As PdfImageInfo() = document.Pages(0).ExtractImages()
-            'Gets the Image Boundary location.
-            Dim imageBounds As RectangleF = imageInfo(0).Bounds
-            'Gets the Image stream.
-            Dim imageStream As Stream = imageInfo(0).ImageStream
-            'Gets the Image index.
-            Dim imageIndex As Integer = imageInfo(0).Index
-            'Gets the Image filter.
-            Dim image As String() = imageInfo(0).ImageFilter
-            'Closing the PDF document.
-            document.Close(True)
-            </code>
-            </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Exporting.PdfImageInfo.ImageStream" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Exporting.PdfImageInfo.ImageFilter" -->
         <member name="P:Syncfusion.Pdf.Exporting.PdfImageInfo.Image">
             <summary>
             Gets the Image.
@@ -2674,181 +1878,10 @@
             <param name="bounds">The rectangle bounds to be redact.</param>
             <param name="fillColor">The fill color on the redaction bounds.</param>
         </member>
-        <member name="T:Syncfusion.Pdf.Redaction.PdfRedactionResult">
-            <summary>
-            Represents a redaction result for a loaded page.
-            </summary>
-            <example>
-            <code lang="CS">
-            //Load the document.
-            PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-            //Get the first page from the document.
-            PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-            //Create a redaction object
-            PdfRedaction redaction = new PdfRedaction(new RectangleF(40, 40, 50, 20));
-            //Add redaction object into redaction collection of loaded page
-            page.Redactions.Add(redaction);
-            //Redact the contents from PDF document.
-            List&lt;PdfRedactionResult&gt; results = lDoc.Redact();
-            //Save and Close the document.
-            lDoc.Save("sample.pdf");
-            lDoc.Close(true);
-            </code>
-            <code lang="VB.NET">
-            'Load the document.
-            Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-            'Get the first page from document
-            Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
-            //Create a redaction object
-            Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(40, 40, 50, 20))
-            //Add redaction object into collection
-            page.Redactions.Add(redaction)
-            'Redact the contents from PDF document
-            Dim results As List(Of PdfRedactionResult) = lDoc.Redact()
-            'Save the document.
-            lDoc.Save("sample.pdf")
-            lDoc.Close(True)
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Redaction.PdfRedactionResult.RedactionBounds">
-             <summary>
-             Gets the page number.
-             </summary>
-             <example>
-            <code lang="CS">
-             //Load the document.
-             PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-             //Get the first page from the document.
-             PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-             bool value = true;
-             //Create a redaction object
-             PdfRedaction redaction = new PdfRedaction(new RectangleF(40, 40, 50, 20));
-             //Set fill color for the redaction bounds
-             redaction.FillColor = System.Drawing.Color.Green;
-             //Add redaction object into redaction collection of loaded page
-             page.Redactions.Add(redaction);
-             //Perform Redaction for the loaded object and get redaction result
-             List&lt;PdfRedactionResult&gt; results = lDoc.Redact();
-             //Gets the redaction bounds.
-             RectangleF redactionBounds = results[0].RedactionBounds;
-             redaction.Equals(value);
-             //Save and Close the document.
-             lDoc.Save("sample.pdf");
-             lDoc.Close(true);
-             </code>
-             <code lang="VB.NET">
-             'Load the document.
-             Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-             Dim value As Boolean = True
-             'Create a redaction object
-             Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(40, 40, 50, 20))
-             'Set fill color for the redaction bounds
-             redaction.FillColor = Color.Green
-             'Add redaction object into collection
-             page.Redactions.Add(redaction)
-             'Perform Redaction for the loaded object and get redaction result
-             Dim results As List(Of PdfRedactionResult) = lDoc.Redact()
-             'Gets the redaction bounds.
-             Dim redactionBounds As RectangleF = results[0].RedactionBounds
-             'Save the document
-             lDoc.Save("sample.pdf")
-             lDoc.Close(True)
-             </code>
-             </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Redaction.PdfRedactionResult.IsRedactionSuccess">
-             <summary>
-             Gets the particular bounds is redacted or not. Default value is false.
-             </summary>
-             <example>
-            <code lang="CS">
-             //Load the document.
-             PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-             //Get the first page from the document.
-             PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-             bool value = true;
-             //Create a redaction object
-             PdfRedaction redaction = new PdfRedaction(new RectangleF(40, 40, 50, 20));
-             //Set fill color for the redaction bounds
-             redaction.FillColor = System.Drawing.Color.Green;
-             //Add redaction object into redaction collection of loaded page
-             page.Redactions.Add(redaction);
-             //Perform Redaction for the loaded object and get redaction result
-             List&lt;PdfRedactionResult&gt; results = lDoc.Redact();
-             //Returns whether the bounds is redacted or not.
-             bool isRedactionSuccess = results[0].IsRedactionSuccess;
-             redaction.Equals(value);
-             //Save and Close the document.
-             lDoc.Save("sample.pdf");
-             lDoc.Close(true);
-             </code>
-             <code lang="VB.NET">
-             'Load the document.
-             Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-             Dim value As Boolean = True
-             'Create a redaction object
-             Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(40, 40, 50, 20))
-             'Set fill color for the redaction bounds
-             redaction.FillColor = Color.Green
-             'Add redaction object into collection
-             page.Redactions.Add(redaction)
-             'Perform Redaction for the loaded object and get redaction result
-             Dim results As List(Of PdfRedactionResult) = lDoc.Redact())
-             'Returns whether the bounds is redacted or not
-             Dim isRedactionSuccess As Boolean = results[0].IsRedactionSuccess
-             'Save the document
-             lDoc.Save("sample.pdf")
-             lDoc.Close(True)
-             </code>
-             </example>
-        </member>
-        <member name="P:Syncfusion.Pdf.Redaction.PdfRedactionResult.PageNumber">
-             <summary>
-             Gets the page number.
-             </summary>
-             <example>
-            <code lang="CS">
-             //Load the document.
-             PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
-             //Get the first page from the document.
-             PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
-             bool value = true;
-             //Create a redaction object
-             PdfRedaction redaction = new PdfRedaction(new RectangleF(40, 40, 50, 20));
-             //Set fill color for the redaction bounds
-             redaction.FillColor = System.Drawing.Color.Green;
-             //Add redaction object into redaction collection of loaded page
-             page.Redactions.Add(redaction);
-             //Perform Redaction for the loaded object and get redaction result
-             List&lt;PdfRedactionResult&gt; results = lDoc.Redact();
-             //Gets the page number.
-             int pageNumber = results[0].PageNumber;
-             redaction.Equals(value);
-             //Save and Close the document.
-             lDoc.Save("sample.pdf");
-             lDoc.Close(true);
-             </code>
-             <code lang="VB.NET">
-             'Load the document.
-             Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-             Dim value As Boolean = True
-             'Create a redaction object
-             Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(40, 40, 50, 20))
-             'Set fill color for the redaction bounds
-             redaction.FillColor = Color.Green
-             'Add redaction object into collection
-             page.Redactions.Add(redaction)
-             'Perform Redaction for the loaded object and get redaction result
-             Dim results As List(Of PdfRedactionResult) = lDoc.Redact()
-             'Gets the page number
-             Dim pageNumber As Int = results[0].PageNumber
-             'Save the document
-             lDoc.Save("sample.pdf")
-             lDoc.Close(True)
-             </code>
-             </example>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:Syncfusion.Pdf.Redaction.PdfRedactionResult" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Redaction.PdfRedactionResult.RedactionBounds" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Redaction.PdfRedactionResult.IsRedactionSuccess" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Pdf.Redaction.PdfRedactionResult.PageNumber" -->
         <member name="T:Syncfusion.Pdf.Redaction.PdfRedactionExtension">
             <summary>
             Represents PdfRedactionExtension class
@@ -4711,7 +3744,7 @@
         </member>
         <member name="P:Syncfusion.Pdf.PdfCompressionOptions.RemoveMetadata">
             <summary>
-            Gets or sets whether to remove metadata information from the PDF document.
+            Gets or sets whether to remove metadata information.
             </summary>
             <example>
             <code lang="C#">
@@ -4719,7 +3752,15 @@
             PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
             //Initialize new instance of PdfCompressionOptions class.
             PdfCompressionOptions options = new PdfCompressionOptions();
-            //Remove metadata information from the document.
+            //set the compress images based on the image quality. 
+            options.CompressImages = true;
+            //set the image quality.
+            options.ImageQuality = 50;
+            //set the optimize font.
+            options.OptimizeFont = true;
+            //set the optimize page contents.
+            options.OptimizePageContents = true;
+            //set the remove metadata informations.
             options.RemoveMetadata = true;
             ldoc.CompressionOptions = options;
             //Save and close the document.
@@ -4731,7 +3772,15 @@
             Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
             'Initialize new instance of PdfCompressionOptions class.
             Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-            'Remove metadata information from the document.
+            'set the compress images based on the image quality. 
+            options.CompressImages = True
+            'set the image quality.
+            options.ImageQuality = 50
+            'set the optimize font.
+            options.OptimizeFont = True
+            'set the optimize page contents.
+            options.OptimizePageContents = True
+            'set the remove metadata informations.
             options.RemoveMetadata = True
             ldoc.CompressionOptions = options
             'Save and Close the document.
@@ -4752,36 +3801,14 @@
             PdfCompressionOptions options = new PdfCompressionOptions();
             //set the compress images based on the image quality. 
             options.CompressImages = true;
-            ldoc.CompressionOptions = options;
-            //Save and close the document.
-            ldoc.Save("Output.pdf");
-            ldoc.Close(true);
-            </code>
-            <code lang="VB">
-            'Load an existing document.
-            Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
-            'Initialize new instance of PdfCompressionOptions class.
-            Dim options As PdfCompressionOptions = New PdfCompressionOptions()
-            'set the compress images based on the image quality. 
-            options.CompressImages = True
-            ldoc.CompressionOptions = options
-            'Save and Close the document.
-            ldoc.Save("Output.pdf")
-            ldoc.Close(True)
-            </code>
-            </example> 
-        </member>
-        <member name="P:Syncfusion.Pdf.PdfCompressionOptions.ImageQuality">
-            <example>
-            <code lang="C#">
-            //Load an existing document.
-            PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
-            //Initialize new instance of PdfCompressionOptions class.
-            PdfCompressionOptions options = new PdfCompressionOptions();
-            //set the compress images based on the image quality.
-            options.CompressImages = true;
             //set the image quality.
             options.ImageQuality = 50;
+            //set the optimize font.
+            options.OptimizeFont = true;
+            //set the optimize page contents.
+            options.OptimizePageContents = true;
+            //set the remove metadata informations.
+            options.RemoveMetadata = true;
             ldoc.CompressionOptions = options;
             //Save and close the document.
             ldoc.Save("Output.pdf");
@@ -4796,6 +3823,56 @@
             options.CompressImages = True
             'set the image quality.
             options.ImageQuality = 50
+            'set the optimize font.
+            options.OptimizeFont = True
+            'set the optimize page contents.
+            options.OptimizePageContents = True
+            'set the remove metadata informations.
+            options.RemoveMetadata = True
+            ldoc.CompressionOptions = options
+            'Save and Close the document.
+            ldoc.Save("Output.pdf")
+            ldoc.Close(True)
+            </code>
+            </example> 
+        </member>
+        <member name="P:Syncfusion.Pdf.PdfCompressionOptions.ImageQuality">
+            <example>
+            <code lang="C#">
+            //Load an existing document.
+            PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
+            //Initialize new instance of PdfCompressionOptions class.
+            PdfCompressionOptions options = new PdfCompressionOptions();
+            //set the compress images based on the image quality. 
+            options.CompressImages = true;
+            //set the image quality.
+            options.ImageQuality = 50;
+            //set the optimize font.
+            options.OptimizeFont = true;
+            //set the optimize page contents.
+            options.OptimizePageContents = true;
+            //set the remove metadata informations.
+            options.RemoveMetadata = true;
+            ldoc.CompressionOptions = options;
+            //Save and close the document.
+            ldoc.Save("Output.pdf");
+            ldoc.Close(true);
+            </code>
+            <code lang="VB">
+            'Load an existing document.
+            Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+            'Initialize new instance of PdfCompressionOptions class.
+            Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+            'set the compress images based on the image quality. 
+            options.CompressImages = True
+            'set the image quality.
+            options.ImageQuality = 50
+            'set the optimize font.
+            options.OptimizeFont = True
+            'set the optimize page contents.
+            options.OptimizePageContents = True
+            'set the remove metadata informations.
+            options.RemoveMetadata = True
             ldoc.CompressionOptions = options
             'Save and Close the document.
             ldoc.Save("Output.pdf")
@@ -4813,8 +3890,16 @@
             PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
             //Initialize new instance of PdfCompressionOptions class.
             PdfCompressionOptions options = new PdfCompressionOptions();
+            //set the compress images based on the image quality. 
+            options.CompressImages = true;
+            //set the image quality.
+            options.ImageQuality = 50;
+            //set the optimize font.
+            options.OptimizeFont = true;
             //set the optimize page contents.
             options.OptimizePageContents = true;
+            //set the remove metadata informations.
+            options.RemoveMetadata = true;
             ldoc.CompressionOptions = options;
             //Save and close the document.
             ldoc.Save("Output.pdf");
@@ -4825,8 +3910,16 @@
             Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
             'Initialize new instance of PdfCompressionOptions class.
             Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+            'set the compress images based on the image quality. 
+            options.CompressImages = True
+            'set the image quality.
+            options.ImageQuality = 50
+            'set the optimize font.
+            options.OptimizeFont = True
             'set the optimize page contents.
             options.OptimizePageContents = True
+            'set the remove metadata informations.
+            options.RemoveMetadata = True
             ldoc.CompressionOptions = options
             'Save and Close the document.
             ldoc.Save("Output.pdf")
@@ -4844,8 +3937,16 @@
             PdfLoadedDocument ldoc = new PdfLoadedDocument("input.pdf");
             //Initialize new instance of PdfCompressionOptions class.
             PdfCompressionOptions options = new PdfCompressionOptions();
+            //set the compress images based on the image quality. 
+            options.CompressImages = true;
+            //set the image quality.
+            options.ImageQuality = 50;
             //set the optimize font.
             options.OptimizeFont = true;
+            //set the optimize page contents.
+            options.OptimizePageContents = true;
+            //set the remove metadata informations.
+            options.RemoveMetadata = true;
             ldoc.CompressionOptions = options;
             //Save and close the document.
             ldoc.Save("Output.pdf");
@@ -4856,8 +3957,16 @@
             Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
             'Initialize new instance of PdfCompressionOptions class.
             Dim options As PdfCompressionOptions = New PdfCompressionOptions()
+            'set the compress images based on the image quality. 
+            options.CompressImages = True
+            'set the image quality.
+            options.ImageQuality = 50
             'set the optimize font.
             options.OptimizeFont = True
+            'set the optimize page contents.
+            options.OptimizePageContents = True
+            'set the remove metadata informations.
+            options.RemoveMetadata = True
             ldoc.CompressionOptions = options
             'Save and Close the document.
             ldoc.Save("Output.pdf")

@@ -2159,13 +2159,6 @@
             </summary>
             <param name="vectorImage"></param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.SfRichTextRibbon.ConvertPixelFontSizeToComboBoxValue(System.Double)">
-            <summary>
-            Convert a font size value from pixels back to its original input value.
-            </summary>
-            <param name="pixelFontSize">The pixelFontSize</param>
-            <returns>The original input value in double.</returns>
-        </member>
         <member name="T:Syncfusion.Windows.Controls.RichTextBoxAdv.ListViewModel">
             <summary>
             The List viewmodel class.

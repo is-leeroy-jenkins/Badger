@@ -2782,7 +2782,6 @@
             Using a DependencyProperty as the backing store for RadialPreviewPointerStyle.  This enables animation, styling, binding, etc...
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "F:Syncfusion.Windows.Controls.Navigation.SfRadialSlider.RunTimeLabelVisibleProperty" -->
         <member name="F:Syncfusion.Windows.Controls.Navigation.SfRadialSlider.radialPointer">
             <summary>
             Gets or sets a value of Radial Pointer
@@ -3045,11 +3044,6 @@
         <member name="P:Syncfusion.Windows.Controls.Navigation.SfRadialSlider.IsUpdated">
             <summary>
             Gets or sets a value indicating whether the slider is updated or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Controls.Navigation.SfRadialSlider.RunTimeLabelVisible">
-            <summary>
-            Gets or sets a value indicating whether the label visible is changed during the run time.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Controls.Navigation.SfRadialSlider.Dispose">

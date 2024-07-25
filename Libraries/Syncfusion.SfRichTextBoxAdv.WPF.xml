@@ -5601,11 +5601,6 @@
             Represents document layouting is in process or not.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Controls.RichTextBoxAdv.SfRichTextBoxAdv.freezeCommentsToggle">
-            <summary>
-            Represents comment panel shoule be freezed or not.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.Controls.RichTextBoxAdv.SfRichTextBoxAdv.UseLightWeightDom">
             <summary>
             Gets or sets a Boolean value indicating whether to use lightweight DOM or not. The default value is false.
@@ -16638,12 +16633,6 @@
             or <see cref="T:Syncfusion.Windows.Controls.RichTextBoxAdv.ListLevelAdv"/>.
             </param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.LineFormat.Clone">
-            <summary>
-            Clones the Line format.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Syncfusion.Windows.Controls.RichTextBoxAdv.TextFrame">
             <summary>
             Represents the <see cref="T:Syncfusion.Windows.Controls.RichTextBoxAdv.TextFrame"/> class.
@@ -16738,12 +16727,6 @@
             </summary>
             <param name="owner">The owner.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.TextFrame.Clone">
-            <summary>
-            Clones the text frame.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Syncfusion.Windows.Controls.RichTextBoxAdv.WrapFormat">
             <summary>
             Represents the <see cref="T:Syncfusion.Windows.Controls.RichTextBoxAdv.WrapFormat"/> class.
@@ -16753,12 +16736,6 @@
             <summary>
             Gets text wrapping style.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.WrapFormat.Clone">
-            <summary>
-            Clones the wrap format.
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Syncfusion.Windows.Controls.RichTextBoxAdv.BlockAdv">
             <summary>
@@ -27138,24 +27115,6 @@
             <param name="viewer">The viewer.</param>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HeaderFooter.CloneHeaderFooterBlocks(Syncfusion.Windows.Controls.RichTextBoxAdv.BlockAdv)">
-            <summary>
-            Clone the header and footer blocks.
-            </summary>
-            <param name="block">The block.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HeaderFooter.CloneAndReplaceInlineItemsInParagraph(Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv)">
-            <summary>
-            Clone and replace the paragraph inlines.
-            </summary>
-            <param name="paragraph">The paragraph.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HeaderFooter.CloneHeaderFooterTable(Syncfusion.Windows.Controls.RichTextBoxAdv.TableAdv)">
-            <summary>
-            Clone the header and footer table.
-            </summary>
-            <param name="tableAdv">The tableAdv.</param>
-        </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HeaderFooter.ClearWidgets">
             <summary>
             Clears the widgets.
@@ -30555,12 +30514,6 @@
             <param name="baseHistoryInfo">The history info.</param>
             <param name="offset">The offset.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv.RemoveCommentAndParagraphWidgets(Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv)">
-            <summary>
-            Dispose the comment and its owner paragraph widgets
-            </summary>
-            <param name="paragraphAdv">The paragraphAdv</param>
-        </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv.InsertParagraph(Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv,System.Double,System.Boolean)">
             <summary>
             Inserts the paragraph.
@@ -33795,50 +33748,6 @@
             <param name="page">The page.</param>
             <param name="rowBottom">The Row Bottom.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.GetZOrder(Syncfusion.Windows.Controls.RichTextBoxAdv.ElementBox)">
-            <summary>
-            Gets the Zorder of the floating elements.
-            </summary>
-            <param name="floatingElement">The Floating element.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.SetZOrderPosition(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv)">
-            <summary>
-            Sets the Zorder of the floating elements.
-            </summary>
-            <param name="page">The page.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.IsFloatingItemsContainSameZIndexValue(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv)">
-            <summary>
-            Check whether the floating items contains same z index values.
-            </summary>
-            <param name="page">The page.</param>
-            <returns>
-              <c>true</c> if the floating items contains same z index values. Otherwise <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.SetUniqueZIndex(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv)">
-            <summary>
-            Sort the floating items by z index.
-            </summary>
-            <param name="page">The page.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.RenderOverLappedFloatingItems(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv,Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget,System.Double)">
-            <summary>
-            Renders the over lapped floating items in the specified page.
-            </summary>
-            <param name="page">The page.</param>
-            <param name="rowBottom">The Row Bottom.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.RenderFloatingItems(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv,Syncfusion.Windows.Controls.RichTextBoxAdv.ElementBox,System.Double,System.Boolean)">
-            <summary>
-            Renders the floating items in the specified page.
-            </summary>
-            <param name="page">The Page</param>
-            <param name="floatingItem">The Floating Item</param>
-            <param name="rowBottom">The row bottom</param>
-            <param name="renderInfrontAndBehindFloatingItems">True to render items in front of and behind floating items, false to render only other floating items.</param>
-        </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphWidget.RenderProofingErrors(Syncfusion.Windows.Controls.RichTextBoxAdv.PageAdv)">
             <summary>
             renders the proofing for specified page.
@@ -36106,15 +36015,6 @@
             <param name="switchLevel">The switch level.</param>
             <param name="endChar">The end char.</param>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.Hyperlink.HasUnSupportHyperlinkSwitches(System.String)">
-            <summary>
-            Check whether the value is valid switch or not.
-            </summary>
-            <param name="switches">The switches</param>
-            <returns>
-             <c>true</c> if the value is a valid switch; otherwise, <c>false</c>.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.Hyperlink.GetSwitchValue(System.String)">
             <summary>
             Gets the switch value from the hyperlink fieldcode.
@@ -36285,13 +36185,6 @@
             Calculates the valid font size value in points unit as per Microsoft Word application behavior (DOCX).
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HelperMethods.ConvertPixelFontSizeToComboBoxValue(System.Double)">
-            <summary>
-            Convert a font size value from pixels back to its original input value.
-            </summary>
-            <param name="pixelFontSize">The pixelFontSize</param>
-            <returns>The original input value in double.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HelperMethods.IsIntersecting(System.Windows.Rect,System.Windows.Rect)">
             <summary>
@@ -38530,7 +38423,7 @@
             Selects all the content.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.SelectionAdv.SelectCurrentWord(System.Boolean,System.Boolean)">
+        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.SelectionAdv.SelectCurrentWord(System.Boolean)">
             <summary>
             Selects the current word.
             </summary>
@@ -39473,13 +39366,6 @@
             Called when left indent changed.
             </summary>
             <param name="leftIndent">The left indent.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.SelectionAdv.IsFirstParagraphInListCollection(Syncfusion.Windows.Controls.RichTextBoxAdv.ParagraphAdv)">
-            <summary>
-            Determines whether a list paragraph is the first paragraph of its list.
-            </summary>
-            <param name="currentParagraph">The current paragraph</param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.SelectionAdv.OnLeftIndent(System.Double)">
             <summary>
@@ -45418,15 +45304,6 @@
             <summary>
             Inherit value from the ParentBox
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HtmlNode.IsValidFontSize(System.String)">
-            <summary>
-            Check whether the value is valid fontsize or not.
-            </summary>
-            <param name="fontSize">The fontsize</param>
-            <returns>
-             <c>true</c> if the value is a valid fontsize; otherwise, <c>false</c>.
-            </returns>
         </member>
         <member name="M:Syncfusion.Windows.Controls.RichTextBoxAdv.HtmlNode.AreSpanTags(System.String)">
             <summary>

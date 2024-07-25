@@ -77,6 +77,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -96,7 +97,7 @@ namespace Badger
         private Action _statusUpdate;
 
         /// <summary>
-        /// The columns
+        /// 
         /// </summary>
         private protected IList<string> _columns;
 

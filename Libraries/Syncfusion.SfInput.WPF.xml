@@ -9208,11 +9208,6 @@
             Gets or sets the collection of  <see cref="P:Syncfusion.Windows.Controls.Input.SfTimePicker.DateTimeProperties"/> used to perform mask mode validation.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Controls.Input.SfTimePicker.ReadOnly">
-            <summary>
-            To restrict editing, when AllowInlineEditing and ShowDropDownButton is false.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.Controls.Input.SfTimePicker.InputScope">
             <summary>
             Gets or sets the input scope
