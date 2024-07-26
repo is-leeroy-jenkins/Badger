@@ -159,7 +159,7 @@ namespace Badger
             MinHeight = 600;
             MaxHeight = 900;
             ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontSize;
+            FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             WindowStyle = _theme.WindowStyle;
             Padding = _theme.Padding;
@@ -257,8 +257,8 @@ namespace Badger
         {
             try
             {
-                FieldsLabel.Foreground = new SolidColorBrush( _borderColor );
-                NumericsLabel.Foreground = new SolidColorBrush( _borderColor );
+                FieldsLabel.Foreground = _theme.BorderColor;
+                NumericsLabel.Foreground = _theme.BorderColor;
             }
             catch( Exception ex )
             {
@@ -273,13 +273,13 @@ namespace Badger
         {
             try
             {
-                SQLiteRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SQLiteRadioButton.Foreground = _theme.BorderColor;
                 SQLiteRadioButton.Tag = "SQLite";
-                AccessRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                AccessRadioButton.Foreground = _theme.BorderColor;
                 AccessRadioButton.Tag = "Access";
-                SqlCeRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SqlCeRadioButton.Foreground = _theme.BorderColor;
                 SqlCeRadioButton.Tag = "SqlCe";
-                SqlServerRadioButton.Foreground = new SolidColorBrush( _borderColor );
+                SqlServerRadioButton.Foreground = _theme.BorderColor;
                 SqlServerRadioButton.Tag = "SqlServer";
             }
             catch( Exception ex )

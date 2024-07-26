@@ -369,7 +369,6 @@
     <PackageReference Include="CefSharp.Common" Version="126.2.70" />
     <PackageReference Include="CefSharp.Common.NETCore" Version="126.2.70" />
     <PackageReference Include="chromiumembeddedframework.runtime" Version="126.2.7" />
-    <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="126.2.7" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="126.2.7" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="126.2.7" />
     <PackageReference Include="EPPlus" Version="7.2.1" />
@@ -389,18 +388,23 @@
     <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
     <PackageReference Include="ScottPlot.WPF" Version="5.0.36" />
     <PackageReference Include="Syncfusion.Calculate.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Gantt.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfDiagramRibbon.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
@@ -415,7 +419,10 @@
     <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />

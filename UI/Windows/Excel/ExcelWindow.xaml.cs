@@ -599,7 +599,7 @@ namespace Badger
         /// <summary>
         /// Shows the items.
         /// </summary>
-        private void SetToolbarVisible( )
+        private void ShowToolbar( )
         {
             try
             {
@@ -627,7 +627,7 @@ namespace Badger
         /// <summary>
         /// Hides the items.
         /// </summary>
-        private void SetToolbarHidden( )
+        private void HideToolbar( )
         {
             try
             {
@@ -1210,11 +1210,11 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    SetToolbarVisible( );
+                    ShowToolbar( );
                 }
                 else
                 {
-                    SetToolbarHidden( );
+                    HideToolbar( );
                 }
             }
             catch( Exception ex )

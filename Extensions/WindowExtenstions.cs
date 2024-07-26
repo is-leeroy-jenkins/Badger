@@ -43,6 +43,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Windows;
+    using ToastNotifications;
+    using ToastNotifications.Lifetime;
+    using ToastNotifications.Messages;
+    using ToastNotifications.Position;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -55,6 +59,69 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class WindowExtenstions
     {
+        /// <summary>
+        /// Creates the notifier.
+        /// </summary>
+        /// <returns></returns>
+        private static Notifier CreateNotifier( this Window window )
+        {
+            try
+            {
+                var _position = new PrimaryScreenPositionProvider( Corner.BottomRight, 10, 10 );
+                var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( TimeSpan.FromSeconds( 5 ),
+                    MaximumNotificationCount.UnlimitedNotifications( ) );
+
+                return new Notifier( _cfg =>
+                {
+                    _cfg.LifetimeSupervisor = _lifeTime;
+                    _cfg.PositionProvider = _position;
+                    _cfg.Dispatcher = Application.Current.Dispatcher;
+                } );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Notifier );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        public static void SendNotification( this Window window, string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notification = CreateNotifier( window );
+                _notification.ShowInformation( message );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        public static void SendMessage( this Window window, string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notification = CreateNotifier( window );
+                _notification.ShowSuccess( message );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
