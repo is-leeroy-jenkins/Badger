@@ -7,9 +7,8 @@
 //     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
 // <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  ${CurrentDate.Year}  Terry Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +30,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 //
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ${File.FileName}
@@ -53,16 +52,16 @@ namespace Badger
     /// <summary>
     /// Interaction logic for FolderBrowser.xaml
     /// </summary>
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     public partial class FolderBrowser : Window
     {
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkPalette _theme = new DarkPalette( );
+        private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// The dir paths
@@ -170,6 +169,11 @@ namespace Badger
             Background = _theme.ControlColor;
             Foreground = _theme.LightBlueColor;
             BorderBrush = _theme.BorderColor;
+
+            // Browser Properties
+            _dirPaths = new List<string>( );
+            _filePaths = new List<string>( );
+            _searchPaths = new List<string>( );
         }
 
         /// <summary>
@@ -307,7 +311,7 @@ namespace Badger
         }
 
         /// <summary>
-        /// Updates the status.
+        /// Updates the state.
         /// </summary>
         private void UpdateStatus( object state )
         {

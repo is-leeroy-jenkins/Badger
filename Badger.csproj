@@ -2,868 +2,108 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows7.0</TargetFrameworks>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <StartupObject>Badger.App</StartupObject>
-    <ApplicationIcon>Resources\Assets\FormImages\Application.ico</ApplicationIcon>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <DocumentationFile>Badger.xml</DocumentationFile>
-    <PackageIcon>Application.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/KarmaScripter/Badger.git</RepositoryUrl>
-    <PackageTags>Data Analysis;Budget;Federal;Government;Data Visualization;WPF;</PackageTags>
+    <PlatformTarget>x64</PlatformTarget>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>latest</LangVersion>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>Badger.png</PackageIcon>
+    <ApplicationIcon>Resources\Assets\NinjaImages\ico\BudExNinja.ico</ApplicationIcon>
+    <StartupObject>Badger.App</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
-    <IsPublishable>False</IsPublishable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <IsPublishable>False</IsPublishable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows7.0|AnyCPU'">
-    <Optimize>True</Optimize>
-    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
-    <Deterministic>True</Deterministic>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows7.0|AnyCPU'">
-    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
-    <Deterministic>True</Deterministic>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net46|AnyCPU'">
-    <WarningLevel>6</WarningLevel>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net46|AnyCPU'">
-    <WarningLevel>6</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="UI\Windows\Folder\**" />
-    <EmbeddedResource Remove="UI\Windows\Folder\**" />
-    <None Remove="UI\Windows\Folder\**" />
-    <Page Remove="UI\Windows\Folder\**" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\CopyMe.SqlCe.tt.txt" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\DataAnnotations.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\DataModel.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\EditableObject.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\Equatable.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\Humanizer.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\LinqToDB.SqlCe.Tools.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\LinqToDB.SqlCe.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\LinqToDB.Tools.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\LinqToDB.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\MultipleFiles.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\NotifyDataErrorInfo.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\NotifyPropertyChanged.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\ObsoleteAttributes.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\PluralizationService.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\T4Model.ttinclude" />
-    <None Remove="C:\Users\terry\.nuget\packages\linq2db.sqlce\5.4.1\contentFiles\any\any\LinqToDB.Templates\Validation.ttinclude" />
-    <None Remove="Resources\Assets\FormImages\Application.ico" />
-    <None Remove="Resources\Assets\FormImages\Main.png" />
-    <None Remove="Resources\Assets\ToolStripImages\DataSourceButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\DateButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\GridButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\GroupButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\SchemaButton.png" />
-    <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
-    <None Remove="UI\Windows\Chart\AreaButton.png" />
-    <None Remove="UI\Windows\Chart\ColumnButton.png" />
-    <None Remove="UI\Windows\Chart\DataSourceButton.png" />
-    <None Remove="UI\Windows\Chart\ExportButton.png" />
-    <None Remove="UI\Windows\Chart\FilterButton.png" />
-    <None Remove="UI\Windows\Chart\GanttButton.png" />
-    <None Remove="UI\Windows\Chart\GroupButton.png" />
-    <None Remove="UI\Windows\Chart\HeatButton.png" />
-    <None Remove="UI\Windows\Chart\HistogramButton.png" />
-    <None Remove="UI\Windows\Chart\LookUpButton.png" />
-    <None Remove="UI\Windows\Chart\PieButton.png" />
-    <None Remove="UI\Windows\Chart\RefreshButton.png" />
-    <None Remove="UI\Windows\Chart\SmithButton.png" />
-    <None Remove="UI\Windows\Chart\SunButton.png" />
-    <None Remove="UI\Windows\Datagrid\DataSourceButton.png" />
-    <None Remove="UI\Windows\Datagrid\DateButton.png" />
-    <None Remove="UI\Windows\Datagrid\EditButton.png" />
-    <None Remove="UI\Windows\Datagrid\GridButton.png" />
-    <None Remove="UI\Windows\Datagrid\GroupButton.png" />
-    <None Remove="UI\Windows\Datagrid\SchemaButton.png" />
-    <None Remove="UI\Windows\Datagrid\SqlButton.png" />
-    <None Remove="UI\Windows\Error\SplashNotification.png" />
+    <Content Include="Resources\Assets\NinjaImages\ico\BudExNinja.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Assets\DialogImages\FileBrowse.png" />
-    <Resource Include="Resources\Assets\DialogImages\FolderBrowse.png" />
-    <Resource Include="Resources\Assets\DialogImages\SplashNotification.png" />
-    <Resource Include="Resources\Assets\DialogImages\TextDialog.png" />
-    <Resource Include="Resources\Assets\FormImages\Application.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\FormImages\Application.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </Resource>
-    <Resource Include="Resources\Assets\FormImages\Main.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
+      <PackageReference Include="cef.sdk" Version="126.2.7" />
+      <PackageReference Include="CefSharp.Common" Version="126.2.70" />
+      <PackageReference Include="CefSharp.Common.NETCore" Version="126.2.70" />
+      <PackageReference Include="chromiumembeddedframework.runtime" Version="126.2.7" />
+      <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="126.2.7" />
+      <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="126.2.7" />
+      <PackageReference Include="EPPlus" Version="7.2.1" />
+      <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
+      <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
+      <PackageReference Include="Google.Apis" Version="1.68.0" />
+      <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
+      <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
+      <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
+      <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
+      <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+      <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
+      <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+      <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
+      <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
+      <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+      <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+      <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
+      <PackageReference Include="ScottPlot.WPF" Version="5.0.36" />
+      <PackageReference Include="Syncfusion.Calculate.Base" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Gantt.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfDiagramRibbon.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
+      <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
+      <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+      <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+      <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
+      <PackageReference Include="ToastNotifications.Messages.Net6" Version="1.0.4" />
+      <PackageReference Include="ToastNotifications.Net6" Version="1.0.4" />
+      <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+    </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Assets\LoaderImages\Loading.gif" />
-    <Resource Include="Resources\Assets\LoaderImages\Processing.gif" />
-    <Resource Include="Resources\Assets\LoaderImages\Waiting.gif" />
-    <Resource Include="Resources\Assets\MenuImages\CalculatorItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\CalendarItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\ChromeItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\ClockItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\ControlPanelItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\DocumentaionItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\EdgeItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\CloseItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\ExitItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\FileItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\FirefoxItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\FolderItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\MapItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\MediaPlayerItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\OneDriveItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\RefreshItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\SaveItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\MenuImages\TaskManagerItem.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\AddRecordButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\AddTableButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\ApplicationError.ico" />
-    <Resource Include="Resources\Assets\DialogImages\Calendar.png" />
-    <Resource Include="Resources\Assets\DialogImages\ColumnConfiguration.png" />
-    <Resource Include="Resources\Assets\DialogImages\CopyRecordButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\DataSettings.png" />
-    <Resource Include="Resources\Assets\DialogImages\DeleteColumnButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\DeleteRecordButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\DeleteTableButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\EditColumnButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\EditRecordButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\EditSqlButton.png" />
-    <Resource Include="Resources\Assets\DialogImages\ErrorDialog.png" />
-    <Resource Include="Resources\Assets\DialogImages\InputDialog.png" />
-    <Resource Include="Resources\Assets\DialogImages\MenuDialog.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\ACCDB.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\CSV.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\DB.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\DLL.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\DOC.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\DOCX.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\EXE.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\HTML.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\MDB.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\MDF.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\PDF.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\PNG.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\PPTX.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\PY.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\SDF.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\SQL.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\TXT.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\XLS.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\XLSX.png" />
-    <Resource Include="Resources\Assets\ExtensionImages\XML.png" />
-    <Resource Include="Resources\Assets\ProviderImages\Access.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ProviderImages\Excel.ico">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ProviderImages\Excel.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ProviderImages\SqlCe.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ProviderImages\SQLite.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ProviderImages\SqlServer.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\AccessTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\BrowserTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\CalendarTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\DataTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\EmailTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\ExcelTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\GuidanceTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\MapTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\PivotTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\ProgramTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\SqlCeTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\SqlEditorTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\SQLiteTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\SqlServerTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\TileImages\VisualizationTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\AddColumnButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\AddRecordButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\BackButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\BrowseButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\DataSourceButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\DateButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\DecreaseButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\DeleteButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\EditButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\ExcelButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\ExitButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\ExportButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\FilterButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\FirstButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\GridButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\GroupButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\IncreaseButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\LastButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\LookUpButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\MapTile.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\MenuButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\NextButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\PreviousButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\PrintButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\RefreshButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\SaveButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="cef.sdk" Version="126.2.7" />
-    <PackageReference Include="CefSharp.Common" Version="126.2.70" />
-    <PackageReference Include="CefSharp.Common.NETCore" Version="126.2.70" />
-    <PackageReference Include="chromiumembeddedframework.runtime" Version="126.2.7" />
-    <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="126.2.7" />
-    <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="126.2.7" />
-    <PackageReference Include="EPPlus" Version="7.2.1" />
-    <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
-    <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
-    <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
-    <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
-    <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
-    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
-    <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
-    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
-    <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-    <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
-    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-    <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
-    <PackageReference Include="ScottPlot.WPF" Version="5.0.36" />
-    <PackageReference Include="Syncfusion.Calculate.Base" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Gantt.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfDiagramRibbon.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
-    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
-    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="IO\Excel\" />
-    <Folder Include="Libraries\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Reference Include="CefSharp.Wpf">
+      <HintPath>Libraries\CefSharp.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe">
       <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Assets\ToolStripImages\SchemaButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Assets\ToolStripImages\ToggleButton.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\AntiDeficiencyAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\BudgetControlAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\CleanAirAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\CleanWaterAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\DataAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\FundsControlManual.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\GovernmentAuditingStandards.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\IncidentManagementHandbook.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ItCodeGuidance.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\MoneyAndFinance.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\NonDirectAllocableCosts.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ObjectClassManual.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\OfficialTravel.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\OilPollutionAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\PollutionPreventionAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\PurchaseCardPolicy.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SafeDrinkingWaterAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SepartationOfDuties.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SolidWasteDisposalAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SplitFundingRequirements.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\StaffordAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundContracts.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundGeneralInformation.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundIntroduction.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\SuperfundSpecialAccounts.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\ToxicSubstancesControlAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Reports\Report.xlsx" />
-    <Resource Include="UI\Windows\Calculator\Cancel.png" />
-    <Resource Include="UI\Windows\Calculator\Main.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\ToggleButton.png" />
-    <Resource Include="UI\Windows\Chart\AreaButton.png" />
-    <Resource Include="UI\Windows\Chart\ColumnButton.png" />
-    <Resource Include="UI\Windows\Chart\DataSourceButton.png" />
-    <Resource Include="UI\Windows\Chart\ExportButton.png" />
-    <Resource Include="UI\Windows\Chart\FilterButton.png" />
-    <Resource Include="UI\Windows\Chart\GanttButton.png" />
-    <Resource Include="UI\Windows\Chart\GroupButton.png" />
-    <Resource Include="UI\Windows\Chart\HeatButton.png" />
-    <Resource Include="UI\Windows\Chart\HistogramButton.png" />
-    <Resource Include="UI\Windows\Chart\PieButton.png" />
-    <Resource Include="UI\Windows\Chart\SmithButton.png" />
-    <Resource Include="UI\Windows\Chart\SunButton.png" />
-    <Resource Include="UI\Windows\Chart\ToggleButton.png" />
-    <Resource Include="UI\Windows\Command\Application.png" />
-    <Resource Include="UI\Windows\Command\CalculatorItem.png" />
-    <Resource Include="UI\Windows\Command\CalendarItem.png" />
-    <Resource Include="UI\Windows\Command\ChromeItem.png" />
-    <Resource Include="UI\Windows\Command\ControlPanelItem.png" />
-    <Resource Include="UI\Windows\Command\EdgeItem.png" />
-    <Resource Include="UI\Windows\Command\FileItem.png" />
-    <Resource Include="UI\Windows\Command\FirefoxItem.png" />
-    <Resource Include="UI\Windows\Command\FolderItem.png" />
-    <Resource Include="UI\Windows\Command\MenuDialog.png" />
-    <Resource Include="UI\Windows\Command\SplashNotification.png" />
-    <Resource Include="UI\Windows\Command\TaskManagerItem.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\BackButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\BrowseButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\DeleteButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\EditButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\ExportButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\FirstButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\LastButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\LookUpButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\MenuButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\NextButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\PreviousButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\RefreshButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\SaveButton.png" />
-    <Resource Include="UI\Windows\Chart\FirstButton.png" />
-    <Resource Include="UI\Windows\Datagrid\DataSourceButton.png" />
-    <Resource Include="UI\Windows\Datagrid\DateButton.png" />
-    <Resource Include="UI\Windows\Datagrid\DeleteButton.png" />
-    <Resource Include="UI\Windows\Datagrid\ExportButton.png" />
-    <Resource Include="UI\Windows\Datagrid\FilterButton.png" />
-    <Resource Include="UI\Windows\Datagrid\GridButton.png" />
-    <Resource Include="UI\Windows\Datagrid\GroupButton.png" />
-    <Resource Include="UI\Windows\Datagrid\Loading.gif" />
-    <Resource Include="UI\Windows\Datagrid\SchemaButton.png" />
-    <Resource Include="UI\Windows\Datagrid\SqlButton.png" />
-    <Resource Include="UI\Windows\Datagrid\ToggleButton.png" />
-    <Resource Include="UI\Windows\Document\FilterButton.png" />
-    <Resource Include="UI\Windows\Document\ToggleButton.png" />
-    <Resource Include="UI\Windows\Editor\BackButton.png" />
-    <Resource Include="UI\Windows\Editor\BrowseButton.png" />
-    <Resource Include="UI\Windows\Editor\DeleteButton.png" />
-    <Resource Include="UI\Windows\Editor\EditButton.png" />
-    <Resource Include="UI\Windows\Editor\ExportButton.png" />
-    <Resource Include="UI\Windows\Editor\FilterButton.png" />
-    <Resource Include="UI\Windows\Editor\FirstButton.png" />
-    <Resource Include="UI\Windows\Editor\LastButton.png" />
-    <Resource Include="UI\Windows\Editor\Loading.gif" />
-    <Resource Include="UI\Windows\Editor\LookUpButton.png" />
-    <Resource Include="UI\Windows\Editor\MenuButton.png" />
-    <Resource Include="UI\Windows\Editor\NextButton.png" />
-    <Resource Include="UI\Windows\Editor\PreviousButton.png" />
-    <Resource Include="UI\Windows\Editor\RefreshButton.png" />
-    <Resource Include="UI\Windows\Editor\SaveButton.png" />
-    <Resource Include="UI\Windows\Editor\ToggleButton.png" />
-    <Resource Include="UI\Windows\Email\Application.png" />
-    <Resource Include="UI\Windows\Email\BackButton.png" />
-    <Resource Include="UI\Windows\Email\BrowseButton.png" />
-    <Resource Include="UI\Windows\Email\DeleteButton.png" />
-    <Resource Include="UI\Windows\Email\EditButton.png" />
-    <Resource Include="UI\Windows\Email\ExportButton.png" />
-    <Resource Include="UI\Windows\Email\FilterButton.png" />
-    <Resource Include="UI\Windows\Email\FirstButton.png" />
-    <Resource Include="UI\Windows\Email\LastButton.png" />
-    <Resource Include="UI\Windows\Email\LookUpButton.png" />
-    <Resource Include="UI\Windows\Email\MenuButton.png" />
-    <Resource Include="UI\Windows\Email\NextButton.png" />
-    <Resource Include="UI\Windows\Email\PreviousButton.png" />
-    <Resource Include="UI\Windows\Email\RefreshButton.png" />
-    <Resource Include="UI\Windows\Email\SaveButton.png" />
-    <Resource Include="UI\Windows\Calculator\Calendar\Application.png" />
-    <Resource Include="UI\Windows\Chart\Application.png" />
-    <Resource Include="UI\Windows\Chart\BrowseButton.png" />
-    <Resource Include="UI\Windows\Chart\LastButton.png" />
-    <Resource Include="UI\Windows\Chart\LookUpButton.png" />
-    <Resource Include="UI\Windows\Chart\MenuButton.png" />
-    <Resource Include="UI\Windows\Chart\NextButton.png" />
-    <Resource Include="UI\Windows\Chart\PreviousButton.png" />
-    <Resource Include="UI\Windows\Chart\RefreshButton.png" />
-    <Resource Include="UI\Windows\Chart\SaveButton.png" />
-    <Resource Include="UI\Windows\Datagrid\BackButton.png" />
-    <Resource Include="UI\Windows\Datagrid\BrowseButton.png" />
-    <Resource Include="UI\Windows\Datagrid\EditButton.png" />
-    <Resource Include="UI\Windows\Datagrid\FirstButton.png" />
-    <Resource Include="UI\Windows\Datagrid\LastButton.png" />
-    <Resource Include="UI\Windows\Datagrid\LookUpButton.png" />
-    <Resource Include="UI\Windows\Datagrid\MenuButton.png" />
-    <Resource Include="UI\Windows\Datagrid\NextButton.png" />
-    <Resource Include="UI\Windows\Datagrid\PreviousButton.png" />
-    <Resource Include="UI\Windows\Datagrid\RefreshButton.png" />
-    <Resource Include="UI\Windows\Datagrid\SaveButton.png" />
-    <Resource Include="UI\Windows\Document\Application.png" />
-    <Resource Include="UI\Windows\Document\BackButton.png" />
-    <Resource Include="UI\Windows\Document\BrowseButton.png" />
-    <Resource Include="UI\Windows\Document\DeleteButton.png" />
-    <Resource Include="UI\Windows\Document\EditButton.png" />
-    <Resource Include="UI\Windows\Document\ExportButton.png" />
-    <Resource Include="UI\Windows\Document\FirstButton.png" />
-    <Resource Include="UI\Windows\Document\LastButton.png" />
-    <Resource Include="UI\Windows\Document\LookUpButton.png" />
-    <Resource Include="UI\Windows\Document\MenuButton.png" />
-    <Resource Include="UI\Windows\Document\NextButton.png" />
-    <Resource Include="UI\Windows\Document\PreviousButton.png" />
-    <Resource Include="UI\Windows\Document\RefreshButton.png" />
-    <Resource Include="UI\Windows\Document\SaveButton.png" />
-    <Resource Include="UI\Windows\Editor\Application.png" />
-    <Resource Include="UI\Windows\Email\ToggleButton.png" />
-    <Resource Include="UI\Windows\Error\SplashNotification.png" />
-    <Resource Include="UI\Windows\Excel\Application.png" />
-    <Resource Include="UI\Windows\Excel\BackButton.png" />
-    <Resource Include="UI\Windows\Excel\BrowseButton.png" />
-    <Resource Include="UI\Windows\Excel\DeleteButton.png" />
-    <Resource Include="UI\Windows\Excel\EditButton.png" />
-    <Resource Include="UI\Windows\Excel\ExportButton.png" />
-    <Resource Include="UI\Windows\Excel\FilterButton.png" />
-    <Resource Include="UI\Windows\Excel\FirstButton.png" />
-    <Resource Include="UI\Windows\Excel\LastButton.png" />
-    <Resource Include="UI\Windows\Excel\Loading.gif" />
-    <Resource Include="UI\Windows\Excel\LookUpButton.png" />
-    <Resource Include="UI\Windows\Excel\MenuButton.png" />
-    <Resource Include="UI\Windows\Excel\NextButton.png" />
-    <Resource Include="UI\Windows\Excel\PreviousButton.png" />
-    <Resource Include="UI\Windows\Excel\RefreshButton.png" />
-    <Resource Include="UI\Windows\Excel\SaveButton.png" />
-    <Resource Include="UI\Windows\Excel\ToggleButton.png" />
-    <Resource Include="UI\Windows\File\FileBrowse.png" />
-    <Resource Include="UI\Windows\Grid\Application.png" />
-    <Resource Include="UI\Windows\Grid\BackButton.png" />
-    <Resource Include="UI\Windows\Grid\BrowseButton.png" />
-    <Resource Include="UI\Windows\Grid\DeleteButton.png" />
-    <Resource Include="UI\Windows\Grid\EditButton.png" />
-    <Resource Include="UI\Windows\Grid\ExportButton.png" />
-    <Resource Include="UI\Windows\Grid\FilterButton.png" />
-    <Resource Include="UI\Windows\Grid\FirstButton.png" />
-    <Resource Include="UI\Windows\Grid\LastButton.png" />
-    <Resource Include="UI\Windows\Grid\LookUpButton.png" />
-    <Resource Include="UI\Windows\Grid\MenuButton.png" />
-    <Resource Include="UI\Windows\Grid\NextButton.png" />
-    <Resource Include="UI\Windows\Grid\PreviousButton.png" />
-    <Resource Include="UI\Windows\Grid\RefreshButton.png" />
-    <Resource Include="UI\Windows\Grid\SaveButton.png" />
-    <Resource Include="UI\Windows\Grid\ToggleButton.png" />
-    <Resource Include="UI\Windows\Main\AccessTile.png" />
-    <Resource Include="UI\Windows\Main\BrowserTile.png" />
-    <Resource Include="UI\Windows\Main\CalendarTile.png" />
-    <Resource Include="UI\Windows\Main\DataTile.png" />
-    <Resource Include="UI\Windows\Main\EmailTile.png" />
-    <Resource Include="UI\Windows\Main\ExcelTile.png" />
-    <Resource Include="UI\Windows\Main\GuidanceTile.png" />
-    <Resource Include="UI\Windows\Main\MapTile.png" />
-    <Resource Include="UI\Windows\Main\PivotTile.png" />
-    <Resource Include="UI\Windows\Main\ProgramTile.png" />
-    <Resource Include="UI\Windows\Main\SqlCeTile.png" />
-    <Resource Include="UI\Windows\Main\SqlEditorTile.png" />
-    <Resource Include="UI\Windows\Main\SQLiteTile.png" />
-    <Resource Include="UI\Windows\Main\SqlServerTile.png" />
-    <Resource Include="UI\Windows\Main\VisualizationTile.png" />
-    <Resource Include="UI\Windows\Map\Application.png" />
-    <Resource Include="UI\Windows\Map\BackButton.png" />
-    <Resource Include="UI\Windows\Map\BrowseButton.png" />
-    <Resource Include="UI\Windows\Map\DeleteButton.png" />
-    <Resource Include="UI\Windows\Map\EditButton.png" />
-    <Resource Include="UI\Windows\Map\ExportButton.png" />
-    <Resource Include="UI\Windows\Map\FilterButton.png" />
-    <Resource Include="UI\Windows\Map\FirstButton.png" />
-    <Resource Include="UI\Windows\Map\LastButton.png" />
-    <Resource Include="UI\Windows\Map\LookUpButton.png" />
-    <Resource Include="UI\Windows\Map\MenuButton.png" />
-    <Resource Include="UI\Windows\Map\NextButton.png" />
-    <Resource Include="UI\Windows\Map\PreviousButton.png" />
-    <Resource Include="UI\Windows\Map\RefreshButton.png" />
-    <Resource Include="UI\Windows\Map\SaveButton.png" />
-    <Resource Include="UI\Windows\Input\InputDialog.png" />
-    <Resource Include="UI\Windows\Input\SplashNotification.png" />
-    <Resource Include="UI\Windows\Map\ToggleButton.png" />
-    <Resource Include="UI\Windows\Notification\SplashNotification.png" />
-    <Resource Include="UI\Windows\Pivot\Application.png" />
-    <Resource Include="UI\Windows\Pivot\BackButton.png" />
-    <Resource Include="UI\Windows\Pivot\BrowseButton.png" />
-    <Resource Include="UI\Windows\Pivot\DeleteButton.png" />
-    <Resource Include="UI\Windows\Pivot\EditButton.png" />
-    <Resource Include="UI\Windows\Pivot\ExportButton.png" />
-    <Resource Include="UI\Windows\Pivot\FilterButton.png" />
-    <Resource Include="UI\Windows\Pivot\FirstButton.png" />
-    <Resource Include="UI\Windows\Pivot\LastButton.png" />
-    <Resource Include="UI\Windows\Pivot\Loading.gif" />
-    <Resource Include="UI\Windows\Pivot\LookUpButton.png" />
-    <Resource Include="UI\Windows\Pivot\MenuButton.png" />
-    <Resource Include="UI\Windows\Pivot\NextButton.png" />
-    <Resource Include="UI\Windows\Pivot\PreviousButton.png" />
-    <Resource Include="UI\Windows\Pivot\RefreshButton.png" />
-    <Resource Include="UI\Windows\Pivot\SaveButton.png" />
-    <Resource Include="UI\Windows\Pivot\ToggleButton.png" />
-    <Resource Include="UI\Windows\Program\Application.png" />
-    <Resource Include="UI\Windows\Program\AppropriationTile.png" />
-    <Resource Include="UI\Windows\Program\BackButton.png" />
-    <Resource Include="UI\Windows\Program\BrowseButton.png" />
-    <Resource Include="UI\Windows\Program\DeleteButton.png" />
-    <Resource Include="UI\Windows\Program\EditButton.png" />
-    <Resource Include="UI\Windows\Program\ExitButton.png" />
-    <Resource Include="UI\Windows\Program\ExportButton.png" />
-    <Resource Include="UI\Windows\Program\FilterButton.png" />
-    <Resource Include="UI\Windows\Program\FirstButton.png" />
-    <Resource Include="UI\Windows\Program\LastButton.png" />
-    <Resource Include="UI\Windows\Program\LookUpButton.png" />
-    <Resource Include="UI\Windows\Program\MenuButton.png" />
-    <Resource Include="UI\Windows\Program\NextButton.png" />
-    <Resource Include="UI\Windows\Program\PreviousButton.png" />
-    <Resource Include="UI\Windows\Program\RefreshButton.png" />
-    <Resource Include="UI\Windows\Program\SaveButton.png" />
-    <Resource Include="UI\Windows\Program\ToggleButton.png" />
-    <Resource Include="UI\Windows\Splash\SplashNotification.png" />
-    <Resource Include="UI\Windows\Web\Application.png" />
-    <Resource Include="UI\Windows\Web\BackButton.png" />
-    <Resource Include="UI\Windows\Web\BrowseButton.png" />
-    <Resource Include="UI\Windows\Web\DeleteButton.png" />
-    <Resource Include="UI\Windows\Web\EditButton.png" />
-    <Resource Include="UI\Windows\Web\ExportButton.png" />
-    <Resource Include="UI\Windows\Web\FilterButton.png" />
-    <Resource Include="UI\Windows\Web\FirstButton.png" />
-    <Resource Include="UI\Windows\Web\LastButton.png" />
-    <Resource Include="UI\Windows\Web\LookUpButton.png" />
-    <Resource Include="UI\Windows\Web\MenuButton.png" />
-    <Resource Include="UI\Windows\Web\NextButton.png" />
-    <Resource Include="UI\Windows\Web\PreviousButton.png" />
-    <Resource Include="UI\Windows\Web\RefreshButton.png" />
-    <Resource Include="UI\Windows\Web\SaveButton.png" />
-    <Resource Include="UI\Windows\Web\ToggleButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -875,38 +115,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Assets\FormImages\Badger.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Update="Resources\Assets\NinjaImages\png\Badger.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7.0'">
-    <PackageReference Include="CefSharp.Wpf.NETCore">
-      <Version>126.2.70</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis">
-      <Version>1.68.0</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis.Core">
-      <Version>1.68.0</Version>
-    </PackageReference>
-    <PackageReference Include="Google.Apis.CustomSearchAPI.v1">
-      <Version>1.68.0.3395</Version>
-    </PackageReference>
-    <PackageReference Include="System.Data.OleDb">
-      <Version>8.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Messages.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
   </ItemGroup>
 
 </Project>

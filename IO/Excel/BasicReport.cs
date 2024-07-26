@@ -1,16 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="BasicReport.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,40 +29,40 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BasicReport.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
+    using OfficeOpenXml;
+    using OfficeOpenXml.Drawing.Chart;
+    using OfficeOpenXml.Style;
+    using OfficeOpenXml.Table;
+    using OfficeOpenXml.Table.PivotTable;
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using OfficeOpenXml;
-    using OfficeOpenXml.Drawing.Chart;
-    using OfficeOpenXml.Style;
-    using OfficeOpenXml.Table;
-    using OfficeOpenXml.Table.PivotTable;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
 
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
-    [ SuppressMessage( "ReSharper", "NotAccessedField.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" )]
+    [SuppressMessage( "ReSharper", "NotAccessedField.Global" )]
     public abstract class BasicReport
     {
         /// <summary>

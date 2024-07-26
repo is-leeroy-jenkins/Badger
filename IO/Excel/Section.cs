@@ -1,16 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="Section.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,36 +29,36 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Section.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
+    using OfficeOpenXml;
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using OfficeOpenXml;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Badger.Grid" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
+    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
     public class Section : Grid
     {
         /// <summary>
@@ -196,7 +195,7 @@ namespace Badger
         public Section( ExcelPackage excel, ExcelRange range )
             : base( excel, range )
         {
-            _anchor = ( range.Start.Row, range.Start.Column );
+            _anchor = (range.Start.Row, range.Start.Column);
             _span = ExcelRange.Columns;
             _depth = ExcelRange.Rows;
             _area = ExcelRange.Rows * ExcelRange.Columns;
@@ -217,7 +216,7 @@ namespace Badger
             int endRow = 55, int endColumn = 12 )
             : base( excel, startRow, startColumn, endRow, endColumn )
         {
-            _anchor = ( startRow, startColumn );
+            _anchor = (startRow, startColumn);
             _span = ExcelRange.Columns;
             _depth = ExcelRange.Rows;
             _area = ExcelRange.Rows * ExcelRange.Columns;
@@ -234,7 +233,7 @@ namespace Badger
         public Section( ExcelPackage excel, IList<int> cell )
             : base( excel, cell )
         {
-            _anchor = ( cell[ 0 ], cell[ 1 ] );
+            _anchor = (cell[ 0 ], cell[ 1 ]);
             _span = ExcelRange.Columns;
             _depth = ExcelRange.Rows;
             _area = ExcelRange.Rows * ExcelRange.Columns;
@@ -253,7 +252,7 @@ namespace Badger
             (int Row, int Column) to )
             : base( excel, from, to )
         {
-            _anchor = ( from.Row, from.Column );
+            _anchor = (from.Row, from.Column);
             _span = ExcelRange.Columns;
             _depth = ExcelRange.Rows;
             _area = ExcelRange.Rows * ExcelRange.Columns;
@@ -284,8 +283,8 @@ namespace Badger
         /// <param name="excelWorksheet">The excel worksheet.</param>
         /// <param name="excelRange">The excel range.</param>
         /// <param name="excelAddress">The excel address.</param>
-        public void Deconstruct( out ( int Row, int Column ) from,
-            out ( int Row, int Column ) to, out ExcelWorksheet excelWorksheet,
+        public void Deconstruct( out (int Row, int Column) from,
+            out (int Row, int Column) to, out ExcelWorksheet excelWorksheet,
             out ExcelRange excelRange, out ExcelAddress excelAddress )
         {
             from = _from;

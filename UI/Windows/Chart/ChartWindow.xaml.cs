@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-20-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-20-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,16 +29,20 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ChartWindow.xaml.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
+    using Syncfusion.SfSkinManager;
+    using Syncfusion.UI.Xaml.Charts;
+    using Syncfusion.UI.Xaml.SmithChart;
+    using Syncfusion.Windows.Tools.Controls;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -48,10 +52,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using Syncfusion.SfSkinManager;
-    using Syncfusion.UI.Xaml.Charts;
-    using Syncfusion.UI.Xaml.SmithChart;
-    using Syncfusion.Windows.Tools.Controls;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -66,18 +66,18 @@ namespace Badger
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "MergeConditionalExpression" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -209,7 +209,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ChartModel _chartModel;
+        private protected ChartData _chartModel;
 
         /// <summary>
         /// The data metric
@@ -282,7 +282,7 @@ namespace Badger
         /// <value>
         /// The data source.
         /// </value>
-        public ChartModel ChartModel
+        public ChartData ChartModel
         {
             get
             {
@@ -494,7 +494,7 @@ namespace Badger
                     _columnChart.PrimaryAxis = CreateCategoricalAxis( );
                     _columnChart.SecondaryAxis = CreateNumericalAxis( );
                     var _series = new ColumnSeries3D( );
-                    _columnChart.Series.Add( _series ); 
+                    _columnChart.Series.Add( _series );
                     ColumnChartCanvas.Children.Add( _columnChart );
                 }
             }
@@ -980,7 +980,7 @@ namespace Badger
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
                 _dataMetric = new DataMeasure( _dataTable );
-                _chartModel = new ChartModel( _dataTable );
+                _chartModel = new ChartData( _dataTable );
             }
             catch( Exception ex )
             {
@@ -1238,7 +1238,7 @@ namespace Badger
                 if( _dataTable != null
                     && _numerics?.Count > 0 )
                 {
-                    var _viewModel = new RowModel( );
+                    var _viewModel = new RowView( );
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
@@ -1247,7 +1247,7 @@ namespace Badger
                         {
                             var _measure = _numerics[ _i ];
                             var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                            var _view = new RowView( _index, _dimension, _measure, _value );
+                            var _view = new RowModel( _index, _dimension, _measure, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1260,7 +1260,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ViewModelBase );
+                return default( ViewBase );
             }
         }
 

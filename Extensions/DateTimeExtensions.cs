@@ -1,16 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-13-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-13-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="DateTimeExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2024  Terry Eppler
-// 
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -19,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -30,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DateTimeExtensions.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -46,10 +45,10 @@ namespace Badger
     using System.Linq;
 
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public static class DateTimeExtensions
     {
         /// <summary>
@@ -632,9 +631,9 @@ namespace Badger
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
-                case 12 when ( dateTime.Day == 31 ) && _friday:
-                case 1 when ( dateTime.Day == 1 ) && !_weekend:
-                case 1 when ( dateTime.Day == 2 ) && _monday:
+                case 12 when( dateTime.Day == 31 ) && _friday:
+                case 1 when( dateTime.Day == 1 ) && !_weekend:
+                case 1 when( dateTime.Day == 2 ) && _monday:
                     return true;
 
                 // MLK day (3rd monday in January)
@@ -650,15 +649,15 @@ namespace Badger
                     return true;
 
                 // Juneteenth (June 19)
-                case 6 when ( dateTime.Day == 18 ) && _friday:
-                case 6 when ( dateTime.Day == 19 ) && !_weekend:
-                case 6 when ( dateTime.Day == 20 ) && _monday:
+                case 6 when( dateTime.Day == 18 ) && _friday:
+                case 6 when( dateTime.Day == 19 ) && !_weekend:
+                case 6 when( dateTime.Day == 20 ) && _monday:
                     return true;
 
                 // Independence Day (July 4, or preceding Friday/following Monday if weekend)
-                case 7 when ( dateTime.Day == 3 ) && _friday:
-                case 7 when ( dateTime.Day == 4 ) && !_weekend:
-                case 7 when ( dateTime.Day == 5 ) && _monday:
+                case 7 when( dateTime.Day == 3 ) && _friday:
+                case 7 when( dateTime.Day == 4 ) && !_weekend:
+                case 7 when( dateTime.Day == 5 ) && _monday:
                     return true;
 
                 // Labor Day (1st Monday in September)
@@ -670,9 +669,9 @@ namespace Badger
                     return true;
 
                 // Veteran’s Day (November 11, or preceding Friday/following Monday if weekend))
-                case 11 when ( dateTime.Day == 10 ) && _friday:
-                case 11 when ( dateTime.Day == 11 ) && !_weekend:
-                case 11 when ( dateTime.Day == 12 ) && _monday:
+                case 11 when( dateTime.Day == 10 ) && _friday:
+                case 11 when( dateTime.Day == 11 ) && !_weekend:
+                case 11 when( dateTime.Day == 12 ) && _monday:
                     return true;
 
                 // Thanksgiving Day (4th Thursday in November)
@@ -680,9 +679,9 @@ namespace Badger
                     return true;
 
                 // Christmas Day (December 25, or preceding Friday/following Monday if weekend))
-                case 12 when ( dateTime.Day == 24 ) && _friday:
-                case 12 when ( dateTime.Day == 25 ) && !_weekend:
-                case 12 when ( dateTime.Day == 26 ) && _monday:
+                case 12 when( dateTime.Day == 24 ) && _friday:
+                case 12 when( dateTime.Day == 25 ) && !_weekend:
+                case 12 when( dateTime.Day == 26 ) && _monday:
                     return true;
                 default:
                     return false;

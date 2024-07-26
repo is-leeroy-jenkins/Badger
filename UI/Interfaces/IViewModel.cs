@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-23-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-23-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="IViewModel.cs" company="Terry D. Eppler">
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   IViewModel.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -43,6 +43,9 @@ namespace Badger
     using System.Collections.ObjectModel;
     using System.ComponentModel;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IViewModel
     {
         /// <summary>
@@ -51,7 +54,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        ObservableCollection<IView> Data { get; }
+        ObservableCollection<IModel> Data { get; }
 
         /// <summary>
         /// Gets or sets the views.
@@ -59,7 +62,7 @@ namespace Badger
         /// <value>
         /// The views.
         /// </value>
-        BindingList<IView> Views { get; set; }
+        BindingList<IModel> Views { get; set; }
 
         /// <summary>
         /// Gets the number of elements actually contained in the
@@ -73,7 +76,7 @@ namespace Badger
         /// <value>
         /// The items.
         /// </value>
-        IList<IView> Items { get; }
+        IList<IModel> Items { get; }
 
         /// <summary>
         /// Adds the specified index.
@@ -88,18 +91,18 @@ namespace Badger
         /// Adds the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        new void Add( IView view );
+        new void Add( IModel view );
 
         /// <summary>
         /// Removes the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        new void Remove( IView view );
+        new void Remove( IModel view );
 
         /// <summary>
         /// Cycles this instance.
         /// </summary>
         /// <returns></returns>
-        IEnumerator<IView> IterItems( );
+        IEnumerator<IModel> IterItems( );
     }
 }

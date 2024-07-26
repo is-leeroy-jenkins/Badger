@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-23-2024
-// 
+//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-23-2024
+//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
 // ******************************************************************************************
-// <copyright file="RowView.cs" company="Terry D. Eppler">
+// <copyright file="${File.FileName}" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
-// 
+//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
+//
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-// 
+//
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-// 
+//
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-// 
+//
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   RowView.cs
+//   ${File.FileName}
 // </summary>
 // ******************************************************************************************
 
@@ -41,118 +41,172 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.View" />
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class RowView : ViewBase, IView
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "RedundantJumpStatement" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    public class RowView : ViewBase
     {
         /// <summary>
-        /// The record
+        /// Gets the number of elements actually contained in the
+        /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
         /// </summary>
-        private protected DataRow _record;
-
-        /// <summary>
-        /// The dimensions
-        /// </summary>
-        private protected IList<string> _dimensions;
-
-        /// <summary>
-        /// The measures
-        /// </summary>
-        private protected IList<string> _measures;
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="RowView"/> class.
-        /// </summary>
-        public RowView( )
-            : base( )
+        public new int Count
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="RowView"/> class.
-        /// </summary>
-        /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The dimension.</param>
-        /// <param name="measure">The measure.</param>
-        /// <param name="value">The value.</param>
-        public RowView( int index, string dimension,
-            string measure, double value = 0 )
-        {
-            _index = index;
-            _dimension = dimension;
-            _measure = measure;
-            _value = value;
-            _dimensions = new[ ]
+            get
             {
-                dimension
-            };
-
-            _measures = new[ ]
-            {
-                measure
-            };
-        }
-
-        public RowView( int index, IList<string> dimensions,
-            IList<string> measures, double value = 0 )
-        {
-            _index = index;
-            _dimensions = dimensions;
-            _dimension = dimensions[ 0 ];
-            _measures = measures;
-            _measure = measures[ 0 ];
-            _value = value;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="RowView"/> class.
-        /// </summary>
-        /// <param name="rowView">The row view.</param>
-        public RowView( IView rowView )
-        {
-            _index = rowView.Index;
-            _dimension = rowView.Dimension;
-            _measure = rowView.Measure;
-            _value = rowView.Value;
-            _dimensions = new[ ]
-            {
-                rowView.Dimension
-            };
-
-            _measures = new[ ]
-            {
-                rowView.Measure
-            };
+                return Items.Count;
+            }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Deconstructs the specified identifier.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The x.</param>
-        /// <param name="measure"></param>
-        /// <param name="value">The y.</param>
-        public override void Deconstruct( out double index, out string dimension,
-            out string measure, out double value )
+        public RowView( )
+            : base( )
         {
-            index = _index;
-            dimension = _dimension;
-            measure = _measure;
-            value = _value;
+            _data = new ObservableCollection<IModel>( );
+            _views = new BindingList<IModel>( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Adds the specified index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="dimension">The category.</param>
+        /// <param name="measure"> </param>
+        /// <param name="value">The value.</param>
+        public override void Add( int index, string dimension, string measure, double value = 0 )
+        {
+            try
+            {
+                ThrowIf.Null( dimension, nameof( dimension ) );
+                ThrowIf.Null( measure, nameof( measure ) );
+                var _view = new RowModel( index, dimension, measure, value );
+                Items.Add( _view );
+                _data.Add( _view );
+                _views.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Adds the specified view.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        public override void Add( IModel view )
+        {
+            try
+            {
+                ThrowIf.Null( view.Dimension, nameof( view.Dimension ) );
+                ThrowIf.Null( view.Measure, nameof( view.Measure ) );
+                var _view = new RowModel( view );
+                Items.Add( _view );
+                _views.Add( _view );
+                _data.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Removes the specified view.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        public override void Remove( IModel view )
+        {
+            try
+            {
+                if( Items.Contains( view ) )
+                {
+                    var _index = Items.IndexOf( view );
+                    Items.RemoveAt( _index );
+                    _views.Remove( view );
+                    _data.RemoveAt( _index );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Cycles this instance.
+        /// </summary>
+        /// <returns></returns>
+        public override IEnumerator<IModel> IterItems( )
+        {
+            foreach( var _item in Items )
+            {
+                yield return _item;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Creates the views.
+        /// </summary>
+        /// <returns></returns>
+        public override BindingList<IModel> CreateViewList( )
+        {
+            try
+            {
+                if( _data != null )
+                {
+                    _views = new BindingList<IModel>( );
+                    foreach( var _view in _data )
+                    {
+                        _views.Add( _view );
+                    }
+
+                    return ( _views?.Any( ) == true )
+                        ? _views
+                        : default( BindingList<IModel> );
+                }
+
+                return default( BindingList<IModel> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( BindingList<IModel> );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="_ex">The _ex.</param>
+        private protected void Fail( Exception _ex )
+        {
+            var _error = new ErrorWindow( _ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
