@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-27-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="DataService.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   DataService.cs
 // </summary>
 // ******************************************************************************************
 
@@ -52,14 +52,14 @@ namespace Badger
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Badger.ModelBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
-    public class DataModel : DataFrame
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    public class DataService : DataScaffold
     {
         /// <summary>
         /// Gets the SQL statement.
@@ -117,26 +117,26 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
-        public DataModel( )
+        public DataService( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public DataModel( Source source, Provider provider = Provider.Access )
+        public DataService( Source source, Provider provider = Provider.Access )
         {
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, Command.SELECTALL );
             _dataTable = GetDataTable( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -148,19 +148,19 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        public DataModel( Source source, Provider provider, IDictionary<string, object> where )
+        public DataService( Source source, Provider provider, IDictionary<string, object> where )
         {
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -172,14 +172,14 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="updates">The updates.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
+        public DataService( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
         {
             _source = source;
@@ -193,20 +193,20 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> columns,
+        public DataService( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
         {
             _source = source;
@@ -220,13 +220,13 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -234,7 +234,7 @@ namespace Badger
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> fields,
+        public DataService( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where,
             Command commandType )
         {
@@ -251,18 +251,18 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="where">The where.</param>
-        public DataModel( Source source, IDictionary<string, object> where )
+        public DataService( Source source, IDictionary<string, object> where )
         {
             _source = source;
             _provider = Provider.Access;
@@ -275,19 +275,19 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
-        public DataModel( Source source, Provider provider, string sqlText )
+        public DataService( Source source, Provider provider, string sqlText )
         {
             _source = source;
             _provider = provider;
@@ -300,19 +300,19 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( string fullPath, string sqlText, Command commandType = Command.SELECT )
+        public DataService( string fullPath, string sqlText, Command commandType = Command.SELECT )
         {
             _connection = new BudgetConnection( fullPath ).Create( );
             _source = Source.External;
@@ -325,17 +325,17 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataModel"/> class.
+        /// <see cref="DataService"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public DataModel( IQuery query )
+        public DataService( IQuery query )
         {
             _source = query.Source;
             _provider = query.Provider;
@@ -348,7 +348,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataModel.CreateSeries( _dataTable );
+            _elements = DataService.CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -375,7 +375,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataModel.Fail( ex );
+                DataService.Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -405,7 +405,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataModel.Fail( ex );
+                DataService.Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -461,7 +461,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataModel.Fail( ex );
+                DataService.Fail( ex );
                 return default( DataTable );
             }
 
@@ -490,7 +490,7 @@ namespace Badger
                     if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
                         && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
-                        var _name = DataModel.GetValues( _rows, _columns[ _i ]?.ColumnName );
+                        var _name = DataService.GetValues( _rows, _columns[ _i ]?.ColumnName );
                         _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                     }
                 }
@@ -501,7 +501,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataModel.Fail( ex );
+                DataService.Fail( ex );
                 return default( IDictionary<string, IEnumerable<string>> );
             }
         }

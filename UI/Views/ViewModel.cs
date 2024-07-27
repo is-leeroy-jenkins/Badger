@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-27-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="RowView.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   RowView.cs
 // </summary>
 // ******************************************************************************************
 
@@ -49,27 +49,26 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantJumpStatement" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    public abstract class ViewBase : ObservableCollection<IModel>, IViewModel
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantJumpStatement" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class ViewModel : ObservableCollection<IView>, IViewModel
     {
         /// <summary>
         /// The data
         /// </summary>
-        private protected ObservableCollection<IModel> _data;
+        private protected ObservableCollection<IView> _data;
 
         /// <summary>
         /// The views
         /// </summary>
-        private protected BindingList<IModel> _views;
+        private protected BindingList<IView> _views;
 
         /// <summary>
         /// The columns
@@ -86,48 +85,7 @@ namespace Badger
         /// </summary>
         private protected string _measure;
 
-        /// <summary>
-        /// The items
-        /// </summary>
-        private IList<IModel> _items;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public ObservableCollection<IModel> Data
-        {
-            get
-            {
-                return _data;
-            }
-            private protected set
-            {
-                _data = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the views.
-        /// </summary>
-        /// <value>
-        /// The views.
-        /// </value>
-        public BindingList<IModel> Views
-        {
-            get
-            {
-                return _views;
-            }
-            set
-            {
-                _views = value;
-            }
-        }
+        private IList<IView> _items;
 
         /// <inheritdoc />
         /// <summary>
@@ -144,17 +102,14 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets the items.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
-        public new IList<IModel> Items
+        public ViewModel( )
+            : base( )
         {
-            get
-            {
-                return _items;
-            }
+            _data = new ObservableCollection<IView>( );
+            _views = new BindingList<IView>( );
         }
 
         /// <inheritdoc />
@@ -165,28 +120,74 @@ namespace Badger
         /// <param name="dimension">The category.</param>
         /// <param name="measure"> </param>
         /// <param name="value">The value.</param>
-        public abstract void Add( int index, string dimension, string measure, double value );
+        public virtual void Add( int index, string dimension, string measure, double value = 0 )
+        {
+            try
+            {
+                ThrowIf.Null( dimension, nameof( dimension ) );
+                ThrowIf.Null( measure, nameof( measure ) );
+                var _view = new View( index, dimension, measure, value );
+                Items.Add( _view );
+                _data.Add( _view );
+                _views.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Adds the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        public abstract new void Add( IModel view );
+        public virtual new void Add( IView view )
+        {
+            try
+            {
+                ThrowIf.Null( view.Dimension, nameof( view.Dimension ) );
+                ThrowIf.Null( view.Measure, nameof( view.Measure ) );
+                var _view = new View( view );
+                Items.Add( _view );
+                _views.Add( _view );
+                _data.Add( _view );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Removes the specified view.
         /// </summary>
         /// <param name="view">The view.</param>
-        public abstract new void Remove( IModel view );
+        public virtual new void Remove( IView view )
+        {
+            try
+            {
+                if( Items.Contains( view ) )
+                {
+                    var _index = Items.IndexOf( view );
+                    Items.RemoveAt( _index );
+                    _views.Remove( view );
+                    _data.RemoveAt( _index );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Cycles this instance.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerator<IModel> IterItems( )
+        public virtual IEnumerator<IView> IterItems( )
         {
             foreach( var _item in Items )
             {
@@ -198,13 +199,13 @@ namespace Badger
         /// Creates the views.
         /// </summary>
         /// <returns></returns>
-        public virtual BindingList<IModel> CreateViewList( )
+        private protected BindingList<IView> CreateViewList( )
         {
             try
             {
                 if( _data != null )
                 {
-                    _views = new BindingList<IModel>( );
+                    _views = new BindingList<IView>( );
                     foreach( var _view in _data )
                     {
                         _views.Add( _view );
@@ -212,15 +213,15 @@ namespace Badger
 
                     return ( _views?.Any( ) == true )
                         ? _views
-                        : default( BindingList<IModel> );
+                        : default( BindingList<IView> );
                 }
 
-                return default( BindingList<IModel> );
+                return default( BindingList<IView> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( BindingList<IModel> );
+                return default( BindingList<IView> );
             }
         }
 

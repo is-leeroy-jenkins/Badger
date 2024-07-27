@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="DescriptionBase.cs" company="Terry D. Eppler">
+// <copyright file="SchemaBase.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry D. Eppler
 // 
@@ -33,178 +33,220 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DescriptionBase.cs
+//   SchemaBase.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.DataUnit" />
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class DescriptionBase : DataUnit
+    public abstract class DataCore : ISource, IProvider
     {
         /// <summary>
-        /// The definition
+        /// The source
         /// </summary>
-        private protected string _definition;
+        private protected Source _source;
 
         /// <summary>
-        /// The laws
+        /// The provider
         /// </summary>
-        private protected string _laws;
+        private protected Provider _provider;
 
         /// <summary>
-        /// The title
+        /// The data set
         /// </summary>
-        private protected string _title;
+        private protected DataSet _dataSet;
 
         /// <summary>
-        /// The program area code
+        /// The data table
         /// </summary>
-        private protected string _programAreaCode;
+        private protected DataTable _dataTable;
 
         /// <summary>
-        /// The program area name
+        /// The data columns
         /// </summary>
-        private protected string _programAreaName;
+        private protected IList<DataColumn> _dataColumns;
 
         /// <summary>
-        /// Gets or sets the definition.
+        /// The column names
         /// </summary>
-        /// <value>
-        /// The definition.
-        /// </value>
-        public string Definition
+        private protected IList<string> _columnNames;
+
+        /// <summary>
+        /// The dates
+        /// </summary>
+        private protected IList<string> _dates;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public Source Source
         {
             get
             {
-                return _definition;
+                return _source;
             }
             private protected set
             {
-                _definition = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the laws.
-        /// </summary>
-        /// <value>
-        /// The laws.
-        /// </value>
-        public string Laws
-        {
-            get
-            {
-                return _laws;
-            }
-            private protected set
-            {
-                _laws = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the title.
-        /// </summary>
-        /// <value>
-        /// The title.
-        /// </value>
-        public string Title
-        {
-            get
-            {
-                return _title;
-            }
-            private protected set
-            {
-                _title = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public string ProgramAreaCode
-        {
-            get
-            {
-                return _programAreaCode;
-            }
-            private protected set
-            {
-                _programAreaCode = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public string ProgramAreaName
-        {
-            get
-            {
-                return _programAreaName;
-            }
-            private protected set
-            {
-                _programAreaName = value;
+                _source = value;
             }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DescriptionBase" /> class.
         /// </summary>
-        protected DescriptionBase( )
+        public Provider Provider
         {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DescriptionBase" /> class.
+        /// Gets the data table.
         /// </summary>
-        /// <param name="query">The query.</param>
-        protected DescriptionBase( IQuery query )
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
         {
+            get
+            {
+                return _dataTable;
+            }
+
+            private protected set
+            {
+                _dataTable = value;
+            }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DescriptionBase" /> class.
+        /// Gets or sets the data columns.
         /// </summary>
-        /// <param name="builder"></param>
-        protected DescriptionBase( IDataService builder )
+        /// <value>
+        /// The data columns.
+        /// </value>
+        public IList<DataColumn> DataColumns
         {
+            get
+            {
+                return _dataColumns;
+            }
+            private protected set
+            {
+                _dataColumns = value;
+            }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DescriptionBase" /> class.
+        /// Gets or sets the column names.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        protected DescriptionBase( DataRow dataRow )
+        /// <value>
+        /// The column names.
+        /// </value>
+        public IList<string> ColumnNames
         {
+            get
+            {
+                return _columnNames;
+            }
+            private protected set
+            {
+                _columnNames = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
+        public IList<string> Dates
+        {
+            get
+            {
+                return _dates;
+            }
+            private protected set
+            {
+                _dates = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _columnNames = value;
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="_ex">The _ex.</param>
+        private protected static void Fail( Exception _ex )
+        {
+            var _error = new ErrorWindow( _ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="LedgerAccount.cs" company="Terry D. Eppler">
+// <copyright file="IDataService.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry D. Eppler
 // 
@@ -33,135 +33,153 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   LedgerAccount.cs
+//   IDataService.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
-    using System.Diagnostics.CodeAnalysis;
+    using System.Data.Common;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.DataUnit" />
-    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class LedgerAccount : DataUnit
+    /// <seealso cref="T:Badger.ISource" />
+    /// <seealso cref="T:Badger.IProvider" />
+    public interface IDataService : ISource, IProvider
     {
         /// <summary>
-        /// The bfy
+        /// Gets a value indicating whether this instance is busy.
         /// </summary>
-        private protected string _bfy;
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        bool IsBusy { get; }
 
         /// <summary>
-        /// The account classification
+        /// Gets the duration.
         /// </summary>
-        private protected string _accountClassification;
-
-        /// <summary>
-        /// The short name
-        /// </summary>
-        private protected string _shortName;
-
-        /// <summary>
-        /// The number
-        /// </summary>
-        private protected string _number;
-
-        /// <summary>
-        /// The normal balance
-        /// </summary>
-        private protected string _normalBalance;
-
-        /// <summary>
-        /// The real or closing account
-        /// </summary>
-        private protected string _realOrClosingAccount;
-
-        /// <summary>
-        /// The summary account
-        /// </summary>
-        private protected string _summaryAccount;
-
-        /// <summary>
-        /// The cash account
-        /// </summary>
-        private protected string _cashAccount;
-
-        /// <summary>
-        /// The reportable account
-        /// </summary>
-        private protected string _reportableAccount;
-
-        /// <summary>
-        /// The cost allocation indicator
-        /// </summary>
-        private protected string _costAllocationIndicator;
-
-        /// <summary>
-        /// The federal non federal
-        /// </summary>
-        private protected string _federalNonFederal;
-
-        /// <summary>
-        /// The attribute value
-        /// </summary>
-        private protected string _attributeValue;
-
-        /// <summary>
-        /// The usage
-        /// </summary>
-        private protected string _usage;
-
-        /// <summary>
-        /// The deposit
-        /// </summary>
-        private protected string _deposit;
+        /// <value>
+        /// The duration.
+        /// </value>
+        TimeSpan Duration { get; }
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.LedgerAccount" /> class.
+        /// Gets the record.
         /// </summary>
-        protected LedgerAccount( )
-            : base( )
-        {
-        }
+        /// <value>
+        /// The record.
+        /// </value>
+        DataRow Record { get; }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.LedgerAccount" /> class.
+        /// Gets the data set.
         /// </summary>
-        /// <param name="query">The query.</param>
-        protected LedgerAccount( IQuery query )
-            : base( query )
-        {
-        }
+        /// <value>
+        /// The data set.
+        /// </value>
+        DataSet DataSet { get; }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.LedgerAccount" /> class.
+        /// Gets the data elements.
         /// </summary>
-        /// <param name="builder"></param>
-        protected LedgerAccount( IDataService builder )
-            : base( builder )
-        {
-        }
+        /// <value>
+        /// The data elements.
+        /// </value>
+        IDictionary<string, IEnumerable<string>> DataElements { get; }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.LedgerAccount" /> class.
+        /// Gets the data table.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        protected LedgerAccount( DataRow dataRow )
-            : base( dataRow )
-        {
-        }
+        /// <value>
+        /// The data table.
+        /// </value>
+        DataTable DataTable { get; }
+
+        /// <summary>
+        /// Gets or sets the data columns.
+        /// </summary>
+        /// <value>
+        /// The data columns.
+        /// </value>
+        IList<DataColumn> DataColumns { get; }
+
+        /// <summary>
+        /// Gets or sets the column names.
+        /// </summary>
+        /// <value>
+        /// The column names.
+        /// </value>
+        IList<string> ColumnNames { get; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        IList<string> Fields { get; }
+
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
+        IList<string> Dates { get; }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        IList<string> Numerics { get; }
+
+        /// <summary>
+        /// Gets or sets the map.
+        /// </summary>
+        /// <value>
+        /// The map.
+        /// </value>
+        IDictionary<string, object> Map { get; }
+
+        /// <summary>
+        /// Gets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        ISqlStatement SqlStatement { get; }
+
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
+        DbConnection Connection { get; }
+
+        /// <summary>
+        /// Gets the keys.
+        /// </summary>
+        /// <value>
+        /// The keys.
+        /// </value>
+        IList<int> Keys { get; }
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <returns>
+        /// IEnumerable{DataRow}
+        /// </returns>
+        IEnumerable<DataRow> GetData( );
     }
 }

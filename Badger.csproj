@@ -19,6 +19,11 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
+    <NoWarn>1701;1702;1006;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1006;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -213,6 +218,8 @@
     <None Remove="Resources\Documents\ToxicSubstancesControlAct.pdf" />
     <None Remove="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf" />
     <None Remove="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf" />
+    <None Remove="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
+    <None Remove="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <None Remove="Resources\Reports\Report.xlsx" />
     <None Remove="UI\Windows\Main\VisualizationTile.png" />
   </ItemGroup>
@@ -495,6 +502,8 @@
     <Resource Include="Resources\Documents\ToxicSubstancesControlAct.pdf" />
     <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf" />
     <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf" />
+    <Resource Include="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
+    <Resource Include="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <Resource Include="Resources\Reports\Report.xlsx" />
     <Resource Include="UI\Windows\Main\VisualizationTile.png" />
   </ItemGroup>

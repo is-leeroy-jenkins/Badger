@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-27-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="DataSchema.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   DataSchema.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,211 +42,398 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    public abstract class DataSchema : ISource, IProvider
+    /// <seealso cref="T:Badger.ISource" />
+    /// <seealso cref="T:Badger.IProvider" />
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToNullCoalescingAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public abstract class DataSchema : DataCore
     {
         /// <summary>
-        /// The source
+        /// The locked object
         /// </summary>
-        private protected Source _source;
+        private object _path;
 
         /// <summary>
-        /// The provider
+        /// The busy
         /// </summary>
-        private protected Provider _provider;
+        private protected bool _busy;
 
         /// <summary>
-        /// The data set
+        /// The map
         /// </summary>
-        private protected DataSet _dataSet;
+        private protected IDictionary<string, object> _map;
 
         /// <summary>
-        /// The data table
+        /// The duration
         /// </summary>
-        private protected DataTable _dataTable;
+        private protected TimeSpan _duration;
 
         /// <summary>
-        /// The data columns
+        /// The elements
         /// </summary>
-        private protected IList<DataColumn> _dataColumns;
+        private protected IDictionary<string, IEnumerable<string>> _elements;
 
         /// <summary>
-        /// The column names
+        /// Gets or sets the SQL statement.
         /// </summary>
-        private protected IList<string> _columnNames;
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        private protected ISqlStatement _sqlStatement;
 
         /// <summary>
-        /// The dates
+        /// The keys
         /// </summary>
-        private protected IList<string> _dates;
+        private protected IList<int> _keys;
 
         /// <summary>
-        /// The fields
+        /// Gets or sets the map.
         /// </summary>
-        private protected IList<string> _fields;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private protected IList<string> _numerics;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public Source Source
+        /// <value>
+        /// The map.
+        /// </value>
+        public IDictionary<string, object> Map
         {
             get
             {
-                return _source;
+                return _map;
             }
             private protected set
             {
-                _source = value;
+                _map = value;
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
+        /// Gets the data.
         /// </summary>
-        public Provider Provider
+        /// <returns>
+        /// IEnumerable{DataRow}
+        /// </returns>
+        public IEnumerable<DataRow> GetData( )
         {
-            get
+            try
             {
-                return _provider;
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _data = _dataTable?.AsEnumerable( );
+                return _data?.Any( ) == true
+                    ? _data
+                    : default( IEnumerable<DataRow> );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _provider = value;
+                Fail( ex );
+                return default( IEnumerable<DataRow> );
             }
         }
 
         /// <summary>
         /// Gets the data table.
         /// </summary>
-        /// <value>
+        /// <returns>
+        /// DataTable
+        /// </returns>
+        private protected DataTable GetDataTable( )
+        {
+            try
+            {
+                BeginInit( );
+                var _clock = Stopwatch.StartNew( );
+                _dataSet = new DataSet( $"{_source}" );
+                _dataTable = new DataTable( $"{_source}" );
+                _dataTable.TableName = _source.ToString( );
+                _dataSet.Tables.Add( _dataTable );
+                using var _query = new BudgetQuery( _sqlStatement );
+                using var _adapter = _query.DataAdapter;
+                _adapter.FillSchema( _dataSet, System.Data.SchemaType.Source,
+                    _dataTable.TableName );
+
+                _adapter.Fill( _dataSet, _dataTable.TableName );
+                SetColumnCaptions( _dataTable );
+                _duration = _clock.Elapsed;
+                EndInit( );
+                return _dataTable?.Rows?.Count > 0
+                    ? _dataTable
+                    : default( DataTable );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( DataTable );
+            }
+        }
+
+        /// <summary>
+        /// Gets the table asynchronous.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected Task<DataTable> GetTableAsync( )
+        {
+            var _tcs = new TaskCompletionSource<DataTable>( );
+            try
+            {
+                BeginInit( );
+                var _clock = Stopwatch.StartNew( );
+                _dataSet = new DataSet( $"{_provider}" );
+                _dataTable = new DataTable( $"{_source}" );
+                _dataTable.TableName = _source.ToString( );
+                _dataSet.Tables.Add( _dataTable );
+                using var _query = new BudgetQuery( _sqlStatement );
+                using var _adapter = _query.DataAdapter;
+                _adapter.Fill( _dataSet, _dataTable.TableName );
+                SetColumnCaptions( _dataTable );
+                _tcs.SetResult( _dataTable );
+                _duration = _clock.Elapsed;
+                EndInit( );
+                return _tcs?.Task;
+            }
+            catch( Exception ex )
+            {
+                _tcs.SetException( ex );
+                Fail( ex );
+                return default( Task<DataTable> );
+            }
+        }
+
+        /// <summary>
+        /// Sets the column captions.
+        /// </summary>
+        /// <param name="dataTable">
         /// The data table.
-        /// </value>
-        public DataTable DataTable
+        /// </param>
+        private protected void SetColumnCaptions( DataTable dataTable )
         {
-            get
+            try
             {
-                return _dataTable;
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
+                foreach( DataColumn _column in dataTable?.Columns )
+                {
+                    if( _column != null )
+                    {
+                        var _caption = _column.ColumnName.SplitPascal( );
+                        _column.Caption = _caption;
+                    }
+                }
             }
-
-            private protected set
+            catch( Exception ex )
             {
-                _dataTable = value;
+                Fail( ex );
             }
         }
 
         /// <summary>
-        /// Gets or sets the data columns.
+        /// Gets the fields.
         /// </summary>
-        /// <value>
-        /// The data columns.
-        /// </value>
-        public IList<DataColumn> DataColumns
+        /// <returns></returns>
+        private protected IList<string> GetFields( )
         {
-            get
+            try
             {
-                return _dataColumns;
+                var _list = new List<string>( );
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                foreach( DataColumn _col in _dataTable.Columns )
+                {
+                    if( _col.DataType == typeof( string ) )
+                    {
+                        _list.Add( _col.ColumnName );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _dataColumns = value;
+                Fail( ex );
+                return default( IList<string> );
             }
         }
 
         /// <summary>
-        /// Gets or sets the column names.
+        /// Gets the numerics.
         /// </summary>
-        /// <value>
-        /// The column names.
-        /// </value>
-        public IList<string> ColumnNames
+        /// <returns></returns>
+        private protected IList<string> GetNumerics( )
         {
-            get
+            try
             {
-                return _columnNames;
+                var _list = new List<string>( );
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                foreach( DataColumn _col in _dataTable.Columns )
+                {
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                            && _col.DataType == typeof( double ) )
+                        || _col.DataType == typeof( short )
+                        || _col.DataType == typeof( ushort )
+                        || _col.DataType == typeof( long )
+                        || _col.DataType == typeof( decimal )
+                        || _col.DataType == typeof( float ) )
+                    {
+                        _list.Add( _col.ColumnName );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _columnNames = value;
+                Fail( ex );
+                return default( IList<string> );
             }
         }
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// Gets the dates.
         /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields
+        /// <returns></returns>
+        private protected IList<string> GetDates( )
         {
-            get
+            try
             {
-                return _fields;
+                var _list = new List<string>( );
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                foreach( DataColumn _col in _dataTable.Columns )
+                {
+                    if( _col.Ordinal > 0
+                        && ( _col.DataType == typeof( DateTime )
+                            || _col.DataType == typeof( DateTimeOffset )
+                            || ( _col.ColumnName.EndsWith( "Day" )
+                                && _col.DataType == typeof( string ) )
+                            || ( _col.ColumnName.EndsWith( "Date" )
+                                && _col.DataType == typeof( string ) ) ) )
+                    {
+                        _list.Add( _col.ColumnName );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _fields = value;
+                Fail( ex );
+                return default( IList<string> );
             }
         }
 
         /// <summary>
-        /// Gets or sets the dates.
+        /// Gets the primary keys.
         /// </summary>
-        /// <value>
-        /// The dates.
-        /// </value>
-        public IList<string> Dates
+        /// <returns>
+        /// </returns>
+        private protected IList<int> GetPrimaryKeys( )
         {
-            get
+            try
             {
-                return _dates;
+                if( _dataTable == null )
+                {
+                    _dataTable = GetDataTable( );
+                }
+
+                var _values = _dataTable.GetIndexValues( );
+                return _values?.Any( ) == true
+                    ? _values.ToList( )
+                    : default( IList<int> );
             }
-            private protected set
+            catch( Exception ex )
             {
-                _dates = value;
+                Fail( ex );
+                return default( IList<int> );
             }
         }
 
         /// <summary>
-        /// Gets or sets the numerics.
+        /// Begins the initialize.
         /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics
+        private protected void BeginInit( )
         {
-            get
+            try
             {
-                return _numerics;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
-            private protected set
+            catch( Exception ex )
             {
-                _columnNames = value;
+                Fail( ex );
             }
         }
 
         /// <summary>
-        /// Fails the specified _ex.
+        /// Ends the initialize.
         /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected static void Fail( Exception _ex )
+        private protected void EndInit( )
         {
-            var _error = new ErrorWindow( _ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

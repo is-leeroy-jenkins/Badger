@@ -1867,7 +1867,7 @@
             <summary>
             </summary>
             <seealso cref="T:Badger.DataModel" />
-            <seealso cref="T:Badger.IDataModel" />
+            <seealso cref="T:Badger.IDataService" />
         </member>
         <member name="P:Badger.DataGenerator.Duration">
             <summary>
@@ -2722,12 +2722,12 @@
             A double
             </returns>
         </member>
-        <member name="T:Badger.IDataModel">
+        <member name="T:Badger.IDataService">
             <inheritdoc />
             <summary>
             </summary>
         </member>
-        <member name="P:Badger.IDataModel.DataColumns">
+        <member name="P:Badger.IDataService.DataColumns">
             <summary>
             Gets or sets the data columns.
             </summary>
@@ -2735,7 +2735,7 @@
             The data columns.
             </value>
         </member>
-        <member name="P:Badger.IDataModel.Record">
+        <member name="P:Badger.IDataService.Record">
             <summary>
             Gets the record.
             </summary>
@@ -2743,7 +2743,7 @@
             The record.
             </value>
         </member>
-        <member name="M:Badger.IDataModel.GetData">
+        <member name="M:Badger.IDataService.GetData">
             <summary>
             Gets the data.
             </summary>
@@ -19030,7 +19030,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Account.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Account.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -19106,7 +19106,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.AccountingEvent.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AccountingEvent.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -19168,7 +19168,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ActivityCode.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ActivityCode.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -19286,7 +19286,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.Actual.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Actual.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.Actual" />
@@ -19528,7 +19528,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.AdministrativeRequest.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AdministrativeRequest.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -19617,7 +19617,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.Allocation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Allocation.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.Allocation"/> class.
@@ -19758,7 +19758,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.AmericanRescuePlanCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AmericanRescuePlanCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -20059,7 +20059,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.AnnualCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AnnualCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20107,7 +20107,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.AnnualReimbursableCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AnnualReimbursableCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -20178,7 +20178,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ApplicationTable.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ApplicationTable.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20273,7 +20273,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ApportionmentData.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ApportionmentData.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20318,7 +20318,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Appropriation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Appropriation.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -20469,7 +20469,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.AppropriationAvailableBalance.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AppropriationAvailableBalance.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20650,7 +20650,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.AppropriationDocument.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AppropriationDocument.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20747,7 +20747,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.AppropriationLevelAuthority.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.AppropriationLevelAuthority.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -20922,7 +20922,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.BudgetAccount.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetAccount.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.BudgetAccount"/> class.
@@ -21136,7 +21136,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.BudgetaryResource.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetaryResource.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21249,7 +21249,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.BudgetContact.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetContact.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.BudgetContact"/> class.
@@ -21284,7 +21284,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.BudgetControl.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetControl.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21382,7 +21382,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.BudgetDocument.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetDocument.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21477,7 +21477,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.BudgetFiscalYear.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetFiscalYear.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21587,7 +21587,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.BudgetObjectClass.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetObjectClass.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21803,7 +21803,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.BudgetUnit.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.BudgetUnit.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -21931,7 +21931,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.CalendarYear.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CalendarYear.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.CalendarYear"/> class.
@@ -21982,7 +21982,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.CapitalPlanningInvestmentCode.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CapitalPlanningInvestmentCode.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -22199,7 +22199,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.CarryoverApportionment.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CarryoverApportionment.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -22245,7 +22245,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.CarryoverRequest.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CarryoverRequest.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -22386,7 +22386,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Change.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Change.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -22585,7 +22585,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.CompassControl.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CompassControl.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -22766,7 +22766,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.CompassLevel.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CompassLevel.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.CompassLevel" />
@@ -22945,7 +22945,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.CongressionalControl.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CongressionalControl.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23022,7 +23022,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.CongressionalProject.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CongressionalProject.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23210,7 +23210,7 @@
             </summary>
             <inheritdoc />
         </member>
-        <member name="M:Badger.ControlDocument.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ControlDocument.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:Badger.ControlDocument"/> class.
             </summary>
@@ -23254,7 +23254,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.CostArea.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.CostArea.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23359,7 +23359,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.DataRuleDescription.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.DataRuleDescription.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23482,7 +23482,7 @@
             <see cref="T:Badger.DataUnit"/> class.
             </summary>
         </member>
-        <member name="M:Badger.DataUnit.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.DataUnit.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.DataUnit"/> class.
@@ -23583,7 +23583,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Defacto.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Defacto.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -23629,7 +23629,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Deobligation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Deobligation.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -23739,7 +23739,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.DescriptionBase.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.DescriptionBase.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23803,7 +23803,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Document.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Document.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23912,7 +23912,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.DocumentControlNumber.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.DocumentControlNumber.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -23957,7 +23957,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Expenditure.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Expenditure.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -24146,7 +24146,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.FederalHoliday.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FederalHoliday.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -24222,7 +24222,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.FinanceObjectClass.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FinanceObjectClass.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -24427,7 +24427,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.FiscalYear.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FiscalYear.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.FiscalYear"/> class.
@@ -24472,7 +24472,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.FullTimeEquivalent.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FullTimeEquivalent.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -24583,7 +24583,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Fund.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Fund.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -24657,7 +24657,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.FundCategory.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FundCategory.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -24886,7 +24886,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.FundSymbol.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.FundSymbol.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.FundSymbol"/> class.
@@ -25034,7 +25034,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.GeneralLedgerAccount.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.GeneralLedgerAccount.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25080,7 +25080,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Goal.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Goal.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25156,7 +25156,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.GsPayScale.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.GsPayScale.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25193,7 +25193,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.HeadquartersAuthority.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.HeadquartersAuthority.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -25255,7 +25255,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.HeadquartersOffice.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.HeadquartersOffice.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25345,7 +25345,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.InflationReductionActCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.InflationReductionActCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25393,7 +25393,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.JobsActCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.JobsActCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25511,7 +25511,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.LedgerAccount.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.LedgerAccount.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25640,7 +25640,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.MainAccount.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.MainAccount.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -25691,7 +25691,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Message.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Message.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25754,7 +25754,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.MonthlyActual.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.MonthlyActual.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -25890,7 +25890,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.MonthlyLedgerAccountBalance.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.MonthlyLedgerAccountBalance.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26031,7 +26031,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.MonthlyOutlay.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.MonthlyOutlay.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26115,7 +26115,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.NationalProgram.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.NationalProgram.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26175,7 +26175,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Objective.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Objective.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26378,7 +26378,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.Obligation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Obligation.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:Badger.Obligation"/> class.
             </summary>
@@ -26418,7 +26418,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ObligationActivity.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ObligationActivity.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.ObligationActivity"/>
@@ -26463,7 +26463,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.OpenCommitment.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.OpenCommitment.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26510,7 +26510,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.OperatingPlan.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.OperatingPlan.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26552,7 +26552,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.OperatingPlanUpdates.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.OperatingPlanUpdates.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the <see cref="T:Badger.OperatingPlanUpdates" /> class.
@@ -26598,7 +26598,7 @@
             </summary>
             <param name="org"> The org. </param>
         </member>
-        <member name="M:Badger.Organization.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Organization.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -26733,7 +26733,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Outlay.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Outlay.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27082,7 +27082,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.OutlayReport.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.OutlayReport.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.OutlayReport"/> class.
@@ -27170,7 +27170,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Partition.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Partition.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27236,7 +27236,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.PayPeriod.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.PayPeriod.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.PayPeriod"/> class.
@@ -27272,7 +27272,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.PayrollAuthority.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.PayrollAuthority.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27319,7 +27319,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.PayrollRequest.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.PayrollRequest.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27546,7 +27546,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.PRC.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.PRC.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27590,7 +27590,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ProgramArea.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramArea.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27655,7 +27655,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ProgramDescription.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramDescription.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27873,7 +27873,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ProgramFinancingSchedule.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramFinancingSchedule.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.ProgramFinancingSchedule"/> class.
@@ -27909,7 +27909,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ProgramProject.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramProject.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -27979,7 +27979,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ProgramProjectDescription.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramProjectDescription.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28026,7 +28026,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ProgramResultsCode.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ProgramResultsCode.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -28089,7 +28089,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.Projects.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Projects.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.Projects"/>
@@ -28163,7 +28163,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.PublicLaws.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.PublicLaws.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:Badger.PublicLaws"/> class.
             </summary>
@@ -28208,7 +28208,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.QueryDefinition.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.QueryDefinition.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28259,7 +28259,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ReconciliationLine.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ReconciliationLine.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -28325,7 +28325,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.RecoveryAct.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.RecoveryAct.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:Badger.RecoveryAct"/> class.
             </summary>
@@ -28358,7 +28358,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.RegionalAuthority.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.RegionalAuthority.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28403,7 +28403,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.RegionalOffice.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.RegionalOffice.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28647,7 +28647,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ReimbursableAgreement.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ReimbursableAgreement.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the <see cref="T:Badger.ReimbursableAgreement" /> class.
@@ -28771,7 +28771,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ReimbursableFund.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ReimbursableFund.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28807,7 +28807,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Report.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Report.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -28897,7 +28897,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ReportingLine.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ReportingLine.#ctor(Badger.IDataService)">
             <inheritdoc/>
             <summary>
             Initializes a new instance of the
@@ -29176,7 +29176,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Reprogramming.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Reprogramming.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29232,7 +29232,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.ResourceLocation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ResourceLocation.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29271,7 +29271,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ResourcePlanningOffice.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ResourcePlanningOffice.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29331,7 +29331,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.ResponsibilityCenter.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.ResponsibilityCenter.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29406,7 +29406,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.SchemaType.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SchemaType.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29854,7 +29854,7 @@
             </summary>
             <param name="query"></param>
         </member>
-        <member name="M:Badger.SpecialAccount.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SpecialAccount.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             </summary>
@@ -29886,7 +29886,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.SpendingRate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SpendingRate.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -29961,7 +29961,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.StateGrantObligation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StateGrantObligation.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30036,7 +30036,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.StateOrganization.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StateOrganization.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30074,7 +30074,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfAmericanRescuePlanFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfAmericanRescuePlanFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30357,7 +30357,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfAppropriations.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfAppropriations.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.StatusOfAppropriations"/>
@@ -30490,7 +30490,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.StatusOfBudgetaryResources.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfBudgetaryResources.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30588,7 +30588,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.StatusOfBudgetExecution.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfBudgetExecution.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30666,7 +30666,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfEarmarks.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfEarmarks.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30843,7 +30843,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.StatusOfFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30897,7 +30897,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfInflationReductionActFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfInflationReductionActFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -30945,7 +30945,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfJobsActFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfJobsActFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31000,7 +31000,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfSpecialAccountFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfSpecialAccountFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31126,7 +31126,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfSuperfundSites.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfSuperfundSites.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31171,7 +31171,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.StatusOfSupplementalFunds.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.StatusOfSupplementalFunds.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31216,7 +31216,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.SubAppropriation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SubAppropriation.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31300,7 +31300,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.SupplementalCarryoverEstimate.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SupplementalCarryoverEstimate.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31342,7 +31342,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.SupplementalOutlayEstimates.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SupplementalOutlayEstimates.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.SupplementalOutlayEstimates"/>
@@ -31540,7 +31540,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.SystemControl.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.SystemControl.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31848,7 +31848,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.Transfer.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.Transfer.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -31886,7 +31886,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.TransferActivity.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.TransferActivity.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -32016,7 +32016,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.TransType.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.TransType.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -32144,7 +32144,7 @@
             <param name="query">The query.</param>
             <inheritdoc />
         </member>
-        <member name="M:Badger.TreasurySymbol.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.TreasurySymbol.#ctor(Badger.IDataService)">
             <summary>
             Initializes a new instance of the
             <see cref="T:Badger.TreasurySymbol"/> class.
@@ -32182,7 +32182,7 @@
             </summary>
             <param name="query"> The query. </param>
         </member>
-        <member name="M:Badger.UnliquidatedObligation.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.UnliquidatedObligation.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
@@ -32293,7 +32293,7 @@
             </summary>
             <param name="query">The query.</param>
         </member>
-        <member name="M:Badger.UnobligatedBalance.#ctor(Badger.IDataModel)">
+        <member name="M:Badger.UnobligatedBalance.#ctor(Badger.IDataService)">
             <inheritdoc />
             <summary>
             Initializes a new instance of the

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-27-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-27-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="ChartData.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,17 +29,16 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   ChartData.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
-    using Syncfusion.Data.Extensions;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -51,16 +50,16 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantJumpStatement" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    public class ChartData
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantJumpStatement" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class ChartModel
     {
         /// <summary>
         /// The columns
@@ -80,7 +79,7 @@ namespace Badger
         /// <summary>
         /// The views
         /// </summary>
-        private protected BindingList<IModel> _views;
+        private protected BindingList<IView> _views;
 
         /// <summary>
         /// The count
@@ -190,7 +189,7 @@ namespace Badger
         /// <value>
         /// The views.
         /// </value>
-        public BindingList<IModel> Views
+        public BindingList<IView> Views
         {
             get
             {
@@ -223,9 +222,9 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartData" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
-        public ChartData( )
+        public ChartModel( )
             : base( )
         {
             _index = 0;
@@ -233,18 +232,18 @@ namespace Badger
             _data = new ObservableCollection<DataRow>( );
             _items = new BindingList<DataRow>( );
             _columns = new List<string>( );
-            _numerics = new List<string>( );
             _fields = new List<string>( );
-            _views = new BindingList<IModel>( );
+            _numerics = new List<string>( );
+            _views = new BindingList<IView>( );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartData" /> class.
+        /// <see cref="ChartModel" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public ChartData( DataTable dataTable )
+        public ChartModel( DataTable dataTable )
             : this( )
         {
             _data = dataTable?.ToObservable( );
@@ -253,14 +252,8 @@ namespace Badger
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
             _columns = dataTable.GetColumnNames( );
-            _numerics = dataTable?.GetNumericColumns( )
-                ?.Select( n => n.ColumnName )
-                ?.ToList( );
-
-            _fields = dataTable.GetTextColumns( )
-                ?.Select( n => n.ColumnName )
-                ?.ToList( );
-
+            _numerics = GetNumericFields( dataTable );
+            _fields = GetTextFields( dataTable );
             _views = CreateViewList( );
         }
 
@@ -368,31 +361,40 @@ namespace Badger
             }
         }
 
+        private protected IList<string> GetNumericFields( DataTable dataTable )
+        {
+            try
+            {
+                var _nums = dataTable?.GetNumericColumns( )
+                    ?.Select( n => n.ColumnName )
+                    ?.ToList( );
+
+                return _nums?.Count > 0
+                    ? _nums
+                    : default( IList<string> );
+            }
+            catch( Exception e )
+            {
+                Fail( e );
+                return default( IList<string> );
+            }
+        }
+
         /// <summary>
         /// Gets the text fields.
         /// </summary>
         /// <returns></returns>
-        private protected IList<string> GetTextFields( )
+        private protected IList<string> GetTextFields( DataTable dataTable )
         {
             try
             {
-                if( _data != null )
-                {
-                    var _cols = new List<string>( );
-                    foreach( var _col in _fields )
-                    {
-                        if( !_numerics.Contains( _col ) )
-                        {
-                            _cols.Add( _col );
-                        }
-                    }
+                var _nums = dataTable?.GetTextColumns( )
+                    ?.Select( n => n.ColumnName )
+                    ?.ToList( );
 
-                    return ( _cols?.Any( ) == true )
-                        ? _cols
-                        : default( IList<string> );
-                }
-
-                return default( IList<string> );
+                return _nums?.Count > 0
+                    ? _nums
+                    : default( IList<string> );
             }
             catch( Exception ex )
             {
@@ -405,13 +407,13 @@ namespace Badger
         /// Creates the views.
         /// </summary>
         /// <returns></returns>
-        public BindingList<IModel> CreateViewList( )
+        public BindingList<IView> CreateViewList( )
         {
             try
             {
                 if( _data != null )
                 {
-                    _views = new BindingList<IModel>( );
+                    _views = new BindingList<IView>( );
                     for( var _index = 0; _index < _data.Count; _index++ )
                     {
                         var _dataRow = _data[ _index ];
@@ -420,22 +422,22 @@ namespace Badger
                         {
                             var _measure = _numerics[ _c ];
                             var _value = double.Parse( _dataRow[ _measure ].ToString( ) );
-                            var _view = new RowModel( _index, _dimension, _measure, _value );
+                            var _view = new View( _index, _dimension, _measure, _value );
                             _views.Add( _view );
                         }
                     }
 
                     return ( _views?.Any( ) == true )
                         ? _views
-                        : default( BindingList<IModel> );
+                        : default( BindingList<IView> );
                 }
 
-                return default( BindingList<IModel> );
+                return default( BindingList<IView> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( BindingList<IModel> );
+                return default( BindingList<IView> );
             }
         }
 
@@ -443,22 +445,22 @@ namespace Badger
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
-        public IViewModel CreateViewModel( )
+        public ViewModel CreateViewModel( )
         {
             try
             {
                 if( _data != null )
                 {
-                    var _viewModel = new RowView( );
-                    for( var _index = 0; _index < _data.Count; _index++ )
+                    var _viewModel = new ViewModel( );
+                    for( var _row = 0; _row < _data.Count; _row++ )
                     {
-                        var _dataRow = _data[ _index ];
+                        var _dataRow = _data[ _row ];
                         var _dimension = _columns[ 0 ];
                         for( var _c = 0; _c < _numerics.Count; _c++ )
                         {
                             var _numeric = _numerics[ _c ];
                             var _value = double.Parse( _dataRow[ _numeric ].ToString( ) );
-                            var _view = new RowModel( _index, _dimension, _numeric, _value );
+                            var _view = new View( _row, _dimension, _numeric, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -466,12 +468,12 @@ namespace Badger
                     return _viewModel;
                 }
 
-                return default( IViewModel );
+                return default( ViewModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IViewModel );
+                return default( ViewModel );
             }
         }
 

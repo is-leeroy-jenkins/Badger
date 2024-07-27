@@ -209,7 +209,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ChartData _chartModel;
+        private protected ChartModel _chartModel;
 
         /// <summary>
         /// The data metric
@@ -282,7 +282,7 @@ namespace Badger
         /// <value>
         /// The data source.
         /// </value>
-        public ChartData ChartModel
+        public ChartModel ChartModel
         {
             get
             {
@@ -955,7 +955,7 @@ namespace Badger
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
                 _dataMetric = new DataMeasure( _dataTable );
-                _chartModel = new ChartData( _dataTable );
+                _chartModel = new ChartModel( _dataTable );
             }
             catch( Exception ex )
             {
@@ -1206,14 +1206,14 @@ namespace Badger
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
-        private IViewModel CreateViewModel( )
+        private ViewModel CreateViewModel( )
         {
             try
             {
                 if( _dataTable != null
                     && _numerics?.Count > 0 )
                 {
-                    var _viewModel = new RowView( );
+                    var _viewModel = new ViewModel( );
                     for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
@@ -1222,7 +1222,7 @@ namespace Badger
                         {
                             var _measure = _numerics[ _i ];
                             var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                            var _view = new RowModel( _index, _dimension, _measure, _value );
+                            var _view = new View( _index, _dimension, _measure, _value );
                             _viewModel.Add( _view );
                         }
                     }
@@ -1230,12 +1230,12 @@ namespace Badger
                     return _viewModel;
                 }
 
-                return default( IViewModel );
+                return default( ViewModel );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ViewBase );
+                return default( ViewModel);
             }
         }
 
