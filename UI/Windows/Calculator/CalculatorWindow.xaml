@@ -7,14 +7,14 @@
         Width="410" Background="Black" BorderBrush="#FF0078D4" FontSize="9" Foreground="#FFC5D1DA"
         Topmost="True" BorderThickness="1,1,1,1" WindowStartupLocation="CenterScreen"
         WindowStyle="None">
-<Canvas>
-<local:MetroCalculator x:Name="Device" Background="Black" Foreground="#FF3399E8"
-                       BorderBrush="Black" Height="393" Canvas.Left="10" Canvas.Top="45"
-                       Width="380" HorizontalAlignment="Center" VerticalAlignment="Top" />
-<Image x:Name="PictureBox" Height="28" Canvas.Left="11" Canvas.Top="7" Width="98"
-       Source="/UI/Windows/Calculator/Main.png" HorizontalAlignment="Left" VerticalAlignment="Top"
-       ToolTip="Click for more" />
-<Image x:Name="CloseButton" Height="24" Canvas.Left="365" Canvas.Top="12" Width="22"
-       Source="/UI/Windows/Calculator/Cancel.png" ToolTip="Click to close" />
-</Canvas>
+    <Canvas>
+        <local:MetroCalculator x:Name="Device" Background="Black" Foreground="#FF3399E8"
+                               BorderBrush="Black" Height="393" Canvas.Left="10" Canvas.Top="45"
+                               Width="380" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Image x:Name="PictureBox" Height="28" Canvas.Left="11" Canvas.Top="7" Width="98"
+               Source="/Resources/Assets/FormImages/Main.png" HorizontalAlignment="Left" VerticalAlignment="Top"
+               ToolTip="Click for more" />
+        <Image x:Name="CloseButton" Height="24" Canvas.Left="365" Canvas.Top="12" Width="22"
+               Source="/Resources/Assets/InterfaceImages/Cancel.png" ToolTip="Click to close" />
+    </Canvas>
 </Window>

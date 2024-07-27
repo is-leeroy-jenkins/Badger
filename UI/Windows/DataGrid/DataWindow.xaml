@@ -17,44 +17,44 @@
         <ContextMenu Name="DataWindowContextMenu">
             <syncfusion:MenuItemAdv Click="OnFileMenuOptionClick" Header="File" ToolTip="Browse File System">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FileItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <syncfusion:MenuItemAdv Click="OnFolderMenuOptionClick" Header="Folder" ToolTip="Browse Directories">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FolderItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
             <syncfusion:MenuItemAdv Click="OnChromeOptionClick" Header="Chrome" ToolTip="Launch Chrome Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <syncfusion:MenuItemAdv Click="OnEdgeOptionClick" Header="Edge" ToolTip="Launch Edge Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <syncfusion:MenuItemAdv Click="OnFirefoxOptionClick" Header="FireFox" ToolTip="Launch Firefox Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
             <syncfusion:MenuItemAdv Click="OnCalculatorMenuOptionClick" Header="Calculator" ToolTip="Open Calculator">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <syncfusion:MenuItemAdv Click="OnControlPanelOptionClick" Header="Control Panel" ToolTip="Windows Control Panel">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <syncfusion:MenuItemAdv Click="OnTaskManagerOptionClick" Header="Task Manager" ToolTip="Windows Task Manager">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
             <Separator />
@@ -83,16 +83,16 @@
                        Background="#FF141414" BorderBrush="#FF141414" />
             <badger:ToolStripButton x:Name="FirstButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/FirstButton.png" ToolTip="First Record" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png" ToolTip="First Record" />
             <badger:ToolStripButton x:Name="PreviousButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/PreviousButton.png" ToolTip="Previous Record" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png" ToolTip="Previous Record" />
             <badger:ToolStripButton x:Name="NextButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/NextButton.png" ToolTip="Next Record" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/NextButton.png" ToolTip="Next Record" />
             <badger:ToolStripButton x:Name="LastButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/LastButton.png" ToolTip="Last Record" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/LastButton.png" ToolTip="Last Record" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <badger:ToolStripTextBox x:Name="ToolStripTextBox"
@@ -102,41 +102,41 @@
             <syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
             <badger:ToolStripButton x:Name="LookupButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/LookUpButton.png" ToolTip="Look Up" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png" ToolTip="Look Up" />
             <badger:ToolStripButton x:Name="RefreshButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/RefreshButton.png" ToolTip="Refresh" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png" ToolTip="Refresh" />
             <badger:ToolStripButton x:Name="GridButton"
                                     Background="{x:Null}"
-                                    ImageSource="/UI/Windows/Datagrid/GridButton.png" ToolTip="View Data Grid" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/GridButton.png" ToolTip="View Data Grid" />
             <badger:ToolStripButton x:Name="FilterButton"
-                                    Foreground="#FFA0BDFC" ImageSource="/UI/Windows/Datagrid/FilterButton.png" ToolTip="Filter Data Source" />
+                                    Foreground="#FFA0BDFC" ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png" ToolTip="Filter Data Source" />
             <badger:ToolStripButton x:Name="EditButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/EditButton.png" ToolTip="Edit Current Record" />
-            <badger:ToolStripButton x:Name="SqlButton" ImageSource="/UI/Windows/Datagrid/SqlButton.png" ToolTip="Write SQL                                     " />
-            <badger:ToolStripButton x:Name="DataSourceButton" ImageSource="/UI/Windows/Datagrid/DataSourceButton.png" ToolTip="Select Data Source" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/EditButton.png" ToolTip="Edit Current Record" />
+            <badger:ToolStripButton x:Name="SqlButton" ImageSource="/Resources/Assets/ToolStripImages/SqlButton.png" ToolTip="Write SQL                                     " />
+            <badger:ToolStripButton x:Name="DataSourceButton" ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png" ToolTip="Select Data Source" />
             <badger:ToolStripButton x:Name="SchemaButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/SchemaButton.png" ToolTip="Edit Column Schema" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/SchemaButton.png" ToolTip="Edit Column Schema" />
             <badger:ToolStripButton x:Name="CalendarButton"
                                     Background="{x:Null}"
-                                    ImageSource="/UI/Windows/Datagrid/DateButton.png" ToolTip="Filter By Date" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/DateButton.png" ToolTip="Filter By Date" />
             <badger:ToolStripButton x:Name="SaveButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/SaveButton.png" ToolTip="Save Changes" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png" ToolTip="Save Changes" />
             <badger:ToolStripButton x:Name="DeleteButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/DeleteButton.png" ToolTip="Delete Current Record" />
-            <badger:ToolStripButton x:Name="ExportButton" ImageSource="/UI/Windows/Datagrid/ExportButton.png" ToolTip="Export Data" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png" ToolTip="Delete Current Record" />
+            <badger:ToolStripButton x:Name="ExportButton" ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png" ToolTip="Export Data" />
             <badger:ToolStripButton x:Name="BrowseButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/BrowseButton.png" ToolTip="Browse File System" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png" ToolTip="Browse File System" />
             <ProgressBar Width="100" Background="#FF141414" BorderBrush="#FF141414" />
-            <badger:ToolStripButton x:Name="ToggleButton" ImageSource="/UI/Windows/Datagrid/ToggleButton.png" ToolTip="Toogle Commands" />
+            <badger:ToolStripButton x:Name="ToggleButton" ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" ToolTip="Toogle Commands" />
             <badger:ToolStripButton x:Name="MenuButton"
                                     Height="30"
-                                    ImageSource="/UI/Windows/Datagrid/MenuButton.png" ToolTip="Main Menu" />
+                                    ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png" ToolTip="Main Menu" />
         </badger:ToolStrip>
         <badger:MetroTabControl x:Name="SecondaryTabControl"
                                 Canvas.Left="1065" Canvas.Top="8"

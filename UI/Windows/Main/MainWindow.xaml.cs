@@ -676,19 +676,19 @@ namespace Badger
         /// Gets the tiles.
         /// </summary>
         /// <returns></returns>
-        private IEnumerable<MetroTile> GetTiles( )
+        private IList<MetroTile> GetTiles( )
         {
             try
             {
                 _tiles = new List<MetroTile>( );
                 return _tiles?.Any( ) == true
                     ? _tiles
-                    : Enumerable.Empty<MetroTile>( );
+                    : default( IList<MetroTile> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IEnumerable<MetroTile> );
+                return default( IList<MetroTile> );
             }
         }
 
@@ -756,6 +756,12 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [excel tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExcelTileClick( object sender, RoutedEventArgs e )
         {
             try
@@ -768,6 +774,12 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [map tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMapTileClick( object sender, RoutedEventArgs e )
         {
             try

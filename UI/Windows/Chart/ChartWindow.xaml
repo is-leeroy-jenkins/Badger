@@ -2,12 +2,12 @@
     x:Class="Badger.ChartWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Badger"
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:ui="http://schemas.modernwpf.com/2019"
-    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Badger"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
     x:Name="ChartView"
     Title="Visualization"
     Width="1400"
@@ -28,7 +28,7 @@
                 Header="File"
                 ToolTip="Browse File System">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FileItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -38,7 +38,7 @@
                 Opacity="0.02"
                 ToolTip="Browse Directories">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FolderItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -49,7 +49,7 @@
                 Header="Chrome"
                 ToolTip="Launch Chrome Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ChromeItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -58,7 +58,7 @@
                 Header="Edge"
                 ToolTip="Launch Edge Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/EdgeItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -67,7 +67,7 @@
                 Header="FireFox"
                 ToolTip="Launch Firefox Browser">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/FirefoxItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -78,7 +78,7 @@
                 Header="Calculator"
                 ToolTip="Open Calculator">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/CalculatorItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -87,7 +87,7 @@
                 Header="Control Panel"
                 ToolTip="Windows Control Panel">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/ControlPanelItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -96,7 +96,7 @@
                 Header="Task Manager"
                 ToolTip="Windows Task Manager">
                 <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/UI/Windows/Command/TaskManagerItem.png" />
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
 
@@ -149,25 +149,25 @@
             <local:ToolStripButton
                 x:Name="FirstButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/FirstButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
 
             <local:ToolStripButton
                 x:Name="PreviousButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/PreviousButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
 
             <local:ToolStripButton
                 x:Name="NextButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/NextButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
 
             <local:ToolStripButton
                 x:Name="LastButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/LastButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
 
             <syncfusion:MenuItemSeparator
@@ -195,20 +195,20 @@
 
             <local:ToolStripButton
                 x:Name="FilterButton"
-                ImageSource="/UI/Windows/Chart/FilterButton.png" />
+                ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png" />
 
             <local:ToolStripButton
                 x:Name="GroupButton"
-                ImageSource="/UI/Windows/Chart/GroupButton.png" />
+                ImageSource="/Resources/Assets/ToolStripImages/GroupButton.png" />
 
             <local:ToolStripButton
                 x:Name="RefreshButton"
-                ImageSource="/UI/Windows/Chart/RefreshButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Reset Filters" />
 
             <local:ToolStripButton
                 x:Name="DataSourceButton"
-                ImageSource="/UI/Windows/Chart/DataSourceButton.png" />
+                ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png" />
 
             <Separator
                 Width="20"
@@ -231,7 +231,7 @@
 
             <local:ToolStripButton
                 x:Name="LookupButton"
-                ImageSource="/UI/Windows/Chart/LookUpButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look-up" />
 
             <syncfusion:MenuItemSeparator
@@ -241,13 +241,13 @@
 
             <local:ToolStripButton
                 x:Name="ExportButton"
-                ImageSource="/UI/Windows/Chart/ExportButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export to Excel" />
 
             <local:ToolStripButton
                 x:Name="BrowseButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/BrowseButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
 
             <Separator
@@ -260,12 +260,12 @@
                 x:Name="ToggleButton"
                 Background="{x:Null}"
                 Foreground="{x:Null}"
-                ImageSource="/UI/Windows/Chart/ToggleButton.png" />
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
 
             <local:ToolStripButton
                 x:Name="MenuButton"
                 Height="30"
-                ImageSource="/UI/Windows/Chart/MenuButton.png"
+                ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
 
         </local:ToolStrip>

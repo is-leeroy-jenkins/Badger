@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-26-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-26-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   ChartWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -66,18 +66,18 @@ namespace Badger
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "MergeConditionalExpression" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -440,7 +440,7 @@ namespace Badger
                 if( _dataTable != null )
                 {
                     DataContext = _chartModel.Data;
-                    _columnChart = new MetroColumnChart( )
+                    ColumnChart = new MetroColumnChart( )
                     {
                         Height = 454,
                         Width = 800,
@@ -451,39 +451,13 @@ namespace Badger
                         Header = _dataTable.TableName?.SplitPascal( )
                     };
 
-                    _columnChart.PrimaryAxis = CreateCategoricalAxis( );
-                    _columnChart.SecondaryAxis = CreateNumericalAxis( );
-                    ColumnChartCanvas.Children.Add( _columnChart );
-                    _columnChart.Series?.Clear( );
-                    for( var _r = 0; _r < _chartModel.Data.Count; _r++ )
-                    {
-                        var _dimension = _columns[ 0 ];
-                        for( var _c = 0; _c < _numerics.Count; _c++ )
-                        {
-                            var _measure = _numerics[ _c ];
-                            var _series = new ColumnSeries3D
-                            {
-                                ItemsSource = _chartModel.Items,
-                                XBindingPath = _dimension,
-                                YBindingPath = _measure,
-                                EnableAnimation = true,
-                                FontSize = 10,
-                                Label = _measure,
-                                ShowEmptyPoints = true,
-                                Interior = _theme.Color[ 0 ],
-                                AdornmentsInfo = CreateAdornmentInfo( ),
-                                ShowTooltip = true,
-                                SegmentSpacing = .25,
-                                IsSeriesVisible = true,
-                            };
-
-                            _columnChart.Series?.Add( _series );
-                        }
-                    }
+                    ColumnChart.PrimaryAxis = CreateCategoricalAxis( );
+                    ColumnChart.SecondaryAxis = CreateNumericalAxis( );
+                    ColumnChartCanvas.Children.Add( ColumnChart );
                 }
                 else
                 {
-                    _columnChart = new MetroColumnChart( )
+                    ColumnChart = new MetroColumnChart( )
                     {
                         Height = 454,
                         Width = 800,
@@ -491,11 +465,9 @@ namespace Badger
                         Visibility = Visibility.Visible
                     };
 
-                    _columnChart.PrimaryAxis = CreateCategoricalAxis( );
-                    _columnChart.SecondaryAxis = CreateNumericalAxis( );
-                    var _series = new ColumnSeries3D( );
-                    _columnChart.Series.Add( _series );
-                    ColumnChartCanvas.Children.Add( _columnChart );
+                    ColumnChart.PrimaryAxis = CreateCategoricalAxis( );
+                    ColumnChart.SecondaryAxis = CreateNumericalAxis( );
+                    ColumnChartCanvas.Children.Add( ColumnChart );
                 }
             }
             catch( Exception ex )
@@ -698,6 +670,9 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Initializes the scatter chart.
+        /// </summary>
         private void InitializeScatterChart( )
         {
             try
@@ -2117,7 +2092,7 @@ namespace Badger
                                 AdornmentsInfo = CreateAdornmentInfo( ),
                                 ShowTooltip = true,
                                 SegmentSpacing = .25,
-                                IsSeriesVisible = true,
+                                IsSeriesVisible = true
                             };
 
                             _columnChart.Series?.Add( _series );
@@ -3196,6 +3171,7 @@ namespace Badger
         /// Called when [field ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private void OnFieldCheckListItemChecked( object sender, ItemCheckedEventArgs e )
         {
             try
@@ -3234,6 +3210,7 @@ namespace Badger
         /// Called when [numeric ListBox selected value changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private void OnNumericCheckListItemChecked( object sender, ItemCheckedEventArgs e )
         {
             try
