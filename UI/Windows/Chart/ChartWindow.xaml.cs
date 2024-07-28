@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-26-2024
+//     Created:                 07-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-26-2024
+//     Last Modified On:        07-28-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
@@ -450,8 +450,6 @@ namespace Badger
                         Header = _dataTable.TableName?.SplitPascal( )
                     };
 
-                    ColumnChart.PrimaryAxis = CreateCategoricalAxis( );
-                    ColumnChart.SecondaryAxis = CreateNumericalAxis( );
                     ColumnChartCanvas.Children.Add( ColumnChart );
                 }
                 else
@@ -461,11 +459,11 @@ namespace Badger
                         Height = 454,
                         Width = 800,
                         Margin = new Thickness( 1 ),
-                        Visibility = Visibility.Visible
+                        Visibility = Visibility.Visible,
+                        PrimaryAxis = CreateCategoricalAxis( ),
+                        SecondaryAxis = CreateNumericalAxis( )
                     };
 
-                    ColumnChart.PrimaryAxis = CreateCategoricalAxis( );
-                    ColumnChart.SecondaryAxis = CreateNumericalAxis( );
                     ColumnChartCanvas.Children.Add( ColumnChart );
                 }
             }
@@ -1234,7 +1232,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( ViewModel);
+                return default( ViewModel );
             }
         }
 
