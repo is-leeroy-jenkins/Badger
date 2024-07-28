@@ -54,7 +54,7 @@ namespace Badger
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    public class AsyncModel : AsyncData
+    public class AsyncService : AsyncData
     {
         /// <summary>
         /// The locked object
@@ -91,43 +91,22 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is busy; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool IsBusy
-        {
-            get
-            {
-                return _busy;
-            }
-            set
-            {
-                _busy = value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
-        public AsyncModel( )
+        public AsyncService( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
-        public AsyncModel( Source source, Provider provider = Provider.Access )
+        public AsyncService( Source source, Provider provider = Provider.Access )
         {
             _source = source;
             _provider = provider;
@@ -148,13 +127,13 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> The where. </param>
-        public AsyncModel( Source source, Provider provider, IDictionary<string, object> where )
+        public AsyncService( Source source, Provider provider, IDictionary<string, object> where )
         {
             _source = source;
             _provider = provider;
@@ -175,7 +154,7 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -183,7 +162,7 @@ namespace Badger
         /// <param name="updates"> The updates. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncModel( Source source, Provider provider, IDictionary<string, object> updates,
+        public AsyncService( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
         {
             _source = source;
@@ -205,7 +184,7 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -213,7 +192,7 @@ namespace Badger
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncModel( Source source, Provider provider, IEnumerable<string> columns,
+        public AsyncService( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
         {
             _source = source;
@@ -235,7 +214,7 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -244,7 +223,7 @@ namespace Badger
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncModel( Source source, Provider provider, IEnumerable<string> fields,
+        public AsyncService( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where,
             Command commandType )
         {
@@ -269,12 +248,12 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="where"> The where. </param>
-        public AsyncModel( Source source, IDictionary<string, object> where )
+        public AsyncService( Source source, IDictionary<string, object> where )
         {
             _source = source;
             _provider = Provider.Access;
@@ -295,13 +274,13 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
-        public AsyncModel( Source source, Provider provider, string sqlText )
+        public AsyncService( Source source, Provider provider, string sqlText )
         {
             _source = source;
             _provider = provider;
@@ -322,13 +301,13 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The full path. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AsyncModel( string fullPath, string sqlText, Command commandType = Command.SELECT )
+        public AsyncService( string fullPath, string sqlText, Command commandType = Command.SELECT )
         {
             _connection = new BudgetConnection( fullPath ).Create( );
             _source = Source.External;
@@ -349,11 +328,11 @@ namespace Badger
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AsyncModel"/>
+        /// <see cref="AsyncService"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public AsyncModel( IQuery query )
+        public AsyncService( IQuery query )
         {
             _query = query;
             _source = query.Source;
@@ -379,17 +358,17 @@ namespace Badger
         {
             try
             {
-                if( AsyncModel.KEY == null )
+                if( AsyncService.KEY == null )
                 {
-                    AsyncModel.KEY = new object( );
-                    lock( AsyncModel.KEY )
+                    AsyncService.KEY = new object( );
+                    lock( AsyncService.KEY )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( AsyncModel.KEY )
+                    lock( AsyncService.KEY )
                     {
                         _busy = true;
                     }
@@ -397,7 +376,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncModel.Fail( ex );
+                AsyncService.Fail( ex );
             }
         }
 
@@ -408,17 +387,17 @@ namespace Badger
         {
             try
             {
-                if( AsyncModel.KEY == null )
+                if( AsyncService.KEY == null )
                 {
-                    AsyncModel.KEY = new object( );
-                    lock( AsyncModel.KEY )
+                    AsyncService.KEY = new object( );
+                    lock( AsyncService.KEY )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( AsyncModel.KEY )
+                    lock( AsyncService.KEY )
                     {
                         _busy = false;
                     }
@@ -426,7 +405,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncModel.Fail( ex );
+                AsyncService.Fail( ex );
             }
         }
 
@@ -458,7 +437,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncModel.Fail( ex );
+                AsyncService.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -487,7 +466,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncModel.Fail( ex );
+                AsyncService.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -525,7 +504,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncModel.Fail( ex );
+                AsyncService.Fail( ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }
         }

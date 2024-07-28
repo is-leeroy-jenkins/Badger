@@ -79,7 +79,7 @@ namespace Badger
         /// <summary>
         /// The views
         /// </summary>
-        private protected BindingList<IView> _views;
+        private protected ViewModel _seriesData;
 
         /// <summary>
         /// The count
@@ -94,7 +94,7 @@ namespace Badger
         /// <summary>
         /// The data
         /// </summary>
-        private protected ObservableCollection<DataRow> _data;
+        private protected ObservableCollection<DataRow> _rows;
 
         /// <summary>
         /// The index
@@ -189,15 +189,15 @@ namespace Badger
         /// <value>
         /// The views.
         /// </value>
-        public BindingList<IView> Views
+        public ViewModel SeriesData
         {
             get
             {
-                return _views;
+                return _seriesData;
             }
             set
             {
-                _views = value;
+                _seriesData = value;
             }
         }
 
@@ -207,15 +207,15 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public ObservableCollection<DataRow> Data
+        public ObservableCollection<DataRow> Rows
         {
             get
             {
-                return _data;
+                return _rows;
             }
             set
             {
-                _data = value;
+                _rows = value;
             }
         }
 
@@ -229,12 +229,12 @@ namespace Badger
         {
             _index = 0;
             _count = 0;
-            _data = new ObservableCollection<DataRow>( );
+            _rows = new ObservableCollection<DataRow>( );
             _items = new BindingList<DataRow>( );
             _columns = new List<string>( );
             _fields = new List<string>( );
             _numerics = new List<string>( );
-            _views = new BindingList<IView>( );
+            _seriesData = CreateViewModel( );
         }
 
         /// <inheritdoc />
@@ -246,15 +246,15 @@ namespace Badger
         public ChartModel( DataTable dataTable )
             : this( )
         {
-            _data = dataTable?.ToObservable( );
+            _rows = dataTable?.ToObservable( );
             _items = dataTable.ToBindingList( );
-            _current = _data?[ _index ];
+            _current = _rows?[ _index ];
             _count = dataTable?.Rows?.Count ?? 0;
             _tableName = _current?.Table?.TableName;
             _columns = dataTable.GetColumnNames( );
             _numerics = GetNumericFields( dataTable );
             _fields = GetTextFields( dataTable );
-            _views = CreateViewList( );
+            _seriesData = CreateViewModel( );
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace Badger
         /// </returns>
         public IEnumerator<DataRow> IterRows( )
         {
-            foreach( var _item in _data )
+            foreach( var _item in _rows )
             {
                 yield return _item;
             }
@@ -278,7 +278,7 @@ namespace Badger
         {
             try
             {
-                _current = _data[ 0 ];
+                _current = _rows[ 0 ];
             }
             catch( Exception ex )
             {
@@ -297,7 +297,7 @@ namespace Badger
                     && _count > 0 )
                 {
                     _index -= 1;
-                    _current = _data[ _index ];
+                    _current = _rows[ _index ];
                 }
             }
             catch( Exception ex )
@@ -317,7 +317,7 @@ namespace Badger
                     && _count > 0 )
                 {
                     _index += 1;
-                    _current = _data[ _index ];
+                    _current = _rows[ _index ];
                 }
             }
             catch( Exception ex )
@@ -336,7 +336,7 @@ namespace Badger
                 if( _count > 0 )
                 {
                     _index = _count - 1;
-                    _current = _data[ _index ];
+                    _current = _rows[ _index ];
                 }
             }
             catch( Exception ex )
@@ -353,7 +353,7 @@ namespace Badger
             try
             {
                 _index = 0;
-                _current = _data[ _index ];
+                _current = _rows[ _index ];
             }
             catch( Exception ex )
             {
@@ -404,44 +404,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Creates the views.
-        /// </summary>
-        /// <returns></returns>
-        public BindingList<IView> CreateViewList( )
-        {
-            try
-            {
-                if( _data != null )
-                {
-                    _views = new BindingList<IView>( );
-                    for( var _index = 0; _index < _data.Count; _index++ )
-                    {
-                        var _dataRow = _data[ _index ];
-                        var _dimension = _columns[ 0 ];
-                        for( var _c = 0; _c < _numerics.Count; _c++ )
-                        {
-                            var _measure = _numerics[ _c ];
-                            var _value = double.Parse( _dataRow[ _measure ].ToString( ) );
-                            var _view = new View( _index, _dimension, _measure, _value );
-                            _views.Add( _view );
-                        }
-                    }
-
-                    return ( _views?.Any( ) == true )
-                        ? _views
-                        : default( BindingList<IView> );
-                }
-
-                return default( BindingList<IView> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( BindingList<IView> );
-            }
-        }
-
-        /// <summary>
         /// Creates the view model.
         /// </summary>
         /// <returns></returns>
@@ -449,12 +411,12 @@ namespace Badger
         {
             try
             {
-                if( _data != null )
+                if( _rows != null )
                 {
                     var _viewModel = new ViewModel( );
-                    for( var _row = 0; _row < _data.Count; _row++ )
+                    for( var _row = 0; _row < _rows.Count; _row++ )
                     {
-                        var _dataRow = _data[ _row ];
+                        var _dataRow = _rows[ _row ];
                         var _dimension = _columns[ 0 ];
                         for( var _c = 0; _c < _numerics.Count; _c++ )
                         {

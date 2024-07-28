@@ -55,7 +55,7 @@ namespace Badger
     [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
     [SuppressMessage( "ReSharper", "InconsistentNaming" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    public abstract class AsyncState : AsyncBase
+    public abstract class AsyncSchema : AsyncCore
     {
         /// <summary>
         /// The query
@@ -177,7 +177,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    AsyncState.Fail( ex );
+                    AsyncSchema.Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -212,7 +212,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    AsyncState.Fail( ex );
+                    AsyncSchema.Fail( ex );
                     return default( Task<DataTable> );
                 }
             }
@@ -238,7 +238,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( DataRow );
             }
         }
@@ -264,7 +264,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( Task<DataRow> );
             }
         }
@@ -296,7 +296,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _task.SetException( ex );
-                    AsyncState.Fail( ex );
+                    AsyncSchema.Fail( ex );
                     return default( Task<DataSet> );
                 }
             }
@@ -326,7 +326,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
             }
         }
 
@@ -359,7 +359,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -399,7 +399,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -437,7 +437,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -467,7 +467,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncState.Fail( ex );
+                AsyncSchema.Fail( ex );
                 return default( Task<IList<int>> );
             }
         }

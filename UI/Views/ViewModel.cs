@@ -58,7 +58,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ViewModel : ObservableCollection<IView>, IViewModel
+    public class ViewModel : ObservableCollection<IView>
     {
         /// <summary>
         /// The data
@@ -79,26 +79,6 @@ namespace Badger
         /// The columns
         /// </summary>
         private protected IList<string> _numerics;
-
-        /// <summary>
-        /// The measure
-        /// </summary>
-        private protected string _measure;
-
-        private IList<IView> _items;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the number of elements actually contained in the
-        /// <see cref="T:System.Collections.ObjectModel.Collection`1" />.
-        /// </summary>
-        public new int Count
-        {
-            get
-            {
-                return Items.Count;
-            }
-        }
 
         /// <inheritdoc />
         /// <summary>
@@ -205,7 +185,6 @@ namespace Badger
             {
                 if( _data != null )
                 {
-                    _views = new BindingList<IView>( );
                     foreach( var _view in _data )
                     {
                         _views.Add( _view );

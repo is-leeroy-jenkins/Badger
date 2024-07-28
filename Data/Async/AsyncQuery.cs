@@ -60,12 +60,12 @@ namespace Badger
     [SuppressMessage( "ReSharper", "MergeConditionalExpression" )]
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
     [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    public class AsyncQuery : AsyncBase
+    public class AsyncQuery : AsyncCore
     {
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Query"/>
+        /// <see cref="T:Badger.AsyncQuery"/>
         /// class.
         /// </summary>
         public AsyncQuery( )
@@ -75,7 +75,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -95,7 +95,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source Data. </param>
@@ -117,7 +117,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -140,7 +140,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -164,7 +164,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -189,7 +189,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -209,7 +209,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -222,7 +222,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -242,7 +242,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -264,7 +264,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetQuery"/>
+        /// <see cref="AsyncQuery"/>
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>

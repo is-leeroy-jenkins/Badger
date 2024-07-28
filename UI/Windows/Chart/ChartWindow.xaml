@@ -430,7 +430,7 @@
                         Canvas.Top="32"
                         Width="732"
                         Height="550"
-                        gif:ImageBehavior.AnimatedSource="/UI/Windows/Datagrid/Loading.gif" />
+                        gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif" />
                 </Canvas>
             </TabItem>
 
@@ -587,6 +587,7 @@
                         BorderBrush="#FF0078D4"
                         BorderThickness="1,1,1,1"
                         Content="" />
+
                     <local:MetroComboBox
                         x:Name="FirstComboBox"
                         Canvas.Left="161"
@@ -612,6 +613,7 @@
                         DefaultText="ComboBox Items">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                     </local:MetroComboBox>
+
                     <local:MetroListBox
                         x:Name="FirstListBox"
                         Canvas.Left="162"
@@ -718,6 +720,7 @@
                     Height="508"
                     VerticalAlignment="Top"
                     Background="#FF141414">
+
                     <local:MetroCalendar
                         x:Name="FirstCalendar"
                         Canvas.Left="159"
@@ -728,6 +731,7 @@
                         VerticalAlignment="Top"
                         BorderThickness="1,1,1,1"
                         Date="1/1/2020" />
+
                     <local:MetroLabel
                         x:Name="FirstDateLabel"
                         Canvas.Left="165"
@@ -740,6 +744,7 @@
                         VerticalContentAlignment="Bottom"
                         Content="First Date"
                         Foreground="#FF0078D4" />
+
                     <local:MetroLabel
                         x:Name="SecondDateLabel"
                         Canvas.Left="165"
@@ -753,6 +758,7 @@
                         Content="Second Date"
                         Foreground="#FF0078D4"
                         Grid.IsSharedSizeScope="True" />
+
                     <local:MetroCalendar
                         x:Name="SecondCalendar"
                         Canvas.Left="165"

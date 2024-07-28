@@ -439,7 +439,6 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    DataContext = _chartModel.Data;
                     ColumnChart = new MetroColumnChart( )
                     {
                         Height = 454,
@@ -2073,7 +2072,7 @@ namespace Badger
                 if( _dataTable != null )
                 {
                     _columnChart.Series?.Clear( );
-                    for( var _r = 0; _r < _chartModel.Data.Count; _r++ )
+                    for( var _r = 0; _r < _chartModel.Rows.Count; _r++ )
                     {
                         var _dimension = _columns[ 0 ];
                         for( var _c = 0; _c < _numerics.Count; _c++ )
