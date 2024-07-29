@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 07-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        07-28-2024
 // ******************************************************************************************
 // <copyright file="DataGenerator.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.

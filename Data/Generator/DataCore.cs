@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 07-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        07-28-2024
 // ******************************************************************************************
-// <copyright file="SchemaBase.cs" company="Terry D. Eppler">
+// <copyright file="DataCore.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
 //    Copyright ©  2024  Terry D. Eppler
 // 
@@ -33,7 +33,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SchemaBase.cs
+//   DataCore.cs
 // </summary>
 // ******************************************************************************************
 

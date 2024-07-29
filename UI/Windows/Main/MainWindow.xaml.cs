@@ -140,7 +140,7 @@ namespace Badger
         {
             // Theme Properties
             SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "MaterialDark", App.Controls ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -344,12 +344,12 @@ namespace Badger
         {
             try
             {
-                var _dataWindow = new DataWindow( )
+                var _window = new DataWindow( )
                 {
                     Owner = this
                 };
 
-                _dataWindow.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -365,12 +365,12 @@ namespace Badger
         {
             try
             {
-                var _chartWindow = new ChartWindow( )
+                var _window = new ChartWindow( )
                 {
                     Owner = this
                 };
 
-                _chartWindow.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -386,12 +386,12 @@ namespace Badger
         {
             try
             {
-                var _docViewer = new DocumentWindow( )
+                var _window = new DocumentWindow( )
                 {
                     Owner = this
                 };
 
-                _docViewer.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -407,12 +407,12 @@ namespace Badger
         {
             try
             {
-                var _excelWindow = new ExcelWindow( )
+                var _window = new ExcelWindow( )
                 {
                     Owner = this
                 };
 
-                _excelWindow.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -428,12 +428,12 @@ namespace Badger
         {
             try
             {
-                var _sqlWindow = new EditorWindow
+                var _window = new EditorWindow
                 {
                     Owner = this
                 };
 
-                _sqlWindow.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -449,12 +449,12 @@ namespace Badger
         {
             try
             {
-                var _form = new MapWindow( )
+                var _window = new MapWindow( )
                 {
                     Owner = this
                 };
 
-                _form.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -470,12 +470,12 @@ namespace Badger
         {
             try
             {
-                var _form = new CalendarWindow
+                var _window = new CalendarWindow
                 {
                     Owner = this
                 };
 
-                _form.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -491,12 +491,12 @@ namespace Badger
         {
             try
             {
-                var _form = new EmailWindow( )
+                var _window = new EmailWindow( )
                 {
                     Owner = this
                 };
 
-                _form.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -512,12 +512,12 @@ namespace Badger
         {
             try
             {
-                var _programs = new ProgramWindow
+                var _window = new ProgramWindow
                 {
                     Owner = this
                 };
 
-                _programs.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -533,12 +533,12 @@ namespace Badger
         {
             try
             {
-                var _pivotWindow = new PivotWindow
+                var _window = new PivotWindow
                 {
                     Owner = this
                 };
 
-                _pivotWindow.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -554,12 +554,12 @@ namespace Badger
         {
             try
             {
-                var _programs = new WebWindow( )
+                var _window = new WebWindow( )
                 {
                     Owner = this
                 };
 
-                _programs.Show( );
+                _window.Show( );
                 Hide( );
             }
             catch( Exception ex )
@@ -918,6 +918,12 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [browser tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBrowserTileClick( object sender, RoutedEventArgs e )
         {
             try

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 07-29-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        07-29-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
@@ -406,8 +406,6 @@ namespace Badger
                 FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
-                FieldListBox.ItemChecked += OnFieldCheckListItemChecked;
-                NumericListBox.ItemChecked += OnNumericCheckListItemChecked;
             }
             catch( Exception ex )
             {
@@ -439,32 +437,22 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    ColumnChart = new MetroColumnChart( )
-                    {
-                        Height = 454,
-                        Width = 800,
-                        Margin = new Thickness( 1 ),
-                        PrimaryAxis = CreateCategoricalAxis( ),
-                        SecondaryAxis = CreateNumericalAxis( ),
-                        Visibility = Visibility.Visible,
-                        Header = _dataTable.TableName?.SplitPascal( )
-                    };
-
-                    ColumnChartCanvas.Children.Add( ColumnChart );
+                    ColumnChart = new MetroColumnChart( );
+                    ColumnChart.Height = 454;
+                    ColumnChart.Width = 800;
+                    ColumnChart.Visibility = Visibility.Visible;
+                    ColumnChart.IsEnabled = true;
+                    ColumnChart.Header = _dataTable.TableName?.SplitPascal( );
+                    ColumnChart.Margin = new Thickness( 0 );
                 }
                 else
                 {
-                    ColumnChart = new MetroColumnChart( )
-                    {
-                        Height = 454,
-                        Width = 800,
-                        Margin = new Thickness( 1 ),
-                        Visibility = Visibility.Visible,
-                        PrimaryAxis = CreateCategoricalAxis( ),
-                        SecondaryAxis = CreateNumericalAxis( )
-                    };
-
-                    ColumnChartCanvas.Children.Add( ColumnChart );
+                    ColumnChart = new MetroColumnChart( );
+                    ColumnChart.Height = 454;
+                    ColumnChart.Width = 800;
+                    ColumnChart.Visibility = Visibility.Visible;
+                    ColumnChart.IsEnabled = true;
+                    ColumnChart.Margin = new Thickness( 0 );
                 }
             }
             catch( Exception ex )
@@ -495,8 +483,6 @@ namespace Badger
                 _pieChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName?.SplitPascal( )
                     : "Pie Chart";
-
-                PieChartCanvas.Children.Add( _pieChart );
             }
             catch( Exception ex )
             {
@@ -525,8 +511,6 @@ namespace Badger
                         ? _dataTable.TableName.SplitPascal( )
                         : "Sunburst Chart"
                 };
-
-                SunburstCanvas.Children.Add( _sunburstChart );
             }
             catch( Exception ex )
             {
@@ -597,8 +581,6 @@ namespace Badger
                 _areaChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
                     : "Area Chart";
-
-                AreaCanvas.Children.Add( _areaChart );
             }
             catch( Exception ex )
             {
@@ -1707,9 +1689,9 @@ namespace Badger
                         FieldListBox.Items.Clear( );
                     }
 
-                    for( var _index = 0; _index < _fields.Count; _index++ )
+                    for( var _col = 0; _col < _fields.Count; _col++ )
                     {
-                        var _name = _fields[ _index ];
+                        var _name = _fields[ _col ];
                         var _item = new MetroCheckListItem
                         {
                             Content = _name,
@@ -1741,10 +1723,10 @@ namespace Badger
                         NumericListBox.Items.Clear( );
                     }
 
-                    for( var _index = 0; _index < _numerics.Count; _index++ )
+                    for( var _col = 0; _col < _numerics.Count; _col++ )
                     {
-                        var _name = _numerics[ _index ];
-                        if( !string.IsNullOrEmpty( _numerics[ _index ] ) )
+                        var _name = _numerics[ _col ];
+                        if( !string.IsNullOrEmpty( _numerics[ _col ] ) )
                         {
                             var _item = new MetroCheckListItem
                             {
@@ -2069,13 +2051,13 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    _columnChart.Series?.Clear( );
-                    for( var _r = 0; _r < _chartModel.Rows.Count; _r++ )
+                    ColumnChart.Series?.Clear( );
+                    for( var _row = 0; _row < _chartModel.Rows.Count; _row++ )
                     {
                         var _dimension = _columns[ 0 ];
-                        for( var _c = 0; _c < _numerics.Count; _c++ )
+                        for( var _col = 0; _col < _numerics.Count; _col++ )
                         {
-                            var _measure = _numerics[ _c ];
+                            var _measure = _numerics[ _col ];
                             var _series = new ColumnSeries3D
                             {
                                 ItemsSource = _chartModel.Items,
@@ -2092,14 +2074,13 @@ namespace Badger
                                 IsSeriesVisible = true
                             };
 
-                            _columnChart.Series?.Add( _series );
+                            ColumnChart.Series?.Add( _series );
                         }
                     }
                 }
                 else
                 {
-                    _columnChart.Header = "Column Chart";
-                    _columnChart.Series?.Clear( );
+                    ColumnChart.Series?.Clear( );
                     var _series = new ColumnSeries3D
                     {
                         EnableAnimation = true,
@@ -2112,7 +2093,7 @@ namespace Badger
                         IsSeriesVisible = true
                     };
 
-                    _columnChart.Series?.Add( _series );
+                    ColumnChart.Series?.Add( _series );
                 }
             }
             catch( Exception ex )

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-28-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-28-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="DataTableExtensions.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   DataTableExtensions.cs
 // </summary>
 // ******************************************************************************************
 
@@ -52,14 +52,14 @@ namespace Badger
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DataTableExtensions
     {
         /// <summary>
@@ -253,7 +253,8 @@ namespace Badger
                 else
                 {
                     var _query = dataTable.Select( _criteria )
-                        ?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
+                        ?.Select( p => p.Field<string>( columnName ) )
+                        ?.Distinct( );
 
                     return ( _query?.Any( ) == true )
                         ? _query?.ToArray( )
@@ -281,7 +282,10 @@ namespace Badger
             try
             {
                 ThrowIf.Null( dict, nameof( dict ) );
-                var _query = dataTable?.Select( dict.ToCriteria( ) )?.ToList( );
+                var _query = dataTable
+                    ?.Select( dict.ToCriteria( ) )
+                    ?.ToList( );
+
                 return ( _query?.Any( ) == true )
                     ? _query
                     : default( IEnumerable<DataRow> );
@@ -513,7 +517,9 @@ namespace Badger
         /// Converts to observable.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// ObservableCollection( DataRow )
+        /// </returns>
         public static ObservableCollection<DataRow> ToObservable( this DataTable dataTable )
         {
             try

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-28-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-28-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="Grid.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   Grid.cs
 // </summary>
 // ******************************************************************************************
 
@@ -49,18 +49,18 @@ namespace Badger
     /// <summary>
     /// </summary>
     /// <seealso cref="T:OfficeOpenXml.ExcelCellBase" />
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class Grid : ExcelCellAddress
     {
         /// <summary>
@@ -220,8 +220,8 @@ namespace Badger
         {
             _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
             _excelRange = range;
-            _from = (range.Start.Row, range.Start.Column);
-            _to = (range.End.Row, range.End.Column);
+            _from = ( range.Start.Row, range.Start.Column );
+            _to = ( range.End.Row, range.End.Column );
             _excelAddress = new ExcelAddress( range.Start.Row, range.Start.Column,
                 range.End.Row, range.End.Column );
 
@@ -237,8 +237,8 @@ namespace Badger
         public Grid( ExcelPackage excel, ExcelAddress address )
         {
             _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
-            _from = (address.Start.Row, address.Start.Column);
-            _to = (address.End.Row, address.End.Column);
+            _from = ( address.Start.Row, address.Start.Column );
+            _to = ( address.End.Row, address.End.Column );
             _excelRange = _excelWorksheet.Cells[ _from.Row, _from.Column, _to.Row, _to.Column ];
             _excelAddress = address;
             _cells = GetCells( );
@@ -256,8 +256,8 @@ namespace Badger
             int endColumn = 12 )
         {
             _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
-            _from = (startRow, startColumn);
-            _to = (endRow, endColumn);
+            _from = ( startRow, startColumn );
+            _to = ( endRow, endColumn );
             _excelRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
             _excelAddress = new ExcelAddress( startRow, startColumn, endRow, endColumn );
             _cells = GetCells( );
@@ -272,8 +272,8 @@ namespace Badger
         public Grid( ExcelPackage excel, IList<int> cell )
         {
             _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
-            _from = (cell[ 0 ], cell[ 1 ]);
-            _to = (cell[ 2 ], cell[ 3 ]);
+            _from = ( cell[ 0 ], cell[ 1 ] );
+            _to = ( cell[ 2 ], cell[ 3 ] );
             _excelRange = _excelWorksheet.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
             _excelAddress = new ExcelAddress( cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] );
             _cells = GetCells( );
