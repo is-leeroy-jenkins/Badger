@@ -88,9 +88,9 @@ namespace Badger
             BorderBrush = _theme.BorderColor;
             Foreground = _theme.ForeColor;
             CurrentCellBorderBrush = _theme.LightBlueColor;
-            GroupRowSelectionBrush = _theme.ItemHoverColor;
-            RowSelectionBrush = _theme.ItemHoverColor;
-            RowHoverHighlightingBrush = _theme.ItemHoverColor;
+            GroupRowSelectionBrush = _theme.SteelBlueColor;
+            RowSelectionBrush = _theme.SteelBlueColor;
+            RowHoverHighlightingBrush = _theme.SteelBlueColor;
         }
 
         /// <summary>

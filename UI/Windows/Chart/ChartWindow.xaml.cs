@@ -437,7 +437,6 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    ColumnChart = new MetroColumnChart( );
                     ColumnChart.Height = 454;
                     ColumnChart.Width = 800;
                     ColumnChart.Visibility = Visibility.Visible;
@@ -447,7 +446,6 @@ namespace Badger
                 }
                 else
                 {
-                    ColumnChart = new MetroColumnChart( );
                     ColumnChart.Height = 454;
                     ColumnChart.Width = 800;
                     ColumnChart.Visibility = Visibility.Visible;
@@ -468,18 +466,18 @@ namespace Badger
         {
             try
             {
-                _pieChart = new MetroPieChart
+                PieChart = new MetroPieChart
                 {
                     Height = 454,
                     Width = 800,
                     Margin = new Thickness( 0 )
                 };
 
-                _pieChart.Series?.Clear( );
-                _pieChart.Background = _theme.BackColor;
-                _pieChart.Foreground = _theme.ForeColor;
-                _pieChart.BorderBrush = _theme.BorderColor;
-                _pieChart.Visibility = Visibility.Visible;
+                PieChart.Series?.Clear( );
+                PieChart.Background = _theme.BackColor;
+                PieChart.Foreground = _theme.ForeColor;
+                PieChart.BorderBrush = _theme.BorderColor;
+                PieChart.Visibility = Visibility.Visible;
                 _pieChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName?.SplitPascal( )
                     : "Pie Chart";
@@ -1143,7 +1141,7 @@ namespace Badger
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.LightBlueColor,
                     Background = _theme.ControlColor,
-                    Stroke = _theme.ItemHoverColor
+                    Stroke = _theme.SteelBlueColor
                 };
 
                 return _adornment;
@@ -2119,7 +2117,7 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2133,7 +2131,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2166,7 +2164,7 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2180,7 +2178,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2215,7 +2213,7 @@ namespace Badger
                             EnableAnimation = true,
                             Label = _numerics[ 0 ],
                             ShowEmptyPoints = true,
-                            Interior = _theme.ItemHoverColor,
+                            Interior = _theme.SteelBlueColor,
                             AdornmentsInfo = CreateAdornmentInfo( ),
                             ShowTooltip = true
                         };
@@ -2229,7 +2227,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         Visibility = Visibility.Visible
@@ -2262,7 +2260,7 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         Area =
                         {
                             BackWallBrush = _theme.WallColor,
@@ -2281,7 +2279,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.ItemHoverColor,
+                        Interior = _theme.SteelBlueColor,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         Visibility = Visibility.Visible
@@ -2338,7 +2336,6 @@ namespace Badger
                 InitializeTabControls( );
                 InitializeLabels( );
                 InitializeToolbar( );
-                InitializeColumnChart( );
                 PopulateExecutionTables( );
                 UpdateLabels( );
             }

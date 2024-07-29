@@ -46,7 +46,11 @@ namespace Badger
     using Color = System.Windows.Media.Color;
     using Colors = System.Windows.Media.Colors;
 
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Badger.Dimensions" />
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -151,7 +155,7 @@ namespace Badger
         /// <summary>
         /// The steel blue
         /// </summary>
-        private protected Color _itemHoverColor = Colors.SteelBlue;
+        private protected Color _steelBlueColor = Colors.SteelBlue;
 
         /// <inheritdoc />
         /// <summary>
@@ -359,7 +363,7 @@ namespace Badger
         /// <value>
         /// The color of the hover.
         /// </value>
-        public SolidColorBrush ItemHoverColor { get; private protected init; }
+        public SolidColorBrush SteelBlueColor { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -425,7 +429,7 @@ namespace Badger
             {
                 var _array = new SolidColorBrush[ ]
                 {
-                    ItemHoverColor,
+                    SteelBlueColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -456,7 +460,7 @@ namespace Badger
             {
                 var _list = new List<Brush>
                 {
-                    ItemHoverColor,
+                    SteelBlueColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -486,7 +490,7 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "HoverColor", ItemHoverColor );
+                _map.Add( "HoverColor", SteelBlueColor );
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
                 _map.Add( "RedColor", RedColor );

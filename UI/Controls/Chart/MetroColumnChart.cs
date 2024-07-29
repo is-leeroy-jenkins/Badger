@@ -220,7 +220,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.ItemHoverColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );
@@ -247,7 +247,7 @@ namespace Badger
             try
             {
                 var _model = new List<Brush>( );
-                _model.Add( _theme.ItemHoverColor );
+                _model.Add( _theme.SteelBlueColor );
                 _model.Add( _theme.GrayColor );
                 _model.Add( _theme.YellowColor );
                 _model.Add( _theme.RedColor );

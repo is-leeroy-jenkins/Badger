@@ -39,7 +39,6 @@
 
 namespace Badger
 {
-    using Syncfusion.Windows.Forms.Tools;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
@@ -215,7 +214,6 @@ namespace Badger
             InitializeComponent( );
 
             // Control Properties
-            SetResourceReference( MetroTextInput.StyleProperty, typeof( TextBoxExt ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Width = 240;

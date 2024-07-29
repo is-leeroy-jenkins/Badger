@@ -95,8 +95,8 @@ namespace Badger
                 if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.ItemHoverColor;
-                    _item.BorderBrush = _theme.ItemHoverColor;
+                    _item.Background = _theme.SteelBlueColor;
+                    _item.BorderBrush = _theme.SteelBlueColor;
                 }
             }
             catch( Exception ex )

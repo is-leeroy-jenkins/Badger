@@ -45,7 +45,11 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Badger.Palette" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -54,17 +58,6 @@ namespace Badger
     public class DarkMode
         : Palette
     {
-        /// <summary>
-        /// The dark blue color
-        /// </summary>
-        private protected Color _darkBlueColor = new Color( )
-        {
-            A = 255,
-            R = 30,
-            G = 70,
-            B = 100
-        };
-
         /// <summary>
         /// Gets the color of the dark blue.
         /// </summary>
@@ -86,7 +79,7 @@ namespace Badger
             BorderColor = new SolidColorBrush( _borderColor );
             WallColor = new SolidColorBrush( _wallColor );
             ControlColor = new SolidColorBrush( _controlColor );
-            ItemHoverColor = new SolidColorBrush( _itemHoverColor );
+            SteelBlueColor = new SolidColorBrush( _steelBlueColor );
             GrayColor = new SolidColorBrush( Colors.DarkGray );
             YellowColor = new SolidColorBrush( _yellowColor );
             RedColor = new SolidColorBrush( _redColor );
@@ -99,6 +92,7 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 1 );
+            Margin = new Thickness( 3 );
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             SizeMode = ResizeMode.CanResize;
@@ -119,7 +113,7 @@ namespace Badger
             {
                 var _array = new[ ]
                 {
-                    ItemHoverColor,
+                    SteelBlueColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -152,7 +146,7 @@ namespace Badger
             {
                 var _list = new List<Brush>
                 {
-                    ItemHoverColor,
+                    SteelBlueColor,
                     GrayColor,
                     YellowColor,
                     RedColor,
@@ -184,7 +178,7 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "ItemHoverColor", ItemHoverColor );
+                _map.Add( "ItemHoverColor", SteelBlueColor );
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
                 _map.Add( "RedColor", RedColor );

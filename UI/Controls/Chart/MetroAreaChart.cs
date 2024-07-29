@@ -200,7 +200,7 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.ItemHoverColor,
+                    SymbolInterior = _theme.SteelBlueColor,
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.LightBlueColor,
@@ -227,7 +227,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.ItemHoverColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );

@@ -211,7 +211,7 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.ItemHoverColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueColor );
                 _model.CustomBrushes.Add( _theme.GrayColor );
                 _model.CustomBrushes.Add( _theme.YellowColor );
                 _model.CustomBrushes.Add( _theme.RedColor );

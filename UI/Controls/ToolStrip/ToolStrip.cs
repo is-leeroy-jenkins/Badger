@@ -55,8 +55,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public class ToolStrip : ToolbarBase
+    public class ToolStrip : ToolBarAdv
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkMode _theme = new DarkMode( );
+
         /// <summary>
         /// The buttons
         /// </summary>
@@ -83,6 +88,17 @@ namespace Badger
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BackColor;
+        }
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="_ex">The _ex.</param>
+        private protected void Fail( Exception _ex )
+        {
+            var _error = new ErrorWindow( _ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

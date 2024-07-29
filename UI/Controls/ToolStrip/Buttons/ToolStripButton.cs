@@ -69,7 +69,7 @@ namespace Badger
             Height = 30;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
-            Margin = new Thickness( 3 );
+            Margin = new Thickness( 1 );
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;

@@ -73,7 +73,7 @@ namespace Badger
             Background = _theme.ControlColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.ControlColor;
-            SelectionBrush = _theme.ItemHoverColor;
+            SelectionBrush = _theme.SteelBlueColor;
         }
 
         /// <summary>
