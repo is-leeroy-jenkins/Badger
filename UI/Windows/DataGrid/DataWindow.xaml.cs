@@ -137,43 +137,43 @@ namespace Badger
         /// <summary>
         /// The selected columns
         /// </summary>
-        private IList<string> _selectedColumns;
+        private protected IList<string> _selectedColumns;
 
         /// <summary>
         /// The SQL command
         /// </summary>
-        private string _selectedCommand;
+        protected string _selectedCommand;
 
         /// <summary>
         /// The selected fields
         /// 
         /// </summary>
-        private IList<string> _selectedFields;
+        private protected IList<string> _selectedFields;
 
         /// <summary>
         /// The selected numerics
         /// </summary>
-        private IList<string> _selectedNumerics;
+        private protected IList<string> _selectedNumerics;
 
         /// <summary>
         /// The selected command
         /// </summary>
-        private string _selectedQuery;
+        private protected string _selectedQuery;
 
         /// <summary>
         /// The selected table
         /// </summary>
-        private string _selectedTable;
+        private protected string _selectedTable;
 
         /// <summary>
         /// The SQL command
         /// </summary>
-        private string _sqlQuery;
+        private protected string _sqlQuery;
 
         /// <summary>
         /// The statements
         /// </summary>
-        private IDictionary<string, object> _statements;
+        private protected IDictionary<string, object> _statements;
 
         /// <summary>
         /// The busy
@@ -344,6 +344,7 @@ namespace Badger
             _columns = new List<string>( );
             _fields = new List<string>( );
             _numerics = new List<string>( );
+            _dates = new List<string>( );
             _commands = new List<string>( );
             _dataTypes = new List<string>( );
 
@@ -3033,6 +3034,7 @@ namespace Badger
         /// <param name="sender">
         /// The sender.
         /// </param>
+        /// <param name = "e" > </param>
         private void OnProviderRadioButtonChecked( object sender, RoutedEventArgs e )
         {
             if( sender is MetroRadioButton _button )
@@ -3141,6 +3143,7 @@ namespace Badger
         /// <param name="sender">
         /// The sender.
         /// </param>
+        /// <param name = "e" > </param>
         private void OnCommandListBoxItemSelected( object sender, RoutedEventArgs e )
         {
             if( sender is MetroListBox _listBox
@@ -3183,6 +3186,13 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Called when [preview mouse wheel].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="MouseWheelEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnPreviewMouseWheel( object sender, MouseWheelEventArgs e )
         {
             if( sender is ScrollViewer
@@ -3191,11 +3201,14 @@ namespace Badger
                 try
                 {
                     e.Handled = true;
-                    var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta );
-                    eventArg.RoutedEvent = DataWindow.MouseWheelEvent;
-                    eventArg.Source = sender;
+                    var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta )
+                    {
+                        RoutedEvent = MouseWheelEvent,
+                        Source = sender
+                    };
+
                     var parent = ( (Control)sender ).Parent as UIElement;
-                    parent.RaiseEvent( eventArg );
+                    parent?.RaiseEvent( eventArg );
                 }
                 catch( Exception ex )
                 {

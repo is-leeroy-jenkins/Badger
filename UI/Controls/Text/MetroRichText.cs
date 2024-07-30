@@ -43,7 +43,11 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.Controls.RichTextBox" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

@@ -43,11 +43,11 @@ namespace Badger
     using System.Collections.Generic;
     using System.Data;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Badger.ISource" />
-    /// <seealso cref="Badger.IProvider" />
+    /// <seealso cref="T:Badger.ISource" />
+    /// <seealso cref="T:Badger.IProvider" />
     public interface IDataUnit : ISource, IProvider
     {
         /// <summary>
@@ -128,16 +128,18 @@ namespace Badger
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// Integer
+        /// </returns>
         int GetId( );
 
         /// <summary>
         /// Gets the identifier.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// Integer
+        /// </returns>
         int GetId( DataRow dataRow );
     }
 }

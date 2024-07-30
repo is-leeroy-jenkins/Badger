@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 07-30-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        07-30-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
+// <copyright file="CalendarWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +18,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +29,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   CalendarWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -56,14 +56,19 @@ namespace Badger
     /// <summary>
     /// Interaction logic for CalendarWindow.xaml
     /// </summary>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class CalendarWindow : Window
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected DarkMode _theme = new DarkMode( );
+
         /// <summary>
         /// The border color
         /// </summary>
@@ -89,27 +94,27 @@ namespace Badger
         /// <summary>
         /// The busy
         /// </summary>
-        private bool _busy;
+        private protected bool _busy;
 
         /// <summary>
         /// The columns
         /// </summary>
-        private IList<string> _columns;
+        private protected IList<string> _columns;
 
         /// <summary>
         /// The data set
         /// </summary>
-        private DataSet _dataSet;
+        private protected DataSet _dataSet;
 
         /// <summary>
         /// The data table
         /// </summary>
-        private DataTable _dataTable;
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The date string
         /// </summary>
-        private string _dateString;
+        private protected string _dateString;
 
         /// <summary>
         /// The end date
@@ -119,17 +124,17 @@ namespace Badger
         /// <summary>
         /// The fields
         /// </summary>
-        private IList<string> _fields;
+        private protected IList<string> _fields;
 
         /// <summary>
         /// The filter
         /// </summary>
-        private IDictionary<string, object> _filter;
+        private protected IDictionary<string, object> _filter;
 
         /// <summary>
         /// The fiscal years
         /// </summary>
-        private DataTable _fiscalYears;
+        private protected DataTable _fiscalYears;
 
         /// <summary>
         /// The holidays
@@ -139,7 +144,7 @@ namespace Badger
         /// <summary>
         /// The numerics
         /// </summary>
-        private IList<string> _numerics;
+        private protected IList<string> _numerics;
 
         /// <summary>
         /// The locked object
@@ -154,12 +159,7 @@ namespace Badger
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
-
-        /// <summary>
-        /// The selected columns
-        /// </summary>
-        private IList<string> _selectedColumns;
+        private protected int _seconds;
 
         /// <summary>
         /// The selected dates
@@ -169,32 +169,22 @@ namespace Badger
         /// <summary>
         /// The selected end
         /// </summary>
-        private string _selectedEnd;
-
-        /// <summary>
-        /// The selected fields
-        /// </summary>
-        private IList<string> _selectedFields;
+        private string _selectedEndDate;
 
         /// <summary>
         /// The selected start
         /// </summary>
-        private string _selectedStart;
+        private string _selectedStartDate;
 
         /// <summary>
         /// The source
         /// </summary>
-        private Source _source;
+        private protected Source _source;
 
         /// <summary>
         /// The start date
         /// </summary>
         private DateTime _startDate;
-
-        /// <summary>
-        /// The time
-        /// </summary>
-        private int _time;
 
         /// <summary>
         /// The back color
@@ -303,19 +293,19 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            ResizeMode = ResizeMode.CanResize;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            ResizeMode = _theme.SizeMode;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = _theme.WindowStyle;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Title = "Fiscal Years";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.BorderColor;
 
             // Initialize Collections
             _filter = new Dictionary<string, object>( );
@@ -325,6 +315,7 @@ namespace Badger
 
             // Default Provider
             _provider = Provider.Access;
+            _source = Source.FiscalYears;
 
             // Window Events
             Loaded += OnLoaded;
@@ -697,8 +688,9 @@ namespace Badger
         {
             try
             {
-                _selectedStart = string.Empty;
-                _selectedEnd = string.Empty;
+                _selectedStartDate = string.Empty;
+                _selectedEndDate = string.Empty;
+                _dateString = string.Empty;
             }
             catch( Exception ex )
             {
@@ -752,14 +744,6 @@ namespace Badger
         {
             try
             {
-                var _timeSpan = end - start;
-                var _days = _timeSpan.TotalDays;
-                var _hours = _timeSpan.TotalHours.ToString( "N0" );
-                var _weekdays = start.CountWeekDays( end );
-                var _weekends = start.CountWeekEnds( end );
-                var _workdays = start.CountWorkdays( end );
-                var _offDays = CountHolidays( start, end );
-                var _fte = ( _workdays * 8M / 2050M ).ToString( "N3" );
             }
             catch( Exception ex )
             {
@@ -1347,7 +1331,9 @@ namespace Badger
         {
             try
             {
-                _startDate = DateTime.Parse( FirstCalendar.SelectedDates[ 0 ].ToString( ) );
+                var _selection = FirstCalendar.SelectedDates[ 0 ].ToString( );
+                _startDate = DateTime.Parse( _selection );
+                _selectedDates.Add( _startDate );
             }
             catch( Exception ex )
             {

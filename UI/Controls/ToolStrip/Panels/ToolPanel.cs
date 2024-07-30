@@ -43,6 +43,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls.Primitives;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.Controls.Primitives.ToolBarPanel" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

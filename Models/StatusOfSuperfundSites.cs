@@ -50,6 +50,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class StatusOfSuperfundSites : StatusOfFunds
     {
         /// <summary>
@@ -72,13 +73,6 @@ namespace Badger
         /// <value>
         /// </value>
         private string _stateName;
-
-        /// <summary>
-        /// Gets or sets the
-        /// </summary>
-        /// <value>
-        /// </value>
-        private string _city;
 
         /// <summary>
         /// Gets or sets the

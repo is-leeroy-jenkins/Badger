@@ -50,16 +50,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class Transfer : BudgetUnit
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        private protected int _id;
-
         /// <summary>
         /// Gets or sets the budget level.
         /// </summary>
@@ -85,22 +78,6 @@ namespace Badger
         private protected string _docType;
 
         /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        private protected string _bfy;
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        private protected string _efy;
-
-        /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
@@ -115,22 +92,6 @@ namespace Badger
         /// The name of the rpio.
         /// </value>
         private protected string _rpioName;
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        private protected string _fundCode;
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        private protected string _fundName;
 
         /// <summary>
         /// Gets or sets the reprogramming number.

@@ -43,10 +43,15 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Controls.Grid.GridControl" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroGridControl : GridControl
     {
         /// <summary>
@@ -63,7 +68,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroGridControl.StyleProperty, typeof( GridControl ) );
+            SetResourceReference( StyleProperty, typeof( GridControl ) );
             Width = 250;
             Height = 200;
             Model.HeaderStyle.Background = _theme.SteelBlueColor;

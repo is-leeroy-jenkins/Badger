@@ -44,11 +44,18 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Charts.SfChart3D" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class MetroAreaChart : SfChart3D
     {
         /// <summary>
@@ -88,7 +95,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroAreaChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
             FontFamily = _theme.FontFamily;

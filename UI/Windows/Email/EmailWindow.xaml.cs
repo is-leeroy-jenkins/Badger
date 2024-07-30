@@ -200,6 +200,11 @@ namespace Badger
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.EmailWindow" /> class.
+        /// </summary>
         public EmailWindow( )
             : base( )
         {

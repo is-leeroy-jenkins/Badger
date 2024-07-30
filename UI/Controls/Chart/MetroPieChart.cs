@@ -45,12 +45,14 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class MetroPieChart : SfChart3D
     {
         /// <summary>

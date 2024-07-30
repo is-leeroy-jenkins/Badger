@@ -89,22 +89,6 @@ namespace Badger
         private protected string _estimatedRecoveriesSpendingOption;
 
         /// <summary>
-        /// Gets or sets the estimated recoveries budgeting option.
-        /// </summary>
-        /// <value>
-        /// The estimated recoveries budgeting option.
-        /// </value>
-        private string _estimatedRecoveriesBudgetingOption;
-
-        /// <summary>
-        /// Gets or sets the budgeting control.
-        /// </summary>
-        /// <value>
-        /// The budgeting control.
-        /// </value>
-        private string _budgetingControl;
-
-        /// <summary>
         /// Gets or sets the posting control.
         /// </summary>
         /// <value>

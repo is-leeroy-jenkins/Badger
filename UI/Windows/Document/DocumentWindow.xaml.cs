@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 07-30-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        07-30-2024
 // ******************************************************************************************
 // <copyright file="DocumentWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
@@ -68,57 +68,53 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class DocumentWindow : Window
     {
         /// <summary>
         /// The data model
         /// </summary>
-        private DataGenerator _dataModel;
+        private protected DataGenerator _dataModel;
 
         /// <summary>
         /// The data table
         /// </summary>
-        private DataTable _dataTable;
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The filter
         /// </summary>
-        private IDictionary<string, string> _documents;
-
-        /// <summary>
-        /// The ext
-        /// </summary>
-        private EXT _extension;
+        private protected IDictionary<string, string> _documents;
 
         /// <summary>
         /// The filter
         /// </summary>
-        private IDictionary<string, object> _filter;
+        private protected IDictionary<string, object> _filter;
 
         /// <summary>
         /// The prefix
         /// </summary>
-        private string _prefix;
+        private protected string _prefix;
 
         /// <summary>
         /// The provider
         /// </summary>
-        private Provider _provider;
+        private protected Provider _provider;
 
         /// <summary>
         /// The selected path
         /// </summary>
-        private string _selectedPath;
+        private protected string _selectedPath;
 
         /// <summary>
         /// The source
         /// </summary>
-        private Source _source;
+        private protected Source _source;
 
         /// <summary>
         /// The SQL command
         /// </summary>
-        private string _sqlQuery;
+        private protected string _sqlQuery;
 
         /// <summary>
         /// The busy
@@ -489,7 +485,7 @@ namespace Badger
         {
             try
             {
-                var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
                 var _folder = ConfigurationManager.AppSettings[ "Documents" ];
                 var _documentPaths = new Dictionary<string, string>( );
                 var _dirPath = _prefix + _folder;

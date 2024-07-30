@@ -184,7 +184,7 @@ namespace Badger
         public InputWindow( string message )
             : this( )
         {
-            Title.Content = "Input Requested";
+            Header.Content = "Input Requested";
             Caption.Content = message;
         }
 
@@ -198,7 +198,7 @@ namespace Badger
         public InputWindow( string title, string message )
             : this( )
         {
-            Title.Content = title;
+            Header.Content = title;
             Caption.Content = message;
         }
 

@@ -44,7 +44,11 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.ProgressBar.SfLinearProgressBar" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroLinearProgress : SfLinearProgressBar

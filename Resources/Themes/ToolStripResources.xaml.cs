@@ -40,10 +40,23 @@
 namespace Badger
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.ResourceDictionary" />
+    /// <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     partial class ToolStripResources : ResourceDictionary
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.ToolStripResources" /> class.
+        /// </summary>
         public ToolStripResources( )
         {
             this.InitializeComponent( );

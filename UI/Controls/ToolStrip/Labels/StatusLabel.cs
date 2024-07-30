@@ -54,11 +54,6 @@ namespace Badger
     public class StatusLabel : ToolStripLabel
     {
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="StatusLabel"/> class.
         /// </summary>

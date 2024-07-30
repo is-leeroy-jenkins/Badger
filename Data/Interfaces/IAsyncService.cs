@@ -43,8 +43,13 @@ namespace Badger
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Common;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IAsyncService
     {
         /// <inheritdoc />

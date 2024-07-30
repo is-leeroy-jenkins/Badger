@@ -116,7 +116,7 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <
+        /// Initializes a new instance of the 
         /// see cref="T:Badger.ResourcePlanningOffices" /> class.
         /// </summary>
         /// <param name="rpioCode">The rpio code.</param>

@@ -49,6 +49,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class MetroTreeView : SfTreeView
     {
         /// <summary>
@@ -65,7 +66,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTreeView.StyleProperty, typeof( SfTreeView ) );
+            SetResourceReference( StyleProperty, typeof( SfTreeView ) );
             Width = 400;
             Height = 400;
             FontSize = _theme.FontSize;

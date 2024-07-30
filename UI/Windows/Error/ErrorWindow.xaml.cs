@@ -183,13 +183,13 @@ namespace Badger
             Height = 250;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12d;
-            WindowStyle = WindowStyle.None;
+            WindowStyle = _theme.WindowStyle;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
+            Background = _theme.BackColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.RedColor;
             Topmost = true;
             ToolTip = "click to clear";
 
@@ -211,7 +211,7 @@ namespace Badger
         {
             _exception = exception;
             MessageText.Content = exception.ToLogString( exception.Message );
-            Title.Content = "There has been an error!";
+            Header.Content = "There has been an error!";
         }
 
         /// <inheritdoc />
@@ -226,7 +226,7 @@ namespace Badger
         {
             _exception = exception;
             MessageText.Content = exception.ToLogString( exception.Message );
-            Title.Content = title;
+            Header.Content = title;
         }
 
         /// <inheritdoc />
@@ -240,7 +240,7 @@ namespace Badger
             : this( )
         {
             MessageText.Content = message;
-            Title.Content = "There has been an error!";
+            Header.Content = "There has been an error!";
         }
 
         /// <inheritdoc />
@@ -253,7 +253,7 @@ namespace Badger
         public ErrorWindow( string title, string message )
             : this( )
         {
-            Title.Content = title;
+            Header.Content = title;
             MessageText.Content = message;
         }
 

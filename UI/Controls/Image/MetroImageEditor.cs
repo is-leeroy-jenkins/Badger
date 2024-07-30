@@ -43,6 +43,10 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.ImageEditor.SfImageEditor" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class MetroImageEditor : SfImageEditor
     {
@@ -54,6 +58,8 @@ namespace Badger
         public MetroImageEditor( )
             : base( )
         {
+            // Control Properties
+            SetResourceReference( StyleProperty, typeof( SfImageEditor ) );
         }
 
         /// <summary>

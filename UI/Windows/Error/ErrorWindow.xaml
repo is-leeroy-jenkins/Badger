@@ -6,17 +6,17 @@
         mc:Ignorable="d" Height="250" Width="560" Background="#FF280000" BorderBrush="Red"
         Foreground="White" WindowStartupLocation="CenterScreen" WindowStyle="None"
         BorderThickness="1,1,1,1" SnapsToDevicePixels="True" Margin="3,3,3,3" ResizeMode="NoResize">
-<Canvas x:Name="ErrorCanvas">
-<Image x:Name="PictureBox" Height="18" Width="20" HorizontalAlignment="Left" Canvas.Left="2"
+    <Canvas x:Name="ErrorCanvas">
+        <Image x:Name="PictureBox" Height="18" Width="20" HorizontalAlignment="Left" Canvas.Left="2"
        Canvas.Top="3" VerticalAlignment="Top" Source="/UI/Windows/Error/SplashNotification.png" />
-<Label x:Name="Title" Content="Label" Width="305" Foreground="White" HorizontalAlignment="Left"
-       Canvas.Left="35" VerticalAlignment="Center" />
-<local:MetroLabel x:Name="StatusLabel" Content="MetroLabel" Width="165" Height="20"
+        <Label x:Name="Header" Content="Title" Width="305" Foreground="White" HorizontalAlignment="Center"
+       Canvas.Left="35" VerticalAlignment="Top" Height="29" Canvas.Top="6" />
+        <local:MetroLabel x:Name="StatusLabel" Content="MetroLabel" Width="165" Height="20"
                   Foreground="White" Padding="1,1,1,1" FontSize="9"
                   HorizontalContentAlignment="Right" HorizontalAlignment="Left" Canvas.Left="385"
                   Canvas.Top="5" VerticalAlignment="Top" />
-<local:MetroLabel x:Name="MessageText" Content="MetroLabel" Height="145" Width="402"
+        <local:MetroLabel x:Name="MessageText" Content="MetroLabel" Height="145" Width="402"
                   Foreground="#FFF5F7F7" FontSize="10" HorizontalAlignment="Left" Canvas.Left="78"
                   Canvas.Top="55" VerticalAlignment="Top" />
-</Canvas>
+    </Canvas>
 </Window>

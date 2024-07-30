@@ -111,14 +111,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; }
-
-        /// <summary>
         /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
@@ -749,7 +741,6 @@ namespace Badger
         {
             ID = reprogramming.ID;
             BFY = reprogramming.BFY;
-            EFY = reprogramming.EFY;
             FundCode = reprogramming.FundCode;
             FundName = reprogramming.FundName;
             BudgetLevel = reprogramming.BudgetLevel;

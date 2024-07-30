@@ -44,12 +44,17 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Charts.SfChart3D" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class MetroLineChart : SfChart3D
     {
         /// <summary>
@@ -66,7 +71,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroLineChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
             FontFamily = _theme.FontFamily;
@@ -128,6 +133,10 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Creates the color model.
+        /// </summary>
+        /// <returns></returns>
         private ChartColorModel CreateColorModel( )
         {
             try

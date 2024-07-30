@@ -44,6 +44,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.UI.Xaml.ProgressBar.SfStepProgressBar" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

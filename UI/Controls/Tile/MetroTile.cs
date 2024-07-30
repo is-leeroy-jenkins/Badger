@@ -44,7 +44,11 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Input;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Controls.Notification.SfHubTile" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]

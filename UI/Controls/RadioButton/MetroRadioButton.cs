@@ -46,7 +46,11 @@ namespace Badger
     using System.Windows.Input;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.Controls.RadioButton" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]

@@ -41,11 +41,26 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IDataMeasure
     {
+        /// <summary>
+        /// Calculates the maximum.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
         double CalculateMaximum( string numeric );
 
+        /// <summary>
+        /// Calculates the minimum.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
         double CalculateMinimum( string numeric );
 
         /// <summary>

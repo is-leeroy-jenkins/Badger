@@ -37,12 +37,16 @@
 // </summary>
 // ******************************************************************************************
 
-namespace Badger.UI.Controls
+namespace Badger 
 {
     using Syncfusion.UI.Xaml.TreeGrid;
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.TreeGrid.SfTreeGrid" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]

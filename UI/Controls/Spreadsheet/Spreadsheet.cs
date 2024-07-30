@@ -44,7 +44,11 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Spreadsheet.SfSpreadsheet" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class Spreadsheet : SfSpreadsheet
     {
@@ -127,7 +131,7 @@ namespace Badger
         public Spreadsheet( )
             : base( )
         {
-            SetResourceReference( Spreadsheet.StyleProperty, typeof( SfSpreadsheet ) );
+            SetResourceReference( StyleProperty, typeof( SfSpreadsheet ) );
         }
 
         /// <summary>

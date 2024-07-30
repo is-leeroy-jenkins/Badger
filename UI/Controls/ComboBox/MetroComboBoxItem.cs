@@ -44,7 +44,11 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Tools.Controls.ComboBoxItemAdv" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -73,7 +77,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroComboBoxItem.StyleProperty, typeof( ComboBoxItemAdv ) );
+            SetResourceReference( StyleProperty, typeof( ComboBoxItemAdv ) );
             Height = 22;
             Padding = new Thickness( 10, 1, 1, 1 );
             Background = _theme.ControlColor;

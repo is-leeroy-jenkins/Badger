@@ -45,6 +45,10 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Tools.Controls.DropDownButtonAdv" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
@@ -69,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroDropDown.StyleProperty, typeof( DropDownButtonAdv ) );
+            SetResourceReference( StyleProperty, typeof( DropDownButtonAdv ) );
             Width = 200;
             Height = 35;
             FontFamily = new FontFamily( "Segoe UI" );

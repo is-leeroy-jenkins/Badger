@@ -44,6 +44,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Media;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Controls.Layout.SfAccordion" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -65,7 +69,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroAccordian.StyleProperty, typeof( SfAccordion ) );
+            SetResourceReference( StyleProperty, typeof( SfAccordion ) );
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
             Width = 250;

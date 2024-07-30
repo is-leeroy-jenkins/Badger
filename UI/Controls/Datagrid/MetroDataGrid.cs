@@ -43,6 +43,10 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.UI.Xaml.Grid.SfDataGrid" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -64,7 +68,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroDataGrid.StyleProperty, typeof( SfDataGrid ) );
+            SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             AllowEditing = true;

@@ -97,6 +97,11 @@ namespace Badger
             B = 222
         };
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.MetroListView" /> class.
+        /// </summary>
         public MetroListView( )
             : base( )
         {

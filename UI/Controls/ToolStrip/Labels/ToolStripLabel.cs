@@ -51,6 +51,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolStripLabel : MetroLabel
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/> class.
+        /// </summary>
+        /// <inheritdoc />
         public ToolStripLabel( )
             : base( )
         {

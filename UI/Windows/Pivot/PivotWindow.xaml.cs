@@ -250,6 +250,7 @@ namespace Badger
                     _path = new object( );
                     lock( _path )
                     {
+                        _busy = true;
                         return _busy;
                     }
                 }
@@ -257,7 +258,8 @@ namespace Badger
                 {
                     lock( _path )
                     {
-                        return _busy;
+                        _busy = true;
+                        return true;
                     }
                 }
             }
@@ -304,6 +306,7 @@ namespace Badger
             _metric = STAT.Total;
 
             // Initialize Collections
+            _busy = false;
             _filter = new Dictionary<string, object>( );
             _fields = new List<string>( );
             _columns = new List<string>( );
@@ -971,6 +974,9 @@ namespace Badger
             }
         }
 
+        /// <summary>
+        /// Activates the chart tab.
+        /// </summary>
         private void ActivateChartTab( )
         {
             try

@@ -33,7 +33,7 @@
             VerticalAlignment="Top"
             Source="/Resources/Assets/DialogImages/InputDialog.png" />
         <Label
-            x:Name="Title"
+            x:Name="Header"
             Canvas.Left="38"
             Canvas.Top="3"
             Width="352"

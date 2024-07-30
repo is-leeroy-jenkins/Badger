@@ -439,6 +439,7 @@ namespace Badger
                     _path = new object( );
                     lock( _path )
                     {
+                        _busy = true;
                         return _busy;
                     }
                 }
@@ -446,6 +447,7 @@ namespace Badger
                 {
                     lock( _path )
                     {
+                        _busy = true;
                         return _busy;
                     }
                 }

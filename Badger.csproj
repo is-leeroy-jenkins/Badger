@@ -232,9 +232,6 @@
       <PackageReference Include="cef.sdk" Version="126.2.7" />
       <PackageReference Include="CefSharp.Common" Version="126.2.70" />
       <PackageReference Include="CefSharp.Common.NETCore" Version="126.2.70" />
-      <PackageReference Include="chromiumembeddedframework.runtime" Version="126.2.7" />
-      <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="126.2.7" />
-      <PackageReference Include="chromiumembeddedframework.runtime.win-x86" Version="126.2.7" />
       <PackageReference Include="EPPlus" Version="7.2.1" />
       <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
       <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />

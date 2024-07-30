@@ -44,8 +44,14 @@ namespace Badger
     using System.Windows;
     using System.Windows.Media;
 
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public abstract class Dimensions
     {
         /// <summary>
