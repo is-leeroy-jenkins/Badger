@@ -62,34 +62,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class CalendarWindow : Window
     {
         /// <summary>
         /// The theme
         /// </summary>
         private protected DarkMode _theme = new DarkMode( );
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private readonly Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
 
         /// <summary>
         /// The busy
@@ -185,50 +164,6 @@ namespace Badger
         /// The start date
         /// </summary>
         private DateTime _startDate;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 20,
-            G = 20,
-            B = 20
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 106,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
 
         /// <summary>
         /// The update status
@@ -469,20 +404,20 @@ namespace Badger
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
-        /// <param name="form">The o.</param>
+        /// <param name="window">The o.</param>
         /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Window form, int interval = 80 )
+        private async void FadeInAsync( Window window, int interval = 80 )
         {
             try
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
+                ThrowIf.Null( window, nameof( window ) );
+                while( window.Opacity < 1.0 )
                 {
                     await Task.Delay( interval );
-                    form.Opacity += 0.05;
+                    window.Opacity += 0.05;
                 }
 
-                form.Opacity = 1;
+                window.Opacity = 1;
             }
             catch( Exception ex )
             {
@@ -493,20 +428,20 @@ namespace Badger
         /// <summary>
         /// Fades the out asynchronous.
         /// </summary>
-        /// <param name="form">The o.</param>
+        /// <param name="window">The o.</param>
         /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Window form, int interval = 80 )
+        private async void FadeOutAsync( Window window, int interval = 80 )
         {
             try
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
+                ThrowIf.Null( window, nameof( window ) );
+                while( window.Opacity > 0.0 )
                 {
                     await Task.Delay( interval );
-                    form.Opacity -= 0.05;
+                    window.Opacity -= 0.05;
                 }
 
-                form.Opacity = 0;
+                window.Opacity = 0;
             }
             catch( Exception ex )
             {
@@ -552,11 +487,11 @@ namespace Badger
                 var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( TimeSpan.FromSeconds( 5 ),
                     MaximumNotificationCount.UnlimitedNotifications( ) );
 
-                return new Notifier( _cfg =>
+                return new Notifier( _configuration =>
                 {
-                    _cfg.LifetimeSupervisor = _lifeTime;
-                    _cfg.PositionProvider = _position;
-                    _cfg.Dispatcher = Application.Current.Dispatcher;
+                    _configuration.LifetimeSupervisor = _lifeTime;
+                    _configuration.PositionProvider = _position;
+                    _configuration.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
             catch( Exception ex )

@@ -61,7 +61,7 @@ namespace Badger
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     [SuppressMessage( "ReSharper", "InconsistentNaming" )]
     [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    public partial class ProgramWindow : Window
+    public partial class ProgramWindow : Window, IDisposable
     {
         /// <summary>
         /// The busy

@@ -50,7 +50,7 @@ namespace Badger
     /// <summary>
     /// </summary>
     /// <seealso cref="T:System.Windows.Controls.RadioButton" />
-    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -58,72 +58,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class MetroRadioButton : RadioButton
     {
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 160,
-            G = 189,
-            B = 252
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The selected color
-        /// </summary>
-        private protected Color _selectedColor = new Color( )
-        {
-            A = 255,
-            R = 55,
-            G = 255,
-            B = 0
-        };
-
         /// <summary>
         /// The theme
         /// </summary>
@@ -140,57 +74,15 @@ namespace Badger
             // Basic Settings
             Height = 30;
             Width = 124;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            BorderThickness = new Thickness( 1 );
-            Background = _theme.WhiteColor;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            BorderThickness = _theme.BorderThickness;
+            Background = _theme.LightBlueColor;
             Foreground = _theme.LightBlueColor;
             BorderBrush = _theme.BackColor;
 
             // Wire Events
-            MouseEnter += OnMouseEnter;
-            MouseLeave += OnMouseLeave;
             MouseLeftButtonDown += OnMouseClick;
-        }
-
-        /// <summary> Called when [mouse enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private protected virtual void OnMouseEnter( object sender, MouseEventArgs e )
-        {
-            try
-            {
-                Background = new SolidColorBrush( _backHover );
-                Foreground = new SolidColorBrush( _foreHover );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private protected virtual void OnMouseLeave( object sender, MouseEventArgs e )
-        {
-            try
-            {
-                Background = new SolidColorBrush( _backColor );
-                Foreground = new SolidColorBrush( _foreColor );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
 
         /// <summary>
@@ -203,8 +95,12 @@ namespace Badger
         {
             try
             {
-                Foreground = new SolidColorBrush( _borderColor );
-                BorderBrush = new SolidColorBrush( _selectedColor );
+                if( sender is MetroRadioButton _button 
+                    && _button.IsChecked == true )
+                {
+                    Foreground = _theme.WhiteColor;
+                    Background = new SolidColorBrush( Colors.Lime );
+                }
             }
             catch( Exception ex )
             {

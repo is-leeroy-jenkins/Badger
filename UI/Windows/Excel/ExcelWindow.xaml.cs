@@ -64,7 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public partial class ExcelWindow : Window
+    public partial class ExcelWindow : Window, IDisposable
     {
         /// <summary>
         /// The busy
@@ -1222,7 +1222,7 @@ namespace Badger
                 Fail( ex );
             }
         }
-
+        
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

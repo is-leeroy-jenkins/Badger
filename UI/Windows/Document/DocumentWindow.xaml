@@ -22,6 +22,7 @@
     Icon="/UI/Windows/Document/Application.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
     <Window.ContextMenu>
         <ContextMenu Name="DocumentWindowContextMenu">
             <syncfusion:MenuItemAdv
@@ -101,6 +102,7 @@
             </syncfusion:MenuItemAdv>
         </ContextMenu>
     </Window.ContextMenu>
+
     <Canvas x:Name="DocumentCanvas" RenderTransformOrigin="0.634,0.466">
         <PdfViewer:PdfViewerControl
             x:Name="PdfViewer"
@@ -112,6 +114,7 @@
             VerticalAlignment="Center"
             BorderBrush="#FF0078D4"
             BorderThickness="1,1,1,1" />
+
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
@@ -124,9 +127,9 @@
             <local:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
-                Padding="3,1,1,1"
+                Padding="5,1,1,1"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Center"
                 VerticalContentAlignment="Bottom"
                 Content="Date &amp; Time" />
             <syncfusion:MenuItemSeparator
@@ -168,7 +171,7 @@
             <local:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
-                Height="25"
+                Height="30"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center" />
@@ -221,11 +224,11 @@
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
             <ProgressBar
-                Width="140"
+                Width="150"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
             <Separator
-                Width="30"
+                Width="80"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />

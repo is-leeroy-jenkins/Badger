@@ -22,17 +22,21 @@
     Icon="/UI/Windows/File/FileBrowse.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
     <Grid x:Name="BrowserGrid">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="17*" />
             <RowDefinition Height="170*" />
             <RowDefinition Height="44*" />
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125*" />
             <ColumnDefinition Width="440*" />
             <ColumnDefinition Width="133*" />
         </Grid.ColumnDefinitions>
+
         <local:MetroListBox
             x:Name="ListBox"
             Grid.Row="1"
@@ -43,6 +47,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             d:ItemsSource="{d:SampleData ItemCount=5}" />
+
         <local:MetroLabel
             x:Name="TimeLabel"
             Grid.Column="2"
@@ -54,6 +59,7 @@
             HorizontalContentAlignment="Right"
             Content="Time"
             FontSize="10" />
+
         <local:MetroTile
             x:Name="SelectButton"
             Grid.Row="2"
@@ -64,16 +70,18 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Header="" />
+
         <local:MetroTile
             x:Name="BrowseButton"
             Grid.Row="2"
             Grid.Column="1"
             Width="90"
-            Height="33"
+            Height="35"
             Margin="10,27,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Header="" />
+
         <local:MetroTile
             x:Name="ClearButton"
             Grid.Row="2"
@@ -97,6 +105,7 @@
             VerticalContentAlignment="Bottom"
             Content="Date"
             FontSize="10" />
+
         <local:MetroRadioButton
             x:Name="PdfRadioButton"
             Grid.Row="1"
@@ -107,11 +116,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="White"
             BorderThickness="1,1,1,1"
             Content="  PDF "
             Tag="PDF"
             ToolTip="*.pdf files" />
+
         <local:MetroRadioButton
             x:Name="AccessRadioButton"
             Grid.Row="1"
@@ -122,11 +131,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF9F8F8"
             BorderThickness="1,1,1,1"
             Content="  MS Access "
             Tag="ACCDB"
             ToolTip="*.accdb " />
+
         <local:MetroRadioButton
             x:Name="SQLiteRadioButton"
             Grid.Row="1"
@@ -137,11 +146,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFFBF9F9"
             BorderThickness="1,1,1,1"
             Content="  SQLite "
             Tag="DB"
             ToolTip="*.db files" />
+
         <local:MetroRadioButton
             x:Name="LibraryRadioButton"
             Grid.Row="1"
@@ -152,11 +161,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF9F8F8"
             BorderThickness="1,1,1,1"
             Content="  Library "
             Tag="DLL"
             ToolTip="*.dll files" />
+
         <local:MetroRadioButton
             x:Name="SqlServerRadioButton"
             Grid.Row="1"
@@ -167,11 +176,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF5F2F2"
             BorderThickness="1,1,1,1"
             Content="  SQL Server   "
             Tag="MDF"
             ToolTip="*.mdf files" />
+
         <local:MetroRadioButton
             x:Name="ExcelRadioButton"
             Grid.Row="1"
@@ -182,12 +191,12 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFFBF6F6"
             BorderThickness="1,1,1,1"
             Content="  Excel "
             IsChecked="False"
             Tag="XLSX"
             ToolTip="*.xlsx files" />
+
         <local:MetroRadioButton
             x:Name="CsvRadioButton"
             Grid.Row="1"
@@ -198,11 +207,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF9F6F6"
             BorderThickness="1,1,1,1"
             Content="  CSV"
             Tag="CSV"
             ToolTip="*.csv" />
+
         <local:MetroRadioButton
             x:Name="TextRadioButton"
             Grid.Row="1"
@@ -213,11 +222,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF7F1F1"
             BorderThickness="1,1,1,1"
             Content="  Text "
             Tag="TXT"
             ToolTip="*.txt files" />
+
         <local:MetroRadioButton
             x:Name="PowerPointRadioButton"
             Grid.Row="1"
@@ -228,11 +237,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFF9F6F6"
             BorderThickness="1,1,1,1"
             Content="  Power Point"
             Tag="PPTX"
             ToolTip="*.pptx files" />
+
         <local:MetroRadioButton
             x:Name="WordRadioButton"
             Grid.Row="1"
@@ -243,11 +252,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFFBF8F8"
             BorderThickness="1,1,1,1"
             Content="  Word "
             Tag="DOCX"
             ToolTip="*.docx files" />
+
         <local:MetroRadioButton
             x:Name="ExecutableRadioButton"
             Grid.Row="1"
@@ -258,11 +267,11 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="#FFFDF5F5"
             BorderThickness="1,1,1,1"
             Content="  Executables"
             Tag="EXE"
             ToolTip="*.exe files" />
+
         <Image
             x:Name="PictureBox"
             Width="22"
@@ -270,6 +279,7 @@
             Margin="5,4,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Source="XLSX.png" />
+            Source="/Resources/Assets/ExtensionImages/XLSX.png" />
+
     </Grid>
 </Window>

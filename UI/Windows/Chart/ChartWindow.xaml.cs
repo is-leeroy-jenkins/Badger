@@ -39,11 +39,11 @@
 
 namespace Badger
 {
+    using System;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Charts;
     using Syncfusion.UI.Xaml.SmithChart;
     using Syncfusion.Windows.Tools.Controls;
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
@@ -56,11 +56,7 @@ namespace Badger
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
-    using Action = System.Action;
-    using Application = System.Windows.Application;
-    using Exception = System.Exception;
     using LabelPlacement = Syncfusion.UI.Xaml.Charts.LabelPlacement;
-    using SelectionMode = System.Windows.Controls.SelectionMode;
 
     /// <inheritdoc />
     /// <summary>
@@ -1191,7 +1187,8 @@ namespace Badger
                     && _numerics?.Count > 0 )
                 {
                     var _viewModel = new ViewModel( );
-                    for( var _index = 0; _index < _dataTable.Rows.Count; _index++ )
+                    var _rows = _dataTable.Rows.Count;
+                    for( var _index = 0; _index < _rows; _index++ )
                     {
                         var _row = _dataTable.Rows[ _index ];
                         var _dimension = _fields[ 0 ];
@@ -1664,7 +1661,7 @@ namespace Badger
                         DataTableListBox.Items?.Add( _item );
                     }
 
-                    DataTableListBox.SelectionMode = SelectionMode.Single;
+                    DataTableListBox.SelectionMode = System.Windows.Controls.SelectionMode.Single;
                 }
             }
             catch( Exception ex )

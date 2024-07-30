@@ -62,7 +62,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public partial class MapWindow : Window
+    public partial class MapWindow : Window, IDisposable
     {
         /// <summary>
         /// The busy

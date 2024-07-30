@@ -126,115 +126,127 @@
                     RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
+
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="730"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
+
             <local:ToolStripLabel
                 x:Name="StatusLabel"
-                Width="65"
+                Width="80"
                 Padding="3,1,1,1"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Center"
                 Content="Date &amp; Time" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <Separator
                 Width="100"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
+
             <local:ToolStripButton
                 x:Name="FirstButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
+
             <local:ToolStripButton
                 x:Name="PreviousButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
+
             <local:ToolStripButton
                 x:Name="NextButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
+
             <local:ToolStripButton
                 x:Name="LastButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <local:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
-                Height="25"
+                Height="30"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <local:ToolStripButton
                 x:Name="LookupButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
+
             <local:ToolStripButton
                 x:Name="RefreshButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
+
             <local:ToolStripButton
                 x:Name="FilterButton"
                 Foreground="#FFA0BDFC"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
+
             <local:ToolStripButton
                 x:Name="EditButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
                 ToolTip="Edit" />
+
             <local:ToolStripButton
                 x:Name="UndoButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
                 ToolTip="Undo Last" />
+
             <local:ToolStripButton
                 x:Name="SaveButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
                 ToolTip="Save" />
+
             <local:ToolStripButton
                 x:Name="DeleteButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
                 ToolTip="Delete" />
+
             <local:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export" />
+
             <local:ToolStripButton
                 x:Name="BrowseButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
+
             <ProgressBar
-                Width="140"
+                Width="160"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
             <Separator

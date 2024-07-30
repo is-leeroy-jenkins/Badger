@@ -65,7 +65,7 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            Width = 45;
+            Width = 40;
             Height = 30;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
@@ -94,7 +94,7 @@ namespace Badger
             try
             {
                 Background = _theme.DarkBlueColor;
-                Foreground = _theme.BackColor;
+                Foreground = _theme.WhiteColor;
                 BorderBrush = _theme.LightBlueColor;
             }
             catch( Exception ex )
