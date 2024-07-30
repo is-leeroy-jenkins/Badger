@@ -1,0 +1,188 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shared="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:themelocal="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <ResourceDictionary.MergedDictionaries>
+        <sfskin:ResourceDictionaryProvider DictionaryName="Common" ThemeName="FluentDark"/>
+        <sfskin:ResourceDictionaryProvider DictionaryName="Brushes" ThemeName="FluentDark"/>
+        <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/MSControl/GlyphRepeatButton.xaml" />
+        <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/MSControl/RepeatButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Thickness x:Key="Win11Margin" >4,0,0,0</Thickness>
+
+    <shared:BoolToVisibilityConverter x:Key="TimeEditBooleanToVisibilityConverter" />
+
+    <Style x:Key="SyncfusionTimeSpanEditStyle" TargetType="{x:Type shared:TimeSpanEdit}">
+        <Setter Property="CaretBrush" Value="{StaticResource ContentForeground}" />
+        <Setter Property="SelectionBrush" Value="{StaticResource PrimaryBackground}" />
+        <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
+        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt4}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Border}" />
+        <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.ThemeBorderThicknessVariant1}" />
+        <Setter Property="AllowDrop" Value="False" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="MinHeight" Value="{StaticResource FluentDark.MinHeight}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type shared:TimeSpanEdit}">
+                    <Border
+                        x:Name="MainBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        SnapsToDevicePixels="true">
+                        <Grid x:Name="TimeSpanGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                Foreground="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <Grid x:Name="RepeatButtonGrid" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <RepeatButton
+                                    x:Name="upbutton"
+                                    Grid.Row="0"
+                                    Width="22"
+                                    Margin="0"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="Transparent"
+                                    BorderThickness="{StaticResource FluentDark.BorderThickness1000}"
+                                    Command="{Binding Path=UpCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                    IsTabStop="False"
+                                    Style="{StaticResource WPFGlyphRepeatButtonStyle}"
+                                    Visibility="{Binding ShowArrowButtons, Converter={StaticResource TimeEditBooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <RepeatButton.Content>
+                                        <Path
+                                                    x:Name="upbuttonpath"
+                                                    Width="8"
+                                                    Height="4"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    StrokeThickness="{StaticResource FluentDark.StrokeThickness1}"
+                                                    Stretch="Uniform">
+                                            <Path.Data>
+                                                <PathGeometry>M0.5 5L4 1.5L7.5 5</PathGeometry>
+                                            </Path.Data>
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Setter Property="Stroke" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(TextBlock.Foreground)}"/>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                    </RepeatButton.Content>
+                                </RepeatButton>
+                                <RepeatButton
+                                    x:Name="downbutton"
+                                    Grid.Row="1"
+                                    Width="22"
+                                    Margin="0"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="Transparent"
+                                    BorderThickness="{StaticResource FluentDark.BorderThickness1000}" 
+                                    Command="{Binding Path=DownCommand, RelativeSource={RelativeSource TemplatedParent}}"
+                                    IsTabStop="False"
+                                    Style="{StaticResource WPFGlyphRepeatButtonStyle}"
+                                    Visibility="{Binding ShowArrowButtons, Converter={StaticResource TimeEditBooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <RepeatButton.Content>
+                                        <Path
+                                                    x:Name="downbuttonpath"
+                                                    Width="8"
+                                                    Height="4"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    StrokeThickness="{StaticResource FluentDark.StrokeThickness1}"
+                                                    Stretch="Uniform">
+                                            <Path.Data>
+                                                <PathGeometry>M0.5 1L4 4.5L7.5 1</PathGeometry>
+                                            </Path.Data>
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Setter Property="Stroke" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(TextBlock.Foreground)}"/>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                    </RepeatButton.Content>
+                                </RepeatButton>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
+                            <Setter TargetName="MainBorder" Property="Background" Value="{StaticResource BorderAlt}" />
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
+                            <Setter TargetName="downbuttonpath" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="upbuttonpath" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="PART_ContentHost" Property="Background" Value="Transparent" />
+                          
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource BorderAlt2}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
+                            <Setter TargetName="MainBorder" Property="Background" Value="{StaticResource ContentBackground}" />
+                            <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="upbutton" Property="Padding" Value="0,-1.5,-2,0" />
+                            <Setter TargetName="downbutton" Property="Padding" Value="0,-1,-2,-2" />
+                            <Setter Property="Padding" Value="-1" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="BorderThickness" Value="0" />
+                                <Condition Property="IsFocused" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Padding" Value="0"/>
+                        </MultiTrigger>
+                        <Trigger SourceName="upbutton" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="upbuttonpath" Property="Stroke" Value="{StaticResource IconColorHovered}" />
+                        </Trigger>
+                        <Trigger SourceName="upbutton" Property="IsPressed" Value="True">
+                            <Setter TargetName="upbuttonpath" Property="Stroke" Value="{StaticResource IconColorSelected}" />
+                        </Trigger>
+                        <Trigger SourceName="downbutton" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="downbuttonpath" Property="Stroke" Value="{StaticResource IconColorHovered}" />
+                        </Trigger>
+                        <Trigger SourceName="downbutton" Property="IsPressed" Value="True">
+                            <Setter TargetName="downbuttonpath" Property="Stroke" Value="{StaticResource IconColorSelected}" />
+                        </Trigger>
+                        <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
+                            <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
+                            <Setter Property="MinHeight" Value="16" TargetName="downbutton"/>
+                            <Setter Property="MinHeight" Value="16" TargetName="upbutton"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource SyncfusionTimeSpanEditStyle}" TargetType="{x:Type shared:TimeSpanEdit}" />
+</ResourceDictionary>
