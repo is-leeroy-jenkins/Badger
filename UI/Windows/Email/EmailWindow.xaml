@@ -104,141 +104,158 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <local:ToolStrip
-        x:Name="Toolbar"
+    <local:MetroCanvas 
+        x:Name="EmailCanvas" 
+        Margin="0,0,0,0" 
+        Height="798" 
         Width="1400"
-        Height="40"
-        Margin="0,720,0,0"
-        Padding="1,1,1,1"
-        VerticalAlignment="Top">
+        VerticalAlignment="Center" 
+        HorizontalAlignment="Left" 
+        Background="#FF141414">
 
-        <local:ToolStripLabel
-            x:Name="StatusLabel"
-            Width="80"
-            Padding="3,1,1,1"
-            HorizontalAlignment="Left"
+        <local:ToolStrip
+            x:Name="Toolbar"
+            Canvas.Left="0"
+            Canvas.Top="722"
+            Width="1400"
+            Height="40"
+            Padding="1,1,1,1"
+            Margin="1,1,1,1"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            VerticalContentAlignment="Bottom"
-            Content="Date &amp; Time" />
-
-        <syncfusion:MenuItemSeparator
-            Background="{x:Null}"
-            BorderBrush="{x:Null}"
-            Foreground="{x:Null}" />
-
-        <Separator
-            Width="100"
-            Background="#FF141414"
             BorderBrush="#FF141414"
-            Foreground="#FF141414" />
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
 
-        <local:ToolStripButton
-            x:Name="FirstButton"
-            ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
-            ToolTip="First Record" />
 
-        <local:ToolStripButton
-            x:Name="PreviousButton"
-            ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
-            ToolTip="Previous Record" />
+            <local:ToolStripLabel
+                x:Name="StatusLabel"
+                Width="80"
+                Padding="3,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Bottom"
+                Content="Date &amp; Time" />
 
-        <local:ToolStripButton
-            x:Name="NextButton"
-            ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
-            ToolTip="Next Record" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
-        <local:ToolStripButton
-            x:Name="LastButton"
-            ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
-            ToolTip="Last Record" />
+            <Separator
+                Width="100"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FF141414" />
 
-        <syncfusion:MenuItemSeparator
-            Background="{x:Null}"
-            BorderBrush="{x:Null}"
-            Foreground="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="FirstButton"
+                ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
+                ToolTip="First Record" />
 
-        <syncfusion:MenuItemSeparator
-            Background="{x:Null}"
-            BorderBrush="{x:Null}"
-            Foreground="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="PreviousButton"
+                ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
+                ToolTip="Previous Record" />
 
-        <local:ToolStripTextBox
-            x:Name="ToolStripTextBox"
-            Width="200"
-            Height="30"
-            Padding="10,1,1,1"
-            HorizontalAlignment="Left"
-            VerticalContentAlignment="Center" />
+            <local:ToolStripButton
+                x:Name="NextButton"
+                ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
+                ToolTip="Next Record" />
 
-        <syncfusion:MenuItemSeparator
-            Background="{x:Null}"
-            BorderBrush="{x:Null}"
-            Foreground="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="LastButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
+                ToolTip="Last Record" />
 
-        <local:ToolStripButton
-            x:Name="LookupButton"
-            ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
-            ToolTip="Look Up" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
-        <local:ToolStripButton
-            x:Name="RefreshButton"
-            ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
-            ToolTip="Refresh" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
-        <local:ToolStripButton
-            x:Name="FilterButton"
-            Foreground="#FFA0BDFC"
-            ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
-            ToolTip="Filters" />
+            <local:ToolStripTextBox
+                x:Name="ToolStripTextBox"
+                Width="200"
+                Height="30"
+                Padding="10,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center" />
 
-        <local:ToolStripButton
-            x:Name="EditButton"
-            ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
-            ToolTip="Edit" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
-        <local:ToolStripButton
-            x:Name="UndoButton"
-            ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
-            ToolTip="Undo Last" />
+            <local:ToolStripButton
+                x:Name="LookupButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
+                ToolTip="Look Up" />
 
-        <local:ToolStripButton
-            x:Name="SaveButton"
-            ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
-            ToolTip="Save" />
+            <local:ToolStripButton
+                x:Name="RefreshButton"
+                ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+                ToolTip="Refresh" />
 
-        <local:ToolStripButton
-            x:Name="DeleteButton"
-            ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
-            ToolTip="Delete" />
+            <local:ToolStripButton
+                x:Name="FilterButton"
+                Foreground="#FFA0BDFC"
+                ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
+                ToolTip="Filters" />
 
-        <local:ToolStripButton
-            x:Name="ExportButton"
-            ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
-            ToolTip="Export" />
+            <local:ToolStripButton
+                x:Name="EditButton"
+                ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
+                ToolTip="Edit" />
 
-        <local:ToolStripButton
-            x:Name="BrowseButton"
-            ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
-            ToolTip="Browse" />
+            <local:ToolStripButton
+                x:Name="UndoButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
+                ToolTip="Undo Last" />
 
-        <ProgressBar
-            Width="150"
-            Background="#FF141414"
-            BorderBrush="#FF141414" />
+            <local:ToolStripButton
+                x:Name="SaveButton"
+                ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
+                ToolTip="Save" />
 
-        <Separator
-            Width="50"
-            Background="{x:Null}"
-            BorderBrush="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="DeleteButton"
+                ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
+                ToolTip="Delete" />
 
-        <local:ToolStripButton
-            x:Name="ToggleButton"
-            ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+            <local:ToolStripButton
+                x:Name="ExportButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
+                ToolTip="Export" />
 
-        <local:ToolStripButton
-            x:Name="MenuButton"
-            ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
-            ToolTip="Main Menu" />
+            <local:ToolStripButton
+                x:Name="BrowseButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
+                ToolTip="Browse" />
 
-    </local:ToolStrip>
+            <ProgressBar
+                Width="150"
+                Background="#FF141414"
+                BorderBrush="#FF141414" />
+
+            <Separator
+                Width="50"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" />
+
+            <local:ToolStripButton
+                x:Name="ToggleButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
+            <local:ToolStripButton
+                x:Name="MenuButton"
+                ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
+                ToolTip="Main Menu" />
+
+        </local:ToolStrip>
+    </local:MetroCanvas>
 </Window>

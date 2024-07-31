@@ -390,12 +390,17 @@
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="722"
             Width="1400"
             Height="40"
-            Padding="10,1,1,1"
+            Padding="1,1,1,1"
+            Margin="1,1,1,1"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">
+            VerticalAlignment="Center"
+            BorderBrush="#FF141414"
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
+
 
             <local:ToolStripLabel
                 x:Name="StatusLabel"
@@ -413,8 +418,9 @@
 
             <Separator
                 Width="140"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton
                 x:Name="FirstButton"
@@ -471,7 +477,6 @@
 
             <local:ToolStripButton
                 x:Name="FilterButton"
-                Foreground="#FFA0BDFC"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
 
@@ -506,9 +511,10 @@
                 ToolTip="Browse" />
 
             <ProgressBar
-                Width="150"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Width="200"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton 
                 x:Name="ToggleButton" 

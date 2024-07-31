@@ -2,11 +2,11 @@
     x:Class="Badger.ChartWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Badger"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
     xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
     xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
-    xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
-    xmlns:local="clr-namespace:Badger"
     xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -31,7 +31,7 @@
     ShowActivated="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow"
-    mc:Ignorable="d" SizeToContent="WidthAndHeight">
+    mc:Ignorable="d" >
 
     <!-- Context Menu -->
     <Window.ContextMenu>
@@ -128,20 +128,22 @@
     </Window.ContextMenu>
 
     <!-- Primary TabControl -->
-    <Canvas x:Name="PrimaryTabCanvas">
-           
+    <Canvas 
+        x:Name="PrimaryTabCanvas" >
+
         <!-- ToolStrip Markup -->
-        <local:ToolStrip
+        <local:ToolStrip 
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="722"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"
+            Margin="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
 
-            <local:ToolStripLabel
+            <local:ToolStripLabel 
                 x:Name="StatusLabel"
                 Width="70"
                 Padding="3,1,1,1"
@@ -157,9 +159,10 @@
                 Foreground="{x:Null}" />
 
             <Separator
-                Width="70"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Width="60"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton
                 x:Name="FirstButton"
@@ -188,6 +191,7 @@
 
             <local:MetroComboBox
                 x:Name="ToolStripComboBox"
+                Width ="200"
                 AllowMultiSelect="false">
                 <local:MetroComboBoxItem Content="Column" />
                 <local:MetroComboBoxItem Content="Line" />
@@ -200,8 +204,8 @@
             </local:MetroComboBox>
 
             <syncfusion:MenuItemSeparator
-                Background="#FF141414"
-                BorderBrush="#FF141414"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
             <local:ToolStripButton
@@ -237,8 +241,9 @@
 
             <Separator
                 Width="20"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton
                 x:Name="LookupButton"
@@ -246,8 +251,8 @@
                 ToolTip="Look-up" />
 
             <syncfusion:MenuItemSeparator
-                Background="{x:Null}" />
-                BorderBrush="{x:Null}" />
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
                 Foreground="{x:Null}" />
 
             <local:ToolStripButton
@@ -261,9 +266,9 @@
                 ToolTip="Browse" />
 
             <Separator
-                Width="40"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
+                Width="90"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
             <local:ToolStripButton
@@ -277,9 +282,9 @@
 
         </local:ToolStrip>
 
-        <local:MetroTabControl
+        <local:MetroTabControl 
             x:Name="PrimaryTabControl"
-            Canvas.Left="3"
+            Canvas.Left="1"
             Canvas.Top="1"
             Width="863"
             Height="513"
@@ -301,25 +306,25 @@
                     x:Name="ColumnChartCanvas"
                     Margin="0,0,0,0"
                     Background="#FF141414">
-                    <local:MetroColumnChart
+
+                    <syncfusion:SfChart3D
                         x:Name="ColumnChart"
                         Canvas.Left="0"
                         Canvas.Top="0"
-                        Height="454" Width="800" IsEnabled="True">
+                        Height="454" 
+                        Width="800" 
+                        IsEnabled="True" 
+                        EnableRotation="True" 
+                        EnableSeriesSelection="True" Palette="Custom" >
 
-                        <local:MetroColumnChart.DataContext>
-                            <local:ChartModel />
-                        </local:MetroColumnChart.DataContext>
 
-                        <syncfusion:ColumnSeries3D
-                            EnableAnimation="True"
-                            ListenPropertyChange="True"
-                            Palette="Custom">
-                            <syncfusion:ColumnSeries3D.Adornments>
-                                <syncfusion:ChartAdornment3D FontFamily="Segoe UI" />
-                            </syncfusion:ColumnSeries3D.Adornments>
-                        </syncfusion:ColumnSeries3D>
-                    </local:MetroColumnChart>
+                        <!-- Primary Axis -->
+                        <chart:SfChart3D.PrimaryAxis>
+                            <chart:CategoryAxis3D/>
+                        </chart:SfChart3D.PrimaryAxis>
+
+                    </syncfusion:SfChart3D>
+
                 </Canvas>
             </TabItem>
 
@@ -338,12 +343,13 @@
                     x:Name="LineChartCanvas"
                     Background="#FF141414">
 
-                    <local:MetroLineChart 
+                    <syncfusion:SfChart3D
                         x:Name="LineChart" 
                         Width="800"
                         Height="454" >
 
-                    </local:MetroLineChart>
+
+                    </syncfusion:SfChart3D>
 
                 </Canvas>
             </TabItem>
@@ -363,11 +369,13 @@
                     x:Name="PieChartCanvas"
                     Background="#FF141414">
 
-                    <local:MetroPieChart 
+                    <syncfusion:SfChart3D
                         x:Name="PieChart"
-                        Width="454"
-                        Height="800" >
-                    </local:MetroPieChart>
+                        Width="800"
+                        Height="454" >
+
+
+                    </syncfusion:SfChart3D>
 
                 </Canvas>
 
@@ -390,8 +398,10 @@
 
                     <local:SunburstChart 
                         x:Name="SunburstChart"
-                        Width="454"
-                        Height="800" >
+                        Width="800"
+                        Height="454" >
+
+
 
                     </local:SunburstChart>
 
@@ -413,12 +423,12 @@
                     x:Name="HistogramCanvas"
                     Background="#FF141414" >
 
-                    <local:Histogram 
+                    <syncfusion:SfChart3D
                         x:Name="Histogram"
-                        Width="454"
-                        Height="800" >
+                        Width="800"
+                        Height="454" >
 
-                    </local:Histogram>
+                    </syncfusion:SfChart3D>
 
                 </Canvas>
             </TabItem>
@@ -439,8 +449,12 @@
 
                     <local:SmithChart 
                         x:Name="SmithChart"
-                        Width="454"
-                        Height="800" >
+                        Width="800"
+                        Height="454" >
+
+                        <local:SmithChart.DataContext>
+                            <local:ChartModel />
+                        </local:SmithChart.DataContext>
 
                     </local:SmithChart>
 
@@ -461,11 +475,13 @@
                     x:Name="AreaCanvas"
                     Background="#FF141414" >
 
-                    <local:MetroAreaChart
+                    <syncfusion:SfChart3D
                         x:Name="AreaChart"
-                        Width="454"
-                        Height="800" >
-                    </local:MetroAreaChart>
+                        Width="800"
+                        Height="454" >
+
+
+                    </syncfusion:SfChart3D>
 
                 </Canvas>
             </TabItem>
@@ -483,6 +499,14 @@
                 Foreground="#FFA0BDFC"
                 Header="Scatter">
                 <Canvas Background="#FF141414" >
+
+                    <syncfusion:SfChart3D
+                        x:Name="ScatterChart"
+                        Width="800"
+                        Height="454" >
+
+
+                    </syncfusion:SfChart3D>
                 </Canvas>
             </TabItem>
 
@@ -670,7 +694,7 @@
                         x:Name="FirstComboBox"
                         Canvas.Left="161"
                         Canvas.Top="48"
-                        Width="175"
+                        Width="200"
                         Height="30"
                         AllowMultiSelect="False"
                         DefaultText="">
@@ -685,7 +709,7 @@
                         x:Name="SecondComboBox"
                         Canvas.Left="161"
                         Canvas.Top="247"
-                        Width="175"
+                        Width="200"
                         Height="30"
                         AllowMultiSelect="False"
                         DefaultText="">
@@ -799,21 +823,10 @@
                     VerticalAlignment="Top"
                     Background="#FF141414">
 
-                    <local:MetroCalendar
-                        x:Name="FirstCalendar"
-                        Canvas.Left="159"
-                        Canvas.Top="72"
-                        Width="201"
-                        Height="181"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderThickness="1,1,1,1"
-                        Date="1/1/2020" />
-
                     <local:MetroLabel
                         x:Name="FirstDateLabel"
-                        Canvas.Left="165"
-                        Canvas.Top="49"
+                        Canvas.Left="10"
+                        Canvas.Top="97"
                         Width="196"
                         Height="20"
                         Padding="1,1,1,1"
@@ -825,8 +838,8 @@
 
                     <local:MetroLabel
                         x:Name="SecondDateLabel"
-                        Canvas.Left="165"
-                        Canvas.Top="282"
+                        Canvas.Left="276"
+                        Canvas.Top="99"
                         Width="220"
                         Padding="1,1,1,1"
                         HorizontalAlignment="Left"
@@ -839,14 +852,15 @@
 
                     <local:MetroCalendar
                         x:Name="SecondCalendar"
-                        Canvas.Left="165"
-                        Canvas.Top="302"
-                        Width="206"
-                        Height="171"
-                        HorizontalAlignment="Left"
+                        Canvas.Left="276"
+                        Canvas.Top="130"
+                        Width="215"
+                        Height="231"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         BorderThickness="1,1,1,1"
                         Date="1/1/2020" />
+                    <local:MetroCalendar x:Name="FirstCalendar" Date="1/1/2020" Height="231" Canvas.Left="10" Canvas.Top="130" Width="214" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Canvas>
             </TabItem>
 

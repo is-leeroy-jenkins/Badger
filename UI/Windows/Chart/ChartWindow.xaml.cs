@@ -52,6 +52,7 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using ScottPlot.Plottables;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -431,23 +432,35 @@ namespace Badger
         {
             try
             {
-                if( _dataTable != null )
-                {
-                    ColumnChart.Height = 454;
-                    ColumnChart.Width = 800;
-                    ColumnChart.Visibility = Visibility.Visible;
-                    ColumnChart.IsEnabled = true;
-                    ColumnChart.Header = _dataTable.TableName?.SplitPascal( );
-                    ColumnChart.Margin = new Thickness( 0 );
-                }
-                else
-                {
-                    ColumnChart.Height = 454;
-                    ColumnChart.Width = 800;
-                    ColumnChart.Visibility = Visibility.Visible;
-                    ColumnChart.IsEnabled = true;
-                    ColumnChart.Margin = new Thickness( 0 );
-                }
+                ColumnChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Column Chart";
+
+                ColumnChart.Height = 454;
+                ColumnChart.Width = 800;
+                ColumnChart.Visibility = Visibility.Visible;
+                ColumnChart.IsEnabled = true;
+                ColumnChart.Margin = new Thickness( 0 );
+                ColumnChart.Background = _theme.BackColor;
+                ColumnChart.RightWallBrush = _theme.WallColor;
+                ColumnChart.LeftWallBrush = _theme.WallColor;
+                ColumnChart.BackWallBrush = _theme.WallColor;
+                ColumnChart.TopWallBrush = _theme.WallColor;
+                ColumnChart.BottomWallBrush = _theme.BlackColor;
+                ColumnChart.BorderBrush = _theme.BorderColor;
+                ColumnChart.Foreground = _theme.ForeColor;
+                ColumnChart.FontFamily = _theme.FontFamily;
+                ColumnChart.FontSize = _theme.FontSize;
+                ColumnChart.SideBySideSeriesPlacement = true;
+                ColumnChart.EnableRotation = true;
+                ColumnChart.Depth = 250;
+                ColumnChart.EnableSegmentSelection = true;
+                ColumnChart.EnableSeriesSelection = true;
+                ColumnChart.EnableRotation = true;
+                ColumnChart.PerspectiveAngle = 100;
+                ColumnChart.Padding = _theme.Padding;
+                ColumnChart.PrimaryAxis = CreateCategoricalAxis( );
+                ColumnChart.SecondaryAxis = CreateNumericalAxis( );
             }
             catch( Exception ex )
             {
@@ -462,21 +475,36 @@ namespace Badger
         {
             try
             {
-                PieChart = new MetroPieChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    Margin = new Thickness( 0 )
-                };
-
                 PieChart.Series?.Clear( );
-                PieChart.Background = _theme.BackColor;
-                PieChart.Foreground = _theme.ForeColor;
-                PieChart.BorderBrush = _theme.BorderColor;
-                PieChart.Visibility = Visibility.Visible;
-                _pieChart.Header = ( _dataTable != null )
-                    ? _dataTable.TableName?.SplitPascal( )
+                PieChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
                     : "Pie Chart";
+
+                PieChart.Height = 454;
+                PieChart.Width = 800;
+                PieChart.Visibility = Visibility.Visible;
+                PieChart.IsEnabled = true;
+                PieChart.Margin = new Thickness( 0 );
+                PieChart.RightWallBrush = _theme.WallColor;
+                PieChart.LeftWallBrush = _theme.WallColor;
+                PieChart.BackWallBrush = _theme.WallColor;
+                PieChart.TopWallBrush = _theme.WallColor;
+                PieChart.BottomWallBrush = _theme.BlackColor;
+                PieChart.BorderBrush = _theme.BorderColor;
+                PieChart.Foreground = _theme.ForeColor;
+                PieChart.Background = _theme.BackColor;
+                PieChart.FontFamily = _theme.FontFamily;
+                PieChart.FontSize = _theme.FontSize;
+                PieChart.SideBySideSeriesPlacement = true;
+                PieChart.EnableRotation = true;
+                PieChart.Depth = 250;
+                PieChart.EnableSegmentSelection = true;
+                PieChart.EnableSeriesSelection = true;
+                PieChart.EnableRotation = true;
+                PieChart.PerspectiveAngle = 100;
+                PieChart.Padding = _theme.Padding;
+                PieChart.PrimaryAxis = CreateCategoricalAxis( );
+                PieChart.SecondaryAxis = CreateNumericalAxis( );
             }
             catch( Exception ex )
             {
@@ -491,20 +519,20 @@ namespace Badger
         {
             try
             {
-                _sunburstChart = new SunburstChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    FontSize = 10,
-                    Background = _theme.BackColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.BorderColor,
-                    Visibility = Visibility.Visible,
-                    Margin = new Thickness( 0 ),
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName.SplitPascal( )
-                        : "Sunburst Chart"
-                };
+                SunburstChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Sunburst Chart";
+
+                SunburstChart.Height = 454;
+                SunburstChart.Width = 800;
+                SunburstChart.Visibility = Visibility.Visible;
+                SunburstChart.IsEnabled = true;
+                SunburstChart.Margin = new Thickness( 0 );
+                SunburstChart.BorderBrush = _theme.BorderColor;
+                SunburstChart.Foreground = _theme.ForeColor;
+                SunburstChart.Background = _theme.BackColor;
+                SunburstChart.FontFamily = _theme.FontFamily;
+                SunburstChart.FontSize = _theme.FontSize;
             }
             catch( Exception ex )
             {
@@ -519,32 +547,17 @@ namespace Badger
         {
             try
             {
-                _smithChart = new SmithChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    Background = _theme.BackColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.BorderColor,
-                    Visibility = Visibility.Visible,
-                    Margin = new Thickness( 0 ),
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName.SplitPascal( )
-                        : "Smith Chart"
-                };
+                SmithChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Smith Chart";
 
-                var _radial = new RadialAxis( )
-                {
-                    FontSize = 10
-                };
-
-                var _horizontal = new HorizontalAxis( )
-                {
-                    FontSize = 10
-                };
-
-                _smithChart.RadialAxis = _radial;
-                _smithChart.HorizontalAxis = _horizontal;
+                SmithChart.Height = 454;
+                SmithChart.Width = 800;
+                SmithChart.Background = _theme.BackColor;
+                SmithChart.Foreground = _theme.ForeColor;
+                SmithChart.BorderBrush = _theme.BorderColor;
+                SmithChart.Visibility = Visibility.Visible;
+                SmithChart.Margin = new Thickness( 0 );
             }
             catch( Exception ex )
             {
@@ -559,22 +572,34 @@ namespace Badger
         {
             try
             {
-                _areaChart = new MetroAreaChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    FontSize = 10,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.ForeColor,
-                    Background = _theme.BackColor,
-                    Visibility = Visibility.Visible,
-                    Margin = new Thickness( 0 )
-                };
-
-                _areaChart.Series?.Clear( );
-                _areaChart.Header = ( _dataTable != null )
+                AreaChart.Series?.Clear( );
+                AreaChart.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
                     : "Area Chart";
+
+                AreaChart.Height = 454;
+                AreaChart.Width = 800;
+                AreaChart.Visibility = Visibility.Visible;
+                AreaChart.IsEnabled = true;
+                AreaChart.Margin = new Thickness( 0 );
+                AreaChart.RightWallBrush = _theme.WallColor;
+                AreaChart.LeftWallBrush = _theme.WallColor;
+                AreaChart.BackWallBrush = _theme.WallColor;
+                AreaChart.TopWallBrush = _theme.WallColor;
+                AreaChart.BottomWallBrush = _theme.BlackColor;
+                AreaChart.BorderBrush = _theme.BorderColor;
+                AreaChart.Foreground = _theme.ForeColor;
+                AreaChart.Background = _theme.BackColor;
+                AreaChart.FontFamily = _theme.FontFamily;
+                AreaChart.FontSize = _theme.FontSize;
+                AreaChart.SideBySideSeriesPlacement = true;
+                AreaChart.EnableRotation = true;
+                AreaChart.Depth = 250;
+                AreaChart.EnableSegmentSelection = true;
+                AreaChart.EnableSeriesSelection = true;
+                AreaChart.EnableRotation = true;
+                AreaChart.PerspectiveAngle = 100;
+                AreaChart.Padding = _theme.Padding;
             }
             catch( Exception ex )
             {
@@ -589,24 +614,33 @@ namespace Badger
         {
             try
             {
-                _histogram = new Histogram
-                {
-                    Height = 454,
-                    Width = 800,
-                    FontSize = 10,
-                    Background = _theme.BackColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.BorderColor,
-                    Visibility = Visibility.Visible,
-                    Margin = new Thickness( 0 )
-                };
-
-                _histogram.Series?.Clear( );
-                _histogram.Header = ( _dataTable != null )
+                Histogram.Height = 454;
+                Histogram.Width = 800;
+                Histogram.Visibility = Visibility.Visible;
+                Histogram.IsEnabled = true;
+                Histogram.Margin = new Thickness( 0 );
+                Histogram.RightWallBrush = _theme.WallColor;
+                Histogram.LeftWallBrush = _theme.WallColor;
+                Histogram.BackWallBrush = _theme.WallColor;
+                Histogram.TopWallBrush = _theme.WallColor;
+                Histogram.BottomWallBrush = _theme.BlackColor;
+                Histogram.BorderBrush = _theme.BorderColor;
+                Histogram.Foreground = _theme.ForeColor;
+                Histogram.Background = _theme.BackColor;
+                Histogram.FontFamily = _theme.FontFamily;
+                Histogram.FontSize = _theme.FontSize;
+                Histogram.SideBySideSeriesPlacement = true;
+                Histogram.EnableRotation = true;
+                Histogram.Depth = 250;
+                Histogram.EnableSegmentSelection = true;
+                Histogram.EnableSeriesSelection = true;
+                Histogram.EnableRotation = true;
+                Histogram.PerspectiveAngle = 100;
+                Histogram.Padding = _theme.Padding;
+                Histogram.Series?.Clear( );
+                Histogram.Header = ( _dataTable != null )
                     ? _dataTable.TableName.SplitPascal( )
-                    : "Histogram";
-
-                HistogramCanvas.Children.Add( _histogram );
+                    : "Histogram Chart";
             }
             catch( Exception ex )
             {
@@ -621,21 +655,33 @@ namespace Badger
         {
             try
             {
-                _lineChart = new MetroLineChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    FontSize = 10,
-                    Background = _theme.BackColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.BorderColor,
-                    Margin = new Thickness( 0 ),
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName.SplitPascal( )
-                        : "Line Chart"
-                };
-
-                LineChartCanvas.Children.Add( _lineChart );
+                LineChart.Height = 454;
+                LineChart.Width = 800;
+                LineChart.Visibility = Visibility.Visible;
+                LineChart.IsEnabled = true;
+                LineChart.Margin = new Thickness( 0 );
+                LineChart.RightWallBrush = _theme.WallColor;
+                LineChart.LeftWallBrush = _theme.WallColor;
+                LineChart.BackWallBrush = _theme.WallColor;
+                LineChart.TopWallBrush = _theme.WallColor;
+                LineChart.BottomWallBrush = _theme.BlackColor;
+                LineChart.BorderBrush = _theme.BorderColor;
+                LineChart.Foreground = _theme.ForeColor;
+                LineChart.Background = _theme.BackColor;
+                LineChart.FontFamily = _theme.FontFamily;
+                LineChart.FontSize = _theme.FontSize;
+                LineChart.SideBySideSeriesPlacement = true;
+                LineChart.EnableRotation = true;
+                LineChart.Depth = 250;
+                LineChart.EnableSegmentSelection = true;
+                LineChart.EnableSeriesSelection = true;
+                LineChart.EnableRotation = true;
+                LineChart.PerspectiveAngle = 100;
+                LineChart.Padding = _theme.Padding;
+                LineChart.Series?.Clear( );
+                LineChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Line Chart";
             }
             catch( Exception ex )
             {
@@ -650,19 +696,33 @@ namespace Badger
         {
             try
             {
-                _scatterChart = new MetroScatterChart
-                {
-                    Height = 454,
-                    Width = 800,
-                    FontSize = 10,
-                    Background = _theme.BackColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.BorderColor,
-                    Margin = new Thickness( 0 ),
-                    Header = ( _dataTable != null )
-                        ? _dataTable.TableName.SplitPascal( )
-                        : "Scatter Chart"
-                };
+                ScatterChart.Height = 454;
+                ScatterChart.Width = 800;
+                ScatterChart.Visibility = Visibility.Visible;
+                ScatterChart.IsEnabled = true;
+                ScatterChart.Margin = new Thickness( 0 );
+                ScatterChart.RightWallBrush = _theme.WallColor;
+                ScatterChart.LeftWallBrush = _theme.WallColor;
+                ScatterChart.BackWallBrush = _theme.WallColor;
+                ScatterChart.TopWallBrush = _theme.WallColor;
+                ScatterChart.BottomWallBrush = _theme.BlackColor;
+                ScatterChart.BorderBrush = _theme.BorderColor;
+                ScatterChart.Foreground = _theme.ForeColor;
+                ScatterChart.Background = _theme.BackColor;
+                ScatterChart.FontFamily = _theme.FontFamily;
+                ScatterChart.FontSize = _theme.FontSize;
+                ScatterChart.SideBySideSeriesPlacement = true;
+                ScatterChart.EnableRotation = true;
+                ScatterChart.Depth = 250;
+                ScatterChart.EnableSegmentSelection = true;
+                ScatterChart.EnableSeriesSelection = true;
+                ScatterChart.EnableRotation = true;
+                ScatterChart.PerspectiveAngle = 100;
+                ScatterChart.Padding = _theme.Padding;
+                ScatterChart.Series?.Clear( );
+                ScatterChart.Header = ( _dataTable != null )
+                    ? _dataTable.TableName.SplitPascal( )
+                    : "Area Chart";
             }
             catch( Exception ex )
             {

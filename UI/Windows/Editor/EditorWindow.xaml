@@ -218,13 +218,16 @@
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="722"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"
-            HorizontalAlignment="Left"
+            Margin="1,1,1,1"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            VerticalContentAlignment="Center">
+            BorderBrush="#FF141414"
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
 
             <local:ToolStripLabel
                 x:Name="StatusLabel"

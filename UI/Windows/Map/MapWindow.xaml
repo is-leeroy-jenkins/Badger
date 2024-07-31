@@ -26,6 +26,7 @@
     mc:Ignorable="d">
     <Window.ContextMenu>
         <ContextMenu Name="MapWindowContextMenu">
+
             <syncfusion:MenuItemAdv
                 Click="OnFileMenuOptionClick"
                 Header="File"
@@ -34,6 +35,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -42,7 +44,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnChromeOptionClick"
                 Header="Chrome"
@@ -51,6 +55,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnEdgeOptionClick"
                 Header="Edge"
@@ -59,6 +64,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFirefoxOptionClick"
                 Header="FireFox"
@@ -67,7 +73,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -76,6 +84,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -84,6 +93,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -92,7 +102,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -101,6 +113,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas x:Name="MapCanvas">
@@ -131,12 +144,16 @@
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="730"
+            Canvas.Top="722"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"
+            Margin="1,1,1,1"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">
+            VerticalAlignment="Center"
+            BorderBrush="#FF141414"
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
 
             <local:ToolStripLabel
                 x:Name="StatusLabel"

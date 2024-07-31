@@ -418,10 +418,10 @@
                         Canvas.Left="34"
                         Canvas.Top="15"
                         Width="726"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
                         Content=""
-                        Foreground="#FF0078D4" />
+                        Foreground="#FF0078D4" Height="48" />
                     <local:MetroLabel
                         x:Name="SecondGridLabel"
                         Canvas.Left="278"
@@ -742,11 +742,12 @@
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="722"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"
-            HorizontalAlignment="Left"
+            Margin="1,1,1,1"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
             BorderBrush="#FF141414"
             BorderThickness="1,1,1,1"
@@ -769,8 +770,9 @@
             <Separator
                 Width="20"
                 Height="30"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton
                 x:Name="FirstButton"

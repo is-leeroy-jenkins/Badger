@@ -2,10 +2,10 @@
     x:Class="Badger.ProgramWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Badger"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
     xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
-    xmlns:local="clr-namespace:Badger"
     xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,9 +25,12 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+    <!-- Context Menu -->
     <Window.ContextMenu>
         <ContextMenu x:Name="ProgramWindowContextMenu">
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnFileMenuOptionClick"
                 Header="File"
@@ -35,16 +38,21 @@
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
+
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
                 ToolTip="Browse Directories">
+
                 <syncfusion:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnChromeOptionClick"
                 Header="Chrome"
@@ -53,6 +61,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnEdgeOptionClick"
                 Header="Edge"
@@ -61,6 +70,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFirefoxOptionClick"
                 Header="FireFox"
@@ -69,7 +79,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -78,6 +90,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -86,6 +99,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -94,7 +108,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -103,59 +119,69 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
         </ContextMenu>
     </Window.ContextMenu>
 
     <Canvas
-        x:Name="ProgramCanvas"
-        Margin="0,0,0,-5"
-        RenderTransformOrigin="0.55,0.35">
+        x:Name="ProgramCanvas" >
+
+        <!-- Tool Strip Markup -->
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="720"
+            Canvas.Top="740"
             Width="1400"
             Height="40"
             Padding="10,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
+
             <local:ToolStripLabel
                 x:Name="StatusLabel"
-                Width="75"
+                Width="80"
                 Padding="3,1,1,1"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                VerticalContentAlignment="Bottom"
-                Content="Date &amp; Time" />
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="Date &amp; Time" Height="30" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <Separator
-                Width="125"
+                Width="150"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
+
             <local:ToolStripButton
                 x:Name="FirstButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
-                ToolTip="First Record" />
+                ToolTip="First Record" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
             <local:ToolStripButton
                 x:Name="PreviousButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
+
             <local:ToolStripButton
                 x:Name="NextButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
-                ToolTip="Next Record" />
+                ToolTip="Next Record" HorizontalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="LastButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
-                ToolTip="Last Record" />
+                ToolTip="Last Record" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
@@ -164,76 +190,83 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <local:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
-                Height="25"
+                Height="30"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <local:ToolStripButton
                 x:Name="LookupButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
-                ToolTip="Look Up" />
+                ToolTip="Look Up" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="RefreshButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
-                ToolTip="Refresh" />
+                ToolTip="Refresh" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="FilterButton"
                 Foreground="#FFA0BDFC"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
+
             <local:ToolStripButton
                 x:Name="EditButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
-                ToolTip="Edit" />
+                ToolTip="Edit" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="UndoButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
-                ToolTip="Undo Last" />
+                ToolTip="Undo Last" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="SaveButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
-                ToolTip="Save" />
+                ToolTip="Save" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="DeleteButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
-                ToolTip="Delete" />
+                ToolTip="Delete" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
-                ToolTip="Export" />
+                ToolTip="Export" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
             <local:ToolStripButton
                 x:Name="BrowseButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
-                ToolTip="Browse" />
+                ToolTip="Browse" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
             <ProgressBar
                 x:Name="ToolStripProgressBar"
                 Width="150"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
+
             <local:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png"
                 ToolTip="Toggle Command Buttons" />
+
             <local:ToolStripButton
                 x:Name="MenuButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
-                ToolTip="Main Menu" />
+                ToolTip="Main Menu" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" />
+
         </local:ToolStrip>
     </Canvas>
 </Window>

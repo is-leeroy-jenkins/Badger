@@ -223,7 +223,6 @@
     <None Remove="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
     <None Remove="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <None Remove="Resources\Reports\Report.xlsx" />
-    <None Remove="UI\Windows\Main\VisualizationTile.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -494,7 +493,6 @@
     <Resource Include="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
     <Resource Include="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <Resource Include="Resources\Reports\Report.xlsx" />
-    <Resource Include="UI\Windows\Main\VisualizationTile.png" />
   </ItemGroup>
 
   <ItemGroup>
