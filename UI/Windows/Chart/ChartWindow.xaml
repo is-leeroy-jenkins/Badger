@@ -32,6 +32,7 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d" SizeToContent="WidthAndHeight">
 
+    <!-- Context Menu -->
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
             <syncfusion:MenuItemAdv
@@ -125,8 +126,10 @@
         </ContextMenu>
     </Window.ContextMenu>
 
+    <!-- Primary TabControl -->
     <Canvas x:Name="PrimaryTabCanvas">
            
+        <!-- ToolStrip Markup -->
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
@@ -282,6 +285,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
 
+            <!-- Column Chart -->
             <TabItem
                 x:Name="ColumnTab"
                 Width="90"
@@ -292,17 +296,15 @@
                 Foreground="#FFA0BDFC"
                 Header="Column"
                 IsSelected="True">
-
                 <Canvas
                     x:Name="ColumnChartCanvas"
-                    Margin="0,10,0,0"
+                    Margin="0,0,0,0"
                     Background="#FF141414">
                     <local:MetroColumnChart
                         x:Name="ColumnChart"
                         Canvas.Left="0"
                         Canvas.Top="0"
                         Height="454" Width="800" IsEnabled="True">
-
 
                         <local:MetroColumnChart.DataContext>
                             <local:ChartModel />
@@ -318,9 +320,9 @@
                         </syncfusion:ColumnSeries3D>
                     </local:MetroColumnChart>
                 </Canvas>
-
             </TabItem>
 
+            <!-- Line Chart -->
             <TabItem
                 x:Name="LineTab"
                 Width="80"
@@ -334,11 +336,18 @@
                 <Canvas
                     x:Name="LineChartCanvas"
                     Background="#FF141414">
-                    <local:MetroLineChart x:Name="LineChart" />
-                </Canvas>
 
+                    <local:MetroLineChart 
+                        x:Name="LineChart" 
+                        Width="800"
+                        Height="454" >
+
+                    </local:MetroLineChart>
+
+                </Canvas>
             </TabItem>
 
+            <!-- Pie Chart -->
             <TabItem
                 x:Name="PieTab"
                 Width="90"
@@ -353,12 +362,17 @@
                     x:Name="PieChartCanvas"
                     Background="#FF141414">
 
-                    <local:MetroPieChart x:Name="PieChart" />
+                    <local:MetroPieChart 
+                        x:Name="PieChart"
+                        Width="454"
+                        Height="800" >
+                    </local:MetroPieChart>
 
                 </Canvas>
 
             </TabItem>
 
+            <!-- Sunburst Chart -->
             <TabItem
                 x:Name="SunTab"
                 Width="90"
@@ -371,9 +385,19 @@
                 Header="Sunburst">
                 <Canvas
                     x:Name="SunburstCanvas"
-                    Background="#FF141414" />
+                    Background="#FF141414" >
+
+                    <local:SunburstChart 
+                        x:Name="SunburstChart"
+                        Width="454"
+                        Height="800" >
+
+                    </local:SunburstChart>
+
+                </Canvas>
             </TabItem>
 
+            <!-- Histogram Chart -->
             <TabItem
                 x:Name="HistogramTab"
                 Width="90"
@@ -386,9 +410,19 @@
                 Header="Histogram">
                 <Canvas
                     x:Name="HistogramCanvas"
-                    Background="#FF141414" />
+                    Background="#FF141414" >
+
+                    <local:Histogram 
+                        x:Name="Histogram"
+                        Width="454"
+                        Height="800" >
+
+                    </local:Histogram>
+
+                </Canvas>
             </TabItem>
 
+            <!-- Smith Chart -->
             <TabItem
                 x:Name="SmithTab"
                 Width="90"
@@ -400,9 +434,19 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Smith">
-                <Canvas Background="#FF141414" />
+                <Canvas Background="#FF141414" >
+
+                    <local:SmithChart 
+                        x:Name="SmithChart"
+                        Width="454"
+                        Height="800" >
+
+                    </local:SmithChart>
+
+                </Canvas>
             </TabItem>
 
+            <!-- Area Chart -->
             <TabItem
                 x:Name="AreaTab"
                 Width="90"
@@ -414,9 +458,18 @@
                 Header="Area">
                 <Canvas
                     x:Name="AreaCanvas"
-                    Background="#FF141414" />
+                    Background="#FF141414" >
+
+                    <local:MetroAreaChart
+                        x:Name="AreaChart"
+                        Width="454"
+                        Height="800" >
+                    </local:MetroAreaChart>
+
+                </Canvas>
             </TabItem>
 
+            <!-- Scatter Chart -->
             <TabItem
                 x:Name="ScatterTab"
                 Width="90"
@@ -428,9 +481,11 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Scatter">
-                <Canvas Background="#FF141414" />
+                <Canvas Background="#FF141414" >
+                </Canvas>
             </TabItem>
 
+            <!-- Busy Tab -->
             <TabItem
                 x:Name="BusyTab"
                 Width="100"
@@ -617,7 +672,7 @@
                         Width="175"
                         Height="30"
                         AllowMultiSelect="False"
-                        DefaultText="ComboBox Items">
+                        DefaultText="">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                         <syncfusion:ComboBoxItemAdv Content="Item 2" />
                         <syncfusion:ComboBoxItemAdv Content="Item 3" />
@@ -632,7 +687,7 @@
                         Width="175"
                         Height="30"
                         AllowMultiSelect="False"
-                        DefaultText="ComboBox Items">
+                        DefaultText="">
                         <syncfusion:ComboBoxItemAdv Content="Item 1" />
                     </local:MetroComboBox>
 
@@ -821,7 +876,6 @@
                         Content="" />
                 </Canvas>
             </TabItem>
-
         </local:MetroTabControl>
 
     </Canvas>
