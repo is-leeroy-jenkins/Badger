@@ -310,14 +310,378 @@
         </Setter>
     </Style>
 
-    <ResourceDictionary x:Key="WindowResources" Source="/Themes/Window/WindowResources.xaml" />
+    <!--  Window Resources -->
 
-    <ResourceDictionary x:Key="ToolStripResources" Source="/Themes/ToolStrip/ToolStripResources.xaml" />
+    <SolidColorBrush
+        x:Key="DarkBackColor"
+        Color="#FF141414" />
 
-    <ResourceDictionary x:Key="MenuResources" Source="/Themes/Menu/MenuResources.xaml" />
+    <SolidColorBrush
+        x:Key="WhiteColor"
+        Color="#FFFFFFFF" />
 
-    <ResourceDictionary x:Key="ProviderResources" Source="/Themes/Provider/ProviderResources.xaml" />
+    <SolidColorBrush
+        x:Key="ForeColor"
+        Color="#FFDEDEDE" />
 
-    <ResourceDictionary x:Key="ExtensionResources" Source="/Themes/Extension/ExtensionResources.xaml" />
+    <SolidColorBrush
+        x:Key="BorderColor"
+        Color="#FF0078D4" />
+
+    <SolidColorBrush
+        x:Key="DarkBlueColor"
+        Color="#FF325D81" />
+
+    <SolidColorBrush
+        x:Key="Transparent"
+        Color="#00000000" />
+
+    <SolidColorBrush
+        x:Key="SteelBlueColor"
+        Color="SteelBlue" />
+
+    <SolidColorBrush
+        x:Key="BlackColor"
+        Color="#FF000000" />
+
+    <SolidColorBrush
+        x:Key="DarkGrayColor"
+        Color="DarkGray" />
+
+    <SolidColorBrush
+        x:Key="YellowColor"
+        Color="Yellow" />
+
+    <SolidColorBrush
+        x:Key="GreenColor"
+        Color="DarkOliveGreen" />
+
+    <SolidColorBrush
+        x:Key="RedColor"
+        Color="Maroon" />
+
+    <SolidColorBrush
+        x:Key="KhakiColor"
+        Color="DarkKhaki" />
+
+    <SolidColorBrush
+        x:Key="LightBlueColor"
+        Color="#FF6ABDFC" />
+
+    <SolidColorBrush
+        x:Key="ControlBackColor"
+        Color="#FF2D2D2D" />
+
+    <!--  Context Menu Resources -->
+
+    <Image
+        x:Key="CalculatorMenuItem"
+        Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+
+    <Image
+        x:Key="CalendarMenuItem"
+        Source="/Resources/Assets/MenuImages/CalendarItem.png" />
+
+    <Image
+        x:Key="ChromeMenuItem"
+        Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+
+    <Image
+        x:Key="ClockMenuItem"
+        Source="/Resources/Assets/MenuImages/ClockItem.png" />
+
+    <Image
+        x:Key="CloseMenuItem"
+        Source="/Resources/Assets/MenuImages/CloseItem.png" />
+
+    <Image
+        x:Key="ControlPanelMenuItem"
+        Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+
+    <Image
+        x:Key="DocumentationMenuItem"
+        Source="/Resources/Assets/MenuImages/DocumentaionItem.png" />
+
+    <Image
+        x:Key="EdgeMenuItem"
+        Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+
+    <Image
+        x:Key="ExitMenuItem"
+        Source="/Resources/Assets/MenuImages/ExitItem.png" />
+
+    <Image
+        x:Key="FileMenuItem"
+        Source="/Resources/Assets/MenuImages/FileItem.png" />
+
+    <Image
+        x:Key="FireFoxMenuItem"
+        Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+
+    <Image
+        x:Key="FolderMenuItem"
+        Source="/Resources/Assets/MenuImages/FolderItem.png" />
+
+    <Image
+        x:Key="MapMenuItem"
+        Source="/Resources/Assets/MenuImages/MapItem.png" />
+
+    <Image
+        x:Key="MediaPlayerMenuItem"
+        Source="/Resources/Assets/MenuImages/MediaPlayerItem.png" />
+
+    <Image
+        x:Key="OneDriveMenuItem"
+        Source="/Resources/Assets/MenuImages/OneDriveItem.png" />
+
+    <Image
+        x:Key="RefreshMenuItem"
+        Source="/Resources/Assets/MenuImages/RefreshItem.png" />
+
+    <Image
+        x:Key="SaveMenuItem"
+        Source="/Resources/Assets/MenuImages/SaveItem.png" />
+
+    <Image
+        x:Key="TaskManagerMenuItem"
+        Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+    <!-- ToolStrip Resources -->
+    
+    <Image
+        x:Key="BrowseButton"
+        Source="/Resources/Assets/ToolStripImages/BrowseButton.png" />
+
+    <Image
+        x:Key="DataSourceButton"
+        Source="/Resources/Assets/ToolStripImages/DataSourceButton.png" />
+
+    <Image
+        x:Key="DateButton"
+        Source="/Resources/Assets/ToolStripImages/DateButton.png" />
+
+    <Image
+        x:Key="DeleteButton"
+        Source="/Resources/Assets/ToolStripImages/DeleteButton.png" />
+
+    <Image
+        x:Key="EditButton"
+        Source="/Resources/Assets/ToolStripImages/EditButton.png" />
+
+    <Image
+        x:Key="ExcelButton"
+        Source="/Resources/Assets/ToolStripImages/ExcelButton.png" />
+
+    <Image
+        x:Key="ExitButton"
+        Source="/Resources/Assets/ToolStripImages/ExportButton.png" />
+
+    <Image
+        x:Key="ExportButton"
+        Source="/Resources/Assets/ToolStripImages/ExportButton.png" />
+
+    <Image
+        x:Key="FilterButton"
+        Source="/Resources/Assets/ToolStripImages/FirstButton.png" />
+
+    <Image
+        x:Key="FirstButton"
+        Source="/Resources/Assets/ToolStripImages/BrowseButton.png" />
+
+    <Image
+        x:Key="PreviousButton"
+        Source="/Resources/Assets/ToolStripImages/FirstButton.png" />
+
+    <Image
+        x:Key="NextButton"
+        Source="/Resources/Assets/ToolStripImages/NextButton.png" />
+
+    <Image
+        x:Key="LastButton"
+        Source="/Resources/Assets/ToolStripImages/LastButton.png" />
+
+    <Image
+        x:Key="RefreshButton"
+        Source="/Resources/Assets/ToolStripImages/RefreshButton.png" />
+
+    <Image
+        x:Key="SaveButton"
+        Source="/Resources/Assets/ToolStripImages/SaveButton.png" />
+
+    <Image
+        x:Key="GridButton"
+        Source="/Resources/Assets/ToolStripImages/GridButton.png" />
+
+    <Image
+        x:Key="GroupButton"
+        Source="/Resources/Assets/ToolStripImages/GroupButton.png" />
+
+    <Image
+        x:Key="LookupButton"
+        Source="/Resources/Assets/ToolStripImages/LookupButton.png" />
+
+    <Image
+        x:Key="SchemaButton"
+        Source="/Resources/Assets/ToolStripImages/SchemaButton.png" />
+
+    <Image
+        x:Key="SqlButton"
+        Source="/Resources/Assets/ToolStripImages/SqlButton.png" />
+
+    <Image
+        x:Key="ToggleButton"
+        Source="/Resources/Assets/ToolStripImages/MenuButton.png" />
+
+
+    <!--  Tile Resources -->
+
+    <Image
+        x:Key="AccessTile"
+        Source="/Resources/Assets/TileImages/AccessTile.png" />
+    <Image
+        x:Key="BrowserTile"
+        Source="/Resources/Assets/TileImages/BrowserTile.png" />
+    <Image
+        x:Key="CalendarTile"
+        Source="/Resources/Assets/TileImages/CalendarTile.png" />
+    <Image
+        x:Key="DataTile"
+        Source="/Resources/Assets/TileImages/DataTile.png" />
+    <Image
+        x:Key="ExcelTile"
+        Source="/Resources/Assets/TileImages/ExcelTile.png" />
+    <Image
+        x:Key="EmailTile"
+        Source="/Resources/Assets/TileImages/EmailTile.png" />
+    <Image
+        x:Key="GuidanceTile"
+        Source="/Resources/Assets/TileImages/GuidanceTile.png" />
+    <Image
+        x:Key="MapTile"
+        Source="/Resources/Assets/TileImages/MapTile.png" />
+    <Image
+        x:Key="PivotTile"
+        Source="/Resources/Assets/TileImages/PivotTile.png" />
+    <Image
+        x:Key="ProgramTile"
+        Source="/Resources/Assets/TileImages/ProgramTile.png" />
+    <Image
+        x:Key="SqlCeTile"
+        Source="/Resources/Assets/TileImages/SqlCeTile.png" />
+    <Image
+        x:Key="SqlEditorTile"
+        Source="/Resources/Assets/TileImages/SqlEditorTile.png" />
+    <Image
+        x:Key="SQLiteTile"
+        Source="/Resources/Assets/TileImages/SQLiteTile.png" />
+    <Image
+        x:Key="SqlServerTile"
+        Source="/Resources/Assets/TileImages/SqlServerTile.png" />
+    <Image
+        x:Key="VisualizationTile"
+        Source="/Resources/Assets/TileImages/VisualizationTile.png" />
+
+    <!--  Extension Resources -->
+
+    <Image
+        x:Key="ACCDB"
+        Source="/Resources/Assets/ExtensionImages/ACCDB.png" />
+
+    <Image
+        x:Key="CSV"
+        Source="/Resources/Assets/ExtensionImages/CSV.png" />
+
+    <Image
+        x:Key="DB"
+        Source="/Resources/Assets/ExtensionImages/DB.png" />
+
+    <Image
+        x:Key="DLL"
+        Source="/Resources/Assets/ExtensionImages/DLL.png" />
+
+    <Image
+        x:Key="DOC"
+        Source="/Resources/Assets/ExtensionImages/DOC.png" />
+
+    <Image
+        x:Key="DOCX"
+        Source="/Resources/Assets/ExtensionImages/DOCX.png" />
+
+    <Image
+        x:Key="EXE"
+        Source="/Resources/Assets/ExtensionImages/EXE.png" />
+
+    <Image
+        x:Key="MDB"
+        Source="/Resources/Assets/ExtensionImages/MDB.png" />
+
+    <Image
+        x:Key="MDF"
+        Source="/Resources/Assets/ExtensionImages/MDF.png" />
+
+    <Image
+        x:Key="PDF"
+        Source="/Resources/Assets/ExtensionImages/PDF.png" />
+
+    <Image
+        x:Key="PNG"
+        Source="/Resources/Assets/ExtensionImages/PNG.png" />
+
+    <Image
+        x:Key="PPTX"
+        Source="/Resources/Assets/ExtensionImages/PPTX.png" />
+
+    <Image
+        x:Key="PY"
+        Source="/Resources/Assets/ExtensionImages/PY.png" />
+
+    <Image
+        x:Key="SDF"
+        Source="/Resources/Assets/ExtensionImages/SDF.png" />
+
+    <Image
+        x:Key="SQL"
+        Source="/Resources/Assets/ExtensionImages/SQL.png" />
+    <Image
+        x:Key="TXT"
+        Source="/Resources/Assets/ExtensionImages/TXT.png" />
+
+    <Image
+        x:Key="XLS"
+        Source="/Resources/Assets/ExtensionImages/XLS.png" />
+
+    <Image
+        x:Key="XLSX"
+        Source="/Resources/Assets/ExtensionImages/XLSX.png" />
+
+    <Image
+        x:Key="XML"
+        Source="/Resources/Assets/ExtensionImages/XML.png" />
+
+    <Image
+        x:Key="HTML"
+        Source="/Resources/Assets/ExtensionImages/HTML.png" />
+
+    <!--  Provider Resources -->
+
+    <Image
+        x:Key="Access"
+        Source="/Resources/Assets/ProviderImages/Access.png" />
+
+    <Image
+        x:Key="Excel"
+        Source="/Resources/Assets/ProviderImages/Excel.png" />
+
+    <Image
+        x:Key="SqlCe"
+        Source="/Resources/Assets/ProviderImages/SqlCe.png" />
+
+    <Image
+        x:Key="SqlServer"
+        Source="/Resources/Assets/ProviderImages/SqlServer.png" />
+
+    <Image
+        x:Key="SQLite"
+        Source="/Resources/Assets/ProviderImages/SQLite.png" />
+
 
 </ResourceDictionary>

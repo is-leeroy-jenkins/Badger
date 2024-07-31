@@ -5,6 +5,7 @@
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
     xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
     xmlns:local="clr-namespace:Badger"
     xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
