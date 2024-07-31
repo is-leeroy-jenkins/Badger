@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-29-2024
+//     Created:                 07-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-29-2024
+//     Last Modified On:        07-31-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts.
@@ -58,6 +58,7 @@ namespace Badger
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
     using LabelPlacement = Syncfusion.UI.Xaml.Charts.LabelPlacement;
+    using SelectionMode = System.Windows.Controls.SelectionMode;
 
     /// <inheritdoc />
     /// <summary>
@@ -1721,7 +1722,7 @@ namespace Badger
                         DataTableListBox.Items?.Add( _item );
                     }
 
-                    DataTableListBox.SelectionMode = System.Windows.Controls.SelectionMode.Single;
+                    DataTableListBox.SelectionMode = SelectionMode.Single;
                 }
             }
             catch( Exception ex )

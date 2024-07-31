@@ -376,6 +376,28 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes the tab controls.
+        /// </summary>
+        private void InitializeTabControls( )
+        {
+            try
+            {
+                DataTab.IsSelected = true;
+                EditorTab.IsSelected = true;
+                DataTab.Visibility = Visibility.Hidden;
+                EditorTab.Visibility = Visibility.Hidden;
+                BusyTab.Visibility = Visibility.Hidden;
+                ProviderTab.Visibility = Visibility.Hidden;
+                FilterTab.Visibility = Visibility.Hidden;
+                GroupTab.Visibility = Visibility.Hidden;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -608,6 +630,7 @@ namespace Badger
                 InitializeLabels( );
                 InitializeRadioButtons( );
                 InitializeToolbar( );
+                InitializeTabControls( );
                 Opacity = 0;
                 FadeInAsync( this );
             }

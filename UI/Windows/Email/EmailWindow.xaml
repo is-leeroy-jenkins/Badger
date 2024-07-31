@@ -24,6 +24,8 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+<!--***************************   Context Menu      ***************************-->
+
     <Window.ContextMenu>
         <ContextMenu Name="EmailWindowContextMenu">
             <syncfusion:MenuItemAdv
@@ -34,6 +36,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -42,7 +45,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Chrome"
@@ -51,6 +56,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Edge"
@@ -59,6 +65,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="FireFox"
@@ -67,7 +74,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -76,6 +85,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -84,6 +94,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -92,7 +103,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -101,6 +114,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
         </ContextMenu>
     </Window.ContextMenu>
 
@@ -112,6 +126,8 @@
         VerticalAlignment="Center" 
         HorizontalAlignment="Left" 
         Background="#FF141414">
+
+<!--***************************   ToolStrip      ***************************-->
 
         <local:ToolStrip
             x:Name="Toolbar"
@@ -126,7 +142,6 @@
             BorderBrush="#FF141414"
             BorderThickness="1,1,1,1"
             OverflowButtonVisibility="Collapsed">
-
 
             <local:ToolStripLabel
                 x:Name="StatusLabel"
@@ -144,9 +159,9 @@
 
             <Separator
                 Width="100"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FF141414" />
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
 
             <local:ToolStripButton
                 x:Name="FirstButton"
@@ -238,7 +253,8 @@
                 ToolTip="Browse" />
 
             <ProgressBar
-                Width="150"
+                Width="170"
+                Height="30"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
 

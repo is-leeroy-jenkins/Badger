@@ -26,6 +26,9 @@
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+<!-- ************************************** Context Menu  ************************************* -->
+
     <Window.ContextMenu>
         <ContextMenu Name="PivotWindowContextMenu">
             <syncfusion:MenuItemAdv
@@ -36,6 +39,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -44,7 +48,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Chrome"
@@ -53,6 +59,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Edge"
@@ -61,6 +68,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="FireFox"
@@ -69,7 +77,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -78,6 +88,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -86,6 +97,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -94,7 +106,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -103,10 +117,13 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
         </ContextMenu>
     </Window.ContextMenu>
 
     <Canvas x:Name="PivotChartCanvas">
+
+<!-- ************************************** ToolStrip  ************************************* -->
 
         <local:ToolStrip
             x:Name="Toolbar"
@@ -143,25 +160,21 @@
 
             <local:ToolStripButton
                 x:Name="FirstButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
 
             <local:ToolStripButton
                 x:Name="PreviousButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
 
             <local:ToolStripButton
                 x:Name="NextButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
 
             <local:ToolStripButton
                 x:Name="LastButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
 
@@ -190,13 +203,11 @@
 
             <local:ToolStripButton
                 x:Name="LookupButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
 
             <local:ToolStripButton
                 x:Name="RefreshButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
 
@@ -208,25 +219,21 @@
 
             <local:ToolStripButton
                 x:Name="EditButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
                 ToolTip="Edit" />
 
             <local:ToolStripButton
                 x:Name="UndoButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
                 ToolTip="Undo Last" />
 
             <local:ToolStripButton
                 x:Name="SaveButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
                 ToolTip="Save" />
 
             <local:ToolStripButton
                 x:Name="DeleteButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
                 ToolTip="Delete" />
 
@@ -237,7 +244,6 @@
 
             <local:ToolStripButton
                 x:Name="BrowseButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
 
@@ -250,14 +256,16 @@
                 Width="30"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}" />
+
             <local:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
             <local:ToolStripButton
                 x:Name="MenuButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
+
         </local:ToolStrip>
 
         <local:MetroTabControl
@@ -282,6 +290,8 @@
                     x:Name="SourceCanvas"
                     Margin="0,13,0,0"
                     Background="#FF141414">
+
+<!-- ************************************** List Box  ************************************* -->
 
                     <local:MetroListBox
                         x:Name="DataTableListBox"
@@ -329,6 +339,9 @@
                 <Canvas
                     x:Name="FilterCanvas"
                     Background="#FF141414">
+
+<!-- ************************************** List Box  ************************************* -->
+
                     <local:MetroListBox
                         x:Name="SecondCategoryListBox"
                         Canvas.Left="46"
@@ -338,6 +351,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}" />
+
+<!-- ************************************** List Box  ************************************* -->
 
                     <local:MetroListBox
                         x:Name="FirstCategoryListBox"
@@ -349,6 +364,8 @@
                         VerticalAlignment="Center"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+
+<!-- ************************************** Combo Box  ************************************* -->
 
                     <local:MetroComboBox
                         x:Name="FirstCategoryComboBox"
@@ -362,6 +379,8 @@
                         <syncfusion:ComboBoxItemAdv Content="Item 4" />
                         <syncfusion:ComboBoxItemAdv Content="Item 5" />
                     </local:MetroComboBox>
+
+<!-- ************************************** Combo Box  ************************************* -->
 
                     <local:MetroComboBox
                         x:Name="SecondCategoryComboBox"
@@ -426,6 +445,9 @@
                         VerticalAlignment="Top"
                         Content="Fields"
                         Foreground="#FF0078D4" />
+
+<!-- ************************************** List Box  ************************************* -->
+
                     <local:MetroListBox
                         x:Name="FieldListBox"
                         Width="212"
@@ -435,7 +457,8 @@
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         RenderTransformOrigin="0.5,0.5">
-                        <local:MetroListBox.RenderTransform>
+
+                    <local:MetroListBox.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform />
                                 <SkewTransform AngleY="-0.295" />
@@ -445,6 +468,8 @@
                         </local:MetroListBox.RenderTransform>
                     </local:MetroListBox>
 
+<!-- ************************************** List Box  ************************************* -->
+
                     <local:MetroListBox
                         x:Name="NumericListBox"
                         Width="210"
@@ -453,6 +478,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}" />
+
                     <local:MetroLabel
                         x:Name="NumericsLabel"
                         Width="170"
@@ -474,11 +500,13 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Calendar">
+
                 <Canvas
                     x:Name="CalendarCanvas"
                     Height="624"
                     VerticalAlignment="Bottom"
                     Background="#FF141414">
+
                     <local:MetroLabel
                         x:Name="FirstDateLabel"
                         Canvas.Left="52"
@@ -490,6 +518,8 @@
                         VerticalContentAlignment="Bottom"
                         Content="First Date"
                         Foreground="#FF0078D4" />
+
+<!-- ************************************** List Box  ************************************* -->
 
                     <local:MetroCalendar
                         x:Name="FirstCalendar"
@@ -516,6 +546,8 @@
                         Foreground="#FF0078D4"
                         Grid.IsSharedSizeScope="True" />
 
+<!-- ************************************** List Box  ************************************* -->
+
                     <local:MetroCalendar
                         x:Name="SecondCalendar"
                         Canvas.Left="46"
@@ -539,6 +571,7 @@
             Height="652"
             HorizontalAlignment="Left"
             VerticalAlignment="Center">
+
             <TabItem
                 x:Name="DataTab"
                 Width="100"
@@ -552,6 +585,9 @@
                     x:Name="PivotCanvas"
                     Margin="0,11,0,0"
                     Background="#FF141414">
+
+<!-- ************************************** Pivot Grid  ************************************* -->
+
                     <local:MetroPivotGrid
                         x:Name="PivotGrid"
                         Canvas.Left="24"
@@ -572,6 +608,7 @@
                         ShowGroupingBar="True"
                         ShowSubTotals="True"
                         SortOption="All" />
+
                 </Canvas>
             </TabItem>
 
@@ -584,17 +621,24 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Chart">
+
                 <Canvas
                     x:Name="ChartCanvas"
                     Background="#FF141414">
+
+<!-- ************************************** Chart  ************************************* -->
+
                     <syncfusion:SfChart
                         x:Name="Chart"
                         Canvas.Left="102"
                         Canvas.Top="100"
                         Width="715"
                         Height="435" />
+
                 </Canvas>
             </TabItem>
+
+<!-- ************************************** Busy Tab  ************************************* -->
 
             <TabItem
                 x:Name="BusyTab"
@@ -604,12 +648,15 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Busy">
+
                 <Canvas Background="#FF141414">
+
                     <Canvas
                         Width="1024"
                         Height="626"
                         Background="#FF141414"
                         RenderTransformOrigin="0.517,0.505">
+
                         <Image
                             x:Name="Loader"
                             Canvas.Left="19"
@@ -620,9 +667,11 @@
                             VerticalAlignment="Top"
                             gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif"
                             Stretch="UniformToFill" />
+
                     </Canvas>
                 </Canvas>
             </TabItem>
+
         </local:MetroTabControl>
     </Canvas>
 </Window>

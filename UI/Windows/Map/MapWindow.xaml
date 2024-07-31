@@ -24,6 +24,9 @@
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+<!-- ************************************** Context Menu ************************************* -->
+
     <Window.ContextMenu>
         <ContextMenu Name="MapWindowContextMenu">
 
@@ -116,6 +119,9 @@
 
         </ContextMenu>
     </Window.ContextMenu>
+
+<!-- ************************************** MAP  ************************************* -->
+
     <Canvas x:Name="MapCanvas">
         <syncfusion:SfMap
             x:Name="Map"
@@ -140,6 +146,8 @@
                     RenderTransformOrigin="0.882,0.492" />
             </syncfusion:SfMap.Layers>
         </syncfusion:SfMap>
+
+<!-- ************************************** ToolStrip  ************************************* -->
 
         <local:ToolStrip
             x:Name="Toolbar"
@@ -259,25 +267,32 @@
 
             <local:ToolStripButton
                 x:Name="BrowseButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
 
             <ProgressBar
-                Width="160"
+                Width="200"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
+
             <Separator
-                Width="30"
+                Width="20"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}" />
-            <local:ToolStripButton x:Name="ToggleButton" ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
+            <local:ToolStripButton 
+                x:Name="ToggleButton" 
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
             <local:ToolStripButton
                 x:Name="MenuButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
+
         </local:ToolStrip>
+
+<!-- ************************************** Column Chart  ************************************* -->
+
         <syncfusion:SfChart
             x:Name="ColumnChart"
             Canvas.Left="790"
@@ -286,5 +301,6 @@
             Height="400"
             HorizontalAlignment="Center"
             VerticalAlignment="Center" />
+
     </Canvas>
 </Window>
