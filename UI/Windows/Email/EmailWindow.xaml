@@ -24,7 +24,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-<!--***************************   Context Menu      ***************************-->
+<!--*******************************   Context Menu      **********************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="EmailWindowContextMenu">
@@ -132,7 +132,7 @@
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="722"
+            Canvas.Top="737"
             Width="1400"
             Height="40"
             Padding="1,1,1,1"

@@ -25,7 +25,8 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--  Context Menu  -->
+<!--************************************  Context Menu  *****************************************-->
+
     <Window.ContextMenu>
         <ContextMenu x:Name="ProgramWindowContextMenu">
 
@@ -127,7 +128,8 @@
 
     <Canvas x:Name="ProgramCanvas">
 
-        <!--  Tool Strip Markup  -->
+<!--************************************  ToolStrip  *****************************************-->
+
         <local:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
@@ -191,16 +193,13 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <syncfusion:MenuItemSeparator
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                Foreground="{x:Null}" />
 
             <local:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
                 Height="30"
                 Padding="10,1,1,1"
+                Margin="1,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center" />
@@ -266,6 +265,7 @@
 
             <local:ToolStripButton
                 x:Name="ExportButton"
+                Height="30"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
@@ -281,12 +281,13 @@
 
             <ProgressBar
                 x:Name="ToolStripProgressBar"
-                Width="150"
+                Width="200"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
 
             <local:ToolStripButton
                 x:Name="ToggleButton"
+                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png"
                 ToolTip="Toggle Command Buttons" />
 

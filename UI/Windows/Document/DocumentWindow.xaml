@@ -24,6 +24,8 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+<!--***************************** Context Menu  ***********************************-->
+
     <Window.ContextMenu>
         <ContextMenu Name="DocumentWindowContextMenu">
             <syncfusion:MenuItemAdv
@@ -34,6 +36,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -42,7 +45,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Chrome"
@@ -51,6 +56,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Edge"
@@ -59,6 +65,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="FireFox"
@@ -67,7 +74,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -76,6 +85,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -84,6 +94,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <syncfusion:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -92,7 +103,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
             <Separator />
+
             <syncfusion:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -101,12 +114,16 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </syncfusion:MenuItemAdv.Icon>
             </syncfusion:MenuItemAdv>
+
         </ContextMenu>
     </Window.ContextMenu>
 
     <Canvas
         x:Name="DocumentCanvas"
         RenderTransformOrigin="0.634,0.466">
+
+<!--***************************** PDF Viewer  ***********************************-->
+
         <PdfViewer:PdfViewerControl
             x:Name="PdfViewer"
             Canvas.Left="25"
@@ -117,6 +134,8 @@
             VerticalAlignment="Center"
             BorderBrush="#FF0078D4"
             BorderThickness="1,1,1,1" />
+
+<!--***************************** ToolStrip  ***********************************-->
 
         <local:ToolStrip
             x:Name="Toolbar"
@@ -140,10 +159,12 @@
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Bottom"
                 Content="Date &amp; Time" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <Separator
                 Width="100"
                 Background="#FF141414"
@@ -177,6 +198,7 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <syncfusion:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
@@ -239,6 +261,7 @@
 
             <local:ToolStripButton
                 x:Name="ExportButton"
+                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export" />
 
@@ -249,12 +272,12 @@
                 ToolTip="Browse" />
 
             <ProgressBar
-                Width="150"
+                Width="200"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
 
             <Separator
-                Width="70"
+                Width="20"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />

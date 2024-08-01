@@ -26,6 +26,8 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+<!--*******************************   Context Menu      **********************************-->
+
     <Window.ContextMenu>
         <ContextMenu Name="ExcelWindowContextMenu">
 
@@ -149,6 +151,8 @@
                     Height="682"
                     Background="#FF141414">
 
+<!--*******************************   Ribbon     ****************************************-->
+
                     <syncfusion:SfSpreadsheetRibbon
                         x:Name="Ribbon"
                         Canvas.Left="0"
@@ -157,6 +161,8 @@
                         Height="130"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top" />
+
+<!--*******************************   Spreadsheet      **********************************-->
 
                     <syncfusion:SfSpreadsheet
                         x:Name="Spreadsheet"
@@ -353,6 +359,9 @@
                 Foreground="#FFFBF9F9"
                 Header="Chart">
                 <Canvas x:Name="ChartTabCanvas" Background="#FF141414">
+
+<!--*******************************  Chart      **********************************-->
+
                     <syncfusion:SfChart
                         x:Name="ColumnChart"
                         Canvas.Left="57"
@@ -385,7 +394,10 @@
                         Stretch="Fill" />
                 </Canvas>
             </TabItem>
+
         </local:MetroTabControl>
+
+<!--*******************************   ToolStrip      **********************************-->
 
         <local:ToolStrip
             x:Name="Toolbar"
@@ -417,7 +429,7 @@
                 Foreground="{x:Null}" />
 
             <Separator
-                Width="140"
+                Width="135"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
