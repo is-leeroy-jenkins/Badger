@@ -1,13 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 08-01-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        08-01-2024
 // ******************************************************************************************
-// <copyright file="ChartData.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
+// <copyright file="ChartModel.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    based on WPF, NET6.0, and written in C-Sharp.
+// 
 //    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +35,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ChartData.cs
+//   ChartModel.cs
 // </summary>
 // ******************************************************************************************
 

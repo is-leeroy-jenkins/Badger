@@ -1,15 +1,17 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
-//
+//     Created:                 08-01-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}
+//     Last Modified On:        08-01-2024
 // ******************************************************************************************
-// <copyright file="${File.FileName}" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  ${CurrentDate.Year}  Terry D. Eppler
-//
+// <copyright file="SchemaWindow.xaml.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    based on WPF, NET6.0, and written in C-Sharp.
+// 
+//    Copyright ©  2024  Terry D. Eppler
+// 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
 //    to deal in the Software without restriction,
@@ -18,10 +20,10 @@
 //    and/or sell copies of the Software,
 //    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//
+// 
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//
+// 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -29,11 +31,11 @@
 //    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
-//
+// 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ${File.FileName}
+//   SchemaWindow.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,29 +45,25 @@ namespace Badger
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading.Tasks;
     using System.Windows;
 
     /// <inheritdoc />
     /// <summary>
-    /// Interaction logic for CommandWindow.xaml
+    /// Interaction logic for SchemaWindow.xaml
     /// </summary>
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "RedundantExtendsListEntry" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    public partial class CommandWindow : Window
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public partial class SchemaWindow : Window
     {
         /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
-
-        /// <summary>
-        /// The tiles
-        /// </summary>
-        private protected IList<MetroTile> _buttons;
 
         /// <summary>
         /// The path
@@ -93,20 +91,25 @@ namespace Badger
         private protected int _time;
 
         /// <summary>
+        /// The menu items
+        /// </summary>
+        private protected IList<MetroCheckListItem> _menuItems;
+
+        /// <summary>
         /// Gets the menu items.
         /// </summary>
         /// <value>
         /// The menu items.
         /// </value>
-        public IList<MetroTile> MenuItems
+        public IList<MetroCheckListItem> MenuItems
         {
             get
             {
-                return _buttons;
+                return _menuItems;
             }
             private protected set
             {
-                _buttons = value;
+                _menuItems = value;
             }
         }
 
@@ -143,14 +146,13 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ContextMenu" /> class.
+        /// <see cref="T:Badger.SchemaWindow" /> class.
         /// </summary>
-        public CommandWindow( )
+        public SchemaWindow( )
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
-            SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
             InitializeComponent( );
@@ -162,13 +164,16 @@ namespace Badger
             ResizeMode = ResizeMode.CanResize;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            Margin = new Thickness( 1 );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            Margin = _theme.Margin;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
+
+            // Window Events
+            Loaded += OnLoad;
         }
 
         /// <summary>
@@ -178,7 +183,54 @@ namespace Badger
         {
             try
             {
-                FileButton.Click += OnFileButtonClick;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Window form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
             }
             catch( Exception ex )
             {
@@ -190,27 +242,16 @@ namespace Badger
         /// Gets the buttons.
         /// </summary>
         /// <returns></returns>
-        private IList<MetroTile> GetButtons( )
+        private IList<MetroCheckListItem> CreateChecklistItems( )
         {
             try
             {
-                return new List<MetroTile>
-                {
-                    FileButton,
-                    FolderButton,
-                    ControlPanelButton,
-                    TaskManagerButton,
-                    CalculatorButton,
-                    CalendarButton,
-                    ChromeButton,
-                    EdgeButton,
-                    FirefoxButton
-                };
+                return new List<MetroCheckListItem>( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<MetroTile> );
+                return default( IList<MetroCheckListItem> );
             }
         }
 
@@ -245,18 +286,7 @@ namespace Badger
         {
             try
             {
-                _buttons = new List<MetroTile>
-                {
-                    FileButton,
-                    FolderButton,
-                    ControlPanelButton,
-                    TaskManagerButton,
-                    CalculatorButton,
-                    CalendarButton,
-                    ChromeButton,
-                    EdgeButton,
-                    FirefoxButton
-                };
+                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -270,7 +300,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFileButtonClick( object sender, EventArgs e )
+        private void OnItemUnChecked( object sender, EventArgs e )
         {
             try
             {
@@ -282,131 +312,12 @@ namespace Badger
         }
 
         /// <summary>
-        /// Called when [folder button click].
+        /// Called when [item checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFolderButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [control panel button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnControlPanelButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [task manager button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTaskManagerButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [calculator button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnCalculatorButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [calendar button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnCalendarButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [edge button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnEdgeButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [chrome button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnChromeButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [firefox button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.EventArgs" />
-        /// instance containing the event data.</param>
-        private void OnFirefoxButtonClick( object sender, EventArgs e )
+        private void OnItemChecked( object sender, EventArgs e )
         {
             try
             {

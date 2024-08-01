@@ -412,7 +412,7 @@
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/SyncToVisualStudio/@EntryValue">True</s:Boolean>
 	
 	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">******************************************************************************************&#xD;
-    Assembly:             Badger&#xD;
+    Assembly:                Badger&#xD;
     Author:                  Terry D. Eppler&#xD;
     Created:                 ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
 &#xD;
@@ -420,8 +420,10 @@
     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
 ******************************************************************************************&#xD;
 &lt;copyright file="${File.FileName}" company="Terry D. Eppler"&gt;&#xD;
-    Badger is a budget, finance, and accounting data reporting and analysis tool for EPA analysts.&#xD;
-    Copyright ©  2024  Terry D. Eppler&#xD;
+    Badger is a budget execution &amp; data analysis tool for EPA analysts &#xD;
+    based on WPF, Net 6, and written in C#.&#xD;
+    &#xD;
+    Copyright ©  2022 Terry D. Eppler&#xD;
 &#xD;
    Permission is hereby granted, free of charge, to any person obtaining a copy&#xD;
    of this software and associated documentation files (the “Software”),&#xD;

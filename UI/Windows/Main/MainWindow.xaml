@@ -1,286 +1,123 @@
-﻿<Window
-    x:Class="Badger.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Badger"
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
-    xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
-    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:gif="http://wpfanimatedgif.codeplex.com"
-    x:Name="Main"
-    Title="Budget Execution"
-    Width="1350"
-    Height="800"
-    MinWidth="1250"
-    MinHeight="650"
-    Background="#FF141414"
-    BorderBrush="#FF0078D4"
-    Foreground="#FF6ABDFC"
-    WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
-
-    <Window.ContextMenu>
-        <ContextMenu Name="MainWindowContextMenu">
-            <syncfusion:MenuItemAdv
-                Click="OnFileMenuOptionClick"
-                Header="File"
-                ToolTip="Browse File System">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <syncfusion:MenuItemAdv
-                Click="OnFolderMenuOptionClick"
-                Header="Folder"
-                ToolTip="Browse Directories">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <Separator />
-
-            <syncfusion:MenuItemAdv
-                Click="OnChromeOptionClick"
-                Header="Chrome"
-                ToolTip="Launch Chrome Browser">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <syncfusion:MenuItemAdv
-                Click="OnEdgeOptionClick"
-                Header="Edge"
-                ToolTip="Launch Edge Browser">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <syncfusion:MenuItemAdv
-                Click="OnFirefoxOptionClick"
-                Header="FireFox"
-                ToolTip="Launch Firefox Browser">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <Separator />
-
-            <syncfusion:MenuItemAdv
-                Click="OnCalculatorMenuOptionClick"
-                Header="Calculator"
-                ToolTip="Open Calculator">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <syncfusion:MenuItemAdv
-                Click="OnControlPanelOptionClick"
-                Header="Control Panel"
-                ToolTip="Windows 10 Control Panel">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <syncfusion:MenuItemAdv
-                Click="OnTaskManagerOptionClick"
-                Header="Task Manager"
-                ToolTip="Windows 10 Task Manager">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-            <Separator />
-
-            <syncfusion:MenuItemAdv
-                Click="OnCloseOptionClick"
-                Header="Close"
-                ToolTip="Exit Application">
-                <syncfusion:MenuItemAdv.Icon>
-                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
-
-        </ContextMenu>
-    </Window.ContextMenu>
-
-    <Canvas
-        Width="1350"
-        Height="803"
-        HorizontalAlignment="Center"
-        Background="#00000000">
-        <local:MetroTile
-            x:Name="ChartTile"
-            Title="Charts &amp; Gaphs"
-            Canvas.Left="85"
-            Canvas.Top="77"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/VisualizationTile.png"
-            ScaleDepth="-1">
-            <local:MetroTile.HubTileTransitions>
-                <controls:ContentTransition />
-            </local:MetroTile.HubTileTransitions>
-        </local:MetroTile>
-
-        <local:MetroTile
-            x:Name="DataTile"
-            Title="Data Grids"
-            Canvas.Left="355"
-            Canvas.Top="77"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            HorizontalContentAlignment="Left"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/DataTile.png" />
-
-        <local:MetroTile
-            x:Name="PivotTile"
-            Title="Pivot Anaysis"
-            Canvas.Left="594"
-            Canvas.Top="77"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/PivotTile.png" />
-
-        <local:MetroTile
-            x:Name="ProgramTile"
-            Title="EPA Programs"
-            Canvas.Left="845"
-            Canvas.Top="77"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/ProgramTile.png" />
-
-        <local:MetroTile
-            x:Name="EmailTile"
-            Title="Email"
-            Canvas.Left="90"
-            Canvas.Top="518"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/EmailTile.png" />
-
-        <local:MetroTile
-            x:Name="ExcelTile"
-            Title="Excel Data"
-            Canvas.Left="355"
-            Canvas.Top="523"
-            Width="295"
-            Height="126"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/ExcelTile.png">
-            <local:MetroTile.HubTileTransitions>
-                <controls:SlideTransition />
-            </local:MetroTile.HubTileTransitions>
-        </local:MetroTile>
-
-        <local:MetroTile
-            x:Name="BrowserTile"
-            Title="Baby Browser"
-            Canvas.Left="1110"
-            Canvas.Top="299"
-            Width="155"
-            Height="125"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/BrowserTile.png" />
-
-        <local:MetroTile
-            x:Name="DocumentTile"
-            Title="Guidance"
-            Canvas.Left="1110"
-            Canvas.Top="77"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/GuidanceTile.png" />
-
-        <local:MetroTile
-            x:Name="CalendarTile"
-            Title="Fiscal Year"
-            Canvas.Left="85"
-            Canvas.Top="304"
-            Width="155"
-            Height="126"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Background="#FF282828"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/CalendarTile.png" />
-
-        <local:MetroTile
-            x:Name="EditorTile"
-            Title="SQL Editors"
-            Canvas.Left="355"
-            Canvas.Top="308"
-            Width="300"
-            Height="126"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/SqlEditorTile.png">
-            <local:MetroTile.HubTileTransitions>
-                <controls:ContentTransition />
-            </local:MetroTile.HubTileTransitions>
-        </local:MetroTile>
-
-        <local:MetroTile
-            x:Name="MapTile"
-            Title="Maps"
-            Canvas.Left="845"
-            Canvas.Top="299"
-            Width="155"
-            Height="125"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            HorizontalContentAlignment="Stretch"
-            VerticalContentAlignment="Stretch"
-            Header=""
-            ImageSource="/Resources/Assets/TileImages/MapTile.png" />
-
-        <local:MetroTile
-            x:Name="TestButton"
-            Title="Test"
-            Canvas.Left="1150"
-            Canvas.Top="579"
-            Width="65"
-            Height="35"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Header="" />
-    </Canvas>
-
+﻿<Window x:Class="Badger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Badger"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:controls="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
+        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="Main"
+        Title="Budget Execution" Width="1350" Height="800" MinWidth="1250" MinHeight="650"
+        Background="#FF141414" BorderBrush="#FF0078D4" Foreground="#FF6ABDFC"
+        WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+<Window.ContextMenu>
+<ContextMenu Name="MainWindowContextMenu">
+<syncfusion:MenuItemAdv Click="OnFileMenuOptionClick" Header="File" ToolTip="Browse File System">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/FileItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Click="OnFolderMenuOptionClick" Header="Folder"
+                        ToolTip="Browse Directories">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Click="OnChromeOptionClick" Header="Chrome" ToolTip="Launch Chrome Browser">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Click="OnEdgeOptionClick" Header="Edge" ToolTip="Launch Edge Browser">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Click="OnFirefoxOptionClick" Header="FireFox"
+                        ToolTip="Launch Firefox Browser">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Click="OnCalculatorMenuOptionClick" Header="Calculator"
+                        ToolTip="Open Calculator">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Click="OnControlPanelOptionClick" Header="Control Panel"
+                        ToolTip="Windows 10 Control Panel">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<syncfusion:MenuItemAdv Click="OnTaskManagerOptionClick" Header="Task Manager"
+                        ToolTip="Windows 10 Task Manager">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+<Separator />
+<syncfusion:MenuItemAdv Click="OnCloseOptionClick" Header="Close" ToolTip="Exit Application">
+<syncfusion:MenuItemAdv.Icon>
+<Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+</syncfusion:MenuItemAdv.Icon>
+</syncfusion:MenuItemAdv>
+</ContextMenu>
+</Window.ContextMenu>
+<Canvas Width="1350" Height="803" HorizontalAlignment="Center" Background="#00000000">
+<local:MetroTile x:Name="ChartTile" Title="Charts &amp; Gaphs" Canvas.Left="85" Canvas.Top="77"
+                 Width="155" Height="126" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Header=""
+                 ImageSource="/Resources/Assets/TileImages/VisualizationTile.png" ScaleDepth="-1">
+<local:MetroTile.HubTileTransitions>
+<controls:ContentTransition />
+</local:MetroTile.HubTileTransitions>
+</local:MetroTile>
+<local:MetroTile x:Name="DataTile" Title="Data Grids" Canvas.Left="355" Canvas.Top="77" Width="155"
+                 Height="126" HorizontalAlignment="Left" VerticalAlignment="Center"
+                 HorizontalContentAlignment="Left" Header=""
+                 ImageSource="/Resources/Assets/TileImages/DataTile.png" />
+<local:MetroTile x:Name="PivotTile" Title="Pivot Anaysis" Canvas.Left="594" Canvas.Top="77"
+                 Width="155" Height="126" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Header="" ImageSource="/Resources/Assets/TileImages/PivotTile.png" />
+<local:MetroTile x:Name="ProgramTile" Title="EPA Programs" Canvas.Left="845" Canvas.Top="77"
+                 Width="155" Height="126" HorizontalAlignment="Left" VerticalAlignment="Center"
+                 Header="" ImageSource="/Resources/Assets/TileImages/ProgramTile.png" />
+<local:MetroTile x:Name="EmailTile" Title="Email" Canvas.Left="90" Canvas.Top="518" Width="155"
+                 Height="126" HorizontalAlignment="Left" VerticalAlignment="Top" Header=""
+                 ImageSource="/Resources/Assets/TileImages/EmailTile.png" />
+<local:MetroTile x:Name="ExcelTile" Title="Excel Data" Canvas.Left="355" Canvas.Top="523"
+                 Width="295" Height="126" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Header="" ImageSource="/Resources/Assets/TileImages/ExcelTile.png">
+<local:MetroTile.HubTileTransitions>
+<controls:SlideTransition />
+</local:MetroTile.HubTileTransitions>
+</local:MetroTile>
+<local:MetroTile x:Name="BrowserTile" Title="Baby Browser" Canvas.Left="1110" Canvas.Top="299"
+                 Width="155" Height="125" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Header="" ImageSource="/Resources/Assets/TileImages/BrowserTile.png" />
+<local:MetroTile x:Name="DocumentTile" Title="Guidance" Canvas.Left="1110" Canvas.Top="77"
+                 Width="155" Height="126" HorizontalAlignment="Left" VerticalAlignment="Center"
+                 Header="" ImageSource="/Resources/Assets/TileImages/GuidanceTile.png" />
+<local:MetroTile x:Name="CalendarTile" Title="Fiscal Year" Canvas.Left="85" Canvas.Top="304"
+                 Width="155" Height="126" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Background="#FF282828" Header=""
+                 ImageSource="/Resources/Assets/TileImages/CalendarTile.png" />
+<local:MetroTile x:Name="EditorTile" Title="SQL Editors" Canvas.Left="355" Canvas.Top="308"
+                 Width="300" Height="126" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Header="" ImageSource="/Resources/Assets/TileImages/SqlEditorTile.png">
+<local:MetroTile.HubTileTransitions>
+<controls:ContentTransition />
+</local:MetroTile.HubTileTransitions>
+</local:MetroTile>
+<local:MetroTile x:Name="MapTile" Title="Maps" Canvas.Left="845" Canvas.Top="299" Width="155"
+                 Height="125" HorizontalAlignment="Center" VerticalAlignment="Center"
+                 HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Header=""
+                 ImageSource="/Resources/Assets/TileImages/MapTile.png" />
+<local:MetroTile x:Name="TestButton" Title="Test" Canvas.Left="1150" Canvas.Top="579" Width="65"
+                 Height="35" HorizontalAlignment="Left" VerticalAlignment="Top" Header="" />
+</Canvas>
 </Window>

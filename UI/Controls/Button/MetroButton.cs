@@ -1,13 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-01-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-01-2024
 // ******************************************************************************************
 // <copyright file="MetroButton.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    based on WPF, NET6.0, and written in C-Sharp.
+// 
 //    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,8 +74,8 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( MetroButton.StyleProperty, typeof( ButtonAdv ) );
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
             Width = 140;
             Height = 50;
             IconHeight = 16;
@@ -81,7 +83,7 @@ namespace Badger
             SizeMode = SizeMode.Normal;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
-            BorderThickness = new Thickness( 1 );
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.ControlColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
@@ -104,9 +106,9 @@ namespace Badger
             {
                 if( sender is MetroButton _button )
                 {
-                    _button.Foreground = _theme.ForeColor;
-                    _button.Background = _theme.BackColor;
-                    _button.BorderBrush = _theme.BorderColor;
+                    _button.Foreground = _theme.WhiteColor;
+                    _button.Background = _theme.DarkBlueColor;
+                    _button.BorderBrush = _theme.LightBlueColor;
                 }
             }
             catch( Exception ex )
@@ -128,9 +130,9 @@ namespace Badger
             {
                 if( sender is MetroButton _button )
                 {
-                    _button.Foreground = _theme.ForeColor;
-                    _button.Background = _theme.BackColor;
-                    _button.BorderBrush = _theme.BorderColor;
+                    _button.Foreground = _theme.LightBlueColor;
+                    _button.Background = _theme.ControlColor;
+                    _button.BorderBrush = _theme.ControlColor;
                 }
             }
             catch( Exception ex )

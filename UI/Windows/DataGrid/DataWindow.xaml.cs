@@ -1,13 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-29-2024
+//     Created:                 08-01-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-29-2024
+//     Last Modified On:        08-01-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    based on WPF, NET6.0, and written in C-Sharp.
+// 
 //    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -3204,7 +3206,7 @@ namespace Badger
                     e.Handled = true;
                     var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta )
                     {
-                        RoutedEvent = MouseWheelEvent,
+                        RoutedEvent = DataWindow.MouseWheelEvent,
                         Source = sender
                     };
 
