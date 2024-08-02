@@ -241,6 +241,7 @@ namespace Badger
         {
             _grid = grid;
             _columnNames = GetColumnNames( );
+            _selectedNames = new List<string>( );
         }
 
         /// <summary>
@@ -276,7 +277,7 @@ namespace Badger
                             Content = _name.HeaderText
                         };
 
-                        _columnNames.Add( _name.HeaderText );
+                        _columnNames?.Add( _name.HeaderText );
                         ColumnCheckList.Items.Add( _item ); 
                     }
                 }

@@ -458,9 +458,7 @@ namespace Badger
                 ExportButton.Click += OnExportButtonClick;
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
-                ToggleButton.Click += OnToggleButtonClick;
-                ExecutionRadioButton.Checked += OnDataSourceRadioButtonSelected;
-                ReferenceRadioButton.Checked += OnDataSourceRadioButtonSelected;
+                ToggleButton.Click += OnToggleButtonClick; 
                 DataSourceListBox.SelectionChanged += OnTableListBoxItemSelected;
                 DataGrid.SelectionChanged += OnDataRowSelected;
                 SQLiteRadioButton.Checked += OnProviderRadioButtonChecked;
@@ -523,11 +521,7 @@ namespace Badger
         private void InitializeRadioButtons( )
         {
             try
-            {
-                ExecutionRadioButton.Foreground = _theme.ForeColor;
-                ExecutionRadioButton.Tag = "EXECUTION";
-                ReferenceRadioButton.Foreground = _theme.ForeColor;
-                ReferenceRadioButton.Tag = "REFERENCE";
+            { 
                 AccessRadioButton.Tag = "Access";
                 AccessRadioButton.IsChecked = true;
                 SQLiteRadioButton.Tag = "SQLite";
@@ -2772,21 +2766,6 @@ namespace Badger
                     _numerics = _dataGen.Numerics;
                     _current = _dataTable.Rows[ 0 ];
                     DataGrid.ItemsSource = _dataTable;
-                    DataGrid.AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
-                    DataGrid.SelectionMode = GridSelectionMode.Single;
-                    DataGrid.AllowEditing = true;
-                    DataGrid.AutoGenerateColumns = true;
-                    DataGrid.AllowSorting = true;
-                    DataGrid.AllowDraggingColumns = true;
-                    DataGrid.AllowResizingColumns = true;
-                    DataGrid.AllowDeleting = true;
-                    DataGrid.AllowRowHoverHighlighting = true;
-                    DataGrid.AllowResizingColumns = true;
-                    DataGrid.AllowGrouping = true;
-                    DataGrid.AllowDrop = true;
-                    DataGrid.AllowDraggingRows = true;
-                    DataGrid.AllowCollectionView = true;
-                    DataGrid.ShowGroupDropArea = true;
                     PopulateFirstComboBoxItems( );
                     PopulateDataColumnListBox( );
                     ResetListBoxVisibility( );
@@ -2995,11 +2974,11 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataSourceRadioButtonSelected( object sender, RoutedEventArgs e )
+        private void OnTableComboBoxItemSelected( object sender, RoutedEventArgs e )
         {
             try
             {
-                var _button = sender as MetroRadioButton;
+                var _button = sender as MetroComboBox;
                 var _model = _button?.Tag.ToString( );
                 switch( _model )
                 {

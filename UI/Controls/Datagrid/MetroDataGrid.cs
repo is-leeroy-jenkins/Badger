@@ -46,6 +46,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Input;
+    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -63,6 +64,9 @@ namespace Badger
         /// </summary>
         private protected readonly DarkMode _theme = new DarkMode( );
 
+        /// <summary>
+        /// The schema window
+        /// </summary>
         private protected Window _schemaWindow;
 
         /// <inheritdoc />
@@ -77,34 +81,33 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
-            AllowEditing = true;
+            AllowEditing = false;
             AllowSorting = true;
+            AllowFiltering = true;
+            FilterRowPosition = FilterRowPosition.Top;
             AllowDraggingColumns = true;
             AllowResizingColumns = true;
             AllowDeleting = true;
             AllowRowHoverHighlighting = true;
             AllowResizingColumns = true;
-            AllowGrouping = true;
             AllowDrop = true;
             AllowDraggingRows = true;
             AllowCollectionView = true;
-            AutoGenerateColumnsMode = AutoGenerateColumnsMode.ResetAll;
+            AutoGenerateColumnsMode = AutoGenerateColumnsMode.SmartReset;
             AutoGenerateColumns = true;
             AutoExpandGroups = true;
+            AllowGrouping = true;
             ShowGroupDropArea = true;
+            IsGroupDropAreaExpanded = true;
+            ShowToolTip = true;
+            SelectionUnit = GridSelectionUnit.Row;
             SelectionMode = GridSelectionMode.Single;
             ShowColumnWhenGrouped = true;
-            Background = _theme.BackColor;
             BorderBrush = _theme.BorderColor;
-            Foreground = _theme.ForeColor;
             CurrentCellBorderBrush = _theme.LightBlueColor;
             GroupRowSelectionBrush = _theme.SteelBlueColor;
             RowSelectionBrush = _theme.SteelBlueColor;
-            RowHoverHighlightingBrush = _theme.SteelBlueColor;
-
-            // Control Event Wiring
-            MouseRightButtonDown += OnMouseRightClick;
-            MouseLeftButtonDown += OnMouseLeftClick;
+            RowHoverHighlightingBrush = _theme.DarkBlueColor;
         }
 
         /// <summary>
@@ -117,12 +120,6 @@ namespace Badger
         {
             try
             {
-                if( sender is MetroDataGrid _grid 
-                    && !_grid.CurrentCellInfo.IsDataRowCell )
-                {
-                    var _schema = new SchemaWindow( this );
-                    _schema.Show( );
-                }
             }
             catch( Exception _ex )
             {
@@ -140,30 +137,31 @@ namespace Badger
         {
             try
             {
-                if( sender is MetroDataGrid _grid
-                    && _grid.CurrentCellInfo.IsDataRowCell )
-                {
-                    var _type = _grid.CurrentCellInfo.Column.ColumnMemberType.ToString( );
-                    switch( _type )
-                    {
-                        case "float":
-                        case "double":
-                        case "decimal":
-                        {
-                            var _calculator = new CalculatorWindow( );
-                            _calculator.Show( );
-                            break;
-                        }
-                        case "DateTime":
-                        {
-                            break;
-                        }
-                    }
-                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [automatic generating column].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The e.</param>
+        private protected void OnAutoGeneratingColumn( object sender, AutoGeneratingColumnArgs e )
+        {
+            if( e.Column.MappingName.EndsWith( "Id" ) )
+            {
+                e.Column.AllowEditing = false;
+                e.Column.AllowSorting = true;
+                e.Column.AllowFiltering = true;
+                e.Column.AllowGrouping = false;
+                e.Column.AllowFocus = true;
+                e.Column.AllowResizing = false;
+                e.Column.ColumnSizer = GridLengthUnitType.Auto;
+                e.Column.AllowDragging = true;
+                e.Column.ColumnMemberType = typeof( int );
             }
         }
 
