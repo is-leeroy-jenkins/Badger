@@ -44,6 +44,8 @@ namespace Badger
     using Syncfusion.UI.Xaml.Grid;
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
+    using System.Windows.Input;
 
     /// <inheritdoc />
     /// <summary>
@@ -61,6 +63,8 @@ namespace Badger
         /// </summary>
         private protected readonly DarkMode _theme = new DarkMode( );
 
+        private protected Window _schemaWindow;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -70,7 +74,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroDataGrid.StyleProperty, typeof( SfDataGrid ) );
+            SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             AllowEditing = true;
@@ -97,6 +101,70 @@ namespace Badger
             GroupRowSelectionBrush = _theme.SteelBlueColor;
             RowSelectionBrush = _theme.SteelBlueColor;
             RowHoverHighlightingBrush = _theme.SteelBlueColor;
+
+            // Control Event Wiring
+            MouseRightButtonDown += OnMouseRightClick;
+            MouseLeftButtonDown += OnMouseLeftClick;
+        }
+
+        /// <summary>
+        /// Called when [column right clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnMouseRightClick( object sender, MouseButtonEventArgs e )
+        {
+            try
+            {
+                if( sender is MetroDataGrid _grid 
+                    && !_grid.CurrentCellInfo.IsDataRowCell )
+                {
+                    var _schema = new SchemaWindow( this );
+                    _schema.Show( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [cell left clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnMouseLeftClick( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                if( sender is MetroDataGrid _grid
+                    && _grid.CurrentCellInfo.IsDataRowCell )
+                {
+                    var _type = _grid.CurrentCellInfo.Column.ColumnMemberType.ToString( );
+                    switch( _type )
+                    {
+                        case "float":
+                        case "double":
+                        case "decimal":
+                        {
+                            var _calculator = new CalculatorWindow( );
+                            _calculator.Show( );
+                            break;
+                        }
+                        case "DateTime":
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

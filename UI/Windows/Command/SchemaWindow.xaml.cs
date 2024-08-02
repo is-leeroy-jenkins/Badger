@@ -47,6 +47,9 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Windows;
+    using Microsoft.Office.Interop.Outlook;
+    using Action = System.Action;
+    using Exception = System.Exception;
 
     /// <inheritdoc />
     /// <summary>
@@ -81,6 +84,16 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
+        /// The column names
+        /// </summary>
+        private protected IList<string> _columnNames;
+
+        /// <summary>
+        /// The selected names
+        /// </summary>
+        private protected IList<string> _selectedNames;
+
+        /// <summary>
         /// The theme
         /// </summary>
         private protected DarkMode _theme = new DarkMode( );
@@ -91,9 +104,50 @@ namespace Badger
         private protected int _time;
 
         /// <summary>
+        /// The grid
+        /// </summary>
+        private protected MetroDataGrid _grid;
+
+        /// <summary>
         /// The menu items
         /// </summary>
         private protected IList<MetroCheckListItem> _menuItems;
+
+        /// <summary>
+        /// Gets the grid.
+        /// </summary>
+        /// <value>
+        /// The grid.
+        /// </value>
+        public MetroDataGrid Grid
+        {
+            get
+            {
+                return _grid;
+            }
+            private protected set
+            {
+                _grid = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the column names.
+        /// </summary>
+        /// <value>
+        /// The column names.
+        /// </value>
+        public IList<string> ColumnNames
+        {
+            get
+            {
+                return _columnNames; 
+            }
+            private protected set
+            {
+                _columnNames = value;
+            }
+        }
 
         /// <summary>
         /// Gets the menu items.
@@ -176,6 +230,19 @@ namespace Badger
             Loaded += OnLoad;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.SchemaWindow" /> class.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        public SchemaWindow( MetroDataGrid grid ) 
+            : this( )
+        {
+            _grid = grid;
+            _columnNames = GetColumnNames( );
+        }
+
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
@@ -187,6 +254,68 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the column check list.
+        /// </summary>
+        private protected void PopulateCheckList( )
+        {
+            try
+            {
+                if( _grid != null 
+                    && _grid.Columns.Count > 0 )
+                {
+                    ColumnCheckList.Items?.Clear( );
+                    _columnNames?.Clear( );
+                    foreach( var _name in _grid.Columns )
+                    {
+                        var _item = new MetroCheckListItem
+                        {
+                            Content = _name.HeaderText
+                        };
+
+                        _columnNames.Add( _name.HeaderText );
+                        ColumnCheckList.Items.Add( _item ); 
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the column names.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetColumnNames( )
+        {
+            try
+            {
+                if( _grid != null
+                    && _grid.Columns.Count > 0 )
+                {
+                    var _gridColumns = _grid.Columns;
+                    var _names = new List<string>( );
+                    foreach( var _name in _gridColumns )
+                    {
+                        _names.Add( _name.HeaderText );
+                    }
+
+                    return _names?.Count > 0
+                        ? _names
+                        : default( IList<string> );
+                }
+
+                return default( IList<string> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<string> );
             }
         }
 
@@ -239,23 +368,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets the buttons.
-        /// </summary>
-        /// <returns></returns>
-        private IList<MetroCheckListItem> CreateChecklistItems( )
-        {
-            try
-            {
-                return new List<MetroCheckListItem>( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IList<MetroCheckListItem> );
-            }
-        }
-
-        /// <summary>
         /// Shows the splash message.
         /// </summary>
         private void SendMessage( string message )
@@ -286,7 +398,7 @@ namespace Badger
         {
             try
             {
-                FadeInAsync( this );
+                PopulateCheckList( );
             }
             catch( Exception ex )
             {
@@ -325,6 +437,26 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [data grid right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// instance containing the event data.</param>
+        public void OnDataGridRightClick( object sender, EventArgs e )
+        {
+            if( Grid?.Columns != null )
+            {
+                try
+                {
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
