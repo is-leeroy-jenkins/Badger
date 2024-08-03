@@ -362,6 +362,7 @@ namespace Badger
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Title = "Visualization";
+            Opacity = 0.0;
 
             // Default Provider
             _provider = Provider.Access;

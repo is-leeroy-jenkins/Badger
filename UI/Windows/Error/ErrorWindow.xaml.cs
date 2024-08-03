@@ -41,8 +41,6 @@
 
 namespace Badger
 {
-    using Syncfusion.UI.Xaml.SmithChart;
-    using Syncfusion.UI.Xaml.SunburstChart;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;

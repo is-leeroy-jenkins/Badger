@@ -46,7 +46,6 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Input;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -63,11 +62,6 @@ namespace Badger
         /// The theme
         /// </summary>
         private protected readonly DarkMode _theme = new DarkMode( );
-
-        /// <summary>
-        /// The schema window
-        /// </summary>
-        private protected Window _schemaWindow;
 
         /// <inheritdoc />
         /// <summary>
@@ -102,7 +96,7 @@ namespace Badger
             ShowToolTip = true;
             SelectionUnit = GridSelectionUnit.Row;
             SelectionMode = GridSelectionMode.Single;
-            ShowColumnWhenGrouped = true;
+            ShowColumnWhenGrouped = false;
             BorderBrush = _theme.BorderColor;
             CurrentCellBorderBrush = _theme.LightBlueColor;
             GroupRowSelectionBrush = _theme.SteelBlueColor;

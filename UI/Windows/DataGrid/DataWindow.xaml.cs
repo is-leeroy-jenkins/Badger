@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 08-02-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        08-02-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts
@@ -55,7 +55,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
     using ToastNotifications;
@@ -80,6 +79,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
@@ -252,6 +252,29 @@ namespace Badger
         /// The timer
         /// </summary>
         private protected TimerCallback _timerCallback;
+        
+        /// <summary>
+        /// The column picker
+        /// </summary>
+        private protected ColumnChooser _columnPicker;
+
+        /// <summary>
+        /// Gets the column picker.
+        /// </summary>
+        /// <value>
+        /// The column picker.
+        /// </value>
+        public ColumnChooser ColumnPicker
+        {
+            get
+            {
+                return _columnPicker;
+            }
+            private protected set
+            {
+                _columnPicker = value;
+            }
+        }
 
         /// <summary>
         /// Gets the filter.
@@ -336,10 +359,10 @@ namespace Badger
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
+            Opacity = 0.0;
 
             // Initialize Default Provider
             _provider = Provider.Access;
-            AccessRadioButton.IsChecked = true;
 
             // Initialize Collections
             _filter = new Dictionary<string, object>( );
@@ -458,19 +481,16 @@ namespace Badger
                 ExportButton.Click += OnExportButtonClick;
                 BrowseButton.Click += OnBrowseButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
-                ToggleButton.Click += OnToggleButtonClick; 
+                ToggleButton.Click += OnToggleButtonClick;
                 DataSourceListBox.SelectionChanged += OnTableListBoxItemSelected;
-                DataGrid.SelectionChanged += OnDataRowSelected;
-                SQLiteRadioButton.Checked += OnProviderRadioButtonChecked;
-                AccessRadioButton.Checked += OnProviderRadioButtonChecked;
-                SqlCeRadioButton.Checked += OnProviderRadioButtonChecked;
-                SqlSeverRadioButton.Checked += OnProviderRadioButtonChecked;
                 CommandComboBox.SelectionChanged += OnCommandComboBoxItemSelected;
                 CommandListBox.SelectionChanged += OnCommandListBoxItemSelected;
                 FirstComboBox.SelectionChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectionChanged += OnFirstListBoxItemSelected;
                 SecondComboBox.SelectionChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectionChanged += OnSecondListBoxItemSelected;
+                TableComboBox.SelectionChanged += OnTableComboBoxItemSelected;
+                DataGrid.MouseLeftButtonDown += OnDataGridSelectedIndexChanged;
             }
             catch( Exception ex )
             {
@@ -501,8 +521,6 @@ namespace Badger
             try
             {
                 StatusLabel.FontSize = 10;
-                DataHeader.Foreground = _theme.ForeColor;
-                DataHeader.Visibility = Visibility.Hidden;
                 SchemaHeader.Foreground = _theme.ForeColor;
                 SchemaHeader.Visibility = Visibility.Hidden;
                 DataColumnLabel.Foreground = _theme.ForeColor;
@@ -521,12 +539,7 @@ namespace Badger
         private void InitializeRadioButtons( )
         {
             try
-            { 
-                AccessRadioButton.Tag = "Access";
-                AccessRadioButton.IsChecked = true;
-                SQLiteRadioButton.Tag = "SQLite";
-                SqlCeRadioButton.Tag = "SqlCe";
-                SqlSeverRadioButton.Tag = "SqlServer";
+            {
             }
             catch( Exception ex )
             {
@@ -753,7 +766,8 @@ namespace Badger
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                return $"SELECT * FROM {_source} " + $"WHERE {where.ToCriteria( )};";
+                return $"SELECT * FROM {_source} "
+                    + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception ex )
             {
@@ -885,11 +899,11 @@ namespace Badger
                 var _lifeTime = new TimeAndCountBasedLifetimeSupervisor( TimeSpan.FromSeconds( 5 ),
                     MaximumNotificationCount.UnlimitedNotifications( ) );
 
-                return new Notifier( _cfg =>
+                return new Notifier( _config =>
                 {
-                    _cfg.LifetimeSupervisor = _lifeTime;
-                    _cfg.PositionProvider = _position;
-                    _cfg.Dispatcher = Application.Current.Dispatcher;
+                    _config.LifetimeSupervisor = _lifeTime;
+                    _config.PositionProvider = _position;
+                    _config.Dispatcher = Application.Current.Dispatcher;
                 } );
             }
             catch( Exception ex )
@@ -1116,6 +1130,94 @@ namespace Badger
                 ThrowIf.Null( message, nameof( message ) );
                 var _notification = CreateNotifier( );
                 _notification.ShowInformation( message );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Moves to first.
+        /// </summary>
+        private protected void MoveToFirst( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Table!";
+                    SendMessage( _message );
+                    return;
+                }
+                
+                DataGrid.SelectedIndex = 0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Moves to previous.
+        /// </summary>
+        private protected void MoveToPrevious( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Table!";
+                    SendMessage( _message );
+                    return;
+                }
+                
+                DataGrid.SelectedIndex -= 1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Moves to next.
+        /// </summary>
+        private protected void MoveToNext( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Table!";
+                    SendMessage( _message );
+                    return;
+                }
+
+                DataGrid.SelectedIndex += 1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Moves to last.
+        /// </summary>
+        private protected void MoveToLast( )
+        {
+            try
+            {
+                if( _dataTable == null )
+                {
+                    var _message = "Verify Data Table!";
+                    SendMessage( _message );
+                    return;
+                }
+
+                DataGrid.SelectedIndex = ( _dataTable.Rows.Count ) - 1;
             }
             catch( Exception ex )
             {
@@ -1959,7 +2061,6 @@ namespace Badger
                     var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _vals = _numerics?.Count ?? 0;
-                    DataHeader.Content = $"{_table} ";
                     FirstGridLabel.Content = $"Data Provider: {_provider}";
                     SecondGridLabel.Content = $"Records: {_rows}";
                     ThirdGridLabel.Content = $"Total Fields: {_cols}";
@@ -1967,7 +2068,6 @@ namespace Badger
                 }
                 else
                 {
-                    DataHeader.Content = $"{_provider} Database ";
                     FirstGridLabel.Content = $"Provider:  {_provider}";
                     SecondGridLabel.Content = "Total Records: 0.0";
                     ThirdGridLabel.Content = "Total Fields: 0.0";
@@ -2118,12 +2218,10 @@ namespace Badger
                 InitializeTimer( );
                 InitializeComboBoxes( );
                 InitializeTabControls( );
-                InitializeRadioButtons( );
                 InitializeLabels( );
                 InitializeToolbar( );
                 UpdateLabels( );
                 HideTabs( );
-                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception ex )
@@ -2142,8 +2240,7 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                MoveToFirst( );
             }
             catch( Exception ex )
             {
@@ -2161,8 +2258,7 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                MoveToPrevious( );
             }
             catch( Exception ex )
             {
@@ -2180,8 +2276,7 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                MoveToNext( );
             }
             catch( Exception ex )
             {
@@ -2199,8 +2294,7 @@ namespace Badger
         {
             try
             {
-                var _message = "NOT YET IMPLEMENTED!";
-                SendMessage( _message );
+                MoveToLast( );
             }
             catch( Exception ex )
             {
@@ -2766,6 +2860,7 @@ namespace Badger
                     _numerics = _dataGen.Numerics;
                     _current = _dataTable.Rows[ 0 ];
                     DataGrid.ItemsSource = _dataTable;
+                    DataGrid.SelectedIndex = 0;
                     PopulateFirstComboBoxItems( );
                     PopulateDataColumnListBox( );
                     ResetListBoxVisibility( );
@@ -2978,29 +3073,31 @@ namespace Badger
         {
             try
             {
-                var _button = sender as MetroComboBox;
-                var _model = _button?.Tag.ToString( );
-                switch( _model )
+                if( sender is MetroComboBox _button )
                 {
-                    case "EXECUTION":
+                    var _model = _button?.Tag?.ToString( );
+                    switch( _model )
                     {
-                        PopulateExecutionTables( );
-                        break;
-                    }
-                    case "REFERENCE":
-                    {
-                        PopulateReferenceTables( );
-                        break;
-                    }
-                    case "MAINTENANCE":
-                    {
-                        PopulateMaintenanceTables( );
-                        break;
-                    }
-                    default:
-                    {
-                        PopulateExecutionTables( );
-                        break;
+                        case "EXECUTION":
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
+                        case "REFERENCE":
+                        {
+                            PopulateReferenceTables( );
+                            break;
+                        }
+                        case "MAINTENANCE":
+                        {
+                            PopulateMaintenanceTables( );
+                            break;
+                        }
+                        default:
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
                     }
                 }
             }
@@ -3046,12 +3143,12 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnDataRowSelected( object sender, GridSelectionChangedEventArgs e )
+        private void OnDataGridSelectedIndexChanged( object sender, RoutedEventArgs e )
         {
             try
             {
-                var _dataGrid = sender as MetroDataGrid;
-                _current = (DataRow)_dataGrid?.SelectedItem;
+                var _index = DataGrid.SelectedIndex;
+                _current = _dataTable.Rows[ _index ];
             }
             catch( Exception ex )
             {
@@ -3167,35 +3264,26 @@ namespace Badger
                 }
             }
         }
-
-        /// <summary>
-        /// Called when [preview mouse wheel].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="MouseWheelEventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnPreviewMouseWheel( object sender, MouseWheelEventArgs e )
+        
+        private protected void OnGridLoaded( object sender, RoutedEventArgs e )
         {
-            if( sender is ScrollViewer
-                && !e.Handled )
+            try
             {
-                try
-                {
-                    e.Handled = true;
-                    var eventArg = new MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta )
-                    {
-                        RoutedEvent = DataWindow.MouseWheelEvent,
-                        Source = sender
-                    };
+                _columnPicker = new ColumnChooser( DataGrid );
+                _columnPicker.Resources.MergedDictionaries.Clear( );
+                _columnPicker.ClearValue( ColumnChooser.StyleProperty );
 
-                    var parent = ( (Control)sender ).Parent as UIElement;
-                    parent?.RaiseEvent( eventArg );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                //Resources has been added to the Merged Dictionaries     
+                _columnPicker.Resources.MergedDictionaries.Add( Resources.MergedDictionaries[ 0 ] );
+                DataGrid.GridColumnDragDropController = new GridColumnChooserController( DataGrid, _columnPicker );
+
+                //ColumnChooser Window will open
+                _columnPicker.Show( );
+                _columnPicker.Owner = this;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

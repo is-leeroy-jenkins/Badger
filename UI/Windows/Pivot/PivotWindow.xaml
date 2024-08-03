@@ -1,285 +1,613 @@
-﻿<Window x:Class="Badger.PivotWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Badger"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        syncfusion:SfSkinManager.Theme="{syncfusion:SkinManagerExtension ThemeName=FluentDark}"
-        x:Name="PivotView" Title="Pivot Analysis" Width="1400" Height="800" MinWidth="200"
-        MinHeight="100" Margin="1,1,1,1" Background="#FF141414" BorderBrush="#FF0078D4"
-        BorderThickness="1,1,1,1" FontSize="9" Foreground="#FF6ABDFC"
-        Icon="/Resources/Assets/FormImages/Application.png" WindowStartupLocation="CenterScreen"
-        mc:Ignorable="d">
-<!-- ************************************** Context Menu  ************************************* -->
-<Window.ContextMenu>
-<ContextMenu Name="PivotWindowContextMenu">
-<syncfusion:MenuItemAdv Click="OnFileMenuOptionClick" Header="File" ToolTip="Browse File System">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/FileItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<syncfusion:MenuItemAdv Click="OnFolderMenuOptionClick" Header="Folder"
-                        ToolTip="Browse Directories">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<Separator />
-<syncfusion:MenuItemAdv Click="OnCalculatorMenuOptionClick" Header="Chrome"
-                        ToolTip="Launch Chrome Browser">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<syncfusion:MenuItemAdv Click="OnControlPanelOptionClick" Header="Edge"
-                        ToolTip="Launch Edge Browser">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<syncfusion:MenuItemAdv Click="OnTaskManagerOptionClick" Header="FireFox"
-                        ToolTip="Launch Firefox Browser">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<Separator />
-<syncfusion:MenuItemAdv Click="OnCalculatorMenuOptionClick" Header="Calculator"
-                        ToolTip="Open Calculator">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<syncfusion:MenuItemAdv Click="OnControlPanelOptionClick" Header="Control Panel"
-                        ToolTip="Windows 10 Control Panel">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<syncfusion:MenuItemAdv Click="OnTaskManagerOptionClick" Header="Task Manager"
-                        ToolTip="Windows 10 Task Manager">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-<Separator />
-<syncfusion:MenuItemAdv Click="OnCloseOptionClick" Header="Close" ToolTip="Exit Application">
-<syncfusion:MenuItemAdv.Icon>
-<Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
-</syncfusion:MenuItemAdv.Icon>
-</syncfusion:MenuItemAdv>
-</ContextMenu>
-</Window.ContextMenu>
-<Canvas x:Name="PivotChartCanvas">
-<!-- ************************************** ToolStrip  ************************************* -->
-<local:ToolStrip x:Name="Toolbar" Canvas.Left="0" Canvas.Top="722" Width="1400" Height="40"
-                 Margin="1,1,1,1" Padding="1,1,1,1" HorizontalAlignment="Center"
-                 VerticalAlignment="Center" BorderBrush="#FF141414" BorderThickness="1,1,1,1"
-                 OverflowButtonVisibility="Collapsed">
-<local:ToolStripLabel x:Name="StatusLabel" Width="65" Padding="3,1,1,1" HorizontalAlignment="Left"
-                      VerticalAlignment="Center" VerticalContentAlignment="Bottom"
-                      Content="Date &amp; Time" />
-<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-<Separator Width="100" Background="#FF141414" BorderBrush="#FF141414" />
-<local:ToolStripButton x:Name="FirstButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
-                       ToolTip="First Record" />
-<local:ToolStripButton x:Name="PreviousButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
-                       ToolTip="Previous Record" />
-<local:ToolStripButton x:Name="NextButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
-                       ToolTip="Next Record" />
-<local:ToolStripButton x:Name="LastButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
-                       ToolTip="Last Record" />
-<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-<local:ToolStripTextBox x:Name="ToolStripTextBox" Width="200" Height="30" Padding="10,1,1,1"
-                        HorizontalAlignment="Left" VerticalContentAlignment="Center" />
-<syncfusion:MenuItemSeparator Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" />
-<local:ToolStripButton x:Name="LookupButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
-                       ToolTip="Look Up" />
-<local:ToolStripButton x:Name="RefreshButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
-                       ToolTip="Refresh" />
-<local:ToolStripButton x:Name="FilterButton" Foreground="#FFA0BDFC"
-                       ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
-                       ToolTip="Filters" />
-<local:ToolStripButton x:Name="EditButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
-                       ToolTip="Edit" />
-<local:ToolStripButton x:Name="UndoButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
-                       ToolTip="Undo Last" />
-<local:ToolStripButton x:Name="SaveButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
-                       ToolTip="Save" />
-<local:ToolStripButton x:Name="DeleteButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
-                       ToolTip="Delete" />
-<local:ToolStripButton x:Name="ExportButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
-                       ToolTip="Export" />
-<local:ToolStripButton x:Name="BrowseButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
-                       ToolTip="Browse" />
-<ProgressBar Width="200" Background="#FF141414" BorderBrush="#FF141414" />
-<Separator Width="30" Background="{x:Null}" BorderBrush="{x:Null}" />
-<local:ToolStripButton x:Name="ToggleButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
-<local:ToolStripButton x:Name="MenuButton"
-                       ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
-                       ToolTip="Main Menu" />
-</local:ToolStrip>
-<local:MetroTabControl x:Name="SecondaryTabControl" Canvas.Left="1055" Canvas.Top="9" Width="339"
-                       Height="652" HorizontalAlignment="Left" VerticalAlignment="Center">
-<TabItem x:Name="SourceTab" Width="60" Margin="0,0,0,0" Background="#FF141414"
-         BorderBrush="#FF141414" Foreground="#FFA0BDFC" Header="Tables">
-<Canvas x:Name="SourceCanvas" Margin="0,13,0,0" Background="#FF141414">
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroListBox x:Name="DataTableListBox" Canvas.Left="46" Canvas.Top="92" Width="200"
-                    Height="461" HorizontalAlignment="Center" VerticalAlignment="Top"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5">
-<local:MetroListBox.RenderTransform>
-<TransformGroup>
-<ScaleTransform />
-<SkewTransform AngleX="0.205" />
-<RotateTransform />
-<TranslateTransform X="-0.945" />
-</TransformGroup>
-</local:MetroListBox.RenderTransform>
-</local:MetroListBox>
-<local:MetroLabel x:Name="SourceLabel" Canvas.Left="46" Canvas.Top="59" Width="225"
-                  HorizontalAlignment="Center" VerticalAlignment="Top" Content="Data Tables"
-                  Foreground="#FF0078D4" />
-</Canvas>
-</TabItem>
-<TabItem x:Name="FilterTab" Width="60" Height="22" Margin="0,0,0,0" Padding="6,2,6,2"
-         Background="#FF141414" BorderBrush="#FF141414" Foreground="#FFA0BDFC" Header="Filters">
-<Canvas x:Name="FilterCanvas" Background="#FF141414">
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroListBox x:Name="SecondCategoryListBox" Canvas.Left="46" Canvas.Top="429" Width="200"
-                    Height="133" HorizontalAlignment="Center" VerticalAlignment="Top"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" />
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroListBox x:Name="FirstCategoryListBox" Canvas.Left="42" Canvas.Top="142" Width="200"
-                    Height="155" HorizontalAlignment="Left" VerticalAlignment="Center"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
-                    ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-<!-- ************************************** Combo Box  ************************************* -->
-<local:MetroComboBox x:Name="FirstCategoryComboBox" Canvas.Left="42" Canvas.Top="88" Width="200"
-                     Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-<syncfusion:ComboBoxItemAdv Content="Item 1" />
-<syncfusion:ComboBoxItemAdv Content="Item 2" />
-<syncfusion:ComboBoxItemAdv Content="Item 3" />
-<syncfusion:ComboBoxItemAdv Content="Item 4" />
-<syncfusion:ComboBoxItemAdv Content="Item 5" />
-</local:MetroComboBox>
-<!-- ************************************** Combo Box  ************************************* -->
-<local:MetroComboBox x:Name="SecondCategoryComboBox" Canvas.Left="46" Canvas.Top="378" Width="200"
-                     Height="35" HorizontalAlignment="Center" VerticalAlignment="Top">
-<syncfusion:ComboBoxItemAdv Content="Item 1" />
-<syncfusion:ComboBoxItemAdv Content="Item 2" />
-<syncfusion:ComboBoxItemAdv Content="Item 3" />
-<syncfusion:ComboBoxItemAdv Content="Item 4" />
-<syncfusion:ComboBoxItemAdv Content="Item 5" />
-</local:MetroComboBox>
-<local:MetroLabel x:Name="SecondCategoryLabel" Canvas.Left="51" Canvas.Top="356" Width="200"
-                  Padding="1,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                  Content="Second Category" Foreground="#FF0078D4" />
-<local:MetroLabel x:Name="FirstCategoryLabel" Canvas.Left="51" Canvas.Top="64" Width="200"
-                  Padding="1,1,1,1" HorizontalAlignment="Center" VerticalAlignment="Top"
-                  VerticalContentAlignment="Bottom" Content="First Category" Foreground="#FF0078D4" />
-</Canvas>
-</TabItem>
-<TabItem x:Name="GroupTab" Width="60" Height="22" HorizontalAlignment="Center"
-         VerticalAlignment="Center" Background="#FF141414" BorderBrush="#FF141414"
-         Foreground="#FFA0BDFC" Header="Groups">
-<Grid x:Name="GroupCanvas" Background="#FF141414">
-<local:MetroLabel x:Name="FieldsLabel" Width="170" Margin="57,59,0,0" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Content="Fields" Foreground="#FF0078D4" />
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroListBox x:Name="FieldListBox" Width="212" Height="220" Margin="46,89,0,0"
-                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5">
-<local:MetroListBox.RenderTransform>
-<TransformGroup>
-<ScaleTransform />
-<SkewTransform AngleY="-0.295" />
-<RotateTransform />
-<TranslateTransform Y="-1.031" />
-</TransformGroup>
-</local:MetroListBox.RenderTransform>
-</local:MetroListBox>
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroListBox x:Name="NumericListBox" Width="210" Height="220" Margin="46,359,0,0"
-                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" />
-<local:MetroLabel x:Name="NumericsLabel" Width="170" Margin="52,329,0,0" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Content="Numerics" Foreground="#FF0078D4" />
-</Grid>
-</TabItem>
-<TabItem x:Name="CalendarTab" Width="60" Height="22" HorizontalAlignment="Center"
-         VerticalAlignment="Center" Background="#FF141414" BorderBrush="#FF141414"
-         Foreground="#FFA0BDFC" Header="Calendar">
-<Canvas x:Name="CalendarCanvas" Height="624" VerticalAlignment="Bottom" Background="#FF141414">
-<local:MetroLabel x:Name="FirstDateLabel" Canvas.Left="52" Canvas.Top="80" Width="210"
-                  Padding="1,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                  VerticalContentAlignment="Bottom" Content="First Date" Foreground="#FF0078D4" />
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroCalendar x:Name="FirstCalendar" Canvas.Left="46" Canvas.Top="104" Width="220"
-                     Height="200" HorizontalAlignment="Left" VerticalAlignment="Top"
-                     BorderThickness="1,1,1,1" Date="1/1/2020" />
-<local:MetroLabel x:Name="SecondDateLabel" Canvas.Left="47" Canvas.Top="329" Width="220"
-                  Padding="1,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                  VerticalContentAlignment="Bottom" Panel.ZIndex="-2" Content="Second Date"
-                  Foreground="#FF0078D4" Grid.IsSharedSizeScope="True" />
-<!-- ************************************** List Box  ************************************* -->
-<local:MetroCalendar x:Name="SecondCalendar" Canvas.Left="46" Canvas.Top="354" Width="220"
-                     Height="200" HorizontalAlignment="Left" VerticalAlignment="Top"
-                     BorderThickness="1,1,1,1" Date="1/1/2020" />
-</Canvas>
-</TabItem>
-</local:MetroTabControl>
-<local:MetroTabControl x:Name="PrimaryTabControl" Canvas.Left="5" Canvas.Top="7" Width="1015"
-                       Height="652" HorizontalAlignment="Left" VerticalAlignment="Center">
-<TabItem x:Name="DataTab" Width="100" Margin="0,0,0,0" Padding="6,2,6,2" Background="#FF141414"
-         BorderBrush="#FF141414" Foreground="#FFA0BDFC" Header="Data">
-<Canvas x:Name="PivotCanvas" Margin="0,11,0,0" Background="#FF141414">
-<!-- ************************************** Pivot Grid  ************************************* -->
-<local:MetroPivotGrid x:Name="PivotGrid" Canvas.Left="24" Canvas.Top="66" Width="954" Height="490"
-                      HorizontalAlignment="Left" VerticalAlignment="Center" AllowSelection="True"
-                      BorderThickness="1,1,1,1" GroupingBarBackground="#FF052C4A"
-                      GroupingBarItemBackground="#FF2F8AD0" GroupingBarItemBorderBrush="#FFF9F5F5"
-                      GroupingBarItemForeground="#FF6ABDFC"
-                      GroupingButtonHoverBackgroundBrush="#FF0078D4"
-                      GroupingButtonHoverBorderBrush="#FFA0BDFC"
-                      GroupingButtonHoverForeground="#FFFBF9F9" ShowGroupingBar="True"
-                      ShowSubTotals="True" SortOption="All" />
-</Canvas>
-</TabItem>
-<TabItem x:Name="ChartTab" Width="100" Height="22" Margin="0,0,0,0" Background="#FF141414"
-         BorderBrush="#FF141414" Foreground="#FFA0BDFC" Header="Chart">
-<Canvas x:Name="ChartCanvas" Background="#FF141414">
-<!-- ************************************** Chart  ************************************* -->
-<syncfusion:SfChart x:Name="Chart" Canvas.Left="102" Canvas.Top="100" Width="715" Height="435" />
-</Canvas>
-</TabItem>
-<!-- ************************************** Busy Tab  ************************************* -->
-<TabItem x:Name="BusyTab" Width="100" Margin="0,0,0,0" Background="#FF141414"
-         BorderBrush="#FF141414" Foreground="#FFA0BDFC" Header="Busy">
-<Canvas Background="#FF141414">
-<Canvas Width="1024" Height="626" Background="#FF141414" RenderTransformOrigin="0.517,0.505">
-<Image x:Name="Loader" Canvas.Left="19" Canvas.Top="16" Width="980" Height="600"
-       HorizontalAlignment="Center" VerticalAlignment="Top"
-       gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif"
-       Stretch="UniformToFill" />
-</Canvas>
-</Canvas>
-</TabItem>
-</local:MetroTabControl>
-</Canvas>
+﻿<Window
+    x:Class="Badger.PivotWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:Badger"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="PivotView"
+    Title="Pivot Analysis"
+    Width="1400"
+    Height="800"
+    MinWidth="200"
+    MinHeight="100"
+    Margin="1,1,1,1"
+    syncfusion:SfSkinManager.Theme="{syncfusion:SkinManagerExtension ThemeName=FluentDark}"
+    Background="#FF141414"
+    BorderBrush="#FF0078D4"
+    BorderThickness="1,1,1,1"
+    FontSize="9"
+    Foreground="#FF6ABDFC"
+    Icon="/Resources/Assets/FormImages/Application.png"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+<!--  ************************************** Context Menu  *************************************  -->
+
+    <Window.ContextMenu>
+        <ContextMenu Name="PivotWindowContextMenu">
+            <syncfusion:MenuItemAdv
+                Click="OnFileMenuOptionClick"
+                Header="File"
+                ToolTip="Browse File System">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv
+                Click="OnFolderMenuOptionClick"
+                Header="Folder"
+                ToolTip="Browse Directories">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Chrome"
+                ToolTip="Launch Chrome Browser">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Edge"
+                ToolTip="Launch Edge Browser">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="FireFox"
+                ToolTip="Launch Firefox Browser">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Calculator"
+                ToolTip="Open Calculator">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Control Panel"
+                ToolTip="Windows 10 Control Panel">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <syncfusion:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="Task Manager"
+                ToolTip="Windows 10 Task Manager">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+            <Separator />
+            <syncfusion:MenuItemAdv
+                Click="OnCloseOptionClick"
+                Header="Close"
+                ToolTip="Exit Application">
+                <syncfusion:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+                </syncfusion:MenuItemAdv.Icon>
+            </syncfusion:MenuItemAdv>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Canvas x:Name="PivotChartCanvas">
+
+<!--  ************************************** ToolStrip  *************************************  -->
+
+        <local:ToolStrip
+            x:Name="Toolbar"
+            Canvas.Left="0"
+            Canvas.Top="722"
+            Width="1400"
+            Height="40"
+            Margin="1,1,1,1"
+            Padding="1,1,1,1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            BorderBrush="#FF141414"
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
+            <local:ToolStripLabel
+                x:Name="StatusLabel"
+                Width="65"
+                Padding="3,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Bottom"
+                Content="Date &amp; Time" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+            <Separator
+                Width="100"
+                Background="#FF141414"
+                BorderBrush="#FF141414" />
+            <local:ToolStripButton
+                x:Name="FirstButton"
+                ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
+                ToolTip="First Record" />
+            <local:ToolStripButton
+                x:Name="PreviousButton"
+                ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
+                ToolTip="Previous Record" />
+            <local:ToolStripButton
+                x:Name="NextButton"
+                ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
+                ToolTip="Next Record" />
+            <local:ToolStripButton
+                x:Name="LastButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
+                ToolTip="Last Record" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+            <local:ToolStripTextBox
+                x:Name="ToolStripTextBox"
+                Width="200"
+                Height="30"
+                Padding="10,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center" />
+            <syncfusion:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="LookupButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
+                ToolTip="Look Up" />
+            <local:ToolStripButton
+                x:Name="RefreshButton"
+                ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+                ToolTip="Refresh" />
+            <local:ToolStripButton
+                x:Name="FilterButton"
+                Foreground="#FFA0BDFC"
+                ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
+                ToolTip="Filters" />
+            <local:ToolStripButton
+                x:Name="EditButton"
+                ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
+                ToolTip="Edit" />
+            <local:ToolStripButton
+                x:Name="UndoButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
+                ToolTip="Undo Last" />
+            <local:ToolStripButton
+                x:Name="SaveButton"
+                ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
+                ToolTip="Save" />
+            <local:ToolStripButton
+                x:Name="DeleteButton"
+                ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
+                ToolTip="Delete" />
+            <local:ToolStripButton
+                x:Name="ExportButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
+                ToolTip="Export" />
+            <local:ToolStripButton
+                x:Name="BrowseButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
+                ToolTip="Browse" />
+            <ProgressBar
+                Width="200"
+                Background="#FF141414"
+                BorderBrush="#FF141414" />
+            <Separator
+                Width="30"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}" />
+            <local:ToolStripButton
+                x:Name="ToggleButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+            <local:ToolStripButton
+                x:Name="MenuButton"
+                ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
+                ToolTip="Main Menu" />
+        </local:ToolStrip>
+        <local:MetroTabControl
+            x:Name="SecondaryTabControl"
+            Canvas.Left="1055"
+            Canvas.Top="9"
+            Width="339"
+            Height="652"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TabItem
+                x:Name="SourceTab"
+                Width="60"
+                Margin="0,0,0,0"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Tables">
+                <Canvas
+                    x:Name="SourceCanvas"
+                    Margin="0,13,0,0"
+                    Background="#FF141414">
+
+<!--  ************************************** List Box  *************************************  -->
+
+
+                    <local:MetroListBox
+                        x:Name="DataTableListBox"
+                        Canvas.Left="46"
+                        Canvas.Top="92"
+                        Width="200"
+                        Height="461"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        RenderTransformOrigin="0.5,0.5">
+                        <local:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleX="0.205" />
+                                <RotateTransform />
+                                <TranslateTransform X="-0.945" />
+                            </TransformGroup>
+                        </local:MetroListBox.RenderTransform>
+                    </local:MetroListBox>
+                    <local:MetroLabel
+                        x:Name="SourceLabel"
+                        Canvas.Left="46"
+                        Canvas.Top="59"
+                        Width="225"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Content="Data Tables"
+                        Foreground="#FF0078D4" />
+                </Canvas>
+            </TabItem>
+            <TabItem
+                x:Name="FilterTab"
+                Width="60"
+                Height="22"
+                Margin="0,0,0,0"
+                Padding="6,2,6,2"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Filters">
+                <Canvas
+                    x:Name="FilterCanvas"
+                    Background="#FF141414">
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroListBox
+                        x:Name="SecondCategoryListBox"
+                        Canvas.Left="46"
+                        Canvas.Top="429"
+                        Width="200"
+                        Height="133"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroListBox
+                        x:Name="FirstCategoryListBox"
+                        Canvas.Left="42"
+                        Canvas.Top="142"
+                        Width="200"
+                        Height="155"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+
+<!--  ************************************** Combo Box  *************************************  -->
+
+                    <local:MetroComboBox
+                        x:Name="FirstCategoryComboBox"
+                        Canvas.Left="42"
+                        Canvas.Top="88"
+                        Width="200"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </local:MetroComboBox>
+
+<!--  ************************************** Combo Box  *************************************  -->
+
+                    <local:MetroComboBox
+                        x:Name="SecondCategoryComboBox"
+                        Canvas.Left="46"
+                        Canvas.Top="378"
+                        Width="200"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
+                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
+                    </local:MetroComboBox>
+                    <local:MetroLabel
+                        x:Name="SecondCategoryLabel"
+                        Canvas.Left="51"
+                        Canvas.Top="356"
+                        Width="200"
+                        Padding="1,1,1,1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Content="Second Category"
+                        Foreground="#FF0078D4" />
+                    <local:MetroLabel
+                        x:Name="FirstCategoryLabel"
+                        Canvas.Left="51"
+                        Canvas.Top="64"
+                        Width="200"
+                        Padding="1,1,1,1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Content="First Category"
+                        Foreground="#FF0078D4" />
+                </Canvas>
+            </TabItem>
+            <TabItem
+                x:Name="GroupTab"
+                Width="60"
+                Height="22"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Groups">
+                <Grid
+                    x:Name="GroupCanvas"
+                    Background="#FF141414">
+                    <local:MetroLabel
+                        x:Name="FieldsLabel"
+                        Width="170"
+                        Margin="57,59,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Fields"
+                        Foreground="#FF0078D4" />
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroListBox
+                        x:Name="FieldListBox"
+                        Width="212"
+                        Height="220"
+                        Margin="46,89,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        RenderTransformOrigin="0.5,0.5">
+                        <local:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleY="-0.295" />
+                                <RotateTransform />
+                                <TranslateTransform Y="-1.031" />
+                            </TransformGroup>
+                        </local:MetroListBox.RenderTransform>
+                    </local:MetroListBox>
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroListBox
+                        x:Name="NumericListBox"
+                        Width="210"
+                        Height="220"
+                        Margin="46,359,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                    <local:MetroLabel
+                        x:Name="NumericsLabel"
+                        Width="170"
+                        Margin="52,329,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Numerics"
+                        Foreground="#FF0078D4" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                x:Name="CalendarTab"
+                Width="60"
+                Height="22"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Calendar">
+                <Canvas
+                    x:Name="CalendarCanvas"
+                    Height="624"
+                    VerticalAlignment="Bottom"
+                    Background="#FF141414">
+                    <local:MetroLabel
+                        x:Name="FirstDateLabel"
+                        Canvas.Left="52"
+                        Canvas.Top="80"
+                        Width="210"
+                        Padding="1,1,1,1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Content="First Date"
+                        Foreground="#FF0078D4" />
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroCalendar
+                        x:Name="FirstCalendar"
+                        Canvas.Left="46"
+                        Canvas.Top="104"
+                        Width="220"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="1,1,1,1"
+                        Date="1/1/2020" />
+
+                    <local:MetroLabel
+                        x:Name="SecondDateLabel"
+                        Canvas.Left="47"
+                        Canvas.Top="329"
+                        Width="220"
+                        Padding="1,1,1,1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Panel.ZIndex="-2"
+                        Content="Second Date"
+                        Foreground="#FF0078D4"
+                        Grid.IsSharedSizeScope="True" />
+
+<!--  ************************************** List Box  *************************************  -->
+
+                    <local:MetroCalendar
+                        x:Name="SecondCalendar"
+                        Canvas.Left="46"
+                        Canvas.Top="354"
+                        Width="220"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="1,1,1,1"
+                        Date="1/1/2020" />
+                </Canvas>
+            </TabItem>
+        </local:MetroTabControl>
+        <local:MetroTabControl
+            x:Name="PrimaryTabControl"
+            Canvas.Left="5"
+            Canvas.Top="7"
+            Width="1015"
+            Height="652"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TabItem
+                x:Name="DataTab"
+                Width="100"
+                Margin="0,0,0,0"
+                Padding="6,2,6,2"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Data">
+                <Canvas
+                    x:Name="PivotCanvas"
+                    Margin="0,11,0,0"
+                    Background="#FF141414">
+
+<!--  ************************************** Pivot Grid  *************************************  -->
+
+                    <local:MetroPivotGrid
+                        x:Name="PivotGrid"
+                        Canvas.Left="24"
+                        Canvas.Top="66"
+                        Width="954"
+                        Height="490"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        AllowSelection="True"
+                        BorderThickness="1,1,1,1"
+                        GroupingBarBackground="#FF052C4A"
+                        GroupingBarItemBackground="#FF2F8AD0"
+                        GroupingBarItemBorderBrush="#FFF9F5F5"
+                        GroupingBarItemForeground="#FF6ABDFC"
+                        GroupingButtonHoverBackgroundBrush="#FF0078D4"
+                        GroupingButtonHoverBorderBrush="#FFA0BDFC"
+                        GroupingButtonHoverForeground="#FFFBF9F9"
+                        ShowGroupingBar="True"
+                        ShowSubTotals="True"
+                        SortOption="All" />
+                </Canvas>
+            </TabItem>
+            <TabItem
+                x:Name="ChartTab"
+                Width="100"
+                Height="22"
+                Margin="0,0,0,0"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Chart">
+                <Canvas
+                    x:Name="ChartCanvas"
+                    Background="#FF141414">
+
+<!--  ************************************** Chart  *************************************  -->
+
+                    <syncfusion:SfChart
+                        x:Name="Chart"
+                        Canvas.Left="102"
+                        Canvas.Top="100"
+                        Width="715"
+                        Height="435" />
+                </Canvas>
+            </TabItem>
+
+<!--  ************************************** Busy Tab  *************************************  -->
+
+            <TabItem
+                x:Name="BusyTab"
+                Width="100"
+                Margin="0,0,0,0"
+                Background="#FF141414"
+                BorderBrush="#FF141414"
+                Foreground="#FFA0BDFC"
+                Header="Busy">
+                <Canvas Background="#FF141414">
+                    <Canvas
+                        Width="1024"
+                        Height="626"
+                        Background="#FF141414"
+                        RenderTransformOrigin="0.517,0.505">
+                        <Image
+                            x:Name="Loader"
+                            Canvas.Left="19"
+                            Canvas.Top="16"
+                            Width="980"
+                            Height="600"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif"
+                            Stretch="UniformToFill" />
+                    </Canvas>
+                </Canvas>
+            </TabItem>
+        </local:MetroTabControl>
+    </Canvas>
 </Window>

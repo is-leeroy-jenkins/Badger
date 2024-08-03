@@ -48,10 +48,10 @@ namespace Badger
     using Color = System.Windows.Media.Color;
     using Colors = System.Windows.Media.Colors;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Badger.Dimensions" />
+    /// <seealso cref="T:Badger.Dimensions" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -126,9 +126,9 @@ namespace Badger
         private protected Color _darkBlueColor = new Color( )
         {
             A = 255,
-            R = 2,
-            G = 21,
-            B = 36
+            R = 1,
+            G = 35,
+            B = 54
         };
 
         /// <summary>

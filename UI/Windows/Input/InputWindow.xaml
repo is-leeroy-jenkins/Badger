@@ -1,51 +1,133 @@
-﻿<Window x:Class="Badger.InputWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Badger"
-        xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="InputView"
-        Width="700" Height="350" Background="#FF031017" BorderBrush="#FF81A7FB"
-        BorderThickness="1,1,1,1" Foreground="#FFFDFEFF"
-        Icon="/Resources/Assets/DialogImages/SplashNotification.png" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" mc:Ignorable="d">
-<Canvas x:Name="MessageCanvas">
-<Image x:Name="ImageBox" Canvas.Left="3" Canvas.Top="3" Width="20" Height="18"
-       HorizontalAlignment="Left" VerticalAlignment="Top"
-       Source="/Resources/Assets/DialogImages/InputDialog.png" />
-<Label x:Name="Header" Canvas.Left="38" Canvas.Top="3" Width="352" Height="17" Padding="1,1,1,1"
-       HorizontalAlignment="Left" VerticalAlignment="Top" Content="Input Requested"
-       Foreground="#FFFFFEFE" />
-<local:MetroLabel x:Name="Caption" Canvas.Left="75" Canvas.Top="50" Width="527" Height="25"
-                  HorizontalAlignment="Left" VerticalAlignment="Center"
-                  Content="Message text goes here." Foreground="#FFFBFDFD"
-                  RenderTransformOrigin="0.5,0.5">
-<local:MetroLabel.RenderTransform>
-<TransformGroup>
-<ScaleTransform />
-<SkewTransform />
-<RotateTransform Angle="-0.025" />
-<TranslateTransform />
-</TransformGroup>
-</local:MetroLabel.RenderTransform>
-</local:MetroLabel>
-<local:MetroLabel x:Name="StatusLabel" Canvas.Left="580" Canvas.Top="5" Width="105" Height="20"
-                  Padding="1,1,1,1" HorizontalAlignment="Left" VerticalAlignment="Center"
-                  HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
-                  Content="Date &amp; Time" FontSize="9" Foreground="#FFF7F9F9" />
-<local:MetroTextBox x:Name="Input" Canvas.Left="75" Canvas.Top="85" Width="530" Height="124"
-                    Padding="10,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Top"
-                    BorderThickness="1,1,1,1" Foreground="#FFD8E7F3" Text="Enter text here"
-                    TextWrapping="Wrap" />
-<Button x:Name="CloseButton" Canvas.Left="540" Canvas.Top="285" Width="65" Height="40"
-        HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF031017"
-        BorderBrush="#FF031017" Content="Close" Foreground="#FFA0BDD4" />
-<Button x:Name="ClearButton" Canvas.Left="75" Canvas.Top="285" Width="65" Height="40"
-        HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF031017"
-        BorderBrush="#FF031017" Content="Clear" Foreground="#FFA0BDD4"
-        RenderTransformOrigin="0.462,0.625" />
-<Button x:Name="SelectButton" Canvas.Left="300" Canvas.Top="285" Width="65" Height="40"
-        HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF031017"
-        BorderBrush="#FF031017" Content="Enter" Foreground="#FFA0BDD4" />
-</Canvas>
+﻿<Window
+    x:Class="Badger.InputWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:Badger"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="InputView"
+    Width="700"
+    Height="350"
+    syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
+    Background="#FF031017"
+    BorderBrush="#FF81A7FB"
+    BorderThickness="1,1,1,1"
+    Foreground="#FFFDFEFF"
+    Icon="/Resources/Assets/DialogImages/SplashNotification.png"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+<!--  ******************************************** Context Menu ******************************************  -->
+
+    <Canvas x:Name="MessageCanvas">
+        <Image
+            x:Name="ImageBox"
+            Canvas.Left="3"
+            Canvas.Top="3"
+            Width="20"
+            Height="18"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Resources/Assets/DialogImages/InputDialog.png" />
+        <Label
+            x:Name="Header"
+            Canvas.Left="38"
+            Canvas.Top="3"
+            Width="352"
+            Height="17"
+            Padding="1,1,1,1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Input Requested"
+            Foreground="#FFFFFEFE" />
+        <local:MetroLabel
+            x:Name="Caption"
+            Canvas.Left="75"
+            Canvas.Top="50"
+            Width="527"
+            Height="25"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Message text goes here."
+            Foreground="#FFFBFDFD"
+            RenderTransformOrigin="0.5,0.5">
+            <local:MetroLabel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-0.025" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </local:MetroLabel.RenderTransform>
+        </local:MetroLabel>
+        <local:MetroLabel
+            x:Name="StatusLabel"
+            Canvas.Left="580"
+            Canvas.Top="5"
+            Width="105"
+            Height="20"
+            Padding="1,1,1,1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Right"
+            VerticalContentAlignment="Center"
+            Content="Date &amp; Time"
+            FontSize="9"
+            Foreground="#FFF7F9F9" />
+        <local:MetroTextBox
+            x:Name="Input"
+            Canvas.Left="75"
+            Canvas.Top="85"
+            Width="530"
+            Height="124"
+            Padding="10,5,5,5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            BorderThickness="1,1,1,1"
+            Foreground="#FFD8E7F3"
+            Text="Enter text here"
+            TextWrapping="Wrap" />
+        <Button
+            x:Name="CloseButton"
+            Canvas.Left="540"
+            Canvas.Top="285"
+            Width="65"
+            Height="40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FF031017"
+            BorderBrush="#FF031017"
+            Content="Close"
+            Foreground="#FFA0BDD4" />
+        <Button
+            x:Name="ClearButton"
+            Canvas.Left="75"
+            Canvas.Top="285"
+            Width="65"
+            Height="40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FF031017"
+            BorderBrush="#FF031017"
+            Content="Clear"
+            Foreground="#FFA0BDD4"
+            RenderTransformOrigin="0.462,0.625" />
+        <Button
+            x:Name="SelectButton"
+            Canvas.Left="300"
+            Canvas.Top="285"
+            Width="65"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="#FF031017"
+            BorderBrush="#FF031017"
+            Content="Enter"
+            Foreground="#FFA0BDD4" />
+    </Canvas>
 </Window>
