@@ -17,6 +17,15 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <AnalysisLevel>6.0</AnalysisLevel>
+    <Title>Badger</Title>
+    <Authors>Terry D. Eppler</Authors>
+    <Company>Terry D. Eppler</Company>
+    <Description>A budget execution &amp; data analysis tool for EPA analysts based on WPF, Net 6, and is written in C#.</Description>
+    <PackageProjectUrl>https://github.com/is-leeroy-jenkins/Badger</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/is-leeroy-jenkins/Badger</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>data-science; data-visualization; data-analysis; budget; budget-management; epa; federal-government;</PackageTags>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

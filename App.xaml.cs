@@ -87,6 +87,7 @@ namespace Badger
             "MetroEditor",
             "DropDownButtonAdv",
             "MetroDropDown",
+            "TextBoxExt",
             "SfCircularProgressBar",
             "SfLinearProgressBar",
             "GridControl",
@@ -101,6 +102,7 @@ namespace Badger
             "ButtonAdv",
             "Carousel",
             "ColorEdit",
+	    "SfCalculator",
             "SfMultiColumnDropDownControl"
         };
 
