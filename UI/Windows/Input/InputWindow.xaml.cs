@@ -89,20 +89,9 @@ namespace Badger
         private protected bool _busy;
 
         /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
         /// The input
         /// </summary>
-        private protected string _input;
+        private protected string _inputResult;
 
         /// <summary>
         /// The message
@@ -112,7 +101,7 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         ///
@@ -144,6 +133,24 @@ namespace Badger
         /// </summary>
         private protected Timer _timer;
 
+        /// <summary>
+        /// Gets the response.
+        /// </summary>
+        /// <value>
+        /// The response.
+        /// </value>
+        public string InputResult
+        {
+            get
+            {
+                return _inputResult;
+            }
+            private protected set
+            {
+                _inputResult = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -156,19 +163,19 @@ namespace Badger
             RegisterCallbacks( );
 
             // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
             Width = 700;
             Height = 350;
-            Margin = new Thickness( 3 );
-            Padding = new Thickness( 1 );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            Background = _theme.DarkBlueColor;
+            Foreground = _theme.ForeColor;
+            BorderBrush = _theme.LightBlueColor;
             WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = new SolidColorBrush( _backColor );
-            Foreground = new SolidColorBrush( _foreColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
             Topmost = true;
             ToolTip = "click to clear";
 
@@ -322,7 +329,7 @@ namespace Badger
         {
             try
             {
-                _input = Input.Text;
+                InputTextBox.Focus( );
             }
             catch( Exception ex )
             {
@@ -333,8 +340,12 @@ namespace Badger
         /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
+        /// <param name="form">
+        /// The o.
+        /// </param>
+        /// <param name="interval">
+        /// The interval.
+        /// </param>
         private async void FadeInAsync( Window form, int interval = 80 )
         {
             try
@@ -358,7 +369,9 @@ namespace Badger
         /// Fades the out asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
+        /// <param name="interval">
+        /// The interval.
+        /// </param>
         private async void FadeOutAsync( Window form, int interval = 80 )
         {
             try
@@ -385,7 +398,7 @@ namespace Badger
         {
             try
             {
-                StatusLabel.Content = DateTime.Now.ToLongTimeString( );
+                StatusLabel.Content = DateTime.Now.ToShortDateString( );
             }
             catch( Exception ex )
             {
@@ -474,7 +487,8 @@ namespace Badger
         {
             try
             {
-                Input.Text = "";
+                _inputResult = "";
+                InputTextBox.Text = "";
             }
             catch( Exception ex )
             {
@@ -492,9 +506,10 @@ namespace Badger
         {
             try
             {
-                if( !string.IsNullOrEmpty( _input ) )
+                if( !string.IsNullOrEmpty( InputTextBox.Text ) )
                 {
-                    Caption.Content = _input;
+                    _inputResult = InputTextBox.Text;
+                    DialogResult = true;
                 }
             }
             catch( Exception ex )

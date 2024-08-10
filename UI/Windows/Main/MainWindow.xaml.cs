@@ -10,7 +10,7 @@
 //    Badger is data analysis and reporting tool for EPA Analysts
 //    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -163,7 +163,7 @@ namespace Badger
             WindowStyle = _theme.WindowStyle;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            Margin = new Thickness( 1 );
+            Margin = _theme.Margin;
             Title = "Badger";
             WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -950,7 +950,21 @@ namespace Badger
         {
             try
             {
-                WebMinion.RunBudgetBrowser( );
+                var _inputWindow = new InputWindow( );
+                _inputWindow.Owner = this;
+                _inputWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                _inputWindow.ShowDialog( );
+                if( _inputWindow.DialogResult == true )
+                {
+                    var _input = _inputWindow.InputResult;
+                    var _message = $" '{_input}' was entered as input.";
+                    SendNotification( _message );
+                }
+                else
+                {
+                    var _message = " NOTHING was entered as input.";
+                    SendNotification( _message );
+                }
             }
             catch( Exception ex )
             {

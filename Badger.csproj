@@ -24,18 +24,34 @@
     <PackageProjectUrl>https://github.com/is-leeroy-jenkins/Badger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/is-leeroy-jenkins/Badger</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>data-science; data-visualization; data-analysis; budget; budget-management; epa; federal-government;</PackageTags>
+    <PackageTags>data-science;data-visualization;data-analysis;budget;budget-management;epa;federal-government;</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Version></Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
-    <NoWarn>1701;1702;1006;</NoWarn>
+    <NoWarn>1701;1702;1006;CA1416</NoWarn>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <WarningLevel>6</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>1701;1702;1006;</NoWarn>
+    <NoWarn>1701;1702;1006;CA1416</NoWarn>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <WarningLevel>6</WarningLevel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Themes\DocumentContainer\**" />
+    <EmbeddedResource Remove="Themes\DocumentContainer\**" />
+    <None Remove="Themes\DocumentContainer\**" />
+    <Page Remove="Themes\DocumentContainer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Minions\SqlCe\CompactView.exe" />

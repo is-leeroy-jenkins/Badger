@@ -272,7 +272,7 @@ namespace Badger
         private protected Timer _timer;
 
         /// <summary>
-        /// The timer
+        /// The ti
         /// </summary>
         private protected TimerCallback _timerCallback;
 

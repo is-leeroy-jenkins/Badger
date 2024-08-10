@@ -2,18 +2,18 @@
     x:Class="Badger.FolderBrowser"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    xmlns:bdgr="clr-namespace:Badger"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:local="clr-namespace:Badger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     x:Name="BrowserView"
     Title="Search File System"
     Width="800"
     Height="450"
     Padding="1,1,1,1"
-    syncfusion:SfSkinManager.Theme="{syncfusion:SkinManagerExtension ThemeName=FluentDark}"
+    sync:SfSkinManager.Theme="{sync:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF141414"
     BorderBrush="#FF0078D4"
     BorderThickness="1,1,1,1"
@@ -22,7 +22,19 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-<!--  ******************************************** Context Menu ******************************************  -->
+<!--  ******************************************** Resources *********************************************  -->
+
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderBrush" Value="#0078D4" />
+            <Setter Property="Background" Value="#FF000000" />
+            <Setter Property="Foreground" Value="#FFA0BDFC"/>
+        </Style>
+    </Window.Resources>
+
+
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Grid x:Name="BrowserGrid">
         <Grid.RowDefinitions>
@@ -35,10 +47,10 @@
             <ColumnDefinition Width="265*" />
             <ColumnDefinition Width="64*" />
         </Grid.ColumnDefinitions>
- 
-<!--  ******************************************** ListBox ******************************************  -->
 
-        <local:MetroListBox
+        <!--  ******************************************** ListBox ******************************************  -->
+
+        <bdgr:MetroListBox
             x:Name="ListBox"
             Grid.Row="1"
             Grid.Column="1"
@@ -46,10 +58,10 @@
             Margin="10,40,0,40"
             HorizontalAlignment="Left"
             d:ItemsSource="{d:SampleData ItemCount=5}" />
- 
-<!--  ******************************************** Tiles ******************************************  -->
 
-        <local:MetroTile
+        <!--  ******************************************** Tiles ******************************************  -->
+
+        <bdgr:MetroTile
             x:Name="SelectButton"
             Title="Select"
             Grid.Row="2"
@@ -61,7 +73,7 @@
             VerticalAlignment="Top"
             Header="" />
         <!--  ********************************* Tile  *************************************  -->
-        <local:MetroTile
+        <bdgr:MetroTile
             x:Name="BrowseButton"
             Title="Browse"
             Grid.Row="2"
@@ -73,7 +85,7 @@
             VerticalAlignment="Top"
             Header="" />
         <!--  ********************************* Tile  *************************************  -->
-        <local:MetroTile
+        <bdgr:MetroTile
             x:Name="ClearButton"
             Title="Clear"
             Grid.Row="2"
@@ -84,7 +96,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Header="" />
-        <local:MetroLabel
+        <bdgr:MetroLabel
             x:Name="DateLabel"
             Grid.Column="2"
             Width="122"
@@ -94,7 +106,7 @@
             HorizontalContentAlignment="Right"
             Content="Date"
             FontSize="10" />
-        <local:MetroLabel
+        <bdgr:MetroLabel
             x:Name="DirectoryLabel"
             Grid.Row="1"
             Grid.Column="1"
@@ -106,7 +118,7 @@
             VerticalContentAlignment="Bottom"
             Content="Directory:"
             FontSize="10" />
-        <local:MetroLabel
+        <bdgr:MetroLabel
             x:Name="TimeLabel"
             Grid.Row="2"
             Width="130"
@@ -115,7 +127,7 @@
             Content="Time"
             FontSize="10" />
         <!--  ********************************* Tile  *************************************  -->
-        <local:MetroListBox
+        <bdgr:MetroListBox
             x:Name="ListBox_Copy"
             Grid.Row="1"
             Grid.Column="1"
@@ -125,7 +137,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             d:ItemsSource="{d:SampleData ItemCount=5}" />
-        <local:MetroLabel
+        <bdgr:MetroLabel
             x:Name="SelectedLabel"
             Grid.Row="1"
             Grid.Column="1"
