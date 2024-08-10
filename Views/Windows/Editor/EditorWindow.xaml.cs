@@ -43,8 +43,11 @@ namespace Badger
 {
     using Syncfusion.SfSkinManager;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
@@ -80,6 +83,36 @@ namespace Badger
         /// The seconds
         /// </summary>
         private protected int _seconds;
+
+        /// <summary>
+        /// The selected command
+        /// </summary>
+        private protected string _selectedQuery;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _selectedCommand;
+
+        /// <summary>
+        /// The commands
+        /// </summary>
+        private protected IList<string> _commands;
+
+        /// <summary>
+        /// The commands
+        /// </summary>
+        private protected IList<string> _dataTypes;
+
+        /// <summary>
+        /// The statements
+        /// </summary>
+        private protected IDictionary<string, object> _statements;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
 
         /// <summary>
         /// The update status
@@ -174,6 +207,11 @@ namespace Badger
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
+
+            // Collections
+            _commands = new List<string>( );
+            _dataTypes = new List<string>( );
+            _statements = new Dictionary<string, object>( );
 
             // Window Events
             Loaded += OnLoaded;
@@ -275,14 +313,18 @@ namespace Badger
         {
             try
             {
-                SQLiteRadioButton.Foreground = _theme.BorderColor;
-                SQLiteRadioButton.Tag = "SQLite";
+                SqLiteRadioButton.Foreground = _theme.BorderColor;
+                SqLiteRadioButton.Tag = "SQLite";
+                SqLiteRadioButton.Checked += OnRadioButtonChecked;
                 AccessRadioButton.Foreground = _theme.BorderColor;
                 AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Checked += OnRadioButtonChecked;
                 SqlCeRadioButton.Foreground = _theme.BorderColor;
                 SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Checked += OnRadioButtonChecked;
                 SqlServerRadioButton.Foreground = _theme.BorderColor;
                 SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Checked += OnRadioButtonChecked;
             }
             catch( Exception ex )
             {
@@ -401,6 +443,20 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes the editor.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -477,6 +533,84 @@ namespace Badger
         }
 
         /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns> </returns>
+        private IList<string> CreateCommandList( Provider provider )
+        {
+            try
+            {
+                var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                var _names = Directory.GetDirectories( _filePath );
+                var _list = new List<string>( );
+                for( var _i = 0; _i < _names.Length; _i++ )
+                {
+                    var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                    if( !string.IsNullOrEmpty( _folder ) )
+                    {
+                        _list.Add( _folder );
+                    }
+                }
+
+                return _list?.Count > 0
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Creates the query list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private IList<string> CreateQueryList( Provider provider )
+        {
+            try
+            {
+                if( Enum.IsDefined( typeof( Provider ), provider ) )
+                {
+                    var _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    var _dbpath = ConfigurationManager.AppSettings[ "DatabaseDirectory" ];
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = Directory.GetDirectories( _filePath );
+                    var _list = new List<string>( );
+                    for( var _i = 0; _i < _names.Length; _i++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _names[ _i ] ).Name;
+                        if( !string.IsNullOrEmpty( _folder ) )
+                        {
+                            _list.Add( _folder );
+                        }
+                    }
+
+                    return _list?.Count > 0
+                        ? _list
+                        : default( IList<string> );
+                }
+
+                return default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -514,6 +648,36 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the provider.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        private void SetProvider( string provider )
+        {
+            try
+            {
+                ThrowIf.Null( provider, nameof( provider ) );
+                var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
+                if( Enum.IsDefined( typeof( Provider ), _value ) )
+                {
+                    _provider = _value switch
+                    {
+                        Provider.Access => Provider.Access,
+                        Provider.SQLite => Provider.SQLite,
+                        Provider.SqlCe => Provider.SqlCe,
+                        Provider.SqlServer => Provider.SqlServer,
+                        _ => Provider.Access
+                    };
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -596,6 +760,107 @@ namespace Badger
             try
             {
                 Dispatcher.BeginInvoke( _statusUpdate );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the command ListBox.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        private protected void PopulateCommandListBox( IList<string> list )
+        {
+            try
+            {
+                _commands = Enum.GetNames( typeof( Command ) );
+                CommandListBox.Items.Clear( );
+                for( var _i = 0; _i < list.Count; _i++ )
+                {
+                    if( _commands.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATEDATABASE}" ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "CREATE DATABASE"
+                        };
+
+                        CommandListBox.Items.Add( _item );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATETABLE}" ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "CREATE TABLE"
+                        };
+
+                        CommandListBox.Items.Add( ( _item ) );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.ALTERTABLE}" ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "ALTER TABLE"
+                        };
+
+                        CommandListBox.Items.Add( _item );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.CREATEVIEW}" ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "CREATE VIEW"
+                        };
+
+                        CommandListBox.Items.Add( _item );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                        && list[ _i ].Equals( $"{Command.SELECTALL}" ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "SELECT ALL"
+                        };
+
+                        CommandListBox.Items.Add( _item );
+                    }
+                    else if( _commands.Contains( list[ _i ] ) )
+                    {
+                        var _item = new MetroListBoxItem
+                        {
+                            Content = "SELECT ALL"
+                        };
+
+                        CommandListBox.Items.Add( _item );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the query ListBox.
+        /// </summary>
+        private protected void PopulateQueryListBox( )
+        {
+            try
+            {
+                var _queryList = CreateQueryList( _provider );
+                QueryListBox.Items.Clear( );
+                foreach( var _query in _queryList )
+                {
+                    var _item = new MetroListBoxItem( );
+                    _item.Content = _query;
+                    QueryListBox.Items.Add( _item );
+                }
             }
             catch( Exception ex )
             {
@@ -1107,6 +1372,45 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        private void OnRadioButtonChecked( object sender, RoutedEventArgs e )
+        {
+            if( sender is MetroRadioButton _button )
+            {
+                try
+                {
+                    var _tag = _button.Tag?.ToString( );
+                    if( !string.IsNullOrEmpty( _tag ) )
+                    {
+                        var _value = (Provider)Enum.Parse( typeof( Provider ), _tag );
+                        if( Enum.IsDefined( typeof( Provider ), _value ) )
+                        {
+                            _provider = _value switch
+                            {
+                                Provider.Access => Provider.Access,
+                                Provider.SQLite => Provider.SQLite,
+                                Provider.SqlCe => Provider.SqlCe,
+                                Provider.SqlServer => Provider.SqlServer,
+                                _ => Provider.Access
+                            };
+
+                            _commands = CreateCommandList( _provider );
+                            PopulateCommandListBox( _commands );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

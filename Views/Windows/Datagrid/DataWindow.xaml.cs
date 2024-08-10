@@ -348,18 +348,17 @@ namespace Badger
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            Padding = new Thickness( 1 );
-            Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            Title = "Data Management";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Padding = _theme.Padding;
+            Margin = _theme.Margin;
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
-            Opacity = 0.0;
+            Title = "Data Management";
+            WindowStyle = WindowStyle.SingleBorderWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             // Initialize Default Provider
             _provider = Provider.Access;
@@ -2057,7 +2056,6 @@ namespace Badger
             {
                 if( _dataTable != null )
                 {
-                    var _table = _dataTable.TableName.SplitPascal( ) ?? string.Empty;
                     var _rows = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _vals = _numerics?.Count ?? 0;

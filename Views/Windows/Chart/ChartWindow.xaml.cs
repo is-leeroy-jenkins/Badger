@@ -44,7 +44,6 @@ namespace Badger
     using System;
     using Syncfusion.SfSkinManager;
     using Syncfusion.UI.Xaml.Charts;
-    using Syncfusion.UI.Xaml.SmithChart;
     using Syncfusion.Windows.Tools.Controls;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -54,7 +53,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using ScottPlot.Plottables;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
