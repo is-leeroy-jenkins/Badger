@@ -48,6 +48,10 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "NotAccessedField.Local" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
     public struct Integers
     {
         /// <summary>
@@ -85,13 +89,40 @@ namespace Badger
             _step = 1;
         }
 
-        /// <summary>
-        /// Gets or sets the start.
-        /// </summary>
-        /// <value>
-        /// The start.
-        /// </value>
-        public int Start
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Decimals"/> struct.
+		/// </summary>
+		/// <param name="integers">The decimals.</param>
+		public Integers( Integers integers)
+		{
+			_start = integers.Start;
+			_end = integers.End;
+			_delta = integers.Delta;
+			_step = integers.Step;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="Integers"/> struct.
+		/// </summary>
+		/// <param name="tuple">
+		/// he tuple.
+		/// </param>
+		public Integers( ( int start, int end ) tuple )
+		{
+			_start = tuple.start;
+			_end = tuple.end;
+			_delta = _start - _end;
+			_step = 1;
+		}
+
+		/// <summary>
+		/// Gets or sets the start.
+		/// </summary>
+		/// <value>
+		/// The start.
+		/// </value>
+		public int Start
         {
             get
             {

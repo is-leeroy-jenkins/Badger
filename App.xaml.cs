@@ -102,9 +102,17 @@ namespace Badger
             "ButtonAdv",
             "Carousel",
             "ColorEdit",
-	    "SfCalculator",
+            "SfCalculator",
             "SfMultiColumnDropDownControl"
         };
+
+        /// <summary>
+        /// Gets or sets the main window handle.
+        /// </summary>
+        /// <value>
+        /// The main window handle.
+        /// </value>
+        public static IntPtr MainWindowHandle { get; set; }
 
         /// <summary>
         /// Gets or sets the windows.
@@ -149,6 +157,32 @@ namespace Badger
 
             SfSkinManager.RegisterThemeSettings( "FluentDark", _theme );
             SfSkinManager.ApplyStylesOnApplication = true;
+        }
+
+        /// <summary>
+        /// Handles the UnhandledException event of the CurrentDomain control.
+        /// </summary>
+        /// <param name="sender">
+        /// The source of the event.
+        /// </param>
+        /// <param name="e">The
+        /// <see cref="UnhandledExceptionEventArgs"/>
+        /// instance containing the event data.</param>
+        private static void OnUnhandledException( object sender, UnhandledExceptionEventArgs e )
+        {
+            var _ex = e.ExceptionObject as Exception;
+            Fail( _ex );
+        }
+
+        /// <summary>
+        /// Fails the specified _ex.
+        /// </summary>
+        /// <param name="_ex">The _ex.</param>
+        private static void Fail( Exception _ex )
+        {
+            var _error = new ErrorWindow( _ex ); 
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

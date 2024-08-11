@@ -48,6 +48,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public struct Doubles
     {
         /// <summary>
@@ -81,6 +82,34 @@ namespace Badger
             _start = start;
             _end = end;
             _delta = end - start;
+            _step = step;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Doubles"/> struct.
+        /// </summary>
+        /// <param name="doubles">
+        /// The range.
+        /// </param>
+        public Doubles( Doubles doubles )
+        {
+            _start = doubles.Start;
+            _end = doubles.End;
+            _delta = doubles.Delta;
+            _step = doubles.Step;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Doubles"/> struct.
+        /// </summary>
+        /// <param name="tuple">The tuple.</param>
+        public Doubles( ( double start, double end ) tuple )
+        {
+            _start = tuple.start;
+            _end = tuple.end;
+            _delta = _start - _end;
             _step = 1;
         }
 

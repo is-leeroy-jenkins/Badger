@@ -43,10 +43,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Themes\DocumentContainer\**" />
-    <EmbeddedResource Remove="Themes\DocumentContainer\**" />
-    <None Remove="Themes\DocumentContainer\**" />
-    <Page Remove="Themes\DocumentContainer\**" />
+    <Compile Remove="Views\Themes\DocumentContainer\**" />
+    <EmbeddedResource Remove="Views\Themes\DocumentContainer\**" />
+    <None Remove="Views\Themes\DocumentContainer\**" />
+    <Page Remove="Views\Themes\DocumentContainer\**" />
   </ItemGroup>
 
   <ItemGroup>

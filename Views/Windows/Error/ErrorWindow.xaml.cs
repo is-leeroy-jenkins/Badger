@@ -49,7 +49,6 @@ namespace Badger
     using System.Windows.Input;
     using System.Windows.Media;
 
-    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for ErrorWindow.xaml
     /// </summary>
@@ -61,88 +60,16 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassWithVirtualMembersNeverInherited.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
     public partial class ErrorWindow : Window, IDisposable
     {
-        /// <summary>
-        /// The busy
-        /// </summary>
-        private bool _busy;
-
-        /// <summary>
-        /// The locked object
-        /// </summary>
-        private object _path;
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 43,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 128,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The border color
-        /// </summary>
-        private protected Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 0,
-            B = 0
-        };
-
-        /// <summary>
-        /// The border hover color
-        /// </summary>
-        private protected Color _borderHover = new Color( )
-        {
-            A = 255,
-            R = 128,
-            G = 0,
-            B = 0
-        };
 
         /// <summary>
         /// The exception
         /// </summary>
         private protected Exception _exception;
 
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
-
-        /// <summary>
-        /// The fore hover color
-        /// </summary>
-        private protected Color _foreHover = new Color( )
-        {
-            A = 255,
-            R = 255,
-            G = 255,
-            B = 255
-        };
 
         /// <summary>
         /// The message
@@ -191,8 +118,8 @@ namespace Badger
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
-            BorderBrush = _theme.RedColor;
-            Topmost = true;
+			BorderBrush = _theme.RedColor;
+			Topmost = true;
             ToolTip = "click to clear";
 
             // Event Wiring
@@ -225,8 +152,8 @@ namespace Badger
         /// <param name="title">The title.</param>
         public ErrorWindow( Exception exception, string title )
             : this( exception )
-        {
-            _exception = exception;
+		{
+			_exception = exception;
             MessageText.Content = exception.ToLogString( exception.Message );
             Header.Content = title;
         }
@@ -419,35 +346,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Begins the initialize.
-        /// </summary>
-        private void Busy( )
-        {
-            try
-            {
-                if( _path == null )
-                {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -520,35 +418,6 @@ namespace Badger
                 else
                 {
                     Dispatcher.BeginInvoke( action );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        private protected void Chill( )
-        {
-            try
-            {
-                if( _path == null )
-                {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
                 }
             }
             catch( Exception ex )

@@ -86,13 +86,40 @@ namespace Badger
             _step = 1;
         }
 
-        /// <summary>
-        /// Gets or sets the start.
-        /// </summary>
-        /// <value>
-        /// The start.
-        /// </value>
-        public decimal Start
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Decimals"/> struct.
+		/// </summary>
+		/// <param name="decimals">The decimals.</param>
+		public Decimals( Decimals decimals )
+		{
+			_start = decimals.Start;
+			_end = decimals.End;
+			_delta = decimals.Delta;
+			_step = decimals.Step;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="Decimals"/> struct.
+		/// </summary>
+		/// <param name="tuple">
+		/// he tuple.
+		/// </param>
+		public Decimals( (decimal start, decimal end) tuple )
+		{
+			_start = tuple.start;
+			_end = tuple.end;
+			_delta = _start - _end;
+			_step = 1;
+		}
+
+		/// <summary>
+		/// Gets or sets the start.
+		/// </summary>
+		/// <value>
+		/// The start.
+		/// </value>
+		public decimal Start
         {
             get
             {

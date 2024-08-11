@@ -186,6 +186,7 @@ namespace Badger
         /// </summary>
         public BabyBoy( )
         {
+            _path = new object( );
             _count = 1024;
             _port = 5000;
             _data = new byte[ _count ];

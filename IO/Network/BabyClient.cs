@@ -116,20 +116,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }

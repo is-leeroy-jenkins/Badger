@@ -57,6 +57,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
     public class BabyGirl : BabyServer
     {
         /// <summary>
@@ -191,6 +192,7 @@ namespace Badger
         /// </summary>
         public BabyGirl( )
         {
+            _path = new object( );
             _count = 1024;
             _port = 5000;
             _data = new byte[ Count ];
@@ -273,8 +275,8 @@ namespace Badger
                 {
                     var _client = _socket.Accept( );
                     _data = new byte[ _count ];
-                    _client.Receive( _data, _count, SocketFlags.None );
-                    if( _data.Length == 0 )
+                    _received = _client.Receive( _data, _count, SocketFlags.None );
+                    if( _received == 0 )
                     {
                         break;
                     }
