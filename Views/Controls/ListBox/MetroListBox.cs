@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 08-01-2022
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        08-01-2022
 // ******************************************************************************************
 // <copyright file="MetroListBox.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts
 //    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2022  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -73,10 +73,10 @@ namespace Badger
             // Basic Properties
             Width = 400;
             Height = 220;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            BorderThickness = new Thickness( 1 );
-            Padding = new Thickness( 1 );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            BorderThickness = _theme.BorderThickness;
+            Padding = _theme.Padding;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = _theme.ControlColor;

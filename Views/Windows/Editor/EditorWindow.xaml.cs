@@ -857,8 +857,11 @@ namespace Badger
                 QueryListBox.Items.Clear( );
                 foreach( var _query in _queryList )
                 {
-                    var _item = new MetroListBoxItem( );
-                    _item.Content = _query;
+                    var _item = new MetroListBoxItem
+                    {
+                        Content = _query
+                    };
+
                     QueryListBox.Items.Add( _item );
                 }
             }
@@ -1381,6 +1384,7 @@ namespace Badger
         /// <param name="sender">
         /// The sender.
         /// </param>
+        /// <param name = "e" > </param>
         private void OnRadioButtonChecked( object sender, RoutedEventArgs e )
         {
             if( sender is MetroRadioButton _button )

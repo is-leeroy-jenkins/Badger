@@ -18,7 +18,7 @@
     MinHeight="650"
     MaxWidth="1500"
     MaxHeight="900"
-    skin:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
+    sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF141414"
     BorderBrush="#FF0078D4"
     BorderThickness="1,1,1,1"
@@ -396,7 +396,10 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Smith">
-                <Canvas Background="#FF141414">
+
+                <Canvas 
+                    Background="#FF141414">
+
                     <bdgr:SmithChart
                         x:Name="SmithChart"
                         Width="800"
@@ -405,9 +408,12 @@
                             <bdgr:ChartModel />
                         </bdgr:SmithChart.DataContext>
                     </bdgr:SmithChart>
+
                 </Canvas>
             </TabItem>
+
             <!--  Area Chart  -->
+
             <TabItem
                 x:Name="AreaTab"
                 Width="90"
@@ -417,16 +423,21 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Area">
+
                 <Canvas
-                    x:Name="AreaCanvas"
+                    x:Name="AreaChartCanvas"
                     Background="#FF141414">
+
                     <sync:SfChart3D
                         x:Name="AreaChart"
                         Width="800"
                         Height="454" />
+
                 </Canvas>
             </TabItem>
+
             <!--  Scatter Chart  -->
+
             <TabItem
                 x:Name="ScatterTab"
                 Width="90"
@@ -438,14 +449,21 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Scatter">
-                <Canvas Background="#FF141414">
+
+                <Canvas 
+                    x:Name="ScatterChartCanvas" 
+                    Background="#FF141414" >
+
                     <sync:SfChart3D
                         x:Name="ScatterChart"
                         Width="800"
-                        Height="454" />
+                        Height="550" />
+
                 </Canvas>
             </TabItem>
+
             <!--  Busy Tab  -->
+
             <TabItem
                 x:Name="BusyTab"
                 Width="100"
@@ -457,6 +475,7 @@
                 Foreground="#FFA0BDFC"
                 Header="Busy"
                 IsSelected="False">
+
                 <Canvas
                     x:Name="BusyTabCanvas"
                     Margin="0,10,0,0"
@@ -469,8 +488,10 @@
                         Height="550"
                         gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif" />
                 </Canvas>
+
             </TabItem>
         </bdgr:MetroTabControl>
+
         <bdgr:MetroLabel
             x:Name="SecondLabel"
             Canvas.Left="64"
@@ -483,6 +504,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Total Records: 0.0" />
+
         <bdgr:MetroLabel
             x:Name="FifthLabel"
             Canvas.Left="64"
@@ -495,6 +517,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Selected Filters: 0.0" />
+
         <bdgr:MetroLabel
             x:Name="ThirdLabel"
             Canvas.Left="220"
@@ -507,6 +530,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Total Fields: 0.0" />
+
         <bdgr:MetroLabel
             x:Name="SixthLabel"
             Canvas.Left="220"
@@ -519,6 +543,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Selected Fields: 0.0" />
+
         <bdgr:MetroLabel
             x:Name="FourthLabel"
             Canvas.Left="390"
@@ -531,6 +556,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Total Numerics: 0.0" />
+
         <bdgr:MetroLabel
             x:Name="SeventhLabel"
             Canvas.Left="390"
@@ -543,6 +569,7 @@
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
             Content="Selected Numerics: 0.0" />
+
         <bdgr:MetroTabControl
             x:Name="SecondaryTabControl"
             Canvas.Left="882"
@@ -552,6 +579,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             RenderTransformOrigin="0.5,0.5">
+
             <TabItem
                 x:Name="SourceTab"
                 Width="100"
@@ -588,6 +616,7 @@
                         VerticalAlignment="Center" />
                 </Canvas>
             </TabItem>
+
             <TabItem
                 x:Name="FilterTab"
                 Width="100"
@@ -599,6 +628,7 @@
                 Foreground="#FFA0BDFC"
                 Header="Filter"
                 IsSelected="True">
+
                 <Canvas
                     x:Name="FilterCanvas"
                     Height="474">
@@ -613,6 +643,7 @@
                         BorderBrush="#FF0078D4"
                         BorderThickness="1,1,1,1"
                         Content="" />
+
                     <bdgr:MetroComboBox
                         x:Name="FirstComboBox"
                         Canvas.Left="161"
@@ -626,7 +657,9 @@
                         <sync:ComboBoxItemAdv Content="Item 3" />
                         <sync:ComboBoxItemAdv Content="Item 4" />
                         <sync:ComboBoxItemAdv Content="Item 5" />
+
                     </bdgr:MetroComboBox>
+
                     <bdgr:MetroComboBox
                         x:Name="SecondComboBox"
                         Canvas.Left="161"
@@ -635,8 +668,10 @@
                         Height="30"
                         AllowMultiSelect="False"
                         DefaultText="">
-                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv 
+                            Content="Item 1" />
                     </bdgr:MetroComboBox>
+
                     <bdgr:MetroListBox
                         x:Name="FirstListBox"
                         Canvas.Left="162"
@@ -645,6 +680,7 @@
                         Height="117"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top" />
+
                     <bdgr:MetroListBox
                         x:Name="SecondListBox"
                         Canvas.Left="163"
@@ -653,8 +689,10 @@
                         Height="122"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top" />
+
                 </Canvas>
             </TabItem>
+
             <TabItem
                 x:Name="GroupTab"
                 Width="100"
@@ -664,10 +702,12 @@
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
                 Header="Grouping">
+
                 <Canvas
                     x:Name="GroupCanvas"
                     Height="610"
                     Background="#FF141414">
+
                     <Frame
                         x:Name="GroupFrame"
                         Canvas.Left="0"
@@ -679,6 +719,7 @@
                         BorderBrush="#FF0078D4"
                         BorderThickness="1,1,1,1"
                         Content="" />
+
                     <bdgr:MetroLabel
                         x:Name="FieldsLabel"
                         Canvas.Left="120"
@@ -688,6 +729,7 @@
                         VerticalAlignment="Top"
                         Content="Fields"
                         Foreground="#FF0078D4" />
+
                     <bdgr:MetroLabel
                         x:Name="NumericsLabel"
                         Canvas.Left="120"
@@ -697,6 +739,7 @@
                         VerticalAlignment="Top"
                         Content="Numerics"
                         Foreground="#FF0078D4" />
+
                     <bdgr:MetroCheckList
                         x:Name="FieldListBox"
                         Canvas.Left="123"
@@ -708,6 +751,7 @@
                         <sync:CheckListBoxItem Content="CheckListBoxItem1" />
                         <sync:CheckListBoxItem Content="CheckListBoxItem2" />
                     </bdgr:MetroCheckList>
+
                     <bdgr:MetroCheckList
                         x:Name="NumericListBox"
                         Canvas.Left="123"

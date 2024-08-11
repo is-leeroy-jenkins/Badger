@@ -2,12 +2,14 @@
     x:Class="Badger.DataWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    xmlns:bdgr="clr-namespace:Badger"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:gif="http://wpfanimatedgif.codeplex.com"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:local="clr-namespace:Badger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="DataView"
     Title="Budget Execution"
@@ -15,7 +17,7 @@
     Height="800"
     VerticalContentAlignment="Bottom"
     d:DesignWidth="1400"
-    syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=FluentDark}"
+    sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF141414"
     BorderBrush="#FF0078D4"
     BorderThickness="1,1,1,1"
@@ -28,7 +30,7 @@
     <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
-        <Style TargetType="syncfusion:GroupDropArea">
+        <Style TargetType="sync:GroupDropArea">
             <Setter Property="Height" Value="80" />
             <Setter Property="Foreground" Value="#FFFFFFFF" />
             <Setter Property="Background" Value="#012336" />
@@ -44,101 +46,101 @@
         </Style>
     </Window.Resources>
 
-<!--  ******************************************** Context Menu ******************************************  -->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="DataWindowContextMenu">
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnFileMenuOptionClick"
                 Header="File"
                 ToolTip="Browse File System">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
                 ToolTip="Browse Directories">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
             <Separator />
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
                 Header="Chrome"
                 ToolTip="Launch Chrome Browser">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnEdgeOptionClick"
                 Header="Edge"
                 ToolTip="Launch Edge Browser">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnFirefoxOptionClick"
                 Header="FireFox"
                 ToolTip="Launch Firefox Browser">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
             <Separator />
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
                 ToolTip="Open Calculator">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
                 ToolTip="Windows Control Panel">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
                 ToolTip="Windows Task Manager">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
             <Separator />
 
-            <syncfusion:MenuItemAdv
+            <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Exit"
                 ToolTip="Exit Application">
-                <syncfusion:MenuItemAdv.Icon>
+                <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
-                </syncfusion:MenuItemAdv.Icon>
-            </syncfusion:MenuItemAdv>
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
 
         </ContextMenu>
     </Window.ContextMenu>
 
-    <local:MetroCanvas
+    <bdgr:MetroCanvas
         x:Name="DataCanvas"
         Width="1400"
         Height="800"
@@ -146,9 +148,9 @@
         HorizontalAlignment="Right"
         Background="#FF141414">
 
-<!--  ******************************************** Tab Control *********************************************  -->
+        <!--  ******************************************** Tab Control *********************************************  -->
 
-        <local:MetroTabControl
+        <bdgr:MetroTabControl
             x:Name="SecondaryTabControl"
             Canvas.Left="1065"
             Canvas.Top="8"
@@ -173,7 +175,7 @@
                     Margin="0,5,0,0"
                     Background="#FF141414">
 
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="DataSourceListBox"
                         Canvas.Left="37"
                         Canvas.Top="88"
@@ -184,7 +186,7 @@
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         Background="#FF2D2D2D" />
 
-                    <local:MetroComboBox
+                    <bdgr:MetroComboBox
                         x:Name="TableComboBox"
                         Canvas.Left="37"
                         Canvas.Top="40"
@@ -197,28 +199,28 @@
                         Background="#FF2D2D2D"
                         DefaultText="Select Model Type">
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
                             Background="#FF2D2D2D"
                             Content="Execution"
                             Foreground="#FFA0BDFC"
                             Tag="EXECUTION" />
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
                             Background="#FF2D2D2D"
                             Content="Reference"
                             Foreground="#FFA0BDFC"
                             Tag="REFERENCE" />
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
                             Background="#FF2D2D2D"
                             Content="Maintenance"
                             Foreground="#FFA0BDFC"
                             Tag="MAINTENANCE" />
 
-                    </local:MetroComboBox>
+                    </bdgr:MetroComboBox>
 
                 </Canvas>
             </TabItem>
@@ -238,7 +240,7 @@
                     x:Name="FilterGrid"
                     Height="622"
                     Margin="0,0,23,0">
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="FirstListBox"
                         Canvas.Left="43"
                         Canvas.Top="139"
@@ -249,7 +251,7 @@
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
-                    <local:MetroComboBox
+                    <bdgr:MetroComboBox
                         x:Name="FirstComboBox"
                         Canvas.Left="43"
                         Canvas.Top="101"
@@ -259,14 +261,14 @@
                         VerticalAlignment="Center"
                         AllowMultiSelect="True"
                         DefaultText="ComboBox Items">
-                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
-                    </local:MetroComboBox>
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
 
-                    <local:MetroComboBox
+                    <bdgr:MetroComboBox
                         x:Name="SecondComboBox"
                         Canvas.Left="42"
                         Canvas.Top="291"
@@ -274,14 +276,14 @@
                         Height="30"
                         AllowMultiSelect="True"
                         DefaultText="ComboBox Items">
-                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
-                    </local:MetroComboBox>
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
 
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="SecondListBox"
                         Canvas.Left="44"
                         Canvas.Top="332"
@@ -312,7 +314,7 @@
                     Margin="0,0,25,0"
                     Background="#FF141414">
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="CommandLabel"
                         Canvas.Left="28"
                         Canvas.Top="35"
@@ -322,7 +324,7 @@
                         Content="SQL Commands:"
                         Foreground="#FF0078D4" />
 
-                    <local:MetroComboBox
+                    <bdgr:MetroComboBox
                         x:Name="CommandComboBox"
                         Canvas.Left="27"
                         Canvas.Top="66"
@@ -330,14 +332,14 @@
                         Height="30"
                         AllowMultiSelect="True"
                         DefaultText="">
-                        <syncfusion:ComboBoxItemAdv Content="Item 1" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 2" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 3" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 4" />
-                        <syncfusion:ComboBoxItemAdv Content="Item 5" />
-                    </local:MetroComboBox>
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
 
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="CommandListBox"
                         Canvas.Left="27"
                         Canvas.Top="115"
@@ -364,7 +366,7 @@
                     x:Name="CalendarCanvas"
                     Margin="0,5,0,0"
                     Background="#FF141414">
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="FirstCalendarLabel"
                         Canvas.Left="27"
                         Canvas.Top="10"
@@ -374,7 +376,7 @@
                         VerticalAlignment="Top"
                         Content="First"
                         Foreground="#FF0078D4" />
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="SecondCalendarLabel"
                         Canvas.Left="30"
                         Canvas.Top="245"
@@ -384,7 +386,7 @@
                         VerticalAlignment="Top"
                         Content="Second"
                         Foreground="#FF0078D4" />
-                    <local:MetroCalendar
+                    <bdgr:MetroCalendar
                         x:Name="FirstCalendar"
                         Canvas.Left="30"
                         Canvas.Top="39"
@@ -396,7 +398,7 @@
                         VerticalAlignment="Top"
                         Date="1/1/2020" />
 
-                    <local:MetroCalendar
+                    <bdgr:MetroCalendar
                         x:Name="SecondCalendar"
                         Canvas.Left="38"
                         Canvas.Top="274"
@@ -409,9 +411,9 @@
                         Date="1/1/2020" />
                 </Canvas>
             </TabItem>
-        </local:MetroTabControl>
+        </bdgr:MetroTabControl>
 
-        <local:MetroTabControl
+        <bdgr:MetroTabControl
             x:Name="PrimaryTabControl"
             Canvas.Left="11"
             Canvas.Top="10"
@@ -435,7 +437,7 @@
                     x:Name="DataTabCanvas"
                     Margin="0,10,0,0"
                     Background="#FF141414">
-                    <local:MetroDataGrid
+                    <bdgr:MetroDataGrid
                         x:Name="DataGrid"
                         Canvas.Left="15"
                         Canvas.Top="27"
@@ -449,7 +451,7 @@
                         Foreground="#FFA0BDFC"
                         SelectionForegroundBrush="#FFFFFFFF" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="FirstGridLabel"
                         Canvas.Left="15"
                         Canvas.Top="474"
@@ -458,7 +460,7 @@
                         VerticalAlignment="Center"
                         Content="MetroLabel" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="SecondGridLabel"
                         Canvas.Left="278"
                         Canvas.Top="474"
@@ -467,7 +469,7 @@
                         VerticalAlignment="Center"
                         Content="MetroLabel" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="ThirdGridLabel"
                         Canvas.Left="533"
                         Canvas.Top="474"
@@ -476,7 +478,7 @@
                         VerticalAlignment="Center"
                         Content="MetroLabel" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="FourthGridLabel"
                         Canvas.Left="798"
                         Canvas.Top="474"
@@ -534,7 +536,7 @@
                     VerticalAlignment="Top"
                     Background="#FF141414">
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="SchemaHeader"
                         Canvas.Left="4"
                         Canvas.Top="37"
@@ -544,7 +546,7 @@
                         Content=""
                         Foreground="#FF0078D4" />
 
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="DataColumnListBox"
                         Canvas.Left="85"
                         Canvas.Top="199"
@@ -554,7 +556,7 @@
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="DataColumnLabel"
                         Canvas.Left="90"
                         Canvas.Top="169"
@@ -563,7 +565,7 @@
                         Content="Data Columns"
                         Foreground="#FF0078D4" />
 
-                    <local:MetroTile
+                    <bdgr:MetroTile
                         x:Name="DropTableButton"
                         Title="Delete Table"
                         Canvas.Left="360"
@@ -574,7 +576,7 @@
                         VerticalAlignment="Top"
                         Header="" />
 
-                    <local:MetroTile
+                    <bdgr:MetroTile
                         x:Name="DeleteColumnButton"
                         Title="Delete Column"
                         Canvas.Left="360"
@@ -585,7 +587,7 @@
                         VerticalAlignment="Top"
                         Header="" />
 
-                    <local:MetroTile
+                    <bdgr:MetroTile
                         x:Name="AddTableButton"
                         Title="Add Table"
                         Canvas.Left="365"
@@ -596,7 +598,7 @@
                         VerticalAlignment="Top"
                         Header="" />
 
-                    <local:MetroTile
+                    <bdgr:MetroTile
                         x:Name="AddColumnButton"
                         Title="Add Column"
                         Canvas.Left="365"
@@ -607,7 +609,7 @@
                         VerticalAlignment="Top"
                         Header="" />
 
-                    <local:MetroListBox
+                    <bdgr:MetroListBox
                         x:Name="DataTypeListBox"
                         Canvas.Left="580"
                         Canvas.Top="354"
@@ -617,7 +619,7 @@
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="TableNameLabel"
                         Canvas.Left="585"
                         Canvas.Top="164"
@@ -626,7 +628,7 @@
                         Content="Table Name"
                         Foreground="#FF0078D4" />
 
-                    <local:MetroTextBox
+                    <bdgr:MetroTextBox
                         Canvas.Left="585"
                         Canvas.Top="194"
                         Width="190"
@@ -635,7 +637,7 @@
                         VerticalAlignment="Center"
                         TextWrapping="Wrap" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="ColumnNameLabel"
                         Canvas.Left="585"
                         Canvas.Top="241"
@@ -646,7 +648,7 @@
                         Content="Column Name"
                         Foreground="#FF0078D4" />
 
-                    <local:MetroTextBox
+                    <bdgr:MetroTextBox
                         x:Name="ColumnNameTextBox"
                         Canvas.Left="585"
                         Canvas.Top="269"
@@ -656,7 +658,7 @@
                         VerticalAlignment="Center"
                         TextWrapping="Wrap" />
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="DataTypeLabel"
                         Canvas.Left="585"
                         Canvas.Top="323"
@@ -668,7 +670,7 @@
                         Content="Data Type"
                         Foreground="#FF0078D4" />
 
-                    <local:MetroComboBox
+                    <bdgr:MetroComboBox
                         x:Name="ProviderComboBox"
                         Canvas.Left="85"
                         Canvas.Top="98"
@@ -682,30 +684,30 @@
                         DefaultText="Select Provider"
                         Foreground="#FFFFFFFF">
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Background="#FF282828"
                             Content="SQLite"
                             Tag="SQLite" />
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             AllowDrop="True"
                             Background="#FF282828"
                             Content="SQL Server"
                             Tag="SqlServer" />
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Background="#FF282828"
                             Content="Access"
                             Tag="Access" />
 
-                        <local:MetroComboBoxItem
+                        <bdgr:MetroComboBoxItem
                             Background="#FF282828"
                             Content="SQL CE"
                             Tag="SqlCe" />
 
-                    </local:MetroComboBox>
+                    </bdgr:MetroComboBox>
 
-                    <local:MetroLabel
+                    <bdgr:MetroLabel
                         x:Name="ProviderComboBoxLabel"
                         Canvas.Left="86"
                         Canvas.Top="68"
@@ -728,7 +730,7 @@
                 <Canvas
                     x:Name="SqlCanvas"
                     Background="#FF141414">
-                    <syncfusion:EditControl
+                    <sync:EditControl
                         x:Name="Editor"
                         Canvas.Left="23"
                         Canvas.Top="76"
@@ -776,9 +778,9 @@
                         Stretch="UniformToFill" />
                 </Canvas>
             </TabItem>
-        </local:MetroTabControl>
+        </bdgr:MetroTabControl>
 
-        <local:ToolStrip
+        <bdgr:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
             Canvas.Top="720"
@@ -791,7 +793,7 @@
             BorderBrush="#FF141414"
             BorderThickness="1,1,1,1"
             OverflowButtonVisibility="Collapsed">
-            <local:ToolStripLabel
+            <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
                 Padding="5,1,1,1"
@@ -799,7 +801,7 @@
                 VerticalAlignment="Bottom"
                 Content="Date &amp; Time"
                 FontSize="10" />
-            <syncfusion:MenuItemSeparator
+            <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
@@ -809,92 +811,92 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="PreviousButton"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="NextButton"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="LastButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
-            <syncfusion:MenuItemSeparator
+            <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <syncfusion:MenuItemSeparator
+            <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <local:ToolStripTextBox
+            <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center" />
-            <syncfusion:MenuItemSeparator
+            <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="LookupButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="RefreshButton"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="GridButton"
                 Background="{x:Null}"
                 ImageSource="/Resources/Assets/ToolStripImages/GridButton.png"
                 ToolTip="View Data Grid" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="FilterButton"
                 Foreground="#FFA0BDFC"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filter Data Source" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="EditButton"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
                 ToolTip="Edit Current Record" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="SqlButton"
                 ImageSource="/Resources/Assets/ToolStripImages/SqlButton.png"
                 ToolTip="Write SQL                                     " />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="DataSourceButton"
                 ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png"
                 ToolTip="Select Data Source" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="SchemaButton"
                 ImageSource="/Resources/Assets/ToolStripImages/SchemaButton.png"
                 ToolTip="Edit Column Schema" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="CalendarButton"
                 Background="{x:Null}"
                 ImageSource="/Resources/Assets/ToolStripImages/DateButton.png"
                 ToolTip="Filter By Date" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="SaveButton"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
                 ToolTip="Save Changes" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="DeleteButton"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
                 ToolTip="Delete Current Record" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export Data" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="BrowseButton"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse File System" />
@@ -902,14 +904,14 @@
                 Width="150"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png"
                 ToolTip="Toogle Commands" />
-            <local:ToolStripButton
+            <bdgr:ToolStripButton
                 x:Name="MenuButton"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
-        </local:ToolStrip>
-    </local:MetroCanvas>
+        </bdgr:ToolStrip>
+    </bdgr:MetroCanvas>
 </Window>

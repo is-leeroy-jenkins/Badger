@@ -16,6 +16,7 @@
     <Image
         x:Key="SqlServer"
         Source="/Resources/Assets/ProviderImages/SqlServer.png" />
+    <!-- ReSharper disable once InconsistentNaming -->
     <Image
         x:Key="SQLite"
         Source="/Resources/Assets/ProviderImages/SQLite.png" />

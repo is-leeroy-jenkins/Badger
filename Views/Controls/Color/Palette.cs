@@ -10,7 +10,7 @@
 //    Badger is data analysis and reporting tool for EPA Analysts
 //    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),

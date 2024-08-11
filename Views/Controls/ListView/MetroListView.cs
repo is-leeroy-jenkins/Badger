@@ -56,48 +56,9 @@ namespace Badger
     public class MetroListView : ListView
     {
         /// <summary>
-        /// The border color
+        /// The theme
         /// </summary>
-        private readonly Color _borderColor = new Color( )
-        {
-            A = 255,
-            R = 0,
-            G = 120,
-            B = 212
-        };
-
-        /// <summary>
-        /// The back color
-        /// </summary>
-        private protected Color _backColor = new Color( )
-        {
-            A = 255,
-            R = 45,
-            G = 45,
-            B = 45
-        };
-
-        /// <summary>
-        /// The back hover color
-        /// </summary>
-        private protected Color _backHover = new Color( )
-        {
-            A = 255,
-            R = 17,
-            G = 53,
-            B = 84
-        };
-
-        /// <summary>
-        /// The fore color
-        /// </summary>
-        private protected Color _foreColor = new Color( )
-        {
-            A = 255,
-            R = 222,
-            G = 222,
-            B = 222
-        };
+        private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <inheritdoc />
         /// <summary>
@@ -114,11 +75,12 @@ namespace Badger
             Height = 270;
             MinHeight = 170;
             MaxHeight = 900;
-            FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
-            Background = new SolidColorBrush( _backColor );
-            BorderBrush = new SolidColorBrush( _borderColor );
-            Foreground = new SolidColorBrush( _foreColor );
+            FontSize = _theme.FontSize;
+            Padding = _theme.Padding;
+            FontFamily = _theme.FontFamily;
+            Background = _theme.ControlColor;
+            BorderBrush = _theme.BorderColor;
+            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

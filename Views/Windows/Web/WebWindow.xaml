@@ -2,12 +2,14 @@
     x:Class="Badger.WebWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:skin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
+    xmlns:bdgr="clr-namespace:Badger"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:bdgr="clr-namespace:Badger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="WebView"
     Title="Internet "
@@ -24,6 +26,18 @@
     ScrollViewer.CanContentScroll="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+<!--  ******************************************** Resources *********************************************  -->
+
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderBrush" Value="#0078D4" />
+            <Setter Property="Background" Value="#FF000000" />
+            <Setter Property="Foreground" Value="#FFA0BDFC"/>
+        </Style>
+    </Window.Resources>
+
 
 <!--  ******************************************** Context Menu ******************************************  -->
 

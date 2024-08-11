@@ -85,12 +85,12 @@ namespace Badger
             GrayColor = new SolidColorBrush( Colors.DarkGray );
             YellowColor = new SolidColorBrush( _yellowColor );
             RedColor = new SolidColorBrush( _redColor );
+            DarkBlueColor = new SolidColorBrush( _darkBlueColor );
             KhakiColor = new SolidColorBrush( _khakiColor );
             GreenColor = new SolidColorBrush( _greenColor );
             LightBlueColor = new SolidColorBrush( _lightBlue );
             BlackColor = new SolidColorBrush( _blackColor );
             WhiteColor = new SolidColorBrush( _whiteColor );
-            DarkBlueColor = new SolidColorBrush( _darkBlueColor );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 1 );
@@ -119,6 +119,7 @@ namespace Badger
                     GrayColor,
                     YellowColor,
                     RedColor,
+                    DarkBlueColor,
                     KhakiColor,
                     GreenColor,
                     LightBlueColor
@@ -152,6 +153,7 @@ namespace Badger
                     GrayColor,
                     YellowColor,
                     RedColor,
+                    DarkBlueColor,
                     KhakiColor,
                     GreenColor,
                     LightBlueColor
@@ -184,6 +186,7 @@ namespace Badger
                 _map.Add( "GrayColor", GrayColor );
                 _map.Add( "YellowColor", YellowColor );
                 _map.Add( "RedColor", RedColor );
+                _map.Add( "DarkBlueColor", DarkBlueColor );
                 _map.Add( "KhakiColor", KhakiColor );
                 _map.Add( "GreenColor", GreenColor );
                 _map.Add( "LightBlue", LightBlueColor );
