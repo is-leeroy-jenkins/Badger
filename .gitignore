@@ -371,3 +371,6 @@ FodyWeavers.xsd
 /Minions/Baby/runtimes/win-x86/native/libcef.dll
 /Minions/Baby/runtimes/win-x64/native/libcef.dll
 >>>>>>> Stashed changes
+/Badger.DotSettings
+/.editorconfig
+/Properties/Badger.DotSettings
