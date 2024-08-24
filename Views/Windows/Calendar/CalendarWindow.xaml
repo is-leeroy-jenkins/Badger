@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Badger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sync="http://schemas.syncfusion.com/wpf"
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="Calendar"
     Title="Fiscal Year Data"
     Width="1350"
@@ -17,9 +17,9 @@
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DarkBackColor}"
     BorderBrush="{StaticResource BorderBrush}"
-    Foreground="{StaticResource LightBlueBrush}"
     BorderThickness="1,1,1,1"
     FontSize="9"
+    Foreground="{StaticResource LightBlueBrush}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
@@ -30,7 +30,7 @@
             <Setter Property="BorderThickness" Value="1,1,1,1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
-            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
@@ -133,7 +133,7 @@
             VerticalAlignment="Top"
             BackWallBrush="{StaticResource ControlInterior}"
             Background="{StaticResource TransparentBrush}"
-            BorderBrush="{StaticResource  BorderBrush}"
+            BorderBrush="{StaticResource BorderBrush}"
             BorderThickness="1,1,1,1"
             BottomWallBrush="{StaticResource ControlInterior}"
             LeftWallBrush="{StaticResource ControlInterior}"
@@ -192,38 +192,44 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            HorizontalContentAlignment="Stretch" 
+            HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch">
+
             <local:ToolStripLabel
                 x:Name="StatusLabel"
+                Width="100"
                 Padding="5,1,1,1"
                 Content="Date &amp; Time" />
+
             <Separator
                 Width="125"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}" />
+
             <local:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
+
             <local:ToolStripButton
                 x:Name="PreviousButton"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
+
             <local:ToolStripButton
                 x:Name="NextButton"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
+
             <local:ToolStripButton
                 x:Name="LastButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
+
             <sync:MenuItemSeparator
                 Width="10"
-                Margin="15,6,0,6"
-                Background="#00D3D3D3"
-                BorderBrush="#00D3D3D3"
-                Foreground="#006ABDFC" />
+                Margin="15,6,0,6" />
+
             <local:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
@@ -231,70 +237,83 @@
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalContentAlignment="Center" />
+
             <sync:MenuItemSeparator
                 Width="10"
-                Margin="20,6,0,6"
-                Background="#00D3D3D3"
-                BorderBrush="#00D3D3D3"
-                Foreground="#006ABDFC" />
+                Margin="20,6,0,6" />
+
             <local:ToolStripButton
                 x:Name="LookupButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
+
             <local:ToolStripButton
                 x:Name="RefreshButton"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
+
             <local:ToolStripButton
                 x:Name="FilterButton"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png" />
+
             <local:ToolStripButton
                 x:Name="EditButton"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
                 ToolTip="Edit" />
+
             <local:ToolStripButton
                 x:Name="UndoButton"
                 Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
                 ToolTip="Undo Last" />
+
             <local:ToolStripButton
                 x:Name="SaveButton"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
                 ToolTip="Save" />
+
             <local:ToolStripButton
                 x:Name="DeleteButton"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
                 ToolTip="Delete" />
+
             <local:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png" />
+
             <local:ToolStripButton
                 x:Name="BrowseButton"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
+
             <sync:MenuItemSeparator
                 Margin="0,6,0,6"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <ProgressBar
-                Width="150"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Width="180"
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}" />
+
             <sync:MenuItemSeparator
                 Margin="20,6,0,6"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <local:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
             <local:ToolStripButton
                 x:Name="MenuButton"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
         </local:ToolStrip>
+
         <local:MetroLabel
             x:Name="FirstCalendarLabel"
             Canvas.Left="75"
@@ -303,6 +322,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="First" />
+
         <local:MetroLabel
             x:Name="SecondCalendarLabel"
             Canvas.Left="85"
@@ -312,6 +332,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Content="Second" />
+
         <local:MetroHeaderBox
             Canvas.Left="530"
             Canvas.Top="529"
@@ -320,5 +341,6 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Header="MetroHeaderBox" />
+
     </Canvas>
 </Window>

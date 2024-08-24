@@ -6,15 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:gif="http://wpfanimatedgif.codeplex.com"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
     x:Name="PivotView"
     Title="Pivot Analysis"
     Width="1350"
     Height="800"
+
     MinWidth="1250"
     MinHeight="650"
     Margin="1,1,1,1"
@@ -147,7 +145,7 @@
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            BorderBrush="#FF141414"
+            BorderBrush="{StaticResource DarkBackColor}"
             BorderThickness="1,1,1,1"
             OverflowButtonVisibility="Collapsed">
 
@@ -168,8 +166,8 @@
 
             <Separator
                 Width="80"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}" />
 
             <bdgr:ToolStripButton
                 x:Name="FirstButton"
@@ -226,7 +224,7 @@
 
             <bdgr:ToolStripButton
                 x:Name="FilterButton"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
 
@@ -262,8 +260,8 @@
 
             <ProgressBar
                 Width="200"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}" />
 
             <bdgr:ToolStripButton
                 x:Name="ToggleButton"
@@ -287,14 +285,14 @@
                 x:Name="SourceTab"
                 Width="60"
                 Margin="0,0,0,0"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Tables">
                 <Canvas
                     x:Name="SourceCanvas"
                     Margin="0,13,0,0"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
 
                     <!--  ************************************** List Box  *************************************  -->
 
@@ -326,7 +324,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Content="Data Tables"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
                 </Canvas>
             </TabItem>
             <TabItem
@@ -335,13 +333,13 @@
                 Height="22"
                 Margin="0,0,0,0"
                 Padding="6,2,6,2"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource DarkBackColor}"
+                BorderBrush="{StaticResource DarkBackColor}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Filters">
                 <Canvas
                     x:Name="FilterCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
 
                     <!--  ************************************** List Box  *************************************  -->
 
@@ -410,7 +408,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Bottom"
                         Content="Second Category"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
                     <bdgr:MetroLabel
                         x:Name="FirstCategoryLabel"
                         Canvas.Left="51"
@@ -421,7 +419,7 @@
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
                         Content="First Category"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
                 </Canvas>
             </TabItem>
             <TabItem
@@ -430,13 +428,13 @@
                 Height="22"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
+                Background="{StaticResource DarkBackColor}"
                 BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Groups">
                 <Grid
                     x:Name="GroupCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
                     <bdgr:MetroLabel
                         x:Name="FieldsLabel"
                         Width="170"
@@ -444,7 +442,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Fields"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
 
                     <!--  ************************************** List Box  *************************************  -->
 
@@ -484,7 +482,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Numerics"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
                 </Grid>
             </TabItem>
             <TabItem
@@ -493,15 +491,15 @@
                 Height="22"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
+                Background="{StaticResource DarkBackColor}"
                 BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Calendar">
                 <Canvas
                     x:Name="CalendarCanvas"
                     Height="624"
                     VerticalAlignment="Bottom"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
                     <bdgr:MetroLabel
                         x:Name="FirstDateLabel"
                         Canvas.Left="52"
@@ -512,7 +510,7 @@
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
                         Content="First Date"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
 
                     <!--  ************************************** List Box  *************************************  -->
 
@@ -538,7 +536,7 @@
                         VerticalContentAlignment="Bottom"
                         Panel.ZIndex="-2"
                         Content="Second Date"
-                        Foreground="#FF0078D4"
+                        Foreground="{StaticResource BorderBrush}"
                         Grid.IsSharedSizeScope="True" />
 
                     <!--  ************************************** List Box  *************************************  -->
@@ -569,14 +567,14 @@
                 Width="100"
                 Margin="0,0,0,0"
                 Padding="6,2,6,2"
-                Background="#FF141414"
+                Background="{StaticResource DarkBackColor}"
                 BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Data">
                 <Canvas
                     x:Name="PivotCanvas"
                     Margin="0,11,0,0"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
 
                     <!--  ************************************** Pivot Grid  *************************************  -->
 
@@ -594,8 +592,8 @@
                         GroupingBarItemBackground="#FF2F8AD0"
                         GroupingBarItemBorderBrush="#FFF9F5F5"
                         GroupingBarItemForeground="#FF6ABDFC"
-                        GroupingButtonHoverBackgroundBrush="#FF0078D4"
-                        GroupingButtonHoverBorderBrush="#FFA0BDFC"
+                        GroupingButtonHoverBackgroundBrush="{StaticResource BorderBrush}"
+                        GroupingButtonHoverBorderBrush="{StaticResource LightBlueBrush}"
                         GroupingButtonHoverForeground="#FFFBF9F9"
                         ShowGroupingBar="True"
                         ShowSubTotals="True"
@@ -607,13 +605,13 @@
                 Width="100"
                 Height="22"
                 Margin="0,0,0,0"
-                Background="#FF141414"
+                Background="{StaticResource DarkBackColor}"
                 BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Chart">
                 <Canvas
                     x:Name="ChartCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource DarkBackColor}">
 
                     <!--  ************************************** Chart  *************************************  -->
 
@@ -632,15 +630,15 @@
                 x:Name="BusyTab"
                 Width="100"
                 Margin="0,0,0,0"
-                Background="#FF141414"
+                Background="{StaticResource DarkBackColor}"
                 BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Busy">
-                <Canvas Background="#FF141414">
+                <Canvas Background="{StaticResource DarkBackColor}">
                     <Canvas
                         Width="1024"
                         Height="626"
-                        Background="#FF141414"
+                        Background="{StaticResource DarkBackColor}"
                         RenderTransformOrigin="0.517,0.505">
                         <Image
                             x:Name="Loader"

@@ -2,12 +2,12 @@
     x:Class="Badger.DataWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:sync="http://schemas.syncfusion.com/wpf"
     xmlns:bdgr="clr-namespace:Badger"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:gif="http://wpfanimatedgif.codeplex.com"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="DataView"
     Title="Budget Execution"
     Width="1350"
@@ -18,14 +18,14 @@
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DefaultBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    Foreground="{StaticResource LightBlueBrush}"
     BorderThickness="1,1,1,1"
+    Foreground="{StaticResource LightBlueBrush}"
     IsEnabled="True"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!-- ******************************************** Resources ********************************************* -->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="sync:GroupDropArea">
@@ -38,8 +38,8 @@
             x:Name="ToolTipStyle"
             TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"  />
-            <Setter Property="Background" Value="{StaticResource BlackBackground}"  />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
@@ -139,7 +139,7 @@
     </Window.ContextMenu>
 
 
-    <!--******************************************** Layout  *********************************************-->
+    <!--  ******************************************** Layout  *********************************************  -->
 
     <bdgr:MetroCanvas
         x:Name="DataCanvas"
@@ -780,7 +780,7 @@
             </TabItem>
         </bdgr:MetroTabControl>
 
-        <!--******************************************** ToolStrip  *********************************************-->
+        <!--  ******************************************** ToolStrip  *********************************************  -->
 
         <bdgr:ToolStrip
             x:Name="DataToolStrip"
@@ -790,12 +790,12 @@
             Height="40"
             Margin="1,1,1,3"
             Padding="1,1,1,1"
-            BorderThickness="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            HorizontalContentAlignment="Stretch" 
+            HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            OverflowButtonVisibility="Collapsed" >
+            BorderThickness="1,1,1,1"
+            OverflowButtonVisibility="Collapsed">
 
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"

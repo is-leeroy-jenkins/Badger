@@ -65,6 +65,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
     public partial class MainWindow : Window
     {
         /// <summary>
@@ -169,7 +171,7 @@ namespace Badger
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        private void InvokeIf( Action action )
         {
             try
             {
@@ -193,7 +195,7 @@ namespace Badger
         /// Invokes if.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action<object> action )
+        private void InvokeIf( Action<object> action )
         {
             try
             {
@@ -582,7 +584,7 @@ namespace Badger
         {
             try
             {
-                var _data = new DataGenerator( Source.StatusOfAppropriations, Provider.Access );
+                var _data = new DataGenerator( Source.StatusOfAppropriations );
                 var _dataTable = _data.DataTable;
                 var _report = new ExcelReport( _dataTable );
                 _report.SaveDialog( );

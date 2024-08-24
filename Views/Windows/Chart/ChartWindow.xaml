@@ -15,8 +15,8 @@
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DefaultBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    Foreground="{StaticResource LightBlueBrush}"
     BorderThickness="1,1,1,1"
+    Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     IsEnabled="True"
     Opacity="1"
@@ -30,8 +30,8 @@
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"  />
-            <Setter Property="Background" Value="{StaticResource BlackBackground}"  />
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
@@ -223,7 +223,6 @@
                 ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png" />
 
             <Separator
-
                 Width="20"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
@@ -606,7 +605,9 @@
                 IsSelected="True">
                 <Canvas
                     x:Name="SourceCanvas"
-                    Background="#FF141414" HorizontalAlignment="Left" Width="453">
+                    Width="453"
+                    HorizontalAlignment="Left"
+                    Background="#FF141414">
                     <Frame
                         x:Name="SourceFrame"
                         Canvas.Left="41"
