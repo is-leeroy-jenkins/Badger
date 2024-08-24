@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Badger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-    xmlns:syncfusionskin="[syncfusionskin ]clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     StartupUri="/Views/Windows/Main/MainWindow.xaml">
 
@@ -15,7 +15,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
-                <ResourceDictionary Source="/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/Views/Styles/All.xaml" />
+                <ResourceDictionary Source="/Views/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,134 +1,134 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:sync="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
-    xmlns:skin="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF">
-    
+    xmlns:skin="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
+    xmlns:sync="clr-namespace:Syncfusion.Themes.FluentDark.WPF">
+
     <Style TargetType="{x:Type skin:RevealItem}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#40000000"/>
-        <Setter Property="HoverBorder" Value="#40000000"/>
-        <Setter Property="PressedBackground" Value="#33000000"/>
-        <Setter Property="HoverBackground" Value="#1A000000"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#40000000" />
+        <Setter Property="HoverBorder" Value="#40000000" />
+        <Setter Property="PressedBackground" Value="#33000000" />
+        <Setter Property="HoverBackground" Value="#1A000000" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type skin:RevealItem}">
                     <Grid x:Name="rootGrid">
                         <Grid.Resources>
-                                <Storyboard x:Key="PressedRevealStoryboard">
-                                    <DoubleAnimation
-                                            Storyboard.TargetName="backgroundBorder"
-                                            Storyboard.TargetProperty="(UIElement.Opacity)"
-                                            To="0.8"
-                                            Duration="0:0:0.600">
-                                        <DoubleAnimation.EasingFunction>
-                                            <CubicEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
+                            <Storyboard x:Key="PressedRevealStoryboard">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="backgroundBorder"
+                                    Storyboard.TargetProperty="(UIElement.Opacity)"
+                                    To="0.8"
+                                    Duration="0:0:0.600">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
 
-                                    <DoubleAnimation
-                                            Storyboard.TargetName="pressedRect"
-                                            Storyboard.TargetProperty="(UIElement.Opacity)"
-                                            To="1"
-                                            Duration="0:0:0.200">
-                                        <DoubleAnimation.EasingFunction>
-                                            <CubicEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            BeginTime="0:0:0.150"
-                                            Storyboard.TargetName="pressedRect"
-                                            Storyboard.TargetProperty="(UIElement.Opacity)"
-                                            To="0.1"
-                                            Duration="0:0:1.000">
-                                        <DoubleAnimation.EasingFunction>
-                                            <CubicEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="pressedRect"
+                                    Storyboard.TargetProperty="(UIElement.Opacity)"
+                                    To="1"
+                                    Duration="0:0:0.200">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    BeginTime="0:0:0.150"
+                                    Storyboard.TargetName="pressedRect"
+                                    Storyboard.TargetProperty="(UIElement.Opacity)"
+                                    To="0.1"
+                                    Duration="0:0:1.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
 
-                                    <DoubleAnimation
-                                            Storyboard.TargetName="pressedRectBrush"
-                                            Storyboard.TargetProperty="(RadialGradientBrush.RadiusX)"
-                                            From="100"
-                                            To="50"
-                                            Duration="0:0:0.100">
-                                        <DoubleAnimation.EasingFunction>
-                                            <CubicEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            BeginTime="0:0:0.150"
-                                            Storyboard.TargetName="pressedRectBrush"
-                                            Storyboard.TargetProperty="(RadialGradientBrush.RadiusX)"
-                                            To="200"
-                                            Duration="0:0:1.000">
-                                        <DoubleAnimation.EasingFunction>
-                                            <SineEase EasingMode="EaseInOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            Storyboard.TargetName="pressedRectBrush"
-                                            Storyboard.TargetProperty="(RadialGradientBrush.RadiusY)"
-                                            From="100"
-                                            To="50"
-                                            Duration="0:0:0.100">
-                                        <DoubleAnimation.EasingFunction>
-                                            <CubicEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            BeginTime="0:0:0.150"
-                                            Storyboard.TargetName="pressedRectBrush"
-                                            Storyboard.TargetProperty="(RadialGradientBrush.RadiusY)"
-                                            To="200"
-                                            Duration="0:0:1.000">
-                                        <DoubleAnimation.EasingFunction>
-                                            <SineEase EasingMode="EaseInOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            Storyboard.TargetName="pressedRectOffset"
-                                            Storyboard.TargetProperty="Offset"
-                                            To="0"
-                                            Duration="0:0:0.000">
-                                        <DoubleAnimation.EasingFunction>
-                                            <SineEase EasingMode="EaseInOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                    <DoubleAnimation
-                                            BeginTime="0:0:0.150"
-                                            Storyboard.TargetName="pressedRectOffset"
-                                            Storyboard.TargetProperty="Offset"
-                                            From="0"
-                                            To="0.8"
-                                            Duration="0:0:1.000">
-                                        <DoubleAnimation.EasingFunction>
-                                            <SineEase EasingMode="EaseOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="pressedRectBrush"
+                                    Storyboard.TargetProperty="(RadialGradientBrush.RadiusX)"
+                                    From="100"
+                                    To="50"
+                                    Duration="0:0:0.100">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    BeginTime="0:0:0.150"
+                                    Storyboard.TargetName="pressedRectBrush"
+                                    Storyboard.TargetProperty="(RadialGradientBrush.RadiusX)"
+                                    To="200"
+                                    Duration="0:0:1.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <SineEase EasingMode="EaseInOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="pressedRectBrush"
+                                    Storyboard.TargetProperty="(RadialGradientBrush.RadiusY)"
+                                    From="100"
+                                    To="50"
+                                    Duration="0:0:0.100">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    BeginTime="0:0:0.150"
+                                    Storyboard.TargetName="pressedRectBrush"
+                                    Storyboard.TargetProperty="(RadialGradientBrush.RadiusY)"
+                                    To="200"
+                                    Duration="0:0:1.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <SineEase EasingMode="EaseInOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="pressedRectOffset"
+                                    Storyboard.TargetProperty="Offset"
+                                    To="0"
+                                    Duration="0:0:0.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <SineEase EasingMode="EaseInOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation
+                                    BeginTime="0:0:0.150"
+                                    Storyboard.TargetName="pressedRectOffset"
+                                    Storyboard.TargetProperty="Offset"
+                                    From="0"
+                                    To="0.8"
+                                    Duration="0:0:1.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <SineEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
 
-                                    <DoubleAnimation
-                                            BeginTime="0:0:0.200"
-                                            Storyboard.TargetName="pressedRectBrush"
-                                            Storyboard.TargetProperty="Opacity"
-                                            To="0"
-                                            Duration="0:0:1.500">
-                                        <DoubleAnimation.EasingFunction>
-                                            <SineEase EasingMode="EaseInOut" />
-                                        </DoubleAnimation.EasingFunction>
-                                    </DoubleAnimation>
-                                </Storyboard>
+                                <DoubleAnimation
+                                    BeginTime="0:0:0.200"
+                                    Storyboard.TargetName="pressedRectBrush"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0"
+                                    Duration="0:0:1.500">
+                                    <DoubleAnimation.EasingFunction>
+                                        <SineEase EasingMode="EaseInOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
 
                             <Storyboard x:Key="PressedGlowStoryboard">
                                 <DoubleAnimation
-                                            Storyboard.TargetName="pressedGlowBorder"
-                                            Storyboard.TargetProperty="(UIElement.Opacity)"
-                                            To="1"
-                                            Duration="0:0:0.200">
+                                    Storyboard.TargetName="pressedGlowBorder"
+                                    Storyboard.TargetProperty="(UIElement.Opacity)"
+                                    To="1"
+                                    Duration="0:0:0.200">
                                     <DoubleAnimation.EasingFunction>
                                         <CubicEase EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
@@ -137,12 +137,16 @@
                         </Grid.Resources>
                         <Border x:Name="backgroundBorder">
                             <Grid ClipToBounds="True">
-                                <Border x:Name="backgroundMouseOver" Visibility="Collapsed"/>
-                                <Rectangle x:Name="pressedRect" Opacity="0.1">
+                                <Border
+                                    x:Name="backgroundMouseOver"
+                                    Visibility="Collapsed" />
+                                <Rectangle
+                                    x:Name="pressedRect"
+                                    Opacity="0.1">
                                     <Rectangle.Fill>
                                         <RadialGradientBrush x:Name="pressedRectBrush" MappingMode="Absolute" RadiusX="200" RadiusY="200">
                                             <GradientStop Offset="0" Color="Transparent" />
-                                            <GradientStop x:Name="pressedRectOffset" Offset="0.5" Color="#33000000"/>
+                                            <GradientStop x:Name="pressedRectOffset" Offset="0.5" Color="#33000000" />
                                             <GradientStop Offset="1" Color="Transparent" />
                                         </RadialGradientBrush>
                                     </Rectangle.Fill>
@@ -155,21 +159,28 @@
                                 Background="Transparent"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{Binding Path=BorderThickness, RelativeSource={RelativeSource TemplatedParent}}"
-                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}}"
-                                >
-                                <Border x:Name="pressedGlowBorder" Opacity="0" Background="Transparent" BorderThickness="2" Margin="-3">
+                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Border
+                                    x:Name="pressedGlowBorder"
+                                    Margin="-3"
+                                    Background="Transparent"
+                                    BorderThickness="2"
+                                    Opacity="0">
                                     <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" />
+                                        <DropShadowEffect
+                                            BlurRadius="10"
+                                            ShadowDepth="0" />
                                     </Border.Effect>
                                 </Border>
                             </Border>
 
                             <Border
-                                x:Name="borderOpacityMask" Visibility="Collapsed"
+                                x:Name="borderOpacityMask"
                                 Background="Transparent"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{Binding Path=BorderThickness, RelativeSource={RelativeSource TemplatedParent}}"
-                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}}"/>                            
+                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}}"
+                                Visibility="Collapsed" />
                         </Grid>
                     </Grid>
 
@@ -199,7 +210,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="HoverEffectMode" Value="Background" />
                                 <Condition Property="IsMouseOver" Value="True" />
-                                <Condition Property="PressedEffectMode" Value="Reveal"/>
+                                <Condition Property="PressedEffectMode" Value="Reveal" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="backgroundMouseOver" Property="Visibility" Value="Visible" />
                             <Setter TargetName="borderMouseOver" Property="Opacity" Value="{Binding Path=HoverBorderOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
@@ -211,7 +222,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="HoverEffectMode" Value="BackgroundAndBorder" />
                                 <Condition Property="IsMouseOver" Value="True" />
-                                <Condition Property="PressedEffectMode" Value="Reveal"/>
+                                <Condition Property="PressedEffectMode" Value="Reveal" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="backgroundMouseOver" Property="Visibility" Value="Visible" />
                             <Setter TargetName="borderMouseOver" Property="Opacity" Value="{Binding Path=HoverBorderOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
@@ -222,7 +233,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsPressed" Value="True" />
-                                <Condition Property="PressedEffectMode" Value="Glow"/>
+                                <Condition Property="PressedEffectMode" Value="Glow" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="backgroundBorder" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="borderOpacityMask" Property="Visibility" Value="Collapsed" />
@@ -231,7 +242,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsPressed" Value="True" />
-                                <Condition Property="PressedEffectMode" Value="Reveal"/>
+                                <Condition Property="PressedEffectMode" Value="Reveal" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="borderMouseOver" Property="Opacity" Value="{Binding Path=PressedBorderOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </MultiTrigger>
@@ -252,49 +263,54 @@
                         <Canvas>
                             <ContentControl>
                                 <ContentControl.CacheMode>
-                                    <BitmapCache RenderAtScale="0.2"/>
+                                    <BitmapCache RenderAtScale="0.2" />
                                 </ContentControl.CacheMode>
-                                <Rectangle x:Name="panelRect"
-                                           IsHitTestVisible="False"
-                                           Width="{Binding Target.ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}"
-                                           Height="{Binding Target.ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}"
-                                           ClipToBounds="False">
+                                <Rectangle
+                                    x:Name="panelRect"
+                                    Width="{Binding Target.ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}"
+                                    Height="{Binding Target.ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}"
+                                    ClipToBounds="False"
+                                    IsHitTestVisible="False">
                                     <Rectangle.Fill>
-                                        <VisualBrush Stretch="None" AlignmentX="Left" AlignmentY="Top"
-                                                     ViewboxUnits="Absolute"
-                                                     Visual="{Binding Target, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}">
-                                        </VisualBrush>
+                                        <VisualBrush
+                                            AlignmentX="Left"
+                                            AlignmentY="Top"
+                                            Stretch="None"
+                                            ViewboxUnits="Absolute"
+                                            Visual="{Binding Target, RelativeSource={RelativeSource AncestorType={x:Type skin:SfAcrylicPanel}}}" />
                                     </Rectangle.Fill>
                                     <Rectangle.Effect>
-                                        <BlurEffect Radius="100"/>
+                                        <BlurEffect Radius="100" />
                                     </Rectangle.Effect>
                                 </Rectangle>
                             </ContentControl>
                         </Canvas>
 
-                        <!-- tint layer -->
-                        <Rectangle Opacity="{Binding Path=TintOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
-                                   Fill="{Binding Path=TintBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}">                            
-                        </Rectangle>
+                        <!--  tint layer  -->
+                        <Rectangle
+                            Fill="{Binding Path=TintBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Opacity="{Binding Path=TintOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
 
-                        <!-- noise layer -->
-                        <Rectangle Opacity="{Binding Path=NoiseOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                   Fill="{Binding Path=NoiseBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <!--  noise layer  -->
+                        <Rectangle
+                            Fill="{Binding Path=NoiseBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                            Opacity="{Binding Path=NoiseOpacity, RelativeSource={RelativeSource Mode=TemplatedParent}}">
                             <Rectangle.Effect>
-                                <BlurEffect Radius="{Binding Path=BlurRadius, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                <BlurEffect Radius="{Binding Path=BlurRadius, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                             </Rectangle.Effect>
                         </Rectangle>
 
 
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!--  Window Resources -->
+    <!--  Window Resources  -->
 
     <SolidColorBrush
         x:Key="DarkBackColor"
@@ -356,7 +372,7 @@
         x:Key="ControlBackColor"
         Color="#FF2D2D2D" />
 
-    <!--  Context Menu Resources -->
+    <!--  Context Menu Resources  -->
 
     <Image
         x:Key="CalculatorMenuItem"
@@ -429,8 +445,8 @@
     <Image
         x:Key="TaskManagerMenuItem"
         Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
-    <!-- ToolStrip Resources -->
-    
+    <!--  ToolStrip Resources  -->
+
     <Image
         x:Key="BrowseButton"
         Source="/Resources/Assets/ToolStripImages/BrowseButton.png" />
@@ -516,7 +532,7 @@
         Source="/Resources/Assets/ToolStripImages/MenuButton.png" />
 
 
-    <!--  Tile Resources -->
+    <!--  Tile Resources  -->
 
     <Image
         x:Key="AccessTile"
@@ -564,7 +580,7 @@
         x:Key="VisualizationTile"
         Source="/Resources/Assets/TileImages/VisualizationTile.png" />
 
-    <!--  Extension Resources -->
+    <!--  Extension Resources  -->
 
     <Image
         x:Key="ACCDB"
@@ -645,7 +661,7 @@
         x:Key="HTML"
         Source="/Resources/Assets/ExtensionImages/HTML.png" />
 
-    <!--  Provider Resources -->
+    <!--  Provider Resources  -->
 
     <Image
         x:Key="Access"

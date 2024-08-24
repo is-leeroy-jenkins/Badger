@@ -3,7 +3,7 @@
 body
 {
 	align-items: center;
-	box-sizing: padding-box;
+	box-sizing: content-box;
 	display: flex;
 	justify-content: center;
 	min-height: 100vh;

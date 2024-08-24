@@ -11,8 +11,8 @@
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
                     <Border
                         x:Name="Border"
-                        Background="{DynamicResource GeneralBackground}"
-                        BorderBrush="{DynamicResource GeneralBorder}"
+                        Background="{DynamicResource ControlBackground}"
+                        BorderBrush="{DynamicResource BorderBrush}"
                         BorderThickness="1"
                         CornerRadius="3">
                         <StackPanel

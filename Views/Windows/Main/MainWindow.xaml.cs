@@ -141,7 +141,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
@@ -150,13 +149,6 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Opacity = 0;
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
             ResizeMode = _theme.SizeMode;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
@@ -168,9 +160,6 @@ namespace Badger
             WindowStartupLocation = _theme.StartLocation;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.BackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
 
             // Event Wiring
             Loaded += OnLoaded;

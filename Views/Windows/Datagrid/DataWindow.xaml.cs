@@ -342,23 +342,14 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             Padding = _theme.Padding;
             Margin = _theme.Margin;
             BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
             Title = "Data Management";
             WindowStyle = WindowStyle.SingleBorderWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             // Initialize Default Provider
             _provider = Provider.Access;

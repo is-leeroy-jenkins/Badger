@@ -76,6 +76,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
     public partial class ChartWindow : Window, IDisposable
     {
         /// <summary>
@@ -332,7 +333,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Initialization
@@ -341,12 +341,6 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = _theme.Width;
-            MinWidth = _theme.MinWidth;
-            MaxWidth = _theme.MaxWidth;
-            Height = _theme.Height;
-            MinHeight = _theme.MinHeight;
-            MaxHeight = _theme.MaxHeight;
             ResizeMode = _theme.SizeMode;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
@@ -354,13 +348,9 @@ namespace Badger
             BorderThickness = _theme.BorderThickness;
             WindowStyle = _theme.WindowStyle;
             WindowStartupLocation = _theme.StartLocation;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Bottom;
             Title = "Visualization";
-            Opacity = 0.0;
 
             // Default Provider
             _provider = Provider.Access;

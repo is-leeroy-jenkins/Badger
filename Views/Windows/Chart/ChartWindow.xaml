@@ -2,47 +2,41 @@
     x:Class="Badger.ChartWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
-    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:bdgr="clr-namespace:Badger"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
-    xmlns:bdgr="clr-namespace:Badger"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:gif="http://wpfanimatedgif.codeplex.com"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="ChartView"
     Title="Visualization"
-    Width="1400"
+    Width="1350"
     Height="800"
-    MinWidth="1200"
+    MinWidth="1250"
     MinHeight="650"
-    MaxWidth="1500"
-    MaxHeight="900"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
-    Background="#FF141414"
-    BorderBrush="#FF0078D4"
+    Background="{StaticResource DefaultBackground}"
+    BorderBrush="{StaticResource BorderBrush}"
+    Foreground="{StaticResource LightBlueBrush}"
     BorderThickness="1,1,1,1"
-    Foreground="#FF6ABDFC"
     Icon="/Resources/Assets/FormImages/Application.png"
     IsEnabled="True"
     Opacity="1"
     ResizeMode="CanResize"
     ShowActivated="True"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="SingleBorderWindow" >
+    WindowStyle="SingleBorderWindow">
 
-<!--  ******************************************** Resources *********************************************  -->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="#0078D4" />
-            <Setter Property="Background" Value="#FF000000" />
-            <Setter Property="Foreground" Value="#FFA0BDFC"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"  />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}"  />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
-<!--**************************************  Context Menu  ****************************************-->
+    <!--  **************************************  Context Menu  ****************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
@@ -137,57 +131,61 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-<!--************************************** Primary TabControl ****************************************-->
+    <!--  ************************************** Primary TabControl ****************************************  -->
 
     <Canvas x:Name="PrimaryTabCanvas">
         <bdgr:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
-            Canvas.Top="722"
-            Width="1400"
+            Canvas.Top="720"
+            Width="1350"
             Height="40"
             Margin="1,1,1,1"
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
+
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
-                Width="70"
+                Width="80"
                 Padding="3,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 VerticalContentAlignment="Bottom"
                 Content="Date &amp; Time"
-                FontSize="10" />
-            <sync:MenuItemSeparator
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                Foreground="{x:Null}" />
+                FontSize="9" />
+
             <Separator
                 Width="60"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
+
             <bdgr:ToolStripButton
                 x:Name="PreviousButton"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
+
             <bdgr:ToolStripButton
                 x:Name="NextButton"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
+
             <bdgr:ToolStripButton
                 x:Name="LastButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
+
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:MetroComboBox
                 x:Name="ToolStripComboBox"
                 Width="200"
@@ -200,28 +198,36 @@
                 <bdgr:MetroComboBoxItem Content="Area" />
                 <bdgr:MetroComboBoxItem Content="Scatter" />
                 <bdgr:MetroComboBoxItem Content="Histogram" />
+
             </bdgr:MetroComboBox>
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripButton
                 x:Name="FilterButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png" />
+
             <bdgr:ToolStripButton
                 x:Name="GroupButton"
                 ImageSource="/Resources/Assets/ToolStripImages/GroupButton.png" />
+
             <bdgr:ToolStripButton
                 x:Name="RefreshButton"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Reset Filters" />
+
             <bdgr:ToolStripButton
                 x:Name="DataSourceButton"
                 ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png" />
+
             <Separator
+
                 Width="20"
                 Background="#FF141414"
                 BorderBrush="#FF141414" />
+
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
@@ -239,31 +245,39 @@
                 x:Name="LookupButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look-up" />
+
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export to Excel" />
+
             <bdgr:ToolStripButton
                 x:Name="BrowseButton"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
+
             <Separator
-                Width="90"
+                Width="60"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
             <bdgr:ToolStripButton
                 x:Name="MenuButton"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
+
         </bdgr:ToolStrip>
+
         <bdgr:MetroTabControl
             x:Name="PrimaryTabControl"
             Canvas.Left="1"
@@ -397,8 +411,7 @@
                 Foreground="#FFA0BDFC"
                 Header="Smith">
 
-                <Canvas 
-                    Background="#FF141414">
+                <Canvas Background="#FF141414">
 
                     <bdgr:SmithChart
                         x:Name="SmithChart"
@@ -450,9 +463,9 @@
                 Foreground="#FFA0BDFC"
                 Header="Scatter">
 
-                <Canvas 
-                    x:Name="ScatterChartCanvas" 
-                    Background="#FF141414" >
+                <Canvas
+                    x:Name="ScatterChartCanvas"
+                    Background="#FF141414">
 
                     <sync:SfChart3D
                         x:Name="ScatterChart"
@@ -572,19 +585,20 @@
 
         <bdgr:MetroTabControl
             x:Name="SecondaryTabControl"
-            Canvas.Left="882"
-            Canvas.Top="1"
-            Width="510"
+            Canvas.Left="859"
+            Canvas.Top="4"
+            Width="476"
             Height="502"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             RenderTransformOrigin="0.5,0.5">
 
             <TabItem
                 x:Name="SourceTab"
-                Width="100"
+                Width="80"
                 Height="24"
                 Margin="0,0,0,0"
+                Padding="6,2,6,5"
                 Background="#FF141414"
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
@@ -592,14 +606,13 @@
                 IsSelected="True">
                 <Canvas
                     x:Name="SourceCanvas"
-                    Margin="0,5,0,0"
-                    Background="#FF141414">
+                    Background="#FF141414" HorizontalAlignment="Left" Width="453">
                     <Frame
                         x:Name="SourceFrame"
                         Canvas.Left="41"
                         Canvas.Top="0"
-                        Width="420"
-                        Height="454"
+                        Width="400"
+                        Height="450"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Background="#FF141414"
@@ -619,7 +632,7 @@
 
             <TabItem
                 x:Name="FilterTab"
-                Width="100"
+                Width="80"
                 Height="24"
                 Padding="6,2,6,5"
                 VerticalAlignment="Top"
@@ -668,8 +681,7 @@
                         Height="30"
                         AllowMultiSelect="False"
                         DefaultText="">
-                        <sync:ComboBoxItemAdv 
-                            Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 1" />
                     </bdgr:MetroComboBox>
 
                     <bdgr:MetroListBox
@@ -695,9 +707,10 @@
 
             <TabItem
                 x:Name="GroupTab"
-                Width="100"
+                Width="80"
                 Height="24"
                 Margin="0,0,0,0"
+                Padding="6,2,6,5"
                 Background="#FF141414"
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
@@ -767,9 +780,10 @@
             </TabItem>
             <TabItem
                 x:Name="CalendarTab"
-                Width="100"
+                Width="80"
                 Height="24"
                 Margin="0,0,0,0"
+                Padding="6,2,6,5"
                 Background="#FF141414"
                 BorderBrush="#FF141414"
                 Foreground="#FFA0BDFC"
@@ -777,7 +791,7 @@
                 IsSelected="False">
                 <Canvas
                     x:Name="CalendarCanvas"
-                    Height="508"
+                    Height="500"
                     VerticalAlignment="Top"
                     Background="#FF141414">
                     <bdgr:MetroLabel
@@ -794,12 +808,12 @@
                         Foreground="#FF0078D4" />
                     <bdgr:MetroLabel
                         x:Name="SecondDateLabel"
-                        Canvas.Left="276"
+                        Canvas.Left="243"
                         Canvas.Top="99"
                         Width="220"
                         Padding="1,1,1,1"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Bottom"
+                        VerticalAlignment="Center"
                         VerticalContentAlignment="Bottom"
                         Panel.ZIndex="-2"
                         Content="Second Date"
@@ -807,12 +821,12 @@
                         Grid.IsSharedSizeScope="True" />
                     <bdgr:MetroCalendar
                         x:Name="SecondCalendar"
-                        Canvas.Left="276"
+                        Canvas.Left="243"
                         Canvas.Top="130"
                         Width="215"
                         Height="231"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
                         BorderThickness="1,1,1,1"
                         Date="1/1/2020" />
                     <bdgr:MetroCalendar
@@ -828,9 +842,10 @@
             </TabItem>
             <TabItem
                 x:Name="MetricsTab"
-                Width="100"
+                Width="80"
                 Height="24"
                 Margin="0,0,0,0"
+                Padding="6,2,6,5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="#FF141414"
