@@ -319,7 +319,7 @@
                     <bdgr:MetroLabel
                         x:Name="SourceLabel"
                         Canvas.Left="46"
-                        Canvas.Top="59"
+                        Canvas.Top="64"
                         Width="225"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
@@ -448,7 +448,7 @@
 
                     <bdgr:MetroListBox
                         x:Name="FieldListBox"
-                        Width="212"
+                        Width="200"
                         Height="220"
                         Margin="46,89,0,0"
                         HorizontalAlignment="Left"
@@ -469,7 +469,7 @@
 
                     <bdgr:MetroListBox
                         x:Name="NumericListBox"
-                        Width="210"
+                        Width="200"
                         Height="220"
                         Margin="46,359,0,0"
                         HorizontalAlignment="Left"
@@ -518,7 +518,7 @@
                         x:Name="FirstCalendar"
                         Canvas.Left="46"
                         Canvas.Top="104"
-                        Width="220"
+                        Width="200"
                         Height="200"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
@@ -527,11 +527,11 @@
 
                     <bdgr:MetroLabel
                         x:Name="SecondDateLabel"
-                        Canvas.Left="47"
-                        Canvas.Top="329"
+                        Canvas.Left="46"
+                        Canvas.Top="334"
                         Width="220"
                         Padding="1,1,1,1"
-                        HorizontalAlignment="Left"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
                         Panel.ZIndex="-2"
@@ -544,10 +544,10 @@
                     <bdgr:MetroCalendar
                         x:Name="SecondCalendar"
                         Canvas.Left="46"
-                        Canvas.Top="354"
-                        Width="220"
+                        Canvas.Top="357"
+                        Width="200"
                         Height="200"
-                        HorizontalAlignment="Left"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         BorderThickness="1,1,1,1"
                         Date="1/1/2020" />
@@ -557,7 +557,7 @@
         <bdgr:MetroTabControl
             x:Name="PrimaryTabControl"
             Canvas.Left="5"
-            Canvas.Top="7"
+            Canvas.Top="0"
             Width="1015"
             Height="652"
             HorizontalAlignment="Left"

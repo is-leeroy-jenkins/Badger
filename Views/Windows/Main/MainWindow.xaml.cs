@@ -67,6 +67,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UseCollectionExpression" ) ]
     [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Local" ) ]
     public partial class MainWindow : Window
     {
         /// <summary>
