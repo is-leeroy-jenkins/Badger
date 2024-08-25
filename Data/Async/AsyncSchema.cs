@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-25-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-25-2024
 // ******************************************************************************************
 // <copyright file="AsyncSchema.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AsyncSchema.cs
@@ -177,7 +179,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    AsyncSchema.Fail( ex );
+                    AsyncCore.Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -212,7 +214,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    AsyncSchema.Fail( ex );
+                    AsyncCore.Fail( ex );
                     return default( Task<DataTable> );
                 }
             }
@@ -238,7 +240,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( DataRow );
             }
         }
@@ -264,7 +266,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<DataRow> );
             }
         }
@@ -296,7 +298,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _task.SetException( ex );
-                    AsyncSchema.Fail( ex );
+                    AsyncCore.Fail( ex );
                     return default( Task<DataSet> );
                 }
             }
@@ -326,7 +328,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
             }
         }
 
@@ -359,7 +361,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -380,8 +382,7 @@ namespace Badger
                 var _table = GetDataTable( );
                 foreach( DataColumn _col in _table.Columns )
                 {
-                    if( ( !_col.ColumnName.EndsWith( "Id" )
-                            && _col.Ordinal > 0
+                    if( ( !_col.ColumnName.EndsWith( "Id" ) && _col.Ordinal > 0
                             && _col.DataType == typeof( double ) )
                         || _col.DataType == typeof( short )
                         || _col.DataType == typeof( long )
@@ -399,7 +400,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -437,7 +438,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -455,8 +456,7 @@ namespace Badger
             try
             {
                 var _table = GetDataTable( );
-                var _values = _table?.AsEnumerable( )
-                    ?.Select( c => c.Field<int>( 0 ) )
+                var _values = _table?.AsEnumerable( )?.Select( c => c.Field<int>( 0 ) )
                     ?.Distinct( );
 
                 var _list = _values?.ToList( );
@@ -467,7 +467,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncSchema.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<int>> );
             }
         }

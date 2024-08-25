@@ -52,7 +52,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    public class BabyBoy : BabyClient
+    public class BabyBoy : ClientBase
     {
         /// <summary>
         /// Gets or sets the bytes.

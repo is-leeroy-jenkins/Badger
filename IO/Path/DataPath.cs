@@ -57,7 +57,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DataPath : BasicPath
+    public class DataPath : PathBase
     {
         /// <summary>
         /// Gets or sets the buffer.

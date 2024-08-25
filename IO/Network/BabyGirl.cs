@@ -58,7 +58,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
-    public class BabyGirl : BabyServer
+    public class BabyGirl : ServerBase
     {
         /// <summary>
         /// Gets or sets the bytes.

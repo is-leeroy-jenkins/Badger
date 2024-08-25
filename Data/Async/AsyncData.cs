@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-25-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-25-2024
 // ******************************************************************************************
 // <copyright file="AsyncData.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AsyncData.cs
@@ -78,7 +80,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IQuery> );
             }
         }
@@ -113,7 +115,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<int>> );
             }
         }
@@ -140,7 +142,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IDictionary<string, object>> );
             }
         }
@@ -180,7 +182,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IDictionary<string, Type>> );
             }
         }
@@ -222,7 +224,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<DataColumn>> );
             }
         }
@@ -264,7 +266,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncData.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }

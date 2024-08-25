@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-25-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-25-2024
 // ******************************************************************************************
 // <copyright file="AsyncService.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AsyncService.cs
@@ -168,7 +170,9 @@ namespace Badger
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, updates, where,
+                commandType );
+
             _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
@@ -198,7 +202,9 @@ namespace Badger
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, columns, where,
+                commandType );
+
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
@@ -224,14 +230,13 @@ namespace Badger
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncService( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where,
-            Command commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
         {
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
-                commandType );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics,
+                where, commandType );
 
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
@@ -358,17 +363,17 @@ namespace Badger
         {
             try
             {
-                if( AsyncService.KEY == null )
+                if( KEY == null )
                 {
-                    AsyncService.KEY = new object( );
-                    lock( AsyncService.KEY )
+                    KEY = new object( );
+                    lock( KEY )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( AsyncService.KEY )
+                    lock( KEY )
                     {
                         _busy = true;
                     }
@@ -376,7 +381,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncService.Fail( ex );
+                AsyncCore.Fail( ex );
             }
         }
 
@@ -387,17 +392,17 @@ namespace Badger
         {
             try
             {
-                if( AsyncService.KEY == null )
+                if( KEY == null )
                 {
-                    AsyncService.KEY = new object( );
-                    lock( AsyncService.KEY )
+                    KEY = new object( );
+                    lock( KEY )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( AsyncService.KEY )
+                    lock( KEY )
                     {
                         _busy = false;
                     }
@@ -405,7 +410,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncService.Fail( ex );
+                AsyncCore.Fail( ex );
             }
         }
 
@@ -414,8 +419,8 @@ namespace Badger
         /// <param name="name"> The name. </param>
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
-        public Task<IList<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
-            string name, string value )
+        public Task<IList<string>> GetValuesAsync( IEnumerable<DataRow> dataRows, string name,
+            string value )
         {
             ThrowIf.Null( dataRows, nameof( dataRows ) );
             ThrowIf.Null( name, nameof( name ) );
@@ -423,11 +428,8 @@ namespace Badger
             var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
-                var _select = dataRows
-                    ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                    ?.Select( v => v.Field<string>( $"{name}" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
+                var _select = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                    ?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( )?.ToList( );
 
                 _async.SetResult( _select );
                 return _select?.Any( ) == true
@@ -437,7 +439,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncService.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -453,9 +455,7 @@ namespace Badger
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
                 ThrowIf.Null( name, nameof( name ) );
-                var _values = dataRows
-                    ?.Select( v => v.Field<string>( name ) )
-                    ?.Distinct( )
+                var _values = dataRows?.Select( v => v.Field<string>( name ) )?.Distinct( )
                     ?.ToList( );
 
                 _async.SetResult( _values );
@@ -466,7 +466,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncService.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -504,7 +504,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncService.Fail( ex );
+                AsyncCore.Fail( ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }
         }

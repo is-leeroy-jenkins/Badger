@@ -48,7 +48,7 @@ namespace Badger
     /// <summary>
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class AsyncPath : AsyncBasicPath
+    public class AsyncPath : AsyncPathBase
     {
         /// <summary>
         /// Gets or sets the full path.

@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-25-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-25-2024
 // ******************************************************************************************
 // <copyright file="BudgetCommand.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   BudgetCommand.cs
@@ -90,8 +92,8 @@ namespace Badger
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public BudgetCommand( Source source, Provider provider,
-            string sqlText, Command commandType )
+        public BudgetCommand( Source source, Provider provider, string sqlText,
+            Command commandType )
         {
             _source = source;
             _provider = provider;
@@ -138,7 +140,8 @@ namespace Badger
             _provider = provider;
             _commandType = commandType;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, update, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, update, where,
+                commandType );
         }
 
         /// <inheritdoc/>
@@ -155,7 +158,8 @@ namespace Badger
             _provider = provider;
             _commandType = commandType;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, columns, where,
+                commandType );
         }
 
         /// <inheritdoc/>
@@ -178,8 +182,8 @@ namespace Badger
             _provider = provider;
             _commandType = commandType;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, fields, numerics, having,
-                commandType );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics,
+                having, commandType );
         }
 
         /// <inheritdoc/>
@@ -236,7 +240,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetCommand.Fail( ex );
+                CommandBase.Fail( ex );
                 return default( DbCommand );
             }
         }
@@ -294,7 +298,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                BudgetCommand.Fail( ex );
+                CommandBase.Fail( ex );
                 return default( Task<DbCommand> );
             }
         }

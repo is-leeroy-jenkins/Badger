@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 08-25-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        08-25-2024
 // ******************************************************************************************
 // <copyright file="AsyncGenerator.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AsyncGenerator.cs
@@ -112,9 +114,10 @@ namespace Badger
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncGenerator( Source source, Provider provider,
-            IDictionary<string, object> updates,
-            IDictionary<string, object> where, Command commandType = Command.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            IDictionary<string, object> updates, IDictionary<string, object> where,
+            Command commandType = Command.UPDATE )
+            : base( source, provider, updates, where,
+                commandType )
         {
         }
 
@@ -131,7 +134,8 @@ namespace Badger
         /// <param name="commandType"> Type of the command. </param>
         public AsyncGenerator( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
-            : base( source, provider, columns, where, commandType )
+            : base( source, provider, columns, where,
+                commandType )
         {
         }
 
@@ -148,10 +152,9 @@ namespace Badger
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncGenerator( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where,
-            Command commandType )
-            : base( source, provider, fields, numerics, where,
-                commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
+            : base( source, provider, fields, numerics,
+                where, commandType )
         {
         }
 

@@ -58,7 +58,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "GrammarMistakeInComment" ) ]
-    public sealed class EmailAttribute : ValidationAttribute
+    public class EmailAttribute : ValidationAttribute
     {
         /// <summary>
         /// Get or set whether or not the validator
