@@ -77,7 +77,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The seconds
@@ -506,7 +506,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )

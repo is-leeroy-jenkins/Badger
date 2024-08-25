@@ -7,29 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     x:Name="BrowserView"
     Title="Search File System"
     Width="700"
     Height="480"
     Padding="1,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
-    Background="#FF141414"
-    BorderBrush="#FF0078D4"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1,1,1,1"
-    Foreground="#FFA0BDFC"
+    Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Badger.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-<!--  ******************************************** Resources *********************************************  -->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="#0078D4" />
-            <Setter Property="Background" Value="#FF000000" />
-            <Setter Property="Foreground" Value="#FFA0BDFC"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
@@ -108,8 +107,8 @@
 
         <bdgr:MetroLabel
             x:Name="DateLabel"
-            Grid.Row="2" 
-            Grid.Column="0" 
+            Grid.Row="2"
+            Grid.Column="0"
             Width="115"
             Height="22"
             Margin="0,60,0,0"
@@ -119,6 +118,7 @@
             VerticalContentAlignment="Bottom"
             Content="Date"
             FontSize="10" />
+
         <bdgr:MetroRadioButton
             x:Name="PdfRadioButton"
             Grid.Row="1"
@@ -133,6 +133,7 @@
             Content="  PDF "
             Tag="PDF"
             ToolTip="*.pdf files" />
+
         <bdgr:MetroRadioButton
             x:Name="AccessRadioButton"
             Grid.Row="1"
@@ -147,6 +148,7 @@
             Content="  MS Access "
             Tag="ACCDB"
             ToolTip="*.accdb " />
+
         <bdgr:MetroRadioButton
             x:Name="SQLiteRadioButton"
             Grid.Row="1"
@@ -161,6 +163,7 @@
             Content="  SQLite "
             Tag="DB"
             ToolTip="*.db files" />
+
         <bdgr:MetroRadioButton
             x:Name="LibraryRadioButton"
             Grid.Row="1"
@@ -175,6 +178,7 @@
             Content="  Library "
             Tag="DLL"
             ToolTip="*.dll files" />
+
         <bdgr:MetroRadioButton
             x:Name="SqlServerRadioButton"
             Grid.Row="1"
@@ -189,6 +193,7 @@
             Content="  SQL Server   "
             Tag="MDF"
             ToolTip="*.mdf files" />
+
         <bdgr:MetroRadioButton
             x:Name="ExcelRadioButton"
             Grid.Row="1"
@@ -204,6 +209,7 @@
             IsChecked="False"
             Tag="XLSX"
             ToolTip="*.xlsx files" />
+
         <bdgr:MetroRadioButton
             x:Name="CsvRadioButton"
             Grid.Row="1"
@@ -218,6 +224,7 @@
             Content="  CSV"
             Tag="CSV"
             ToolTip="*.csv" />
+
         <bdgr:MetroRadioButton
             x:Name="TextRadioButton"
             Grid.Row="1"
@@ -232,6 +239,7 @@
             Content="  Text "
             Tag="TXT"
             ToolTip="*.txt files" />
+
         <bdgr:MetroRadioButton
             x:Name="PowerPointRadioButton"
             Grid.Row="1"
@@ -246,6 +254,7 @@
             Content="  Power Point"
             Tag="PPTX"
             ToolTip="*.pptx files" />
+
         <bdgr:MetroRadioButton
             x:Name="WordRadioButton"
             Grid.Row="1"
@@ -260,6 +269,7 @@
             Content="  Word "
             Tag="DOCX"
             ToolTip="*.docx files" />
+
         <bdgr:MetroRadioButton
             x:Name="ExecutableRadioButton"
             Grid.Row="1"
@@ -274,6 +284,7 @@
             Content="  Executables"
             Tag="EXE"
             ToolTip="*.exe files" />
+
         <Image
             x:Name="PictureBox"
             Width="22"

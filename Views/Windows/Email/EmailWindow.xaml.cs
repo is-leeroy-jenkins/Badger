@@ -10,7 +10,7 @@
 //    Badger is data analysis and reporting tool for EPA Analysts
 //    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2021  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -73,7 +73,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The seconds
@@ -117,20 +117,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 08-24-2021
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        08-24-2024
 // ******************************************************************************************
 // <copyright file="PivotWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is budget execution and data analysis tool for EPA Analysts
+//    based on WPF, NET6.0, and is written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//     Copyright ©  2021 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   PivotWindow.xaml.cs
@@ -68,6 +68,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "CollectionNeverUpdated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "NotAccessedField.Global" ) ]
+    [ SuppressMessage( "ReSharper", "CollectionNeverUpdated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "NotAccessedField.Global" ) ]
+    [ SuppressMessage( "ReSharper", "CollectionNeverUpdated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
     public partial class PivotWindow : Window
     {
         /// <summary>
@@ -78,7 +85,7 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private object _path;
+        private readonly object _path = new object( );
 
         /// <summary>
         /// The status update
@@ -247,22 +254,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = true;
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = true;
-                        return true;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -276,7 +270,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
 
             // Window Plumbing
@@ -285,12 +278,6 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
             ResizeMode = _theme.SizeMode;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
@@ -663,8 +650,7 @@ namespace Badger
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    return $"SELECT * FROM {_selectedTable} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {_selectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -685,8 +671,7 @@ namespace Badger
         /// <returns>
         /// </returns>
         private string CreateSqlSelectQuery( IEnumerable<string> fields,
-            IEnumerable<string> numerics,
-            IDictionary<string, object> where )
+            IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _selectedTable ) )
             {
@@ -710,8 +695,7 @@ namespace Badger
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_values} FROM {_selectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_values} FROM {_selectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -748,8 +732,7 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {_selectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {_selectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -872,11 +855,9 @@ namespace Badger
                 DataTableListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1318,7 +1299,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )

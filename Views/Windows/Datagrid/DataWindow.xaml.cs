@@ -211,7 +211,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The provider
@@ -306,20 +306,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -333,7 +322,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Initialization
@@ -2076,7 +2064,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )
@@ -2839,7 +2827,7 @@ namespace Badger
                     _selectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
-                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                        _source = ( Source )Enum.Parse( typeof( Source ), _selectedTable );
                     }
 
                     _dataGen = new DataGenerator( _source, _provider );

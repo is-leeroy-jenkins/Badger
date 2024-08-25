@@ -49,6 +49,7 @@ namespace Badger
     using System.Windows.Input;
     using System.Windows.Media;
 
+    /// <inheritdoc />
     /// <summary>
     /// Interaction logic for ErrorWindow.xaml
     /// </summary>
@@ -62,14 +63,13 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassWithVirtualMembersNeverInherited.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
+    [ SuppressMessage( "ReSharper", "TabsAndSpacesMismatch" ) ]
     public partial class ErrorWindow : Window, IDisposable
     {
-
         /// <summary>
         /// The exception
         /// </summary>
         private protected Exception _exception;
-
 
         /// <summary>
         /// The message
@@ -119,7 +119,6 @@ namespace Badger
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
 			BorderBrush = _theme.RedColor;
-			Topmost = true;
             ToolTip = "click to clear";
 
             // Event Wiring

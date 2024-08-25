@@ -76,7 +76,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
 
             // Window Plumbing
@@ -94,9 +93,6 @@ namespace Badger
             WindowStyle = WindowStyle.None;
             Title = "Calculator";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Background = _theme.BlackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
 
             // Window Event Wiring
             Loaded += OnLoaded;

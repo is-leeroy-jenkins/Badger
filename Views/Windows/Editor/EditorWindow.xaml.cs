@@ -67,6 +67,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]
     public partial class EditorWindow : Window
     {
         /// <summary>
@@ -77,7 +78,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The seconds
@@ -151,20 +152,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock(_path)
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }

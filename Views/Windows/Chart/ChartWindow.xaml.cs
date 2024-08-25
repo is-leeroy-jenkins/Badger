@@ -88,7 +88,7 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private object _path;
+        private object _path = new object( );
 
         /// <summary>
         /// The status update
@@ -294,8 +294,7 @@ namespace Badger
         }
 
         /// <summary>
-        /// Gets a value indicating
-        /// whether this instance is busy.
+        /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -306,20 +305,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -1608,7 +1596,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )
@@ -2951,7 +2939,7 @@ namespace Badger
                     _selectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( _selectedTable ) )
                     {
-                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                        _source = ( Source )Enum.Parse( typeof( Source ), _selectedTable );
                         _columnChart.Header = _title;
                     }
 

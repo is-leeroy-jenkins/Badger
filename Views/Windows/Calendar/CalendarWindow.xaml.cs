@@ -136,7 +136,7 @@ namespace Badger
 		/// <summary>
 		/// The locked object
 		/// </summary>
-		private object _path;
+		private object _path = new object( );
 
 		/// <summary>
 		/// The provider
@@ -200,20 +200,9 @@ namespace Badger
 		{
 			get
 			{
-				if( _path == null )
+				lock( _path )
 				{
-					_path = new object( );
-					lock( _path )
-					{
-						return _busy;
-					}
-				}
-				else
-				{
-					lock( _path )
-					{
-						return _busy;
-					}
+					return _busy;
 				}
 			}
 		}
@@ -230,12 +219,6 @@ namespace Badger
 			RegisterCallbacks( );
 
 			// Window Properties
-			Width = 1400;
-			MinWidth = 1200;
-			MaxWidth = 1500;
-			Height = 800;
-			MinHeight = 600;
-			MaxHeight = 900;
 			ResizeMode = _theme.SizeMode;
 			FontFamily = _theme.FontFamily;
 			FontSize = _theme.FontSize;
@@ -246,9 +229,6 @@ namespace Badger
 			WindowStartupLocation = _theme.StartLocation;
 			HorizontalAlignment = HorizontalAlignment.Stretch;
 			VerticalAlignment = VerticalAlignment.Stretch;
-			Background = _theme.BackColor;
-			Foreground = _theme.ForeColor;
-			BorderBrush = _theme.BorderColor;
 
 			// Initialize Collections
 			_filter = new Dictionary<string, object>( );
@@ -731,7 +711,7 @@ namespace Badger
 		{
 			try
 			{
-				var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+				var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
 				_form.Show( );
 			}
 			catch( Exception ex )

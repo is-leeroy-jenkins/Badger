@@ -53,7 +53,7 @@ namespace Badger
     using ToastNotifications.Messages;
     using ToastNotifications.Position;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -68,6 +68,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Local" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public partial class MainWindow : Window
     {
         /// <summary>
@@ -78,7 +79,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The seconds
@@ -117,20 +118,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }

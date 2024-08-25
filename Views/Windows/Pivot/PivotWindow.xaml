@@ -12,16 +12,15 @@
     Title="Pivot Analysis"
     Width="1350"
     Height="800"
-
     MinWidth="1250"
     MinHeight="650"
     Margin="1,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DarkBackColor}"
     BorderBrush="{StaticResource BorderBrush}"
-    Foreground="{StaticResource LightBlueBrush}"
     BorderThickness="1,1,1,1"
     FontSize="9"
+    Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -36,7 +35,6 @@
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
-
 
     <!--  ************************************** Context Menu  *************************************  -->
 
@@ -152,12 +150,12 @@
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
-                FontSize="9"
                 Padding="3,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 VerticalContentAlignment="Bottom"
-                Content="Date &amp; Time" />
+                Content="Date &amp; Time"
+                FontSize="9" />
 
             <sync:MenuItemSeparator
                 Background="{x:Null}"
@@ -316,11 +314,12 @@
                             </TransformGroup>
                         </bdgr:MetroListBox.RenderTransform>
                     </bdgr:MetroListBox>
+
                     <bdgr:MetroLabel
                         x:Name="SourceLabel"
                         Canvas.Left="46"
                         Canvas.Top="64"
-                        Width="225"
+                        Width="200"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Content="Data Tables"
@@ -529,7 +528,7 @@
                         x:Name="SecondDateLabel"
                         Canvas.Left="46"
                         Canvas.Top="334"
-                        Width="220"
+                        Width="200"
                         Padding="1,1,1,1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
