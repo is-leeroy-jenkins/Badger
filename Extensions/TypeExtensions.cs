@@ -39,7 +39,6 @@
 
 namespace Badger
 {
-    using MahApps.Metro.Controls;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
@@ -54,6 +53,7 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public static class TypeExtensions
     {
         /// <summary>
@@ -77,7 +77,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                TypeExtensions.Fail( ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -103,7 +103,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                TypeExtensions.Fail( ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -124,12 +124,12 @@ namespace Badger
                 }
                 else
                 {
-                    control.BeginInvoke( action );
+                    control.Dispatcher.BeginInvoke( action );
                 }
             }
             catch( Exception ex )
             {
-                TypeExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -154,7 +154,36 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                TypeExtensions.Fail( ex );
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="uiElement">
+        /// The UI element.
+        /// </param>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public static void InvokeIf( this UIElement uiElement, Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( uiElement.Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    uiElement.Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 

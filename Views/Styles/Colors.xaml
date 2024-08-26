@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <!--************************************   Main Colors  ***********************************-->
+    <!--  ************************************   Main Colors  ***********************************  -->
 
     <Color x:Key="DefaultForeColor">#FFDEDEDE</Color>
     <Color x:Key="MutedForeColor">#FF505050</Color>
@@ -11,7 +11,7 @@
     <Color x:Key="BlackColor">#000</Color>
     <Color x:Key="TransparentColor">#00000000</Color>
 
-    <!--************************************  Default Colors   ***********************************-->
+    <!--  ************************************  Default Colors   ***********************************  -->
 
     <Color x:Key="DefaultColor1">#FF141414</Color>
     <Color x:Key="DefaultColor2">#FF282828</Color>
@@ -19,12 +19,12 @@
     <Color x:Key="DefaultColor4">#FF0E3C5E</Color>
     <Color x:Key="DefaultColor5">#FF012336</Color>
 
-    <!--************************************ Primary Colors  ***********************************-->
+    <!--  ************************************ Primary Colors  ***********************************  -->
 
     <Color x:Key="PrimaryColor1">#FF0078D4</Color>
     <Color x:Key="PrimaryColor2">#FFA0BDFC</Color>
 
-    <!--************************************ Success Colors ***********************************-->
+    <!--  ************************************ Success Colors ***********************************  -->
 
     <Color x:Key="SuccessColor1">#FFDFF0D8</Color>
     <Color x:Key="SuccessColor2">#FF4CAE4C</Color>
@@ -32,7 +32,7 @@
     <Color x:Key="SuccessColor4">#FF3C763D</Color>
     <Color x:Key="SuccessColor5">#FF013D11</Color>
 
-    <!--************************************ Informational Colors  *****************************-->
+    <!--  ************************************ Informational Colors  *****************************  -->
 
     <Color x:Key="InfoColor1">#FFFFFFFF</Color>
     <Color x:Key="InfoColor2">#FFDEDEDE</Color>
@@ -40,7 +40,7 @@
     <Color x:Key="InfoColor4">#FF4682B4</Color>
     <Color x:Key="InfoColor5">#FF31708F</Color>
 
-    <!--************************************ Warning Colors  ***********************************-->
+    <!--  ************************************ Warning Colors  ***********************************  -->
 
     <Color x:Key="WarningColor1">#FFE1E100</Color>
     <Color x:Key="WarningColor2">#FFA0A000</Color>
@@ -48,7 +48,7 @@
     <Color x:Key="WarningColor4">#FF688001</Color>
     <Color x:Key="WarningColor5">#FF303B01</Color>
 
-    <!--************************************ Danger Colors ***********************************-->
+    <!--  ************************************ Danger Colors ***********************************  -->
 
     <Color x:Key="DangerColor1">#FFFF0000</Color>
     <Color x:Key="DangerColor2">#FFAB0202</Color>
@@ -56,7 +56,7 @@
     <Color x:Key="DangerColor4">#FF4A0101</Color>
     <Color x:Key="DangerColor5">#FF290000</Color>
 
-    <!--************************************  Background Colors  *****************************-->
+    <!--  ************************************  Background Colors  *****************************  -->
 
     <Color x:Key="BackColor1">#FF141414</Color>
     <Color x:Key="BackColor2">#FF282828</Color>
@@ -65,7 +65,7 @@
     <Color x:Key="BackColor5">#FF012336</Color>
 
 
-    <!--************************************  Foreground Colors  ****************************-->
+    <!--  ************************************  Foreground Colors  ****************************  -->
 
     <Color x:Key="ForeColor1">#FFDEDEDE</Color>
     <Color x:Key="ForeColor2">#FFA0BDFC</Color>
@@ -74,7 +74,7 @@
     <Color x:Key="ForeColor5">#FFAB0202</Color>
 
 
-    <!--************************************  Hover Colors  *****************************-->
+    <!--  ************************************  Hover Colors  *****************************  -->
 
     <Color x:Key="HoverColor1">#FFFFFFFF</Color>
     <Color x:Key="HoverColor2">#FFA0BDFC</Color>
@@ -83,7 +83,7 @@
     <Color x:Key="HoverColor5">#FF0E3C5E</Color>
 
 
-    <!--************************************  Menu Colors  *****************************-->
+    <!--  ************************************  Menu Colors  *****************************  -->
 
     <Color x:Key="MenuBackColor">#FF0A0A0A</Color>
     <Color x:Key="MenuForeColor">#FFA0BDFC</Color>
@@ -91,14 +91,14 @@
     <Color x:Key="MenuHoverColor">#FF0E3C5E</Color>
 
 
-    <!--***************************************  DataGrid  *************************************-->
+    <!--  ***************************************  DataGrid  *************************************  -->
 
-    
+
     <Color x:Key="DataGridLinesColor">#FF4682B4</Color>
     <Color x:Key="DataGrid.SelectAllButtonColor">#DFDFDF</Color>
     <Color x:Key="DataGrid.SelectAllButton.MouseOverColor">#E9E9E9</Color>
 
-    <!--************************************  Series Colors **********************************-->
+    <!--  ************************************  Series Colors **********************************  -->
 
     <Color x:Key="SeriesColor1">#FF4682B4</Color>
     <Color x:Key="SeriesColor2">#FFA9A9A9</Color>
@@ -109,7 +109,7 @@
     <Color x:Key="SeriesColor7">#FF556B2F</Color>
     <Color x:Key="SeriesColor8">#FFA0BDFC</Color>
 
-    <!--************************************  Common Colors ***********************************-->
+    <!--  ************************************  Common Colors ***********************************  -->
 
     <Color x:Key="GlyphColor">#FF0078D4</Color>
     <Color x:Key="MutedBorderColor">#FF555555</Color>
@@ -120,7 +120,7 @@
     <Color x:Key="LightBorderColor">#FFA0BDFC</Color>
     <Color x:Key="ControlHoverColor">#FF0E3C5E</Color>
 
-    <!--************************************  Brushes  ***********************************-->
+    <!--  ************************************  Brushes  ***********************************  -->
 
     <SolidColorBrush
         x:Key="TransparentBrush"
@@ -228,7 +228,7 @@
         x:Key="SeparatorBrush"
         Color="{StaticResource PrimaryColor1}" />
 
-    <!--*******************************************  Button  *******************************************-->
+    <!--  *******************************************  Button  *******************************************  -->
 
     <SolidColorBrush
         x:Key="ButtonBackground"
@@ -246,7 +246,7 @@
         x:Key="TileHoverBackground"
         Color="{StaticResource DefaultColor4}" />
 
-    <!--******************************************* Check Box  *******************************************-->
+    <!--  ******************************************* Check Box  *******************************************  -->
 
     <SolidColorBrush
         x:Key="CheckBoxBackground"
@@ -256,7 +256,7 @@
         x:Key="CheckBoxMouseOverGlyph"
         Color="{StaticResource GlyphColor}" />
 
-    <!--******************************************* Combo Box  *******************************************-->
+    <!--  ******************************************* Combo Box  *******************************************  -->
 
     <SolidColorBrush
         x:Key="ComboBox.Static.Editable.Border"
@@ -270,7 +270,7 @@
         x:Key="ComboBox.Static.Editable.Button.Border"
         Color="Transparent" />
 
-    <!--*******************************************  List Controls  *******************************************-->
+    <!--  *******************************************  List Controls  *******************************************  -->
 
     <SolidColorBrush
         x:Key="ListBoxBackground"
@@ -287,7 +287,7 @@
     <!--  ListBoxItemStyle  -->
     <!--  ListView  -->
 
-    <!--*******************************************  Menu  *******************************************-->
+    <!--  *******************************************  Menu  *******************************************  -->
 
     <SolidColorBrush
         x:Key="MenuBackground"
@@ -319,7 +319,7 @@
         x:Key="MenuItemHoverBackground"
         Color="{StaticResource MenuHoverColor}" />
 
-    <!--******************************************* Tab Control  *******************************************-->
+    <!--  ******************************************* Tab Control  *******************************************  -->
 
     <SolidColorBrush
         x:Key="TabItemBackground"
@@ -338,7 +338,7 @@
         x:Key="TabItem.Selected.Border"
         Color="{StaticResource BorderColor}" />
 
-    <!--******************************************* Radio Button  *******************************************-->
+    <!--  ******************************************* Radio Button  *******************************************  -->
 
     <SolidColorBrush
         x:Key="RadioButton.Static.Background"
@@ -382,13 +382,13 @@
         x:Key="Expander.Static.Arrow.Stroke"
         Color="{StaticResource GlyphColor}" />
 
-    <!--*******************************************  TextBox  **************************************************-->
+    <!--  *******************************************  TextBox  **************************************************  -->
 
     <SolidColorBrush
         x:Key="TextBox.Static.Border"
         Color="{StaticResource BorderColor}" />
 
-    <!--******************************************* ScrollViewer  *********************************************-->
+    <!--  ******************************************* ScrollViewer  *********************************************  -->
 
     <Color x:Key="ScrollBar.BackgroundColor">#FF785801</Color>
 
@@ -439,7 +439,7 @@
         x:Key="ScrollBar.Pressed.Thumb.Border"
         Color="{StaticResource ScrollBar.BorderColorDark}" />
 
-    <!--*******************************************  DataGrid  *******************************************-->
+    <!--  *******************************************  DataGrid  *******************************************  -->
 
     <SolidColorBrush
         x:Key="DataGridBackgroundBrush"

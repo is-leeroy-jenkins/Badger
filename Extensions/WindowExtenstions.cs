@@ -51,7 +51,7 @@ namespace Badger
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:bdgr="clr-namespace:Badger"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
@@ -774,7 +774,7 @@
                         Height="601"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        gif:ImageBehavior.AnimatedSource="/Resources/Assets/LoaderImages/Loading.gif"
+                        gif:AnimationBehavior.SourceUri="/Resources/Assets/LoaderImages/Loading.gif"
                         Stretch="UniformToFill" />
                 </Canvas>
             </TabItem>

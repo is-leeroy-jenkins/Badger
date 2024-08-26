@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6-windows</TargetFramework>
+    <TargetFrameworks>net6.0-windows7;</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -20,7 +20,7 @@
     <Title>Badger</Title>
     <Authors>Terry D. Eppler</Authors>
     <Company>Terry D. Eppler</Company>
-    <Description>A budget execution &amp; data analysis tool for EPA analysts based on WPF, Net 6, and is written in C#.</Description>
+    <Description>A budget execution &amp; data analysis tool for EPA analysts that's based on WPF, Net 6, and  written in C#.</Description>
     <PackageProjectUrl>https://github.com/is-leeroy-jenkins/Badger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/is-leeroy-jenkins/Badger</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -255,81 +255,26 @@
   </ItemGroup>
 
   <ItemGroup>
-      <PackageReference Include="cef.sdk" Version="126.2.7" />
-      <PackageReference Include="CefSharp.Common" Version="126.2.70" />
-      <PackageReference Include="CefSharp.Common.NETCore" Version="126.2.70" />
-      <PackageReference Include="EPPlus" Version="7.2.1" />
+      <PackageReference Include="cef.sdk" Version="127.3.5" />
+      <PackageReference Include="CefSharp.Common" Version="127.3.50" />
+      <PackageReference Include="CefSharp.Common.NETCore" Version="127.3.50" />
+      <PackageReference Include="EPPlus" Version="7.3.0" />
       <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
       <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
-      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
       <PackageReference Include="Google.Apis" Version="1.68.0" />
       <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
       <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
-      <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
-      <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
       <PackageReference Include="MahApps.Metro" Version="2.4.10" />
-      <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
       <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
       <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-      <PackageReference Include="ModernUI.WPFCore" Version="2.0.0" />
       <PackageReference Include="ModernWpfUI" Version="0.9.6" />
       <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-      <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
-      <PackageReference Include="ScottPlot.WPF" Version="5.0.36" />
-      <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.ExcelToPdfConverter.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.GridExcelExport.Wpf" Version="24.1.41" />
+      <PackageReference Include="SkiaSharp" Version="2.88.8" />
       <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Pdf.OCR.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.PivotTableExport.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Presentation.Wpf" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfBarcode.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfGauge.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfHeatMap.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfKanban.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfSpreadsheet.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfSpreadsheetHelper.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfSunburstChart.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
-      <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
       <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
       <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
       <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
-      <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
-      <PackageReference Include="ToastNotifications.Messages.Net6" Version="1.0.4" />
-      <PackageReference Include="ToastNotifications.Net6" Version="1.0.4" />
-      <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+      <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
     </ItemGroup>
 
   <ItemGroup>
@@ -554,6 +499,42 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Messages.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows7'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Messages.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7'">
+    <PackageReference Include="Syncfusion.UI.WPF.NET">
+      <Version>24.1.41</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Messages.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="ToastNotifications.Net6">
+      <Version>1.0.4</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
