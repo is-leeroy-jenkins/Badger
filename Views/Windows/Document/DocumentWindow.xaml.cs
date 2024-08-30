@@ -213,26 +213,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = _theme.Width;
-            MinWidth = _theme.MinWidth;
-            MaxWidth = _theme.MaxWidth;
-            Height = _theme.Height;
-            MinHeight = _theme.MinHeight;
-            MaxHeight = _theme.MaxHeight;
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Padding = _theme.Padding;
-            Margin = new Thickness( 3 );
-            BorderThickness = _theme.BorderThickness;
-            WindowStyle = _theme.WindowStyle;
             Title = "PDF Document Viewer";
-            WindowStartupLocation = _theme.StartLocation;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
 
             // Initialize Default Provider
             _source = Source.Resources;

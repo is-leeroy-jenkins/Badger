@@ -14,11 +14,17 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
+    Margin="1,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
-    Background="{StaticResource DarkBackColor}"
+    Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
+    BorderThickness="1,1,1,1"
+    FontFamily="Segoe UI"
+    FontSize="9"
     Foreground="{StaticResource LightBlueBrush}"
+    ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
     <!--  ******************************************** Resources *********************************************  -->

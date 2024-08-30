@@ -184,7 +184,7 @@
                         x:Name="Spreadsheet"
                         Canvas.Left="0"
                         Canvas.Top="160"
-                        Width="1350"
+                        Width="1340"
                         Height="520"
                         Margin="1,1,1,1"
                         Padding="1,1,1,1"
@@ -418,7 +418,7 @@
             </TabItem>
         </bdgr:MetroTabControl>
 
-        <!--  ****************************************   ToolStrip      *****************************************  -->
+        <!--  *******************************************************   ToolStrip      *********************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
@@ -450,7 +450,7 @@
                 Foreground="{x:Null}" />
 
             <Separator
-                Width="100"
+                Width="90"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />

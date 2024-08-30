@@ -330,14 +330,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Padding = _theme.Padding;
-            Margin = _theme.Margin;
-            BorderThickness = _theme.BorderThickness;
             Title = "Data Management";
-            WindowStyle = WindowStyle.SingleBorderWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             // Initialize Default Provider
             _provider = Provider.Access;

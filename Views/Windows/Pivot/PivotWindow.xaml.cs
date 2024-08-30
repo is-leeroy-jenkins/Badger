@@ -75,6 +75,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "NotAccessedField.Global" ) ]
     [ SuppressMessage( "ReSharper", "CollectionNeverUpdated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class PivotWindow : Window
     {
         /// <summary>
@@ -150,32 +151,32 @@ namespace Badger
         /// <summary>
         /// The hover text
         /// </summary>
-        private protected string _hoverText;
+        private string _hoverText;
 
         /// <summary>
         /// The stat
         /// </summary>
-        private protected STAT _metric;
+        private STAT _metric;
 
         /// <summary>
         /// The numerics
         /// </summary>
-        private protected IList<string> _numerics;
+        private IList<string> _numerics;
 
         /// <summary>
         /// The provider
         /// </summary>
-        private protected Provider _provider;
+        private Provider _provider;
 
         /// <summary>
         /// The second category
         /// </summary>
-        private protected string _secondCategory;
+        private string _secondCategory;
 
         /// <summary>
         /// The second value
         /// </summary>
-        private protected string _secondValue;
+        private string _secondValue;
 
         /// <summary>
         /// The selected columns
@@ -205,42 +206,42 @@ namespace Badger
         /// <summary>
         /// The SQL command
         /// </summary>
-        private protected string _sqlQuery;
+        private string _sqlQuery;
 
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
+        private readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// The third category
         /// </summary>
-        private protected string _thirdCategory;
+        private string _thirdCategory;
 
         /// <summary>
         /// The third value
         /// </summary>
-        private protected string _thirdValue;
+        private string _thirdValue;
 
         /// <summary>
         /// The timer
         /// </summary>
-        private protected Timer _timer;
+        private Timer _timer;
 
         /// <summary>
         /// The timer
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private TimerCallback _timerCallback;
 
         /// <summary>
         /// The xaxis
         /// </summary>
-        private protected string _xaxis;
+        private string _xaxis;
 
         /// <summary>
         /// The yvalues
         /// </summary>
-        private protected IList<string> _yvalues;
+        private IList<string> _yvalues;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -278,17 +279,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
             Title = "Analysis";
-            WindowStartupLocation = _theme.StartLocation;
-            Background = _theme.BackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
 
             // Default Provider
             _provider = Provider.Access;

@@ -17,7 +17,7 @@
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DefaultBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    FontSize="9"
+    FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
@@ -133,12 +133,12 @@
     <Canvas
         x:Name="DocumentCanvas"
         RenderTransformOrigin="0.634,0.466">
-        <!--  ***************************** PDF Viewer  ***********************************  -->
+        <!--***************************** PDF Viewer  ***********************************-->
         <pdf:PdfViewerControl
             x:Name="PdfViewer"
             Canvas.Left="25"
             Canvas.Top="14"
-            Width="1085"
+            Width="1050"
             Height="691"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
@@ -282,7 +282,7 @@
                 BorderBrush="{StaticResource DefaultBackground}" />
 
             <Separator
-                Width="20"
+                Width="40"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
@@ -302,11 +302,13 @@
 
         <bdgr:MetroListBox
             x:Name="DocumentListBox"
-            Canvas.Left="1130"
+            Canvas.Left="1100"
             Canvas.Top="14"
-            Width="210"
+            Width="220"
             Height="690"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            FontSize="8" Margin="1,1,1,1" 
+            Panel.ZIndex="4" />
     </Canvas>
 </Window>

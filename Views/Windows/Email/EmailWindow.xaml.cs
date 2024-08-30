@@ -73,7 +73,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path = new object( );
+        private protected readonly object _path = new object( );
 
         /// <summary>
         /// The seconds
@@ -84,11 +84,6 @@ namespace Badger
         /// The update status
         /// </summary>
         private protected Action _statusUpdate;
-
-        /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// The time
@@ -141,24 +136,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Margin = _theme.Margin;
-            WindowStyle = _theme.WindowStyle;
-            BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
             Title = "Email Viewer";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
 
             // Window Events
             Loaded += OnLoaded;
@@ -519,7 +497,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )

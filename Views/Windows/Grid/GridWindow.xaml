@@ -2,25 +2,27 @@
     x:Class="Badger.GridWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
-    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
-    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:sync="http://schemas.syncfusion.com/wpf"
     xmlns:bdgr="clr-namespace:Badger"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sf="clr-namespace:Syncfusion.Windows.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
     x:Name="GridView"
     Title="GridWindow"
-    Width="1400"
+    Width="1350"
     Height="800"
+    MinWidth="1250"
+    MinHeight="650"
     Margin="3,3,3,3"
     Padding="1,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
-    Background="#FF141414"
-    BorderBrush="#FF0078D4"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1,1,1,1"
-    Foreground="#FFA0BDFC"
+    Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -30,9 +32,9 @@
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
-            <Setter Property="BorderBrush" Value="#0078D4" />
-            <Setter Property="Background" Value="#FF000000" />
-            <Setter Property="Foreground" Value="#FFA0BDFC"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
@@ -49,6 +51,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -57,7 +60,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <Separator />
+
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
                 Header="Chrome"
@@ -66,6 +71,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnEdgeOptionClick"
                 Header="Edge"
@@ -74,6 +80,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnFirefoxOptionClick"
                 Header="FireFox"
@@ -91,6 +98,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -99,22 +107,28 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
                 ToolTip="Windows 10 Task Manager">
+
                 <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </sync:MenuItemAdv.Icon>
+
             </sync:MenuItemAdv>
+
             <Separator />
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
                 ToolTip="Exit Application">
+
                 <sync:MenuItemAdv.Icon>
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </sync:MenuItemAdv.Icon>
+
             </sync:MenuItemAdv>
         </ContextMenu>
     </Window.ContextMenu>
@@ -126,13 +140,13 @@
             x:Name="Toolbar"
             Canvas.Left="0"
             Canvas.Top="722"
-            Width="1400"
+            Width="1348"
             Height="40"
             Margin="1,1,1,1"
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            BorderBrush="#FF141414"
+            BorderBrush="{StaticResource FormBackground}"
             BorderThickness="1,1,1,1"
             OverflowButtonVisibility="Collapsed">
             <bdgr:ToolStripLabel
@@ -149,8 +163,8 @@
                 Foreground="{x:Null}" />
             <Separator
                 Width="100"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
             <bdgr:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
@@ -196,7 +210,7 @@
                 ToolTip="Refresh" />
             <bdgr:ToolStripButton
                 x:Name="FilterButton"
-                Foreground="#FFA0BDFC"
+                Foreground="{StaticResource LightBlueBrush}"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
             <bdgr:ToolStripButton
@@ -224,9 +238,9 @@
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
             <ProgressBar
-                Width="200"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Width="150"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
             <Separator
                 Width="30"
                 Background="{x:Null}"
@@ -241,14 +255,14 @@
         </bdgr:ToolStrip>
         <bdgr:MetroTabControl
             x:Name="PrimaryTabControl"
-            Canvas.Left="1050"
-            Canvas.Top="4"
+            Canvas.Left="979"
+            Canvas.Top="10"
             Width="349"
             Height="662"
             HorizontalAlignment="Left"
-            VerticalAlignment="Center">
+            VerticalAlignment="Top">
             <TabItem Header="TabItem">
-                <Canvas Background="#FF141414" />
+                <Canvas Background="{StaticResource FormBackground}" />
             </TabItem>
             <TabItem
                 Width="54"
@@ -256,18 +270,18 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Header="TabItem">
-                <Canvas Background="#FF141414" />
+                <Canvas Background="{StaticResource FormBackground}" />
             </TabItem>
         </bdgr:MetroTabControl>
         <bdgr:MetroGridControl
             x:Name="Sheet"
-            Canvas.Left="71"
+            Canvas.Left="43"
             Canvas.Top="49"
             Width="924"
             Height="435"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            HighlightBorder="#FF0078D4">
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            HighlightBorder="{StaticResource BorderBrush}">
             <bdgr:MetroGridControl.Model>
                 <sync:GridListModel
                     x:Name="ListModel"

@@ -142,17 +142,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            Margin = _theme.Margin;
             Title = "Badger";
-            WindowStartupLocation = _theme.StartLocation;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
 
             // Event Wiring
             Loaded += OnLoaded;

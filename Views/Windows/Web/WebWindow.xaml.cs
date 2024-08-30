@@ -92,11 +92,6 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
-
-        /// <summary>
         /// The time
         /// </summary>
         private protected int _time;
@@ -125,7 +120,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Initialization
@@ -134,32 +128,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            WindowStartupLocation = _theme.StartLocation;
-            Margin = new Thickness( 3 );
-            WindowStyle = _theme.WindowStyle;
             Title = "Internet";
-            WindowStartupLocation = _theme.StartLocation;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
-
-            // Web Properties
-            _homePage = @"C:\Users\terry\source\repos\Badger\Resources\Web\index.html";
-            _uri = new Uri( _homePage, UriKind.Absolute );
 
             // Window Events
             Loaded += OnLoaded;
@@ -549,7 +518,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )
@@ -570,7 +539,6 @@ namespace Badger
             {
                 InitializeTimer( );
                 InitializeToolbar( );
-                Browser.Source = _uri;
                 Opacity = 0;
                 FadeInAsync( this );
             }

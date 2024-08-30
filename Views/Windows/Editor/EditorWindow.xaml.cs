@@ -73,57 +73,57 @@ namespace Badger
         /// <summary>
         /// The busy
         /// </summary>
-        private protected bool _busy;
+        private bool _busy;
 
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path = new object( );
+        private object _path = new object( );
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private protected int _seconds;
+        private int _seconds;
 
         /// <summary>
         /// The selected command
         /// </summary>
-        private protected string _selectedQuery;
+        private string _selectedQuery;
 
         /// <summary>
         /// The SQL command
         /// </summary>
-        private protected string _selectedCommand;
+        private string _selectedCommand;
 
         /// <summary>
         /// The commands
         /// </summary>
-        private protected IList<string> _commands;
+        private IList<string> _commands;
 
         /// <summary>
         /// The commands
         /// </summary>
-        private protected IList<string> _dataTypes;
+        private IList<string> _dataTypes;
 
         /// <summary>
         /// The statements
         /// </summary>
-        private protected IDictionary<string, object> _statements;
+        private IDictionary<string, object> _statements;
 
         /// <summary>
         /// The provider
         /// </summary>
-        private protected Provider _provider;
+        private Provider _provider;
 
         /// <summary>
         /// The update status
         /// </summary>
-        private protected Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
+        private readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// The time
@@ -133,12 +133,12 @@ namespace Badger
         /// <summary>
         /// The timer
         /// </summary>
-        private protected Timer _timer;
+        private Timer _timer;
 
         /// <summary>
         /// The timer
         /// </summary>
-        private protected TimerCallback _timerCallback;
+        private TimerCallback _timerCallback;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -152,7 +152,7 @@ namespace Badger
         {
             get
             {
-                lock(_path)
+                lock( _path )
                 {
                     return _busy;
                 }
@@ -168,7 +168,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
 
             // Window Plumbing
@@ -177,26 +176,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            Margin = _theme.Margin;
-            BorderThickness = _theme.BorderThickness;
             Title = "SQL Editor";
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
 
             // Collections
             _commands = new List<string>( );
@@ -652,7 +632,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( provider, nameof( provider ) );
-                var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
+                var _value = ( Provider )Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _value ) )
                 {
                     _provider = _value switch
@@ -845,8 +825,9 @@ namespace Badger
             {
                 var _queryList = CreateQueryList( _provider );
                 QueryListBox.Items.Clear( );
-                foreach( var _query in _queryList )
+                for( var i = 0; i < _queryList.Count; i++ )
                 {
+                    var _query = _queryList[ i ];
                     var _item = new MetroListBoxItem
                     {
                         Content = _query
@@ -868,7 +849,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )
@@ -1417,6 +1398,11 @@ namespace Badger
             var _error = new ErrorWindow( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void PrimaryTabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

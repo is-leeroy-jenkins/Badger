@@ -44,7 +44,6 @@ namespace Badger
     using MahApps.Metro.Controls;
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media;
 
     /// <summary>
     /// 

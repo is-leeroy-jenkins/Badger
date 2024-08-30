@@ -9,20 +9,22 @@
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="DataView"
-    Title="Budget Execution"
     Width="1350"
     Height="800"
     MinWidth="1250"
     MinHeight="650"
+    Margin="1,1,1,1"
     VerticalContentAlignment="Bottom"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
-    Background="{StaticResource DefaultBackground}"
+    Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1,1,1,1"
+    FontFamily="Segoe UI"
+    FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
-    IsEnabled="True"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
     <!--  ******************************************** Resources *********************************************  -->
@@ -31,17 +33,17 @@
         <Style TargetType="sync:GroupDropArea">
             <Setter Property="Height" Value="70" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
-            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Background" Value="{StaticResource BlueBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
-        <Style
-            x:Name="ToolTipStyle"
-            TargetType="ToolTip">
+
+        <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1,1,1,1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
+
     </Window.Resources>
 
     <!--  ******************************************** Context Menu ******************************************  -->
@@ -144,283 +146,16 @@
     <bdgr:MetroCanvas
         x:Name="DataCanvas"
         Width="1350"
-        Height="800"
+        Height="790"
         Margin="1,1,1,1"
-        HorizontalAlignment="Right"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
         Background="{StaticResource DefaultBackground}">
 
         <bdgr:MetroTabControl
-            x:Name="SecondaryTabControl"
-            Canvas.Left="1065"
-            Canvas.Top="8"
-            Width="280"
-            Height="644"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top">
-            <TabItem
-                x:Name="SourceTab"
-                Width="50"
-                Height="24"
-                Margin="0,0,0,0"
-                Padding="6,2,6,5"
-                Background="{StaticResource DefaultBackground}"
-                BorderBrush="{StaticResource DefaultBackground}"
-                Foreground="{StaticResource LightBlueBrush}"
-                Header="Source"
-                IsSelected="True">
-
-                <Canvas
-                    x:Name="SourceCanvas"
-                    Margin="0,5,0,0"
-                    Background="{StaticResource DefaultBackground}">
-
-                    <bdgr:MetroListBox
-                        x:Name="DataSourceListBox"
-                        Canvas.Left="26"
-                        Canvas.Top="89"
-                        Width="224"
-                        Height="378"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}" />
-
-                    <bdgr:MetroComboBox
-                        x:Name="TableComboBox"
-                        Canvas.Left="26"
-                        Canvas.Top="42"
-                        Width="222"
-                        Height="30"
-                        Padding="30,1,1,1"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        AllowMultiSelect="False"
-                        Background="{StaticResource ControlInterior}"
-                        DefaultText="Select Model Type">
-
-                        <bdgr:MetroComboBoxItem
-                            Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
-                            Content="Execution"
-                            Foreground="{StaticResource LightBlueBrush}"
-                            Tag="EXECUTION" />
-
-                        <bdgr:MetroComboBoxItem
-                            Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
-                            Content="Reference"
-                            Foreground="{StaticResource LightBlueBrush}"
-                            Tag="REFERENCE" />
-
-                        <bdgr:MetroComboBoxItem
-                            Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
-                            Content="Maintenance"
-                            Foreground="{StaticResource LightBlueBrush}"
-                            Tag="MAINTENANCE" />
-
-                    </bdgr:MetroComboBox>
-
-                </Canvas>
-            </TabItem>
-
-            <TabItem
-                x:Name="FilterTab"
-                Width="50"
-                Height="24"
-                Margin="0,0,0,0"
-                Padding="6,2,6,5"
-                Background="{StaticResource DefaultBackground}"
-                BorderBrush="{StaticResource DefaultBackground}"
-                Foreground="{StaticResource LightBlueBrush}"
-                Header="Filter"
-                IsSelected="True">
-                <Canvas
-                    x:Name="FilterGrid"
-                    Height="622"
-                    Margin="0,0,23,0">
-                    <bdgr:MetroListBox
-                        x:Name="FirstListBox"
-                        Canvas.Left="23"
-                        Canvas.Top="84"
-                        Width="200"
-                        Height="140"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-
-                    <bdgr:MetroComboBox
-                        x:Name="FirstComboBox"
-                        Canvas.Left="23"
-                        Canvas.Top="34"
-                        Width="200"
-                        Height="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        AllowMultiSelect="True"
-                        DefaultText="ComboBox Items">
-                        <sync:ComboBoxItemAdv Content="Item 1" />
-                        <sync:ComboBoxItemAdv Content="Item 2" />
-                        <sync:ComboBoxItemAdv Content="Item 3" />
-                        <sync:ComboBoxItemAdv Content="Item 4" />
-                        <sync:ComboBoxItemAdv Content="Item 5" />
-                    </bdgr:MetroComboBox>
-
-                    <bdgr:MetroComboBox
-                        x:Name="SecondComboBox"
-                        Canvas.Left="23"
-                        Canvas.Top="264"
-                        Width="200"
-                        Height="30"
-                        AllowMultiSelect="True"
-                        DefaultText="ComboBox Items">
-                        <sync:ComboBoxItemAdv Content="Item 1" />
-                        <sync:ComboBoxItemAdv Content="Item 2" />
-                        <sync:ComboBoxItemAdv Content="Item 3" />
-                        <sync:ComboBoxItemAdv Content="Item 4" />
-                        <sync:ComboBoxItemAdv Content="Item 5" />
-                    </bdgr:MetroComboBox>
-
-                    <bdgr:MetroListBox
-                        x:Name="SecondListBox"
-                        Canvas.Left="23"
-                        Canvas.Top="311"
-                        Width="200"
-                        Height="163"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
-                        ScrollViewer.CanContentScroll="True"
-                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
-                </Canvas>
-            </TabItem>
-
-            <TabItem
-                x:Name="CommandTab"
-                Width="50"
-                Height="24"
-                Margin="0,0,0,0"
-                Padding="6,2,6,5"
-                Background="{StaticResource DefaultBackground}"
-                BorderBrush="{StaticResource DefaultBackground}"
-                Foreground="{StaticResource LightBlueBrush}"
-                Header="SQL">
-                <Canvas
-                    x:Name="CommandCanvas"
-                    Height="576"
-                    Margin="0,0,25,0"
-                    Background="{StaticResource DefaultBackground}">
-
-                    <bdgr:MetroLabel
-                        x:Name="CommandLabel"
-                        Canvas.Left="28"
-                        Canvas.Top="35"
-                        Width="170"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="SQL Commands:"
-                        Foreground="{StaticResource BorderBrush}" />
-
-                    <bdgr:MetroComboBox
-                        x:Name="CommandComboBox"
-                        Canvas.Left="27"
-                        Canvas.Top="66"
-                        Width="200"
-                        Height="30"
-                        AllowMultiSelect="True"
-                        DefaultText="">
-                        <sync:ComboBoxItemAdv Content="Item 1" />
-                        <sync:ComboBoxItemAdv Content="Item 2" />
-                        <sync:ComboBoxItemAdv Content="Item 3" />
-                        <sync:ComboBoxItemAdv Content="Item 4" />
-                        <sync:ComboBoxItemAdv Content="Item 5" />
-                    </bdgr:MetroComboBox>
-
-                    <bdgr:MetroListBox
-                        x:Name="CommandListBox"
-                        Canvas.Left="27"
-                        Canvas.Top="115"
-                        Width="200"
-                        Height="340"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}"
-                        ToolTip="Select SQL Command" />
-                </Canvas>
-            </TabItem>
-
-            <TabItem
-                x:Name="CalendarTab"
-                Width="50"
-                Height="24"
-                Margin="0,0,0,0"
-                Padding="6,2,6,5"
-                Background="{StaticResource DefaultBackground}"
-                BorderBrush="{StaticResource DefaultBackground}"
-                Foreground="{StaticResource LightBlueBrush}"
-                Header="Dates"
-                IsSelected="False">
-                <Canvas
-                    x:Name="CalendarCanvas"
-                    Margin="0,5,0,0"
-                    Background="{StaticResource DefaultBackground}">
-                    <bdgr:MetroLabel
-                        x:Name="FirstCalendarLabel"
-                        Canvas.Left="27"
-                        Canvas.Top="10"
-                        Width="235"
-                        Height="24"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        Content="First"
-                        Foreground="{StaticResource BorderBrush}" />
-                    <bdgr:MetroLabel
-                        x:Name="SecondCalendarLabel"
-                        Canvas.Left="30"
-                        Canvas.Top="245"
-                        Width="240"
-                        Height="24"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="Second"
-                        Foreground="{StaticResource BorderBrush}" />
-                    <bdgr:MetroCalendar
-                        x:Name="FirstCalendar"
-                        Canvas.Left="14"
-                        Canvas.Top="39"
-                        Width="248"
-                        Height="184"
-                        MinWidth="0"
-                        MinHeight="0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Date="1/1/2020" />
-
-                    <bdgr:MetroCalendar
-                        x:Name="SecondCalendar"
-                        Canvas.Left="20"
-                        Canvas.Top="274"
-                        Width="242"
-                        Height="205"
-                        MinWidth="0"
-                        MinHeight="0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Date="1/1/2020" />
-                </Canvas>
-            </TabItem>
-        </bdgr:MetroTabControl>
-
-        <bdgr:MetroTabControl
             x:Name="PrimaryTabControl"
-            Canvas.Left="11"
-            Canvas.Top="10"
             Width="1048"
-            Height="648"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top">
+            Height="648">
 
             <TabItem
                 x:Name="DataTab"
@@ -780,6 +515,271 @@
             </TabItem>
         </bdgr:MetroTabControl>
 
+        <bdgr:MetroTabControl
+            x:Name="SecondaryTabControl"
+            Canvas.Left="1065"
+            Canvas.Top="8"
+            Width="280"
+            Height="644"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <TabItem
+                x:Name="SourceTab"
+                Width="50"
+                Height="24"
+                Margin="0,0,0,0"
+                Padding="6,2,6,5"
+                Background="{StaticResource DefaultBackground}"
+                BorderBrush="{StaticResource DefaultBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Source"
+                IsSelected="True">
+
+                <Canvas
+                    x:Name="SourceCanvas"
+                    Margin="0,5,0,0"
+                    Background="{StaticResource DefaultBackground}">
+
+                    <bdgr:MetroListBox
+                        x:Name="DataSourceListBox"
+                        Canvas.Left="21"
+                        Canvas.Top="89"
+                        Width="224"
+                        Height="378"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}" />
+
+                    <bdgr:MetroComboBox
+                        x:Name="TableComboBox"
+                        Canvas.Left="21"
+                        Canvas.Top="42"
+                        Width="222"
+                        Height="30"
+                        Padding="30,1,1,1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        AllowMultiSelect="False"
+                        Background="{StaticResource ControlInterior}"
+                        DefaultText="Select Model Type">
+
+                        <bdgr:MetroComboBoxItem
+                            Padding="30,1,1,1"
+                            Background="{StaticResource ControlInterior}"
+                            Content="Execution"
+                            Foreground="{StaticResource LightBlueBrush}"
+                            Tag="EXECUTION" />
+
+                        <bdgr:MetroComboBoxItem
+                            Padding="30,1,1,1"
+                            Background="{StaticResource ControlInterior}"
+                            Content="Reference"
+                            Foreground="{StaticResource LightBlueBrush}"
+                            Tag="REFERENCE" />
+
+                        <bdgr:MetroComboBoxItem
+                            Padding="30,1,1,1"
+                            Background="{StaticResource ControlInterior}"
+                            Content="Maintenance"
+                            Foreground="{StaticResource LightBlueBrush}"
+                            Tag="MAINTENANCE" />
+
+                    </bdgr:MetroComboBox>
+
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="FilterTab"
+                Width="50"
+                Height="24"
+                Margin="0,0,0,0"
+                Padding="6,2,6,5"
+                Background="{StaticResource DefaultBackground}"
+                BorderBrush="{StaticResource DefaultBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Filter"
+                IsSelected="True">
+                <Canvas
+                    x:Name="FilterGrid"
+                    Height="622"
+                    Margin="0,0,23,0">
+                    <bdgr:MetroListBox
+                        x:Name="FirstListBox"
+                        Canvas.Left="23"
+                        Canvas.Top="84"
+                        Width="200"
+                        Height="140"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+
+                    <bdgr:MetroComboBox
+                        x:Name="FirstComboBox"
+                        Canvas.Left="23"
+                        Canvas.Top="34"
+                        Width="200"
+                        Height="30"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        AllowMultiSelect="True"
+                        DefaultText="ComboBox Items">
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
+
+                    <bdgr:MetroComboBox
+                        x:Name="SecondComboBox"
+                        Canvas.Left="23"
+                        Canvas.Top="264"
+                        Width="200"
+                        Height="30"
+                        AllowMultiSelect="True"
+                        DefaultText="ComboBox Items">
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
+
+                    <bdgr:MetroListBox
+                        x:Name="SecondListBox"
+                        Canvas.Left="23"
+                        Canvas.Top="311"
+                        Width="200"
+                        Height="163"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        ScrollViewer.CanContentScroll="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="CommandTab"
+                Width="50"
+                Height="24"
+                Margin="0,0,0,0"
+                Padding="6,2,6,5"
+                Background="{StaticResource DefaultBackground}"
+                BorderBrush="{StaticResource DefaultBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="SQL">
+                <Canvas
+                    x:Name="CommandCanvas"
+                    Height="576"
+                    Margin="0,0,25,0"
+                    Background="{StaticResource DefaultBackground}">
+
+                    <bdgr:MetroLabel
+                        x:Name="CommandLabel"
+                        Canvas.Left="28"
+                        Canvas.Top="35"
+                        Width="170"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="SQL Commands:"
+                        Foreground="{StaticResource BorderBrush}" />
+
+                    <bdgr:MetroComboBox
+                        x:Name="CommandComboBox"
+                        Canvas.Left="27"
+                        Canvas.Top="66"
+                        Width="200"
+                        Height="30"
+                        AllowMultiSelect="True"
+                        DefaultText="">
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
+
+                    <bdgr:MetroListBox
+                        x:Name="CommandListBox"
+                        Canvas.Left="27"
+                        Canvas.Top="115"
+                        Width="200"
+                        Height="340"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        ToolTip="Select SQL Command" />
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="CalendarTab"
+                Width="50"
+                Height="24"
+                Margin="0,0,0,0"
+                Padding="6,2,6,5"
+                Background="{StaticResource DefaultBackground}"
+                BorderBrush="{StaticResource DefaultBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Dates"
+                IsSelected="False">
+                <Canvas
+                    x:Name="CalendarCanvas"
+                    Margin="0,5,0,0"
+                    Background="{StaticResource DefaultBackground}">
+                    <bdgr:MetroLabel
+                        x:Name="FirstCalendarLabel"
+                        Canvas.Left="27"
+                        Canvas.Top="10"
+                        Width="235"
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Content="First"
+                        Foreground="{StaticResource BorderBrush}" />
+                    <bdgr:MetroLabel
+                        x:Name="SecondCalendarLabel"
+                        Canvas.Left="30"
+                        Canvas.Top="245"
+                        Width="240"
+                        Height="24"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Second"
+                        Foreground="{StaticResource BorderBrush}" />
+                    <bdgr:MetroCalendar
+                        x:Name="FirstCalendar"
+                        Canvas.Left="14"
+                        Canvas.Top="39"
+                        Width="248"
+                        Height="184"
+                        MinWidth="0"
+                        MinHeight="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Date="1/1/2020" />
+
+                    <bdgr:MetroCalendar
+                        x:Name="SecondCalendar"
+                        Canvas.Left="20"
+                        Canvas.Top="274"
+                        Width="242"
+                        Height="205"
+                        MinWidth="0"
+                        MinHeight="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Date="1/1/2020" />
+                </Canvas>
+            </TabItem>
+        </bdgr:MetroTabControl>
+
+
         <!--  ******************************************** ToolStrip  *********************************************  -->
 
         <bdgr:ToolStrip
@@ -788,7 +788,7 @@
             Canvas.Top="720"
             Width="1350"
             Height="40"
-            Margin="1,1,1,3"
+            Margin="1,1,1,1"
             Padding="1,1,1,1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -800,23 +800,17 @@
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
-                Padding="5,1,1,1"
+                Padding="1,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Content="Date &amp; Time"
-                FontSize="9" />
+                FontSize="10" />
 
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
-            <Separator
-                Width="20"
-                Height="30"
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                Foreground="{x:Null}" />
 
             <bdgr:ToolStripButton
                 x:Name="FirstButton"

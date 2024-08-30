@@ -90,11 +90,6 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
-
-        /// <summary>
         /// The time
         /// </summary>
         private protected int _time;
@@ -126,25 +121,7 @@ namespace Badger
             InitializeDelegates( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            Margin = new Thickness( 3 );
-            WindowStyle = _theme.WindowStyle;
-            Title = "Internet";
-            WindowStartupLocation = _theme.StartLocation;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Bottom;
-            Background = _theme.ControlColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
+            Title = "Data Sheet";
 
             // Window Events
             Loaded += OnLoaded;

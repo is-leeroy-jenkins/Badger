@@ -66,13 +66,9 @@ namespace Badger
 	[ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
 	[ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
 	[ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
+	[ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
 	public partial class CalendarWindow : Window
 	{
-		/// <summary>
-		/// The theme
-		/// </summary>
-		private protected DarkMode _theme = new DarkMode( );
-
 		/// <summary>
 		/// The busy
 		/// </summary>
@@ -219,16 +215,7 @@ namespace Badger
 			RegisterCallbacks( );
 
 			// Window Properties
-			ResizeMode = _theme.SizeMode;
-			FontFamily = _theme.FontFamily;
-			FontSize = _theme.FontSize;
-			WindowStyle = _theme.WindowStyle;
-			Padding = _theme.Padding;
-			BorderThickness = _theme.BorderThickness;
 			Title = "Fiscal Years";
-			WindowStartupLocation = _theme.StartLocation;
-			HorizontalAlignment = HorizontalAlignment.Stretch;
-			VerticalAlignment = VerticalAlignment.Stretch;
 
 			// Initialize Collections
 			_filter = new Dictionary<string, object>( );

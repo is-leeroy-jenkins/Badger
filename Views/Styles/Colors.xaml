@@ -54,7 +54,7 @@
     <Color x:Key="DangerColor2">#FFAB0202</Color>
     <Color x:Key="DangerColor3">#FF6C0000</Color>
     <Color x:Key="DangerColor4">#FF4A0101</Color>
-    <Color x:Key="DangerColor5">#FF290000</Color>
+    <Color x:Key="DangerColor5">#FF280000</Color>
 
     <!--  ************************************  Background Colors  *****************************  -->
 
@@ -190,6 +190,10 @@
     <SolidColorBrush
         x:Key="BlueBackground"
         Color="{StaticResource DefaultColor4}" />
+
+    <SolidColorBrush
+        x:Key="RedBackground"
+        Color="{StaticResource DangerColor5}" />
 
     <SolidColorBrush
         x:Key="DarkBlueBackground"

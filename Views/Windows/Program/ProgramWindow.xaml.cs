@@ -117,20 +117,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -144,7 +133,6 @@ namespace Badger
             : base( )
         {
             // Theme Properties
-            SfSkinManager.ApplyStylesOnApplication = true;
             SfSkinManager.SetTheme( this, new Theme( "FluentDark" ) );
 
             // Window Initialization
@@ -153,23 +141,7 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
-            MinWidth = 1200;
-            MaxWidth = 1500;
-            Height = 800;
-            MinHeight = 600;
-            MaxHeight = 900;
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
             Title = "Environmental Programs";
-            WindowStartupLocation = _theme.StartLocation;
-            Background = _theme.BackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
 
             // Window Events
             Loaded += OnLoaded;

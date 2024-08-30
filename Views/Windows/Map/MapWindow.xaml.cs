@@ -87,11 +87,6 @@ namespace Badger
         private protected Action _statusUpdate;
 
         /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
-
-        /// <summary>
         /// The time
         /// </summary>
         private protected int _time;
@@ -152,58 +147,17 @@ namespace Badger
             RegisterCallbacks( );
 
             // Window Properties
-            Width = 1400;
+            Width = 1350;
             MinWidth = 1200;
             MaxWidth = 1500;
             Height = 800;
             MinHeight = 600;
             MaxHeight = 900;
-            ResizeMode = _theme.SizeMode;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            WindowStyle = _theme.WindowStyle;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            WindowStartupLocation = _theme.StartLocation;
             Title = "GIS Data";
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.BackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
 
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                _timer?.Dispose( );
-            }
         }
 
         /// <summary>
@@ -532,7 +486,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )
@@ -1026,6 +980,35 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                _timer?.Dispose( );
             }
         }
 
