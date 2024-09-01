@@ -14,7 +14,7 @@
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF031017"
     BorderBrush="#FF81A7FB"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     Foreground="#FFFDFEFF"
     Icon="/Resources/Assets/DialogImages/SplashNotification.png"
     ResizeMode="NoResize"
@@ -26,7 +26,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="#0078D4" />
             <Setter Property="Background" Value="#FF000000" />
             <Setter Property="Foreground" Value="#FFA0BDFC"/>
@@ -52,7 +52,7 @@
             Canvas.Top="3"
             Width="352"
             Height="17"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Content="Input Requested"
@@ -84,7 +84,7 @@
             Canvas.Top="5"
             Width="105"
             Height="20"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Right"
@@ -102,7 +102,7 @@
             Padding="10,5,5,5"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             Foreground="#FFD8E7F3"
             Text=""
             TextWrapping="Wrap" />

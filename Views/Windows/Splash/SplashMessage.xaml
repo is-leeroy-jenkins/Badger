@@ -11,7 +11,7 @@
     Height="455"
     Background="#FF011C2B"
     BorderBrush="#FF6ABAD4"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     Foreground="#FF7BD9F7"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -22,7 +22,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="#0078D4" />
             <Setter Property="Background" Value="#FF000000" />
             <Setter Property="Foreground" Value="#FFA0BDFC"/>
@@ -67,7 +67,7 @@
             Canvas.Top="5"
             Width="145"
             Height="20"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             HorizontalContentAlignment="Right"

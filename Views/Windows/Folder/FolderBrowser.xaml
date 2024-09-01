@@ -12,11 +12,11 @@
     Title="Search File System"
     Width="800"
     Height="450"
-    Padding="1,1,1,1"
+    Padding="1"
     sync:SfSkinManager.Theme="{sync:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF141414"
     BorderBrush="#FF0078D4"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     Foreground="#FFA0BDFC"
     Icon="/Resources/Assets/DialogImages/FolderBrowse.png"
     WindowStartupLocation="CenterScreen"
@@ -26,7 +26,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="#0078D4" />
             <Setter Property="Background" Value="#FF000000" />
             <Setter Property="Foreground" Value="#FFA0BDFC"/>

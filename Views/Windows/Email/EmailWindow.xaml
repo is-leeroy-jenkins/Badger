@@ -11,11 +11,11 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
+    Margin="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontFamily="Segoe UI"
     FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
@@ -28,7 +28,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -135,7 +135,7 @@
         x:Name="EmailCanvas"
         Width="1350"
         Height="800"
-        Margin="0,0,0,0"
+        Margin="0"
         Background="{StaticResource FormBackground}">
 
         <!--  ***************************   ToolStrip      ***************************  -->
@@ -145,10 +145,10 @@
             Canvas.Top="720"
             Width="1348"
             Height="40"
-            Padding="1,1,1,1"
+            Padding="1"
             VerticalAlignment="Bottom"
             BorderBrush="{StaticResource FormBackground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
             <bdgr:ToolStripLabel

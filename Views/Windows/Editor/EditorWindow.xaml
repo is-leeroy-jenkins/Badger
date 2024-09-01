@@ -13,11 +13,11 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
+    Margin="1"
     sync:SfSkinManager.Theme="{sync:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontFamily="Segoe UI"
     FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
@@ -31,7 +31,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -64,7 +64,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -93,7 +93,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -122,7 +122,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -148,14 +148,13 @@
             Width="913"
             Height="640"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            SelectionChanged="PrimaryTabControl_SelectionChanged">
+            VerticalAlignment="Top">
 
             <TabItem
                 x:Name="EditorTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -165,7 +164,7 @@
 
                 <Canvas
                     x:Name="SqlCanvas"
-                    Margin="1,1,1,1"
+                    Margin="1"
                     Background="{StaticResource DefaultBackground}">
                     <sync:EditControl
                         x:Name="Editor"
@@ -177,7 +176,7 @@
                         VerticalAlignment="Top"
                         Background="{StaticResource ControlInterior}"
                         BorderBrush="{StaticResource BorderBrush}"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         CaretBrush="#FFEEFB00"
                         FontFamily="Source Code Pro"
                         Foreground="{StaticResource FormForeground}"
@@ -194,7 +193,7 @@
                 x:Name="DataTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -211,7 +210,12 @@
                         Width="862"
                         Height="500"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Top" />
+                        VerticalAlignment="Top"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Foreground="{StaticResource LightBlueBrush}"
+                        SelectionForegroundBrush="{StaticResource FormForeground}" />
                 </Canvas>
             </TabItem>
 
@@ -219,7 +223,7 @@
                 x:Name="BusyTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -227,7 +231,7 @@
                 Header="Busy ">
                 <Canvas
                     x:Name="BusyCanvas"
-                    Margin="1,1,1,1"
+                    Margin="1"
                     Background="{StaticResource DefaultBackground}">
                     <Image
                         x:Name="PictureBox"
@@ -251,18 +255,18 @@
             Canvas.Top="720"
             Width="1348"
             Height="40"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
             <local:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="100"
-                Margin="1,1,1,1"
+                Margin="1"
                 Padding="5,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
@@ -392,7 +396,7 @@
                 x:Name="ProviderTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
@@ -400,7 +404,7 @@
 
                 <Canvas
                     x:Name="CommandCanvas"
-                    Margin="1,1,1,1"
+                    Margin="1"
                     Background="{StaticResource DefaultBackground}">
                     <local:MetroListBox
                         x:Name="QueryListBox"
@@ -410,7 +414,10 @@
                         Height="305"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
                         ClipToBounds="True"
+                        Foreground="{StaticResource LightBlueBrush}"
                         RenderTransformOrigin="0.5,0.5"
                         ScrollViewer.CanContentScroll="True"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -437,6 +444,9 @@
                         Height="105"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
                         ScrollViewer.CanContentScroll="True"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -495,13 +505,13 @@
                 x:Name="FilterTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
                 Header="Filter">
                 <Canvas
-                    Margin="1,1,1,1"
+                    Margin="1"
                     Background="{StaticResource FormBackground}">
                     <local:MetroListBox
                         x:Name="FirstCategoryListBox"
@@ -511,7 +521,10 @@
                         Height="145"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroListBox
                         x:Name="SecondCategoryListBox"
                         Canvas.Left="118"
@@ -520,7 +533,10 @@
                         Height="160"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroComboBox
                         x:Name="FirstCategoryComboBox"
                         Canvas.Left="107"
@@ -550,7 +566,7 @@
                 x:Name="GroupTab"
                 Width="100"
                 Height="24"
-                Margin="1,1,1,1"
+                Margin="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="{StaticResource FormBackground}"
@@ -582,7 +598,10 @@
                         Height="170"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroListBox
                         Canvas.Left="113"
                         Canvas.Top="339"
@@ -590,7 +609,10 @@
                         Height="170"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                 </Canvas>
             </TabItem>
         </local:MetroTabControl>

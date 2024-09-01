@@ -14,8 +14,8 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
-    Padding="1,1,1,1"
+    Margin="1"
+    Padding="1"
     HorizontalContentAlignment="Stretch"
     VerticalContentAlignment="Bottom"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
@@ -30,7 +30,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -154,7 +154,7 @@
                 x:Name="WorkbookTab"
                 Width="100"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -186,11 +186,11 @@
                         Canvas.Top="160"
                         Width="1340"
                         Height="520"
-                        Margin="1,1,1,1"
-                        Padding="1,1,1,1"
+                        Margin="1"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         Foreground="{x:Null}"
                         ScrollViewer.CanContentScroll="True" />
                 </Canvas>
@@ -200,7 +200,7 @@
                 x:Name="QueryTab"
                 Width="100"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -369,7 +369,7 @@
                 x:Name="ChartTab"
                 Width="100"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="#FF141414"
@@ -393,7 +393,7 @@
                 x:Name="BusyTab"
                 Width="100"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
                 Background="{StaticResource DefaultBackground}"
                 BorderBrush="{StaticResource DefaultBackground}"
@@ -427,11 +427,11 @@
             Width="1350"
             Height="40"
             Margin="1,1,1,3"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="{StaticResource DefaultBackground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
             <bdgr:ToolStripLabel

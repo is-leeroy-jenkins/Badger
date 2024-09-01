@@ -55,11 +55,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class MetroListView : ListView
     {
-        /// <summary>
-        /// The theme
-        /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -68,19 +63,6 @@ namespace Badger
         public MetroListView( )
             : base( )
         {
-            // Control Properties
-            Width = 300;
-            MinWidth = 200;
-            MaxWidth = 900;
-            Height = 270;
-            MinHeight = 170;
-            MaxHeight = 900;
-            FontSize = _theme.FontSize;
-            Padding = _theme.Padding;
-            FontFamily = _theme.FontFamily;
-            Background = _theme.ControlColor;
-            BorderBrush = _theme.BorderColor;
-            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

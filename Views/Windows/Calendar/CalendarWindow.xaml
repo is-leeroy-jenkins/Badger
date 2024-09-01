@@ -13,12 +13,12 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
-    Padding="1,1,1,1"
+    Margin="1"
+    Padding="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DarkBackColor}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontSize="9"
     Foreground="{StaticResource LightBlueBrush}"
     WindowStartupLocation="CenterScreen"
@@ -28,7 +28,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -58,7 +58,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -87,7 +87,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -116,7 +116,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -130,7 +130,7 @@
     </Window.ContextMenu>
     <Canvas
         x:Name="CalendarCanvas"
-        Margin="1,1,1,1">
+        Margin="1">
 
         <!--  ************************************  Chart Control *****************************************  -->
 
@@ -140,7 +140,7 @@
             Canvas.Top="88"
             Width="737"
             Height="419"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"
@@ -148,22 +148,16 @@
             BackWallBrush="{StaticResource ControlInterior}"
             Background="{StaticResource TransparentBrush}"
             BorderBrush="{StaticResource BorderBrush}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             BottomWallBrush="{StaticResource ControlInterior}"
-            Depth="250"
+            Depth="200"
             EnableRotation="True"
             EnableSeriesSelection="True"
             LeftWallBrush="{StaticResource ControlInterior}"
             Palette="Custom"
-            RenderTransformOrigin="0,0"
             RightWallBrush="{StaticResource ControlInterior}"
-            SideBySideSeriesPlacement="False"
             TopWallBrush="{StaticResource ControlInterior}"
-            VerticalHeaderAlignment="Stretch">
-            <sync:SfChart3D.PrimaryAxis>
-                <sync:CategoryAxis3D />
-            </sync:SfChart3D.PrimaryAxis>
-        </sync:SfChart3D>
+            VerticalHeaderAlignment="Stretch" />
 
         <!--  ************************************  Calendar Control  *****************************************  -->
 
@@ -173,11 +167,11 @@
             Canvas.Top="334"
             Width="284"
             Height="215"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             BorderBrush="{StaticResource MutedForeground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             Date="1/1/2020" />
 
         <!--  ************************************  Calendar Control  *****************************************  -->
@@ -188,10 +182,10 @@
             Canvas.Top="69"
             Width="290"
             Height="210"
-            Padding="1,1,1,1"
+            Padding="1"
             VerticalAlignment="Top"
             BorderBrush="{StaticResource MutedForeground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             Date="1/1/2020"
             ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
@@ -204,7 +198,7 @@
             Width="1348"
             Height="40"
             Margin="1,1,1,3"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"

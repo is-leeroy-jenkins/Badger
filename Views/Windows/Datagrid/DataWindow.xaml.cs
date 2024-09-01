@@ -55,8 +55,6 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
-    using System.Windows.Input;
-    using System.Windows.Media;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -2156,7 +2154,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( provider, nameof( provider ) );
-                var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
+                var _value = ( Provider )Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _value ) )
                 {
                     _provider = _value switch
@@ -3235,6 +3233,11 @@ namespace Badger
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private protected void OnGridLoaded( object sender, RoutedEventArgs e )
         {
             try
@@ -3243,11 +3246,11 @@ namespace Badger
                 _columnPicker.Resources.MergedDictionaries.Clear( );
                 _columnPicker.ClearValue( ColumnChooser.StyleProperty );
 
-                //Resources has been added to the Merged Dictionaries     
+                // Resources has been added to the Merged Dictionaries     
                 _columnPicker.Resources.MergedDictionaries.Add( Resources.MergedDictionaries[ 0 ] );
                 DataGrid.GridColumnDragDropController = new GridColumnChooserController( DataGrid, _columnPicker );
 
-                //ColumnChooser Window will open
+                // ColumnChooser Window will open
                 _columnPicker.Show( );
                 _columnPicker.Owner = this;
             }

@@ -17,7 +17,7 @@
                     MaxWidth="250" MaxHeight="30" />
 <local:MetroComboBox x:Name="ComboBox" AllowMultiSelect="True" DefaultText="ComboBox Items"
                      Height="30" Width="200" Canvas.Left="8" Canvas.Top="38"
-                     BorderBrush="#000078D4" BorderThickness="0,0,0,0" MinWidth="150"
+                     BorderBrush="#000078D4" BorderThickness="0" MinWidth="150"
                      MinHeight="23" MaxWidth="250" MaxHeight="35">
 <syncfusion:ComboBoxItemAdv Content="Item 1" />
 <syncfusion:ComboBoxItemAdv Content="Item 2" />

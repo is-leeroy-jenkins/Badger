@@ -44,6 +44,7 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
+    using System.Windows.Input;
 
     /// <inheritdoc />
     /// <summary>
@@ -75,13 +76,10 @@ namespace Badger
             : base( )
         {
             Height = 40;
-            Background = _theme.ControlColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.ControlColor;
 
             // Event Wiring
-            MouseEnter += OnItemMouseEnter;
-            MouseLeave += OnItemMouseLeave;
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
         }
 
         /// <summary>
@@ -90,15 +88,15 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnItemMouseEnter( object sender, EventArgs e )
+        private protected void OnMouseEnter( object sender, MouseEventArgs e )
         {
             try
             {
                 if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.SteelBlueColor;
-                    _item.BorderBrush = _theme.SteelBlueColor;
+                    _item.Background = _theme.DarkBlueColor;
+                    _item.BorderBrush = _theme.LightBlueColor;
                 }
             }
             catch( Exception ex )
@@ -113,7 +111,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnItemMouseLeave( object sender, EventArgs e )
+        private protected void OnMouseLeave( object sender, MouseEventArgs e )
         {
             try
             {

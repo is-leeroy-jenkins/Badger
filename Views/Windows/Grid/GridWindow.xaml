@@ -17,11 +17,11 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="3,3,3,3"
-    Padding="1,1,1,1"
+    Padding="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     WindowStartupLocation="CenterScreen"
@@ -31,7 +31,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -142,12 +142,12 @@
             Canvas.Top="722"
             Width="1348"
             Height="40"
-            Margin="1,1,1,1"
-            Padding="1,1,1,1"
+            Margin="1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             BorderBrush="{StaticResource FormBackground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"

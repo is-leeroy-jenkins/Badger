@@ -11,13 +11,13 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
+    Margin="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontFamily="Segoe UI"
-    FontSize="9"
+    FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     ResizeMode="CanResize"
@@ -28,7 +28,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -58,7 +58,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -87,7 +87,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -116,7 +116,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -139,8 +139,8 @@
             Canvas.Top="720"
             Width="1350"
             Height="40"
-            Margin="1,1,1,1"
-            Padding="1,1,1,1"
+            Margin="1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
 
@@ -199,6 +199,7 @@
                 <bdgr:MetroComboBoxItem Content="Histogram" />
 
             </bdgr:MetroComboBox>
+
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
@@ -223,8 +224,8 @@
 
             <Separator
                 Width="20"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
 
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
@@ -284,34 +285,39 @@
             Height="513"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
-            <!--  Column Chart  -->
             <TabItem
                 x:Name="ColumnTab"
                 Width="90"
                 Height="24"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Column"
                 IsSelected="True">
                 <Canvas
                     x:Name="ColumnChartCanvas"
-                    Margin="0,0,0,0"
-                    Background="#FF141414">
+                    Margin="0"
+                    Background="{StaticResource FormBackground}">
+                    <!--  Column Chart  -->
                     <sync:SfChart3D
                         x:Name="ColumnChart"
-                        Canvas.Left="0"
+                        Canvas.Left="50"
                         Canvas.Top="0"
                         Width="800"
                         Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Depth="200"
                         EnableRotation="True"
                         EnableSeriesSelection="True"
                         IsEnabled="True"
                         Palette="Custom">
                         <!--  Primary Axis  -->
                         <sync:SfChart3D.PrimaryAxis>
-                            <sync:CategoryAxis3D />
+                            <sync:CategoryAxis3D
+                                Height="447"
+                                VerticalAlignment="Bottom" />
                         </sync:SfChart3D.PrimaryAxis>
                     </sync:SfChart3D>
                 </Canvas>
@@ -323,17 +329,19 @@
                 Height="24"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Line">
                 <Canvas
                     x:Name="LineChartCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <sync:SfChart3D
                         x:Name="LineChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454" />
+                        Height="454"
+                        Depth="200" />
                 </Canvas>
             </TabItem>
             <!--  Pie Chart  -->
@@ -341,19 +349,23 @@
                 x:Name="PieTab"
                 Width="90"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
                 Foreground="#FFA0BDD4"
                 Header="Pie">
                 <Canvas
                     x:Name="PieChartCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <sync:SfChart3D
                         x:Name="PieChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454" />
+                        Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Depth="200" />
                 </Canvas>
             </TabItem>
             <!--  Sunburst Chart  -->
@@ -361,19 +373,22 @@
                 x:Name="SunTab"
                 Width="90"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Sunburst">
                 <Canvas
                     x:Name="SunburstCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <bdgr:SunburstChart
                         x:Name="SunburstChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454" />
+                        Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1" />
                 </Canvas>
             </TabItem>
             <!--  Histogram Chart  -->
@@ -383,17 +398,20 @@
                 Height="24"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Histogram">
                 <Canvas
                     x:Name="HistogramCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <sync:SfChart3D
                         x:Name="Histogram"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454" />
+                        Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1" />
                 </Canvas>
             </TabItem>
             <!--  Smith Chart  -->
@@ -401,20 +419,23 @@
                 x:Name="SmithTab"
                 Width="90"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Smith">
 
-                <Canvas Background="#FF141414">
+                <Canvas Background="{StaticResource FormBackground}">
 
                     <bdgr:SmithChart
                         x:Name="SmithChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454">
+                        Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1">
                         <bdgr:SmithChart.DataContext>
                             <bdgr:ChartModel />
                         </bdgr:SmithChart.DataContext>
@@ -429,20 +450,24 @@
                 x:Name="AreaTab"
                 Width="90"
                 Height="24"
-                Margin="0,0,0,0"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Margin="0"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Area">
 
                 <Canvas
                     x:Name="AreaChartCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
 
                     <sync:SfChart3D
                         x:Name="AreaChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="454" />
+                        Height="454"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Depth="200" />
 
                 </Canvas>
             </TabItem>
@@ -453,22 +478,26 @@
                 x:Name="ScatterTab"
                 Width="90"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Scatter">
 
                 <Canvas
                     x:Name="ScatterChartCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
 
                     <sync:SfChart3D
                         x:Name="ScatterChart"
+                        Canvas.Left="50"
                         Width="800"
-                        Height="550" />
+                        Height="450"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Depth="200" />
 
                 </Canvas>
             </TabItem>
@@ -479,18 +508,18 @@
                 x:Name="BusyTab"
                 Width="100"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Busy"
                 IsSelected="False">
 
                 <Canvas
                     x:Name="BusyTabCanvas"
                     Margin="0,10,0,0"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <Image
                         x:Name="PictureBox"
                         Canvas.Left="25"
@@ -509,7 +538,7 @@
             Canvas.Top="514"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -522,7 +551,7 @@
             Canvas.Top="539"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -535,7 +564,7 @@
             Canvas.Top="513"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -548,7 +577,7 @@
             Canvas.Top="538"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -561,7 +590,7 @@
             Canvas.Top="514"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -574,7 +603,7 @@
             Canvas.Top="539"
             Width="150"
             Height="25"
-            Padding="1,1,1,1"
+            Padding="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Left"
@@ -595,18 +624,18 @@
                 x:Name="SourceTab"
                 Width="80"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Sources"
                 IsSelected="True">
                 <Canvas
                     x:Name="SourceCanvas"
                     Width="453"
                     HorizontalAlignment="Left"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <Frame
                         x:Name="SourceFrame"
                         Canvas.Left="41"
@@ -615,9 +644,9 @@
                         Height="450"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Background="#FF141414"
-                        BorderBrush="#FF0078D4"
-                        BorderThickness="1,1,1,1"
+                        Background="{StaticResource FormBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
                         Content="" />
                     <bdgr:MetroListBox
                         x:Name="DataTableListBox"
@@ -626,7 +655,9 @@
                         Width="266"
                         Height="318"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Center"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}" />
                 </Canvas>
             </TabItem>
 
@@ -636,9 +667,9 @@
                 Height="24"
                 Padding="6,2,6,5"
                 VerticalAlignment="Top"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Filter"
                 IsSelected="True">
 
@@ -653,8 +684,8 @@
                         Height="454"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        BorderBrush="#FF0078D4"
-                        BorderThickness="1,1,1,1"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
                         Content="" />
 
                     <bdgr:MetroComboBox
@@ -691,7 +722,9 @@
                         Width="200"
                         Height="117"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Top" />
+                        VerticalAlignment="Top"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}" />
 
                     <bdgr:MetroListBox
                         x:Name="SecondListBox"
@@ -700,7 +733,9 @@
                         Width="200"
                         Height="122"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Top" />
+                        VerticalAlignment="Top"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}" />
 
                 </Canvas>
             </TabItem>
@@ -709,17 +744,17 @@
                 x:Name="GroupTab"
                 Width="80"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Grouping">
 
                 <Canvas
                     x:Name="GroupCanvas"
                     Height="610"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
 
                     <Frame
                         x:Name="GroupFrame"
@@ -729,8 +764,8 @@
                         Height="454"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        BorderBrush="#FF0078D4"
-                        BorderThickness="1,1,1,1"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
                         Content="" />
 
                     <bdgr:MetroLabel
@@ -741,7 +776,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Fields"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
 
                     <bdgr:MetroLabel
                         x:Name="NumericsLabel"
@@ -751,7 +786,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Content="Numerics"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
 
                     <bdgr:MetroCheckList
                         x:Name="FieldListBox"
@@ -782,42 +817,42 @@
                 x:Name="CalendarTab"
                 Width="80"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Calendar"
                 IsSelected="False">
                 <Canvas
                     x:Name="CalendarCanvas"
                     Height="500"
                     VerticalAlignment="Top"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <bdgr:MetroLabel
                         x:Name="FirstDateLabel"
                         Canvas.Left="10"
                         Canvas.Top="97"
                         Width="196"
                         Height="20"
-                        Padding="1,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
                         Content="First Date"
-                        Foreground="#FF0078D4" />
+                        Foreground="{StaticResource BorderBrush}" />
                     <bdgr:MetroLabel
                         x:Name="SecondDateLabel"
                         Canvas.Left="243"
                         Canvas.Top="99"
                         Width="220"
-                        Padding="1,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         VerticalContentAlignment="Bottom"
                         Panel.ZIndex="-2"
                         Content="Second Date"
-                        Foreground="#FF0078D4"
+                        Foreground="{StaticResource BorderBrush}"
                         Grid.IsSharedSizeScope="True" />
                     <bdgr:MetroCalendar
                         x:Name="SecondCalendar"
@@ -827,7 +862,7 @@
                         Height="231"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         Date="1/1/2020" />
                     <bdgr:MetroCalendar
                         x:Name="FirstCalendar"
@@ -844,17 +879,17 @@
                 x:Name="MetricsTab"
                 Width="80"
                 Height="24"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#FF141414"
-                BorderBrush="#FF141414"
-                Foreground="#FFA0BDFC"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
                 Header="Statistics">
                 <Canvas
                     x:Name="InfoCanvas"
-                    Background="#FF141414">
+                    Background="{StaticResource FormBackground}">
                     <Frame
                         x:Name="MetricFrame"
                         Canvas.Left="41"
@@ -863,8 +898,8 @@
                         Height="454"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        BorderBrush="#FF0078D4"
-                        BorderThickness="1,1,1,1"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
                         Content="" />
                 </Canvas>
             </TabItem>

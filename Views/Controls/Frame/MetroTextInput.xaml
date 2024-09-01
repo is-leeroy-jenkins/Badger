@@ -3,9 +3,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Badger" x:Name="InputBox" x:Class="Badger.MetroTextInput"
-             mc:Ignorable="d" Background="#FF141414" Foreground="#FFDEDEDE" Padding="1,1,1,1"
+             mc:Ignorable="d" Background="#FF141414" Foreground="#FFDEDEDE" Padding="1"
              MinWidth="220" MinHeight="70" MaxWidth="300" MaxHeight="100" Width="245" Height="80"
-             BorderBrush="#FF0078D4" BorderThickness="1,1,1,1" HorizontalAlignment="Left">
+             BorderBrush="#FF0078D4" BorderThickness="1" HorizontalAlignment="Left">
 <Canvas x:Name="Canvas" MinWidth="200" MaxWidth="260" MinHeight="60" MaxHeight="100"
         Background="#FF141414">
 <local:MetroLabel x:Name="Label" Content="Name" Canvas.Left="13" Canvas.Top="9"

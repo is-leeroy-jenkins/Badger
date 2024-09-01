@@ -74,10 +74,6 @@ namespace Badger
             // Basic Properties
             SetResourceReference( MetroPivotGrid.StyleProperty, typeof( PivotGridControl ) );
             FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12;
-            Background = _theme.ControlColor;
-            BorderBrush = _theme.BorderColor;
-            Foreground = _theme.ForeColor;
         }
 
         /// <summary>

@@ -13,12 +13,12 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
+    Margin="1"
     VerticalContentAlignment="Bottom"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontFamily="Segoe UI"
     FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
@@ -38,7 +38,7 @@
         </Style>
 
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -68,7 +68,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -97,7 +97,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -126,7 +126,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -147,7 +147,7 @@
         x:Name="DataCanvas"
         Width="1350"
         Height="790"
-        Margin="1,1,1,1"
+        Margin="1"
         HorizontalAlignment="Left"
         VerticalAlignment="Top"
         Background="{StaticResource DefaultBackground}">
@@ -182,7 +182,7 @@
                         VerticalAlignment="Top"
                         Background="{StaticResource ControlBackColor}"
                         BorderBrush="{StaticResource BorderBrush}"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         Foreground="{StaticResource LightBlueBrush}"
                         SelectionForegroundBrush="{StaticResource FormForeground}" />
 
@@ -411,7 +411,7 @@
                         Canvas.Top="98"
                         Width="200"
                         Height="30"
-                        Padding="1,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         HorizontalContentAlignment="Center"
@@ -475,7 +475,7 @@
                         VerticalAlignment="Center"
                         Background="{StaticResource ControlInterior}"
                         BorderBrush="{StaticResource BorderBrush}"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         CaretBrush="#FFEEFB00"
                         FontFamily="Source Code Pro"
                         Foreground="{StaticResource FormForeground}"
@@ -549,7 +549,8 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}" />
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}" />
 
                     <bdgr:MetroComboBox
                         x:Name="TableComboBox"
@@ -614,6 +615,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
                     <bdgr:MetroComboBox
@@ -713,6 +716,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
                         ToolTip="Select SQL Command" />
                 </Canvas>
             </TabItem>
@@ -788,19 +793,19 @@
             Canvas.Top="720"
             Width="1350"
             Height="40"
-            Margin="1,1,1,1"
-            Padding="1,1,1,1"
+            Margin="1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
-                Padding="1,1,1,1"
+                Padding="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Content="Date &amp; Time"

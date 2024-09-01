@@ -60,7 +60,7 @@
 
     <Color x:Key="BackColor1">#FF141414</Color>
     <Color x:Key="BackColor2">#FF282828</Color>
-    <Color x:Key="BackColor3">#FF323232</Color>
+    <Color x:Key="BackColor3">#FF2D2D2D</Color>
     <Color x:Key="BackColor4">#FF013D11</Color>
     <Color x:Key="BackColor5">#FF012336</Color>
 
@@ -85,7 +85,7 @@
 
     <!--  ************************************  Menu Colors  *****************************  -->
 
-    <Color x:Key="MenuBackColor">#FF0A0A0A</Color>
+    <Color x:Key="MenuBackColor">#FF0F0F0F</Color>
     <Color x:Key="MenuForeColor">#FFA0BDFC</Color>
     <Color x:Key="MenuBorderColor">#FF4682B4</Color>
     <Color x:Key="MenuHoverColor">#FF0E3C5E</Color>
@@ -95,7 +95,7 @@
 
 
     <Color x:Key="DataGridLinesColor">#FF4682B4</Color>
-    <Color x:Key="DataGrid.SelectAllButtonColor">#DFDFDF</Color>
+    <Color x:Key="DataGridSelectAllButtonColor">#DFDFDF</Color>
     <Color x:Key="DataGrid.SelectAllButton.MouseOverColor">#E9E9E9</Color>
 
     <!--  ************************************  Series Colors **********************************  -->
@@ -115,7 +115,7 @@
     <Color x:Key="MutedBorderColor">#FF555555</Color>
     <Color x:Key="LightBlueForeColor">#FFA0BDFC</Color>
     <Color x:Key="DefaultBackColor">#FF141414</Color>
-    <Color x:Key="ControlBackColor">#FF282828</Color>
+    <Color x:Key="ControlBackColor">#FF2D2D2D</Color>
     <Color x:Key="BorderColor">#FF0078D4</Color>
     <Color x:Key="LightBorderColor">#FFA0BDFC</Color>
     <Color x:Key="ControlHoverColor">#FF0E3C5E</Color>
@@ -162,6 +162,10 @@
     <SolidColorBrush
         x:Key="ControlInterior"
         Color="{StaticResource BackColor3}" />
+
+    <SolidColorBrush
+        x:Key="ControlBackground"
+        Color="{StaticResource ControlBackColor}" />
 
     <SolidColorBrush
         x:Key="ControlHoverBrush"
@@ -459,7 +463,7 @@
 
     <SolidColorBrush
         x:Key="DataGrid.SelectAllButton"
-        Color="{StaticResource DataGrid.SelectAllButtonColor}" />
+        Color="{StaticResource DataGridSelectAllButtonColor}" />
 
     <SolidColorBrush
         x:Key="DataGrid.SelectAllButton.MouseOver"

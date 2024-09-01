@@ -14,11 +14,11 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="1,1,1,1"
+    Margin="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     FontFamily="Segoe UI"
     FontSize="10"
     Foreground="{StaticResource LightBlueBrush}"
@@ -32,7 +32,7 @@
 
     <Window.Resources>
         <Style TargetType="ToolTip">
-            <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -61,7 +61,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator Foreground="{StaticResource LightBlueBrush}" />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -90,7 +90,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator Foreground="{StaticResource LightBlueBrush}" />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -119,7 +119,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator Foreground="{StaticResource LightBlueBrush}" />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -142,12 +142,12 @@
             Canvas.Top="720"
             Width="1348"
             Height="40"
-            Margin="1,1,1,1"
-            Padding="1,1,1,1"
+            Margin="1"
+            Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             BorderBrush="{StaticResource FormBackground}"
-            BorderThickness="1,1,1,1"
+            BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
             <bdgr:ToolStripLabel
@@ -285,7 +285,7 @@
             <TabItem
                 x:Name="SourceTab"
                 Width="60"
-                Margin="0,0,0,0"
+                Margin="0"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
@@ -307,6 +307,9 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackColor}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
                         RenderTransformOrigin="0.5,0.5">
                         <bdgr:MetroListBox.RenderTransform>
                             <TransformGroup>
@@ -334,7 +337,7 @@
                 x:Name="FilterTab"
                 Width="60"
                 Height="22"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,2"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
@@ -354,7 +357,10 @@
                         Height="133"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
 
                     <!--  ************************************** List Box  *************************************  -->
 
@@ -367,6 +373,9 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
                     <!--  ************************************** Combo Box  *************************************  -->
@@ -408,7 +417,7 @@
                         Canvas.Left="51"
                         Canvas.Top="356"
                         Width="200"
-                        Padding="1,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Bottom"
                         Content="Second Category"
@@ -418,7 +427,7 @@
                         Canvas.Left="51"
                         Canvas.Top="64"
                         Width="200"
-                        Padding="1,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
@@ -459,6 +468,9 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
                         RenderTransformOrigin="0.5,0.5">
                         <bdgr:MetroListBox.RenderTransform>
                             <TransformGroup>
@@ -479,7 +491,10 @@
                         Margin="46,359,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        d:ItemsSource="{d:SampleData ItemCount=5}" />
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                     <bdgr:MetroLabel
                         x:Name="NumericsLabel"
                         Width="170"
@@ -509,8 +524,8 @@
                         x:Name="FirstDateLabel"
                         Canvas.Left="52"
                         Canvas.Top="80"
-                        Width="210"
-                        Padding="1,1,1,1"
+                        Width="180"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
@@ -527,15 +542,15 @@
                         Height="200"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         Date="1/1/2020" />
 
                     <bdgr:MetroLabel
                         x:Name="SecondDateLabel"
                         Canvas.Left="46"
                         Canvas.Top="334"
-                        Width="200"
-                        Padding="1,1,1,1"
+                        Width="180"
+                        Padding="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         VerticalContentAlignment="Bottom"
@@ -554,7 +569,7 @@
                         Height="200"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        BorderThickness="1,1,1,1"
+                        BorderThickness="1"
                         Date="1/1/2020" />
                 </Canvas>
             </TabItem>
@@ -570,7 +585,7 @@
             <TabItem
                 x:Name="DataTab"
                 Width="100"
-                Margin="0,0,0,0"
+                Margin="0"
                 Padding="6,2,6,2"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
@@ -589,20 +604,35 @@
                         Canvas.Top="66"
                         Width="954"
                         Height="490"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
+                        Margin="1"
+                        Padding="1"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        AllowResizeColumns="True"
+                        AllowResizeRows="True"
                         AllowSelection="True"
-                        BorderThickness="1,1,1,1"
+                        AllowSelectionWithHeaders="True"
+                        BorderThickness="1"
+                        EnableRowHeader="True"
+                        EnableSpecificColumnEditing="True"
+                        EnableUpdating="True"
+                        EnableValueEditing="True"
+                        FontSize="10"
+                        GrandTotalRowAlwaysVisible="True"
                         GroupingBarBackground="{StaticResource BlueBackground}"
-                        GroupingBarItemBackground="#FF2F8AD0"
-                        GroupingBarItemBorderBrush="#FFF9F5F5"
-                        GroupingBarItemForeground="#FF6ABDFC"
+                        GroupingBarItemBackground="{StaticResource BlueBackground}"
+                        GroupingBarItemBorderBrush="{StaticResource LightBlueBrush}"
+                        GroupingBarItemForeground="{StaticResource LightBlueBrush}"
                         GroupingButtonHoverBackgroundBrush="{StaticResource BorderBrush}"
-                        GroupingButtonHoverBorderBrush="{StaticResource LightBlueBrush}"
-                        GroupingButtonHoverForeground="#FFFBF9F9"
+                        GroupingButtonHoverBorderBrush="{StaticResource WhiteForeground}"
+                        GroupingButtonHoverForeground="{StaticResource WhiteForeground}"
+                        PivotValueChooserItemHeight="11"
+                        ResizePivotGridToFit="True"
                         ShowGroupingBar="True"
                         ShowSubTotals="True"
-                        SortOption="All" />
+                        SnapsToDevicePixels="True"
+                        SortOption="All"
+                        ToolTipEnabled="True" />
                 </Canvas>
             </TabItem>
 
@@ -610,7 +640,7 @@
                 x:Name="ChartTab"
                 Width="100"
                 Height="22"
-                Margin="0,0,0,0"
+                Margin="1"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
@@ -623,10 +653,15 @@
 
                     <sync:SfChart
                         x:Name="Chart"
-                        Canvas.Left="102"
-                        Canvas.Top="100"
-                        Width="715"
-                        Height="435" />
+                        Canvas.Left="24"
+                        Canvas.Top="66"
+                        Width="954"
+                        Height="490"
+                        Margin="1"
+                        Padding="1"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
                 </Canvas>
             </TabItem>
 
@@ -635,7 +670,7 @@
             <TabItem
                 x:Name="BusyTab"
                 Width="100"
-                Margin="0,0,0,0"
+                Margin="1"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
@@ -644,17 +679,14 @@
                     <Canvas
                         Width="1024"
                         Height="626"
-                        Background="{StaticResource FormBackground}"
-                        RenderTransformOrigin="0.517,0.505">
+                        Background="{StaticResource FormBackground}">
                         <Image
                             x:Name="Loader"
-                            Canvas.Left="19"
-                            Canvas.Top="16"
+                            Canvas.Left="1"
                             Width="980"
                             Height="600"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
                             gif:AnimationBehavior.SourceUri="/Resources/Assets/LoaderImages/Loading.gif"
+                            SnapsToDevicePixels="True"
                             Stretch="UniformToFill" />
                     </Canvas>
                 </Canvas>

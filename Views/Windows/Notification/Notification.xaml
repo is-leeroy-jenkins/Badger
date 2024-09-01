@@ -12,7 +12,7 @@
     syncfusion:SfSkinManager.Theme="{syncfusion:SkinManagerExtension ThemeName=FluentDark}"
     Background="#FF002336"
     BorderBrush="#FF6ABAD4"
-    BorderThickness="1,1,1,1"
+    BorderThickness="1"
     Foreground="#FF6ABAD4"
     Icon="/Resources/Assets/DialogImages/SplashNotification.png"
     ResizeMode="NoResize"
