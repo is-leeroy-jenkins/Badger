@@ -273,7 +273,7 @@ namespace Badger
         /// <summary>
         /// Occurs when a property value changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -291,9 +291,9 @@ namespace Badger
         protected DataUnit( IDataService builder )
         {
             _record = builder.Record;
-            _map = _record.ToDictionary( );
-            _code = _record[ "Code" ]?.ToString( );
-            _name = _record[ "Name" ]?.ToString( );
+            _map = builder.Record.ToDictionary( );
+            _code = builder.Record[ "Code" ]?.ToString( );
+            _name = builder.Record[ "Name" ]?.ToString( );
         }
 
         /// <summary>
@@ -457,7 +457,7 @@ namespace Badger
         /// Called when [property changed].
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        public void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
+        public virtual void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
         {
             var _handler = PropertyChanged;
             _handler?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );

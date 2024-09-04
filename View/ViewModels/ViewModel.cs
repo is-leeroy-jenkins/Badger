@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        08-01-2024
 // ******************************************************************************************
-// <copyright file="Info.cs" company="Terry D. Eppler">
+// <copyright file="ViewModel.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts
 //    based on WPF, NET6.0, and written in C-Sharp.
 // 
@@ -35,14 +35,19 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Info.cs
+//   ViewModel.cs
 // </summary>
 // ******************************************************************************************
 
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
@@ -56,157 +61,163 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "OutParameterValueIsAlwaysDiscarded.Global" ) ]
-    public abstract class Info
+    public class ViewModel : ObservableCollection<IView>
     {
         /// <summary>
-        /// The data row
+        /// The count
         /// </summary>
-        private protected int _index;
+        private protected int _count;
 
         /// <summary>
-        /// The measure
+        /// The current
         /// </summary>
-        private protected string _dimension;
+        private protected DataRow _current;
 
         /// <summary>
-        /// The measure
+        /// The data
         /// </summary>
-        private protected string _measure;
+        private protected ObservableCollection<DataRow> _rows;
 
         /// <summary>
-        /// The value
+        /// The data
         /// </summary>
-        private protected double _value;
+        private protected ObservableCollection<IView> _data;
 
         /// <summary>
-        /// The caption
+        /// The views
         /// </summary>
-        private protected string _header;
+        private protected BindingList<IView> _views;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected BindingList<DataRow> _items;
+
+        /// <summary>
+        /// The table name
+        /// </summary>
+        private protected string _tableName;
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the index.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        /// <value>
-        /// The index.
-        /// </value>
-        public int Index
+        public ViewModel( )
+            : base( )
         {
-            get
+            _data = new ObservableCollection<IView>( );
+            _views = new BindingList<IView>( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Adds the specified index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="name">The category.</param>
+        /// <param name="value">The value.</param>
+        public virtual void Add( int index, string name, double value = 0.0 )
+        {
+            try
             {
-                return _index;
+                ThrowIf.Null( name, nameof( name ) );
+                var _view = new View( index, name, value );
+                Items.Add( _view );
+                _data.Add( _view );
+                _views.Add( _view );
             }
-            set
+            catch( Exception _ex )
             {
-                _index = value;
+                Fail( _ex );
             }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the name.
+        /// Adds the specified view.
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Dimension
+        /// <param name="view">The view.</param>
+        public virtual new void Add( IView view )
         {
-            get
+            try
             {
-                return _dimension;
+                ThrowIf.Null( view.Name, nameof( view.Name ) );
+                var _view = new View( view );
+                Items.Add( _view );
+                _views.Add( _view );
+                _data.Add( _view );
             }
-            set
+            catch( Exception _ex )
             {
-                _dimension = value;
+                Fail( _ex );
             }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the measure.
+        /// Removes the specified view.
         /// </summary>
-        /// <value>
-        /// The measure.
-        /// </value>
-        public string Measure
+        /// <param name="view">The view.</param>
+        public virtual new void Remove( IView view )
         {
-            get
+            try
             {
-                return _measure;
+                if( Items.Contains( view ) )
+                {
+                    var _index = Items.IndexOf( view );
+                    Items.RemoveAt( _index );
+                    _views.Remove( view );
+                    _data.RemoveAt( _index );
+                }
             }
-            set
+            catch( Exception _ex )
             {
-                _measure = value;
+                Fail( _ex );
             }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
-        public double Value
-        {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                _value = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        ///   The Caption
-        /// </summary>
-        public string Header
-        {
-            get
-            {
-                return _header;
-            }
-            set
-            {
-                _header = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Deconstructs the specified identifier.
-        /// </summary>
-        /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The x.</param>
-        /// <param name="measure"> </param>
-        /// <param name="value">The y.</param>
-        public virtual void Deconstruct( out double index, out string dimension,
-            out string measure, out double value )
-        {
-            index = _index;
-            dimension = _dimension;
-            measure = _measure;
-            value = _value;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Converts to string.
+        /// Cycles this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" />
-        /// that represents this instance.
         /// </returns>
-        public override string ToString( )
+        public virtual IEnumerator<IView> IterItems( )
         {
-            return _value != 0.0
-                ? _value.ToString( "N0" )
-                : "0";
+            foreach( var _item in Items )
+            {
+                yield return _item;
+            }
+        }
+
+        /// <summary>
+        /// Creates the views.
+        /// </summary>
+        /// <returns></returns>
+        private protected BindingList<IView> CreateViewList( )
+        {
+            try
+            {
+                if( _data != null )
+                {
+                    foreach( var _view in _data )
+                    {
+                        _views.Add( _view );
+                    }
+
+                    return ( _views?.Any( ) == true )
+                        ? _views
+                        : default( BindingList<IView> );
+                }
+
+                return default( BindingList<IView> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( BindingList<IView> );
+            }
         }
 
         /// <summary>

@@ -1236,7 +1236,7 @@ namespace Badger
                         {
                             var _measure = _numerics[ _i ];
                             var _value = double.Parse( _row[ _measure ]?.ToString( ) );
-                            var _view = new View( _index, _dimension, _measure, _value );
+                            var _view = new View( _index, _dimension, _value );
                             _viewModel.Add( _view );
                         }
                     }

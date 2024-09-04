@@ -419,12 +419,12 @@ namespace Badger
                     for( var _row = 0; _row < _rows.Count; _row++ )
                     {
                         var _dataRow = _rows[ _row ];
-                        var _dimension = _columns[ 0 ];
+                        var _name = _columns[ 0 ];
                         for( var _c = 0; _c < _numerics.Count; _c++ )
                         {
                             var _numeric = _numerics[ _c ];
                             var _value = double.Parse( _dataRow[ _numeric ].ToString( ) );
-                            var _view = new View( _row, _dimension, _numeric, _value );
+                            var _view = new View( _row, _name, _value );
                             _viewModel.Add( _view );
                         }
                     }

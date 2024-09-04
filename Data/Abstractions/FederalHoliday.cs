@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-25-2020
+//     Created:                 09-04-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-25-2024
+//     Last Modified On:        09-04-2024
 // ******************************************************************************************
 // <copyright file="FederalHoliday.cs" company="Terry D. Eppler">
-//    Badger is budget execution and data analysis tool for EPA Analysts
-//    based on WPF, NET6.0, and is written in C-Sharp.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
 //     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
@@ -126,7 +126,11 @@ namespace Badger
             }
             private protected set
             {
-                _columbusDay = value;
+                if( _columbusDay != value )
+                {
+                    _columbusDay = value;
+                    OnPropertyChanged( nameof( ColumbusDay ) );
+                }
             }
         }
 
@@ -144,7 +148,11 @@ namespace Badger
             }
             private protected set
             {
-                _veteransDay = value;
+                if( _veteransDay != value )
+                {
+                    _veteransDay = value;
+                    OnPropertyChanged( nameof( ColumbusDay ) );
+                }
             }
         }
 
@@ -162,7 +170,11 @@ namespace Badger
             }
             private protected set
             {
-                _thanksgivingDay = value;
+                if( _thanksgivingDay != value )
+                {
+                    _thanksgivingDay = value;
+                    OnPropertyChanged( nameof( ColumbusDay ) );
+                }
             }
         }
 
@@ -180,7 +192,11 @@ namespace Badger
             }
             private protected set
             {
-                _christmasDay = value;
+                if( _christmasDay != value )
+                {
+                    _christmasDay = value;
+                    OnPropertyChanged( nameof( ChristmasDay ) );
+                }
             }
         }
 
@@ -198,7 +214,11 @@ namespace Badger
             }
             private protected set
             {
-                _newYearsDay = value;
+                if( _newYearsDay != value )
+                {
+                    _newYearsDay = value;
+                    OnPropertyChanged( nameof( NewYearsDay ) );
+                }
             }
         }
 
@@ -216,7 +236,11 @@ namespace Badger
             }
             private protected set
             {
-                _martinLutherKingDay = value;
+                if( _martinLutherKingDay != value )
+                {
+                    _martinLutherKingDay = value;
+                    OnPropertyChanged( nameof( MartinLutherKingDay ) );
+                }
             }
         }
 
@@ -234,7 +258,11 @@ namespace Badger
             }
             private protected set
             {
-                _presidentsDay = value;
+                if( _presidentsDay != value )
+                {
+                    _presidentsDay = value;
+                    OnPropertyChanged( nameof( PresidentsDay ) );
+                }
             }
         }
 
@@ -252,7 +280,11 @@ namespace Badger
             }
             private protected set
             {
-                _memorialDay = value;
+                if( _memorialDay != value )
+                {
+                    _memorialDay = value;
+                    OnPropertyChanged( nameof( MemorialDay ) );
+                }
             }
         }
 
@@ -270,7 +302,11 @@ namespace Badger
             }
             private protected set
             {
-                _juneteenthDay = value;
+                if( _juneteenthDay != value )
+                {
+                    _juneteenthDay = value;
+                    OnPropertyChanged( nameof( JuneteenthDay ) );
+                }
             }
         }
 
@@ -288,7 +324,11 @@ namespace Badger
             }
             private protected set
             {
-                _independenceDay = value;
+                if( _independenceDay != value )
+                {
+                    _newYearsDay = value;
+                    OnPropertyChanged( nameof( IndependenceDay ) );
+                }
             }
         }
 
@@ -306,7 +346,11 @@ namespace Badger
             }
             private protected set
             {
-                _laborDay = value;
+                if( _laborDay != value )
+                {
+                    _laborDay = value;
+                    OnPropertyChanged( nameof( LaborDay ) );
+                }
             }
         }
 

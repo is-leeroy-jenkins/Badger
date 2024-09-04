@@ -42,8 +42,10 @@
 namespace Badger
 {
     using System;
+    using System.ComponentModel;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.CompilerServices;
 
     /// <inheritdoc />
     /// <summary>
@@ -119,9 +121,13 @@ namespace Badger
             {
                 return _fiscalYear;
             }
-            private protected set
+            set
             {
-                _fiscalYear = value;
+                if( _fiscalYear != value )
+                {
+                    _fiscalYear = value;
+                    OnPropertyChanged( nameof( FiscalYear ) );
+                }
             }
         }
 
@@ -140,7 +146,11 @@ namespace Badger
             }
             private protected set
             {
-                _bfy = value;
+                if(_bfy != value)
+                {
+                    _bfy = value;
+                    OnPropertyChanged(nameof(BFY));
+                }
             }
         }
 
@@ -159,7 +169,11 @@ namespace Badger
             }
             private protected set
             {
-                _efy = value;
+                if( _efy != value )
+                {
+                    _efy = value;
+                    OnPropertyChanged( nameof( EFY ) );
+                }
             }
         }
 
@@ -178,7 +192,11 @@ namespace Badger
             }
             private protected set
             {
-                _fundCode = value;
+                if( _fundCode != value )
+                {
+                    _fundCode = value;
+                    OnPropertyChanged( nameof( FundCode ) );
+                }
             }
         }
 
@@ -197,7 +215,11 @@ namespace Badger
             }
             private protected set
             {
-                _fundName = value;
+                if(_fundName != value)
+                {
+                    _fundName = value;
+                    OnPropertyChanged(nameof(FundName));
+                }
             }
         }
 
@@ -215,7 +237,11 @@ namespace Badger
             }
             private protected set
             {
-                _mainAccount = value;
+                if( _mainAccount != value)
+                {
+                    _mainAccount = value;
+                    OnPropertyChanged(nameof(MainAccount));
+                }
             }
         }
 
@@ -234,7 +260,11 @@ namespace Badger
             }
             private protected set
             {
-                _treasuryAccountCode = value;
+                if(_treasuryAccountCode != value)
+                {
+                    _treasuryAccountCode = value;
+                    OnPropertyChanged(nameof(TreasuryAccountCode));
+                }
             }
         }
 
@@ -253,7 +283,11 @@ namespace Badger
             }
             private protected set
             {
-                _treasuryAccountName = value;
+                if(_treasuryAccountName != value)
+                {
+                    _treasuryAccountName = value;
+                    OnPropertyChanged(nameof(TreasuryAccountName));
+                }
             }
         }
 
@@ -272,7 +306,11 @@ namespace Badger
             }
             private protected set
             {
-                _budgetAccountCode = value;
+                if( _budgetAccountCode != value )
+                {
+                    _budgetAccountCode = value;
+                    OnPropertyChanged( nameof( BudgetAccountCode ) );
+                }
             }
         }
 
@@ -291,9 +329,19 @@ namespace Badger
             }
             private protected set
             {
-                _budgetAccountName = value;
+                if( _budgetAccountName != value )
+                {
+                    _budgetAccountName = value;
+                    OnPropertyChanged( nameof( BudgetAccountName ) );
+                }
             }
         }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <inheritdoc />
         /// <summary>
@@ -369,6 +417,17 @@ namespace Badger
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        public override void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
+        {
+            var _handler = PropertyChanged;
+            _handler?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );
         }
     }
 }

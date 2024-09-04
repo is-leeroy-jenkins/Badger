@@ -96,7 +96,7 @@
 
     <Color x:Key="DataGridLinesColor">#FF4682B4</Color>
     <Color x:Key="DataGridSelectAllButtonColor">#DFDFDF</Color>
-    <Color x:Key="DataGrid.SelectAllButton.MouseOverColor">#E9E9E9</Color>
+    <Color x:Key="DataGridSelectAllButtonHoverColor">#E9E9E9</Color>
 
     <!--  ************************************  Series Colors **********************************  -->
 
@@ -267,16 +267,33 @@
     <!--  ******************************************* Combo Box  *******************************************  -->
 
     <SolidColorBrush
-        x:Key="ComboBox.Static.Editable.Border"
+        x:Key="ComboBoxBorder"
         Color="{StaticResource BorderColor}" />
 
     <SolidColorBrush
-        x:Key="ComboBox.Static.Editable.Button.Background"
+        x:Key="ComboBoxBackground"
+        Color="{StaticResource BackColor3}" />
+
+    <SolidColorBrush
+        x:Key="ComboBoxItemBorder"
         Color="Transparent" />
 
     <SolidColorBrush
-        x:Key="ComboBox.Static.Editable.Button.Border"
-        Color="Transparent" />
+        x:Key="ComboBoxItemBackground"
+        Color="{StaticResource BackColor3}" />
+
+    <SolidColorBrush
+        x:Key="ComboBoxItemForeground"
+        Color="{StaticResource LightBlueForeColor}" />
+
+    <SolidColorBrush
+        x:Key="ComboBoxHoverBackground"
+        Color="{StaticResource BackColor3}" />
+
+    <SolidColorBrush
+        x:Key="ComboBoxHoverForeground"
+        Color="{StaticResource BackColor3}" />
+
 
     <!--  *******************************************  List Controls  *******************************************  -->
 
@@ -292,8 +309,46 @@
         x:Key="ListBoxBorder"
         Color="{StaticResource BorderColor}" />
 
-    <!--  ListBoxItemStyle  -->
+    <SolidColorBrush
+        x:Key="ListBoxHoverForeground"
+        Color="{StaticResource WhiteColor}" />
+
+    <SolidColorBrush
+        x:Key="ListBoxHoverBackground"
+        Color="{StaticResource MenuHoverColor}" />
+
+    <SolidColorBrush
+        x:Key="ListBoxHoverBorder"
+        Color="{StaticResource LightBlueForeColor}" />
+
+
+
     <!--  ListView  -->
+
+
+    <SolidColorBrush
+        x:Key="ListViewBackground"
+        Color="{StaticResource ControlBackColor}" />
+
+    <SolidColorBrush
+        x:Key="ListViewForeground"
+        Color="{StaticResource PrimaryColor2}" />
+
+    <SolidColorBrush
+        x:Key="ListViewBorder"
+        Color="{StaticResource BorderColor}" />
+
+    <SolidColorBrush
+        x:Key="ListViewHoverForeground"
+        Color="{StaticResource WhiteColor}" />
+
+    <SolidColorBrush
+        x:Key="ListViewHoverBackground"
+        Color="{StaticResource MenuHoverColor}" />
+
+    <SolidColorBrush
+        x:Key="ListViewHoverBorder"
+        Color="{StaticResource LightBlueForeColor}" />
 
     <!--  *******************************************  Menu  *******************************************  -->
 
@@ -311,21 +366,19 @@
         x:Key="MenuBorderBrush"
         Color="{StaticResource MenuBorderColor}" />
 
-    <SolidColorBrush
-        x:Key="MenuItemBorder"
-        Color="{StaticResource ControlBackColor}" />
 
     <SolidColorBrush
-        x:Key="MenuBorder"
-        Color="{StaticResource BorderColor}" />
-
-    <SolidColorBrush
-        x:Key="MenuItemHoverForeground"
+        x:Key="MenuHoverForeground"
         Color="{StaticResource WhiteColor}" />
 
     <SolidColorBrush
-        x:Key="MenuItemHoverBackground"
+        x:Key="MenuHoverBackground"
         Color="{StaticResource MenuHoverColor}" />
+
+    <SolidColorBrush
+        x:Key="MenuHoverBorder"
+        Color="{StaticResource LightBlueForeColor}" />
+
 
     <!--  ******************************************* Tab Control  *******************************************  -->
 
@@ -335,126 +388,127 @@
 
 
     <SolidColorBrush
-        x:Key="TabItem.Disabled.Border"
+        x:Key="TabItemBorder"
         Color="{StaticResource BackColor1}" />
 
     <SolidColorBrush
-        x:Key="TabItem.Selected.Background"
+        x:Key="TabItemSelectedBackground"
         Color="{StaticResource BackColor3}" />
 
     <SolidColorBrush
-        x:Key="TabItem.Selected.Border"
+        x:Key="TabItemSelectedBorder"
         Color="{StaticResource BorderColor}" />
 
     <!--  ******************************************* Radio Button  *******************************************  -->
 
     <SolidColorBrush
-        x:Key="RadioButton.Static.Background"
+        x:Key="RadioButtonBackground"
         Color="{StaticResource BackColor1}" />
 
     <SolidColorBrush
-        x:Key="RadioButton.Static.Border"
+        x:Key="RadioButtonBorder"
         Color="{StaticResource BorderColor}" />
 
     <SolidColorBrush
-        x:Key="RadioButton.MouseOver.Glyph"
+        x:Key="RadioButtonMouseHoverGlyph"
         Color="{StaticResource GlyphColor}" />
 
     <SolidColorBrush
-        x:Key="RadioButton.Pressed.Glyph"
+        x:Key="RadioButtonPressedGlyph"
         Color="{StaticResource GlyphColor}" />
 
     <SolidColorBrush
-        x:Key="RadioButton.Static.Glyph"
+        x:Key="RadioButtonGlyph"
         Color="{StaticResource GlyphColor}" />
 
 
-    <Color x:Key="RadioButton.Telegram.DisabledColor">LightGray</Color>
-
-    <Color x:Key="RadioButton.Telegram.ActiveColor">#FF4EB3EE</Color>
+    <SolidColorBrush
+        x:Key="RadioButtonDisabledBrush"
+        Color="{StaticResource BackColor1}" />
 
     <SolidColorBrush
-        x:Key="RadioButton.Telegram.DisabledBrush"
-        Color="{StaticResource RadioButton.Telegram.DisabledColor}" />
-
-    <SolidColorBrush
-        x:Key="RadioButton.Telegram.ActiveBrush"
-        Color="{StaticResource RadioButton.Telegram.ActiveColor}" />
+        x:Key="RadioButtonActiveBrush"
+        Color="{StaticResource SuccessColor3}" />
 
 
     <SolidColorBrush
-        x:Key="Expander.Disabled.Arrow.Stroke"
-        Color="{StaticResource MutedForeColor}" />
-
-    <SolidColorBrush
-        x:Key="Expander.Static.Arrow.Stroke"
+        x:Key="ExpanderArrowStroke"
         Color="{StaticResource GlyphColor}" />
 
     <!--  *******************************************  TextBox  **************************************************  -->
 
     <SolidColorBrush
-        x:Key="TextBox.Static.Border"
+        x:Key="TextBoxBorder"
         Color="{StaticResource BorderColor}" />
+
+    <SolidColorBrush
+        x:Key="TextBoxBackground"
+        Color="{StaticResource BackColor1}" />
+
+    <SolidColorBrush
+        x:Key="TextBoxForeground"
+        Color="{StaticResource LightBlueForeColor}" />
+
 
     <!--  ******************************************* ScrollViewer  *********************************************  -->
 
-    <Color x:Key="ScrollBar.BackgroundColor">#FF785801</Color>
+    <Color x:Key="ScrollBarBackColor">#FF785801</Color>
 
-    <Color x:Key="ScrollBar.BorderColorDark">#C3C3C3</Color>
-
-    <SolidColorBrush
-        x:Key="ScrollBar.Static.Background"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+    <Color x:Key="ScrollBarBorderColorDark">#C3C3C3</Color>
 
     <SolidColorBrush
-        x:Key="ScrollBar.MouseOver.Background"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+        x:Key="ScrollBarBackground"
+        Color="{StaticResource ScrollBarBackColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Pressed.Background"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+        x:Key="ScrollBarMouseOverBackground"
+        Color="{StaticResource ScrollBarBackColor}" />
+
+    <SolidColorBrush
+        x:Key="ScrollBarPressedBackground"
+        Color="{StaticResource ScrollBarBackColor}" />
 
 
     <SolidColorBrush
-        x:Key="ScrollBar.Static.Border"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+        x:Key="ScrollBarBorder"
+        Color="{StaticResource ScrollBarBackColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.MouseOver.Border"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+        x:Key="ScrollBarMouseHoverBorder"
+        Color="{StaticResource ScrollBarBackColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Pressed.Border"
-        Color="{StaticResource ScrollBar.BackgroundColor}" />
+        x:Key="ScrollBarPressedBorder"
+        Color="{StaticResource ScrollBarBackColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Static.Glyph"
+        x:Key="ScrollBarGlyph"
         Color="{StaticResource GlyphColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Pressed.Glyph"
+        x:Key="ScrollBarPressedGlyph"
         Color="{StaticResource GlyphColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.MouseOver.Glyph"
+        x:Key="ScrollBarMouseOverGlyph"
         Color="{StaticResource GlyphColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Static.Thumb.Border"
+        x:Key="ScrollBarThumbBorder"
         Color="{StaticResource BorderColor}" />
 
     <SolidColorBrush
-        x:Key="ScrollBar.Pressed.Thumb.Border"
-        Color="{StaticResource ScrollBar.BorderColorDark}" />
+        x:Key="ScrollBarPressedThumbBorder"
+        Color="{StaticResource ScrollBarBorderColorDark}" />
 
     <!--  *******************************************  DataGrid  *******************************************  -->
 
     <SolidColorBrush
-        x:Key="DataGridBackgroundBrush"
+        x:Key="DataGridBackground"
         Color="{StaticResource BackColor3}" />
 
     <SolidColorBrush
-        x:Key="DataGrid.Header.Border"
+        x:Key="DataGridHeaderBorder"
         Color="{StaticResource DataGridLinesColor}" />
 
     <SolidColorBrush
@@ -462,11 +516,11 @@
         Color="{StaticResource DataGridLinesColor}" />
 
     <SolidColorBrush
-        x:Key="DataGrid.SelectAllButton"
+        x:Key="DataGridSelectAllButton"
         Color="{StaticResource DataGridSelectAllButtonColor}" />
 
     <SolidColorBrush
-        x:Key="DataGrid.SelectAllButton.MouseOver"
-        Color="{StaticResource DataGrid.SelectAllButton.MouseOverColor}" />
+        x:Key="DataGridSelectAllButtonMouseOver"
+        Color="{StaticResource DataGridSelectAllButtonHoverColor}" />
 
 </ResourceDictionary>

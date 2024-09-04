@@ -50,18 +50,16 @@ namespace Badger
         /// Tuples this instance.
         /// </summary>
         /// <returns></returns>
-        ( int Index, string Dimension, string Measure, double Value ) Tuple( );
+        ( int Index, string Name, double Value ) Tuple( );
 
         /// <inheritdoc />
         /// <summary>
         /// Deconstructs the specified identifier.
         /// </summary>
         /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The x.</param>
-        /// <param name="measure"></param>
+        /// <param name="name">The x.</param>
         /// <param name="value">The y.</param>
-        void Deconstruct( out double index, out string dimension,
-            out string measure, out double value );
+        void Deconstruct( out double index, out string name, out double value );
 
         /// <inheritdoc />
         /// <summary>
@@ -89,17 +87,8 @@ namespace Badger
         /// <value>
         /// The name.
         /// </value>
-        string Dimension { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the measure.
-        /// </summary>
-        /// <value>
-        /// The measure.
-        /// </value>
-        string Measure { get; set; }
-
+        string Name { get; set; }
+        
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the value.
@@ -108,11 +97,5 @@ namespace Badger
         /// The value.
         /// </value>
         double Value { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        ///   The Caption
-        /// </summary>
-        string Header { get; set; }
     }
 }

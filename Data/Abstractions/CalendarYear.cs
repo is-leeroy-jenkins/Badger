@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-25-2020
+//     Created:                 09-04-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-25-2024
+//     Last Modified On:        09-04-2024
 // ******************************************************************************************
 // <copyright file="CalendarYear.cs" company="Terry D. Eppler">
-//    Badger is budget execution and data analysis tool for EPA Analysts
-//    based on WPF, NET6.0, and is written in C-Sharp.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
 //     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
@@ -107,7 +107,11 @@ namespace Badger
             }
             private protected set
             {
-                _workDays = value;
+                if( _workDays != value )
+                {
+                    _workDays = value;
+                    OnPropertyChanged( nameof( WorkDays ) );
+                }
             }
         }
 
@@ -125,7 +129,11 @@ namespace Badger
             }
             private protected set
             {
-                _weekDays = value;
+                if( _weekDays != value )
+                {
+                    _weekDays = value;
+                    OnPropertyChanged( nameof( WeekDays ) );
+                }
             }
         }
 
@@ -143,7 +151,11 @@ namespace Badger
             }
             private protected set
             {
-                _weekEnds = value;
+                if( _weekEnds != value )
+                {
+                    _weekEnds = value;
+                    OnPropertyChanged( nameof( WeekEnds ) );
+                }
             }
         }
 
@@ -161,7 +173,11 @@ namespace Badger
             }
             private protected set
             {
-                _currentDate = value;
+                if( _currentDate != value )
+                {
+                    _currentDate = value;
+                    OnPropertyChanged( nameof( CurrentDate ) );
+                }
             }
         }
 
@@ -179,7 +195,11 @@ namespace Badger
             }
             private protected set
             {
-                _currentMonth = value;
+                if( _currentMonth != value )
+                {
+                    _currentMonth = value;
+                    OnPropertyChanged( nameof( CurrentMonth ) );
+                }
             }
         }
 
@@ -197,7 +217,11 @@ namespace Badger
             }
             private protected set
             {
-                _currentDay = value;
+                if( _currentDay != value )
+                {
+                    _currentDay = value;
+                    OnPropertyChanged( nameof( CurrentDay ) );
+                }
             }
         }
 
@@ -215,7 +239,11 @@ namespace Badger
             }
             private protected set
             {
-                _currentYear = value;
+                if( _currentYear != value )
+                {
+                    _currentYear = value;
+                    OnPropertyChanged( nameof( CurrentYear ) );
+                }
             }
         }
 

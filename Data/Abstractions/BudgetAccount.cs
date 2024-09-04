@@ -44,6 +44,7 @@ namespace Badger
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using ControlzEx.Standard;
 
     /// <inheritdoc />
     /// <summary>
@@ -123,7 +124,11 @@ namespace Badger
             }
             private protected set
             {
-                _activityCode = value;
+                if(_activityCode != value)
+                {
+                    _activityCode = value;
+                    OnPropertyChanged(nameof(ActivityCode));
+                }
             }
         }
 
@@ -141,7 +146,11 @@ namespace Badger
             }
             private protected set
             {
-                _activityName = value;
+                if( _activityName != value )
+                {
+                    _activityName = value;
+                    OnPropertyChanged( nameof( ActivityName ) );
+                }
             }
         }
 
@@ -159,7 +168,11 @@ namespace Badger
             }
             private protected set
             {
-                _npmCode = value;
+                if( _npmCode != value )
+                {
+                    _npmCode = value;
+                    OnPropertyChanged( nameof( NpmCode ) );
+                }
             }
         }
 
@@ -177,7 +190,11 @@ namespace Badger
             }
             private protected set
             {
-                _npmName = value;
+                if( _npmName != value )
+                {
+                    _npmName = value;
+                    OnPropertyChanged( nameof( NpmName ) );
+                }
             }
         }
 
@@ -195,7 +212,11 @@ namespace Badger
             }
             private protected set
             {
-                _goalCode = value;
+                if( _goalCode != value )
+                {
+                    _goalCode = value;
+                    OnPropertyChanged( nameof( GoalCode ) );
+                }
             }
         }
 
@@ -213,7 +234,11 @@ namespace Badger
             }
             private protected set
             {
-                _goalName = value;
+                if(_goalName != value)
+                {
+                    _goalName = value;
+                    OnPropertyChanged(nameof(GoalName));
+                }
             }
         }
 
@@ -231,7 +256,11 @@ namespace Badger
             }
             private protected set
             {
-                _objectiveCode = value;
+                if(_objectiveCode != value)
+                {
+                    _objectiveCode = value;
+                    OnPropertyChanged(nameof(ObjectiveCode));
+                }
             }
         }
 
@@ -249,7 +278,11 @@ namespace Badger
             }
             private protected set
             {
-                _objectiveName = value;
+                if(_objectiveName != value)
+                {
+                    _objectiveName = value;
+                    OnPropertyChanged(nameof(ObjectiveName));
+                }
             }
         }
 
@@ -267,7 +300,11 @@ namespace Badger
             }
             private protected set
             {
-                _programProjectCode = value;
+                if(_programProjectCode != value)
+                {
+                    _programProjectCode = value;
+                    OnPropertyChanged(nameof(ProgramProjectCode));
+                }
             }
         }
 
@@ -285,7 +322,11 @@ namespace Badger
             }
             private protected set
             {
-                _programProjectName = value;
+                if( _programProjectName != value )
+                {
+                    _programProjectName = value;
+                    OnPropertyChanged( nameof( ProgramProjectName ) );
+                }
             }
         }
 

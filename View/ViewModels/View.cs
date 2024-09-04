@@ -70,15 +70,12 @@ namespace Badger
         /// <see cref="View"/> class.
         /// </summary>
         /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The dimension.</param>
-        /// <param name="measure">The measure.</param>
+        /// <param name="name">The dimension.</param>
         /// <param name="value">The value.</param>
-        public View( int index, string dimension,
-            string measure, double value = 0 )
+        public View( int index, string name, double value = 0 )
         {
             _index = index;
-            _dimension = dimension;
-            _measure = measure;
+            _name = name;
             _value = value;
         }
 
@@ -90,8 +87,7 @@ namespace Badger
         public View( IView view )
         {
             _index = view.Index;
-            _dimension = view.Dimension;
-            _measure = view.Measure;
+            _name = view.Name;
             _value = view.Value;
         }
 
@@ -100,15 +96,13 @@ namespace Badger
         /// Deconstructs the specified identifier.
         /// </summary>
         /// <param name="index">The identifier.</param>
-        /// <param name="dimension">The x.</param>
-        /// <param name="measure"></param>
+        /// <param name="name></param>
         /// <param name="value">The y.</param>
-        public override void Deconstruct( out double index, out string dimension,
-            out string measure, out double value )
+        public override void Deconstruct( out double index, out string name, 
+            out double value )
         {
             index = _index;
-            dimension = _dimension;
-            measure = _measure;
+            name = _name;
             value = _value;
         }
 
@@ -117,9 +111,9 @@ namespace Badger
         /// Tuples this instance.
         /// </summary>
         /// <returns></returns>
-        public (int Index, string Dimension, string Measure, double Value) Tuple( )
+        public (int Index, string Name, double Value) Tuple( )
         {
-            return ( _index, _dimension, _measure, _value );
+            return ( _index, _name, _value );
         }
 
         /// <inheritdoc />

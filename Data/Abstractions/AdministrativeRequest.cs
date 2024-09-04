@@ -146,7 +146,11 @@ namespace Badger
             }
             private protected set
             {
-                _analyst = value;
+                if( _analyst != value )
+                {
+                    _analyst = value;
+                    OnPropertyChanged( nameof( Analyst ) );
+                }
             }
         }
 
@@ -164,7 +168,11 @@ namespace Badger
             }
             private protected set
             {
-                _rpioCode = value;
+                if( _rpioCode != value )
+                {
+                    _rpioCode = value;
+                    OnPropertyChanged(nameof(RpioCode));
+                }
             }
         }
 
@@ -182,7 +190,11 @@ namespace Badger
             }
             private protected set
             {
-                _documentTitle = value;
+                if( _documentTitle != value )
+                {
+                    _documentTitle = value;
+                    OnPropertyChanged( nameof( DocumentTitle ) );
+                }
             }
         }
 
@@ -200,7 +212,11 @@ namespace Badger
             }
             private protected set
             {
-                _amount = value;
+                if(_amount != value)
+                {
+                    _amount = value;
+                    OnPropertyChanged(nameof(Amount));
+                }
             }
         }
 
@@ -218,7 +234,11 @@ namespace Badger
             }
             private protected set
             {
-                _fundCode = value;
+                if(_fundCode != value)
+                {
+                    _fundCode = value;
+                    OnPropertyChanged(nameof(FundCode));
+                }
             }
         }
 
@@ -236,7 +256,11 @@ namespace Badger
             }
             private protected set
             {
-                _bfy = value;
+                if( _bfy != value )
+                {
+                    _bfy = value;
+                    OnPropertyChanged( nameof( BFY ) );
+                }
             }
         }
 
@@ -254,7 +278,11 @@ namespace Badger
             }
             private protected set
             {
-                _status = value;
+                if(_status != value)
+                {
+                    _status = value;
+                    OnPropertyChanged(nameof(Status));
+                }
             }
         }
 
@@ -272,7 +300,11 @@ namespace Badger
             }
             private protected set
             {
-                _processedDate = value;
+                if( _processedDate != value )
+                {
+                    _processedDate = value;
+                    OnPropertyChanged( nameof( ProcessedDate ) );
+                }
             }
         }
 
@@ -290,7 +322,11 @@ namespace Badger
             }
             private protected set
             {
-                _lastActivityDate = value;
+                if( _lastActivityDate != value )
+                {
+                    _lastActivityDate = value;
+                    OnPropertyChanged( nameof( LastActivityDate ) );
+                }
             }
         }
 
@@ -308,7 +344,11 @@ namespace Badger
             }
             private protected set
             {
-                _duration = value;
+                if( _duration != value )
+                {
+                    _duration = value;
+                    OnPropertyChanged( nameof( Duration ) );
+                }
             }
         }
 
@@ -326,7 +366,11 @@ namespace Badger
             }
             private protected set
             {
-                _inSystem = value;
+                if( _inSystem != value )
+                {
+                    _inSystem = value;
+                    OnPropertyChanged( nameof( InSystem ) );
+                }
             }
         }
 
@@ -344,7 +388,11 @@ namespace Badger
             }
             private protected set
             {
-                _comments = value;
+                if( _comments != value )
+                {
+                    _comments = value;
+                    OnPropertyChanged( nameof( Comments ) );
+                }
             }
         }
 
@@ -362,7 +410,11 @@ namespace Badger
             }
             private protected set
             {
-                _requestType = value;
+                if( _requestType != value )
+                {
+                    _requestType = value;
+                    OnPropertyChanged( nameof( RequestType ) );
+                }
             }
         }
 
@@ -380,7 +432,11 @@ namespace Badger
             }
             private protected set
             {
-                _typeCode = value;
+                if( _typeCode != value )
+                {
+                    _typeCode = value;
+                    OnPropertyChanged( nameof( TypeCode ) );
+                }
             }
         }
 
@@ -398,7 +454,11 @@ namespace Badger
             }
             private protected set
             {
-                _decision = value;
+                if( _decision != value )
+                {
+                    _decision = value;
+                    OnPropertyChanged( nameof( Decision ) );
+                }
             }
         }
 
