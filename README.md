@@ -19,7 +19,7 @@
 
 ## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Providers
 
-- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
+- [SQLite](https://sqlite.org/index.html) is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
 - SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. 
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine.
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
