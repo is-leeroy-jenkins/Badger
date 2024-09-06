@@ -90,7 +90,7 @@ namespace Badger
             {
                 return _availability;
             }
-            private protected set
+            set
             {
                 _availability = value;
             }
@@ -108,7 +108,7 @@ namespace Badger
             {
                 return _holidays;
             }
-            private protected set
+            set
             {
                 _holidays = value;
             }
@@ -126,7 +126,7 @@ namespace Badger
             {
                 return _federalHolidays;
             }
-            private protected set
+            set
             {
                 _federalHolidays = value;
             }

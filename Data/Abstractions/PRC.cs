@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-25-2020
+//     Created:                 09-06-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-25-2024
+//     Last Modified On:        09-06-2024
 // ******************************************************************************************
 // <copyright file="PRC.cs" company="Terry D. Eppler">
-//    Badger is budget execution and data analysis tool for EPA Analysts
-//    based on WPF, NET6.0, and is written in C-Sharp.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
 //     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
@@ -146,7 +146,11 @@ namespace Badger
             }
             private protected set
             {
-                _budgetLevel = value;
+                if( _budgetLevel != value )
+                {
+                    _budgetLevel = value;
+                    OnPropertyChanged( nameof( BudgetLevel ) );
+                }
             }
         }
 
@@ -164,7 +168,11 @@ namespace Badger
             }
             private protected set
             {
-                _rpioCode = value;
+                if( _rpioCode != value )
+                {
+                    _rpioCode = value;
+                    OnPropertyChanged( nameof( RpioCode ) );
+                }
             }
         }
 
@@ -182,7 +190,11 @@ namespace Badger
             }
             private protected set
             {
-                _rpioName = value;
+                if( _budgetLevel != value )
+                {
+                    _budgetLevel = value;
+                    OnPropertyChanged( nameof( BudgetLevel ) );
+                }
             }
         }
 
@@ -200,7 +212,11 @@ namespace Badger
             }
             private protected set
             {
-                _ahCode = value;
+                if( _ahCode != value )
+                {
+                    _ahCode = value;
+                    OnPropertyChanged( nameof( AhCode ) );
+                }
             }
         }
 
@@ -218,7 +234,11 @@ namespace Badger
             }
             private protected set
             {
-                _ahCode = value;
+                if( _ahName != value )
+                {
+                    _ahName = value;
+                    OnPropertyChanged( nameof( AhName ) );
+                }
             }
         }
 
@@ -236,7 +256,11 @@ namespace Badger
             }
             private protected set
             {
-                _orgCode = value;
+                if( _budgetLevel != value )
+                {
+                    _budgetLevel = value;
+                    OnPropertyChanged( nameof( BudgetLevel ) );
+                }
             }
         }
 
@@ -254,7 +278,11 @@ namespace Badger
             }
             private protected set
             {
-                _orgName = value;
+                if( _orgName != value )
+                {
+                    _orgName = value;
+                    OnPropertyChanged( nameof( OrgName ) );
+                }
             }
         }
 
@@ -272,7 +300,11 @@ namespace Badger
             }
             private protected set
             {
-                _accountCode = value;
+                if( _accountCode != value )
+                {
+                    _accountCode = value;
+                    OnPropertyChanged( nameof( AccountCode ) );
+                }
             }
         }
 
@@ -290,7 +322,11 @@ namespace Badger
             }
             private protected set
             {
-                _bocCode = value;
+                if( _bocCode != value )
+                {
+                    _bocCode = value;
+                    OnPropertyChanged( nameof( BocCode ) );
+                }
             }
         }
 
@@ -308,7 +344,11 @@ namespace Badger
             }
             private protected set
             {
-                _bocName = value;
+                if( _bocName != value )
+                {
+                    _bocName = value;
+                    OnPropertyChanged( nameof( BocName ) );
+                }
             }
         }
 
@@ -326,7 +366,11 @@ namespace Badger
             }
             private protected set
             {
-                _rcCode = value;
+                if( _rcCode != value )
+                {
+                    _rcCode = value;
+                    OnPropertyChanged( nameof( RcCode ) );
+                }
             }
         }
 
@@ -344,7 +388,11 @@ namespace Badger
             }
             private protected set
             {
-                _rcName = value;
+                if( _rcName != value )
+                {
+                    _rcName = value;
+                    OnPropertyChanged( nameof( RcName ) );
+                }
             }
         }
 
@@ -362,7 +410,11 @@ namespace Badger
             }
             private protected set
             {
-                _programAreaCode = value;
+                if( _programAreaCode != value )
+                {
+                    _programAreaCode = value;
+                    OnPropertyChanged( nameof( ProgramAreaCode ) );
+                }
             }
         }
 
@@ -380,7 +432,11 @@ namespace Badger
             }
             private protected set
             {
-                _programAreaName = value;
+                if( _programAreaName != value )
+                {
+                    _programAreaName = value;
+                    OnPropertyChanged( nameof( BudgetLevel ) );
+                }
             }
         }
 

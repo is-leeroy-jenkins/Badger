@@ -89,7 +89,7 @@ namespace Badger
             {
                 return _bocCode;
             }
-            private protected set
+            set
             {
                 _bocCode = value;
             }
@@ -107,7 +107,7 @@ namespace Badger
             {
                 return _bocName;
             }
-            private protected set
+            set
             {
                 _bocName = value;
             }
@@ -125,7 +125,7 @@ namespace Badger
             {
                 return _category;
             }
-            private protected set
+            set
             {
                 _category = value;
             }

@@ -68,7 +68,7 @@ namespace Badger
             {
                 return _noYear;
             }
-            private protected set
+            set
             {
                 _noYear = value;
             }
@@ -86,7 +86,7 @@ namespace Badger
             {
                 return _carryover;
             }
-            private protected set
+            set
             {
                 _carryover = value;
             }
@@ -104,7 +104,7 @@ namespace Badger
             {
                 return _beginningPeriodOfAvailability;
             }
-            private protected set
+            set
             {
                 _beginningPeriodOfAvailability = value;
             }
@@ -122,7 +122,7 @@ namespace Badger
             {
                 return _endingPeriodOfAvailability;
             }
-            private protected set
+            set
             {
                 _endingPeriodOfAvailability = value;
             }
@@ -140,7 +140,7 @@ namespace Badger
             {
                 return _multiYearIndicator;
             }
-            private protected set
+            set
             {
                 _multiYearIndicator = value;
             }

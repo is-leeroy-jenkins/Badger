@@ -77,7 +77,7 @@ namespace Badger
             {
                 return _netOutlays;
             }
-            private protected set
+            set
             {
                 _netOutlays = value;
             }
@@ -95,7 +95,7 @@ namespace Badger
             {
                 return _grossOutlays;
             }
-            private protected set
+            set
             {
                 _grossOutlays = value;
             }

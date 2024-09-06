@@ -90,7 +90,7 @@ namespace Badger
             {
                 return _appropriationCode;
             }
-            private protected set
+            set
             {
                 _appropriationCode = value;
             }
@@ -108,7 +108,7 @@ namespace Badger
             {
                 return _appropriationName;
             }
-            private protected set
+            set
             {
                 _appropriationName = value;
             }
@@ -126,7 +126,7 @@ namespace Badger
             {
                 return _subAppropriationCode;
             }
-            private protected set
+            set
             {
                 _subAppropriationCode = value;
             }
@@ -144,7 +144,7 @@ namespace Badger
             {
                 return _subAppropriationName;
             }
-            private protected set
+            set
             {
                 _subAppropriationName = value;
             }

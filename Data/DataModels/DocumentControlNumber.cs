@@ -91,7 +91,7 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            private protected set
+            set
             {
                 _rpioCode = value;
             }
@@ -109,7 +109,7 @@ namespace Badger
             {
                 return _rpioName;
             }
-            private protected set
+            set
             {
                 _rpioName = value;
             }
@@ -127,7 +127,7 @@ namespace Badger
             {
                 return _documentType;
             }
-            private protected set
+            set
             {
                 _documentType = value;
             }
@@ -145,7 +145,7 @@ namespace Badger
             {
                 return _documentNumber;
             }
-            private protected set
+            set
             {
                 _documentNumber = value;
             }
@@ -163,7 +163,7 @@ namespace Badger
             {
                 return _documentPrefix;
             }
-            private protected set
+            set
             {
                 _documentPrefix = value;
             }

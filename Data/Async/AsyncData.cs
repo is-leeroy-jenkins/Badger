@@ -98,17 +98,17 @@ namespace Badger
             try
             {
                 var _table = GetDataTable( );
-                var _indexes = new List<int>( );
+                var _ordinals = new List<int>( );
                 if( _table != null )
                 {
                     foreach( DataColumn _column in _table?.Columns )
                     {
-                        _indexes?.Add( _column.Ordinal );
+                        _ordinals?.Add( _column.Ordinal );
                     }
                 }
 
-                _async.SetResult( _indexes );
-                return _indexes?.Any( ) == true
+                _async.SetResult( _ordinals );
+                return _ordinals?.Any( ) == true
                     ? _async.Task
                     : default( Task<IList<int>> );
             }
@@ -234,6 +234,7 @@ namespace Badger
         /// Gets the names asynchronous.
         /// </summary>
         /// <returns>
+        /// Task( List( string ) )
         /// </returns>
         public Task<IList<string>> GetNamesAsync( )
         {

@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 09-05-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        09-05-2024
 // ******************************************************************************************
 // <copyright file="BudgetDocument.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   BudgetDocument.cs
@@ -73,9 +75,13 @@ namespace Badger
             {
                 return _documentDate;
             }
-            private protected set
+            set
             {
-                _documentDate = value;
+                if( _documentDate != value )
+                {
+                    _documentDate = value;
+                    OnPropertyChanged( nameof( DocumentDate ) );
+                }
             }
         }
 
@@ -91,9 +97,13 @@ namespace Badger
             {
                 return _budgeted;
             }
-            private protected set
+            set
             {
-                _budgeted = value;
+                if( _budgeted != value )
+                {
+                    _budgeted = value;
+                    OnPropertyChanged( nameof( Budgeted ) );
+                }
             }
         }
 
@@ -109,9 +119,13 @@ namespace Badger
             {
                 return _posted;
             }
-            private protected set
+            set
             {
-                _posted = value;
+                if( _posted != value )
+                {
+                    _posted = value;
+                    OnPropertyChanged( nameof( Posted ) );
+                }
             }
         }
 
@@ -127,9 +141,13 @@ namespace Badger
             {
                 return _carryoverOut;
             }
-            private protected set
+            set
             {
-                _carryoverOut = value;
+                if( _carryoverOut != value )
+                {
+                    _carryoverOut = value;
+                    OnPropertyChanged( nameof( CarryoverOut ) );
+                }
             }
         }
 
@@ -145,9 +163,13 @@ namespace Badger
             {
                 return _carryoverIn;
             }
-            private protected set
+            set
             {
-                _carryoverIn = value;
+                if( _carryoverIn != value )
+                {
+                    _carryoverIn = value;
+                    OnPropertyChanged( nameof( CarryoverIn ) );
+                }
             }
         }
 
@@ -163,9 +185,13 @@ namespace Badger
             {
                 return _reimbursements;
             }
-            private protected set
+            set
             {
-                _reimbursements = value;
+                if( _reimbursements != value )
+                {
+                    _reimbursements = value;
+                    OnPropertyChanged( nameof( Reimbursements ) );
+                }
             }
         }
 
@@ -181,9 +207,13 @@ namespace Badger
             {
                 return _recoveries;
             }
-            private protected set
+            set
             {
-                _recoveries = value;
+                if( _recoveries != value )
+                {
+                    _recoveries = value;
+                    OnPropertyChanged( nameof( Recoveries ) );
+                }
             }
         }
 

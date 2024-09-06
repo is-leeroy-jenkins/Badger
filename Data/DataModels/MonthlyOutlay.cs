@@ -67,7 +67,7 @@ namespace Badger
             {
                 return _october;
             }
-            private protected set
+            set
             {
                 _october = value;
             }
@@ -85,7 +85,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -103,7 +103,7 @@ namespace Badger
             {
                 return _december;
             }
-            private protected set
+            set
             {
                 _december = value;
             }
@@ -121,7 +121,7 @@ namespace Badger
             {
                 return _january;
             }
-            private protected set
+            set
             {
                 _january = value;
             }
@@ -139,7 +139,7 @@ namespace Badger
             {
                 return _february;
             }
-            private protected set
+            set
             {
                 _february = value;
             }
@@ -157,7 +157,7 @@ namespace Badger
             {
                 return _march;
             }
-            private protected set
+            set
             {
                 _march = value;
             }
@@ -175,7 +175,7 @@ namespace Badger
             {
                 return _april;
             }
-            private protected set
+            set
             {
                 _april = value;
             }
@@ -193,7 +193,7 @@ namespace Badger
             {
                 return _may;
             }
-            private protected set
+            set
             {
                 _may = value;
             }
@@ -211,7 +211,7 @@ namespace Badger
             {
                 return _june;
             }
-            private protected set
+            set
             {
                 _june = value;
             }
@@ -229,7 +229,7 @@ namespace Badger
             {
                 return _july;
             }
-            private protected set
+            set
             {
                 _july = value;
             }
@@ -247,7 +247,7 @@ namespace Badger
             {
                 return _august;
             }
-            private protected set
+            set
             {
                 _august = value;
             }
@@ -265,7 +265,7 @@ namespace Badger
             {
                 return _september;
             }
-            private protected set
+            set
             {
                 _september = value;
             }

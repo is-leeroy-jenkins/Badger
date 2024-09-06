@@ -100,7 +100,7 @@ namespace Badger
             {
                 return _initial;
             }
-            private protected set
+            set
             {
                 _initial = value;
             }
@@ -118,7 +118,7 @@ namespace Badger
             {
                 return _delta;
             }
-            private protected set
+            set
             {
                 _delta = value;
             }
@@ -136,7 +136,7 @@ namespace Badger
             {
                 return _value;
             }
-            private protected set
+            set
             {
                 _value = value;
             }
@@ -154,7 +154,7 @@ namespace Badger
             {
                 return _numeric;
             }
-            private protected set
+            set
             {
                 _numeric = value;
             }

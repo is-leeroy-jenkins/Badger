@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 09-05-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        09-05-2024
 // ******************************************************************************************
 // <copyright file="AppropriationDocument.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AppropriationDocument.cs
@@ -69,9 +71,13 @@ namespace Badger
             {
                 return _lastActivityDate;
             }
-            private protected set
+            set
             {
-                _lastActivityDate = value;
+                if( _lastActivityDate != value )
+                {
+                    _lastActivityDate = value;
+                    OnPropertyChanged( nameof( LastActivityDate ) );
+                }
             }
         }
 
@@ -87,9 +93,13 @@ namespace Badger
             {
                 return _budgeted;
             }
-            private protected set
+            set
             {
-                _budgeted = value;
+                if( _budgeted != value )
+                {
+                    _budgeted = value;
+                    OnPropertyChanged( nameof( Budgeted ) );
+                }
             }
         }
 
@@ -105,9 +115,13 @@ namespace Badger
             {
                 return _posted;
             }
-            private protected set
+            set
             {
-                _posted = value;
+                if( _posted != value )
+                {
+                    _posted = value;
+                    OnPropertyChanged( nameof( Posted ) );
+                }
             }
         }
 
@@ -123,9 +137,13 @@ namespace Badger
             {
                 return _carryoverOut;
             }
-            private protected set
+            set
             {
-                _carryoverOut = value;
+                if( _carryoverOut != value )
+                {
+                    _carryoverOut = value;
+                    OnPropertyChanged( nameof( CarryoverOut ) );
+                }
             }
         }
 
@@ -141,9 +159,13 @@ namespace Badger
             {
                 return _carryoverIn;
             }
-            private protected set
+            set
             {
-                _carryoverIn = value;
+                if( _carryoverIn != value )
+                {
+                    _carryoverIn = value;
+                    OnPropertyChanged( nameof( CarryoverIn ) );
+                }
             }
         }
 
@@ -159,9 +181,13 @@ namespace Badger
             {
                 return _reimbursements;
             }
-            private protected set
+            set
             {
-                _reimbursements = value;
+                if( _reimbursements != value )
+                {
+                    _reimbursements = value;
+                    OnPropertyChanged( nameof( Reimbursements ) );
+                }
             }
         }
 
@@ -177,9 +203,13 @@ namespace Badger
             {
                 return _recoveries;
             }
-            private protected set
+            set
             {
-                _recoveries = value;
+                if( _recoveries != value )
+                {
+                    _recoveries = value;
+                    OnPropertyChanged( nameof( Recoveries ) );
+                }
             }
         }
 
@@ -195,9 +225,13 @@ namespace Badger
             {
                 return _budgetingControls;
             }
-            private protected set
+            set
             {
-                _budgetingControls = value;
+                if( _budgetingControls != value )
+                {
+                    _budgetingControls = value;
+                    OnPropertyChanged( nameof( BudgetingControls ) );
+                }
             }
         }
 
@@ -213,9 +247,13 @@ namespace Badger
             {
                 return _postingControls;
             }
-            private protected set
+            set
             {
-                _postingControls = value;
+                if( _postingControls != value )
+                {
+                    _postingControls = value;
+                    OnPropertyChanged( nameof( PostingControls ) );
+                }
             }
         }
 
@@ -231,9 +269,13 @@ namespace Badger
             {
                 return _preCommitmentControls;
             }
-            private protected set
+            set
             {
-                _preCommitmentControls = value;
+                if( _preCommitmentControls != value )
+                {
+                    _preCommitmentControls = value;
+                    OnPropertyChanged( nameof( PreCommitmentControls ) );
+                }
             }
         }
 
@@ -249,9 +291,10 @@ namespace Badger
             {
                 return _commitmentControls;
             }
-            private protected set
+            set
             {
                 _commitmentControls = value;
+                OnPropertyChanged( nameof( CommitmentControls ) );
             }
         }
 
@@ -267,9 +310,10 @@ namespace Badger
             {
                 return _obligationControls;
             }
-            private protected set
+            set
             {
                 _obligationControls = value;
+                OnPropertyChanged( nameof( ObligationControls ) );
             }
         }
 
@@ -285,9 +329,10 @@ namespace Badger
             {
                 return _accrualControls;
             }
-            private protected set
+            set
             {
                 _accrualControls = value;
+                OnPropertyChanged( nameof( AccrualControls ) );
             }
         }
 
@@ -303,9 +348,10 @@ namespace Badger
             {
                 return _expenditureControls;
             }
-            private protected set
+            set
             {
                 _expenditureControls = value;
+                OnPropertyChanged( nameof( ExpenditureControls ) );
             }
         }
 
@@ -321,9 +367,10 @@ namespace Badger
             {
                 return _expenseControls;
             }
-            private protected set
+            set
             {
                 _expenseControls = value;
+                OnPropertyChanged( nameof( ExpenseControls ) );
             }
         }
 
@@ -339,9 +386,10 @@ namespace Badger
             {
                 return _reimbursementControls;
             }
-            private protected set
+            set
             {
                 _reimbursementControls = value;
+                OnPropertyChanged( nameof( ReimbursementControls ) );
             }
         }
 
@@ -357,9 +405,10 @@ namespace Badger
             {
                 return _reimbursableAgreementControls;
             }
-            private protected set
+            set
             {
                 _reimbursableAgreementControls = value;
+                OnPropertyChanged( nameof( ReimbursableAgreementControls ) );
             }
         }
 

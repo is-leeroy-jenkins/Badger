@@ -68,7 +68,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -86,7 +86,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -104,7 +104,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -122,7 +122,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -140,7 +140,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -158,7 +158,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -176,7 +176,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -194,7 +194,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -212,7 +212,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -230,7 +230,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -248,7 +248,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }
@@ -266,7 +266,7 @@ namespace Badger
             {
                 return _november;
             }
-            private protected set
+            set
             {
                 _november = value;
             }

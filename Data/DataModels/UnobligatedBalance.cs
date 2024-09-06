@@ -89,7 +89,7 @@ namespace Badger
             {
                 return _budgetYear;
             }
-            private protected set
+            set
             {
                 _budgetYear = value;
             }
@@ -107,7 +107,7 @@ namespace Badger
             {
                 return _budgetAccount;
             }
-            private protected set
+            set
             {
                 _budgetAccount = value;
             }
@@ -125,7 +125,7 @@ namespace Badger
             {
                 return _accountNumber;
             }
-            private protected set
+            set
             {
                 _accountNumber = value;
             }
@@ -143,7 +143,7 @@ namespace Badger
             {
                 return _accountName;
             }
-            private protected set
+            set
             {
                 _accountName = value;
             }
@@ -161,7 +161,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private protected set
+            set
             {
                 _amount = value;
             }

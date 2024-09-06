@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-27-2024
+//     Created:                 09-05-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-27-2024
+//     Last Modified On:        09-05-2024
 // ******************************************************************************************
 // <copyright file="AnnualCarryoverEstimate.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AnnualCarryoverEstimate.cs
@@ -100,9 +102,13 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            private protected set
+            set
             {
-                _rpioCode = value;
+                if( _rpioCode != value )
+                {
+                    _rpioCode = value;
+                    OnPropertyChanged( nameof( _rpioCode ) );
+                }
             }
         }
 
@@ -118,9 +124,13 @@ namespace Badger
             {
                 return _rpioName;
             }
-            private protected set
+            set
             {
-                _rpioName = value;
+                if( _rpioName != value )
+                {
+                    _rpioName = value;
+                    OnPropertyChanged( nameof( _rpioName ) );
+                }
             }
         }
 
@@ -136,9 +146,13 @@ namespace Badger
             {
                 return _amount;
             }
-            private protected set
+            set
             {
-                _amount = value;
+                if( _amount != value )
+                {
+                    _available = value;
+                    OnPropertyChanged( nameof( Amount ) );
+                }
             }
         }
 
@@ -154,9 +168,13 @@ namespace Badger
             {
                 return _openCommitments;
             }
-            private protected set
+            set
             {
-                _openCommitments = value;
+                if( _openCommitments != value )
+                {
+                    _openCommitments = value;
+                    OnPropertyChanged( nameof( OpenCommitments ) );
+                }
             }
         }
 
@@ -172,9 +190,13 @@ namespace Badger
             {
                 return _obligations;
             }
-            private protected set
+            set
             {
-                _obligations = value;
+                if( _obligations != value )
+                {
+                    _obligations = value;
+                    OnPropertyChanged( nameof( Obligations ) );
+                }
             }
         }
 
@@ -190,9 +212,13 @@ namespace Badger
             {
                 return _available;
             }
-            private protected set
+            set
             {
-                _available = value;
+                if( _available != value )
+                {
+                    _available = value;
+                    OnPropertyChanged( nameof( Available ) );
+                }
             }
         }
 
@@ -208,9 +234,13 @@ namespace Badger
             {
                 return _estimate;
             }
-            private protected set
+            set
             {
-                _estimate = value;
+                if( _estimate != value )
+                {
+                    _estimate = value;
+                    OnPropertyChanged( nameof( Estimate ) );
+                }
             }
         }
 
