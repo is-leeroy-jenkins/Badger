@@ -125,7 +125,7 @@ namespace Badger
             {
                 return _documentType;
             }
-            private set
+            private protected set
             {
                 _documentType = value;
             }
@@ -143,7 +143,7 @@ namespace Badger
             {
                 return _documentNumber;
             }
-            private set
+            private protected set
             {
                 _documentNumber = value;
             }
@@ -161,7 +161,7 @@ namespace Badger
             {
                 return _documentControlNumber;
             }
-            private set
+            private protected set
             {
                 _documentControlNumber = value;
             }
@@ -179,7 +179,7 @@ namespace Badger
             {
                 return _referenceDocumentNumber;
             }
-            private set
+            private protected set
             {
                 _referenceDocumentNumber = value;
             }
@@ -197,7 +197,7 @@ namespace Badger
             {
                 return _processedDate;
             }
-            private set
+            private protected set
             {
                 _processedDate = value;
             }
@@ -215,7 +215,7 @@ namespace Badger
             {
                 return _lastActivityDate;
             }
-            private set
+            private protected set
             {
                 _lastActivityDate = value;
             }
@@ -233,7 +233,7 @@ namespace Badger
             {
                 return _age;
             }
-            private set
+            private protected set
             {
                 _age = value;
             }
@@ -251,7 +251,7 @@ namespace Badger
             {
                 return _focCode;
             }
-            private set
+            private protected set
             {
                 _focCode = value;
             }
@@ -269,7 +269,7 @@ namespace Badger
             {
                 return _focName;
             }
-            private set
+            private protected set
             {
                 _focName = value;
             }
@@ -287,7 +287,7 @@ namespace Badger
             {
                 return _vendorCode;
             }
-            private set
+            private protected set
             {
                 _vendorCode = value;
             }
@@ -305,7 +305,7 @@ namespace Badger
             {
                 return _vendorName;
             }
-            private set
+            private protected set
             {
                 _vendorName = value;
             }

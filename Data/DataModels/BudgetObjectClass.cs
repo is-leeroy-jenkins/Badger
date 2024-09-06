@@ -92,7 +92,7 @@ namespace Badger
             {
                 return _category;
             }
-            private set
+            private protected set
             {
                 _category = value;
             }

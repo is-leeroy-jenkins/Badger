@@ -68,7 +68,7 @@ namespace Badger
             {
                 return _budgetLevel;
             }
-            set
+            private protected set
             {
                 _budgetLevel = value;
             }
@@ -86,7 +86,7 @@ namespace Badger
             {
                 return _docPrefix;
             }
-            set
+            private protected set
             {
                 _docPrefix = value;
             }
@@ -104,7 +104,7 @@ namespace Badger
             {
                 return _docType;
             }
-            set
+            private protected set
             {
                 _docType = value;
             }
@@ -122,7 +122,7 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            set
+            private protected set
             {
                 _rpioCode = value;
             }
@@ -140,7 +140,7 @@ namespace Badger
             {
                 return _rpioName;
             }
-            set
+            private protected set
             {
                 _rpioName = value;
             }
@@ -158,7 +158,7 @@ namespace Badger
             {
                 return _resourceType;
             }
-            set
+            private protected set
             {
                 _reprogrammingNumber = value;
             }
@@ -176,7 +176,7 @@ namespace Badger
             {
                 return _controlNumber;
             }
-            set
+            private protected set
             {
                 _controlNumber = value;
             }
@@ -194,7 +194,7 @@ namespace Badger
             {
                 return _processedDate;
             }
-            set
+            private protected set
             {
                 _processedDate = value;
             }
@@ -212,7 +212,7 @@ namespace Badger
             {
                 return _quarter;
             }
-            set
+            private protected set
             {
                 _quarter = value;
             }
@@ -230,7 +230,7 @@ namespace Badger
             {
                 return _line;
             }
-            set
+            private protected set
             {
                 _line = value;
             }
@@ -248,7 +248,7 @@ namespace Badger
             {
                 return _subline;
             }
-            set
+            private protected set
             {
                 _subline = value;
             }
@@ -266,7 +266,7 @@ namespace Badger
             {
                 return _ahCode;
             }
-            set
+            private protected set
             {
                 _ahCode = value;
             }
@@ -284,7 +284,7 @@ namespace Badger
             {
                 return _ahName;
             }
-            set
+            private protected set
             {
                 _ahName = value;
             }
@@ -302,7 +302,7 @@ namespace Badger
             {
                 return _orgCode;
             }
-            set
+            private protected set
             {
                 _orgCode = value;
             }
@@ -320,7 +320,7 @@ namespace Badger
             {
                 return _orgName;
             }
-            set
+            private protected set
             {
                 _orgName = value;
             }
@@ -338,7 +338,7 @@ namespace Badger
             {
                 return _rcCode;
             }
-            set
+            private protected set
             {
                 _rcCode = value;
             }
@@ -356,7 +356,7 @@ namespace Badger
             {
                 return _rcName;
             }
-            set
+            private protected set
             {
                 _rcName = value;
             }
@@ -374,7 +374,7 @@ namespace Badger
             {
                 return _accountCode;
             }
-            set
+            private protected set
             {
                 _accountCode = value;
             }
@@ -392,7 +392,7 @@ namespace Badger
             {
                 return _programAreaCode;
             }
-            set
+            private protected set
             {
                 _programAreaCode = value;
             }
@@ -410,7 +410,7 @@ namespace Badger
             {
                 return _programProjectName;
             }
-            set
+            private protected set
             {
                 _programAreaName = value;
             }
@@ -428,7 +428,7 @@ namespace Badger
             {
                 return _programProjectName;
             }
-            set
+            private protected set
             {
                 _programProjectName = value;
             }
@@ -446,7 +446,7 @@ namespace Badger
             {
                 return _programProjectCode;
             }
-            set
+            private protected set
             {
                 _programProjectCode = value;
             }
@@ -464,7 +464,7 @@ namespace Badger
             {
                 return _fromTo;
             }
-            set
+            private protected set
             {
                 _fromTo = value;
             }
@@ -482,7 +482,7 @@ namespace Badger
             {
                 return _bocCode;
             }
-            set
+            private protected set
             {
                 _bocCode = value;
             }
@@ -500,7 +500,7 @@ namespace Badger
             {
                 return _bocName;
             }
-            set
+            private protected set
             {
                 _bocName = value;
             }
@@ -518,7 +518,7 @@ namespace Badger
             {
                 return _npmCode;
             }
-            set
+            private protected set
             {
                 _npmCode = value;
             }
@@ -536,7 +536,7 @@ namespace Badger
             {
                 return _amount;
             }
-            set
+            private protected set
             {
                 _amount = value;
             }
@@ -554,7 +554,7 @@ namespace Badger
             {
                 return _resourceType;
             }
-            set
+            private protected set
             {
                 _resourceType = value;
             }
@@ -572,7 +572,7 @@ namespace Badger
             {
                 return _purpose;
             }
-            set
+            private protected set
             {
                 _purpose = value;
             }

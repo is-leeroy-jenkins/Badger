@@ -106,7 +106,7 @@ namespace Badger
             {
                 return _authority;
             }
-            private set
+            private protected set
             {
                 _authority = value;
             }
@@ -124,7 +124,7 @@ namespace Badger
             {
                 return _budgeted;
             }
-            private set
+            private protected set
             {
                 _budgeted = value;
             }
@@ -142,7 +142,7 @@ namespace Badger
             {
                 return _carryoverIn;
             }
-            private set
+            private protected set
             {
                 _carryoverIn = value;
             }
@@ -160,7 +160,7 @@ namespace Badger
             {
                 return _carryoverOut;
             }
-            private set
+            private protected set
             {
                 _carryoverOut = value;
             }
@@ -178,7 +178,7 @@ namespace Badger
             {
                 return _reimbursements;
             }
-            private set
+            private protected set
             {
                 _reimbursements = value;
             }
@@ -196,7 +196,7 @@ namespace Badger
             {
                 return _recoveries;
             }
-            private set
+            private protected set
             {
                 _recoveries = value;
             }
@@ -214,7 +214,7 @@ namespace Badger
             {
                 return _used;
             }
-            private set
+            private protected set
             {
                 _used = value;
             }
@@ -232,7 +232,7 @@ namespace Badger
             {
                 return _available;
             }
-            private set
+            private protected set
             {
                 _available = value;
             }

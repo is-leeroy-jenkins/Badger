@@ -65,7 +65,7 @@ namespace Badger
             {
                 return _bfy;
             }
-            set
+            private protected set
             {
                 _bfy = value;
             }
@@ -83,7 +83,7 @@ namespace Badger
             {
                 return _accountClassification;
             }
-            set
+            private protected set
             {
                 _accountClassification = value;
             }
@@ -101,7 +101,7 @@ namespace Badger
             {
                 return _shortName;
             }
-            set
+            private protected set
             {
                 _shortName = value;
             }
@@ -119,7 +119,7 @@ namespace Badger
             {
                 return _number;
             }
-            set
+            private protected set
             {
                 _number = value;
             }
@@ -137,7 +137,7 @@ namespace Badger
             {
                 return _normalBalance;
             }
-            set
+            private protected set
             {
                 _normalBalance = value;
             }
@@ -155,7 +155,7 @@ namespace Badger
             {
                 return _realOrClosingAccount;
             }
-            set
+            private protected set
             {
                 _realOrClosingAccount = value;
             }
@@ -173,7 +173,7 @@ namespace Badger
             {
                 return _summaryAccount;
             }
-            set
+            private protected set
             {
                 _summaryAccount = value;
             }
@@ -191,7 +191,7 @@ namespace Badger
             {
                 return _cashAccount;
             }
-            set
+            private protected set
             {
                 _cashAccount = value;
             }
@@ -209,7 +209,7 @@ namespace Badger
             {
                 return _reportableAccount;
             }
-            set
+            private protected set
             {
                 _reportableAccount = value;
             }
@@ -227,7 +227,7 @@ namespace Badger
             {
                 return _costAllocationIndicator;
             }
-            set
+            private protected set
             {
                 _costAllocationIndicator = value;
             }
@@ -245,7 +245,7 @@ namespace Badger
             {
                 return _federalNonFederal;
             }
-            set
+            private protected set
             {
                 _federalNonFederal = value;
             }
@@ -263,7 +263,7 @@ namespace Badger
             {
                 return _attributeValue;
             }
-            set
+            private protected set
             {
                 _attributeValue = value;
             }
@@ -281,7 +281,7 @@ namespace Badger
             {
                 return _usage;
             }
-            set
+            private protected set
             {
                 _usage = value;
             }
@@ -299,7 +299,7 @@ namespace Badger
             {
                 return _deposit;
             }
-            set
+            private protected set
             {
                 _deposit = value;
             }

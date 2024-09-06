@@ -56,7 +56,7 @@ namespace Badger
         /// <value>
         /// The value.
         /// </value>
-        double Value { get; set; }
+        double Value { get; private protected set; }
 
         /// <summary>
         /// Gets the numeric column.
@@ -64,7 +64,7 @@ namespace Badger
         /// <value>
         /// The numeric.
         /// </value>
-        string Numeric { get; set; }
+        string Numeric { get; private protected set; }
 
         /// <summary>
         /// Gets the IAmount

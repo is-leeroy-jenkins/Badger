@@ -57,7 +57,7 @@ namespace Badger
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public int ID { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the report year.
@@ -65,7 +65,7 @@ namespace Badger
         /// <value>
         /// The report year.
         /// </value>
-        public string ReportYear { get; set; }
+        public string ReportYear { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the treasury agency code.
@@ -73,7 +73,7 @@ namespace Badger
         /// <value>
         /// The treasury agency code.
         /// </value>
-        public string TreasuryAgencyCode { get; set; }
+        public string TreasuryAgencyCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -81,7 +81,7 @@ namespace Badger
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public string TreasuryAccountCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the ledger account code.
@@ -89,7 +89,7 @@ namespace Badger
         /// <value>
         /// The ledger account code.
         /// </value>
-        public string LedgerAccountCode { get; set; }
+        public string LedgerAccountCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the section number.
@@ -97,7 +97,7 @@ namespace Badger
         /// <value>
         /// The section number.
         /// </value>
-        public string SectionNumber { get; set; }
+        public string SectionNumber { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the section.
@@ -105,7 +105,7 @@ namespace Badger
         /// <value>
         /// The name of the section.
         /// </value>
-        public string SectionName { get; set; }
+        public string SectionName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the line number.
@@ -113,7 +113,7 @@ namespace Badger
         /// <value>
         /// The line number.
         /// </value>
-        public string LineNumber { get; set; }
+        public string LineNumber { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the line description.
@@ -121,7 +121,7 @@ namespace Badger
         /// <value>
         /// The line description.
         /// </value>
-        public string LineDescription { get; set; }
+        public string LineDescription { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the omb agency code.
@@ -129,7 +129,7 @@ namespace Badger
         /// <value>
         /// The omb agency code.
         /// </value>
-        public string OmbAgencyCode { get; set; }
+        public string OmbAgencyCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the omb fund code.
@@ -137,7 +137,7 @@ namespace Badger
         /// <value>
         /// The omb fund code.
         /// </value>
-        public string OmbFundCode { get; set; }
+        public string OmbFundCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the omb account title.
@@ -145,7 +145,7 @@ namespace Badger
         /// <value>
         /// The omb account title.
         /// </value>
-        public string OmbAccountTitle { get; set; }
+        public string OmbAccountTitle { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the agency sequence.
@@ -153,7 +153,7 @@ namespace Badger
         /// <value>
         /// The agency sequence.
         /// </value>
-        public string AgencySequence { get; set; }
+        public string AgencySequence { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the account sequence.
@@ -161,7 +161,7 @@ namespace Badger
         /// <value>
         /// The account sequence.
         /// </value>
-        public string AccountSequence { get; set; }
+        public string AccountSequence { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -169,7 +169,7 @@ namespace Badger
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public string FundName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the original amount.
@@ -177,7 +177,7 @@ namespace Badger
         /// <value>
         /// The original amount.
         /// </value>
-        public double OriginalAmount { get; set; }
+        public double OriginalAmount { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the budget amount.
@@ -185,7 +185,7 @@ namespace Badger
         /// <value>
         /// The budget amount.
         /// </value>
-        public double BudgetAmount { get; set; }
+        public double BudgetAmount { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the agency amount.
@@ -193,7 +193,7 @@ namespace Badger
         /// <value>
         /// The agency amount.
         /// </value>
-        public double AgencyAmount { get; set; }
+        public double AgencyAmount { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -201,7 +201,7 @@ namespace Badger
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public double Amount { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the agency.
@@ -209,7 +209,7 @@ namespace Badger
         /// <value>
         /// The name of the agency.
         /// </value>
-        public string AgencyName { get; set; }
+        public string AgencyName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -217,7 +217,7 @@ namespace Badger
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -225,7 +225,7 @@ namespace Badger
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public DataRow Record { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -233,7 +233,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public IDictionary<string, object> Data { get; private protected set; }
 
         /// <summary>
         /// Initializes a new instance of the

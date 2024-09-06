@@ -101,7 +101,7 @@ namespace Badger
             {
                 return _subFunctionCode;
             }
-            set
+            private protected set
             {
                 _subFunctionCode = value;
             }
@@ -119,7 +119,7 @@ namespace Badger
             {
                 return _subFunctionName;
             }
-            set
+            private protected set
             {
                 _subFunctionName = value;
             }
@@ -137,7 +137,7 @@ namespace Badger
             {
                 return _budgetAccountCode;
             }
-            set
+            private protected set
             {
                 _budgetAccountCode = value;
             }
@@ -155,7 +155,7 @@ namespace Badger
             {
                 return _budgetAccountName;
             }
-            set
+            private protected set
             {
                 _budgetAccountName = value;
             }
@@ -173,7 +173,7 @@ namespace Badger
             {
                 return _treasuryAccountCode;
             }
-            set
+            private protected set
             {
                 _treasuryAccountCode = value;
             }
@@ -191,7 +191,7 @@ namespace Badger
             {
                 return _treasuryAccountName;
             }
-            set
+            private protected set
             {
                 _treasuryAccountName = value;
             }
@@ -209,7 +209,7 @@ namespace Badger
             {
                 return _budgetEnforcementActCategory;
             }
-            set
+            private protected set
             {
                 _budgetAccountName = value;
             }

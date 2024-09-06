@@ -102,7 +102,7 @@ namespace Badger
             {
                 return _documentType;
             }
-            private set
+            private protected set
             {
                 _documentType = value;
             }
@@ -120,7 +120,7 @@ namespace Badger
             {
                 return _appropriationBill;
             }
-            private set
+            private protected set
             {
                 _appropriationBill = value;
             }
@@ -138,7 +138,7 @@ namespace Badger
             {
                 return _continuingResolution;
             }
-            private set
+            private protected set
             {
                 _continuingResolution = value;
             }
@@ -156,7 +156,7 @@ namespace Badger
             {
                 return _recissionCurrentYear;
             }
-            private set
+            private protected set
             {
                 _recissionCurrentYear = value;
             }
@@ -174,7 +174,7 @@ namespace Badger
             {
                 return _rescissionPriorYear;
             }
-            private set
+            private protected set
             {
                 _rescissionPriorYear = value;
             }
@@ -192,7 +192,7 @@ namespace Badger
             {
                 return _sequesterReduction;
             }
-            private set
+            private protected set
             {
                 _sequesterReduction = value;
             }
@@ -210,7 +210,7 @@ namespace Badger
             {
                 return _sequesterReturn;
             }
-            private set
+            private protected set
             {
                 _sequesterReturn = value;
             }

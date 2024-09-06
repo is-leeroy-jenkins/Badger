@@ -98,7 +98,7 @@ namespace Badger
             {
                 return _appropriationCode;
             }
-            private set
+            private protected set
             {
                 _appropriationCode = value;
             }
@@ -116,7 +116,7 @@ namespace Badger
             {
                 return _appropriationName;
             }
-            private set
+            private protected set
             {
                 _appropriationName = value;
             }
@@ -134,7 +134,7 @@ namespace Badger
             {
                 return _monthProcessed;
             }
-            private set
+            private protected set
             {
                 _monthProcessed = value;
             }
@@ -152,7 +152,7 @@ namespace Badger
             {
                 return _totalObligations;
             }
-            private set
+            private protected set
             {
                 _totalObligations = value;
             }
@@ -170,7 +170,7 @@ namespace Badger
             {
                 return _unliquidatedObligations;
             }
-            private set
+            private protected set
             {
                 _unliquidatedObligations = value;
             }
@@ -188,7 +188,7 @@ namespace Badger
             {
                 return _obligationsPaid;
             }
-            private set
+            private protected set
             {
                 _obligationsPaid = value;
             }

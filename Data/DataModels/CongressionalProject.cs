@@ -86,7 +86,7 @@ namespace Badger
             {
                 return _projectName;
             }
-            private set
+            private protected set
             {
                 _projectName = value;
             }

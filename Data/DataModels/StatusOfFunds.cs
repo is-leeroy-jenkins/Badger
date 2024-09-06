@@ -117,7 +117,7 @@ namespace Badger
             {
                 return _amount;
             }
-            set
+            private protected set
             {
                 _amount = value;
             }
@@ -136,7 +136,7 @@ namespace Badger
             {
                 return _budgeted;
             }
-            set
+            private protected set
             {
                 _budgeted = value;
             }
@@ -155,7 +155,7 @@ namespace Badger
             {
                 return _posted;
             }
-            set
+            private protected set
             {
                 _posted = value;
             }
@@ -174,7 +174,7 @@ namespace Badger
             {
                 return _openCommitments;
             }
-            set
+            private protected set
             {
                 _openCommitments = value;
             }
@@ -193,7 +193,7 @@ namespace Badger
             {
                 return _unliquidatedObligations;
             }
-            set
+            private protected set
             {
                 _unliquidatedObligations = value;
             }
@@ -212,7 +212,7 @@ namespace Badger
             {
                 return _expenditures;
             }
-            set
+            private protected set
             {
                 _expenditures = value;
             }
@@ -231,7 +231,7 @@ namespace Badger
             {
                 return _obligations;
             }
-            set
+            private protected set
             {
                 _obligations = value;
             }
@@ -250,7 +250,7 @@ namespace Badger
             {
                 return _used;
             }
-            set
+            private protected set
             {
                 _used = value;
             }
@@ -269,7 +269,7 @@ namespace Badger
             {
                 return _available;
             }
-            set
+            private protected set
             {
                 _available = value;
             }

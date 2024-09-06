@@ -46,7 +46,7 @@ namespace Badger
 
     /// <inheritdoc />
     /// <summary>
-    /// Generally, an organized set of activities directed toward a common purpose or goal that an agency
+    /// Generally, an organized private protected set of activities directed toward a common purpose or goal that an agency
     /// undertakes or proposes to carry out its responsibilities. Because the term has many uses in
     /// practice, it does not have a well-defined, standard meaning in the legislative process. It is used
     /// to describe an agency’s mission, functions, activities, services, projects, and processes. An

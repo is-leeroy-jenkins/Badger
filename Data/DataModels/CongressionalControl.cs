@@ -118,7 +118,7 @@ namespace Badger
             {
                 return _programAreaCode;
             }
-            private set
+            private protected set
             {
                 _programAreaCode = value;
             }
@@ -136,7 +136,7 @@ namespace Badger
             {
                 return _programAreaName;
             }
-            private set
+            private protected set
             {
                 _programAreaName = value;
             }
@@ -154,7 +154,7 @@ namespace Badger
             {
                 return _programProjectCode;
             }
-            private set
+            private protected set
             {
                 _programAreaCode = value;
             }
@@ -172,7 +172,7 @@ namespace Badger
             {
                 return _programProjectName;
             }
-            private set
+            private protected set
             {
                 _programProjectName = value;
             }
@@ -190,7 +190,7 @@ namespace Badger
             {
                 return _subProjectCode;
             }
-            private set
+            private protected set
             {
                 _subProjectCode = value;
             }
@@ -208,7 +208,7 @@ namespace Badger
             {
                 return _subProjectName;
             }
-            private set
+            private protected set
             {
                 _subProjectName = value;
             }
@@ -226,7 +226,7 @@ namespace Badger
             {
                 return _reprogrammingRestriction;
             }
-            private set
+            private protected set
             {
                 _reprogrammingRestriction = value;
             }
@@ -244,7 +244,7 @@ namespace Badger
             {
                 return _increaseRestriction;
             }
-            private set
+            private protected set
             {
                 _increaseRestriction = value;
             }
@@ -262,7 +262,7 @@ namespace Badger
             {
                 return _decreaseRestriction;
             }
-            private set
+            private protected set
             {
                 _decreaseRestriction = value;
             }
@@ -280,7 +280,7 @@ namespace Badger
             {
                 return _memoRequirement;
             }
-            private set
+            private protected set
             {
                 _memoRequirement = value;
             }

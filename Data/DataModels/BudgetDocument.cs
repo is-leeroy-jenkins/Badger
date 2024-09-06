@@ -75,7 +75,7 @@ namespace Badger
             {
                 return _documentDate;
             }
-            set
+            private protected set
             {
                 if( _documentDate != value )
                 {
@@ -97,7 +97,7 @@ namespace Badger
             {
                 return _budgeted;
             }
-            set
+            private protected set
             {
                 if( _budgeted != value )
                 {
@@ -119,7 +119,7 @@ namespace Badger
             {
                 return _posted;
             }
-            set
+            private protected set
             {
                 if( _posted != value )
                 {
@@ -141,7 +141,7 @@ namespace Badger
             {
                 return _carryoverOut;
             }
-            set
+            private protected set
             {
                 if( _carryoverOut != value )
                 {
@@ -163,7 +163,7 @@ namespace Badger
             {
                 return _carryoverIn;
             }
-            set
+            private protected set
             {
                 if( _carryoverIn != value )
                 {
@@ -185,7 +185,7 @@ namespace Badger
             {
                 return _reimbursements;
             }
-            set
+            private protected set
             {
                 if( _reimbursements != value )
                 {
@@ -207,7 +207,7 @@ namespace Badger
             {
                 return _recoveries;
             }
-            set
+            private protected set
             {
                 if( _recoveries != value )
                 {

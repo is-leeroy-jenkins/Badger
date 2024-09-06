@@ -65,7 +65,7 @@ namespace Badger
             {
                 return _address;
             }
-            set
+            private protected set
             {
                 _address = value;
             }

@@ -102,7 +102,7 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            set
+            private protected set
             {
                 if( _rpioCode != value )
                 {
@@ -124,7 +124,7 @@ namespace Badger
             {
                 return _rpioName;
             }
-            set
+            private protected set
             {
                 if( _rpioName != value )
                 {
@@ -146,7 +146,7 @@ namespace Badger
             {
                 return _amount;
             }
-            set
+            private protected set
             {
                 if( _amount != value )
                 {
@@ -168,7 +168,7 @@ namespace Badger
             {
                 return _openCommitments;
             }
-            set
+            private protected set
             {
                 if( _openCommitments != value )
                 {
@@ -190,7 +190,7 @@ namespace Badger
             {
                 return _obligations;
             }
-            set
+            private protected set
             {
                 if( _obligations != value )
                 {
@@ -212,7 +212,7 @@ namespace Badger
             {
                 return _available;
             }
-            set
+            private protected set
             {
                 if( _available != value )
                 {
@@ -234,7 +234,7 @@ namespace Badger
             {
                 return _estimate;
             }
-            set
+            private protected set
             {
                 if( _estimate != value )
                 {

@@ -267,7 +267,7 @@ namespace Badger
             {
                 return _lineNumber;
             }
-            set
+            private protected set
             {
                 _lineNumber = value;
             }
@@ -285,7 +285,7 @@ namespace Badger
             {
                 return _lineTitle;
             }
-            set
+            private protected set
             {
                 _lineNumber = value;
             }
@@ -303,7 +303,7 @@ namespace Badger
             {
                 return _taxationCode;
             }
-            set
+            private protected set
             {
                 _taxationCode = value;
             }
@@ -321,7 +321,7 @@ namespace Badger
             {
                 return _treasuryAgencyCode;
             }
-            set
+            private protected set
             {
                 _treasuryAgencyCode = value;
             }
@@ -339,7 +339,7 @@ namespace Badger
             {
                 return _treasuryBureauCode;
             }
-            set
+            private protected set
             {
                 _treasuryBureauCode = value;
             }
@@ -357,7 +357,7 @@ namespace Badger
             {
                 return _budgetAgencyCode;
             }
-            set
+            private protected set
             {
                 _budgetAgencyCode = value;
             }
@@ -375,7 +375,7 @@ namespace Badger
             {
                 return _budgetBureauCode;
             }
-            set
+            private protected set
             {
                 _budgetBureauCode = value;
             }
@@ -393,7 +393,7 @@ namespace Badger
             {
                 return _subAccount;
             }
-            set
+            private protected set
             {
                 _subAccount = value;
             }
@@ -411,7 +411,7 @@ namespace Badger
             {
                 return _agencySequence;
             }
-            set
+            private protected set
             {
                 _agencySequence = value;
             }
@@ -429,7 +429,7 @@ namespace Badger
             {
                 return _bureauSequence;
             }
-            set
+            private protected set
             {
                 _bureauSequence = value;
             }
@@ -447,7 +447,7 @@ namespace Badger
             {
                 return _accountSequence;
             }
-            set
+            private protected set
             {
                 _accountSequence = value;
             }
@@ -465,7 +465,7 @@ namespace Badger
             {
                 return _agencyTitle;
             }
-            set
+            private protected set
             {
                 _agencyTitle = value;
             }
@@ -483,7 +483,7 @@ namespace Badger
             {
                 return _bureauTitle;
             }
-            set
+            private protected set
             {
                 _bureauTitle = value;
             }

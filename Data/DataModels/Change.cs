@@ -102,7 +102,7 @@ namespace Badger
             {
                 return _tableName;
             }
-            private set
+            private protected set
             {
                 _tableName = value;
             }
@@ -120,7 +120,7 @@ namespace Badger
             {
                 return _fieldName;
             }
-            private set
+            private protected set
             {
                 _fieldName = value;
             }
@@ -138,7 +138,7 @@ namespace Badger
             {
                 return _actionType;
             }
-            private set
+            private protected set
             {
                 _actionType = value;
             }
@@ -156,7 +156,7 @@ namespace Badger
             {
                 return _oldValue;
             }
-            private set
+            private protected set
             {
                 _oldValue = value;
             }
@@ -174,7 +174,7 @@ namespace Badger
             {
                 return _newValue;
             }
-            private set
+            private protected set
             {
                 _newValue = value;
             }
@@ -192,7 +192,7 @@ namespace Badger
             {
                 return _changeDate;
             }
-            private set
+            private protected set
             {
                 _changeDate = value;
             }
@@ -210,7 +210,7 @@ namespace Badger
             {
                 return _message;
             }
-            private set
+            private protected set
             {
                 _message = value;
             }

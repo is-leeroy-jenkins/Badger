@@ -70,7 +70,7 @@ namespace Badger
             {
                 return _content;
             }
-            private set
+            private protected set
             {
                 _content = value;
             }

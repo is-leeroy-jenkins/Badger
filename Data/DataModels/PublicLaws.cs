@@ -58,7 +58,7 @@ namespace Badger
         /// <value>
         /// The law number.
         /// </value>
-        public string LawNumber { get; set; }
+        public string LawNumber { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the bill title.
@@ -66,7 +66,7 @@ namespace Badger
         /// <value>
         /// The bill title.
         /// </value>
-        public string BillTitle { get; set; }
+        public string BillTitle { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the enacted date.
@@ -74,7 +74,7 @@ namespace Badger
         /// <value>
         /// The enacted date.
         /// </value>
-        public string EnactedDate { get; set; }
+        public string EnactedDate { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the congress.
@@ -82,7 +82,7 @@ namespace Badger
         /// <value>
         /// The congress.
         /// </value>
-        public string Congress { get; set; }
+        public string Congress { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -90,7 +90,7 @@ namespace Badger
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public string BFY { get; private protected set; }
 
         /// <summary>
         /// Initializes a new instance of the

@@ -147,7 +147,7 @@ namespace Badger
             {
                 return _rpio;
             }
-            private set
+            private protected set
             {
                 _rpio = value;
             }
@@ -165,7 +165,7 @@ namespace Badger
             {
                 return _agreementNumber;
             }
-            private set
+            private protected set
             {
                 _agreementNumber = value;
             }
@@ -183,7 +183,7 @@ namespace Badger
             {
                 return _startDate;
             }
-            private set
+            private protected set
             {
                 _startDate = value;
             }
@@ -201,7 +201,7 @@ namespace Badger
             {
                 return _endDate;
             }
-            private set
+            private protected set
             {
                 _endDate = value;
             }
@@ -219,7 +219,7 @@ namespace Badger
             {
                 return _rcCode;
             }
-            private set
+            private protected set
             {
                 _rcCode = value;
             }
@@ -237,7 +237,7 @@ namespace Badger
             {
                 return _orgCode;
             }
-            private set
+            private protected set
             {
                 _orgCode = value;
             }
@@ -255,7 +255,7 @@ namespace Badger
             {
                 return _divisionName;
             }
-            private set
+            private protected set
             {
                 _divisionName = value;
             }
@@ -273,7 +273,7 @@ namespace Badger
             {
                 return _siteProjectCode;
             }
-            private set
+            private protected set
             {
                 _siteProjectCode = value;
             }
@@ -291,7 +291,7 @@ namespace Badger
             {
                 return _accountCode;
             }
-            private set
+            private protected set
             {
                 _accountCode = value;
             }
@@ -309,7 +309,7 @@ namespace Badger
             {
                 return _vendorCode;
             }
-            private set
+            private protected set
             {
                 _vendorCode = value;
             }
@@ -327,7 +327,7 @@ namespace Badger
             {
                 return _vendorName;
             }
-            private set
+            private protected set
             {
                 _vendorName = value;
             }
@@ -345,7 +345,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private set
+            private protected set
             {
                 _amount = value;
             }
@@ -363,7 +363,7 @@ namespace Badger
             {
                 return _openCommitments;
             }
-            private set
+            private protected set
             {
                 _openCommitments = value;
             }
@@ -381,7 +381,7 @@ namespace Badger
             {
                 return _obligations;
             }
-            private set
+            private protected set
             {
                 _obligations = value;
             }
@@ -399,7 +399,7 @@ namespace Badger
             {
                 return _unliquidatedObligations;
             }
-            private set
+            private protected set
             {
                 _unliquidatedObligations = value;
             }
@@ -417,7 +417,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private set
+            private protected set
             {
                 _amount = value;
             }

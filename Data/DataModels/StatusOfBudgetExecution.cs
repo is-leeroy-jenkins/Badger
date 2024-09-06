@@ -85,7 +85,7 @@ namespace Badger
             {
                 return _lineNumber;
             }
-            set
+            private protected set
             {
                 _lineNumber = value;
             }
@@ -103,7 +103,7 @@ namespace Badger
             {
                 return _lineName;
             }
-            set
+            private protected set
             {
                 _lineName = value;
             }
@@ -121,7 +121,7 @@ namespace Badger
             {
                 return _lineCaption;
             }
-            set
+            private protected set
             {
                 _lineCaption = value;
             }
@@ -139,7 +139,7 @@ namespace Badger
             {
                 return _amount;
             }
-            set
+            private protected set
             {
                 _amount = value;
             }

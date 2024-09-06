@@ -59,7 +59,7 @@ namespace Badger
         /// <value>
         /// The apportionment account code.
         /// </value>
-        public string ApportionmentAccountCode { get; set; }
+        public string ApportionmentAccountCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the apportionment account.
@@ -67,7 +67,7 @@ namespace Badger
         /// <value>
         /// The name of the apportionment account.
         /// </value>
-        public string ApportionmentAccountName { get; set; }
+        public string ApportionmentAccountName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the type of the availability.
@@ -75,7 +75,7 @@ namespace Badger
         /// <value>
         /// The type of the availability.
         /// </value>
-        public string AvailabilityType { get; set; }
+        public string AvailabilityType { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the approval date.
@@ -83,7 +83,7 @@ namespace Badger
         /// <value>
         /// The approval date.
         /// </value>
-        public DateTime ApprovalDate { get; set; }
+        public DateTime ApprovalDate { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the line number.
@@ -91,7 +91,7 @@ namespace Badger
         /// <value>
         /// The line number.
         /// </value>
-        public string LineNumber { get; set; }
+        public string LineNumber { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the line.
@@ -99,7 +99,7 @@ namespace Badger
         /// <value>
         /// The name of the line.
         /// </value>
-        public string LineName { get; set; }
+        public string LineName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -107,7 +107,7 @@ namespace Badger
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public double Amount { get; private protected set; }
 
         /// <inheritdoc />
         /// <summary>

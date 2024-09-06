@@ -58,7 +58,7 @@ namespace Badger
         /// <value>
         /// The identifier.
         /// </value>
-        public int ID { get; set; }
+        public int ID { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -66,7 +66,7 @@ namespace Badger
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the record.
@@ -74,7 +74,7 @@ namespace Badger
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record { get; set; }
+        public DataRow Record { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -82,7 +82,7 @@ namespace Badger
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public IDictionary<string, object> Data { get; private protected set; }
 
         /// <summary>
         /// Initializes a new instance of the

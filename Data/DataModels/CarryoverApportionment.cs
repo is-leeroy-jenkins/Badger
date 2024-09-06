@@ -134,7 +134,7 @@ namespace Badger
             {
                 return _budgetAccount;
             }
-            private set
+            private protected set
             {
                 _budgetAccount = value;
             }
@@ -152,7 +152,7 @@ namespace Badger
             {
                 return _treasuryAccount;
             }
-            private set
+            private protected set
             {
                 _treasuryAccount = value;
             }
@@ -170,7 +170,7 @@ namespace Badger
             {
                 return _group;
             }
-            private set
+            private protected set
             {
                 _group = value;
             }
@@ -188,7 +188,7 @@ namespace Badger
             {
                 return _description;
             }
-            private set
+            private protected set
             {
                 _description = value;
             }
@@ -206,7 +206,7 @@ namespace Badger
             {
                 return _lineName;
             }
-            private set
+            private protected set
             {
                 _lineName = value;
             }
@@ -224,7 +224,7 @@ namespace Badger
             {
                 return _authorityType;
             }
-            private set
+            private protected set
             {
                 _authorityType = value;
             }
@@ -242,7 +242,7 @@ namespace Badger
             {
                 return _request;
             }
-            private set
+            private protected set
             {
                 _request = value;
             }
@@ -260,7 +260,7 @@ namespace Badger
             {
                 return _balance;
             }
-            private set
+            private protected set
             {
                 _balance = value;
             }
@@ -278,7 +278,7 @@ namespace Badger
             {
                 return _deobligations;
             }
-            private set
+            private protected set
             {
                 _deobligations = value;
             }
@@ -296,7 +296,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private set
+            private protected set
             {
                 _amount = value;
             }
@@ -314,7 +314,7 @@ namespace Badger
             {
                 return _apportionmentAccountCode;
             }
-            private set
+            private protected set
             {
                 _apportionmentAccountCode = value;
             }
@@ -332,7 +332,7 @@ namespace Badger
             {
                 return _apportionmentAccountCode;
             }
-            private set
+            private protected set
             {
                 _apportionmentAccountCode = value;
             }
@@ -350,7 +350,7 @@ namespace Badger
             {
                 return _apportionmentAccountCode;
             }
-            private set
+            private protected set
             {
                 _apportionmentAccountCode = value;
             }

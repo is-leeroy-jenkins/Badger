@@ -85,7 +85,7 @@ namespace Badger
             {
                 return _number;
             }
-            set
+            private protected set
             {
                 _number = value;
             }
@@ -103,7 +103,7 @@ namespace Badger
             {
                 return _caption;
             }
-            set
+            private protected set
             {
                 _caption = value;
             }
@@ -121,7 +121,7 @@ namespace Badger
             {
                 return _category;
             }
-            set
+            private protected set
             {
                 _category = value;
             }
@@ -139,7 +139,7 @@ namespace Badger
             {
                 return _range;
             }
-            set
+            private protected set
             {
                 _range = value;
             }

@@ -122,7 +122,9 @@ namespace Badger
             _provider = provider;
             _criteria = where;
             _dataConnection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, updates, where,
+                commandType );
+
             _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
             _isDisposed = false;
         }

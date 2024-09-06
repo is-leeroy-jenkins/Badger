@@ -102,7 +102,7 @@ namespace Badger
             {
                 return _ledgerAccount;
             }
-            private set
+            private protected set
             {
                 _ledgerAccount = value;
             }
@@ -120,7 +120,7 @@ namespace Badger
             {
                 return _ledgerName;
             }
-            private set
+            private protected set
             {
                 _ledgerName = value;
             }
@@ -138,7 +138,7 @@ namespace Badger
             {
                 return _apportionmentAccountCode;
             }
-            private set
+            private protected set
             {
                 _apportionmentAccountCode = value;
             }
@@ -156,7 +156,7 @@ namespace Badger
             {
                 return _fiscalMonth;
             }
-            private set
+            private protected set
             {
                 _fiscalMonth = value;
             }
@@ -174,7 +174,7 @@ namespace Badger
             {
                 return _creditBalance;
             }
-            private set
+            private protected set
             {
                 _creditBalance = value;
             }
@@ -192,7 +192,7 @@ namespace Badger
             {
                 return _debitBalance;
             }
-            private set
+            private protected set
             {
                 _debitBalance = value;
             }
@@ -210,7 +210,7 @@ namespace Badger
             {
                 return _yearToDateAmount;
             }
-            private set
+            private protected set
             {
                 _yearToDateAmount = value;
             }

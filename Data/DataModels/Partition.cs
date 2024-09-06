@@ -85,7 +85,7 @@ namespace Badger
             {
                 return _type;
             }
-            private set
+            private protected set
             {
                 _type = value;
             }
@@ -103,7 +103,7 @@ namespace Badger
             {
                 return _programName;
             }
-            private set
+            private protected set
             {
                 _programName = value;
             }
@@ -121,7 +121,7 @@ namespace Badger
             {
                 return _programAreaName;
             }
-            private set
+            private protected set
             {
                 _programAreaName = value;
             }
@@ -139,7 +139,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private set
+            private protected set
             {
                 _amount = value;
             }

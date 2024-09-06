@@ -88,7 +88,7 @@ namespace Badger
             {
                 return _title;
             }
-            set
+            private protected set
             {
                 _title = value;
             }
@@ -106,7 +106,7 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            set
+            private protected set
             {
                 _rpioCode = value;
             }
@@ -124,7 +124,7 @@ namespace Badger
             {
                 return _npm;
             }
-            set
+            private protected set
             {
                 _npm = value;
             }

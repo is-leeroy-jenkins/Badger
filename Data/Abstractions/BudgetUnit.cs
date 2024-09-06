@@ -121,7 +121,7 @@ namespace Badger
             {
                 return _fiscalYear;
             }
-            set
+            private protected set
             {
                 if( _fiscalYear != value )
                 {

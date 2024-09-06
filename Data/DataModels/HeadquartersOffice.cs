@@ -69,7 +69,7 @@ namespace Badger
             {
                 return _rpio;
             }
-            private set
+            private protected set
             {
                 _rpio = value;
             }

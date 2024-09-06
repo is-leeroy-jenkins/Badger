@@ -75,7 +75,7 @@ namespace Badger
             {
                 return _tableName;
             }
-            private set
+            private protected set
             {
                 _tableName = value;
             }
@@ -93,7 +93,7 @@ namespace Badger
             {
                 return _model;
             }
-            private set
+            private protected set
             {
                 _model = value;
             }

@@ -80,7 +80,7 @@ namespace Badger
             {
                 return _stateCode;
             }
-            private set
+            private protected set
             {
                 _stateCode = value;
             }
@@ -98,7 +98,7 @@ namespace Badger
             {
                 return _stateOrgCode;
             }
-            private set
+            private protected set
             {
                 _stateOrgCode = value;
             }
@@ -116,7 +116,7 @@ namespace Badger
             {
                 return _stateName;
             }
-            private set
+            private protected set
             {
                 _stateName = value;
             }

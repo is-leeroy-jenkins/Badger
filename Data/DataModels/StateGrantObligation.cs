@@ -73,7 +73,7 @@ namespace Badger
         /// <value>
         /// The state code.
         /// </value>
-        public string StateCode { get; set; }
+        public string StateCode { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the name of the state.
@@ -81,7 +81,7 @@ namespace Badger
         /// <value>
         /// The name of the state.
         /// </value>
-        public string StateName { get; set; }
+        public string StateName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -89,7 +89,7 @@ namespace Badger
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public double Amount { get; private protected set; }
 
         /// <inheritdoc />
         /// <summary>

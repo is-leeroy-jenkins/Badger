@@ -71,7 +71,7 @@ namespace Badger
             {
                 return _lastActivityDate;
             }
-            set
+            private protected set
             {
                 if( _lastActivityDate != value )
                 {
@@ -93,7 +93,7 @@ namespace Badger
             {
                 return _budgeted;
             }
-            set
+            private protected set
             {
                 if( _budgeted != value )
                 {
@@ -115,7 +115,7 @@ namespace Badger
             {
                 return _posted;
             }
-            set
+            private protected set
             {
                 if( _posted != value )
                 {
@@ -137,7 +137,7 @@ namespace Badger
             {
                 return _carryoverOut;
             }
-            set
+            private protected set
             {
                 if( _carryoverOut != value )
                 {
@@ -159,7 +159,7 @@ namespace Badger
             {
                 return _carryoverIn;
             }
-            set
+            private protected set
             {
                 if( _carryoverIn != value )
                 {
@@ -181,7 +181,7 @@ namespace Badger
             {
                 return _reimbursements;
             }
-            set
+            private protected set
             {
                 if( _reimbursements != value )
                 {
@@ -203,7 +203,7 @@ namespace Badger
             {
                 return _recoveries;
             }
-            set
+            private protected set
             {
                 if( _recoveries != value )
                 {
@@ -225,7 +225,7 @@ namespace Badger
             {
                 return _budgetingControls;
             }
-            set
+            private protected set
             {
                 if( _budgetingControls != value )
                 {
@@ -247,7 +247,7 @@ namespace Badger
             {
                 return _postingControls;
             }
-            set
+            private protected set
             {
                 if( _postingControls != value )
                 {
@@ -269,7 +269,7 @@ namespace Badger
             {
                 return _preCommitmentControls;
             }
-            set
+            private protected set
             {
                 if( _preCommitmentControls != value )
                 {
@@ -291,7 +291,7 @@ namespace Badger
             {
                 return _commitmentControls;
             }
-            set
+            private protected set
             {
                 _commitmentControls = value;
                 OnPropertyChanged( nameof( CommitmentControls ) );
@@ -310,7 +310,7 @@ namespace Badger
             {
                 return _obligationControls;
             }
-            set
+            private protected set
             {
                 _obligationControls = value;
                 OnPropertyChanged( nameof( ObligationControls ) );
@@ -329,7 +329,7 @@ namespace Badger
             {
                 return _accrualControls;
             }
-            set
+            private protected set
             {
                 _accrualControls = value;
                 OnPropertyChanged( nameof( AccrualControls ) );
@@ -348,7 +348,7 @@ namespace Badger
             {
                 return _expenditureControls;
             }
-            set
+            private protected set
             {
                 _expenditureControls = value;
                 OnPropertyChanged( nameof( ExpenditureControls ) );
@@ -367,7 +367,7 @@ namespace Badger
             {
                 return _expenseControls;
             }
-            set
+            private protected set
             {
                 _expenseControls = value;
                 OnPropertyChanged( nameof( ExpenseControls ) );
@@ -386,7 +386,7 @@ namespace Badger
             {
                 return _reimbursementControls;
             }
-            set
+            private protected set
             {
                 _reimbursementControls = value;
                 OnPropertyChanged( nameof( ReimbursementControls ) );
@@ -405,7 +405,7 @@ namespace Badger
             {
                 return _reimbursableAgreementControls;
             }
-            set
+            private protected set
             {
                 _reimbursableAgreementControls = value;
                 OnPropertyChanged( nameof( ReimbursableAgreementControls ) );

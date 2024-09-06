@@ -97,7 +97,7 @@ namespace Badger
             {
                 return _firstName;
             }
-            private set
+            private protected set
             {
                 _firstName = value;
             }
@@ -115,7 +115,7 @@ namespace Badger
             {
                 return _lastName;
             }
-            private set
+            private protected set
             {
                 _lastName = value;
             }
@@ -133,7 +133,7 @@ namespace Badger
             {
                 return _fullName;
             }
-            private set
+            private protected set
             {
                 _fullName = value;
             }
@@ -151,7 +151,7 @@ namespace Badger
             {
                 return _emailAddress;
             }
-            private set
+            private protected set
             {
                 _emailAddress = value;
             }
@@ -169,7 +169,7 @@ namespace Badger
             {
                 return _rpio;
             }
-            private set
+            private protected set
             {
                 _rpio = value;
             }
@@ -187,7 +187,7 @@ namespace Badger
             {
                 return _section;
             }
-            private set
+            private protected set
             {
                 _section = value;
             }

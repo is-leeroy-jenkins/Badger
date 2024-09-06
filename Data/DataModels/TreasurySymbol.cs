@@ -101,7 +101,7 @@ namespace Badger
             {
                 return _shortKey;
             }
-            private set
+            private protected set
             {
                 _shortKey = value;
             }
@@ -119,7 +119,7 @@ namespace Badger
             {
                 return _availabilityType;
             }
-            private set
+            private protected set
             {
                 _availabilityType = value;
             }
@@ -137,7 +137,7 @@ namespace Badger
             {
                 return _agencyTreasurySymbol;
             }
-            private set
+            private protected set
             {
                 _agencyTreasurySymbol = value;
             }
@@ -155,7 +155,7 @@ namespace Badger
             {
                 return _lapsed;
             }
-            private set
+            private protected set
             {
                 _lapsed = value;
             }
@@ -173,7 +173,7 @@ namespace Badger
             {
                 return _useCancelledYearSpendingAccounts;
             }
-            private set
+            private protected set
             {
                 _useCancelledYearSpendingAccounts = value;
             }
@@ -191,7 +191,7 @@ namespace Badger
             {
                 return _inUse;
             }
-            private set
+            private protected set
             {
                 _inUse = value;
             }
@@ -209,7 +209,7 @@ namespace Badger
             {
                 return _preventNewUse;
             }
-            private set
+            private protected set
             {
                 _preventNewUse = value;
             }

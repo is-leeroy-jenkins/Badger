@@ -81,10 +81,10 @@ namespace Badger
         DataRow Record { get; }
 
         /// <summary>
-        /// Gets the data set.
+        /// Gets the data private protected set.
         /// </summary>
         /// <value>
-        /// The data set.
+        /// The data private protected set.
         /// </value>
         DataSet DataSet { get; }
 

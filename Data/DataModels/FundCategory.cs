@@ -66,7 +66,7 @@ namespace Badger
             {
                 return _shortName;
             }
-            private set
+            private protected set
             {
                 _shortName = value;
             }

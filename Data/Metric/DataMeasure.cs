@@ -170,6 +170,7 @@ namespace Badger
             _dates = GetDateColumns( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the maximum.
         /// </summary>
@@ -199,6 +200,7 @@ namespace Badger
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Calculates the minimum.
         /// </summary>

@@ -91,7 +91,7 @@ namespace Badger
             {
                 return _schedule;
             }
-            private set
+            private protected set
             {
                 _schedule = value;
             }
@@ -109,7 +109,7 @@ namespace Badger
             {
                 return _lineNumber;
             }
-            private set
+            private protected set
             {
                 _lineNumber = value;
             }
@@ -127,7 +127,7 @@ namespace Badger
             {
                 return _ruleNumber;
             }
-            private set
+            private protected set
             {
                 _ruleNumber = value;
             }
@@ -145,7 +145,7 @@ namespace Badger
             {
                 return _ruleDescription;
             }
-            private set
+            private protected set
             {
                 _ruleDescription = value;
             }
@@ -163,7 +163,7 @@ namespace Badger
             {
                 return _scheduleOrder;
             }
-            private set
+            private protected set
             {
                 _scheduleOrder = value;
             }

@@ -79,7 +79,7 @@ namespace Badger
             {
                 return _orgCode;
             }
-            set
+            private protected set
             {
                 _orgCode = value;
             }
@@ -97,7 +97,7 @@ namespace Badger
             {
                 return _rpioName;
             }
-            set
+            private protected set
             {
                 _rpioName = value;
             }
@@ -115,7 +115,7 @@ namespace Badger
             {
                 return _rpioCode;
             }
-            set
+            private protected set
             {
                 _rpioCode = value;
             }

@@ -100,7 +100,7 @@ namespace Badger
             {
                 return _documentControlNumber;
             }
-            private set
+            private protected set
             {
                 _documentControlNumber = value;
             }
@@ -118,7 +118,7 @@ namespace Badger
             {
                 return _agreementNumber;
             }
-            private set
+            private protected set
             {
                 _agreementNumber = value;
             }
@@ -136,7 +136,7 @@ namespace Badger
             {
                 return _amount;
             }
-            private set
+            private protected set
             {
                 _amount = value;
             }
@@ -154,7 +154,7 @@ namespace Badger
             {
                 return _openCommitments;
             }
-            private set
+            private protected set
             {
                 _openCommitments = value;
             }
@@ -172,7 +172,7 @@ namespace Badger
             {
                 return _obligations;
             }
-            private set
+            private protected set
             {
                 _obligations = value;
             }
@@ -190,7 +190,7 @@ namespace Badger
             {
                 return _unliquidatedObligations;
             }
-            private set
+            private protected set
             {
                 _unliquidatedObligations = value;
             }
@@ -208,7 +208,7 @@ namespace Badger
             {
                 return _available;
             }
-            private set
+            private protected set
             {
                 _available = value;
             }

@@ -63,7 +63,7 @@ namespace Badger
         /// <value>
         /// The name of the lower.
         /// </value>
-        public string LowerName { get; set; }
+        public string LowerName { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -71,7 +71,7 @@ namespace Badger
         /// <value>
         /// The type.
         /// </value>
-        public string Type { get; set; }
+        public string Type { get; private protected set; }
 
         /// <summary>
         /// Gets or sets the boc.
@@ -79,6 +79,6 @@ namespace Badger
         /// <value>
         /// The boc.
         /// </value>
-        public string BOC { get; set; }
+        public string BOC { get; private protected set; }
     }
 }

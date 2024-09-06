@@ -171,7 +171,7 @@ namespace Badger
             {
                 return _lastUpdate;
             }
-            set
+            private protected set
             {
                 _lastUpdate = value;
             }
@@ -189,7 +189,7 @@ namespace Badger
             {
                 return _stat;
             }
-            set
+            private protected set
             {
                 _stat = value;
             }
@@ -207,7 +207,7 @@ namespace Badger
             {
                 return _stat;
             }
-            set
+            private protected set
             {
                 _stat = value;
             }
@@ -225,7 +225,7 @@ namespace Badger
             {
                 return _stat;
             }
-            set
+            private protected set
             {
                 _stat = value;
             }
@@ -243,7 +243,7 @@ namespace Badger
             {
                 return _lineDescription;
             }
-            set
+            private protected set
             {
                 _lineDescription = value;
             }
@@ -261,7 +261,7 @@ namespace Badger
             {
                 return _sectionName;
             }
-            set
+            private protected set
             {
                 _sectionName = value;
             }
@@ -279,7 +279,7 @@ namespace Badger
             {
                 return _sectionNumber;
             }
-            set
+            private protected set
             {
                 _sectionNumber = value;
             }
@@ -297,7 +297,7 @@ namespace Badger
             {
                 return _lineType;
             }
-            set
+            private protected set
             {
                 _lineType = value;
             }
@@ -315,7 +315,7 @@ namespace Badger
             {
                 return _financingAccount;
             }
-            set
+            private protected set
             {
                 _financingAccount = value;
             }

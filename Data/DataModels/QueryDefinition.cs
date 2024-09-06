@@ -70,7 +70,7 @@ namespace Badger
             {
                 return _type;
             }
-            set
+            private protected set
             {
                 _type = value;
             }

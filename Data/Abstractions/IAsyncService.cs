@@ -92,10 +92,10 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the data set.
+        /// Gets or sets the data private protected set.
         /// </summary>
         /// <value>
-        /// The data set.
+        /// The data private protected set.
         /// </value>
         Task<DataSet> DataSet { get; }
 
@@ -232,7 +232,7 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets the data set asynchronous.
+        /// Gets the data private protected set asynchronous.
         /// </summary>
         /// <returns></returns>
         Task<DataSet> GetDataSetAsync( );
