@@ -199,7 +199,7 @@ namespace Badger
                     SymbolHeight = 8,
                     BorderBrush = _theme.BorderColor,
                     Foreground = _theme.ForeColor,
-                    Background = _theme.ControlColor
+                    Background = _theme.ControlBackColor
                 };
 
                 return _adornment;

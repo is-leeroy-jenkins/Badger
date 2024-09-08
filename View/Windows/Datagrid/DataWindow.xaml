@@ -14,13 +14,14 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
+    Padding="1"
     VerticalContentAlignment="Bottom"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1"
     FontFamily="Segoe UI"
-    FontSize="10"
+    FontSize="12"
     Foreground="{StaticResource LightBlueBrush}"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
@@ -178,12 +179,16 @@
                         Canvas.Top="27"
                         Width="1025"
                         Height="436"
+                        Margin="1"
+                        Padding="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Background="{StaticResource ControlBackColor}"
                         BorderBrush="{StaticResource BorderBrush}"
                         BorderThickness="1"
+                        ExpanderColumnWidth="23"
                         Foreground="{StaticResource LightBlueBrush}"
+                        NavigationMode="Row"
                         SelectionForegroundBrush="{StaticResource FormForeground}" />
 
                     <bdgr:MetroLabel
@@ -542,46 +547,51 @@
 
                     <bdgr:MetroListBox
                         x:Name="DataSourceListBox"
-                        Canvas.Left="21"
-                        Canvas.Top="89"
-                        Width="224"
-                        Height="378"
+                        Canvas.Left="20"
+                        Canvas.Top="90"
+                        Width="200"
+                        Height="371"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}"
-                        BorderBrush="{StaticResource BorderBrush}" />
+                        Background="{DynamicResource ControlInterior}"
+                        BorderBrush="{DynamicResource ControlInterior}" />
 
                     <bdgr:MetroComboBox
                         x:Name="TableComboBox"
-                        Canvas.Left="21"
-                        Canvas.Top="42"
-                        Width="222"
+                        Canvas.Left="15"
+                        Canvas.Top="31"
+                        Width="200"
                         Height="30"
-                        Padding="30,1,1,1"
+                        Padding="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         AllowMultiSelect="False"
-                        Background="{StaticResource ControlInterior}"
-                        DefaultText="Select Model Type">
+                        DefaultText="   Select Model Type">
+                        <bdgr:MetroComboBox.Background>
+                            <SolidColorBrush Color="{DynamicResource BackColor3}" />
+                        </bdgr:MetroComboBox.Background>
 
                         <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
+                            Background="{DynamicResource ControlInterior}"
+                            BorderBrush="{DynamicResource ControlInterior}"
                             Content="Execution"
                             Foreground="{StaticResource LightBlueBrush}"
                             Tag="EXECUTION" />
 
                         <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
+                            Background="{DynamicResource ControlInterior}"
+                            BorderBrush="{DynamicResource ControlInterior}"
                             Content="Reference"
                             Foreground="{StaticResource LightBlueBrush}"
                             Tag="REFERENCE" />
 
                         <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"
-                            Background="{StaticResource ControlInterior}"
+                            Background="{DynamicResource ControlInterior}"
+                            BorderBrush="{DynamicResource ControlInterior}"
                             Content="Maintenance"
                             Foreground="{StaticResource LightBlueBrush}"
                             Tag="MAINTENANCE" />
@@ -608,11 +618,11 @@
                     Margin="0,0,23,0">
                     <bdgr:MetroListBox
                         x:Name="FirstListBox"
-                        Canvas.Left="23"
-                        Canvas.Top="84"
+                        Canvas.Left="20"
+                        Canvas.Top="86"
                         Width="200"
                         Height="140"
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         Background="{StaticResource ControlBackColor}"
@@ -621,8 +631,8 @@
 
                     <bdgr:MetroComboBox
                         x:Name="FirstComboBox"
-                        Canvas.Left="23"
-                        Canvas.Top="34"
+                        Canvas.Left="20"
+                        Canvas.Top="31"
                         Width="200"
                         Height="30"
                         HorizontalAlignment="Left"
@@ -638,8 +648,8 @@
 
                     <bdgr:MetroComboBox
                         x:Name="SecondComboBox"
-                        Canvas.Left="23"
-                        Canvas.Top="264"
+                        Canvas.Left="20"
+                        Canvas.Top="261"
                         Width="200"
                         Height="30"
                         AllowMultiSelect="True"
@@ -653,11 +663,11 @@
 
                     <bdgr:MetroListBox
                         x:Name="SecondListBox"
-                        Canvas.Left="23"
+                        Canvas.Left="20"
                         Canvas.Top="311"
                         Width="200"
                         Height="163"
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
                         ScrollViewer.CanContentScroll="True"
@@ -728,15 +738,15 @@
                 Height="24"
                 Margin="0,0,0,0"
                 Padding="6,2,6,5"
-                Background="{StaticResource DefaultBackground}"
-                BorderBrush="{StaticResource DefaultBackground}"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
                 Foreground="{StaticResource LightBlueBrush}"
                 Header="Dates"
                 IsSelected="False">
                 <Canvas
                     x:Name="CalendarCanvas"
                     Margin="0,5,0,0"
-                    Background="{StaticResource DefaultBackground}">
+                    Background="{StaticResource FormBackground}">
                     <bdgr:MetroLabel
                         x:Name="FirstCalendarLabel"
                         Canvas.Left="27"
@@ -791,9 +801,9 @@
             x:Name="DataToolStrip"
             Canvas.Left="0"
             Canvas.Top="720"
-            Width="1350"
+            Width="1348"
             Height="40"
-            Margin="1"
+            Margin="3,1,1,1"
             Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"

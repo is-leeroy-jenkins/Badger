@@ -43,6 +43,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Controls;
 
     /// <inheritdoc />
@@ -68,6 +69,14 @@ namespace Badger
         public MetroListBox( )
             : base( )
         {
+            // Control Properties
+            Background = _theme.ControlInteriorColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.BorderColor;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            HorizontalContentAlignment = HorizontalAlignment.Left;
         }
 
         /// <summary>

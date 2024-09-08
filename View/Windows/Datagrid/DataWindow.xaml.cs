@@ -78,6 +78,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
     public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
@@ -189,7 +190,7 @@ namespace Badger
         /// <summary>
         /// The data model
         /// </summary>
-        private protected DataGenerator _dataGen;
+        private protected DataGenerator _data;
 
         /// <summary>
         /// The binding source
@@ -489,7 +490,7 @@ namespace Badger
         {
             try
             {
-                StatusLabel.FontSize = 10;
+                StatusLabel.FontSize = 11;
                 SchemaHeader.Foreground = _theme.ForeColor;
                 SchemaHeader.Visibility = Visibility.Hidden;
                 DataColumnLabel.Foreground = _theme.ForeColor;
@@ -837,7 +838,7 @@ namespace Badger
                     var _message = "    The Data Table is null!";
                     SendMessage( _message );
                 }
-                else if( _dataGen.Numerics == null )
+                else if( _data.Numerics == null )
                 {
                     var _message = "    The data is not alpha-numeric";
                     SendMessage( _message );
@@ -2821,11 +2822,11 @@ namespace Badger
                         _source = ( Source )Enum.Parse( typeof( Source ), _selectedTable );
                     }
 
-                    _dataGen = new DataGenerator( _source, _provider );
-                    _dataTable = _dataGen.DataTable;
-                    _columns = _dataGen.ColumnNames;
-                    _fields = _dataGen.Fields;
-                    _numerics = _dataGen.Numerics;
+                    _data = new DataGenerator( _source, _provider );
+                    _dataTable = _data.DataTable;
+                    _columns = _data.ColumnNames;
+                    _fields = _data.Fields;
+                    _numerics = _data.Numerics;
                     _current = _dataTable.Rows[ 0 ];
                     DataGrid.ItemsSource = _dataTable;
                     DataGrid.SelectedIndex = 0;
@@ -2862,8 +2863,8 @@ namespace Badger
                     _firstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
-                        _dataGen = new DataGenerator( _source, _provider );
-                        var _data = _dataGen.DataElements[ _firstCategory ];
+                        this._data = new DataGenerator( _source, _provider );
+                        var _data = this._data.DataElements[ _firstCategory ];
                         foreach( var _value in _data )
                         {
                             var _item = new MetroListBoxItem
@@ -2902,9 +2903,9 @@ namespace Badger
                     var _item = _listBox.SelectedItem as MetroListBoxItem;
                     _firstValue = _item?.Content.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
-                    _dataGen = new DataGenerator( _source, _provider, _filter );
-                    _dataTable = _dataGen.DataTable;
-                    _current = _dataGen.Record;
+                    _data = new DataGenerator( _source, _provider, _filter );
+                    _dataTable = _data.DataTable;
+                    _current = _data.Record;
                     DataGrid.ItemsSource = _dataTable;
                     if( SecondComboBox.Visibility == Visibility.Hidden )
                     {
@@ -2944,7 +2945,7 @@ namespace Badger
                     _secondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
-                        var _data = _dataGen.DataElements[ _secondCategory ];
+                        var _data = this._data.DataElements[ _secondCategory ];
                         foreach( var _element in _data )
                         {
                             var _item = new MetroListBoxItem
@@ -2984,9 +2985,9 @@ namespace Badger
                     _secondValue = _item?.Content?.ToString( );
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
-                    _dataGen = new DataGenerator( _source, _provider, _filter );
-                    _dataTable = _dataGen.DataTable;
-                    _current = _dataGen.Record;
+                    _data = new DataGenerator( _source, _provider, _filter );
+                    _dataTable = _data.DataTable;
+                    _current = _data.Record;
                     DataGrid.ItemsSource = _dataTable;
                     UpdateLabels( );
                 }

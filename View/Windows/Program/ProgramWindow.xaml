@@ -138,14 +138,19 @@
         <!--  ************************************  ToolStrip  *****************************************  -->
 
         <bdgr:ToolStrip
-            x:Name="Toolbar"
+            x:Name="ProgramToolbar"
             Canvas.Left="0"
             Canvas.Top="720"
             Width="1348"
             Height="40"
+            Margin="3,1,1,1"
             Padding="1"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            BorderThickness="1"
+            OverflowButtonVisibility="Collapsed">
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"

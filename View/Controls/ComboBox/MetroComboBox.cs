@@ -45,7 +45,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -77,19 +76,19 @@ namespace Badger
             SetResourceReference( MetroComboBox.StyleProperty, typeof( ComboBoxAdv ) );
             Width = 150;
             Height = 30;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            Padding = new Thickness( 10, 1, 1, 1 );
-            Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
-            IsEditable = true;
             AutoCompleteMode = AutoCompleteModes.None;
             AllowMultiSelect = false;
             IsTextSearchEnabled = false;
             AllowSelectAll = false;
-            Background = _theme.ControlColor;
-            Foreground = _theme.ForeColor;
+            IsEditable = true;
+            Margin = new Thickness( 1, 1, 1, 1 );
+            Padding = _theme.Padding;
+            Background = _theme.ControlInteriorColor;
+            Foreground = _theme.LightBlueColor;
             BorderBrush = _theme.BorderColor;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
         }
 
         /// <summary>
@@ -102,9 +101,6 @@ namespace Badger
             {
                 var _item = new MetroComboBoxItem
                 {
-                    Background = _theme.ControlColor,
-                    Foreground = _theme.ForeColor,
-                    BorderBrush = _theme.ControlColor,
                     Content = name,
                     Tag = name,
                     Height = 22

@@ -256,7 +256,6 @@
             Height="126"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Background="{StaticResource ControlInterior}"
             Header=""
             ImageSource="/Resources/Assets/TileImages/CalendarTile.png"
             ToolTip="Calendar Functionality" />

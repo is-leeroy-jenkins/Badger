@@ -61,9 +61,9 @@ namespace Badger
     public class MetroTextBox : TextBox
     {
         /// <summary>
-        /// The dark
+        /// The theme
         /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode( );
+        private protected readonly DarkMode _theme = new DarkMode();
 
         /// <inheritdoc />
         /// <summary>
@@ -73,19 +73,15 @@ namespace Badger
         public MetroTextBox( )
             : base( )
         {
-            Width = 200;
-            Height = 24;
-            FontFamily = new FontFamily( "Segoe UI" );
-            FontSize = 12d;
-            HorizontalAlignment = HorizontalAlignment.Left;
-            VerticalAlignment = VerticalAlignment.Top;
-            HorizontalContentAlignment = HorizontalAlignment.Left;
-            VerticalContentAlignment = VerticalAlignment.Center;
-            Padding = new Thickness( 5, 1, 1, 1 );
-            Background = _theme.ControlColor;
-            Foreground = _theme.ForeColor;
+            // Control Properties
+            Background = _theme.ControlInteriorColor;
+            Foreground = _theme.LightBlueColor;
             BorderBrush = _theme.BorderColor;
             SelectionBrush = _theme.SteelBlueColor;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Width = 200;
+            Height = 24;
         }
 
         /// <summary>

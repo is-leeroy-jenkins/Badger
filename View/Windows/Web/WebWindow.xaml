@@ -14,7 +14,7 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Margin="3,3,3,3"
+    Margin="1"
     Padding="1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DarkBackColor}"

@@ -61,8 +61,6 @@ namespace Badger
         public ToolStripTextBox( )
             : base( )
         {
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
             Height = 30;
             Width = 200;
         }

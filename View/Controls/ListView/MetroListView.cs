@@ -44,7 +44,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Controls;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -53,8 +52,14 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class MetroListView : ListView
     {
+        /// <summary>
+        /// The theme
+        /// </summary>
+        private protected readonly DarkMode _theme = new DarkMode( );
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -63,6 +68,13 @@ namespace Badger
         public MetroListView( )
             : base( )
         {
+            // Control Properties
+            Foreground = _theme.ForeColor;
+            Background = _theme.ControlBackColor;
+            BorderBrush = _theme.ControlBackColor;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
         }
 
         /// <summary>

@@ -1,8 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:skin="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
-    xmlns:sync="clr-namespace:Syncfusion.Themes.FluentDark.WPF">
+    xmlns:skin="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF">
 
     <Style TargetType="{x:Type skin:RevealItem}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -370,7 +369,7 @@
 
     <SolidColorBrush
         x:Key="ControlBackColor"
-        Color="#FF2D2D2D" />
+        Color="#FF282828" />
 
     <!--  Context Menu Resources  -->
 
@@ -445,6 +444,7 @@
     <Image
         x:Key="TaskManagerMenuItem"
         Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+
     <!--  ToolStrip Resources  -->
 
     <Image

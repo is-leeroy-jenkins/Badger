@@ -80,7 +80,8 @@ namespace Badger
             BackColor = new SolidColorBrush( _backColor );
             BorderColor = new SolidColorBrush( _borderColor );
             WallColor = new SolidColorBrush( _wallColor );
-            ControlColor = new SolidColorBrush( _controlColor );
+            ControlBackColor = new SolidColorBrush( _controlBackColor );
+            ControlInteriorColor = new SolidColorBrush( _controlInteriorColor );
             SteelBlueColor = new SolidColorBrush( _steelBlueColor );
             GrayColor = new SolidColorBrush( Colors.DarkGray );
             YellowColor = new SolidColorBrush( _yellowColor );
@@ -94,7 +95,7 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 1 );
-            Margin = new Thickness( 3 );
+            Margin = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             SizeMode = ResizeMode.CanResize;

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 09-07-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        09-07-2024
 // ******************************************************************************************
 // <copyright file="MetroTile.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MetroTile.cs
@@ -46,10 +46,10 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Input;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Controls.Notification.SfHubTile" />
+    /// <seealso cref="T:Syncfusion.Windows.Controls.Notification.SfHubTile" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
@@ -73,15 +73,15 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTile.StyleProperty, typeof( SfHubTile ) );
+            SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
-            BorderThickness = _theme.BorderThickness;
-            Background = _theme.ControlColor;
+            Background = _theme.ControlBackColor;
             Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.ControlColor;
+            BorderBrush = _theme.ControlBackColor;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
 
             // Wire Events
             MouseEnter += OnMouseEnter;
@@ -120,9 +120,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.ControlColor;
+                Background = _theme.ControlBackColor;
+                BorderBrush = _theme.ControlBackColor;
                 Foreground = _theme.LightBlueColor;
-                BorderBrush = _theme.ControlColor;
             }
             catch( Exception ex )
             {

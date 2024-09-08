@@ -112,7 +112,18 @@ namespace Badger
         /// <summary>
         /// The control color
         /// </summary>
-        private protected Color _controlColor = new Color( )
+        private protected Color _controlBackColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 40,
+            B = 40
+        };
+
+        /// <summary>
+        /// The control color
+        /// </summary>
+        private protected Color _controlInteriorColor = new Color( )
         {
             A = 255,
             R = 45,
@@ -347,7 +358,15 @@ namespace Badger
         /// <value>
         /// The color of the control.
         /// </value>
-        public SolidColorBrush ControlColor { get; private protected init; }
+        public SolidColorBrush ControlBackColor { get; private protected init; }
+
+        /// <summary>
+        /// Gets the color of the interior.
+        /// </summary>
+        /// <value>
+        /// The color of the interior.
+        /// </value>
+        public SolidColorBrush ControlInteriorColor { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>

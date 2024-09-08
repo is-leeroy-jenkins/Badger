@@ -75,6 +75,11 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
+            BorderBrush = _theme.BorderColor;
+            CurrentCellBorderBrush = _theme.LightBlueColor;
+            GroupRowSelectionBrush = _theme.SteelBlueColor;
+            RowSelectionBrush = _theme.SteelBlueColor;
+            RowHoverHighlightingBrush = _theme.DarkBlueColor;
             AllowEditing = false;
             AllowSorting = true;
             AllowFiltering = true;
@@ -97,11 +102,6 @@ namespace Badger
             SelectionUnit = GridSelectionUnit.Row;
             SelectionMode = GridSelectionMode.Single;
             ShowColumnWhenGrouped = false;
-            BorderBrush = _theme.BorderColor;
-            CurrentCellBorderBrush = _theme.LightBlueColor;
-            GroupRowSelectionBrush = _theme.SteelBlueColor;
-            RowSelectionBrush = _theme.SteelBlueColor;
-            RowHoverHighlightingBrush = _theme.DarkBlueColor;
         }
 
         /// <summary>

@@ -76,9 +76,9 @@ namespace Badger
             Height = 150;
             BorderThickness = _theme.BorderThickness;
             Padding = _theme.Padding;
-            Background = _theme.ControlColor;
+            Background = _theme.ControlBackColor;
             Foreground = _theme.ForeColor;
-            BorderBrush = _theme.ControlColor;
+            BorderBrush = _theme.ControlBackColor;
             SelectionBrush = _theme.SteelBlueColor;
         }
 

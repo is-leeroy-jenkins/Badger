@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2020
+//     Created:                 09-07-2020
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2020
+//     Last Modified On:        09-07-2024
 // ******************************************************************************************
 // <copyright file="MetroListBoxItem.cs" company="Terry D. Eppler">
 //    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2020  Terry D. Eppler
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MetroListBoxItem.cs
@@ -43,6 +43,7 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
 
@@ -75,7 +76,15 @@ namespace Badger
         public MetroListBoxItem( )
             : base( )
         {
+            // Control Properties
             Height = 40;
+            Background = _theme.ControlInteriorColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.ControlInteriorColor;
+            Margin = new Thickness( 10, 1, 1, 1 );
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
+            HorizontalContentAlignment = HorizontalAlignment.Left;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
@@ -95,8 +104,8 @@ namespace Badger
                 if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.DarkBlueColor;
-                    _item.BorderBrush = _theme.LightBlueColor;
+                    _item.Background = _theme.SteelBlueColor;
+                    _item.BorderBrush = _theme.SteelBlueColor;
                 }
             }
             catch( Exception ex )
@@ -118,8 +127,8 @@ namespace Badger
                 if( sender is MetroListBoxItem _item )
                 {
                     _item.Foreground = _theme.ForeColor;
-                    _item.Background = _theme.ControlColor;
-                    _item.BorderBrush = _theme.ControlColor;
+                    _item.Background = _theme.ControlInteriorColor;
+                    _item.BorderBrush = _theme.ControlInteriorColor;
                 }
             }
             catch( Exception ex )

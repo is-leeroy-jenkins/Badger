@@ -78,22 +78,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private object _path = new object( );
-
-        /// <summary>
-        /// The seconds
-        /// </summary>
-        private int _seconds;
-
-        /// <summary>
-        /// The selected command
-        /// </summary>
-        private string _selectedQuery;
-
-        /// <summary>
-        /// The SQL command
-        /// </summary>
-        private string _selectedCommand;
+        private readonly object _path = new object( );
 
         /// <summary>
         /// The commands
@@ -868,6 +853,7 @@ namespace Badger
         {
             try
             {
+                _busy = true;
                 InitializeTimer( );
                 InitializeLabels( );
                 InitializeRadioButtons( );
@@ -875,6 +861,7 @@ namespace Badger
                 InitializeTabControls( );
                 Opacity = 0;
                 FadeInAsync( this );
+                _busy = false;
             }
             catch( Exception ex )
             {

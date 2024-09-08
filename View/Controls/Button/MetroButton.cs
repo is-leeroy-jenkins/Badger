@@ -46,7 +46,6 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Input;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -57,6 +56,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class MetroButton : ButtonAdv
     {
         /// <summary>
@@ -74,21 +74,19 @@ namespace Badger
         {
             // Control Properties
             SetResourceReference( MetroButton.StyleProperty, typeof( ButtonAdv ) );
-            FontFamily = _theme.FontFamily;
-            FontSize = _theme.FontSize;
             Width = 140;
             Height = 50;
             IconHeight = 16;
             IconWidth = 16;
             SizeMode = SizeMode.Normal;
-            HorizontalContentAlignment = HorizontalAlignment.Center;
-            VerticalContentAlignment = VerticalAlignment.Center;
+            Background = _theme.ControlBackColor;
+            Foreground = _theme.LightBlueColor;
+            BorderBrush = _theme.ControlBackColor;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            Background = _theme.ControlColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
 
-            // Event Wiring
+            // Wire Events
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
         }
@@ -100,20 +98,17 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMouseEnter( object sender, MouseEventArgs e )
+        private protected virtual void OnMouseEnter(object sender, RoutedEventArgs e )
         {
             try
             {
-                if( sender is MetroButton _button )
-                {
-                    _button.Foreground = _theme.WhiteColor;
-                    _button.Background = _theme.DarkBlueColor;
-                    _button.BorderBrush = _theme.LightBlueColor;
-                }
+                Background = _theme.DarkBlueColor;
+                Foreground = _theme.WhiteColor;
+                BorderBrush = _theme.LightBlueColor;
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
 
@@ -124,20 +119,17 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMouseLeave( object sender, MouseEventArgs e )
+        private protected virtual void OnMouseLeave(object sender, RoutedEventArgs e )
         {
             try
             {
-                if( sender is MetroButton _button )
-                {
-                    _button.Foreground = _theme.LightBlueColor;
-                    _button.Background = _theme.ControlColor;
-                    _button.BorderBrush = _theme.ControlColor;
-                }
+                Background = _theme.ControlBackColor;
+                Foreground = _theme.LightBlueColor;
+                BorderBrush = _theme.ControlBackColor;
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
 

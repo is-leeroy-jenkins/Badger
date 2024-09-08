@@ -75,7 +75,7 @@ namespace Badger
             FontSize = 12;
             Width = 800;
             Height = 400;
-            Background = _theme.ControlColor;
+            Background = _theme.ControlBackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
         }

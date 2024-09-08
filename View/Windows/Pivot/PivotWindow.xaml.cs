@@ -149,16 +149,6 @@ namespace Badger
         private protected string _fourthValue;
 
         /// <summary>
-        /// The hover text
-        /// </summary>
-        private string _hoverText;
-
-        /// <summary>
-        /// The stat
-        /// </summary>
-        private STAT _metric;
-
-        /// <summary>
         /// The numerics
         /// </summary>
         private IList<string> _numerics;
@@ -204,11 +194,6 @@ namespace Badger
         private protected Source _source;
 
         /// <summary>
-        /// The SQL command
-        /// </summary>
-        private string _sqlQuery;
-
-        /// <summary>
         /// The theme
         /// </summary>
         private readonly DarkMode _theme = new DarkMode( );
@@ -232,16 +217,6 @@ namespace Badger
         /// The timer
         /// </summary>
         private TimerCallback _timerCallback;
-
-        /// <summary>
-        /// The xaxis
-        /// </summary>
-        private string _xaxis;
-
-        /// <summary>
-        /// The yvalues
-        /// </summary>
-        private IList<string> _yvalues;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -283,7 +258,6 @@ namespace Badger
 
             // Default Provider
             _provider = Provider.Access;
-            _metric = STAT.Total;
 
             // Initialize Collections
             _busy = false;

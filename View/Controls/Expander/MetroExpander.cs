@@ -78,9 +78,9 @@ namespace Badger
             VerticalAlignment = VerticalAlignment.Stretch;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Stretch;
-            Margin = new Thickness( 3 );
-            Padding = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;

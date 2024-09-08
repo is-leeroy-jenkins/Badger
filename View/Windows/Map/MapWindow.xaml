@@ -149,7 +149,7 @@
             Canvas.Top="720"
             Width="1348"
             Height="40"
-            Margin="1"
+            Margin="3,1,1,1"
             Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"

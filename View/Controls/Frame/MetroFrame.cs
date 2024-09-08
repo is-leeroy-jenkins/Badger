@@ -82,10 +82,10 @@ namespace Badger
             Width = 200;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = _theme.ControlColor;
+            Background = _theme.ControlBackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
-            ContainerBackground = _theme.ControlColor;
+            ContainerBackground = _theme.ControlBackColor;
             FocusedBorderBrush = _theme.ForeColor;
             FocusedForeground = _theme.WhiteColor;
             Hint = "Name";

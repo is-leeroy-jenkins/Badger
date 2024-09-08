@@ -9,14 +9,14 @@
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    StartupUri="/Views/Windows/Main/MainWindow.xaml">
+    StartupUri="/View/Windows/Main/MainWindow.xaml">
 
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
-                <ResourceDictionary Source="/Views/Styles/All.xaml" />
-                <ResourceDictionary Source="/Views/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/View/Styles/Common/All.xaml" />
+                <ResourceDictionary Source="/View/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

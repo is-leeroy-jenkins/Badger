@@ -78,7 +78,7 @@ namespace Badger
             SetResourceReference( MetroCheckList.StyleProperty, typeof( CheckListBox ) );
             Width = 225.0;
             Height = 200.0;
-            Background = _theme.ControlColor;
+            Background = _theme.ControlBackColor;
             Foreground = _theme.ForeColor;
             BorderBrush = _theme.BorderColor;
             Padding = new Thickness( 10, 1, 1, 1 );

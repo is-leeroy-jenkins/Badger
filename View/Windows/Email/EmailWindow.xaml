@@ -142,12 +142,16 @@
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
+            Canvas.Left="0"
             Canvas.Top="720"
-            Width="1348"
+            Width="1350"
             Height="40"
+            Margin="3,1,1,1"
             Padding="1"
-            VerticalAlignment="Bottom"
-            BorderBrush="{StaticResource FormBackground}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
             BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 

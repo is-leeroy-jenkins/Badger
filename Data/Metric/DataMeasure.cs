@@ -266,8 +266,8 @@ namespace Badger
         {
             try
             {
-                var _textColumns = _dataTable?.GetDateColumns( );
-                var _list = _textColumns
+                var _dateColumns = _dataTable?.GetDateColumns( );
+                var _list = _dateColumns
                     ?.Select( c => c.ColumnName )
                     ?.ToList( );
 

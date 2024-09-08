@@ -96,7 +96,7 @@ namespace Badger
         /// Deconstructs the specified identifier.
         /// </summary>
         /// <param name="index">The identifier.</param>
-        /// <param name="name></param>
+        /// <param name="name"></param>
         /// <param name="value">The y.</param>
         public override void Deconstruct( out double index, out string name, 
             out double value )
