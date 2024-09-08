@@ -44,12 +44,10 @@ namespace Badger
     using System;
     using System.ComponentModel;
     using Syncfusion.SfSkinManager;
-    using System.Diagnostics;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
     using System.Windows.Media.Animation;
-    using System.Windows.Shapes;
 
     /// <summary>
     /// Helper class to achieve reveal hover and pressed animation 
@@ -81,6 +79,7 @@ namespace Badger
 
         private Storyboard revealPressedStoryboard;
 
+        /// <inheritdoc />
         /// <summary>
         /// Static constructor to handle reveal animations.
         /// </summary>
@@ -90,6 +89,7 @@ namespace Badger
                 new FrameworkPropertyMetadata( typeof( RevealItem ) ) );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Default constructor to handle reveal animations.
         /// </summary>

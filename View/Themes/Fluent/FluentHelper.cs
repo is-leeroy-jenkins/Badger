@@ -1,15 +1,53 @@
+// ******************************************************************************************
+//     Assembly:                Badger
+//     Author:                  Terry D. Eppler
+//     Created:                 09-08-2020
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        09-08-2024
+// ******************************************************************************************
+// <copyright file="FluentHelper.cs" company="Terry D. Eppler">
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    that is based on WPF, NET6.0, and written in C-Sharp.
+// 
+//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   FluentHelper.cs
+// </summary>
+// ******************************************************************************************
+
 namespace Badger
 {
     using Syncfusion.SfSkinManager;
     using System;
-    using System.Globalization;
+    using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
-    using System.Windows.Data;
     using System.Windows.Documents;
     using System.Windows.Input;
-    using System.Windows.Interop;
-    using System.Windows.Markup;
-    using System.Windows.Media;
 
     /// <summary>
     /// Helper class to achieve fluent theme hover and pressed animation 
@@ -24,19 +62,22 @@ namespace Badger
     /// </code>
     /// </example>
     /// <exclude/>
-    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-    [System.ComponentModel.Browsable(false)]
+    [ EditorBrowsable( EditorBrowsableState.Never ) ]
+    [ Browsable( false ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
     public class FluentHelper
     {
-        static FluentHelper()
+        /// <summary>
+        /// Initializes the <see cref="FluentHelper"/> class.
+        /// </summary>
+        static FluentHelper( )
         {
-            
         }
 
-        #region Attached properties
-
         /// <summary>
-        /// Gets the <see cref="FluentHelper.HoverEffectModeProperty"/> attached property value that denotes the hover animation to be applied on UIElement.
+        /// Gets the <see cref="FluentHelper.HoverEffectModeProperty"/>
+        /// attached property value that denotes the hover animation to be applied on UIElement.
         /// </summary>
         /// <value>
         /// The default value is <see cref="HoverEffect.BackgroundAndBorder"/>.
@@ -65,11 +106,11 @@ namespace Badger
         /// </list>
         /// </value>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static HoverEffect GetHoverEffectMode(DependencyObject obj)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static HoverEffect GetHoverEffectMode( DependencyObject obj )
         {
-            return (HoverEffect)obj.GetValue(HoverEffectModeProperty);
+            return ( HoverEffect )obj.GetValue( HoverEffectModeProperty );
         }
 
         /// <summary>
@@ -102,11 +143,11 @@ namespace Badger
         /// </list>
         /// </value>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static void SetHoverEffectMode(DependencyObject obj, HoverEffect value)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static void SetHoverEffectMode( DependencyObject obj, HoverEffect value )
         {
-            obj.SetValue(HoverEffectModeProperty, value);
+            obj.SetValue( HoverEffectModeProperty, value );
         }
 
         /// <summary>
@@ -135,11 +176,11 @@ namespace Badger
         /// </list>
         /// </value>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static PressedEffect GetPressedEffectMode(DependencyObject obj)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static PressedEffect GetPressedEffectMode( DependencyObject obj )
         {
-            return (PressedEffect)obj.GetValue(PressedEffectModeProperty);
+            return ( PressedEffect )obj.GetValue( PressedEffectModeProperty );
         }
 
         /// <summary>
@@ -168,11 +209,11 @@ namespace Badger
         /// </list>
         /// </value>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static void SetPressedEffectMode(DependencyObject obj, PressedEffect value)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static void SetPressedEffectMode( DependencyObject obj, PressedEffect value )
         {
-            obj.SetValue(PressedEffectModeProperty, value);
+            obj.SetValue( PressedEffectModeProperty, value );
         }
 
         /// <summary>
@@ -182,11 +223,11 @@ namespace Badger
         /// The <see cref="RevealItem"/> value. The default value is <b>null</b>.
         /// </value>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static RevealItem GetRevealItem(DependencyObject obj)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static RevealItem GetRevealItem( DependencyObject obj )
         {
-            return (RevealItem)obj.GetValue(RevealItemProperty);
+            return ( RevealItem )obj.GetValue( RevealItemProperty );
         }
 
         /// <summary>
@@ -194,7 +235,6 @@ namespace Badger
         /// </summary>
         /// <value>
         /// The <see cref="RevealItem"/> value. The default value is <b>null</b>.
-        /// </value>
         /// </value>
         /// <example>
         /// <code language="XAML">
@@ -210,11 +250,11 @@ namespace Badger
         /// </code>
         /// </example>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
-        public static void SetRevealItem(DependencyObject obj, RevealItem value)
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
+        public static void SetRevealItem( DependencyObject obj, RevealItem value )
         {
-            obj.SetValue(RevealItemProperty, value);
+            obj.SetValue( RevealItemProperty, value );
         }
 
         /// <summary>
@@ -224,10 +264,12 @@ namespace Badger
         /// The identifier for the <see cref="FluentHelper.RevealItemProperty" /> dependency attached property.
         /// </remarks>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
         public static readonly DependencyProperty RevealItemProperty =
-            DependencyProperty.RegisterAttached("RevealItem", typeof(RevealItem), typeof(FluentHelper), new PropertyMetadata(null, OnRevealItemChanged));
+            DependencyProperty.RegisterAttached( "RevealItem", typeof( RevealItem ),
+                typeof( FluentHelper ),
+                new PropertyMetadata( null, FluentHelper.OnRevealItemChanged ) );
 
         /// <summary>
         /// Identifies the <see cref="FluentHelper.HoverEffectModeProperty" /> dependency attached property to get or set this property to decide on the hover animation to be applied.
@@ -236,10 +278,13 @@ namespace Badger
         /// The identifier for the <see cref="FluentHelper.HoverEffectModeProperty" /> dependency attached property.
         /// </remarks>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
         public static readonly DependencyProperty HoverEffectModeProperty =
-            DependencyProperty.RegisterAttached("HoverEffectMode", typeof(HoverEffect), typeof(FluentHelper), new FrameworkPropertyMetadata(HoverEffect.BackgroundAndBorder, FrameworkPropertyMetadataOptions.Inherits));
+            DependencyProperty.RegisterAttached( "HoverEffectMode", typeof( HoverEffect ),
+                typeof( FluentHelper ),
+                new FrameworkPropertyMetadata( HoverEffect.BackgroundAndBorder,
+                    FrameworkPropertyMetadataOptions.Inherits ) );
 
         /// <summary>
         /// Identifies the <see cref="FluentHelper.PressedEffectModeProperty" /> dependency attached property to get or set this property to decide on the pressed animation to be applied.
@@ -248,25 +293,30 @@ namespace Badger
         /// The identifier for the <see cref="FluentHelper.PressedEffectModeProperty" /> dependency attached property.
         /// </remarks>
         /// <exclude/>
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.ComponentModel.Browsable(false)]
+        [ EditorBrowsable( EditorBrowsableState.Never ) ]
+        [ Browsable( false ) ]
         public static readonly DependencyProperty PressedEffectModeProperty =
-            DependencyProperty.RegisterAttached("PressedEffectMode", typeof(PressedEffect), typeof(FluentHelper), new FrameworkPropertyMetadata(PressedEffect.Reveal, FrameworkPropertyMetadataOptions.Inherits));
-        #endregion
+            DependencyProperty.RegisterAttached( "PressedEffectMode", typeof( PressedEffect ),
+                typeof( FluentHelper ),
+                new FrameworkPropertyMetadata( PressedEffect.Reveal,
+                    FrameworkPropertyMetadataOptions.Inherits ) );
 
-        #region Methods
         /// <summary>
         /// Helper method to handle <see cref="RevealItemProperty"/> property changed actions
         /// </summary>
         /// <param name="d">Dependency object</param>
         /// <param name="e">Dependency EventArgs</param>
-        private static void OnRevealItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnRevealItemChanged( DependencyObject d,
+            DependencyPropertyChangedEventArgs e )
         {
-            var revealElement = GetRevealItem(d);
-            if (revealElement != null)
+            var revealElement = FluentHelper.GetRevealItem( d );
+            if( revealElement != null )
             {
-                if (GetHoverEffectMode(d) != HoverEffect.None || GetPressedEffectMode(d) != PressedEffect.None)
-                    (d as UIElement).MouseEnter += FluentControl_MouseEnter;
+                if( FluentHelper.GetHoverEffectMode( d ) != HoverEffect.None
+                    || FluentHelper.GetPressedEffectMode( d ) != PressedEffect.None )
+                {
+                    ( d as UIElement ).MouseEnter += FluentHelper.FluentControl_MouseEnter;
+                }
             }
         }
 
@@ -275,27 +325,28 @@ namespace Badger
         /// </summary>
         /// <param name="sender">object</param>
         /// <param name="e">MouseEventArgs</param>
-        private static void FluentControl_MouseLeave(object sender, MouseEventArgs e)
+        private static void FluentControl_MouseLeave( object sender, MouseEventArgs e )
         {
-            DependencyObject dependencyObject = sender as DependencyObject;
-            UIElement uIElement = sender as UIElement;
-            if (uIElement != null)
+            var dependencyObject = sender as DependencyObject;
+            var uIElement = sender as UIElement;
+            if( uIElement != null )
             {
-                var revealElement = GetRevealItem(dependencyObject);
-                if (revealElement != null)
+                var revealElement = FluentHelper.GetRevealItem( dependencyObject );
+                if( revealElement != null )
                 {
-                    AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(uIElement);
-                    if (adornerLayer != null)
+                    var adornerLayer = AdornerLayer.GetAdornerLayer( uIElement );
+                    if( adornerLayer != null )
                     {
-                        Adorner[] toRemoveArray = adornerLayer.GetAdorners(sender as UIElement);
+                        var toRemoveArray = adornerLayer.GetAdorners( sender as UIElement );
                         Adorner toRemove;
-                        if (toRemoveArray != null)
+                        if( toRemoveArray != null )
                         {
-                            toRemove = toRemoveArray[0];
-                            adornerLayer.Remove(toRemove);
+                            toRemove = toRemoveArray[ 0 ];
+                            adornerLayer.Remove( toRemove );
                         }
                     }
-                    uIElement.MouseLeave -= FluentControl_MouseLeave;
+
+                    uIElement.MouseLeave -= FluentHelper.FluentControl_MouseLeave;
                 }
             }
         }
@@ -305,33 +356,35 @@ namespace Badger
         /// </summary>
         /// <param name="sender">object</param>
         /// <param name="e">MouseEventArgs</param>
-        private static void FluentControl_MouseEnter(object sender, MouseEventArgs e)
+        private static void FluentControl_MouseEnter( object sender, MouseEventArgs e )
         {
-            DependencyObject dependencyObject = sender as DependencyObject;
-            UIElement uIElement = sender as UIElement;
-            if (uIElement != null)
+            var dependencyObject = sender as DependencyObject;
+            var uIElement = sender as UIElement;
+            if( uIElement != null )
             {
-                AdornerLayer adorner = AdornerLayer.GetAdornerLayer(uIElement);
-                var revealElement = GetRevealItem(dependencyObject);
-                if (revealElement != null && adorner != null)
+                var adorner = AdornerLayer.GetAdornerLayer( uIElement );
+                var revealElement = FluentHelper.GetRevealItem( dependencyObject );
+                if( revealElement != null
+                    && adorner != null )
                 {
-                    var hoverEffect = GetHoverEffectMode(dependencyObject);
-                    var pressedEffect = GetPressedEffectMode(dependencyObject);
-
+                    var hoverEffect = FluentHelper.GetHoverEffectMode( dependencyObject );
+                    var pressedEffect = FluentHelper.GetPressedEffectMode( dependencyObject );
                     var defaultHoverEffect = RevealItem.HoverEffectModeProperty.DefaultMetadata;
-                    if (!hoverEffect.Equals(defaultHoverEffect.DefaultValue))
+                    if( !hoverEffect.Equals( defaultHoverEffect.DefaultValue ) )
+                    {
                         revealElement.HoverEffectMode = hoverEffect;
-
+                    }
 
                     var defaultPressedEffect = RevealItem.HoverEffectModeProperty.DefaultMetadata;
-                    if (!pressedEffect.Equals(defaultPressedEffect.DefaultValue))
+                    if( !pressedEffect.Equals( defaultPressedEffect.DefaultValue ) )
+                    {
                         revealElement.PressedEffectMode = pressedEffect;
+                    }
 
-                    adorner.Add(new RevealItemAdorner(uIElement, revealElement));
-                    uIElement.MouseLeave += FluentControl_MouseLeave;
+                    adorner.Add( new RevealItemAdorner( uIElement, revealElement ) );
+                    uIElement.MouseLeave += FluentHelper.FluentControl_MouseLeave;
                 }
             }
         }
-        #endregion
     }
 }

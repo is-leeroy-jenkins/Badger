@@ -1,21 +1,27 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:shared="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
-    xmlns:themelocal="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
     xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    xmlns:shared="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:themelocal="clr-namespace:Syncfusion.Themes.FluentDark.WPF">
 
     <ResourceDictionary.MergedDictionaries>
-        <sfskin:ResourceDictionaryProvider DictionaryName="Common" ThemeName="FluentDark"/>
-        <sfskin:ResourceDictionaryProvider DictionaryName="Brushes" ThemeName="FluentDark"/>
+        <sfskin:ResourceDictionaryProvider
+            DictionaryName="Common"
+            ThemeName="FluentDark" />
+        <sfskin:ResourceDictionaryProvider
+            DictionaryName="Brushes"
+            ThemeName="FluentDark" />
         <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/MSControl/Button.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/MSControl/ToggleButton.xaml" />
         <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/MSControl/GlyphButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  ToggleButtonStyle  -->
-    <Style x:Key="minMaxButtonStyle" TargetType="ToggleButton">
+    <Style
+        x:Key="minMaxButtonStyle"
+        TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Width" Value="24" />
@@ -30,7 +36,9 @@
                         Height="{TemplateBinding Height}"
                         CornerRadius="{StaticResource FluentDark.CornerRadius2}"
                         SnapsToDevicePixels="True">
-                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Grid
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}">
                             <Border
                                 Name="maxButton"
                                 Width="{TemplateBinding Width}"
@@ -44,8 +52,8 @@
                                     Width="10"
                                     Height="10"
                                     Data="M1 1V11H11V1H1Z"
-                                    Stroke="{StaticResource IconColor}"
-                                    Stretch="Fill" />
+                                    Stretch="Fill"
+                                    Stroke="{StaticResource IconColor}" />
                             </Border>
                             <Grid x:Name="minButton">
                                 <Path
@@ -53,8 +61,8 @@
                                     Width="10"
                                     Height="2"
                                     Data="M0 1H10"
-                                    Stroke="{StaticResource IconColor}"
-                                    Stretch="Fill" />
+                                    Stretch="Fill"
+                                    Stroke="{StaticResource IconColor}" />
                             </Grid>
                         </Grid>
                     </Border>
@@ -71,11 +79,15 @@
                             <Setter TargetName="minButton" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="maxButton" Property="Visibility" Value="Visible" />
                         </Trigger>
-                        <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type shared:TileViewItem}}}" Value="True">
+                        <DataTrigger
+                            Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type shared:TileViewItem}}}"
+                            Value="True">
                             <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SelectedForeground}" />
                             <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SelectedForeground}" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type shared:TileViewItem}}}" Value="True">
+                        <DataTrigger
+                            Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type shared:TileViewItem}}}"
+                            Value="True">
                             <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SelectedForeground}" />
                             <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SelectedForeground}" />
                         </DataTrigger>
@@ -128,8 +140,8 @@
                                         <Path
                                             x:Name="Maximize"
                                             Data="M1 1V11H11V1H1Z"
-                                            Stroke="{StaticResource IconColor}"
-                                            Stretch="Fill" />
+                                            Stretch="Fill"
+                                            Stroke="{StaticResource IconColor}" />
                                     </Border>
                                     <Grid
                                         x:Name="minButton"
@@ -140,14 +152,14 @@
                                         <Path
                                             x:Name="Minimize"
                                             Data="M0 1H10"
-                                            Stroke="{StaticResource IconColor}"
-                                            Stretch="Fill" />
+                                            Stretch="Fill"
+                                            Stroke="{StaticResource IconColor}" />
                                     </Grid>
                                 </Grid>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
-                                    <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}"/>
+                                    <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
                                 </Trigger>
                                 <Trigger Property="IsChecked" Value="True">
                                     <Setter TargetName="minButton" Property="Visibility" Value="Visible" />
@@ -185,20 +197,22 @@
                 </Setter>
             </Trigger>
             <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource KeyboardFocusVisualStyle}"/>
+                <Setter Property="FocusVisualStyle" Value="{StaticResource KeyboardFocusVisualStyle}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!--  TileViewItem Style  -->
-    <Style x:Key="SyncfusionTileViewItemStyle" TargetType="{x:Type shared:TileViewItem}">
+    <Style
+        x:Key="SyncfusionTileViewItemStyle"
+        TargetType="{x:Type shared:TileViewItem}">
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HeaderForeground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HeaderBackground" Value="{StaticResource ContentBackgroundAlt1}" />
         <Setter Property="HeaderBorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}"/>
+        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
         <Setter Property="CornerRadius" Value="{StaticResource FluentDark.ThemeCornerRadiusVariant1}" />
         <Setter Property="HeaderHeight" Value="32" />
         <Setter Property="HeaderBorderThickness" Value="{StaticResource FluentDark.BorderThickness0001}" />
@@ -229,84 +243,89 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            >
+                            CornerRadius="{TemplateBinding CornerRadius}">
                             <DockPanel LastChildFill="True">
                                 <Border
-                                            x:Name="FloatPanelArea"
-                                            Height="{TemplateBinding HeaderHeight}"
-                                            Background="{TemplateBinding HeaderBackground}"
-                                            BorderBrush="{TemplateBinding HeaderBorderBrush}"
-                                            BorderThickness="{TemplateBinding HeaderBorderThickness}"
-                                            CornerRadius="{TemplateBinding HeaderCornerRadius}"
-                                            Cursor="{TemplateBinding HeaderCursor}"
-                                            DockPanel.Dock="Top"
-                                            TextElement.Foreground="{TemplateBinding HeaderForeground}"
-                                            Visibility="{TemplateBinding HeaderVisibility}">
+                                    x:Name="FloatPanelArea"
+                                    Height="{TemplateBinding HeaderHeight}"
+                                    Background="{TemplateBinding HeaderBackground}"
+                                    BorderBrush="{TemplateBinding HeaderBorderBrush}"
+                                    BorderThickness="{TemplateBinding HeaderBorderThickness}"
+                                    CornerRadius="{TemplateBinding HeaderCornerRadius}"
+                                    Cursor="{TemplateBinding HeaderCursor}"
+                                    DockPanel.Dock="Top"
+                                    TextElement.Foreground="{TemplateBinding HeaderForeground}"
+                                    Visibility="{TemplateBinding HeaderVisibility}">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0" IsHitTestVisible="True">
+                                        <Grid
+                                            Grid.Column="0"
+                                            IsHitTestVisible="True">
                                             <ContentPresenter
-                                                        x:Name="headercontent"
-                                                        Margin="{TemplateBinding Padding}"
-                                                        HorizontalAlignment="Stretch"
-                                                        VerticalAlignment="Center"
-                                                        Content="{TemplateBinding Header}"
-                                                        ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                                        TextElement.FontSize="{StaticResource FluentDark.BodyTextStyle}">
+                                                x:Name="headercontent"
+                                                Margin="{TemplateBinding Padding}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center"
+                                                Content="{TemplateBinding Header}"
+                                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                TextElement.FontSize="{StaticResource FluentDark.BodyTextStyle}">
                                                 <ContentPresenter.Resources>
-                                                    <Style BasedOn="{x:Null}" TargetType="{x:Type TextBlock}" />
+                                                    <Style
+                                                        BasedOn="{x:Null}"
+                                                        TargetType="{x:Type TextBlock}" />
                                                 </ContentPresenter.Resources>
                                             </ContentPresenter>
                                         </Grid>
                                         <Grid Grid.Column="1">
                                             <ToggleButton
-                                                        x:Name="MinMaxButton"
-                                                        Margin="{TemplateBinding MinMaxButtonMargin}"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalContentAlignment="Center"
-                                                        VerticalContentAlignment="Center"
-                                                        Cursor="Hand"
-                                                        IsThreeState="True"
-                                                        Style="{TemplateBinding MinMaxButtonStyle}"
-                                                        ToolTipService.ToolTip="{TemplateBinding MinMaxButtonToolTip}"
-                                                        Visibility="{TemplateBinding MinMaxButtonVisibility}" />
+                                                x:Name="MinMaxButton"
+                                                Margin="{TemplateBinding MinMaxButtonMargin}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Cursor="Hand"
+                                                IsThreeState="True"
+                                                Style="{TemplateBinding MinMaxButtonStyle}"
+                                                ToolTipService.ToolTip="{TemplateBinding MinMaxButtonToolTip}"
+                                                Visibility="{TemplateBinding MinMaxButtonVisibility}" />
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <shared:TileViewItemCloseButton
-                                                        x:Name="CloseButton"
-                                                    Width="24"
-                                                    Height="24"
-                                                    Margin="{TemplateBinding CloseButtonMargin}"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalContentAlignment="Center"
-                                                    VerticalContentAlignment="Center"
-                                                    Style="{TemplateBinding CloseButtonStyle}"
-                                                    Visibility="{TemplateBinding CloseButtonVisibility}" >
+                                                x:Name="CloseButton"
+                                                Width="24"
+                                                Height="24"
+                                                Margin="{TemplateBinding CloseButtonMargin}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"
+                                                Style="{TemplateBinding CloseButtonStyle}"
+                                                Visibility="{TemplateBinding CloseButtonVisibility}">
                                                 <Path
-                                                       x:Name="Close_Big"
-                                                       Width="10"
-                                                       Height="10"
-                                                       Data="M1 11L6 6M6 6L11 1M6 6L11 11M6 6L1 1"
-                                                       Stroke="{StaticResource IconColor}"
-                                                       Stretch="Fill" />
+                                                    x:Name="Close_Big"
+                                                    Width="10"
+                                                    Height="10"
+                                                    Data="M1 11L6 6M6 6L11 1M6 6L11 11M6 6L1 1"
+                                                    Stretch="Fill"
+                                                    Stroke="{StaticResource IconColor}" />
                                             </shared:TileViewItemCloseButton>
                                         </Grid>
                                     </Grid>
                                 </Border>
-                                <Grid x:Name="PART_Content" Background="Transparent">
+                                <Grid
+                                    x:Name="PART_Content"
+                                    Background="Transparent">
                                     <ContentPresenter
-                                                x:Name="tileviewcontent"
-                                                Margin="{TemplateBinding Margin}"
-                                                Content="{TemplateBinding Content}"
-                                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+                                        x:Name="tileviewcontent"
+                                        Margin="{TemplateBinding Margin}"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
                                 </Grid>
                             </DockPanel>
                         </Border>
@@ -322,7 +341,7 @@
                         <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
                             <Setter Property="HeaderHeight" Value="45" />
                             <Setter Property="FontSize" Value="18" />
-                            <Setter Property="MinWidth" Value="{StaticResource TouchMode.MinSize}" TargetName="CloseButton"/>
+                            <Setter TargetName="CloseButton" Property="MinWidth" Value="{StaticResource TouchMode.MinSize}" />
                             <Setter Property="TextBlock.FontSize" Value="18" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -332,7 +351,7 @@
                             <Setter TargetName="FloatPanelArea" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="headercontent" Property="TextElement.Foreground" Value="{StaticResource HoveredForeground}" />
                             <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource HoveredForeground}" />
-                           
+
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="TileViewItemBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
@@ -350,17 +369,17 @@
                             <Setter TargetName="FloatPanelArea" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="headercontent" Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
                         </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="CloseButton" Value="True">
+                        <Trigger SourceName="CloseButton" Property="IsMouseOver" Value="True">
                             <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource SecondaryForegroundHovered}" />
                             <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
                             <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
                         </Trigger>
-                        <Trigger Property="IsPressed"  SourceName="CloseButton" Value="True">
+                        <Trigger SourceName="CloseButton" Property="IsPressed" Value="True">
                             <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource SecondaryForegroundSelected}" />
                             <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
                             <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
                         </Trigger>
-                        <Trigger Property="IsEnabled" SourceName="CloseButton" Value="False">
+                        <Trigger SourceName="CloseButton" Property="IsEnabled" Value="False">
                             <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource IconColorDisabled}" />
                             <Setter TargetName="CloseButton" Property="Background" Value="Transparent" />
                             <Setter TargetName="CloseButton" Property="BorderBrush" Value="Transparent" />
@@ -371,15 +390,19 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}"/>
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style BasedOn="{StaticResource SyncfusionTileViewItemStyle}" TargetType="{x:Type shared:TileViewItem}" />
+    <Style
+        BasedOn="{StaticResource SyncfusionTileViewItemStyle}"
+        TargetType="{x:Type shared:TileViewItem}" />
 
     <!--  TileViewControl Style  -->
-    <Style x:Key="SyncfusionTileViewControlStyle" TargetType="{x:Type shared:TileViewControl}">
+    <Style
+        x:Key="SyncfusionTileViewControlStyle"
+        TargetType="{x:Type shared:TileViewControl}">
         <Style.Triggers>
             <Trigger Property="IsVirtualizing" Value="True">
                 <Setter Property="ItemsPanel">
@@ -400,20 +423,22 @@
                 </Setter>
             </Trigger>
             <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}"/>
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}" />
             </Trigger>
         </Style.Triggers>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="shared:TileViewControl">
-                    <Grid x:Name="MainGrid" Background="{TemplateBinding Background}">
+                    <Grid
+                        x:Name="MainGrid"
+                        Background="{TemplateBinding Background}">
                         <ScrollViewer
                             x:Name="scrollviewer"
+                            CanContentScroll="True"
+                            Focusable="False"
                             HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
                             VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}"
-                            Visibility="Visible"
-                            CanContentScroll="True"
-                            Focusable="False">
+                            Visibility="Visible">
                             <ItemsPresenter />
                         </ScrollViewer>
                     </Grid>
@@ -435,6 +460,8 @@
         <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
     </Style>
 
-    <Style BasedOn="{StaticResource SyncfusionTileViewControlStyle}" TargetType="{x:Type shared:TileViewControl}" />
+    <Style
+        BasedOn="{StaticResource SyncfusionTileViewControlStyle}"
+        TargetType="{x:Type shared:TileViewControl}" />
 
 </ResourceDictionary>

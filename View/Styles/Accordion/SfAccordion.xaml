@@ -2,13 +2,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Syncfusion.Windows.Controls.Layout;assembly=Syncfusion.SfAccordion.WPF"
-    xmlns:themelocal="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
-    xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:bdgr="clr-namespace:Badger"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <sfskin:ResourceDictionaryProvider DictionaryName="Common" ThemeName="FluentDark"/>
-        <sfskin:ResourceDictionaryProvider DictionaryName="Brushes" ThemeName="FluentDark"/>
+        <skin:ResourceDictionaryProvider DictionaryName="Common" ThemeName="FluentDark"/>
+        <skin:ResourceDictionaryProvider DictionaryName="Brushes" ThemeName="FluentDark"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="SyncfusionLayoutTransformerStyle" TargetType="local:LayoutTransformer">
@@ -34,11 +35,11 @@
 
     <Style x:Key="SyncfusionExpandableContentControlStyle" TargetType="local:ExpandableContentControl">
         <Setter Property="IsEnabled" Value="true" />
-        <Setter Property="Background" Value="{StaticResource ContentBackground}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ContentBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderAlt}" />
+        <Setter Property="Foreground" Value="{DynamicResource ContentForeground}" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource FluentDark.BorderThickness}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="Template">
@@ -67,7 +68,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="IsTabStop" Value="True" />
-		<Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+		<Setter Property="Background" Value="{DynamicResource ContentBackgroundAlt1}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:AccordionButton">
@@ -113,8 +114,8 @@
                                         Height="10"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Stroke="{StaticResource IconColor}"
-                                       StrokeThickness="{StaticResource FluentDark.StrokeThickness1}" 
+                                        Stroke="{DynamicResource IconColor}"
+                                       StrokeThickness="{DynamicResource FluentDark.StrokeThickness1}" 
                                        RenderTransformOrigin="0.5,0.5"
                                        Data="M6.5 1L1 6.5L6.5 12"
                                        Stretch="Uniform">
@@ -144,7 +145,7 @@
                                     FontStretch="{TemplateBinding FontStretch}"
                                     FontStyle="{TemplateBinding FontStyle}"
                                     FontWeight="{TemplateBinding FontWeight}"
-                                    Style="{StaticResource SyncfusionLayoutTransformerStyle}" />
+                                    Style="{DynamicResource SyncfusionLayoutTransformerStyle}" />
                         </Grid>
 
                         <VisualStateManager.VisualStateGroups>
@@ -203,60 +204,60 @@
                         </VisualStateManager.VisualStateGroups>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
+                        <Trigger Property="skin:SfSkinManager.SizeMode" Value="Touch">
                             <Setter Property="Margin" TargetName="arrow" Value="0,5,0,0"/>
                             <Setter Property="Width" TargetName="arrow" Value="12"/>
                             <Setter Property="Height" TargetName="arrow" Value="10"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="buttonGrid" Property="Background" Value="{StaticResource ContentBackgroundDisabled}" />
-                            <Setter TargetName="header" Property="Foreground" Value="{StaticResource DisabledForeground}" />
-                            <Setter TargetName="arrow" Property="Stroke" Value="{StaticResource DisabledForeground}" />
+                            <Setter TargetName="buttonGrid" Property="Background" Value="{DynamicResource ContentBackgroundDisabled}" />
+                            <Setter TargetName="header" Property="Foreground" Value="{DynamicResource DisabledForeground}" />
+                            <Setter TargetName="arrow" Property="Stroke" Value="{DynamicResource DisabledForeground}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="buttonGrid" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
-                            <Setter TargetName="header" Property="Foreground" Value="{StaticResource HoveredForeground}" />
-                            <Setter TargetName="arrow" Property="Stroke" Value="{StaticResource HoveredForeground}" />
+                            <Setter TargetName="buttonGrid" Property="Background" Value="{DynamicResource ContentBackgroundHovered}" />
+                            <Setter TargetName="header" Property="Foreground" Value="{DynamicResource HoveredForeground}" />
+                            <Setter TargetName="arrow" Property="Stroke" Value="{DynamicResource HoveredForeground}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="buttonGrid" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
-                            <Setter TargetName="header" Property="Foreground" Value="{StaticResource ContentForeground}" />
-                            <Setter TargetName="arrow" Property="Stroke" Value="{StaticResource ContentForeground}" />
+                            <Setter TargetName="buttonGrid" Property="Background" Value="{DynamicResource ContentBackgroundHovered}" />
+                            <Setter TargetName="header" Property="Foreground" Value="{DynamicResource ContentForeground}" />
+                            <Setter TargetName="arrow" Property="Stroke" Value="{DynamicResource ContentForeground}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="buttonGrid" Property="Background" Value="{StaticResource ContentBackgroundSelected}" />
-                            <Setter TargetName="header" Property="Foreground" Value="{StaticResource SelectedForeground}" />
-                            <Setter TargetName="arrow" Property="Stroke" Value="{StaticResource SelectedForeground}" />
+                            <Setter TargetName="buttonGrid" Property="Background" Value="{DynamicResource ContentBackgroundSelected}" />
+                            <Setter TargetName="header" Property="Foreground" Value="{DynamicResource SelectedForeground}" />
+                            <Setter TargetName="arrow" Property="Stroke" Value="{DynamicResource SelectedForeground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                           <Setter TargetName="buttonGrid" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
-                            <Setter TargetName="header" Property="Foreground" Value="{StaticResource ContentForeground}" />
-                            <Setter TargetName="arrow" Property="Stroke" Value="{StaticResource ContentForeground}" />
+                           <Setter TargetName="buttonGrid" Property="Background" Value="{DynamicResource ContentBackgroundHovered}" />
+                            <Setter TargetName="header" Property="Foreground" Value="{DynamicResource ContentForeground}" />
+                            <Setter TargetName="arrow" Property="Stroke" Value="{DynamicResource ContentForeground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}"/>
+            <Trigger Property="skin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
+                <Setter Property="FocusVisualStyle" Value="{DynamicResource FlatKeyboardFocusVisualStyle}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="SyncfusionSfAccordionStyle" TargetType="{x:Type local:SfAccordion}">
-        <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
-        <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="AccentBrush" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderAlt}" />
+        <Setter Property="Background" Value="{DynamicResource ContentBackgroundAlt1}" />
+        <Setter Property="Foreground" Value="{DynamicResource ContentForeground}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FluentDark.ThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource FluentDark.FontWeightNormal}" />
+        <Setter Property="AccentBrush" Value="{DynamicResource ContentBackgroundAlt1}" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness0100}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource FluentDark.BorderThickness0100}" />
         <!--  Accordion expects a stackpanel to layout its children.  -->
         <Setter Property="ItemsPanel">
             <Setter.Value>
@@ -301,7 +302,7 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="Border"
                                             Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource BorderAlt.Color}"
+                                            To="{DynamicResource BorderAlt.Color}"
                                             Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -317,21 +318,21 @@
     <Style BasedOn="{StaticResource SyncfusionSfAccordionStyle}" TargetType="{x:Type local:SfAccordion}" />
 
     <Style x:Key="SyncfusionSfAccordionItemStyle" TargetType="{x:Type local:SfAccordionItem}">
-        <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="Background" Value="{StaticResource ContentBackground}" />
-        <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.SubHeaderTextStyle}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderAlt}" />
+        <Setter Property="Background" Value="{DynamicResource ContentBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ContentForeground}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FluentDark.ThemeFontFamily}" />
+        <Setter Property="FontWeight" Value="{DynamicResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="{DynamicResource FluentDark.SubHeaderTextStyle}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1011}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource FluentDark.BorderThickness1011}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="ExpandableContentControlStyle" Value="{StaticResource SyncfusionExpandableContentControlStyle}" />
-        <Setter Property="AccordionButtonStyle" Value="{StaticResource SyncfusionAccordionButtonStyle}" />
+        <Setter Property="ExpandableContentControlStyle" Value="{DynamicResource SyncfusionExpandableContentControlStyle}" />
+        <Setter Property="AccordionButtonStyle" Value="{DynamicResource SyncfusionAccordionButtonStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SfAccordionItem}">
@@ -409,7 +410,7 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="border"
                                             Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource BorderAlt.Color}"
+                                            To="{DynamicResource BorderAlt.Color}"
                                             Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -422,7 +423,7 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="border"
                                             Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource ContentBackgroundHovered.Color}"
+                                            To="{DynamicResource ContentBackgroundHovered.Color}"
                                             Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -462,7 +463,7 @@
                                         <ColorAnimation
                                             Storyboard.TargetName="border"
                                             Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource BorderAlt.Color}"
+                                            To="{DynamicResource BorderAlt.Color}"
                                             Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -497,18 +498,18 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-                            <Setter TargetName="ExpandSite" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource BorderAlt}" />
+                            <Setter TargetName="ExpandSite" Property="BorderBrush" Value="{DynamicResource BorderAlt}" />
                             <Setter TargetName="ExpandSite" Property="Background" Value="Transparent" />
-                            <Setter TargetName="ExpandSite" Property="Foreground" Value="{StaticResource DisabledForeground}" />
+                            <Setter TargetName="ExpandSite" Property="Foreground" Value="{DynamicResource DisabledForeground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource KeyboardFocusVisualStyle}"/>
+            <Trigger Property="skin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
+                <Setter Property="FocusVisualStyle" Value="{DynamicResource KeyboardFocusVisualStyle}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

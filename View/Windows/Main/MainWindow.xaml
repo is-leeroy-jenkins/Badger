@@ -20,7 +20,7 @@
     BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1"
     FontFamily="Segoe UI"
-    FontSize="10"
+    FontSize="12"
     Foreground="{StaticResource LightBlueBrush}"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"

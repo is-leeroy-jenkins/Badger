@@ -817,10 +817,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="View\Styles\Accordion\" />
-    <Folder Include="View\Styles\Navigation\" />
-    <Folder Include="View\Styles\Calculator\" />
-  </ItemGroup>
-
 </Project>

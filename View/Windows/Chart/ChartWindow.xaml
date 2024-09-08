@@ -12,6 +12,7 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
+    Padding="3,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -660,7 +661,7 @@
                         Height="318"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlInterior}"
                         BorderBrush="{StaticResource BorderBrush}" />
                 </Canvas>
             </TabItem>
@@ -727,7 +728,7 @@
                         Height="117"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}" />
 
                     <bdgr:MetroListBox
@@ -738,7 +739,7 @@
                         Height="122"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}" />
 
                 </Canvas>

@@ -17,6 +17,7 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Normal" />
     </Style>
 
     <!--  *********************************************** MetroListViewItem *****************************************************  -->
@@ -34,6 +35,7 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Normal" />
 
         <Style.Triggers>
 

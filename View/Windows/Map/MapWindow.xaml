@@ -13,7 +13,8 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
-    Padding="1"
+    Margin="1"
+    Padding="3,1,1,1"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -48,6 +49,7 @@
                     <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnFolderMenuOptionClick"
                 Header="Folder"
@@ -56,7 +58,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <Separator />
+
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
                 Header="Chrome"
@@ -65,6 +69,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnEdgeOptionClick"
                 Header="Edge"
@@ -73,6 +78,7 @@
                     <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnFirefoxOptionClick"
                 Header="FireFox"
@@ -81,7 +87,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <Separator />
+
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -90,6 +98,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnControlPanelOptionClick"
                 Header="Control Panel"
@@ -98,6 +107,7 @@
                     <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <sync:MenuItemAdv
                 Click="OnTaskManagerOptionClick"
                 Header="Task Manager"
@@ -106,7 +116,9 @@
                     <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
             <Separator />
+
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"
@@ -115,6 +127,7 @@
                     <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
+
         </ContextMenu>
     </Window.ContextMenu>
     <!--  ************************************** MAP  *************************************  -->

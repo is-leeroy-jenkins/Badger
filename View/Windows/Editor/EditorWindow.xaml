@@ -14,12 +14,13 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
+    Padding="3,1,1,1"
     sync:SfSkinManager.Theme="{sync:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
     BorderThickness="1"
     FontFamily="Segoe UI"
-    FontSize="10"
+    FontSize="12"
     Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     ResizeMode="CanResize"
@@ -211,7 +212,7 @@
                         Height="500"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         BorderThickness="1"
                         Foreground="{StaticResource LightBlueBrush}"
@@ -415,7 +416,7 @@
                         Height="305"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         ClipToBounds="True"
                         Foreground="{StaticResource LightBlueBrush}"
@@ -445,7 +446,7 @@
                         Height="105"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}"
                         ScrollViewer.CanContentScroll="True"
@@ -523,7 +524,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroListBox
@@ -535,7 +536,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroComboBox
@@ -600,7 +601,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}" />
                     <local:MetroListBox
@@ -611,7 +612,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         d:ItemsSource="{d:SampleData ItemCount=5}"
-                        Background="{StaticResource ControlBackColor}"
+                        Background="{StaticResource ControlBackground}"
                         BorderBrush="{StaticResource BorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}" />
                 </Canvas>

@@ -7,9 +7,9 @@
     <!--  *********************************************** MetroCheckList *****************************************************  -->
 
     <Style TargetType="{x:Type bdgr:MetroCheckList}">
-        <Setter Property="Background" Value="#FF282828" />
-        <Setter Property="BorderBrush" Value="#FF0078D4" />
-        <Setter Property="Foreground" Value="#FFA0BDFC" />
+        <Setter Property="Background" Value="{DynamicResource ControlInterior}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -17,15 +17,16 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Normal" />
     </Style>
 
     <!--  *********************************************** MetroCheckListItem *****************************************************  -->
 
     <Style TargetType="{x:Type bdgr:MetroCheckListItem}">
 
-        <Setter Property="Background" Value="#FF2D2D2D" />
-        <Setter Property="BorderBrush" Value="#FF0078D4" />
-        <Setter Property="Foreground" Value="#FFA0BDFC" />
+        <Setter Property="Background" Value="{DynamicResource ControlInterior}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
         <Setter Property="Height" Value="40" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -34,19 +35,20 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value="Normal" />
 
         <Style.Triggers>
 
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FF0E3C5E" />
-                <Setter Property="BorderBrush" Value="#FFA0BDFC" />
-                <Setter Property="Foreground" Value="#FFF" />
+                <Setter Property="Background" Value="{DynamicResource SteelBlueBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SteelBlueBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="False">
-                <Setter Property="Background" Value="#FF2D2D2D" />
-                <Setter Property="BorderBrush" Value="#FF0078D4" />
-                <Setter Property="Foreground" Value="#FFA0BDFC" />
+                <Setter Property="Background" Value="{DynamicResource ControlInterior}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlInterior}" />
+                <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
             </Trigger>
 
 

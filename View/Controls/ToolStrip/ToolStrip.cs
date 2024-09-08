@@ -86,6 +86,7 @@ namespace Badger
             GripperVisibility = Visibility.Hidden;
             OverflowButtonVisibility = Visibility.Collapsed;
             Padding = _theme.Padding;
+            Margin = new Thickness( 3, 1, 1, 1 );
             BorderThickness = _theme.BorderThickness;
             Background = _theme.BackColor;
             Foreground = _theme.ForeColor;

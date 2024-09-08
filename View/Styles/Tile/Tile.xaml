@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:bdgr="clr-namespace:Badger">
 
-
-    <!--  *********************************************** MetroTile *****************************************************  -->
+<!--  *********************************************** MetroTile *****************************************************  -->
 
     <Style TargetType="{x:Type bdgr:MetroTile}">
 
