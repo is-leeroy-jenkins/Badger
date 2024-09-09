@@ -17,7 +17,7 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
-    Padding="3,1,1,1"
+    Padding="1,1,1,3"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -61,7 +61,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -89,7 +89,9 @@
                     <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
-            <Separator />
+
+            <Separator Background="{StaticResource BorderBrush}" />
+
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
                 Header="Calculator"
@@ -119,7 +121,8 @@
 
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
+
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
                 Header="Close"

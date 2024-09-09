@@ -1,16 +1,18 @@
 // ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Baby
 //     Author:                  Terry D. Eppler
-//     Created:                 09-08-2020
+//     Created:                 09-09-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-08-2024
+//     Last Modified On:        09-09-2024
 // ******************************************************************************************
 // <copyright file="RevealItemAdorner.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
+//     in C#.  The baby browser is designed for budget execution and data analysis.
+//     A tool for EPA analysts and a component that can be used for general browsing.
+// 
+//     Copyright ©  2020 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -43,17 +45,19 @@ namespace Badger
 {
     using System;
     using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Documents;
     using System.Windows.Input;
     using System.Windows.Media;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Helper adorner class to handle reveal item hover and pressed animation for UI element.
     /// </summary>
-    /// <<exclude/>
+    /// <seealso cref="T:System.Windows.Documents.Adorner" />
     [ EditorBrowsable( EditorBrowsableState.Never ) ]
     [ Browsable( false ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToConditionalTernaryExpression" ) ]
     public class RevealItemAdorner : Adorner
     {
         /// <summary>
@@ -68,8 +72,9 @@ namespace Badger
             set;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="RevealItemAdorner"/> class.
+        /// Initializes a new instance of the <see cref="T:Badger.RevealItemAdorner" /> class.
         /// </summary>
         /// <param name="adornedElement">The adorned element.</param>
         /// <param name="revealElement">The reveal element.</param>
@@ -83,17 +88,34 @@ namespace Badger
             adornedElement.MouseLeave += AdornedElement_MouseLeave;
         }
 
+        /// <summary>
+        /// Handles the MouseLeave event of the AdornedElement control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void AdornedElement_MouseLeave( object sender, MouseEventArgs e )
         {
             RevealItem.IsMouseOver = false;
         }
 
+        /// <summary>
+        /// Handles the PreviewMouseDown event of the AdornedElement control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void AdornedElement_PreviewMouseDown( object sender, MouseEventArgs e )
         {
             RevealItem.Position = e.GetPosition( sender as IInputElement );
             RevealItem.StartPressedRevealAnimation( );
         }
 
+        /// <summary>
+        /// Handles the PreviewMouseMove event of the AdornedElement control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void AdornedElement_PreviewMouseMove( object sender, MouseEventArgs e )
         {
             if( e.LeftButton != MouseButtonState.Pressed )
@@ -109,6 +131,16 @@ namespace Badger
             RevealItem.Position = e.GetPosition( sender as IInputElement );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// When overridden in a derived class, positions child elements and
+        /// determines a size for a <see cref="T:System.Windows.FrameworkElement" /> derived class.
+        /// </summary>
+        /// <param name="finalSize">The final area within the parent that this
+        /// element should use to arrange itself and its children.</param>
+        /// <returns>
+        /// The actual size used.
+        /// </returns>
         protected override Size ArrangeOverride( Size finalSize )
         {
             double x = 0;
@@ -120,7 +152,9 @@ namespace Badger
             return finalSize;
         }
 
-        /// <<exclude/>
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
         public void Dispose( )
         {
             AdornedElement.PreviewMouseMove -= AdornedElement_PreviewMouseMove;
@@ -128,8 +162,22 @@ namespace Badger
             AdornedElement.MouseLeave -= AdornedElement_MouseLeave;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the number of visual child elements within this element.
+        /// </summary>
         protected override int VisualChildrenCount { get { return 1; } }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Overrides <see cref="M:System.Windows.Media.Visual.GetVisualChild(System.Int32)" />,
+        /// and returns a child at the specified index from a collection of child elements.
+        /// </summary>
+        /// <param name="index">The zero-based index of the requested child element in the collection.</param>
+        /// <returns>
+        /// The requested child element. This should not return <see langword="null" />;
+        /// if the provided index is out of range, an exception is thrown.
+        /// </returns>
         protected override Visual GetVisualChild( int index ) { return RevealItem; }
     }
 }

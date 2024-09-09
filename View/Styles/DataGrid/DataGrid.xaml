@@ -25,20 +25,20 @@
             ThemeName="FluentDark" />
     </ResourceDictionary.MergedDictionaries>
 
-    <grid:BoolToVisiblityConverter x:Key="boolToVisiblityConverter" />
-    <grid:SortDirectionToVisibilityConverter x:Key="sortDirectionToVisibilityConverter" />
-    <grid:SortDirectionToWidthConverter x:Key="sortDirectionToWidthConverter" />
+    <grid:BoolToVisiblityConverter x:Key="BoolToVisiblityConverter" />
+    <grid:SortDirectionToVisibilityConverter x:Key="SortDirectionToVisibilityConverter" />
+    <grid:SortDirectionToWidthConverter x:Key="SortDirectionToWidthConverter" />
     <grid:VisiblityConverter x:Key="VisiblityConverter" />
-    <grid:TextVisibilityConverter x:Key="textBlockVisibilityConverter" />
-    <grid:ReverseVisibilityConverter x:Key="reverseVisibilityConverter" />
-    <grid:LoadingVisiblityConverter x:Key="loadingVisiblityConverter" />
-    <grid:ListItemsVisiblityConverter x:Key="listItemsVisiblityConverter" />
-    <grid:HeightToMarginConverter x:Key="heightToMarginConverter" />
-    <grid:ResourceNameConverter x:Key="resourceNameConverter" />
-    <grid:AdvancedFiltersButtonVisibiltyConverter x:Key="advancedFilterButtonVisibilityConverter" />
-    <grid:FilteredFromCheckVisibilityConverter x:Key="filteredFromCheckVisibilityConverter" />
-    <grid:FilterValueComboEnableConverter x:Key="filterValueComboEnableConverter" />
-    <grid:CaseSensitiveConverter x:Key="casesensitiveConverter" />
+    <grid:TextVisibilityConverter x:Key="TextBlockVisibilityConverter" />
+    <grid:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
+    <grid:LoadingVisiblityConverter x:Key="LoadingVisiblityConverter" />
+    <grid:ListItemsVisiblityConverter x:Key="ListItemsVisiblityConverter" />
+    <grid:HeightToMarginConverter x:Key="HeightToMarginConverter" />
+    <grid:ResourceNameConverter x:Key="ResourceNameConverter" />
+    <grid:AdvancedFiltersButtonVisibiltyConverter x:Key="AdvancedFilterButtonVisibilityConverter" />
+    <grid:FilteredFromCheckVisibilityConverter x:Key="FilteredFromCheckVisibilityConverter" />
+    <grid:FilterValueComboEnableConverter x:Key="FilterValueComboEnableConverter" />
+    <grid:CaseSensitiveConverter x:Key="CasesensitiveConverter" />
     <grid:PageCountFormatConverter x:Key="PageCountFormatConverter" />
     <grid:ZoomFactorFormatConverter x:Key="ZoomFactorFormatConverter" />
     <grid:PrintOrientationConverter x:Key="PrintOrientationConverter" />
@@ -120,10 +120,10 @@
                     CornerRadius="2" />-->
 
             <Border
-                Background="{StaticResource ErrorBackground}"
+                Background="{StaticResource RedBackground}"
                 CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
             <Border
-                BorderBrush="{StaticResource ErrorBackground}"
+                BorderBrush="{StaticResource RedBackground}"
                 BorderThickness="1"
                 CornerRadius="{StaticResource FluentDark.CornerRadius2}">
                 <TextBlock
@@ -3502,7 +3502,7 @@
     <Style
         x:Key="CloseButtonStyle"
         TargetType="Button">
-        <Setter Property="Foreground" Value="{StaticResource ContentForegroundAlt1}" />
+        <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">

@@ -14,7 +14,7 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
-    Padding="3,1,1,1"
+    Padding="1,1,1,3"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -59,7 +59,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -88,7 +88,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -117,7 +117,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -130,7 +130,9 @@
 
         </ContextMenu>
     </Window.ContextMenu>
+
     <!--  ************************************** MAP  *************************************  -->
+
     <Canvas x:Name="MapCanvas">
         <sync:SfMap
             x:Name="Map"
@@ -155,7 +157,9 @@
                     RenderTransformOrigin="0.882,0.492" />
             </sync:SfMap.Layers>
         </sync:SfMap>
+
         <!--  ************************************** ToolStrip  *************************************  -->
+
         <bdgr:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"

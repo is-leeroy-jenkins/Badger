@@ -1,16 +1,18 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Baby
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 09-09-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        09-09-2024
 // ******************************************************************************************
 // <copyright file="ChartWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
+//     in C#.  The baby browser is designed for budget execution and data analysis.
+//     A tool for EPA analysts and a component that can be used for general browsing.
+// 
+//     Copyright ©  2020 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +34,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartWindow.xaml.cs
@@ -901,20 +903,9 @@ namespace Badger
         {
             try
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
+                    _busy = true;
                 }
             }
             catch( Exception ex )
@@ -930,20 +921,9 @@ namespace Badger
         {
             try
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
+                    _busy = false;
                 }
             }
             catch( Exception ex )
@@ -989,9 +969,7 @@ namespace Badger
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    return "SELECT *"
-                        + $"FROM {_selectedTable} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return "SELECT *" + $"FROM {_selectedTable} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception ex )
                 {
@@ -1036,9 +1014,7 @@ namespace Badger
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_values} "
-                        + $"FROM {_selectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_values} " + $"FROM {_selectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -1075,8 +1051,7 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {_selectedTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {_selectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names};";
                 }
                 catch( Exception ex )
@@ -1681,11 +1656,9 @@ namespace Badger
                 DataTableListBox.Items?.Clear( );
                 var _tables = new DataGenerator( Source.ApplicationTables, _provider );
                 var _rows = _tables.GetData( );
-                var _names = _rows
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _rows?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -3238,8 +3211,7 @@ namespace Badger
                     }
 
                     SeventhLabel.Visibility = Visibility.Visible;
-                    SeventhLabel.Content =
-                        $"Selected Measures: {_selectedNumerics?.Count}";
+                    SeventhLabel.Content = $"Selected Measures: {_selectedNumerics?.Count}";
                 }
                 else
                 {

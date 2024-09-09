@@ -1,16 +1,18 @@
 // ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Baby
 //     Author:                  Terry D. Eppler
-//     Created:                 09-08-2020
+//     Created:                 09-09-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-08-2024
+//     Last Modified On:        09-09-2024
 // ******************************************************************************************
 // <copyright file="SfAcrylicPanel.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
+//     in C#.  The baby browser is designed for budget execution and data analysis.
+//     A tool for EPA analysts and a component that can be used for general browsing.
+// 
+//     Copyright ©  2020 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -42,34 +44,30 @@
 namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
     using System.Windows.Shapes;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Helper class to handle acrylic background for any target UI element.
     /// </summary>
-    /// <<exclude/>
+    /// <seealso cref="T:System.Windows.Controls.ContentControl" />
     [ EditorBrowsable( EditorBrowsableState.Never ) ]
     [ Browsable( false ) ]
     public class SfAcrylicPanel : ContentControl
     {
-        private Rectangle panelRect;
+        /// <summary>
+        /// The panel rect
+        /// </summary>
+        private Rectangle _panelRect;
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.BackgroundTarget"/>
-        /// property value that denotes the object UI which will be utilized
-        /// as acrylic background layer in application.
+        /// Gets or sets the background target.
         /// </summary>
         /// <value>
-        /// The <see cref="FrameworkElement"/> Target object.
-        /// The default value is <b>null</b>.
+        /// The background target.
         /// </value>
         public FrameworkElement BackgroundTarget
         {
@@ -78,25 +76,17 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.BackgroundTarget" />
-        /// dependency property to get or set this property to denote the
-        /// object UI which will be utilized as acrylic background layer in application.
+        /// The background target property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.BackgroundTargetProperty" />
-        /// dependency property.
-        /// </remarks>
         public static readonly DependencyProperty BackgroundTargetProperty =
             DependencyProperty.Register( "BackgroundTarget", typeof( FrameworkElement ),
                 typeof( SfAcrylicPanel ), new PropertyMetadata( null ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.Source"/> property value that
-        /// denotes the target object for which acrylic background should be applied.
+        /// Gets or sets the source.
         /// </summary>
         /// <value>
-        /// The <see cref="FrameworkElement"/> Source object.
-        /// The default value is <b>null</b>.
+        /// The source.
         /// </value>
         public FrameworkElement Source
         {
@@ -105,25 +95,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.Source" />
-        /// dependency property to get or set this property to denote the
-        /// target object for which acrylic background should be applied.
+        /// The source property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.SourceProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty SourceProperty =
             DependencyProperty.Register( "Source", typeof( FrameworkElement ),
                 typeof( SfAcrylicPanel ), new PropertyMetadata( null ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.TintBrush"/>
-        /// property value which will be utilized as tint layer
-        /// brush to apply acrylic background layer in application.
+        /// Gets or sets the tint brush.
         /// </summary>
         /// <value>
-        /// The <see cref="Brush"/> to achieve tint layer. The default value is <b><see cref="Brushes.White"/></b>.
-        /// </value>     
+        /// The tint brush.
+        /// </value>
         public Brush TintBrush
         {
             get { return ( Brush )GetValue( TintBrushProperty ); }
@@ -131,26 +114,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.TintBrush" />
-        /// dependency property to get or set this property to utilize as tint
-        /// layer brush to apply acrylic background layer in application.
+        /// The tint brush property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.TintBrushProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty TintBrushProperty =
             DependencyProperty.Register( "TintBrush", typeof( Brush ), typeof( SfAcrylicPanel ),
                 new PropertyMetadata( new SolidColorBrush( Colors.White ) ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.NoiseBrush"/>
-        /// property value which will be utilized as noise layer brush
-        /// to apply acrylic background layer in application.
+        /// Gets or sets the noise brush.
         /// </summary>
         /// <value>
-        /// The <see cref="Brush"/> to achieve noise layer.
-        /// The default value is <b><see cref="Brushes.Transparent"/></b>.
-        /// </value>   
+        /// The noise brush.
+        /// </value>
         public Brush NoiseBrush
         {
             get { return ( Brush )GetValue( NoiseBrushProperty ); }
@@ -158,25 +133,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.NoiseBrush" />
-        /// dependency property to get or set this property to utilize as
-        /// noise layer brush to apply acrylic background layer in application.
+        /// The noise brush property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.NoiseBrushProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty NoiseBrushProperty =
             DependencyProperty.Register( "NoiseBrush", typeof( Brush ), typeof( SfAcrylicPanel ),
                 new PropertyMetadata( new SolidColorBrush( Colors.White ) ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.TintOpacity"/>
-        /// property value which will be utilized as tint layer opacity
-        /// to apply acrylic background layer in application.
+        /// Gets or sets the tint opacity.
         /// </summary>
         /// <value>
-        /// The <see cref="double"/> to achieve tint layer. The default value is <b>0.3</b>.
-        /// </value>  
+        /// The tint opacity.
+        /// </value>
         public double TintOpacity
         {
             get { return ( double )GetValue( TintOpacityProperty ); }
@@ -184,25 +152,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.TintOpacity" />
-        /// dependency property to get or set this property to utilize as tint layer
-        /// opacity to apply acrylic background layer in application.
+        /// The tint opacity property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.TintOpacityProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty TintOpacityProperty =
             DependencyProperty.Register( "TintOpacity", typeof( double ), typeof( SfAcrylicPanel ),
                 new PropertyMetadata( 0.3 ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.NoiseOpacity"/>
-        /// property value which will be utilized as noise layer opacity to
-        /// apply acrylic background layer in application.
+        /// Gets or sets the noise opacity.
         /// </summary>
         /// <value>
-        /// The <see cref="double"/> to achieve noise layer. The default value is <b>0.9</b>.
-        /// </value>  
+        /// The noise opacity.
+        /// </value>
         public double NoiseOpacity
         {
             get { return ( double )GetValue( NoiseOpacityProperty ); }
@@ -210,23 +171,18 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.NoiseOpacity" />
-        /// dependency property to get or set this property to utilize as
-        /// noise layer opacity to apply acrylic background layer in application.
+        /// The noise opacity property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.NoiseOpacityProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty NoiseOpacityProperty =
             DependencyProperty.Register( "NoiseOpacity", typeof( double ), typeof( SfAcrylicPanel ),
                 new PropertyMetadata( 0.9 ) );
 
         /// <summary>
-        /// Gets or sets the <see cref="SfAcrylicPanel.BlurRadius"/> property value which will be apply blur radius for acrylic background layer in application.
+        /// Gets or sets the blur radius.
         /// </summary>
         /// <value>
-        /// The <see cref="double"/> to achieve blur effect. The default value is <b>90</b>.
-        /// </value>   
+        /// The blur radius.
+        /// </value>
         public double BlurRadius
         {
             get { return ( double )GetValue( BlurRadiusProperty ); }
@@ -234,40 +190,48 @@ namespace Badger
         }
 
         /// <summary>
-        /// Identifies the <see cref="SfAcrylicPanel.BlurRadius" /> dependency property to get or set this property to apply blur radius for acrylic background layer in application.
+        /// The blur radius property
         /// </summary>
-        /// <remarks>
-        /// The identifier for the <see cref="SfAcrylicPanel.BlurRadiusProperty" /> dependency property.
-        /// </remarks>
         public static readonly DependencyProperty BlurRadiusProperty =
             DependencyProperty.Register( "BlurRadius", typeof( double ), typeof( SfAcrylicPanel ),
                 new PropertyMetadata( 90.0 ) );
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes the <see cref="T:Badger.SfAcrylicPanel" /> class.
+        /// </summary>
         static SfAcrylicPanel( )
         {
             DefaultStyleKeyProperty.OverrideMetadata( typeof( SfAcrylicPanel ),
                 new FrameworkPropertyMetadata( typeof( SfAcrylicPanel ) ) );
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:Badger.SfAcrylicPanel" /> class.
+        /// </summary>
         public SfAcrylicPanel( )
         {
             Source = this;
         }
 
+        /// <summary>
+        /// When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.
+        /// </summary>
         public override void OnApplyTemplate( )
         {
             base.OnApplyTemplate( );
-            panelRect = GetTemplateChild( "panelRect" ) as Rectangle;
-            if( panelRect != null )
+            _panelRect = GetTemplateChild( "panelRect" ) as Rectangle;
+            if( _panelRect != null )
             {
-                panelRect.LayoutUpdated += ( _, __ ) =>
+                _panelRect.LayoutUpdated += ( _, __ ) =>
                 {
                     if( BackgroundTarget != null )
                     {
                         var relativePosition =
                             BackgroundTarget.TranslatePoint( new Point( 0, 0 ), Source );
 
-                        panelRect.RenderTransform =
+                        _panelRect.RenderTransform =
                             new TranslateTransform( relativePosition.X, relativePosition.Y );
                     }
                 };

@@ -1,27 +1,19 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:bdgr="clr-namespace:Badger"
-    xmlns:local="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:bx="clr-namespace:Badger"
     xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:skin="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:sync="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:themelocal="clr-namespace:Syncfusion.Themes.FluentDark.WPF">
-    <ResourceDictionary.MergedDictionaries>
-        <sfskin:ResourceDictionaryProvider
-            DictionaryName="Common"
-            ThemeName="FluentDark" />
-        <sfskin:ResourceDictionaryProvider
-            DictionaryName="Brushes"
-            ThemeName="FluentDark" />
-    </ResourceDictionary.MergedDictionaries>
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF">
 
-    <bdgr:RevealItem
-        x:Key="buttonAdvRevealItem"
-        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
-        HoverBackground="{StaticResource SecondaryBackgroundHovered}"
-        HoverBorder="{StaticResource RevealBorder}"
-        PressedBackground="{StaticResource RevealBackground}" />
+    <bx:RevealItem
+        x:Key="ButtonAdvRevealItem"
+        CornerRadius="{DynamicResource FluentDark.CornerRadius2}"
+        HoverBackground="{DynamicResource SecondaryBackgroundHovered}"
+        HoverBorder="{DynamicResource RevealBorder}"
+        PressedBackground="{DynamicResource RevealBackground}" />
 
     <DataTemplate x:Key="LargeIconTemplate">
         <Image
@@ -41,18 +33,18 @@
 
     <ControlTemplate
         x:Key="SyncfusionButtonAdvControlTemplate"
-        TargetType="local:ButtonAdv">
+        TargetType="sync:ButtonAdv">
         <Border
             Name="ItemBorder1"
-            MinHeight="{StaticResource FluentDark.MinHeight}"
-            bdgr:FluentHelper.RevealItem="{StaticResource buttonAdvRevealItem}"
+            MinHeight="{DynamicResource FluentDark.MinHeight}"
+            bx:FluentHelper.RevealItem="{DynamicResource ButtonAdvRevealItem}"
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
-            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+            CornerRadius="{DynamicResource FluentDark.CornerRadius2}"
             SnapsToDevicePixels="True">
             <Border.Resources>
-                <local:HorizontalContentToTextAlignmentConverter x:Key="TextAlignmentConverter" />
+                <sync:HorizontalContentToTextAlignmentConverter x:Key="TextAlignmentConverter" />
             </Border.Resources>
             <StackPanel
                 Margin="2,0,2,0"
@@ -74,29 +66,29 @@
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
-                <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
+                <Setter Property="MinHeight" Value="{DynamicResource TouchMode.MinHeight}" />
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsFocused" Value="True" />
                 </MultiTrigger.Conditions>
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackground}" />
-                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource BorderAlt3}" />
-                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForeground}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{DynamicResource ControlHoverBrush}" />
+                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{DynamicResource BorderBrush}" />
+                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
             </MultiTrigger>
 
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{DynamicResource ControlHoverBrush}" />
+                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{DynamicResource ControlHoverBrush}" />
+                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{DynamicResource SteelBlueBackground}" />
+                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{DynamicResource SteelBlueBackground}" />
+                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
             </Trigger>
             <Trigger Property="IsMultiLine" Value="True">
                 <Setter TargetName="PART_LargeText" Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -111,25 +103,25 @@
                     <Condition Property="IsEnabled" Value="True" />
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                    <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                    <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                    <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
+                    <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{DynamicResource SteelBlueBackground}" />
+                    <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{DynamicResource SteelBlueBackground}" />
+                    <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                    <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter TargetName="LargeIconContent" Property="Opacity" Value="0.38" />
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundDisabled}" />
-                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderDisabled}" />
-                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{DynamicResource ControlBackground}" />
+                <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{DynamicResource ControlBackground}" />
+                <Setter TargetName="PART_LargeText" Property="TextElement.Foreground" Value="{DynamicResource ControlBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource ControlBackground}" />
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IconTemplate" Value="{x:Null}" />
                     <Condition Property="IconTemplateSelector" Value="{x:Null}" />
                 </MultiTrigger.Conditions>
-                <Setter TargetName="LargeIconContent" Property="ContentTemplate" Value="{StaticResource LargeIconTemplate}" />
+                <Setter TargetName="LargeIconContent" Property="ContentTemplate" Value="{DynamicResource LargeIconTemplate}" />
                 <Setter TargetName="LargeIconContent" Property="Tag" Value="{Binding LargeIcon, RelativeSource={RelativeSource TemplatedParent}}" />
             </MultiTrigger>
         </ControlTemplate.Triggers>
@@ -137,34 +129,34 @@
 
     <Style
         x:Key="SyncfusionButtonAdvStyle"
-        TargetType="{x:Type local:ButtonAdv}">
-        <Setter Property="SmallIcon" Value="/Syncfusion.Shared.WPF;component//Controls/ButtonControls/Images/WordArt16.png" />
-        <Setter Property="LargeIcon" Value="/Syncfusion.Shared.WPF;component//Controls/ButtonControls/Images/WordArt32.png" />
+        TargetType="{x:Type sync:ButtonAdv}">
+        <Setter Property="SmallIcon" Value="/View/Themes/Fluent/Images/WordArt16.png" />
+        <Setter Property="LargeIcon" Value="/View/Themes/Fluent/Images/WordArt32.png" />
         <Setter Property="Label" Value="Button" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="{StaticResource SecondaryBackground}" />
-        <Setter Property="BorderBrush" Value="{StaticResource SecondaryBorder}" />
-        <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
-        <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="Background" Value="{DynamicResource ControlInterior}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource FormForeground}" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:ButtonAdv">
+                <ControlTemplate TargetType="sync:ButtonAdv">
                     <Border
                         Name="ItemBorder"
-                        MinHeight="{StaticResource FluentDark.MinHeight}"
-                        bdgr:FluentHelper.RevealItem="{StaticResource buttonAdvRevealItem}"
+                        MinHeight="{DynamicResource FluentDark.MinHeight}"
+                        bx:FluentHelper.RevealItem="{DynamicResource BttonAdvRevealItem}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="{DynamicResource FluentDark.CornerRadius2}"
                         SnapsToDevicePixels="True">
                         <Border.Resources>
-                            <local:HorizontalContentToTextAlignmentConverter x:Key="TextAlignmentConverter" />
+                            <sync:HorizontalContentToTextAlignmentConverter x:Key="TextAlignmentConverter" />
                         </Border.Resources>
                         <Grid
                             Margin="{TemplateBinding Padding}"
@@ -193,7 +185,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
-                            <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
+                            <Setter Property="MinHeight" Value="{DynamicResource TouchMode.MinHeight}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -207,53 +199,33 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsFocused" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackground}" />
-                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource BorderAlt3}" />
-                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForeground}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{DynamicResource ControlInterior}" />
+                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{DynamicResource ControlInterior}" />
+                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
                         </MultiTrigger>
 
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{DynamicResource ControlHoverBrush}" />
+                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{DynamicResource ControlHoverBrush}" />
+                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsMultiLine" Value="True">
                             <Setter TargetName="PART_NormalText" Property="TextBlock.TextWrapping" Value="Wrap" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                        </Trigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsCheckable" Value="True" />
-                                <Condition Property="IsChecked" Value="True" />
-                                <Condition Property="IsEnabled" Value="True" />
-                            </MultiTrigger.Conditions>
-                            <MultiTrigger.Setters>
-                                <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                                <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                                <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                            </MultiTrigger.Setters>
-                        </MultiTrigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="SmallIconContent" Property="Opacity" Value="0.38" />
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundDisabled}" />
-                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderDisabled}" />
-                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{DynamicResource SteelBlueBackground}" />
+                            <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{DynamicResource SteelBlueBackground}" />
+                            <Setter TargetName="PART_NormalText" Property="TextElement.Foreground" Value="{DynamicResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IconTemplate" Value="{x:Null}" />
                                 <Condition Property="IconTemplateSelector" Value="{x:Null}" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SmallIconContent" Property="ContentTemplate" Value="{StaticResource SmallIconTemplate}" />
+                            <Setter TargetName="SmallIconContent" Property="ContentTemplate" Value="{DynamicResource SmallIconTemplate}" />
                             <Setter TargetName="SmallIconContent" Property="Tag" Value="{Binding SmallIcon, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
@@ -262,16 +234,16 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="SizeMode" Value="Large">
-                <Setter Property="Template" Value="{StaticResource SyncfusionButtonAdvControlTemplate}" />
+                <Setter Property="Template" Value="{DynamicResource SyncfusionButtonAdvControlTemplate}" />
             </Trigger>
             <Trigger Property="sfskin:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
-                <Setter Property="FocusVisualStyle" Value="{StaticResource KeyboardFocusVisualStyle}" />
+                <Setter Property="FocusVisualStyle" Value="{DynamicResource KeyboardFocusVisualStyle}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style
         BasedOn="{StaticResource SyncfusionButtonAdvStyle}"
-        TargetType="{x:Type local:ButtonAdv}" />
+        TargetType="{x:Type sync:ButtonAdv}" />
 
 </ResourceDictionary>

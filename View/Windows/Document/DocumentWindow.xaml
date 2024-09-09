@@ -14,6 +14,7 @@
     Height="800"
     MinWidth="1250"
     MinHeight="650"
+    Padding="1,1,1,3"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource DefaultBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -58,7 +59,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -87,7 +88,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -116,7 +117,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"

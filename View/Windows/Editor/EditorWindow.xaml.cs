@@ -488,6 +488,42 @@ namespace Badger
         }
 
         /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void Busy()
+        {
+            try
+            {
+                lock(_path)
+                {
+                    _busy = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                Fail(ex);
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void Chill()
+        {
+            try
+            {
+                lock(_path)
+                {
+                    _busy = false;
+                }
+            }
+            catch(Exception ex)
+            {
+                Fail(ex);
+            }
+        }
+
+        /// <summary>
         /// Creates the command list.
         /// </summary>
         /// <param name="provider">

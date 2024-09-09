@@ -14,7 +14,7 @@
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
-    Padding="3,1,1,1"
+    Padding="1,1,1,3"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BorderBrush}"
@@ -215,8 +215,8 @@
 
             <Separator
                 Width="115"
-                Background="{StaticResource DarkBackColor}"
-                BorderBrush="{StaticResource DarkBackColor}" />
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
 
             <local:ToolStripButton
                 x:Name="FirstButton"
@@ -307,8 +307,8 @@
 
             <ProgressBar
                 Width="180"
-                Background="{StaticResource DarkBackColor}"
-                BorderBrush="{StaticResource DarkBackColor}" />
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
 
             <sync:MenuItemSeparator
                 Margin="20,6,0,6"
