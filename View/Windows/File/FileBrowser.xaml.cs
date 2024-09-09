@@ -119,7 +119,7 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private protected object _path;
+        private protected object _path = new object( );
 
         /// <summary>
         /// The radio buttons
@@ -214,20 +214,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -251,9 +240,9 @@ namespace Badger
             FontSize = _theme.FontSize;
             WindowStyle = _theme.WindowStyle;
             Padding = _theme.Padding;
-            Margin = new Thickness( 3 );
+            Margin = new Thickness( 1 );
             BorderThickness = _theme.BorderThickness;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
             Background = _theme.ControlBackColor;
@@ -271,7 +260,7 @@ namespace Badger
             _initialPaths = CreateInitialDirectoryPaths( );
 
             // Wire Events
-            IsVisibleChanged += OnVisibleChanged;
+            Loaded += OnLoaded;
         }
 
         /// <summary>
@@ -464,7 +453,7 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        private void OnLoaded( object sender, EventArgs e )
         {
             try
             {
@@ -724,7 +713,7 @@ namespace Badger
                 _fileExtension = _radioButton?.Tag?.ToString( );
                 if( !string.IsNullOrEmpty( _fileExtension ) )
                 {
-                    _extension = (EXT)Enum.Parse( typeof( EXT ), _fileExtension.ToUpper( ) );
+                    _extension = ( EXT )Enum.Parse( typeof( EXT ), _fileExtension.ToUpper( ) );
                 }
 
                 _filePaths = GetFilePaths( );

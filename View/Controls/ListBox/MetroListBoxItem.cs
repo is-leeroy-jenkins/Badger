@@ -81,7 +81,7 @@ namespace Badger
             Background = _theme.ControlInteriorColor;
             Foreground = _theme.LightBlueColor;
             BorderBrush = _theme.ControlInteriorColor;
-            Margin = new Thickness( 10, 1, 1, 1 );
+            Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
             HorizontalContentAlignment = HorizontalAlignment.Left;

@@ -114,10 +114,12 @@
     <Color x:Key="GlyphColor">#FF0078D4</Color>
     <Color x:Key="MutedBorderColor">#FF555555</Color>
     <Color x:Key="LightBlueForeColor">#FFA0BDFC</Color>
+    <Color x:Key="SteelBlueColor">#FF4682B4</Color>
     <Color x:Key="DefaultBackColor">#FF141414</Color>
     <Color x:Key="ControlBackColor">#FF282828</Color>
+    <Color x:Key="ControlInteriorColor">#FF2D2D2D</Color>
     <Color x:Key="BorderColor">#FF0078D4</Color>
-    <Color x:Key="LightBorderColor">#FFA0BDFC</Color>
+    <Color x:Key="LightBlueColor">#FFA0BDFC</Color>
     <Color x:Key="ControlHoverColor">#FF0E3C5E</Color>
 
     <!--  ************************************  Brushes  ***********************************  -->
@@ -177,7 +179,7 @@
 
     <SolidColorBrush
         x:Key="DefaultBackground"
-        Color="{DynamicResource BackColor1}" />
+        Color="{DynamicResource DefaultBackColor}" />
 
     <SolidColorBrush
         x:Key="BlackBackground"
@@ -196,7 +198,7 @@
         Color="{DynamicResource DefaultColor4}" />
 
     <SolidColorBrush
-        x:Key="RedBackground"
+        x:Key="DarkRedBackground"
         Color="{DynamicResource DangerColor5}" />
 
     <SolidColorBrush
@@ -204,7 +206,7 @@
         Color="{DynamicResource DefaultColor5}" />
 
     <SolidColorBrush
-        x:Key="DarkGreenBackground"
+        x:Key="GreenBackground"
         Color="{DynamicResource SuccessColor5}" />
 
     <SolidColorBrush
@@ -228,7 +230,7 @@
         Color="{DynamicResource DangerColor3}" />
 
     <SolidColorBrush
-        x:Key="DarkRedBackground"
+        x:Key="RedBackground"
         Color="{DynamicResource DangerColor5}" />
 
     <!--  Separator  -->

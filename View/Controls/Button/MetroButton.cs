@@ -98,13 +98,13 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected virtual void OnMouseEnter(object sender, RoutedEventArgs e )
+        private protected virtual void OnMouseEnter( object sender, RoutedEventArgs e )
         {
             try
             {
-                Background = _theme.DarkBlueColor;
-                Foreground = _theme.WhiteColor;
+                Background = _theme.SteelBlueColor;
                 BorderBrush = _theme.LightBlueColor;
+                Foreground = _theme.WhiteColor;
             }
             catch(Exception ex)
             {
@@ -119,13 +119,13 @@ namespace Badger
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected virtual void OnMouseLeave(object sender, RoutedEventArgs e )
+        private protected virtual void OnMouseLeave( object sender, RoutedEventArgs e )
         {
             try
             {
                 Background = _theme.ControlBackColor;
-                Foreground = _theme.LightBlueColor;
                 BorderBrush = _theme.ControlBackColor;
+                Foreground = _theme.LightBlueColor;
             }
             catch(Exception ex)
             {

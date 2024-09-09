@@ -64,7 +64,7 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="FontWeight" Value="Regular" />
 
     </Style>
 
@@ -83,7 +83,7 @@
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="FontWeight" Value="Regular" />
 
         <Style.Triggers>
 
@@ -91,12 +91,14 @@
                 <Setter Property="Background" Value="{DynamicResource SteelBlueBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource SteelBlueBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource WhiteForeground}" />
+                <Setter Property="FontWeight" Value="Bold" />
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="False">
                 <Setter Property="Background" Value="{DynamicResource ControlInterior}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlInterior}" />
                 <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}" />
+                <Setter Property="FontWeight" Value="Regular" />
             </Trigger>
 
 
