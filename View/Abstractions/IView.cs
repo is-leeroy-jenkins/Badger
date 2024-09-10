@@ -50,7 +50,7 @@ namespace Badger
         /// Tuples this instance.
         /// </summary>
         /// <returns></returns>
-        ( int Index, string Name, double Value ) Tuple( );
+        ( int Index, string Name, object Value ) Tuple( );
 
         /// <inheritdoc />
         /// <summary>
@@ -59,7 +59,7 @@ namespace Badger
         /// <param name="index">The identifier.</param>
         /// <param name="name">The x.</param>
         /// <param name="value">The y.</param>
-        void Deconstruct( out double index, out string name, out double value );
+        void Deconstruct( out double index, out string name, out object value );
 
         /// <inheritdoc />
         /// <summary>
@@ -96,6 +96,6 @@ namespace Badger
         /// <value>
         /// The value.
         /// </value>
-        double Value { get; set; }
+        object Value { get; set; }
     }
 }

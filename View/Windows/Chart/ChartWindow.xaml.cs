@@ -210,7 +210,7 @@ namespace Badger
         /// <summary>
         /// The data source
         /// </summary>
-        private protected ChartModel _chartModel;
+        private protected ChartViewModel _chartViewModel;
 
         /// <summary>
         /// The data metric
@@ -283,15 +283,15 @@ namespace Badger
         /// <value>
         /// The data source.
         /// </value>
-        public ChartModel ChartModel
+        public ChartViewModel ChartViewModel
         {
             get
             {
-                return _chartModel;
+                return _chartViewModel;
             }
             set
             {
-                _chartModel = value;
+                _chartViewModel = value;
             }
         }
 
@@ -948,7 +948,7 @@ namespace Badger
                 _fields = _data.Fields;
                 _numerics = _data.Numerics;
                 _dataMetric = new DataMeasure( _dataTable );
-                _chartModel = new ChartModel( _dataTable );
+                _chartViewModel = new ChartViewModel( _dataTable );
             }
             catch( Exception ex )
             {
@@ -1434,7 +1434,7 @@ namespace Badger
             {
                 _data = null;
                 _dataTable = null;
-                _chartModel = null;
+                _chartViewModel = null;
             }
             catch( Exception ex )
             {
@@ -2060,7 +2060,7 @@ namespace Badger
                 if( _dataTable != null )
                 {
                     ColumnChart.Series?.Clear( );
-                    for( var _row = 0; _row < _chartModel.Rows.Count; _row++ )
+                    for( var _row = 0; _row < _chartViewModel.Rows.Count; _row++ )
                     {
                         var _dimension = _columns[ 0 ];
                         for( var _col = 0; _col < _numerics.Count; _col++ )
@@ -2068,7 +2068,7 @@ namespace Badger
                             var _measure = _numerics[ _col ];
                             var _series = new ColumnSeries3D
                             {
-                                ItemsSource = _chartModel.Items,
+                                ItemsSource = _chartViewModel.Items,
                                 XBindingPath = _dimension,
                                 YBindingPath = _measure,
                                 EnableAnimation = true,
@@ -2264,7 +2264,7 @@ namespace Badger
                     _areaChart.Series?.Clear( );
                     var _series = new AreaSeries3D
                     {
-                        ItemsSource = _chartModel.Items,
+                        ItemsSource = _chartViewModel.Items,
                         XBindingPath = _columns[ 0 ],
                         YBindingPath = _numerics[ 0 ],
                         EnableAnimation = true,

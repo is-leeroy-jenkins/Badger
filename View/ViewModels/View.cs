@@ -54,34 +54,37 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class View : Info, IView
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="View"/> class.
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
-        public View( )
+        protected View( )
             : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="View"/> class.
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
         /// <param name="index">The identifier.</param>
         /// <param name="name">The dimension.</param>
         /// <param name="value">The value.</param>
-        public View( int index, string name, double value = 0 )
+        public View( int index, string name, object value ) 
+            : base( index, name )
         {
-            _index = index;
-            _name = name;
             _value = value;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="View"/> class.
+        /// <see cref="T:Badger.View" /> class.
         /// </summary>
         /// <param name="view">The row view.</param>
         public View( IView view )
@@ -97,9 +100,8 @@ namespace Badger
         /// </summary>
         /// <param name="index">The identifier.</param>
         /// <param name="name"></param>
-        /// <param name="value">The y.</param>
-        public override void Deconstruct( out double index, out string name, 
-            out double value )
+        /// <param name = "value" > </param>
+        public virtual void Deconstruct( out double index, out string name, out object value )
         {
             index = _index;
             name = _name;
@@ -111,7 +113,7 @@ namespace Badger
         /// Tuples this instance.
         /// </summary>
         /// <returns></returns>
-        public (int Index, string Name, double Value) Tuple( )
+        public (int Index, string Name, object Value) Tuple( )
         {
             return ( _index, _name, _value );
         }
@@ -126,7 +128,7 @@ namespace Badger
         /// </returns>
         public override string ToString( )
         {
-            return _value.ToString( "N2" );
+            return _value.ToString( );
         }
     }
 }

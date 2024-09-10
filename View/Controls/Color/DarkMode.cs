@@ -1,16 +1,18 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Baby
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 09-10-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        09-10-2024
 // ******************************************************************************************
 // <copyright file="DarkMode.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
+//     in C#.  The baby browser is designed for budget execution and data analysis.
+//     A tool for EPA analysts and a component that can be used for general browsing.
+// 
+//     Copyright ©  2020 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +34,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DarkMode.cs
@@ -57,8 +59,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class DarkMode
-        : Palette
+    public class DarkMode : Palette
     {
         /// <summary>
         /// Gets the color of the dark blue.
@@ -75,6 +76,30 @@ namespace Badger
         /// The color of the muted border.
         /// </value>
         public SolidColorBrush MutedBorderBrush { get; private protected init; }
+
+        /// <summary>
+        /// Gets the dark red brush.
+        /// </summary>
+        /// <value>
+        /// The dark red brush.
+        /// </value>
+        public SolidColorBrush DarkRedBrush { get; private protected init; }
+
+        /// <summary>
+        /// Gets the dark green brush.
+        /// </summary>
+        /// <value>
+        /// The dark green brush.
+        /// </value>
+        public SolidColorBrush DarkGreenBrush { get; private protected init; }
+
+        /// <summary>
+        /// Gets the dark yellow brush.
+        /// </summary>
+        /// <value>
+        /// The dark yellow brush.
+        /// </value>
+        public SolidColorBrush DarkYellowBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -96,6 +121,9 @@ namespace Badger
             YellowBrush = new SolidColorBrush( _yellowColor );
             RedBrush = new SolidColorBrush( _redColor );
             DarkBlueBrush = new SolidColorBrush( _darkBlueColor );
+            DarkRedBrush = new SolidColorBrush( _darkRedColor );
+            DarkGreenBrush = new SolidColorBrush( _darkGreenColor );
+            DarkYellowBrush = new SolidColorBrush( _darkGreenColor );
             KhakiBrush = new SolidColorBrush( _khakiColor );
             GreenBrush = new SolidColorBrush( _greenColor );
             LightBlueBrush = new SolidColorBrush( _lightBlue );

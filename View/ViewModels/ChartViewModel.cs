@@ -61,7 +61,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class ChartModel
+    public class ChartViewModel
     {
         /// <summary>
         /// The columns
@@ -224,9 +224,9 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartModel" /> class.
+        /// <see cref="ChartViewModel" /> class.
         /// </summary>
-        public ChartModel( )
+        public ChartViewModel( )
             : base( )
         {
             _index = 0;
@@ -242,10 +242,10 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ChartModel" /> class.
+        /// <see cref="ChartViewModel" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public ChartModel( DataTable dataTable )
+        public ChartViewModel( DataTable dataTable )
             : this( )
         {
             _rows = dataTable?.ToObservable( );

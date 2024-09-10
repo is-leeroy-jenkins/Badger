@@ -442,7 +442,7 @@
                         BorderBrush="{StaticResource BorderBrush}"
                         BorderThickness="1">
                         <bdgr:SmithChart.DataContext>
-                            <bdgr:ChartModel />
+                            <bdgr:ChartViewModel />
                         </bdgr:SmithChart.DataContext>
                     </bdgr:SmithChart>
 

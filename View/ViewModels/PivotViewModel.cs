@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        09-10-2024
 // ******************************************************************************************
-// <copyright file="Info.cs" company="Terry D. Eppler">
+// <copyright file="PivotModel.cs" company="Terry D. Eppler">
 // 
 //     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
 //     in C#.  The baby browser is designed for budget execution and data analysis.
@@ -37,7 +37,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Info.cs
+//   PivotModel.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,147 +51,119 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantJumpStatement" ) ]
+    /// <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "OutParameterValueIsAlwaysDiscarded.Global" ) ]
-    public abstract class Info : INotifyPropertyChanged
+    public class PivotViewModel : ViewModel 
     {
         /// <summary>
-        /// The data row
+        /// The field header
         /// </summary>
-        private protected int _index;
+        private protected string _fieldHeader;
 
         /// <summary>
-        /// The measure
+        /// The mapping field name
         /// </summary>
-        private protected string _name;
+        private protected string _mappingFieldName;
 
         /// <summary>
-        /// The value
+        /// The total header
         /// </summary>
-        private protected object _value;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
-        public object Value
-        {
-            get
-            {
-                return _value;
-            }
-            set
-            {
-                if( _value != value )
-                {
-                    _value = value;
-                    OnPropertyChanged( nameof( Value ) );
-                }
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the index.
-        /// </summary>
-        /// <value>
-        /// The index.
-        /// </value>
-        public int Index
-        {
-            get
-            {
-                return _index;
-            }
-            set
-            {
-                if( _index != value )
-                {
-                    _index = value;
-                    OnPropertyChanged( nameof( Index ) );
-                }
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if( _name != value )
-                {
-                    _name = value;
-                    OnPropertyChanged( nameof( Name ) );
-                }
-            }
-        }
+        private protected string _totalHeader;
 
         /// <inheritdoc />
         /// <summary>
         /// Occurs when a property value changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        protected override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Info"/> class.
+        /// Gets or sets the field header.
         /// </summary>
-        protected Info( )
+        /// <value>
+        /// The field header.
+        /// </value>
+        public string FieldHeader
         {
+            get
+            {
+                return _fieldHeader;
+            }
+            set
+            {
+                if( _fieldHeader != value )
+                {
+                    _fieldHeader = value;
+                    OnPropertyChanged( nameof( FieldHeader ) );
+                }
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Info"/> class.
+        /// Gets or sets the name of the mappig field.
         /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="name">The name.</param>
-        protected Info( int index, string name )
+        /// <value>
+        /// The name of the mappig field.
+        /// </value>
+        public string MappigFieldName
         {
-            _index = index;
-            _name = name;
+            get
+            {
+                return _mappingFieldName;
+            }
+            set
+            {
+                if( _fieldHeader != value )
+                {
+                }
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Info"/> class.
+        /// Gets or sets the total header.
         /// </summary>
-        /// <param name="info">The information.</param>
-        protected Info( Info info )
+        /// <value>
+        /// The total header.
+        /// </value>
+        public string TotalHeader
         {
-            _index = info.Index;
-            _name = info.Name;
+            get
+            {
+                return _totalHeader;
+            }
+            set
+            {
+                if( _totalHeader != value )
+                {
+                    _totalHeader = value;
+                    OnPropertyChanged( nameof( TotalHeader ) );
+                }
+            }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Deconstructs the specified identifier.
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.PivotModel" /> class.
         /// </summary>
-        /// <param name="index">The identifier.</param>
-        /// <param name="name">The x.</param>
-        public virtual void Deconstruct( out double index, out string name )
+        public PivotViewModel( ) 
+            : base( )
         {
-            index = _index;
-            name = _name;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:Badger.PivotModel" /> class.
+        /// </summary>
+        /// <param name="fieldHeader">The field header.</param>
+        /// <param name="mappingFieldName">Name of the mapping field.</param>
+        /// <param name="totalHeader">The total header.</param>
+        public PivotViewModel( string fieldHeader, string mappingFieldName, string totalHeader ) 
+        {
+            _fieldHeader = fieldHeader;
+            _mappingFieldName = mappingFieldName;
+            _totalHeader = totalHeader;
         }
 
         /// <summary>
@@ -202,32 +174,6 @@ namespace Badger
         {
             var _handler = PropertyChanged;
             _handler?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="T:System.String" />
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            return string.IsNullOrEmpty( _name )
-                ? _name
-                : string.Empty;
-        }
-
-        /// <summary>
-        /// Fails the specified _ex.
-        /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected void Fail( Exception _ex )
-        {
-            var _error = new ErrorWindow( _ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -44,7 +44,6 @@ namespace Badger
     using Syncfusion.Windows.Controls.PivotGrid;
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Windows.Media;
 
     /// <inheritdoc />
     /// <summary>
@@ -73,7 +72,25 @@ namespace Badger
         {
             // Basic Properties
             SetResourceReference( MetroPivotGrid.StyleProperty, typeof( PivotGridControl ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            Background = _theme.Background;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.BorderBrush;
+            BorderThickness = _theme.BorderThickness;
+            Margin = _theme.Margin;
+            Padding = _theme.Padding;
+            CurrentCellBorder = _theme.LightBlueBrush;
+            FieldListBorderBrush = _theme.BorderBrush;
+            GroupingBarBackground = _theme.DarkBlueBrush;
+            GroupingBarItemBackground = _theme.ControlBackground;
+            GroupingBarItemBorderBrush = _theme.BorderBrush;
+            GroupingBarItemForeground = _theme.LightBlueBrush;
+            GroupingButtonCheckedBackground = _theme.DarkGreenBrush;
+            GroupingButtonCheckedForeground = _theme.WhiteForeground;
+            GroupingButtonHoverBackgroundBrush = _theme.DarkBlueBrush;
+            GroupingButtonHoverForeground = _theme.WhiteForeground;
+            GroupingButtonHoverBorderBrush = _theme.LightBlueBrush;
         }
 
         /// <summary>

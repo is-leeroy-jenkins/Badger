@@ -235,12 +235,45 @@ namespace Badger
         /// <summary>
         /// The muted border color
         /// </summary>
-        private protected Color _mutedBorderColor = new Color()
+        private protected Color _mutedBorderColor = new Color( )
         {
             A = 255,
             R = 90,
             G = 90,
             B = 90
+        };
+
+        /// <summary>
+        /// The dark green color
+        /// </summary>
+        private protected Color _darkGreenColor = new Color( )
+        {
+            A = 255,
+            R = 1,
+            G = 61,
+            B = 17
+        };
+
+        /// <summary>
+        /// The dark red color
+        /// </summary>
+        private protected Color _darkRedColor = new Color( )
+        {
+            A = 255,
+            R = 40,
+            G = 0,
+            B = 0
+        };
+
+        /// <summary>
+        /// The dark yellow color
+        /// </summary>
+        private protected Color _darkYellowColor = new Color( )
+        {
+            A = 255,
+            R = 48,
+            G = 59,
+            B = 1
         };
 
         /// <inheritdoc />
