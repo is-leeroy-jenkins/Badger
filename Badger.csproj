@@ -56,6 +56,8 @@
   <ItemGroup>
     <None Remove="Minions\SqlCe\CompactView.exe" />
     <None Remove="Minions\SQLite\DB Browser for SQLite.exe" />
+    <None Remove="Resources\Assets\CalculatorImages\Cancel.png" />
+    <None Remove="Resources\Assets\CalculatorImages\Main.png" />
     <None Remove="Resources\Assets\DialogImages\AddColumnButton.png" />
     <None Remove="Resources\Assets\DialogImages\AddRecordButton.png" />
     <None Remove="Resources\Assets\DialogImages\AddTableButton.png" />
@@ -575,6 +577,8 @@
   <ItemGroup>
     <Resource Include="Minions\SqlCe\CompactView.exe" />
     <Resource Include="Minions\SQLite\DB Browser for SQLite.exe" />
+    <Resource Include="Resources\Assets\CalculatorImages\Cancel.png" />
+    <Resource Include="Resources\Assets\CalculatorImages\Main.png" />
     <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddRecordButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddTableButton.png" />

@@ -210,7 +210,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path = new object( );
+        private protected object _entry = new object( );
 
         /// <summary>
         /// The provider
@@ -305,7 +305,7 @@ namespace Badger
         {
             get
             {
-                lock( _path )
+                lock( _entry )
                 {
                     return _busy;
                 }
@@ -347,18 +347,6 @@ namespace Badger
             // Window Events
             Loaded += OnLoaded;
             Closing += OnClosing;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
         }
 
         /// <summary>
@@ -627,7 +615,7 @@ namespace Badger
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = true;
                 }
@@ -645,7 +633,7 @@ namespace Badger
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = false;
                 }
@@ -3237,6 +3225,18 @@ namespace Badger
             {
                 Fail( ex );
             }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
