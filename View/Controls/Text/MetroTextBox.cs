@@ -74,10 +74,10 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            Background = _theme.ControlInteriorColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
-            SelectionBrush = _theme.SteelBlueColor;
+            Background = _theme.ControlInterior;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.BorderBrush;
+            SelectionBrush = _theme.SteelBlueBrush;
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             Width = 200;

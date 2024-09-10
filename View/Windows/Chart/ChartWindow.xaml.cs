@@ -423,14 +423,14 @@ namespace Badger
                 ColumnChart.Visibility = Visibility.Visible;
                 ColumnChart.IsEnabled = true;
                 ColumnChart.Margin = new Thickness( 0 );
-                ColumnChart.Background = _theme.BackColor;
-                ColumnChart.RightWallBrush = _theme.WallColor;
-                ColumnChart.LeftWallBrush = _theme.WallColor;
-                ColumnChart.BackWallBrush = _theme.WallColor;
-                ColumnChart.TopWallBrush = _theme.WallColor;
-                ColumnChart.BottomWallBrush = _theme.BlackColor;
-                ColumnChart.BorderBrush = _theme.BorderColor;
-                ColumnChart.Foreground = _theme.ForeColor;
+                ColumnChart.Background = _theme.Background;
+                ColumnChart.RightWallBrush = _theme.WallBrush;
+                ColumnChart.LeftWallBrush = _theme.WallBrush;
+                ColumnChart.BackWallBrush = _theme.WallBrush;
+                ColumnChart.TopWallBrush = _theme.WallBrush;
+                ColumnChart.BottomWallBrush = _theme.BlackBrush;
+                ColumnChart.BorderBrush = _theme.BorderBrush;
+                ColumnChart.Foreground = _theme.Foreground;
                 ColumnChart.FontFamily = _theme.FontFamily;
                 ColumnChart.FontSize = _theme.FontSize;
                 ColumnChart.SideBySideSeriesPlacement = true;
@@ -467,14 +467,14 @@ namespace Badger
                 PieChart.Visibility = Visibility.Visible;
                 PieChart.IsEnabled = true;
                 PieChart.Margin = new Thickness( 0 );
-                PieChart.RightWallBrush = _theme.WallColor;
-                PieChart.LeftWallBrush = _theme.WallColor;
-                PieChart.BackWallBrush = _theme.WallColor;
-                PieChart.TopWallBrush = _theme.WallColor;
-                PieChart.BottomWallBrush = _theme.BlackColor;
-                PieChart.BorderBrush = _theme.BorderColor;
-                PieChart.Foreground = _theme.ForeColor;
-                PieChart.Background = _theme.BackColor;
+                PieChart.RightWallBrush = _theme.WallBrush;
+                PieChart.LeftWallBrush = _theme.WallBrush;
+                PieChart.BackWallBrush = _theme.WallBrush;
+                PieChart.TopWallBrush = _theme.WallBrush;
+                PieChart.BottomWallBrush = _theme.BlackBrush;
+                PieChart.BorderBrush = _theme.BorderBrush;
+                PieChart.Foreground = _theme.Foreground;
+                PieChart.Background = _theme.Background;
                 PieChart.FontFamily = _theme.FontFamily;
                 PieChart.FontSize = _theme.FontSize;
                 PieChart.SideBySideSeriesPlacement = true;
@@ -510,9 +510,9 @@ namespace Badger
                 SunburstChart.Visibility = Visibility.Visible;
                 SunburstChart.IsEnabled = true;
                 SunburstChart.Margin = new Thickness( 0 );
-                SunburstChart.BorderBrush = _theme.BorderColor;
-                SunburstChart.Foreground = _theme.ForeColor;
-                SunburstChart.Background = _theme.BackColor;
+                SunburstChart.BorderBrush = _theme.BorderBrush;
+                SunburstChart.Foreground = _theme.Foreground;
+                SunburstChart.Background = _theme.Background;
                 SunburstChart.FontFamily = _theme.FontFamily;
                 SunburstChart.FontSize = _theme.FontSize;
             }
@@ -535,9 +535,9 @@ namespace Badger
 
                 SmithChart.Height = 454;
                 SmithChart.Width = 800;
-                SmithChart.Background = _theme.BackColor;
-                SmithChart.Foreground = _theme.ForeColor;
-                SmithChart.BorderBrush = _theme.BorderColor;
+                SmithChart.Background = _theme.Background;
+                SmithChart.Foreground = _theme.Foreground;
+                SmithChart.BorderBrush = _theme.BorderBrush;
                 SmithChart.Visibility = Visibility.Visible;
                 SmithChart.Margin = new Thickness( 0 );
             }
@@ -564,14 +564,14 @@ namespace Badger
                 AreaChart.Visibility = Visibility.Visible;
                 AreaChart.IsEnabled = true;
                 AreaChart.Margin = new Thickness( 0 );
-                AreaChart.RightWallBrush = _theme.WallColor;
-                AreaChart.LeftWallBrush = _theme.WallColor;
-                AreaChart.BackWallBrush = _theme.WallColor;
-                AreaChart.TopWallBrush = _theme.WallColor;
-                AreaChart.BottomWallBrush = _theme.BlackColor;
-                AreaChart.BorderBrush = _theme.BorderColor;
-                AreaChart.Foreground = _theme.ForeColor;
-                AreaChart.Background = _theme.BackColor;
+                AreaChart.RightWallBrush = _theme.WallBrush;
+                AreaChart.LeftWallBrush = _theme.WallBrush;
+                AreaChart.BackWallBrush = _theme.WallBrush;
+                AreaChart.TopWallBrush = _theme.WallBrush;
+                AreaChart.BottomWallBrush = _theme.BlackBrush;
+                AreaChart.BorderBrush = _theme.BorderBrush;
+                AreaChart.Foreground = _theme.Foreground;
+                AreaChart.Background = _theme.Background;
                 AreaChart.FontFamily = _theme.FontFamily;
                 AreaChart.FontSize = _theme.FontSize;
                 AreaChart.SideBySideSeriesPlacement = true;
@@ -601,14 +601,14 @@ namespace Badger
                 Histogram.Visibility = Visibility.Visible;
                 Histogram.IsEnabled = true;
                 Histogram.Margin = new Thickness( 0 );
-                Histogram.RightWallBrush = _theme.WallColor;
-                Histogram.LeftWallBrush = _theme.WallColor;
-                Histogram.BackWallBrush = _theme.WallColor;
-                Histogram.TopWallBrush = _theme.WallColor;
-                Histogram.BottomWallBrush = _theme.BlackColor;
-                Histogram.BorderBrush = _theme.BorderColor;
-                Histogram.Foreground = _theme.ForeColor;
-                Histogram.Background = _theme.BackColor;
+                Histogram.RightWallBrush = _theme.WallBrush;
+                Histogram.LeftWallBrush = _theme.WallBrush;
+                Histogram.BackWallBrush = _theme.WallBrush;
+                Histogram.TopWallBrush = _theme.WallBrush;
+                Histogram.BottomWallBrush = _theme.BlackBrush;
+                Histogram.BorderBrush = _theme.BorderBrush;
+                Histogram.Foreground = _theme.Foreground;
+                Histogram.Background = _theme.Background;
                 Histogram.FontFamily = _theme.FontFamily;
                 Histogram.FontSize = _theme.FontSize;
                 Histogram.SideBySideSeriesPlacement = true;
@@ -642,14 +642,14 @@ namespace Badger
                 LineChart.Visibility = Visibility.Visible;
                 LineChart.IsEnabled = true;
                 LineChart.Margin = new Thickness( 0 );
-                LineChart.RightWallBrush = _theme.WallColor;
-                LineChart.LeftWallBrush = _theme.WallColor;
-                LineChart.BackWallBrush = _theme.WallColor;
-                LineChart.TopWallBrush = _theme.WallColor;
-                LineChart.BottomWallBrush = _theme.BlackColor;
-                LineChart.BorderBrush = _theme.BorderColor;
-                LineChart.Foreground = _theme.ForeColor;
-                LineChart.Background = _theme.BackColor;
+                LineChart.RightWallBrush = _theme.WallBrush;
+                LineChart.LeftWallBrush = _theme.WallBrush;
+                LineChart.BackWallBrush = _theme.WallBrush;
+                LineChart.TopWallBrush = _theme.WallBrush;
+                LineChart.BottomWallBrush = _theme.BlackBrush;
+                LineChart.BorderBrush = _theme.BorderBrush;
+                LineChart.Foreground = _theme.Foreground;
+                LineChart.Background = _theme.Background;
                 LineChart.FontFamily = _theme.FontFamily;
                 LineChart.FontSize = _theme.FontSize;
                 LineChart.SideBySideSeriesPlacement = true;
@@ -683,14 +683,14 @@ namespace Badger
                 ScatterChart.Visibility = Visibility.Visible;
                 ScatterChart.IsEnabled = true;
                 ScatterChart.Margin = new Thickness( 0 );
-                ScatterChart.RightWallBrush = _theme.WallColor;
-                ScatterChart.LeftWallBrush = _theme.WallColor;
-                ScatterChart.BackWallBrush = _theme.WallColor;
-                ScatterChart.TopWallBrush = _theme.WallColor;
-                ScatterChart.BottomWallBrush = _theme.BlackColor;
-                ScatterChart.BorderBrush = _theme.BorderColor;
-                ScatterChart.Foreground = _theme.ForeColor;
-                ScatterChart.Background = _theme.BackColor;
+                ScatterChart.RightWallBrush = _theme.WallBrush;
+                ScatterChart.LeftWallBrush = _theme.WallBrush;
+                ScatterChart.BackWallBrush = _theme.WallBrush;
+                ScatterChart.TopWallBrush = _theme.WallBrush;
+                ScatterChart.BottomWallBrush = _theme.BlackBrush;
+                ScatterChart.BorderBrush = _theme.BorderBrush;
+                ScatterChart.Foreground = _theme.Foreground;
+                ScatterChart.Background = _theme.Background;
                 ScatterChart.FontFamily = _theme.FontFamily;
                 ScatterChart.FontSize = _theme.FontSize;
                 ScatterChart.SideBySideSeriesPlacement = true;
@@ -719,10 +719,10 @@ namespace Badger
         {
             try
             {
-                FieldsLabel.Foreground = _theme.BorderColor;
-                NumericsLabel.Foreground = _theme.BorderColor;
-                FirstDateLabel.Foreground = _theme.BorderColor;
-                SecondDateLabel.Foreground = _theme.BorderColor;
+                FieldsLabel.Foreground = _theme.BorderBrush;
+                NumericsLabel.Foreground = _theme.BorderBrush;
+                FirstDateLabel.Foreground = _theme.BorderBrush;
+                SecondDateLabel.Foreground = _theme.BorderBrush;
             }
             catch( Exception ex )
             {
@@ -1119,11 +1119,11 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.LightBlueColor,
+                    SymbolInterior = _theme.LightBlueBrush,
                     SymbolHeight = 8,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.ForeColor,
-                    Background = _theme.ControlBackColor
+                    BorderBrush = _theme.BorderBrush,
+                    Foreground = _theme.Foreground,
+                    Background = _theme.ControlBackground
                 };
 
                 return _adornment;
@@ -1149,10 +1149,10 @@ namespace Badger
                     FontFamily = _theme.FontFamily,
                     BorderThickness = _theme.BorderThickness,
                     ConnectorRotationAngle = 45,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.LightBlueColor,
-                    Background = _theme.ControlBackColor,
-                    Stroke = _theme.SteelBlueColor
+                    BorderBrush = _theme.BorderBrush,
+                    Foreground = _theme.LightBlueBrush,
+                    Background = _theme.ControlBackground,
+                    Stroke = _theme.SteelBlueBrush
                 };
 
                 return _adornment;
@@ -1248,7 +1248,7 @@ namespace Badger
                     LabelPlacement = LabelPlacement.OnTicks,
                     TickLinesPosition = AxisElementPosition.Outside,
                     Name = "Dimension",
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 
@@ -1282,7 +1282,7 @@ namespace Badger
                     Name = "Measure",
                     IsEnabled = true,
                     TickLinesPosition = AxisElementPosition.Outside,
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 
@@ -2127,7 +2127,7 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2141,7 +2141,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2174,7 +2174,7 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2188,7 +2188,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         IsSeriesVisible = true
@@ -2223,7 +2223,7 @@ namespace Badger
                             EnableAnimation = true,
                             Label = _numerics[ 0 ],
                             ShowEmptyPoints = true,
-                            Interior = _theme.SteelBlueColor,
+                            Interior = _theme.SteelBlueBrush,
                             AdornmentsInfo = CreateAdornmentInfo( ),
                             ShowTooltip = true
                         };
@@ -2237,7 +2237,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         Visibility = Visibility.Visible
@@ -2270,11 +2270,11 @@ namespace Badger
                         EnableAnimation = true,
                         Label = _numerics[ 0 ],
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         Area =
                         {
-                            BackWallBrush = _theme.WallColor,
-                            BottomWallBrush = _theme.BlackColor,
+                            BackWallBrush = _theme.WallBrush,
+                            BottomWallBrush = _theme.BlackBrush,
                             Depth = _areaChart.Depth
                         },
                         AdornmentsInfo = CreateAdornmentInfo( ),
@@ -2289,7 +2289,7 @@ namespace Badger
                     {
                         EnableAnimation = true,
                         ShowEmptyPoints = true,
-                        Interior = _theme.SteelBlueColor,
+                        Interior = _theme.SteelBlueBrush,
                         AdornmentsInfo = CreateAdornmentInfo( ),
                         ShowTooltip = true,
                         Visibility = Visibility.Visible

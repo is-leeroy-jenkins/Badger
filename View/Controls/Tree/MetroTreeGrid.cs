@@ -73,9 +73,9 @@ namespace Badger
             Height = 400;
             FontSize = _theme.FontSize;
             FontFamily = _theme.FontFamily;
-            Background = _theme.DarkBlueColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.DarkBlueBrush;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.BorderBrush;
         }
 
         /// <summary>

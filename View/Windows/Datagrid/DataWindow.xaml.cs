@@ -491,11 +491,11 @@ namespace Badger
             try
             {
                 StatusLabel.FontSize = 11;
-                SchemaHeader.Foreground = _theme.ForeColor;
+                SchemaHeader.Foreground = _theme.Foreground;
                 SchemaHeader.Visibility = Visibility.Hidden;
-                DataColumnLabel.Foreground = _theme.ForeColor;
-                DataTypeLabel.Foreground = _theme.ForeColor;
-                ColumnNameLabel.Foreground = _theme.ForeColor;
+                DataColumnLabel.Foreground = _theme.Foreground;
+                DataTypeLabel.Foreground = _theme.Foreground;
+                ColumnNameLabel.Foreground = _theme.Foreground;
             }
             catch( Exception ex )
             {
@@ -538,8 +538,8 @@ namespace Badger
         {
             try
             {
-                FirstComboBox.Background = _theme.BackColor;
-                SecondComboBox.Background = _theme.BackColor;
+                FirstComboBox.Background = _theme.Background;
+                SecondComboBox.Background = _theme.Background;
             }
             catch( Exception ex )
             {

@@ -169,9 +169,9 @@ namespace Badger
             FontSize = _theme.FontSize;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
-            Background = _theme.DarkBlueColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.LightBlueColor;
+            Background = _theme.DarkBlueBrush;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.LightBlueBrush;
             WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;

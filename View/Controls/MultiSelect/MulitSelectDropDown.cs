@@ -76,12 +76,12 @@ namespace Badger
             Height = 30;
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = _theme.ControlBackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.ControlBackground;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.BorderBrush;
             PopupBorderThickness = new Thickness( 1 );
-            PopupBackground = _theme.BlackColor;
-            PopupBorderBrush = _theme.BorderColor;
+            PopupBackground = _theme.BlackBrush;
+            PopupBorderBrush = _theme.BorderBrush;
         }
 
         /// <summary>

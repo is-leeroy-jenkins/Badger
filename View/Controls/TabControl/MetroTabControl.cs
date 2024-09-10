@@ -83,9 +83,9 @@ namespace Badger
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            BorderBrush = _theme.BackColor;
-            Foreground = _theme.ForeColor;
+            Background = _theme.Background;
+            BorderBrush = _theme.Background;
+            Foreground = _theme.Foreground;
         }
 
         /// <summary>

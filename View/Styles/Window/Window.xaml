@@ -7,10 +7,10 @@
         <Setter Property="Background" Value="{DynamicResource FormBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="1" />
+        <Setter Property="Padding" Value="1,1,1,3" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
-        <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="FontSize" Value="12" />
     </Style>
 

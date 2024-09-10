@@ -70,9 +70,9 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            Background = _theme.ControlInteriorColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.ControlInterior;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.BorderBrush;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;

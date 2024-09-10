@@ -72,9 +72,9 @@ namespace Badger
             SetResourceReference( SheetRibbon.StyleProperty, typeof( SfSpreadsheetRibbon ) );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = _theme.ControlBackColor;
-            BorderBrush = _theme.ControlBackColor;
-            Foreground = _theme.ForeColor;
+            Background = _theme.ControlBackground;
+            BorderBrush = _theme.ControlBackground;
+            Foreground = _theme.Foreground;
         }
 
         /// <summary>

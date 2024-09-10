@@ -78,9 +78,9 @@ namespace Badger
         {
             // Control Properties
             Height = 40;
-            Background = _theme.ControlInteriorColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.ControlInteriorColor;
+            Background = _theme.ControlInterior;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.ControlInterior;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
@@ -103,9 +103,10 @@ namespace Badger
             {
                 if( sender is MetroListBoxItem _item )
                 {
-                    _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.SteelBlueColor;
-                    _item.BorderBrush = _theme.SteelBlueColor;
+                    _item.Foreground = _theme.WhiteForeground;
+                    _item.Background = _theme.SteelBlueBrush;
+                    _item.BorderBrush = _theme.SteelBlueBrush;
+                    _item.FontWeight = FontWeights.Bold;
                 }
             }
             catch( Exception ex )
@@ -126,9 +127,10 @@ namespace Badger
             {
                 if( sender is MetroListBoxItem _item )
                 {
-                    _item.Foreground = _theme.ForeColor;
-                    _item.Background = _theme.ControlInteriorColor;
-                    _item.BorderBrush = _theme.ControlInteriorColor;
+                    _item.Foreground = _theme.Foreground;
+                    _item.Background = _theme.ControlInterior;
+                    _item.BorderBrush = _theme.ControlInterior;
+                    _item.FontWeight = FontWeights.Normal;
                 }
             }
             catch( Exception ex )

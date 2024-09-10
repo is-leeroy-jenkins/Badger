@@ -116,9 +116,9 @@ namespace Badger
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-			BorderBrush = _theme.RedColor;
+            Background = _theme.Background;
+            Foreground = _theme.Foreground;
+			BorderBrush = _theme.RedBrush;
             ToolTip = "click to clear";
 
             // Event Wiring

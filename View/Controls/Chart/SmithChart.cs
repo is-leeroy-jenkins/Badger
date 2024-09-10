@@ -78,9 +78,9 @@ namespace Badger
             FontSize = 12;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.Background;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.BorderBrush;
             Header = "Smith Chart";
         }
 

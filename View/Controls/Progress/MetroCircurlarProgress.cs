@@ -74,9 +74,9 @@ namespace Badger
 
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
-            Background = _theme.BackColor;
-            Foreground = _theme.BorderColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.Background;
+            Foreground = _theme.BorderBrush;
+            BorderBrush = _theme.BorderBrush;
         }
 
         /// <summary>

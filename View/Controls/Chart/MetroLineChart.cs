@@ -86,14 +86,14 @@ namespace Badger
             PerspectiveAngle = 100;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            Background = _theme.BackColor;
-            RightWallBrush = _theme.WallColor;
-            LeftWallBrush = _theme.WallColor;
-            BackWallBrush = _theme.WallColor;
-            TopWallBrush = _theme.WallColor;
-            BottomWallBrush = _theme.BlackColor;
-            BorderBrush = _theme.BorderColor;
-            Foreground = _theme.WallColor;
+            Background = _theme.Background;
+            RightWallBrush = _theme.WallBrush;
+            LeftWallBrush = _theme.WallBrush;
+            BackWallBrush = _theme.WallBrush;
+            TopWallBrush = _theme.WallBrush;
+            BottomWallBrush = _theme.BlackBrush;
+            BorderBrush = _theme.BorderBrush;
+            Foreground = _theme.WallBrush;
             PrimaryAxis = CreateCategoricalAxis( );
             SecondaryAxis = CreateNumericalAxis( );
         }
@@ -119,11 +119,11 @@ namespace Badger
                     HighlightOnSelection = true,
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
-                    SymbolInterior = _theme.SteelBlueColor,
+                    SymbolInterior = _theme.SteelBlueBrush,
                     SymbolHeight = 8,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.ForeColor,
-                    Background = _theme.BlackColor
+                    BorderBrush = _theme.BorderBrush,
+                    Foreground = _theme.Foreground,
+                    Background = _theme.BlackBrush
                 };
 
                 return _adornment;
@@ -144,13 +144,13 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( ChartColorPalette.Custom );
-                _model.CustomBrushes.Add( _theme.SteelBlueColor );
-                _model.CustomBrushes.Add( _theme.YellowColor );
-                _model.CustomBrushes.Add( _theme.RedColor );
-                _model.CustomBrushes.Add( _theme.KhakiColor );
-                _model.CustomBrushes.Add( _theme.GreenColor );
-                _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueBrush );
+                _model.CustomBrushes.Add( _theme.YellowBrush );
+                _model.CustomBrushes.Add( _theme.RedBrush );
+                _model.CustomBrushes.Add( _theme.KhakiBrush );
+                _model.CustomBrushes.Add( _theme.GreenBrush );
+                _model.CustomBrushes.Add( _theme.GrayBrush );
+                _model.CustomBrushes.Add( _theme.LightBlueBrush );
                 return _model;
             }
             catch( Exception ex )
@@ -176,7 +176,7 @@ namespace Badger
                     Header = "X-Axis",
                     Interval = 1,
                     Name = "Dimension",
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 
@@ -210,7 +210,7 @@ namespace Badger
                     Minimum = min,
                     Maximum = max,
                     Interval = ( max - min ) / 10,
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 

@@ -202,36 +202,36 @@
                     <TextBlock Grid.Row="0"
                                Grid.Column="0"
                                Text="{smithChart:SmithChartLocalizationResourceExtension ResourceName=TooltipResistance}"
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}" />
                     <TextBlock Grid.Row="0"
                                Grid.Column="1"
                                Text=" : "
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}"
                                Margin="0,-1,0,0" />
                     <TextBlock Grid.Row="0"
                                Grid.Column="2"
                                Text="{Binding Resistance}"
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}"
                                Margin="3,0,0,0" />
                     <TextBlock Grid.Row="1"
                                Grid.Column="0"
                                Text="{smithChart:SmithChartLocalizationResourceExtension ResourceName=TooltipReactance}"
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}" />
                     <TextBlock Grid.Row="1"
                                Grid.Column="1"
                                Text=" : "
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}"
                                Margin="0,-1,0,0" />
                     <TextBlock Grid.Row="1"
                                Grid.Column="2"
                                Text="{Binding Reactance}"
                                Margin="3,0,0,0"
-                               Foreground="{Binding ForeColor}"
+                               Foreground="{Binding Foreground}"
                                FontSize="{StaticResource FluentDark.CaptionText}" />
                 </Grid>
             </Grid>

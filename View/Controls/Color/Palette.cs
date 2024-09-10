@@ -232,6 +232,17 @@ namespace Badger
         /// </summary>
         private protected Color _yellowColor = Colors.Yellow;
 
+        /// <summary>
+        /// The muted border color
+        /// </summary>
+        private protected Color _mutedBorderColor = new Color()
+        {
+            A = 255,
+            R = 90,
+            G = 90,
+            B = 90
+        };
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -248,7 +259,7 @@ namespace Badger
         /// <value>
         /// The color of the white.
         /// </value>
-        public SolidColorBrush WhiteColor { get; private protected init; }
+        public SolidColorBrush WhiteForeground { get; private protected init; }
 
         /// <summary>
         /// Gets or sets the colors.
@@ -313,7 +324,7 @@ namespace Badger
         /// <value>
         /// The color of the fore.
         /// </value>
-        public SolidColorBrush Transparent { get; private protected init; }
+        public SolidColorBrush TransparentBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -322,7 +333,7 @@ namespace Badger
         /// <value>
         /// The color of the black.
         /// </value>
-        public SolidColorBrush BlackColor { get; private protected init; }
+        public SolidColorBrush BlackBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -331,7 +342,7 @@ namespace Badger
         /// <value>
         /// The color of the fore.
         /// </value>
-        public SolidColorBrush ForeColor { get; private protected init; }
+        public SolidColorBrush Foreground { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -340,7 +351,7 @@ namespace Badger
         /// <value>
         /// The color of the back.
         /// </value>
-        public SolidColorBrush BackColor { get; private protected init; }
+        public SolidColorBrush Background { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -349,7 +360,7 @@ namespace Badger
         /// <value>
         /// The color of the border.
         /// </value>
-        public SolidColorBrush BorderColor { get; private protected init; }
+        public SolidColorBrush BorderBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -358,7 +369,7 @@ namespace Badger
         /// <value>
         /// The color of the control.
         /// </value>
-        public SolidColorBrush ControlBackColor { get; private protected init; }
+        public SolidColorBrush ControlBackground { get; private protected init; }
 
         /// <summary>
         /// Gets the color of the interior.
@@ -366,7 +377,7 @@ namespace Badger
         /// <value>
         /// The color of the interior.
         /// </value>
-        public SolidColorBrush ControlInteriorColor { get; private protected init; }
+        public SolidColorBrush ControlInterior { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -375,7 +386,7 @@ namespace Badger
         /// <value>
         /// The color of the wall.
         /// </value>
-        public SolidColorBrush WallColor { get; private protected init; }
+        public SolidColorBrush WallBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -384,7 +395,7 @@ namespace Badger
         /// <value>
         /// The color of the hover.
         /// </value>
-        public SolidColorBrush SteelBlueColor { get; private protected init; }
+        public SolidColorBrush SteelBlueBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -393,7 +404,7 @@ namespace Badger
         /// <value>
         /// The color of the red.
         /// </value>
-        public SolidColorBrush RedColor { get; private protected init; }
+        public SolidColorBrush RedBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -402,7 +413,7 @@ namespace Badger
         /// <value>
         /// The color of the khaki.
         /// </value>
-        public SolidColorBrush KhakiColor { get; private protected init; }
+        public SolidColorBrush KhakiBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -411,7 +422,7 @@ namespace Badger
         /// <value>
         /// The color of the green.
         /// </value>
-        public SolidColorBrush GreenColor { get; private protected init; }
+        public SolidColorBrush GreenBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -420,7 +431,7 @@ namespace Badger
         /// <value>
         /// The light blue.
         /// </value>
-        public SolidColorBrush LightBlueColor { get; private protected init; }
+        public SolidColorBrush LightBlueBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -429,7 +440,7 @@ namespace Badger
         /// <value>
         /// The color of the yellow.
         /// </value>
-        public SolidColorBrush YellowColor { get; private protected init; }
+        public SolidColorBrush YellowBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -438,7 +449,7 @@ namespace Badger
         /// <value>
         /// The color of the gray.
         /// </value>
-        public SolidColorBrush GrayColor { get; private protected init; }
+        public SolidColorBrush GrayBrush { get; private protected init; }
 
         /// <summary>
         /// Creates the colors.
@@ -450,13 +461,13 @@ namespace Badger
             {
                 var _array = new SolidColorBrush[ ]
                 {
-                    SteelBlueColor,
-                    GrayColor,
-                    YellowColor,
-                    RedColor,
-                    KhakiColor,
-                    GreenColor,
-                    LightBlueColor
+                    SteelBlueBrush,
+                    GrayBrush,
+                    YellowBrush,
+                    RedBrush,
+                    KhakiBrush,
+                    GreenBrush,
+                    LightBlueBrush
                 };
 
                 return _array?.Length > 0
@@ -481,13 +492,13 @@ namespace Badger
             {
                 var _list = new List<Brush>
                 {
-                    SteelBlueColor,
-                    GrayColor,
-                    YellowColor,
-                    RedColor,
-                    KhakiColor,
-                    GreenColor,
-                    LightBlueColor
+                    SteelBlueBrush,
+                    GrayBrush,
+                    YellowBrush,
+                    RedBrush,
+                    KhakiBrush,
+                    GreenBrush,
+                    LightBlueBrush
                 };
 
                 return _list?.Count > 0
@@ -511,13 +522,13 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "HoverColor", SteelBlueColor );
-                _map.Add( "GrayColor", GrayColor );
-                _map.Add( "YellowColor", YellowColor );
-                _map.Add( "RedColor", RedColor );
-                _map.Add( "KhakiColor", KhakiColor );
-                _map.Add( "GreenColor", GreenColor );
-                _map.Add( "LightBlue", LightBlueColor );
+                _map.Add( "HoverColor", SteelBlueBrush );
+                _map.Add( "GrayColor", GrayBrush );
+                _map.Add( "YellowColor", YellowBrush );
+                _map.Add( "RedColor", RedBrush );
+                _map.Add( "KhakiColor", KhakiBrush );
+                _map.Add( "GreenColor", GreenBrush );
+                _map.Add( "LightBlue", LightBlueBrush );
                 return _map?.Count > 0
                     ? _map
                     : default( IDictionary<string, Brush> );

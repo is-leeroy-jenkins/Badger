@@ -73,7 +73,7 @@ namespace Badger
             SetResourceReference( MetroGridControl.StyleProperty, typeof( GridControl ) );
             Width = 250;
             Height = 200;
-            Model.HeaderStyle.Background = _theme.SteelBlueColor;
+            Model.HeaderStyle.Background = _theme.SteelBlueBrush;
             Model.Options.AllowExcelLikeResizing = true;
             Model.Options.AllowSelection = GridSelectionFlags.Row;
             Model.Options.ExcelLikeCurrentCell = true;

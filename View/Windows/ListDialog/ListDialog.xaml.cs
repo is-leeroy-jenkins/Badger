@@ -222,9 +222,9 @@ namespace Badger
             BorderThickness = _theme.BorderThickness;
             Margin = _theme.Margin;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.Background;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.BorderBrush;
 
             // Window Events
             Loaded += OnLoad;

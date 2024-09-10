@@ -68,8 +68,8 @@ namespace Badger
         public MetroText( )
             : base( )
         {
-            Background = _theme.Transparent;
-            Foreground = _theme.BorderColor;
+            Background = _theme.TransparentBrush;
+            Foreground = _theme.BorderBrush;
             FontSize = 12;
             FontFamily = new FontFamily( "Segoe UI" );
         }

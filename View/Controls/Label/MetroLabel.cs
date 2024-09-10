@@ -78,8 +78,8 @@ namespace Badger
             Width = 100;
             HorizontalAlignment = HorizontalAlignment.Center;
             VerticalAlignment = VerticalAlignment.Center;
-            Background = _theme.Transparent;
-            Foreground = _theme.BorderColor;
+            Background = _theme.TransparentBrush;
+            Foreground = _theme.BorderBrush;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
@@ -97,8 +97,8 @@ namespace Badger
         {
             try
             {
-                Background = _theme.Transparent;
-                Foreground = _theme.WhiteColor;
+                Background = _theme.TransparentBrush;
+                Foreground = _theme.WhiteForeground;
             }
             catch( Exception ex )
             {
@@ -117,8 +117,8 @@ namespace Badger
         {
             try
             {
-                Background = _theme.Transparent;
-                Foreground = _theme.BorderColor;
+                Background = _theme.TransparentBrush;
+                Foreground = _theme.BorderBrush;
             }
             catch( Exception ex )
             {

@@ -68,9 +68,9 @@ namespace Badger
             // Basic Properties
             Width = 40;
             Height = 30;
-            Background = _theme.BackColor;
-            Foreground = _theme.BackColor;
-            BorderBrush = _theme.BackColor;
+            Background = _theme.Background;
+            Foreground = _theme.Background;
+            BorderBrush = _theme.Background;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
@@ -92,9 +92,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.DarkBlueColor;
-                Foreground = _theme.WhiteColor;
-                BorderBrush = _theme.LightBlueColor;
+                Background = _theme.DarkBlueBrush;
+                Foreground = _theme.WhiteForeground;
+                BorderBrush = _theme.LightBlueBrush;
             }
             catch( Exception ex )
             {
@@ -114,9 +114,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.BackColor;
-                Foreground = _theme.BackColor;
-                BorderBrush = _theme.BackColor;
+                Background = _theme.Background;
+                Foreground = _theme.Background;
+                BorderBrush = _theme.Background;
             }
             catch( Exception ex )
             {

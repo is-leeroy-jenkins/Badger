@@ -71,7 +71,6 @@
         <ResourceDictionary Source="/View/Styles/Tree/SfTreeGrid.xaml" />
         <ResourceDictionary Source="/View/Styles/Tree/SfTreeNavigator.xaml" />
         <ResourceDictionary Source="/View/Styles/Tree/SfTreeView.xaml" />
-        <ResourceDictionary Source="/View/Styles/Window/Window.xaml" />
         <ResourceDictionary Source="/View/Styles/Window/ChromelessWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -75,9 +75,9 @@ namespace Badger
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
             FontFamily = new FontFamily( "Segoe UI" );
-            Background = _theme.BackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.Background;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.BorderBrush;
             Header = "Surface Chart";
         }
 

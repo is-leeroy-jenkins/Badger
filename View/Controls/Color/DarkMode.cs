@@ -66,7 +66,15 @@ namespace Badger
         /// <value>
         /// The color of the dark blue.
         /// </value>
-        public SolidColorBrush DarkBlueColor { get; private protected init; }
+        public SolidColorBrush DarkBlueBrush { get; private protected init; }
+
+        /// <summary>
+        /// Gets the color of the muted border.
+        /// </summary>
+        /// <value>
+        /// The color of the muted border.
+        /// </value>
+        public SolidColorBrush MutedBorderBrush { get; private protected init; }
 
         /// <inheritdoc />
         /// <summary>
@@ -76,22 +84,23 @@ namespace Badger
         public DarkMode( )
             : base( )
         {
-            ForeColor = new SolidColorBrush( _foreColor );
-            BackColor = new SolidColorBrush( _backColor );
-            BorderColor = new SolidColorBrush( _borderColor );
-            WallColor = new SolidColorBrush( _wallColor );
-            ControlBackColor = new SolidColorBrush( _controlBackColor );
-            ControlInteriorColor = new SolidColorBrush( _controlInteriorColor );
-            SteelBlueColor = new SolidColorBrush( _steelBlueColor );
-            GrayColor = new SolidColorBrush( Colors.DarkGray );
-            YellowColor = new SolidColorBrush( _yellowColor );
-            RedColor = new SolidColorBrush( _redColor );
-            DarkBlueColor = new SolidColorBrush( _darkBlueColor );
-            KhakiColor = new SolidColorBrush( _khakiColor );
-            GreenColor = new SolidColorBrush( _greenColor );
-            LightBlueColor = new SolidColorBrush( _lightBlue );
-            BlackColor = new SolidColorBrush( _blackColor );
-            WhiteColor = new SolidColorBrush( _whiteColor );
+            Foreground = new SolidColorBrush( _foreColor );
+            Background = new SolidColorBrush( _backColor );
+            BorderBrush = new SolidColorBrush( _borderColor );
+            WallBrush = new SolidColorBrush( _wallColor );
+            ControlBackground = new SolidColorBrush( _controlBackColor );
+            ControlInterior = new SolidColorBrush( _controlInteriorColor );
+            MutedBorderBrush = new SolidColorBrush( _mutedBorderColor );
+            SteelBlueBrush = new SolidColorBrush( _steelBlueColor );
+            GrayBrush = new SolidColorBrush( Colors.DarkGray );
+            YellowBrush = new SolidColorBrush( _yellowColor );
+            RedBrush = new SolidColorBrush( _redColor );
+            DarkBlueBrush = new SolidColorBrush( _darkBlueColor );
+            KhakiBrush = new SolidColorBrush( _khakiColor );
+            GreenBrush = new SolidColorBrush( _greenColor );
+            LightBlueBrush = new SolidColorBrush( _lightBlue );
+            BlackBrush = new SolidColorBrush( _blackColor );
+            WhiteForeground = new SolidColorBrush( _whiteColor );
             FontFamily = new FontFamily( "Segoe UI" );
             FontSize = 12;
             Padding = new Thickness( 1 );
@@ -116,14 +125,14 @@ namespace Badger
             {
                 var _array = new[ ]
                 {
-                    SteelBlueColor,
-                    GrayColor,
-                    YellowColor,
-                    RedColor,
-                    DarkBlueColor,
-                    KhakiColor,
-                    GreenColor,
-                    LightBlueColor
+                    SteelBlueBrush,
+                    GrayBrush,
+                    YellowBrush,
+                    RedBrush,
+                    DarkBlueBrush,
+                    KhakiBrush,
+                    GreenBrush,
+                    LightBlueBrush
                 };
 
                 return _array?.Length > 0
@@ -150,14 +159,14 @@ namespace Badger
             {
                 var _list = new List<Brush>
                 {
-                    SteelBlueColor,
-                    GrayColor,
-                    YellowColor,
-                    RedColor,
-                    DarkBlueColor,
-                    KhakiColor,
-                    GreenColor,
-                    LightBlueColor
+                    SteelBlueBrush,
+                    GrayBrush,
+                    YellowBrush,
+                    RedBrush,
+                    DarkBlueBrush,
+                    KhakiBrush,
+                    GreenBrush,
+                    LightBlueBrush
                 };
 
                 return _list?.Count > 0
@@ -183,14 +192,14 @@ namespace Badger
             try
             {
                 var _map = new Dictionary<string, Brush>( );
-                _map.Add( "ItemHoverColor", SteelBlueColor );
-                _map.Add( "GrayColor", GrayColor );
-                _map.Add( "YellowColor", YellowColor );
-                _map.Add( "RedColor", RedColor );
-                _map.Add( "DarkBlueColor", DarkBlueColor );
-                _map.Add( "KhakiColor", KhakiColor );
-                _map.Add( "GreenColor", GreenColor );
-                _map.Add( "LightBlue", LightBlueColor );
+                _map.Add( "ItemHoverColor", SteelBlueBrush );
+                _map.Add( "GrayColor", GrayBrush );
+                _map.Add( "YellowColor", YellowBrush );
+                _map.Add( "RedColor", RedBrush );
+                _map.Add( "DarkBlueColor", DarkBlueBrush );
+                _map.Add( "KhakiColor", KhakiBrush );
+                _map.Add( "GreenColor", GreenBrush );
+                _map.Add( "LightBlue", LightBlueBrush );
                 return _map?.Count > 0
                     ? _map
                     : default( IDictionary<string, Brush> );

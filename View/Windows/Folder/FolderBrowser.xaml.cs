@@ -168,9 +168,9 @@ namespace Badger
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.ControlBackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.BorderColor;
+            Background = _theme.ControlBackground;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.BorderBrush;
 
             // Browser Properties
             _dirPaths = new List<string>( );

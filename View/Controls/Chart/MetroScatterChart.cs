@@ -83,14 +83,14 @@ namespace Badger
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
             ColorModel = CreateColorModel( );
-            Background = _theme.BackColor;
-            RightWallBrush = _theme.WallColor;
-            LeftWallBrush = _theme.WallColor;
-            BackWallBrush = _theme.WallColor;
-            TopWallBrush = _theme.WallColor;
-            BottomWallBrush = _theme.BlackColor;
-            BorderBrush = _theme.WallColor;
-            Foreground = _theme.WallColor;
+            Background = _theme.Background;
+            RightWallBrush = _theme.WallBrush;
+            LeftWallBrush = _theme.WallBrush;
+            BackWallBrush = _theme.WallBrush;
+            TopWallBrush = _theme.WallBrush;
+            BottomWallBrush = _theme.BlackBrush;
+            BorderBrush = _theme.WallBrush;
+            Foreground = _theme.WallBrush;
         }
 
         /// <summary>
@@ -104,13 +104,13 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.SteelBlueColor );
-                _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.YellowColor );
-                _model.CustomBrushes.Add( _theme.RedColor );
-                _model.CustomBrushes.Add( _theme.KhakiColor );
-                _model.CustomBrushes.Add( _theme.GreenColor );
-                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueBrush );
+                _model.CustomBrushes.Add( _theme.GrayBrush );
+                _model.CustomBrushes.Add( _theme.YellowBrush );
+                _model.CustomBrushes.Add( _theme.RedBrush );
+                _model.CustomBrushes.Add( _theme.KhakiBrush );
+                _model.CustomBrushes.Add( _theme.GreenBrush );
+                _model.CustomBrushes.Add( _theme.LightBlueBrush );
                 return _model.CustomBrushes.Count > 0
                     ? _model
                     : default( ChartColorModel );

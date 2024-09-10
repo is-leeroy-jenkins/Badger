@@ -78,9 +78,9 @@ namespace Badger
             SetResourceReference( MetroCheckListItem.StyleProperty, typeof( CheckListBoxItem ) );
             Width = 225;
             Height = 24;
-            Background = _theme.ControlBackColor;
-            Foreground = _theme.ForeColor;
-            BorderBrush = _theme.ControlBackColor;
+            Background = _theme.ControlBackground;
+            Foreground = _theme.Foreground;
+            BorderBrush = _theme.ControlBackground;
             Padding = new Thickness( 10, 1, 1, 1 );
             BorderThickness = new Thickness( 1 );
             VerticalAlignment = VerticalAlignment.Stretch;
@@ -105,9 +105,9 @@ namespace Badger
             {
                 if( sender is MetroCheckListItem _item )
                 {
-                    _item.Foreground = _theme.ForeColor;
-                    _item.Background = _theme.ControlBackColor;
-                    _item.BorderBrush = _theme.ControlBackColor;
+                    _item.Foreground = _theme.Foreground;
+                    _item.Background = _theme.ControlBackground;
+                    _item.BorderBrush = _theme.ControlBackground;
                 }
             }
             catch( Exception ex )
@@ -128,9 +128,9 @@ namespace Badger
             {
                 if( sender is MetroCheckListItem _item )
                 {
-                    _item.Foreground = _theme.WhiteColor;
-                    _item.Background = _theme.SteelBlueColor;
-                    _item.BorderBrush = _theme.SteelBlueColor;
+                    _item.Foreground = _theme.WhiteForeground;
+                    _item.Background = _theme.SteelBlueBrush;
+                    _item.BorderBrush = _theme.SteelBlueBrush;
                 }
             }
             catch( Exception ex )

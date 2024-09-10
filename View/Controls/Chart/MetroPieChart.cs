@@ -92,14 +92,14 @@ namespace Badger
             ColorModel = CreateColorModel( );
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            Background = _theme.BackColor;
-            RightWallBrush = _theme.WallColor;
-            LeftWallBrush = _theme.WallColor;
-            BackWallBrush = _theme.WallColor;
-            TopWallBrush = _theme.WallColor;
-            BottomWallBrush = _theme.BlackColor;
-            BorderBrush = _theme.BorderColor;
-            Foreground = _theme.ForeColor;
+            Background = _theme.Background;
+            RightWallBrush = _theme.WallBrush;
+            LeftWallBrush = _theme.WallBrush;
+            BackWallBrush = _theme.WallBrush;
+            TopWallBrush = _theme.WallBrush;
+            BottomWallBrush = _theme.BlackBrush;
+            BorderBrush = _theme.BorderBrush;
+            Foreground = _theme.Foreground;
             PrimaryAxis = CreateCategoricalAxis( );
             SecondaryAxis = CreateNumericalAxis( );
             Header = "Pie Chart";
@@ -124,7 +124,7 @@ namespace Badger
                     Minimum = min,
                     Maximum = max,
                     Interval = ( max - min ) / 10,
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 
@@ -153,7 +153,7 @@ namespace Badger
                     Header = "Dimension",
                     Interval = 1,
                     Name = "Dimension",
-                    Foreground = _theme.BorderColor,
+                    Foreground = _theme.BorderBrush,
                     ShowGridLines = true
                 };
 
@@ -190,9 +190,9 @@ namespace Badger
                     ConnectorRotationAngle = 45,
                     Symbol = ChartSymbol.Diamond,
                     SymbolHeight = 8,
-                    BorderBrush = _theme.BorderColor,
-                    Foreground = _theme.LightBlueColor,
-                    Background = _theme.BlackColor
+                    BorderBrush = _theme.BorderBrush,
+                    Foreground = _theme.LightBlueBrush,
+                    Background = _theme.BlackBrush
                 };
 
                 return _adornment;
@@ -215,13 +215,13 @@ namespace Badger
             try
             {
                 var _model = new ChartColorModel( );
-                _model.CustomBrushes.Add( _theme.SteelBlueColor );
-                _model.CustomBrushes.Add( _theme.GrayColor );
-                _model.CustomBrushes.Add( _theme.YellowColor );
-                _model.CustomBrushes.Add( _theme.RedColor );
-                _model.CustomBrushes.Add( _theme.KhakiColor );
-                _model.CustomBrushes.Add( _theme.GreenColor );
-                _model.CustomBrushes.Add( _theme.LightBlueColor );
+                _model.CustomBrushes.Add( _theme.SteelBlueBrush );
+                _model.CustomBrushes.Add( _theme.GrayBrush );
+                _model.CustomBrushes.Add( _theme.YellowBrush );
+                _model.CustomBrushes.Add( _theme.RedBrush );
+                _model.CustomBrushes.Add( _theme.KhakiBrush );
+                _model.CustomBrushes.Add( _theme.GreenBrush );
+                _model.CustomBrushes.Add( _theme.LightBlueBrush );
                 return _model.CustomBrushes.Count > 0
                     ? _model
                     : default( ChartColorModel );

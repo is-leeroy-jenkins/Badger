@@ -75,11 +75,11 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfDataGrid ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
-            BorderBrush = _theme.BorderColor;
-            CurrentCellBorderBrush = _theme.LightBlueColor;
-            GroupRowSelectionBrush = _theme.SteelBlueColor;
-            RowSelectionBrush = _theme.SteelBlueColor;
-            RowHoverHighlightingBrush = _theme.DarkBlueColor;
+            BorderBrush = _theme.BorderBrush;
+            CurrentCellBorderBrush = _theme.LightBlueBrush;
+            GroupRowSelectionBrush = _theme.SteelBlueBrush;
+            RowSelectionBrush = _theme.SteelBlueBrush;
+            RowHoverHighlightingBrush = _theme.DarkBlueBrush;
             AllowEditing = false;
             AllowSorting = true;
             AllowFiltering = true;

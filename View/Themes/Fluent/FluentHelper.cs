@@ -66,6 +66,7 @@ namespace Badger
     [ Browsable( false ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UsePatternMatching" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class FluentHelper
     {
         /// <summary>
@@ -114,7 +115,9 @@ namespace Badger
         }
 
         /// <summary>
-        /// Sets the <see cref="FluentHelper.HoverEffectModeProperty"/> attached property value that denotes the hover animation to be applied on UIElement.
+        /// Sets the <see cref="FluentHelper.HoverEffectModeProperty"/>
+        /// attached property value that denotes the hover
+        /// animation to be applied on UIElement.
         /// </summary>
         /// <value>
         /// The default value is <see cref="HoverEffect.BackgroundAndBorder"/>.

@@ -76,9 +76,9 @@ namespace Badger
             SetResourceReference( StyleProperty, typeof( SfHubTile ) );
             Width = 200;
             Height = 100;
-            Background = _theme.ControlBackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.ControlBackColor;
+            Background = _theme.ControlBackground;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.ControlBackground;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
@@ -99,9 +99,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.DarkBlueColor;
-                Foreground = _theme.WhiteColor;
-                BorderBrush = _theme.LightBlueColor;
+                Background = _theme.DarkBlueBrush;
+                Foreground = _theme.WhiteForeground;
+                BorderBrush = _theme.LightBlueBrush;
             }
             catch( Exception ex )
             {
@@ -120,9 +120,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.ControlBackColor;
-                BorderBrush = _theme.ControlBackColor;
-                Foreground = _theme.LightBlueColor;
+                Background = _theme.ControlBackground;
+                BorderBrush = _theme.ControlBackground;
+                Foreground = _theme.LightBlueBrush;
             }
             catch( Exception ex )
             {

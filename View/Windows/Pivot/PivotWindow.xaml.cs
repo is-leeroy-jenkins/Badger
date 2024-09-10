@@ -503,9 +503,9 @@ namespace Badger
         {
             try
             {
-                SourceLabel.Foreground = _theme.BorderColor;
-                FirstCategoryLabel.Foreground = _theme.BorderColor;
-                SecondCategoryLabel.Foreground = _theme.BorderColor;
+                SourceLabel.Foreground = _theme.BorderBrush;
+                FirstCategoryLabel.Foreground = _theme.BorderBrush;
+                SecondCategoryLabel.Foreground = _theme.BorderBrush;
             }
             catch( Exception ex )
             {

@@ -71,7 +71,7 @@ namespace Badger
         {
             Width = 1400;
             Height = 40;
-            Background = _theme.BackColor;
+            Background = _theme.Background;
         }
     }
 }

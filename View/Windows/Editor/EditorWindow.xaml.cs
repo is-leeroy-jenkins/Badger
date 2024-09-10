@@ -252,8 +252,8 @@ namespace Badger
         {
             try
             {
-                FieldsLabel.Foreground = _theme.BorderColor;
-                NumericsLabel.Foreground = _theme.BorderColor;
+                FieldsLabel.Foreground = _theme.BorderBrush;
+                NumericsLabel.Foreground = _theme.BorderBrush;
             }
             catch( Exception ex )
             {
@@ -268,16 +268,16 @@ namespace Badger
         {
             try
             {
-                SqLiteRadioButton.Foreground = _theme.BorderColor;
+                SqLiteRadioButton.Foreground = _theme.BorderBrush;
                 SqLiteRadioButton.Tag = "SQLite";
                 SqLiteRadioButton.Checked += OnRadioButtonChecked;
-                AccessRadioButton.Foreground = _theme.BorderColor;
+                AccessRadioButton.Foreground = _theme.BorderBrush;
                 AccessRadioButton.Tag = "Access";
                 AccessRadioButton.Checked += OnRadioButtonChecked;
-                SqlCeRadioButton.Foreground = _theme.BorderColor;
+                SqlCeRadioButton.Foreground = _theme.BorderBrush;
                 SqlCeRadioButton.Tag = "SqlCe";
                 SqlCeRadioButton.Checked += OnRadioButtonChecked;
-                SqlServerRadioButton.Foreground = _theme.BorderColor;
+                SqlServerRadioButton.Foreground = _theme.BorderBrush;
                 SqlServerRadioButton.Tag = "SqlServer";
                 SqlServerRadioButton.Checked += OnRadioButtonChecked;
             }

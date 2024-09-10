@@ -79,9 +79,9 @@ namespace Badger
             IconHeight = 16;
             IconWidth = 16;
             SizeMode = SizeMode.Normal;
-            Background = _theme.ControlBackColor;
-            Foreground = _theme.LightBlueColor;
-            BorderBrush = _theme.ControlBackColor;
+            Background = _theme.ControlBackground;
+            Foreground = _theme.LightBlueBrush;
+            BorderBrush = _theme.ControlBackground;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
@@ -102,9 +102,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.SteelBlueColor;
-                BorderBrush = _theme.LightBlueColor;
-                Foreground = _theme.WhiteColor;
+                Background = _theme.SteelBlueBrush;
+                BorderBrush = _theme.LightBlueBrush;
+                Foreground = _theme.WhiteForeground;
             }
             catch(Exception ex)
             {
@@ -123,9 +123,9 @@ namespace Badger
         {
             try
             {
-                Background = _theme.ControlBackColor;
-                BorderBrush = _theme.ControlBackColor;
-                Foreground = _theme.LightBlueColor;
+                Background = _theme.ControlBackground;
+                BorderBrush = _theme.ControlBackground;
+                Foreground = _theme.LightBlueBrush;
             }
             catch(Exception ex)
             {

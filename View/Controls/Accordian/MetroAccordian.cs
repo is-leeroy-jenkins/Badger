@@ -76,10 +76,10 @@ namespace Badger
             FontFamily = new FontFamily( "Segoe UI" );
             Width = 250;
             Height = 250;
-            AccentBrush = _theme.SteelBlueColor;
-            Background = _theme.BackColor;
-            BorderBrush = _theme.BorderColor;
-            Foreground = _theme.ForeColor;
+            AccentBrush = _theme.SteelBlueBrush;
+            Background = _theme.Background;
+            BorderBrush = _theme.BorderBrush;
+            Foreground = _theme.Foreground;
         }
 
         /// <summary>
