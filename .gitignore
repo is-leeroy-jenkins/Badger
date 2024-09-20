@@ -374,3 +374,15 @@ FodyWeavers.xsd
 /Badger.DotSettings
 /.editorconfig
 /Properties/Badger.DotSettings
+IO/Clients/Baby/runtimes/win-x86/native/libcef.dll
+IO/Clients/Baby/runtimes/win-arm64/native/libcef.dll
+IO/Clients/Baby/runtimes/win-x64/native/libcef.dll
+IO/Clients/Baby/runtimes/win-x64/native/libcef.zip
+Minions/Baby/runtimes/win-x64/native/libcef.zip
+Data/Clients/SQLite/DB Browser for SQLCipher.exe
+IO/Clients/Baby/Baby.dll
+Minions/Baby/Baby.dll
+Minions/Baby/Baby.dll
+Minions/Baby/Baby.dll
+Minions/SQLite/DB Browser for SQLCipher.exe
+/Data/Clients/SqlCe/uninst.exe
