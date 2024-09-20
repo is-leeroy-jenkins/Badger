@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows7;</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -24,38 +23,163 @@
     <PackageProjectUrl>https://github.com/is-leeroy-jenkins/Badger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/is-leeroy-jenkins/Badger</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>data-science;data-visualization;data-analysis;budget;budget-management;epa;federal-government;</PackageTags>
+    <PackageTags>budget-execution;data-science;data-visualization;data-analysis;budget;budget-management;epa;federal-government;</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version></Version>
+    <Version>1.0.0
+    </Version>
+    <Copyright>@ 2016-2024 Terry Eppler</Copyright>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
     <NoWarn>1701;1702;1006;CA1416</NoWarn>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <WarningLevel>6</WarningLevel>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1006;CA1416</NoWarn>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <WarningLevel>6</WarningLevel>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="View\Themes\DocumentContainer\**" />
     <EmbeddedResource Remove="View\Themes\DocumentContainer\**" />
     <None Remove="View\Themes\DocumentContainer\**" />
     <Page Remove="View\Themes\DocumentContainer\**" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Remove="Minions\SqlCe\CompactView.exe" />
-    <None Remove="Minions\SQLite\DB Browser for SQLite.exe" />
+    <None Remove="IO\Clients\Baby\Baby.deps.json" />
+    <None Remove="IO\Clients\Baby\Baby.dll" />
+    <None Remove="IO\Clients\Baby\Baby.dll.config" />
+    <None Remove="IO\Clients\Baby\Baby.exe" />
+    <None Remove="IO\Clients\Baby\Baby.runtimeconfig.json" />
+    <None Remove="IO\Clients\Baby\Baby.xml" />
+    <None Remove="IO\Clients\Baby\CefSharp.WinForms.dll" />
+    <None Remove="IO\Clients\Baby\CefSharp.Wpf.dll" />
+    <None Remove="IO\Clients\Baby\CharmNotification.dll" />
+    <None Remove="IO\Clients\Baby\debug.log" />
+    <None Remove="IO\Clients\Baby\MetroSet UI.dll" />
+    <None Remove="IO\Clients\Baby\Properties\Images\1.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\2.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\3.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\4.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\5.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\6.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\AddRecord.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Adobe-PDF-Export.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Baby.ico" />
+    <None Remove="IO\Clients\Baby\Properties\Images\BabyBrowser.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\BackButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\blankpage.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Calculator.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CalculatorItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CalendarItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Check-01.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ChromeItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Circle Add -04.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Circle Close - 02.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Circle Ok - 01.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Circle Remove - 02.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CircledArrow Left - 02.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CircledArrow Right - 02.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Cirlce Play.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ClientButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ClockItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CloseItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ControlPanelItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Cross Close.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\CSV-Export.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Data-Synchronize.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\DialogBackButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\DialogForwardButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\DialogHomeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\DocumentaionItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\EdgeItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\EditFilterButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\EditRecord.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\EPA.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\EpaSkew.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\error1.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\error2.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Excel-Export.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ExcelFile.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ExitItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\File Find.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\File Search.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\FileItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\FilterSettingButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\FirefoxItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\FirstRecord.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\FolderItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ForwardButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\LastRecord.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\logo3.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\MapItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\MeasureButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\MediaPlayerItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Menu.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\MenulLabel.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Message.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\OneDriveItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\OtherItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Overview.gif" />
+    <None Remove="IO\Clients\Baby\Properties\Images\PivotButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\PrintItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ProjectTemplate.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Redo.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\RefreshItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Save.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SaveItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\search.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchCancelButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchDownloadButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchHomeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchNextButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchPanelHomeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchPanelLookUpButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchPreviousButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\SearchRefreshButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\TaskManagerItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\ToolsItem.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Transfer.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Trash.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Undo.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\Upload.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebCancelButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebChromeButon.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebChromeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebCloseButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebDownload.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebDownloadButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebEdgeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebFirefoxButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebGoButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebGoogleButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebHomeButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebLookUpButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebNextButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebPreviousButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebRefreshButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebSpfxButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebStopButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebToolButton.png" />
+    <None Remove="IO\Clients\Baby\Properties\Images\WebToolsButton.png" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Edit.Windows.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Grid.Windows.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Licensing.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Shared.Base.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Shared.Windows.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.SpellChecker.Base.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Tools.Base.dll" />
+    <None Remove="IO\Clients\Baby\Syncfusion.Tools.Windows.dll" />
     <None Remove="Resources\Assets\CalculatorImages\Cancel.png" />
     <None Remove="Resources\Assets\CalculatorImages\Main.png" />
     <None Remove="Resources\Assets\DialogImages\AddColumnButton.png" />
@@ -251,38 +375,35 @@
     <None Remove="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <None Remove="Resources\Reports\Report.xlsx" />
   </ItemGroup>
-
   <ItemGroup>
     <Content Include="Resources\Assets\NinjaImages\ico\BudExNinja.ico" />
   </ItemGroup>
-
   <ItemGroup>
-      <PackageReference Include="cef.sdk" Version="127.3.5" />
-      <PackageReference Include="CefSharp.Common" Version="127.3.50" />
-      <PackageReference Include="CefSharp.Common.NETCore" Version="127.3.50" />
-      <PackageReference Include="CefSharp.Wpf" Version="127.3.50" />
-      <PackageReference Include="EPPlus" Version="7.3.0" />
-      <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
-      <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
-      <PackageReference Include="Google.Apis" Version="1.68.0" />
-      <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3395" />
-      <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
-      <PackageReference Include="MahApps.Metro" Version="2.4.10" />
-      <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
-      <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
-      <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-      <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-      <PackageReference Include="SkiaSharp" Version="2.88.8" />
-      <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-      <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-      <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
-      <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
-    </ItemGroup>
-
+    <PackageReference Include="cef.sdk" Version="127.3.5" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="127.3.50" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="127.3.50" />
+    <PackageReference Include="EPPlus" Version="7.3.1" />
+    <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
+    <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
+    <PackageReference Include="Google.Apis" Version="1.68.0" />
+    <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3520" />
+    <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="ToastNotifications.Messages.Net6" Version="1.0.4" />
+    <PackageReference Include="ToastNotifications.Net6" Version="1.0.4" />
+    <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="LinqStatistics">
-      <HintPath>Libraries\LinqStatistics.dll</HintPath>
+      <HintPath>Libraries\LinqStatistics\LinqStatistics.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Calculate.Base">
       <HintPath>Libraries\UI\Syncfusion.Calculate.Base.dll</HintPath>
@@ -570,13 +691,136 @@
       <HintPath>Libraries\UI\Syncfusion.XlsIORenderer.Portable.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe">
-      <HintPath>Libraries\System.Data.SqlServerCe.dll</HintPath>
+      <HintPath>Libraries\SQLCE\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
-    <Resource Include="Minions\SqlCe\CompactView.exe" />
-    <Resource Include="Minions\SQLite\DB Browser for SQLite.exe" />
+    <Resource Include="Data\Clients\SqlCe\CompactView.exe" />
+    <Resource Include="Data\Clients\SQLite\DB Browser for SQLite.exe" />
+    <Resource Include="IO\Clients\Baby\Baby.deps.json" />
+    <Resource Include="IO\Clients\Baby\Baby.dll" />
+    <Resource Include="IO\Clients\Baby\Baby.dll.config" />
+    <Resource Include="IO\Clients\Baby\Baby.exe" />
+    <Resource Include="IO\Clients\Baby\Baby.runtimeconfig.json" />
+    <Resource Include="IO\Clients\Baby\Baby.xml" />
+    <Resource Include="IO\Clients\Baby\CefSharp.WinForms.dll" />
+    <Resource Include="IO\Clients\Baby\CefSharp.Wpf.dll" />
+    <Resource Include="IO\Clients\Baby\CharmNotification.dll" />
+    <Resource Include="IO\Clients\Baby\debug.log" />
+    <Resource Include="IO\Clients\Baby\MetroSet UI.dll" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\1.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\2.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\3.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\4.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\5.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\6.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\AddRecord.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Adobe-PDF-Export.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Baby.ico" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\BabyBrowser.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\BackButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\blankpage.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Calculator.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CalculatorItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CalendarItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Check-01.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ChromeItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Circle Add -04.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Circle Close - 02.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Circle Ok - 01.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Circle Remove - 02.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CircledArrow Left - 02.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CircledArrow Right - 02.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Cirlce Play.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ClientButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ClockItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CloseItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ControlPanelItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Cross Close.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\CSV-Export.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Data-Synchronize.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\DialogBackButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\DialogForwardButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\DialogHomeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\DocumentaionItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\EdgeItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\EditFilterButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\EditRecord.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\EPA.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\EpaSkew.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\error1.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\error2.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Excel-Export.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ExcelFile.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ExitItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\File Find.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\File Search.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\FileItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\FilterSettingButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\FirefoxItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\FirstRecord.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\FolderItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ForwardButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\LastRecord.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\logo3.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\MapItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\MeasureButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\MediaPlayerItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Menu.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\MenulLabel.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Message.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\OneDriveItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\OtherItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Overview.gif" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\PivotButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\PrintItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ProjectTemplate.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Redo.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\RefreshItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Save.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SaveItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\search.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchCancelButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchDownloadButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchHomeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchNextButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchPanelHomeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchPanelLookUpButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchPreviousButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\SearchRefreshButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\TaskManagerItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\ToolsItem.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Transfer.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Trash.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Undo.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\Upload.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebCancelButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebChromeButon.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebChromeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebCloseButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebDownload.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebDownloadButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebEdgeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebFirefoxButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebGoButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebGoogleButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebHomeButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebLookUpButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebNextButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebPreviousButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebRefreshButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebSpfxButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebStopButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebToolButton.png" />
+    <Resource Include="IO\Clients\Baby\Properties\Images\WebToolsButton.png" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Edit.Windows.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Grid.Windows.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Licensing.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Shared.Base.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Shared.Windows.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.SpellChecker.Base.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Tools.Base.dll" />
+    <Resource Include="IO\Clients\Baby\Syncfusion.Tools.Windows.dll" />
     <Resource Include="Resources\Assets\CalculatorImages\Cancel.png" />
     <Resource Include="Resources\Assets\CalculatorImages\Main.png" />
     <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
@@ -772,7 +1016,6 @@
     <Resource Include="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <Resource Include="Resources\Reports\Report.xlsx" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Properties\LICENSE.txt">
       <Pack>True</Pack>
@@ -787,38 +1030,4 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7'">
-    <PackageReference Include="ToastNotifications.Messages.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows7'">
-    <PackageReference Include="Syncfusion.UI.WPF.NET">
-      <Version>24.1.41</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Messages.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7'">
-    <PackageReference Include="Syncfusion.UI.WPF.NET">
-      <Version>24.1.41</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Messages.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="ToastNotifications.Net6">
-      <Version>1.0.4</Version>
-    </PackageReference>
-  </ItemGroup>
-
 </Project>
