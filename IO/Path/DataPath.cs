@@ -69,13 +69,15 @@ namespace Badger
         {
             get
             {
-                return !string.IsNullOrEmpty( _input )
-                    ? _input
-                    : string.Empty;
+                return _input;
             }
-            private protected set
+            set
             {
-                _input = value;
+                if( _input != value )
+                {
+                    _input = value;
+                    OnPropertyChanged( nameof( Input ) );
+                }
             }
         }
 
@@ -89,13 +91,15 @@ namespace Badger
         {
             get
             {
-                return !string.IsNullOrEmpty( _fullPath )
-                    ? _fullPath
-                    : string.Empty;
+                return _fullPath;
             }
-            private protected set
+            set
             {
-                _fullPath = value;
+                if( _fullPath != value )
+                {
+                    _fullPath = value;
+                    OnPropertyChanged( nameof( FullPath ) );
+                }
             }
         }
 
@@ -109,13 +113,16 @@ namespace Badger
         {
             get
             {
-                return !string.IsNullOrEmpty( _absolutePath )
-                    ? _absolutePath
-                    : string.Empty;
+                return _absolutePath;
             }
-            private protected set
+            set
+
             {
-                _absolutePath = value;
+                if( _absolutePath != value )
+                {
+                    _absolutePath = value;
+                    OnPropertyChanged( nameof( AbsolutePath ) );
+                }
             }
         }
 
@@ -129,13 +136,15 @@ namespace Badger
         {
             get
             {
-                return !string.IsNullOrEmpty( _relativePath )
-                    ? _relativePath
-                    : string.Empty;
+                return _relativePath;
             }
-            private protected set
+            set
             {
-                _relativePath = value;
+                if( _relativePath != value )
+                {
+                    _relativePath = value;
+                    OnPropertyChanged( nameof( RelativePath ) );
+                }
             }
         }
 
@@ -149,13 +158,15 @@ namespace Badger
         {
             get
             {
-                return !string.IsNullOrEmpty( _fileName )
-                    ? _fileName
-                    : string.Empty;
+                return _fileName;
             }
-            private protected set
+            set
             {
-                _fileName = value;
+                if( _fileName != value )
+                {
+                    _fileName = value;
+                    OnPropertyChanged( nameof( FileName ) );
+                }
             }
         }
 
@@ -171,9 +182,13 @@ namespace Badger
             {
                 return _modified;
             }
-            private protected set
+            set
             {
-                _modified = value;
+                if( _modified != value )
+                {
+                    _modified = value;
+                    OnPropertyChanged( nameof( Modified ) );
+                }
             }
         }
 
@@ -225,9 +240,13 @@ namespace Badger
             {
                 return _created;
             }
-            private protected set
+            set
             {
-                _created = value;
+                if( _created != value )
+                {
+                    _created = value;
+                    OnPropertyChanged( nameof( Created ) );
+                }
             }
         }
 
@@ -243,9 +262,13 @@ namespace Badger
             {
                 return _length;
             }
-            private protected set
+            set
             {
-                _length = value;
+                if( _length != value )
+                {
+                    _length = value;
+                    OnPropertyChanged( nameof( Length ) );
+                }
             }
         }
 
@@ -261,9 +284,13 @@ namespace Badger
             {
                 return _fileExtension;
             }
-            private protected set
+            set
             {
-                _fileExtension = value;
+                if( _fileExtension != value )
+                {
+                    _fileExtension = value;
+                    OnPropertyChanged( nameof( Extension ) );
+                }
             }
         }
 
@@ -279,9 +306,13 @@ namespace Badger
             {
                 return _fileAttributes;
             }
-            private protected set
+            set
             {
-                _fileAttributes = value;
+                if( _fileAttributes != value )
+                {
+                    _fileAttributes = value;
+                    OnPropertyChanged( nameof( FileAttributes ) );
+                }
             }
         }
 
@@ -297,9 +328,13 @@ namespace Badger
             {
                 return _fileSecurity;
             }
-            private protected set
+            set
             {
-                _fileSecurity = value;
+                if( _fileSecurity != value )
+                {
+                    _fileSecurity = value;
+                    OnPropertyChanged( nameof( FileSecurity ) );
+                }
             }
         }
 
@@ -316,9 +351,13 @@ namespace Badger
             {
                 return _invalidPathChars;
             }
-            private protected set
+            set
             {
-                _invalidPathChars = value;
+                if( _invalidPathChars != value )
+                {
+                    _invalidPathChars = value;
+                    OnPropertyChanged( nameof( InvalidPathChars ) );
+                }
             }
         }
 
@@ -335,9 +374,13 @@ namespace Badger
             {
                 return _invalidNameChars;
             }
-            private protected set
+            set
             {
-                _invalidNameChars = value;
+                if( _invalidNameChars != value )
+                {
+                    _invalidNameChars = value;
+                    OnPropertyChanged( nameof( InvalidNameChars ) );
+                }
             }
         }
 
@@ -353,9 +396,13 @@ namespace Badger
             {
                 return _pathSeparator;
             }
-            private protected set
+            set
             {
-                _pathSeparator = value;
+                if( _pathSeparator != value )
+                {
+                    _pathSeparator = value;
+                    OnPropertyChanged( nameof( PathSeparator ) );
+                }
             }
         }
 
@@ -371,9 +418,13 @@ namespace Badger
             {
                 return _folderSeparator;
             }
-            private protected set
+            set
             {
-                _folderSeparator = value;
+                if( _folderSeparator != value )
+                {
+                    _folderSeparator = value;
+                    OnPropertyChanged( nameof( FolderSeparator ) );
+                }
             }
         }
 
@@ -389,16 +440,20 @@ namespace Badger
             {
                 return _driveSeparator;
             }
-            private protected set
+            set
             {
-                _driveSeparator = value;
+                if( _driveSeparator != value )
+                {
+                    _driveSeparator = value;
+                    OnPropertyChanged( nameof( DriveSeparator ) );
+                }
             }
         }
 
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataPath"/>
+        /// <see cref="T:Ninja.DataPath"/>
         /// class.
         /// </summary>
         public DataPath( )
@@ -408,7 +463,7 @@ namespace Badger
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataPath"/>
+        /// <see cref="T:Ninja.DataPath"/>
         /// class.
         /// </summary>
         /// <param name="input">
@@ -478,8 +533,8 @@ namespace Badger
         /// <param name="createDate">The created.</param>
         /// <param name="modifyDate">The modified.</param>
         public void Deconstruct( out string buffer, out string absolutePath, out string name,
-            out string fullPath, out long length, out string extension, out DateTime createDate,
-            out DateTime modifyDate )
+            out string fullPath, out long length, out string extension,
+            out DateTime createDate, out DateTime modifyDate )
         {
             buffer = _input;
             absolutePath = _absolutePath;
@@ -517,17 +572,15 @@ namespace Badger
                 var _nl = Environment.NewLine;
                 var _attrs = _path.FileAttributes;
                 var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                    _tb + "File Path: " + _tb + _filePath + _nl + _nl +
-                    _tb + "File Attributes: " + _tb + _attrs + _nl + _nl +
-                    _tb + "Extension: " + _tb + _extenstion + _nl + _nl +
-                    _tb + "Path Root: " + _tb + _root + _nl + _nl +
-                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
-                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
-                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl +
-                    _tb + "Length: " + _tb + _len + _nl + _nl +
-                    _tb + "Created: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
+                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "File Attributes: " + _tb
+                    + _attrs + _nl + _nl + _tb + "Extension: " + _tb + _extenstion + _nl + _nl + _tb
+                    + "Path Root: " + _tb + _root + _nl + _nl + _tb + "Path Separator: " + _tb
+                    + _pathsep + _nl + _nl + _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl
+                    + _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl + _tb + "Length: "
+                    + _tb + _len + _nl + _nl + _tb + "Created: " + _tb
+                    + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
+                    + _modify.ToShortDateString( ) + _nl + _nl;
 
                 return !string.IsNullOrEmpty( _text )
                     ? _text
@@ -541,3 +594,4 @@ namespace Badger
         }
     }
 }
+

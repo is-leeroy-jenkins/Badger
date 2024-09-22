@@ -47,10 +47,10 @@
     <DebugType>embedded</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="View\Themes\DocumentContainer\**" />
-    <EmbeddedResource Remove="View\Themes\DocumentContainer\**" />
-    <None Remove="View\Themes\DocumentContainer\**" />
-    <Page Remove="View\Themes\DocumentContainer\**" />
+    <Compile Remove="UI\Themes\DocumentContainer\**" />
+    <EmbeddedResource Remove="UI\Themes\DocumentContainer\**" />
+    <None Remove="UI\Themes\DocumentContainer\**" />
+    <Page Remove="UI\Themes\DocumentContainer\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />

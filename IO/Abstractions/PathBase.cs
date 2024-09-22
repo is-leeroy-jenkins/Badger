@@ -40,8 +40,11 @@
 namespace Badger
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using System.Runtime.CompilerServices;
     using System.Security.AccessControl;
 
     /// <summary>
@@ -51,7 +54,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class PathBase
+    public abstract class PathBase : INotifyPropertyChanged
     {
         /// <summary>
         /// The has extension
@@ -186,6 +189,42 @@ namespace Badger
         /// The invalid name chars
         /// </summary>
         private protected char[ ] _invalidNameChars;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Updates the specified field.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="field">The field.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        public void Update<T>( ref T field, T value,
+            [ CallerMemberName ] string propertyName = null )
+
+        {
+            if( EqualityComparer<T>.Default.Equals( field, value ) )
+            {
+                return;
+            }
+
+            field = value;
+            OnPropertyChanged( propertyName );
+        }
+
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        public void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
+        {
+            var _handler = PropertyChanged;
+            _handler?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );
+        }
 
         /// <summary>
         /// Fails the specified _ex.
