@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
 ## Badger
  ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
-=======
-﻿﻿![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
->>>>>>> Stashed changes
+
 
 ## An open source data analysis application for EPA Analysts developed in C# using WPF and released under the MIT license
 ####
