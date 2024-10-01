@@ -1,6 +1,7 @@
-﻿![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
+## Badger
+ ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/Badger.png)
 
-## Badger is an open source data analysis application for EPA Analysts developed in C# using WPF and released under the MIT license
+## An open source data analysis application for EPA Analysts developed in C# using WPF and released under the MIT license
 ####
 
 ## ![](https://github.com/KarmaScripter/Badger/blob/main/Resources/Assets/GitHubImages/features.png) Features
