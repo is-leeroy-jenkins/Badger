@@ -129,6 +129,7 @@ namespace Badger
         /// </summary>
         public App( )
         {
+            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
             var _key = ConfigurationManager.AppSettings[ "UI" ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -172,6 +173,7 @@ namespace Badger
         {
             var _ex = e.ExceptionObject as Exception;
             Fail( _ex );
+            Environment.Exit( 1 );
         }
 
         /// <summary>
