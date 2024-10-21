@@ -68,7 +68,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTreeView.StyleProperty, typeof( SfTreeView ) );
+            SetResourceReference( StyleProperty, typeof( SfTreeView ) );
             Width = 400;
             Height = 400;
             FontSize = _theme.FontSize;

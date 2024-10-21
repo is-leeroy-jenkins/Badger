@@ -215,7 +215,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    DataFile.Fail( ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -251,7 +251,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    DataFile.Fail( ex );
+                    Fail( ex );
                     return default( IEnumerable<FileInfo> );
                 }
             }
@@ -285,7 +285,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataFile.Fail( ex );
+                Fail( ex );
                 return default( FileInfo );
             }
         }
@@ -313,7 +313,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataFile.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -342,7 +342,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataFile.Fail( ex );
+                Fail( ex );
                 _stream?.Close( );
             }
             finally
@@ -395,7 +395,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                DataFile.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

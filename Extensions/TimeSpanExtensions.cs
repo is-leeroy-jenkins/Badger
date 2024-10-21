@@ -70,11 +70,11 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays / TimeSpanExtensions.AvgDaysInAYear );
+                return (int)( timeSpan.TotalDays / AvgDaysInAYear );
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -88,11 +88,11 @@ namespace Badger
         {
             try
             {
-                return timeSpan.TotalDays / TimeSpanExtensions.AvgDaysInAYear;
+                return timeSpan.TotalDays / AvgDaysInAYear;
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -106,12 +106,12 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays % TimeSpanExtensions.AvgDaysInAYear
-                    / TimeSpanExtensions.AvgDaysInAMonth );
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear
+                    / AvgDaysInAMonth );
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -125,11 +125,11 @@ namespace Badger
         {
             try
             {
-                return timeSpan.TotalDays / TimeSpanExtensions.AvgDaysInAMonth;
+                return timeSpan.TotalDays / AvgDaysInAMonth;
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -143,12 +143,12 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays % TimeSpanExtensions.AvgDaysInAYear
-                    % TimeSpanExtensions.AvgDaysInAMonth / 7d );
+                return (int)( timeSpan.TotalDays % AvgDaysInAYear
+                    % AvgDaysInAMonth / 7d );
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -166,7 +166,7 @@ namespace Badger
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -184,7 +184,7 @@ namespace Badger
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -202,7 +202,7 @@ namespace Badger
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -220,7 +220,7 @@ namespace Badger
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return 0D;
             }
         }
@@ -242,7 +242,7 @@ namespace Badger
             }
             catch( Exception _ex )
             {
-                TimeSpanExtensions.Fail( _ex );
+                Fail( _ex );
                 return default( TimeSpan );
             }
         }

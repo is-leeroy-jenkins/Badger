@@ -141,7 +141,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                AsyncFolderBase.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -166,7 +166,7 @@ namespace Badger
             catch( IOException ex )
             {
                 _async.SetException( ex );
-                AsyncFolderBase.Fail( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -202,7 +202,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    AsyncFolderBase.Fail( ex );
+                    Fail( ex );
                     return default( Task<IDictionary<string, FileInfo>> );
                 }
             }
@@ -243,7 +243,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    AsyncFolderBase.Fail( ex );
+                    Fail( ex );
                     return default( Task<IDictionary<string, DirectoryInfo>> );
                 }
             }
@@ -307,7 +307,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    AsyncFolderBase.Fail( ex );
+                    Fail( ex );
                     return default( Task<IList<string>> );
                 }
             }

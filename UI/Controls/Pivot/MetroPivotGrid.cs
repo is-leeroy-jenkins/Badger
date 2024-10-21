@@ -71,7 +71,7 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            SetResourceReference( MetroPivotGrid.StyleProperty, typeof( PivotGridControl ) );
+            SetResourceReference( StyleProperty, typeof( PivotGridControl ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             Background = _theme.Background;

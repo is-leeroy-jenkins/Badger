@@ -76,10 +76,10 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroPieChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             SideBySideSeriesPlacement = true;
             EnableRotation = true;

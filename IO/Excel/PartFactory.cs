@@ -129,7 +129,7 @@ namespace Badger
 
                 var _title = _dataTable.TableName.SplitPascal( ) ?? "Badger";
                 _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
-                _dataRange.Style.Font.Name = "Segoe UI";
+                _dataRange.Style.Font.Name = "Roboto";
                 _dataRange.Style.Font.Size = 8;
                 _dataRange.Style.Font.Bold = false;
                 _dataRange.Style.Font.Italic = false;
@@ -214,7 +214,7 @@ namespace Badger
                 var _endColumn = excelRange.End.Column;
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
                 _pivotRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _pivotRange.Style.Font.Name = "Segoe UI";
+                _pivotRange.Style.Font.Name = "Roboto";
                 _pivotRange.Style.Font.Size = 8;
                 _pivotRange.Style.Font.Bold = false;
                 _pivotRange.Style.Font.Italic = false;
@@ -435,7 +435,7 @@ namespace Badger
                 _comment.To.Row = _commentRange.End.Row;
                 _comment.To.Column = _commentRange.End.Column;
                 _comment.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-                _comment.Font.FontName = "Segoe UI";
+                _comment.Font.FontName = "Roboto";
                 _comment.Font.Size = 8;
                 _comment.Font.Color = Color.FromArgb( 106, 189, 252 );
                 _comment.Text = text;

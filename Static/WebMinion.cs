@@ -78,7 +78,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -108,7 +108,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -135,7 +135,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -165,7 +165,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -195,7 +195,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -225,7 +225,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -255,7 +255,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                WebMinion.Fail( ex );
+                Fail( ex );
             }
         }
 

@@ -170,7 +170,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ResourcePlanningOffice.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

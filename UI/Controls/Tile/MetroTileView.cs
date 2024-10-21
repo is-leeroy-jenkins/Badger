@@ -128,11 +128,11 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroTileView.StyleProperty, typeof( TileViewControl ) );
+            SetResourceReference( StyleProperty, typeof( TileViewControl ) );
             Width = 400;
             Height = 400;
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
         }
 
         /// <summary>

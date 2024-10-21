@@ -389,7 +389,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fund.Fail( ex );
+                    Fail( ex );
                     return new Dictionary<string, object>
                     {
                         [ "Name" ] = fundCode
@@ -409,7 +409,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Fund.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -435,7 +435,7 @@ namespace Badger
             }
             catch( SystemException ex )
             {
-                Fund.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

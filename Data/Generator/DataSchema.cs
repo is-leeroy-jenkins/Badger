@@ -141,7 +141,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -177,7 +177,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( DataTable );
             }
         }
@@ -210,7 +210,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _tcs.SetException( ex );
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( Task<DataTable> );
             }
         }
@@ -237,7 +237,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -269,7 +269,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -308,7 +308,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -347,7 +347,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }
@@ -373,7 +373,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
                 return default( IList<int> );
             }
         }
@@ -403,7 +403,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -432,7 +432,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataSchema.Fail( ex );
+                Fail( ex );
             }
         }
     }

@@ -166,7 +166,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    Objective.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

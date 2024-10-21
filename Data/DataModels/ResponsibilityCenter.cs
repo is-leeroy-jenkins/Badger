@@ -145,7 +145,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ResponsibilityCenter.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

@@ -99,7 +99,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataScaffold.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -134,7 +134,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataScaffold.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, Type> );
             }
         }
@@ -172,7 +172,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataScaffold.Fail( ex );
+                Fail( ex );
                 return default( IList<DataColumn> );
             }
         }
@@ -200,7 +200,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataScaffold.Fail( ex );
+                Fail( ex );
                 return default( IList<string> );
             }
         }

@@ -70,8 +70,8 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroEditor.StyleProperty, typeof( EditControl ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            SetResourceReference( StyleProperty, typeof( EditControl ) );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Width = 800;
             Height = 400;

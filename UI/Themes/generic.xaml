@@ -3,6 +3,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:skin="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF">
 
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/UI/Themes/Styles/Common/Colors.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Common/Fonts.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Common/Sizes.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Window/Window.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Button/Button.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Button/ButtonAdv.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Button/MetroButton.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ComboBox/ComboBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ComboBox/MetroComboBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ListBox/ListBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ListView/ListView.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/DropDown/DropDown.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/TabControl/TabControl.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/TabControl/BrowserTabItem.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/TextBlock/TextBlock.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/TextBox/TextBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/TextBox/MetroTextBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/RichTextBox/MetroRichTextBox.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/Tile/Tile.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ToolStrip/MetroToolStrip.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ToolStrip/ToolStripButton.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ToolStrip/ToolStripDropDown.xaml" />
+        <ResourceDictionary Source="/UI/Themes/Styles/ToolStrip/ToolStripTextBox.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+    <!--  **************************************************  REVEAL ITEM   **********************************************  -->
+
     <Style TargetType="{x:Type skin:RevealItem}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

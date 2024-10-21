@@ -77,7 +77,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ExcelExtensions.Fail( ex );
+                Fail( ex );
                 return default( DataSet );
             }
         }
@@ -140,7 +140,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ExcelExtensions.Fail( ex );
+                Fail( ex );
                 return default( DataSet );
             }
         }
@@ -160,7 +160,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ExcelExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -189,7 +189,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ExcelExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -222,7 +222,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -242,7 +242,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -265,7 +265,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -291,7 +291,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -318,7 +318,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -345,7 +345,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                     return default( int[ ] );
                 }
             }
@@ -367,7 +367,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ExcelExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -389,7 +389,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ExcelExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }

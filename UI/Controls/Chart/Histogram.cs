@@ -68,13 +68,13 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( Histogram.StyleProperty, typeof( SfSurfaceChart ) );
+            SetResourceReference( StyleProperty, typeof( SfSurfaceChart ) );
             Width = 800;
             Height = 400;
             FontSize = 12;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Background = _theme.Background;
             Foreground = _theme.Foreground;
             BorderBrush = _theme.BorderBrush;

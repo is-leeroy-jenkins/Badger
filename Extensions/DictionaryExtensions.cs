@@ -89,7 +89,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( TValue );
             }
         }
@@ -119,7 +119,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( NameValueCollection );
             }
         }
@@ -169,7 +169,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    DictionaryExtensions.Fail( ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }
@@ -199,7 +199,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( BindingList<KeyValuePair<string, object>> );
             }
         }
@@ -242,7 +242,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
@@ -342,7 +342,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( List<DbParameter> );
             }
         }
@@ -377,7 +377,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DictionaryExtensions.Fail( ex );
+                Fail( ex );
                 return default( bool );
             }
         }
@@ -406,7 +406,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    DictionaryExtensions.Fail( ex );
+                    Fail( ex );
                     return default( KeyValuePair<string, object> );
                 }
             }
@@ -439,7 +439,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    DictionaryExtensions.Fail( ex );
+                    Fail( ex );
                     return default( BindingList<string> );
                 }
             }
@@ -472,7 +472,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    DictionaryExtensions.Fail( ex );
+                    Fail( ex );
                     return default( BindingList<object> );
                 }
             }

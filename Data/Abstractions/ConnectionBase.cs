@@ -368,7 +368,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                var _file = Path.GetExtension( filePath )?.Replace( ".", "" )?.ToUpper( );
+                var _file = GetExtension( filePath )?.Replace( ".", "" )?.ToUpper( );
                 if( !string.IsNullOrEmpty( _file ) )
                 {
                     _extension = ( EXT )Enum.Parse( typeof( EXT ), _file );
@@ -427,7 +427,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                var _file = Path.GetExtension( filePath );
+                var _file = GetExtension( filePath );
                 if( !string.IsNullOrEmpty( _file ) )
                 {
                     var _ext = ( EXT )Enum.Parse( typeof( EXT ), _file.ToUpper( ) );

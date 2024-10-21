@@ -170,7 +170,7 @@ namespace Badger
                 }
                 catch( SystemException ex )
                 {
-                    Goal.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -192,7 +192,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Goal.Fail( ex );
+                Fail( ex );
                 return default( Source );
             }
         }
@@ -214,7 +214,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Goal.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

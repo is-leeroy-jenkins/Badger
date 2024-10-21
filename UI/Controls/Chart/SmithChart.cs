@@ -72,7 +72,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( SmithChart.StyleProperty, typeof( SfSmithChart ) );
+            SetResourceReference( StyleProperty, typeof( SfSmithChart ) );
             Width = 800;
             Height = 400;
             FontSize = 12;

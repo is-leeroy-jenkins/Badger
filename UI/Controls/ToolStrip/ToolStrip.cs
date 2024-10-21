@@ -78,7 +78,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( ToolStrip.StyleProperty, typeof( ToolBarAdv ) );
+            SetResourceReference( StyleProperty, typeof( ToolBarAdv ) );
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
             Height = 40;

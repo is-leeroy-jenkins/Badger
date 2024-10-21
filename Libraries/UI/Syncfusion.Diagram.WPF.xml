@@ -21411,7 +21411,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Diagram.SymbolPalette.PopUpBackgroundProperty">
             <summary>
-            Identifies the PopUpBackground dependency property.
+            Identifies the ControlInteriorBrush dependency property.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Diagram.SymbolPalette.PopUpForegroundProperty">
@@ -21611,7 +21611,7 @@
             Type : Double
             </value>
         </member>
-        <member name="P:Syncfusion.Windows.Diagram.SymbolPalette.PopUpBackground">
+        <member name="P:Syncfusion.Windows.Diagram.SymbolPalette.ControlInteriorBrush">
             <summary>
             Gets or sets the pop up background.
             </summary>
@@ -21623,7 +21623,7 @@
             C#:
             <code language="C#">
             DiagramControl diagramControl=new DiagramControl();
-            diagramControl.SymbolPalette.PopUpBackground=Brushes.White;
+            diagramControl.SymbolPalette.ControlInteriorBrush=Brushes.White;
             </code>
             </example>
         </member>

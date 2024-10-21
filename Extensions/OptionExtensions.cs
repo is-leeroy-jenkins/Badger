@@ -67,7 +67,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                OptionExtensions.Fail( ex );
+                Fail( ex );
                 return default( Option<T> );
             }
         }
@@ -90,7 +90,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                OptionExtensions.Fail( ex );
+                Fail( ex );
                 return default( Option<T> );
             }
         }
@@ -114,7 +114,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                OptionExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<TResult> );
             }
         }

@@ -71,8 +71,8 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroCalculator.StyleProperty, typeof( SfCalculator ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            SetResourceReference( StyleProperty, typeof( SfCalculator ) );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = _theme.Background;
             BorderBrush = _theme.BorderBrush;

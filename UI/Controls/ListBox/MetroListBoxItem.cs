@@ -77,14 +77,15 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            Height = 40;
+            Height = 35;
             Background = _theme.ControlInterior;
             Foreground = _theme.LightBlueBrush;
             BorderBrush = _theme.ControlInterior;
             Margin = _theme.Margin;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
-            HorizontalContentAlignment = HorizontalAlignment.Left;
+            Padding = new Thickness( 30, 10, 1, 1 );
+            BorderThickness = new Thickness( 0 );
+            HorizontalContentAlignment = HorizontalAlignment.Stretch;
+            VerticalContentAlignment = VerticalAlignment.Stretch;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;

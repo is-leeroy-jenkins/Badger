@@ -305,7 +305,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return default( bool );
             }
         }
@@ -331,7 +331,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    DataUnit.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

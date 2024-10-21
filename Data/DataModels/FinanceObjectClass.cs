@@ -252,7 +252,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FinanceObjectClass.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

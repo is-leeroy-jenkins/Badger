@@ -1,0 +1,704 @@
+﻿<Window
+    x:Class="Badger.PivotWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bdgr="clr-namespace:Badger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    x:Name="PivotView"
+    Title="Pivot Analysis"
+    Width="1350"
+    Height="800"
+    MinWidth="1250"
+    MinHeight="650"
+    Margin="1"
+    Padding="1,1,1,3"
+    sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BlueBorderBrush}"
+    BorderThickness="1"
+    FontFamily="Roboto"
+    FontSize="12"
+    Foreground="{StaticResource LightBlueBrush}"
+    Icon="/Resources/Assets/FormImages/Application.png"
+    ResizeMode="CanResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="SingleBorderWindow"
+    mc:Ignorable="d">
+
+    <!--******************************************** Resources *********************************************-->
+
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
+        </Style>
+    </Window.Resources>
+
+    <!--************************************** Context Menu  *************************************-->
+
+    <Window.ContextMenu>
+        <ContextMenu Name="PivotWindowContextMenu">
+            <sync:MenuItemAdv
+                Click="OnFileMenuOptionClick"
+                Header="File"
+                ToolTip="Browse File System">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnFolderMenuOptionClick"
+                Header="Folder"
+                ToolTip="Browse Directories">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Chrome"
+                ToolTip="Launch Chrome Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Edge"
+                ToolTip="Launch Edge Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="FireFox"
+                ToolTip="Launch Firefox Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Calculator"
+                ToolTip="Open Calculator">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Control Panel"
+                ToolTip="Windows 10 Control Panel">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="Task Manager"
+                ToolTip="Windows 10 Task Manager">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCloseOptionClick"
+                Header="Close"
+                ToolTip="Exit Application">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Canvas x:Name="PivotChartCanvas">
+
+        <!--************************************** ToolStrip  *************************************-->
+
+        <bdgr:ToolStrip
+            x:Name="Toolbar"
+            Canvas.Left="0"
+            Canvas.Top="720"
+            Width="1348"
+            Height="40"
+            Margin="1,1,1,1"
+            Padding="1,1,1,3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            BorderBrush="{StaticResource FormBackground}"
+            BorderThickness="1"
+            OverflowButtonVisibility="Collapsed">
+
+            <bdgr:ToolStripLabel
+                x:Name="StatusLabel"
+                Width="80"
+                Padding="3,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                VerticalContentAlignment="Bottom"
+                Content="Date &amp; Time"
+                FontSize="9" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <Separator
+                Width="70"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
+
+            <bdgr:ToolStripButton
+                x:Name="FirstButton"
+                ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
+                ToolTip="First Record" />
+
+            <bdgr:ToolStripButton
+                x:Name="PreviousButton"
+                ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
+                ToolTip="Previous Record" />
+
+            <bdgr:ToolStripButton
+                x:Name="NextButton"
+                ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
+                ToolTip="Next Record" />
+
+            <bdgr:ToolStripButton
+                x:Name="LastButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
+                ToolTip="Last Record" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <bdgr:ToolStripTextBox
+                x:Name="ToolStripTextBox"
+                Width="200"
+                Height="30"
+                Padding="10,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <bdgr:ToolStripButton
+                x:Name="LookupButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
+                ToolTip="Look Up" />
+
+            <bdgr:ToolStripButton
+                x:Name="RefreshButton"
+                ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+                ToolTip="Refresh" />
+
+            <bdgr:ToolStripButton
+                x:Name="FilterButton"
+                Foreground="{StaticResource LightBlueBrush}"
+                ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
+                ToolTip="Filters" />
+
+            <bdgr:ToolStripButton
+                x:Name="EditButton"
+                ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
+                ToolTip="Edit" />
+
+            <bdgr:ToolStripButton
+                x:Name="UndoButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
+                ToolTip="Undo Last" />
+
+            <bdgr:ToolStripButton
+                x:Name="SaveButton"
+                ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
+                ToolTip="Save" />
+
+            <bdgr:ToolStripButton
+                x:Name="DeleteButton"
+                ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
+                ToolTip="Delete" />
+
+            <bdgr:ToolStripButton
+                x:Name="ExportButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
+                ToolTip="Export" />
+
+            <bdgr:ToolStripButton
+                x:Name="BrowseButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
+                ToolTip="Browse" />
+
+            <ProgressBar
+                Width="180"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
+
+            <bdgr:ToolStripButton
+                x:Name="ToggleButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
+            <bdgr:ToolStripButton
+                x:Name="MenuButton"
+                ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
+                ToolTip="Main Menu" />
+        </bdgr:ToolStrip>
+
+        <bdgr:MetroTabControl
+            x:Name="SecondaryTabControl"
+            Canvas.Left="1028"
+            Canvas.Top="1"
+            Width="300"
+            Height="652"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <TabItem
+                x:Name="SourceTab"
+                Width="60"
+                Margin="0"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Tables">
+                <Canvas
+                    x:Name="SourceCanvas"
+                    Margin="0,13,0,0"
+                    Background="{StaticResource FormBackground}">
+
+                    <!--************************************** List Box  *************************************-->
+
+
+                    <bdgr:MetroListBox
+                        x:Name="DataTableListBox"
+                        Canvas.Left="30"
+                        Canvas.Top="92"
+                        Width="243"
+                        Height="461"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
+                        RenderTransformOrigin="0.5,0.5">
+                        <bdgr:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleX="0.205" />
+                                <RotateTransform />
+                                <TranslateTransform X="-0.945" />
+                            </TransformGroup>
+                        </bdgr:MetroListBox.RenderTransform>
+                    </bdgr:MetroListBox>
+
+                    <bdgr:MetroLabel
+                        x:Name="SourceLabel"
+                        Canvas.Left="27"
+                        Canvas.Top="59"
+                        Width="200"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Data Tables"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="FilterTab"
+                Width="60"
+                Height="22"
+                Margin="0"
+                Padding="6,2,6,2"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Filters">
+                <Canvas
+                    x:Name="FilterCanvas"
+                    Background="{StaticResource FormBackground}">
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroListBox
+                        x:Name="SecondCategoryListBox"
+                        Canvas.Left="46"
+                        Canvas.Top="429"
+                        Width="200"
+                        Height="133"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroListBox
+                        x:Name="FirstCategoryListBox"
+                        Canvas.Left="42"
+                        Canvas.Top="142"
+                        Width="200"
+                        Height="155"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+
+                    <!--************************************** Combo Box  *************************************-->
+
+                    <bdgr:MetroComboBox
+                        x:Name="FirstCategoryComboBox"
+                        Canvas.Left="42"
+                        Canvas.Top="88"
+                        Width="200"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
+
+                    <!--************************************** Combo Box  *************************************-->
+
+                    <bdgr:MetroComboBox
+                        x:Name="SecondCategoryComboBox"
+                        Canvas.Left="46"
+                        Canvas.Top="378"
+                        Width="200"
+                        Height="35"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top">
+                        <sync:ComboBoxItemAdv Content="Item 1" />
+                        <sync:ComboBoxItemAdv Content="Item 2" />
+                        <sync:ComboBoxItemAdv Content="Item 3" />
+                        <sync:ComboBoxItemAdv Content="Item 4" />
+                        <sync:ComboBoxItemAdv Content="Item 5" />
+                    </bdgr:MetroComboBox>
+
+                    <bdgr:MetroLabel
+                        x:Name="SecondCategoryLabel"
+                        Canvas.Left="51"
+                        Canvas.Top="356"
+                        Width="200"
+                        Padding="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Content="Second Category"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+                    <bdgr:MetroLabel
+                        x:Name="FirstCategoryLabel"
+                        Canvas.Left="51"
+                        Canvas.Top="64"
+                        Width="200"
+                        Padding="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Content="First Category"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="GroupTab"
+                Width="60"
+                Height="22"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Groups">
+                <Grid
+                    x:Name="GroupCanvas"
+                    Background="{StaticResource FormBackground}">
+                    <bdgr:MetroLabel
+                        x:Name="FieldsLabel"
+                        Width="170"
+                        Margin="57,59,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Fields"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroListBox
+                        x:Name="FieldListBox"
+                        Width="200"
+                        Height="220"
+                        Margin="46,89,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}"
+                        RenderTransformOrigin="0.5,0.5">
+                        <bdgr:MetroListBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleY="-0.295" />
+                                <RotateTransform />
+                                <TranslateTransform Y="-1.031" />
+                            </TransformGroup>
+                        </bdgr:MetroListBox.RenderTransform>
+                    </bdgr:MetroListBox>
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroListBox
+                        x:Name="NumericListBox"
+                        Width="200"
+                        Height="220"
+                        Margin="46,359,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        d:ItemsSource="{d:SampleData ItemCount=5}"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
+                    <bdgr:MetroLabel
+                        x:Name="NumericsLabel"
+                        Width="170"
+                        Margin="52,329,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="Numerics"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                x:Name="CalendarTab"
+                Width="60"
+                Height="22"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Calendar">
+                <Canvas
+                    x:Name="CalendarCanvas"
+                    Height="624"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource FormBackground}">
+                    <bdgr:MetroLabel
+                        x:Name="FirstDateLabel"
+                        Canvas.Left="52"
+                        Canvas.Top="80"
+                        Width="180"
+                        Padding="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Content="First Date"
+                        Foreground="{StaticResource BlueBorderBrush}" />
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroCalendar
+                        x:Name="FirstCalendar"
+                        Canvas.Left="46"
+                        Canvas.Top="104"
+                        Width="200"
+                        Height="200"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="1"
+                        Date="1/1/2020" />
+
+                    <bdgr:MetroLabel
+                        x:Name="SecondDateLabel"
+                        Canvas.Left="46"
+                        Canvas.Top="334"
+                        Width="180"
+                        Padding="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        VerticalContentAlignment="Bottom"
+                        Panel.ZIndex="-2"
+                        Content="Second Date"
+                        Foreground="{StaticResource BlueBorderBrush}"
+                        Grid.IsSharedSizeScope="True" />
+
+                    <!--************************************** List Box  *************************************-->
+
+                    <bdgr:MetroCalendar
+                        x:Name="SecondCalendar"
+                        Canvas.Left="46"
+                        Canvas.Top="357"
+                        Width="200"
+                        Height="200"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        BorderThickness="1"
+                        Date="1/1/2020" />
+                </Canvas>
+            </TabItem>
+        </bdgr:MetroTabControl>
+        <bdgr:MetroTabControl
+            x:Name="PrimaryTabControl"
+            Canvas.Left="5"
+            Canvas.Top="0"
+            Width="1015"
+            Height="652"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TabItem
+                x:Name="DataTab"
+                Width="100"
+                Margin="0"
+                Padding="6,2,6,2"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Data">
+                <Canvas
+                    x:Name="PivotCanvas"
+                    Margin="0,11,0,0"
+                    Background="{StaticResource FormBackground}">
+
+                    <!--************************************** Pivot Grid  *************************************-->
+
+                    <bdgr:MetroPivotGrid
+                        x:Name="PivotGrid"
+                        Canvas.Left="24"
+                        Canvas.Top="66"
+                        Width="954"
+                        Height="490"
+                        Margin="1"
+                        Padding="1"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        AllowResizeColumns="True"
+                        AllowResizeRows="True"
+                        AllowSelection="True"
+                        AllowSelectionWithHeaders="True"
+                        Background="{DynamicResource ControlBackground}"
+                        BorderBrush="{DynamicResource BlueBorderBrush}"
+                        BorderThickness="1"
+                        CurrentCellBorder="{DynamicResource LightBlueBrush}"
+                        EnableRowHeader="True"
+                        EnableSpecificColumnEditing="True"
+                        EnableUpdating="True"
+                        EnableValueEditing="True"
+                        FieldListBorderBrush="{DynamicResource BlueBorderBrush}"
+                        FontSize="10"
+                        Foreground="{DynamicResource FormForeground}"
+                        GrandTotalRowAlwaysVisible="True"
+                        GroupingBarBackground="{StaticResource BlueBackground}"
+                        GroupingBarItemBackground="{DynamicResource ControlBackground}"
+                        GroupingBarItemBorderBrush="{DynamicResource BlueBorderBrush}"
+                        GroupingBarItemForeground="{StaticResource LightBlueBrush}"
+                        GroupingButtonCheckedBackground="{DynamicResource GreenBackground}"
+                        GroupingButtonCheckedForeground="{DynamicResource WhiteForeground}"
+                        GroupingButtonHoverBackgroundBrush="{DynamicResource DarkBlueBackground}"
+                        GroupingButtonHoverBorderBrush="{DynamicResource LightBlueBrush}"
+                        GroupingButtonHoverForeground="{DynamicResource WhiteForeground}"
+                        PivotValueChooserItemHeight="11"
+                        ResizePivotGridToFit="True"
+                        ShowGroupingBar="True"
+                        ShowSubTotals="True"
+                        SnapsToDevicePixels="True"
+                        SortOption="All"
+                        ToolTipEnabled="True" />
+                </Canvas>
+            </TabItem>
+
+            <TabItem
+                x:Name="ChartTab"
+                Width="100"
+                Height="22"
+                Margin="1"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Chart">
+                <Canvas
+                    x:Name="ChartCanvas"
+                    Background="{StaticResource FormBackground}">
+
+                    <!--************************************** Chart  *************************************-->
+
+                    <sync:SfChart
+                        x:Name="Chart"
+                        Canvas.Left="24"
+                        Canvas.Top="66"
+                        Width="954"
+                        Height="490"
+                        Margin="1"
+                        Padding="1"
+                        Background="{StaticResource ControlBackground}"
+                        BorderBrush="{StaticResource BlueBorderBrush}"
+                        Foreground="{StaticResource LightBlueBrush}" />
+                </Canvas>
+            </TabItem>
+
+            <!--************************************** Busy Tab  *************************************-->
+
+            <TabItem
+                x:Name="BusyTab"
+                Width="100"
+                Margin="1"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource LightBlueBrush}"
+                Header="Busy">
+                <Canvas Background="{StaticResource FormBackground}">
+                    <Canvas
+                        Width="1024"
+                        Height="626"
+                        Background="{StaticResource FormBackground}">
+                        <Image
+                            x:Name="Loader"
+                            Canvas.Left="1"
+                            Width="980"
+                            Height="600"
+                            gif:AnimationBehavior.SourceUri="/Resources/Assets/LoaderImages/Loading.gif"
+                            SnapsToDevicePixels="True"
+                            Stretch="UniformToFill" />
+                    </Canvas>
+                </Canvas>
+            </TabItem>
+        </bdgr:MetroTabControl>
+    </Canvas>
+</Window>

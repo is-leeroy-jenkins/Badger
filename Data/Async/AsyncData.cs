@@ -80,7 +80,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IQuery> );
             }
         }
@@ -115,7 +115,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<int>> );
             }
         }
@@ -142,7 +142,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, object>> );
             }
         }
@@ -182,7 +182,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, Type>> );
             }
         }
@@ -224,7 +224,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<DataColumn>> );
             }
         }
@@ -267,7 +267,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }

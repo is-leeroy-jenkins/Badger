@@ -169,10 +169,10 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( LineChart.StyleProperty, typeof( SfChart ) );
+            SetResourceReference( StyleProperty, typeof( SfChart ) );
             Width = 800;
             Height = 500;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );

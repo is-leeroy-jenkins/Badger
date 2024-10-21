@@ -70,11 +70,11 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroColorPicker.StyleProperty, typeof( ColorEdit ) );
+            SetResourceReference( StyleProperty, typeof( ColorEdit ) );
             Width = 250;
             Height = 200;
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
         }
 
         /// <summary>

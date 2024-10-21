@@ -491,7 +491,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                AsyncPath.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

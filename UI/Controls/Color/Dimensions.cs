@@ -132,14 +132,10 @@ namespace Badger
         /// </summary>
         protected Dimensions( )
         {
-            _fontFamily = new FontFamily( "Segoe UI" );
+            _fontFamily = new FontFamily( "Roboto" );
             _fontSize = 12;
-            _minWidth = 1200;
-            _width = 1400;
-            _maxWidth = 1500;
+            _minWidth = 1000;
             _minHeight = 600;
-            _height = 800;
-            _maxHeight = 1000;
             _borderThickness = new Thickness( 1 );
             _startLocation = WindowStartupLocation.CenterScreen;
             _windowStyle = WindowStyle.SingleBorderWindow;

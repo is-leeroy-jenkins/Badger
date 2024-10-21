@@ -588,7 +588,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                DataPath.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

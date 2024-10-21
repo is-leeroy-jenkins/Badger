@@ -43,7 +43,10 @@ namespace Badger
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Windows;
     using System.Windows.Input;
+    using Syncfusion.Windows.Controls.Notification;
+    using Syncfusion.Windows.Tools.Controls;
 
     /// <inheritdoc />
     ///  <summary>
@@ -65,17 +68,20 @@ namespace Badger
         public ToolStripButton( )
             : base( )
         {
+            SetResourceReference( StyleProperty, typeof( SfHubTile ) );
+
             // Basic Properties
             Width = 40;
             Height = 30;
+            Header = "";
+            Title = "";
+            Padding = new Thickness( 1 );
+            Margin = new Thickness( 1 );
             Background = _theme.Background;
-            Foreground = _theme.Background;
             BorderBrush = _theme.Background;
-            Margin = _theme.Margin;
-            Padding = _theme.Padding;
-            BorderThickness = _theme.BorderThickness;
+            Foreground = _theme.LightBlueBrush;
 
-            // Event Wiring
+            // Wire Events
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
         }
@@ -88,17 +94,17 @@ namespace Badger
         /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private protected override void OnMouseEnter( object sender, MouseEventArgs e )
+        private protected override void OnMouseEnter(object sender, MouseEventArgs e)
         {
             try
             {
                 Background = _theme.DarkBlueBrush;
-                Foreground = _theme.WhiteForeground;
                 BorderBrush = _theme.LightBlueBrush;
+                Foreground = _theme.WhiteForeground;
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
 
@@ -110,17 +116,17 @@ namespace Badger
         /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private protected override void OnMouseLeave( object sender, MouseEventArgs e )
+        private protected override void OnMouseLeave(object sender, MouseEventArgs e)
         {
             try
             {
                 Background = _theme.Background;
-                Foreground = _theme.Background;
                 BorderBrush = _theme.Background;
+                Foreground = _theme.LightBlueBrush;
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
     }

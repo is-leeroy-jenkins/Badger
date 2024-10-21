@@ -139,9 +139,9 @@ namespace Badger
         {
             // Control Properties
             BorderThickness = new Thickness( 0 );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
-            SetResourceReference( MetroCalendar.StyleProperty, typeof( CalendarEdit ) );
+            SetResourceReference( StyleProperty, typeof( CalendarEdit ) );
             Background = new SolidColorBrush( _backColor );
             BlackoutDatesBackground = new SolidColorBrush( _backColor );
             BlackoutDatesCrossBrush = new SolidColorBrush( _backColor );

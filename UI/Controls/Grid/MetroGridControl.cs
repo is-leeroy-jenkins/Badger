@@ -70,7 +70,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroGridControl.StyleProperty, typeof( GridControl ) );
+            SetResourceReference( StyleProperty, typeof( GridControl ) );
             Width = 250;
             Height = 200;
             Model.HeaderStyle.Background = _theme.SteelBlueBrush;

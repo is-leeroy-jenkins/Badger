@@ -348,7 +348,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<DbDataAdapter> );
             }
         }

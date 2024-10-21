@@ -256,7 +256,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CommandBase.Fail( ex );
+                    Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -318,7 +318,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CommandBase.Fail( ex );
+                    Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -370,7 +370,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CommandBase.Fail( ex );
+                    Fail( ex );
                     return default( DbCommand );
                 }
             }
@@ -420,7 +420,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CommandBase.Fail( ex );
+                    Fail( ex );
                     return default( DbCommand );
                 }
             }

@@ -136,7 +136,7 @@ namespace Badger
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, Command.SELECTALL );
             _dataTable = GetDataTable( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -160,7 +160,7 @@ namespace Badger
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
@@ -193,7 +193,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -220,7 +220,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -251,7 +251,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -275,7 +275,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -300,7 +300,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -325,7 +325,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -348,7 +348,7 @@ namespace Badger
             _fields = GetFields( );
             _numerics = GetNumerics( );
             _dates = GetDates( );
-            _elements = DataService.CreateSeries( _dataTable );
+            _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -375,7 +375,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataService.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -405,7 +405,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataService.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -461,7 +461,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataService.Fail( ex );
+                Fail( ex );
                 return default( DataTable );
             }
 
@@ -490,7 +490,7 @@ namespace Badger
                     if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
                         && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
-                        var _name = DataService.GetValues( _rows, _columns[ _i ]?.ColumnName );
+                        var _name = GetValues( _rows, _columns[ _i ]?.ColumnName );
                         _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                     }
                 }
@@ -501,7 +501,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataService.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, IEnumerable<string>> );
             }
         }

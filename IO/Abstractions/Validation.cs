@@ -138,7 +138,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return default( int );
             }
         }
@@ -172,7 +172,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -194,7 +194,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -211,11 +211,11 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                return Validation.IsLetter( c ) || Validation.IsDigit( c );
+                return IsLetter( c ) || IsDigit( c );
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -233,19 +233,19 @@ namespace Badger
             {
                 var _test = c.ToString( );
                 ThrowIf.Null( _test, nameof( c ) );
-                if( Validation.IsControl( c ) )
+                if( IsControl( c ) )
                 {
                     return false;
                 }
 
                 return c < 128
-                    ? Validation.IsLetterOrDigit( c )
-                    || Validation.AtomCharacters.Contains( c.ToString( ) )
+                    ? IsLetterOrDigit( c )
+                    || AtomCharacters.Contains( c.ToString( ) )
                     : allowInternational && !char.IsWhiteSpace( c );
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -266,14 +266,14 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
-                    if( Validation.IsLetter( c )
+                    if( IsLetter( c )
                         || c == '-' )
                     {
                         type |= SubDomainType.Alphabetic;
                         return true;
                     }
 
-                    if( Validation.IsDigit( c ) )
+                    if( IsDigit( c ) )
                     {
                         type |= SubDomainType.Numeric;
                         return true;
@@ -292,7 +292,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -313,13 +313,13 @@ namespace Badger
                 ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
-                    if( Validation.IsLetter( c ) )
+                    if( IsLetter( c ) )
                     {
                         type = SubDomainType.Alphabetic;
                         return true;
                     }
 
-                    if( Validation.IsDigit( c ) )
+                    if( IsDigit( c ) )
                     {
                         type = SubDomainType.Numeric;
                         return true;
@@ -340,7 +340,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
                 type = SubDomainType.None;
             }
 
@@ -363,7 +363,7 @@ namespace Badger
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var startIndex = index;
                 while( index < text.Length
-                    && Validation.IsAtom( text[ index ], allowInternational ) )
+                    && IsAtom( text[ index ], allowInternational ) )
                 {
                     index++;
                 }
@@ -372,7 +372,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Validation.Fail( ex );
+                Fail( ex );
             }
 
             return false;
@@ -391,26 +391,26 @@ namespace Badger
             bool allowInternational, out SubDomainType type )
         {
             var startIndex = index;
-            if( !Validation.IsDomainStart( text[ index ], allowInternational, out type ) )
+            if( !IsDomainStart( text[ index ], allowInternational, out type ) )
             {
                 return false;
             }
 
             index++;
             while( index < text.Length
-                && Validation.IsDomain( text[ index ], allowInternational, ref type ) )
+                && IsDomain( text[ index ], allowInternational, ref type ) )
             {
                 index++;
             }
 
-            var length = Validation.Measure( text, startIndex, index, allowInternational );
+            var length = Measure( text, startIndex, index, allowInternational );
             if( index == text.Length
                 && length == 1 )
             {
                 return false;
             }
 
-            return length <= Validation.MaxDomainLabelLength && text[ index - 1 ] != '-';
+            return length <= MaxDomainLabelLength && text[ index - 1 ] != '-';
         }
 
         /// <summary>

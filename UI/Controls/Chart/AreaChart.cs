@@ -170,10 +170,10 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( AreaChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             EnableRotation = true;
             Depth = 250;

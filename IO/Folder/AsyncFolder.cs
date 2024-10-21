@@ -180,7 +180,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    AsyncFolder.Fail( ex );
+                    Fail( ex );
                     return default( Task<string> );
                 }
             }
@@ -210,7 +210,7 @@ namespace Badger
             catch( IOException ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return _async.Task;
             }
         }
@@ -230,7 +230,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<string> );
             }
         }
@@ -265,7 +265,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -288,7 +288,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -317,7 +317,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -353,7 +353,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -378,7 +378,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -404,7 +404,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -430,7 +430,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return default( Task<object> );
             }
 
@@ -481,7 +481,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                AsyncFolder.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

@@ -66,7 +66,7 @@ namespace Badger
             {
                 ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
-                if( !EmailValidator.SkipSubDomain( text, ref index, allowInternational,
+                if( !SkipSubDomain( text, ref index, allowInternational,
                     out var _type ) )
                 {
                     return false;
@@ -83,7 +83,7 @@ namespace Badger
                             return false;
                         }
 
-                        if( !EmailValidator.SkipSubDomain( text, ref index, allowInternational,
+                        if( !SkipSubDomain( text, ref index, allowInternational,
                             out _type ) )
                         {
                             return false;
@@ -101,7 +101,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -123,7 +123,7 @@ namespace Badger
                 index++;
                 while( index < text.Length )
                 {
-                    if( EmailValidator.IsControl( text[ index ] )
+                    if( IsControl( text[ index ] )
                         || ( text[ index ] >= 128 && !allowInternational ) )
                     {
                         return false;
@@ -159,7 +159,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -183,7 +183,7 @@ namespace Badger
                     var _startIndex = index;
                     var _value = 0;
                     while( index < text.Length
-                        && EmailValidator.IsDigit( text[ index ] ) )
+                        && IsDigit( text[ index ] ) )
                     {
                         _value = _value * 10 + ( text[ index ] - '0' );
                         index++;
@@ -209,7 +209,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -231,7 +231,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -255,7 +255,7 @@ namespace Badger
                 {
                     var _startIndex = index;
                     while( index < text.Length
-                        && EmailValidator.IsHexDigit( text[ index ] ) )
+                        && IsHexDigit( text[ index ] ) )
                     {
                         index++;
                     }
@@ -270,7 +270,7 @@ namespace Badger
                         && ( _compact || _groups == 6 ) )
                     {
                         index = _startIndex;
-                        if( !EmailValidator.SkipIPv4Literal( text, ref index ) )
+                        if( !SkipIPv4Literal( text, ref index ) )
                         {
                             return false;
                         }
@@ -345,7 +345,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -371,15 +371,15 @@ namespace Badger
                 }
 
                 if( email.Length == 0
-                    || EmailValidator.Measure( email, 0, email.Length, allowInternational )
-                    > EmailValidator.MaxEmailAddressLength )
+                    || Measure( email, 0, email.Length, allowInternational )
+                    > MaxEmailAddressLength )
                 {
                     return false;
                 }
 
                 if( email[ _index ] == '"' )
                 {
-                    if( !EmailValidator.SkipQuoted( email, ref _index, allowInternational )
+                    if( !SkipQuoted( email, ref _index, allowInternational )
                         || _index >= email.Length )
                     {
                         return false;
@@ -387,7 +387,7 @@ namespace Badger
                 }
                 else
                 {
-                    if( !EmailValidator.SkipAtom( email, ref _index, allowInternational )
+                    if( !SkipAtom( email, ref _index, allowInternational )
                         || _index >= email.Length )
                     {
                         return false;
@@ -401,7 +401,7 @@ namespace Badger
                             return false;
                         }
 
-                        if( !EmailValidator.SkipAtom( email, ref _index, allowInternational ) )
+                        if( !SkipAtom( email, ref _index, allowInternational ) )
                         {
                             return false;
                         }
@@ -414,10 +414,10 @@ namespace Badger
                 }
 
                 var _localPartLength =
-                    EmailValidator.Measure( email, 0, _index, allowInternational );
+                    Measure( email, 0, _index, allowInternational );
 
                 if( _index + 1 >= email.Length
-                    || _localPartLength > EmailValidator.MaxLocalPartLength
+                    || _localPartLength > MaxLocalPartLength
                     || email[ _index++ ] != '@' )
                 {
                     return false;
@@ -425,7 +425,7 @@ namespace Badger
 
                 if( email[ _index ] != '[' )
                 {
-                    if( !EmailValidator.SkipDomain( email, ref _index, allowTopLevelDomains,
+                    if( !SkipDomain( email, ref _index, allowTopLevelDomains,
                         allowInternational ) )
                     {
                         return false;
@@ -445,14 +445,14 @@ namespace Badger
                     == 0 )
                 {
                     _index += "IPv6:".Length;
-                    if( !EmailValidator.SkipIPv6Literal( email, ref _index ) )
+                    if( !SkipIPv6Literal( email, ref _index ) )
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if( !EmailValidator.SkipIPv4Literal( email, ref _index ) )
+                    if( !SkipIPv4Literal( email, ref _index ) )
                     {
                         return false;
                     }
@@ -468,7 +468,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EmailValidator.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }

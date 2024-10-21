@@ -61,7 +61,7 @@ namespace Badger
         public Spreadsheet( )
             : base( )
         {
-            SetResourceReference( Spreadsheet.StyleProperty, typeof( SfSpreadsheet ) );
+            SetResourceReference( StyleProperty, typeof( SfSpreadsheet ) );
         }
 
         /// <summary>

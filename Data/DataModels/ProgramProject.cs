@@ -168,7 +168,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ProgramProject.Fail( ex );
+                Fail( ex );
                 return default( int );
             }
         }
@@ -189,7 +189,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ProgramProject.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

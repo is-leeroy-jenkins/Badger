@@ -139,7 +139,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Static.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -171,7 +171,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Static.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

@@ -161,7 +161,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileBase.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -190,7 +190,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileBase.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -218,7 +218,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                FileBase.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -246,7 +246,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                FileBase.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -264,7 +264,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                FileBase.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -284,7 +284,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FileBase.Fail( ex );
+                    Fail( ex );
                     return default( FileStream );
                 }
             }
@@ -317,7 +317,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    FileBase.Fail( ex );
+                    Fail( ex );
                     return default( IList<string> );
                 }
             }
@@ -343,7 +343,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    FileBase.Fail( ex );
+                    Fail( ex );
                     return default( byte[ ] );
                 }
             }
@@ -374,7 +374,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    FileBase.Fail( ex );
+                    Fail( ex );
                     return string.Empty;
                 }
             }

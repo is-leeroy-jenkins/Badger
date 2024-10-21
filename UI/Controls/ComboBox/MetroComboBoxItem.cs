@@ -83,11 +83,11 @@ namespace Badger
             Background = _theme.ControlInterior;
             BorderBrush = _theme.ControlInterior;
             Foreground = _theme.LightBlueBrush;
-            Margin = new Thickness( 10, 1, 1, 1 );
+            Margin = _theme.Margin;
+            Padding = new Thickness( 30, 1, 1, 1 );
             Height = 24;
-            Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            HorizontalContentAlignment = HorizontalAlignment.Left;
+            HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
             // Event Wiring
             MouseEnter += OnItemMouseEnter;

@@ -71,9 +71,9 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroAccordian.StyleProperty, typeof( SfAccordion ) );
+            SetResourceReference( StyleProperty, typeof( SfAccordion ) );
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Width = 250;
             Height = 250;
             AccentBrush = _theme.SteelBlueBrush;

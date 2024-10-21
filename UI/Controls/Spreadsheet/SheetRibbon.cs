@@ -69,8 +69,8 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            SetResourceReference( SheetRibbon.StyleProperty, typeof( SfSpreadsheetRibbon ) );
-            FontFamily = new FontFamily( "Segoe UI" );
+            SetResourceReference( StyleProperty, typeof( SfSpreadsheetRibbon ) );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = _theme.ControlBackground;
             BorderBrush = _theme.ControlBackground;

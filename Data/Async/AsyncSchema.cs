@@ -179,7 +179,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    AsyncCore.Fail( ex );
+                    Fail( ex );
                     return default( DataTable );
                 }
             }
@@ -214,7 +214,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _async.SetException( ex );
-                    AsyncCore.Fail( ex );
+                    Fail( ex );
                     return default( Task<DataTable> );
                 }
             }
@@ -240,7 +240,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( DataRow );
             }
         }
@@ -266,7 +266,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<DataRow> );
             }
         }
@@ -298,7 +298,7 @@ namespace Badger
                 catch( Exception ex )
                 {
                     _task.SetException( ex );
-                    AsyncCore.Fail( ex );
+                    Fail( ex );
                     return default( Task<DataSet> );
                 }
             }
@@ -328,7 +328,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -361,7 +361,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -400,7 +400,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -438,7 +438,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -467,7 +467,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<int>> );
             }
         }

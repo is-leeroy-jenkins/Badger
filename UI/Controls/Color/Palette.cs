@@ -137,9 +137,9 @@ namespace Badger
         private protected Color _darkBlueColor = new Color( )
         {
             A = 255,
-            R = 14,
-            G = 60,
-            B = 94
+            R = 1,
+            G = 28,
+            B = 43
         };
 
         /// <summary>

@@ -129,11 +129,8 @@ namespace Badger
             LightBlueBrush = new SolidColorBrush( _lightBlue );
             BlackBrush = new SolidColorBrush( _blackColor );
             WhiteForeground = new SolidColorBrush( _whiteColor );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
-            Padding = new Thickness( 1 );
-            Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.SingleBorderWindow;
             SizeMode = ResizeMode.CanResize;
             StartLocation = WindowStartupLocation.CenterScreen;

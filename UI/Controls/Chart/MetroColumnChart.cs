@@ -80,7 +80,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroColumnChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 500;
             FontFamily = _theme.FontFamily;

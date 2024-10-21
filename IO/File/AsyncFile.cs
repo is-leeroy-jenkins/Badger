@@ -166,7 +166,7 @@ namespace Badger
                 catch( IOException ex )
                 {
                     _async.SetException( ex );
-                    AsyncFile.Fail( ex );
+                    Fail( ex );
                     return default( Task<bool> );
                 }
             }
@@ -204,7 +204,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    AsyncFile.Fail( ex );
+                    Fail( ex );
                     return default( Task<IList<FileInfo>> );
                 }
             }
@@ -228,7 +228,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFile.Fail( ex );
+                Fail( ex );
                 return default( Task<DirectoryInfo> );
             }
         }
@@ -255,7 +255,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFile.Fail( ex );
+                Fail( ex );
                 return default( Task<FileInfo> );
             }
         }
@@ -286,7 +286,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFile.Fail( ex );
+                Fail( ex );
                 return default( Task<string> );
             }
         }
@@ -319,7 +319,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncFile.Fail( ex );
+                Fail( ex );
                 _stream?.Close( );
                 return _async.Task;
             }
@@ -373,7 +373,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                AsyncFile.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

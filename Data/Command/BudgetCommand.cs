@@ -240,7 +240,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                CommandBase.Fail( ex );
+                Fail( ex );
                 return default( DbCommand );
             }
         }
@@ -298,7 +298,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                CommandBase.Fail( ex );
+                Fail( ex );
                 return default( Task<DbCommand> );
             }
         }

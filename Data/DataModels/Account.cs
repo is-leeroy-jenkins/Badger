@@ -211,7 +211,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Account.Fail( ex );
+                Fail( ex );
                 return default( Account );
             }
         }
@@ -235,7 +235,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Account.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

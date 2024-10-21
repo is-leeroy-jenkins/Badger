@@ -36,55 +36,56 @@
 //   Decimals.cs
 // </summary>
 // ******************************************************************************************
-
 namespace Badger
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
+	using System;
+	using System.ComponentModel;
+	using System.Diagnostics.CodeAnalysis;
+	using System.Runtime.CompilerServices;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
-    public struct Decimals
-    {
-        /// <summary>
-        /// The start
-        /// </summary>
-        private decimal _start;
+	/// <inheritdoc />
+	/// <summary>
+	/// </summary>
+	[ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
+	[ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+	[ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+	[ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+	[ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
+	public struct Decimals 
+	{
+		/// <summary>
+		/// The start
+		/// </summary>
+		private decimal _start;
 
-        /// <summary>
-        /// The end
-        /// </summary>
-        private decimal _end;
+		/// <summary>
+		/// The end
+		/// </summary>
+		private decimal _end;
 
-        /// <summary>
-        /// The delta
-        /// </summary>
-        private decimal _delta;
+		/// <summary>
+		/// The delta
+		/// </summary>
+		private decimal _delta;
 
-        /// <summary>
-        /// The step
-        /// </summary>
-        private decimal _step;
+		/// <summary>
+		/// The step
+		/// </summary>
+		private decimal _step;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Decimals"/> struct.
-        /// </summary>
-        /// <param name="start">The start.</param>
-        /// <param name="end">The end.</param>
-        /// <param name="step">The step.</param>
-        public Decimals( decimal start, decimal end, decimal step = 1 )
-        {
-            _start = start;
-            _end = end;
-            _delta = end - start;
-            _step = 1;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Decimals"/> struct.
+		/// </summary>
+		/// <param name="start">The start.</param>
+		/// <param name="end">The end.</param>
+		/// <param name="step">The step.</param>
+		public Decimals( decimal start, decimal end, decimal step = 1 )
+		{
+			_start = start;
+			_end = end;
+			_delta = end - start;
+			_step = 1;
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Decimals"/> struct.
@@ -120,61 +121,61 @@ namespace Badger
 		/// The start.
 		/// </value>
 		public decimal Start
-        {
-            get
-            {
-                return _start;
-            }
-            private set
-            {
-                _start = value;
-            }
-        }
+		{
+			get
+			{
+				return _start;
+			}
+			private set
+			{
+				_start = value;
+			}
+		}
 
-        /// <summary>
-        /// Gets or sets the end.
-        /// </summary>
-        /// <value>
-        /// The end.
-        /// </value>
-        public decimal End
-        {
-            get
-            {
-                return _end;
-            }
-            private set
-            {
-                _end = value;
-            }
-        }
+		/// <summary>
+		/// Gets or sets the end.
+		/// </summary>
+		/// <value>
+		/// The end.
+		/// </value>
+		public decimal End
+		{
+			get
+			{
+				return _end;
+			}
+			private set
+			{
+				_end = value;
+			}
+		}
 
-        /// <summary>
-        /// Gets the delta.
-        /// </summary>
-        /// <value>
-        /// The delta.
-        /// </value>
-        public decimal Delta
-        {
-            get
-            {
-                return _start;
-            }
-        }
+		/// <summary>
+		/// Gets the delta.
+		/// </summary>
+		/// <value>
+		/// The delta.
+		/// </value>
+		public decimal Delta
+		{
+			get
+			{
+				return _start;
+			}
+		}
 
-        /// <summary>
-        /// Gets the step.
-        /// </summary>
-        /// <value>
-        /// The step.
-        /// </value>
-        public decimal Step
-        {
-            get
-            {
-                return _start;
-            }
-        }
-    }
+		/// <summary>
+		/// Gets the step.
+		/// </summary>
+		/// <value>
+		/// The step.
+		/// </value>
+		public decimal Step
+		{
+			get
+			{
+				return _start;
+			}
+		}
+	}
 }

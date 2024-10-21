@@ -163,7 +163,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Organization.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -183,7 +183,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Organization.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }

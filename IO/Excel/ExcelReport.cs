@@ -131,8 +131,8 @@ namespace Badger
             _startRow = 2;
             _startColumn = 1;
             _fontColor = Color.Black;
-            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
-            _titleFont = new Font( "Segoe UI", 9 );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9 );
             _fileName = "Budget.xlsx";
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
@@ -177,8 +177,8 @@ namespace Badger
             _startRow = 2;
             _startColumn = 1;
             _fontColor = Color.Black;
-            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
-            _titleFont = new Font( "Segoe UI", 9 );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9 );
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
             _leftMargin = .25m;
@@ -224,8 +224,8 @@ namespace Badger
             _startRow = 2;
             _startColumn = 1;
             _fontColor = Color.Black;
-            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
-            _titleFont = new Font( "Segoe UI", 9, FontStyle.Regular );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9, FontStyle.Regular );
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
             _leftMargin = .25m;
@@ -352,7 +352,7 @@ namespace Badger
                 if( _dataTable == null )
                 {
                     _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
-                    _dataRange.Style.Font.Name = "Segoe UI";
+                    _dataRange.Style.Font.Name = "Roboto";
                     _dataRange.Style.Font.Size = 8;
                     _dataRange.Style.Font.Bold = false;
                     _dataRange.Style.Font.Italic = false;

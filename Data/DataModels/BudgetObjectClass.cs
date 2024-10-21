@@ -235,7 +235,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetObjectClass.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -254,7 +254,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetObjectClass.Fail( ex );
+                Fail( ex );
                 return default( double );
             }
         }
@@ -273,7 +273,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetObjectClass.Fail( ex );
+                Fail( ex );
                 return default( BOC );
             }
         }
@@ -298,7 +298,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -315,7 +315,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -343,7 +343,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    BudgetObjectClass.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

@@ -75,7 +75,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroCheckList.StyleProperty, typeof( CheckListBox ) );
+            SetResourceReference( StyleProperty, typeof( CheckListBox ) );
             Width = 225.0;
             Height = 200.0;
             Background = _theme.ControlBackground;

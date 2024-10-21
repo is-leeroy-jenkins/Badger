@@ -77,10 +77,10 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroFrame.StyleProperty, typeof( SfTextInputLayout ) );
+            SetResourceReference( StyleProperty, typeof( SfTextInputLayout ) );
             Height = 200;
             Width = 200;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = _theme.ControlBackground;
             Foreground = _theme.Foreground;

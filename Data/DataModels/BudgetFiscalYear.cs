@@ -319,7 +319,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetFiscalYear.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<Holiday, DateTime> );
             }
         }
@@ -338,7 +338,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetFiscalYear.Fail( ex );
+                Fail( ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -361,7 +361,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetFiscalYear.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -378,7 +378,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                BudgetFiscalYear.Fail( ex );
+                Fail( ex );
                 return default( BudgetFiscalYear );
             }
         }

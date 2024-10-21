@@ -214,7 +214,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
                 return default( string );
             }
         }
@@ -238,7 +238,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
                 return default( DirectoryInfo );
             }
         }
@@ -258,7 +258,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -277,7 +277,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -292,7 +292,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( dirPath, nameof( dirPath ) );
-                if( Directory.Exists( dirPath ) )
+                if( Exists( dirPath ) )
                 {
                     var _message = @$"Folder at {dirPath} already exists!";
                     throw new ArgumentException( _message );
@@ -308,7 +308,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
                 return default( DirectoryInfo );
             }
         }
@@ -325,7 +325,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
-                if( Directory.Exists( destination ) )
+                if( Exists( destination ) )
                 {
                     var _message = @$"Folder at {destination} already exists!";
                     throw new ArgumentException( _message );
@@ -338,7 +338,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -358,7 +358,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -378,7 +378,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -426,7 +426,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                Folder.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }

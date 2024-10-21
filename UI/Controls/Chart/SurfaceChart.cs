@@ -68,7 +68,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( SurfaceChart.StyleProperty, typeof( SfSurfaceChart ) );
+            SetResourceReference( StyleProperty, typeof( SfSurfaceChart ) );
             Width = 800;
             Height = 400;
             Padding = _theme.Padding;

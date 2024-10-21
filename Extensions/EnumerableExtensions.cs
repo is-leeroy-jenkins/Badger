@@ -87,7 +87,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( BindingList<T> );
             }
         }
@@ -121,7 +121,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( ObservableCollection<DataRow> );
             }
         }
@@ -150,7 +150,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -179,7 +179,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -216,7 +216,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DataRow> );
             }
         }
@@ -245,7 +245,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    EnumerableExtensions.Fail( ex );
+                    Fail( ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -284,7 +284,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( ExcelPackage );
             }
         }
@@ -389,11 +389,11 @@ namespace Badger
         {
             try
             {
-                return EnumerableExtensions.CycleIterator( source );
+                return CycleIterator( source );
             }
             catch( Exception ex )
             {
-                EnumerableExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<T> );
             }
         }

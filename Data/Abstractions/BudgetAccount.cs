@@ -44,7 +44,6 @@ namespace Badger
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using ControlzEx.Standard;
 
     /// <inheritdoc />
     /// <summary>

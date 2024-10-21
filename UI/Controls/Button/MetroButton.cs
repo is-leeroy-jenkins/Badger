@@ -73,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroButton.StyleProperty, typeof( ButtonAdv ) );
+            SetResourceReference( StyleProperty, typeof( ButtonAdv ) );
             Width = 140;
             Height = 50;
             IconHeight = 16;

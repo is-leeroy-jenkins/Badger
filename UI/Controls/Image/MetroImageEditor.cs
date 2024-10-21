@@ -61,7 +61,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroImageEditor.StyleProperty, typeof( SfImageEditor ) );
+            SetResourceReference( StyleProperty, typeof( SfImageEditor ) );
         }
 
         /// <summary>

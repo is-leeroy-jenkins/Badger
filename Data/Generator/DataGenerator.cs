@@ -349,7 +349,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataGenerator.Fail( ex );
+                Fail( ex );
                 return default( Provider );
             }
         }
@@ -393,7 +393,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataGenerator.Fail( ex );
+                Fail( ex );
                 return default( Provider );
             }
         }
@@ -425,7 +425,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataGenerator.Fail( ex );
+                Fail( ex );
                 return default( Source );
             }
         }

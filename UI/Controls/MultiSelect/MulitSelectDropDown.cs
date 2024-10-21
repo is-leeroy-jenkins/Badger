@@ -69,18 +69,17 @@ namespace Badger
         public MulitSelectDropDown( )
         {
             // Control Properties
-            SetResourceReference( MulitSelectDropDown.StyleProperty,
+            SetResourceReference( StyleProperty,
                 typeof( SfMultiColumnDropDownControl ) );
 
             Width = 175;
             Height = 30;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Background = _theme.ControlBackground;
             Foreground = _theme.LightBlueBrush;
             BorderBrush = _theme.BorderBrush;
             PopupBorderThickness = new Thickness( 1 );
-            PopupBackground = _theme.BlackBrush;
             PopupBorderBrush = _theme.BorderBrush;
         }
 

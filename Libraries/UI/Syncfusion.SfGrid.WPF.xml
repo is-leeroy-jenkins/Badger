@@ -39098,7 +39098,7 @@
             The identifier for the Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.ValueMember dependency property.
             </remarks>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.PopupBackground">
+        <member name="P:Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.ControlInteriorBrush">
             <summary>
             Gets or sets the background to pop-up.
             </summary>
@@ -39109,10 +39109,10 @@
         </member>
         <member name="F:Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.PopupBackgroundProperty">
             <summary>
-            Identifies the Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.PopupBackground dependency property.
+            Identifies the Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.ControlInteriorBrush dependency property.
             </summary>
             <remarks>
-            The identifier for the Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.PopupBackground dependency property.
+            The identifier for the Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.ControlInteriorBrush dependency property.
             </remarks>
         </member>
         <member name="P:Syncfusion.UI.Xaml.Grid.SfMultiColumnDropDownControl.PopupDropDownGridBackground">

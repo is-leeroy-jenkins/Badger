@@ -73,7 +73,7 @@ namespace Badger
 
         {
             // Control Properties
-            SetResourceReference( MetroComboBox.StyleProperty, typeof( ComboBoxAdv ) );
+            SetResourceReference( StyleProperty, typeof( ComboBoxAdv ) );
             Width = 150;
             Height = 30;
             AutoCompleteMode = AutoCompleteModes.None;

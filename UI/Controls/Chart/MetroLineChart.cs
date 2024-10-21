@@ -73,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Control Properties
-            SetResourceReference( MetroLineChart.StyleProperty, typeof( SfChart3D ) );
+            SetResourceReference( StyleProperty, typeof( SfChart3D ) );
             Width = 800;
             Height = 454;
             FontFamily = _theme.FontFamily;

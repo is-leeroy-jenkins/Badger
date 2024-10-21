@@ -64,7 +64,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ToolPanel" /> class.
+        /// <see cref="T:Bobo.ToolPanel" /> class.
         /// </summary>
         public ToolPanel( )
             : base( )

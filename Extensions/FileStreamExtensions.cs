@@ -84,7 +84,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -103,7 +103,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -125,7 +125,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( StreamReader );
             }
         }
@@ -147,7 +147,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( StreamWriter );
             }
         }
@@ -171,7 +171,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FileStreamExtensions.Fail( ex );
+                    Fail( ex );
                     return default( StreamWriter );
                 }
             }
@@ -194,7 +194,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -216,7 +216,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return string.Empty;
             }
         }
@@ -239,7 +239,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FileStreamExtensions.Fail( ex );
+                    Fail( ex );
                     return default( Stream );
                 }
             }
@@ -265,7 +265,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FileStreamExtensions.Fail( ex );
+                    Fail( ex );
                     return default( Stream );
                 }
             }
@@ -301,7 +301,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FileStreamExtensions.Fail( ex );
+                    Fail( ex );
                     return default( MemoryStream );
                 }
             }
@@ -326,7 +326,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( MemoryStream );
             }
         }
@@ -347,7 +347,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -383,7 +383,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<byte> );
             }
         }
@@ -402,7 +402,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FileStreamExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 

@@ -47,8 +47,8 @@ namespace Badger
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DataMinion
     {
         /// <summary>
@@ -76,7 +76,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -105,7 +105,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -130,7 +130,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -155,7 +155,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -180,7 +180,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -207,7 +207,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -231,7 +231,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -256,7 +256,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -283,7 +283,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -308,7 +308,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -335,7 +335,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataMinion.Fail( ex );
+                Fail( ex );
             }
         }
 

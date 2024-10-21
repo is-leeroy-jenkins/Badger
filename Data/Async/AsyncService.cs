@@ -381,7 +381,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -410,7 +410,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                AsyncCore.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -439,7 +439,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -466,7 +466,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IList<string>> );
             }
         }
@@ -504,7 +504,7 @@ namespace Badger
             catch( Exception ex )
             {
                 _async.SetException( ex );
-                AsyncCore.Fail( ex );
+                Fail( ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }
         }

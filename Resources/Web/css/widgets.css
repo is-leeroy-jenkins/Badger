@@ -198,7 +198,7 @@
 	border: none;
 	cursor: pointer;
 	float: left;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	font-size: 17px;
 	outline: none;
 	padding: 14px 16px;
@@ -330,7 +330,7 @@
 	color: #D6D2D2;
 	cursor: pointer;
 	display: table-cell;
-	font-family: "Segoe UI"
+	font-family: "Roboto"
 	font-size: 14px;
 	line-height: 14px;
 	padding: 7px 13px 6px 29px;
@@ -567,7 +567,7 @@
 	border-color: #0078d4;
 	border-radius: 2px;
 	color: #D6D2D2;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	font-size: 16px;
 	margin: 0;
 	padding: 0;
@@ -625,7 +625,7 @@
 .custom-dialog-flat .ui-dialog-titlebar .ui-dialog-title
 {
 	color: #D6D2D2;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	font-size: 19px;
 	margin: 0 0 0 0.5em;
 	text-align: center;
@@ -709,7 +709,7 @@
 	border-color: #616161;
 	border-radius: 2px;
 	color: #D6D2D2;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	margin: 1.2em 0 0 1.2em;
 	outline: none;
 }
@@ -753,7 +753,7 @@
 	border: 1px solid #0078d4;
 	border-radius: 0;
 	color: #fff;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	font-size: 14px;
 	font-weight: bold;
 	line-height: 1.3;
@@ -815,7 +815,7 @@
 	border-right: 1px solid #0078d4;
 	border-top: 0;
 	color: #fff;
-	font-family: "Segoe UI";
+	font-family: "Roboto";
 	font-size: 14px;
 	line-height: 1.3;
 	overflow: hidden;

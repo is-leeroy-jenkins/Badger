@@ -73,7 +73,7 @@ namespace Badger
             FontSize = 12;
             Padding = new Thickness( 1 );
             BorderThickness = new Thickness( 1 );
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             Background = _theme.Background;
             Foreground = _theme.Foreground;
             BorderBrush = _theme.BorderBrush;

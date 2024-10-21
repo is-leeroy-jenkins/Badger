@@ -155,7 +155,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                ProgramArea.Fail( ex );
+                Fail( ex );
                 return default( ProgramArea );
             }
         }
@@ -178,7 +178,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ProgramArea.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

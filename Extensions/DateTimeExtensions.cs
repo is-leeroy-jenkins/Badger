@@ -67,7 +67,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -89,7 +89,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -111,7 +111,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -164,7 +164,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -217,7 +217,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -272,7 +272,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -328,7 +328,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<DateTime> );
             }
         }
@@ -354,7 +354,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -390,7 +390,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return default( DateTime );
             }
         }
@@ -444,7 +444,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -499,7 +499,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -555,7 +555,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return 0;
             }
         }
@@ -606,7 +606,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DateTimeExtensions.Fail( ex );
+                Fail( ex );
                 return 0;
             }
         }

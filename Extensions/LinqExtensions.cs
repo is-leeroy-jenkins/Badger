@@ -69,7 +69,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -94,7 +94,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -161,7 +161,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -205,7 +205,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -230,7 +230,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -273,7 +273,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                LinqExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }

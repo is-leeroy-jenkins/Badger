@@ -71,7 +71,7 @@ namespace Badger
             Background = _theme.TransparentBrush;
             Foreground = _theme.BorderBrush;
             FontSize = 12;
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
         }
 
         /// <summary>

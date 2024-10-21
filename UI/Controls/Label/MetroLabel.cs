@@ -73,7 +73,7 @@ namespace Badger
             : base( )
         {
             // Basic Properties
-            FontFamily = new FontFamily( "Segoe UI" );
+            FontFamily = new FontFamily( "Roboto" );
             FontSize = 12;
             Width = 100;
             HorizontalAlignment = HorizontalAlignment.Center;

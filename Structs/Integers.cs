@@ -39,55 +39,55 @@
 
 namespace Badger
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
+	using System;
+	using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "NotAccessedField.Local" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
-    public struct Integers
-    {
-        /// <summary>
-        /// The start
-        /// </summary>
-        private int _start;
+	/// <inheritdoc />
+	/// <summary>
+	/// </summary>
+	[ SuppressMessage( "ReSharper", "ConvertToPrimaryConstructor" ) ]
+	[ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+	[ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+	[ SuppressMessage( "ReSharper", "NotAccessedField.Local" ) ]
+	[ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
+	[ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
+	[ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
+	public struct Integers 
+	{
+		/// <summary>
+		/// The start
+		/// </summary>
+		private int _start;
 
-        /// <summary>
-        /// The end
-        /// </summary>
-        private int _end;
+		/// <summary>
+		/// The end
+		/// </summary>
+		private int _end;
 
-        /// <summary>
-        /// The delta
-        /// </summary>
-        private int _delta;
+		/// <summary>
+		/// The delta
+		/// </summary>
+		private int _delta;
 
-        /// <summary>
-        /// The step
-        /// </summary>
-        private int _step;
+		/// <summary>
+		/// The step
+		/// </summary>
+		private int _step;
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Integers"/> struct.
-        /// </summary>
-        /// <param name="start">The start.</param>
-        /// <param name="end">The end.</param>
-        /// <param name="step">The step.</param>
-        public Integers( int start, int end, int step = 1 )
-        {
-            _start = start;
-            _end = end;
-            _delta = end - start;
-            _step = 1;
-        }
+		/// <summary>
+		/// Initializes a new instance of the
+		/// <see cref="Integers"/> struct.
+		/// </summary>
+		/// <param name="start">The start.</param>
+		/// <param name="end">The end.</param>
+		/// <param name="step">The step.</param>
+		public Integers( int start, int end, int step = 1 )
+		{
+			_start = start;
+			_end = end;
+			_delta = end - start;
+			_step = 1;
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Decimals"/> struct.
@@ -123,61 +123,61 @@ namespace Badger
 		/// The start.
 		/// </value>
 		public int Start
-        {
-            get
-            {
-                return _start;
-            }
-            private set
-            {
-                _start = value;
-            }
-        }
+		{
+			get
+			{
+				return _start;
+			}
+			private set
+			{
+				_start = value;
+			}
+		}
 
-        /// <summary>
-        /// Gets or sets the end.
-        /// </summary>
-        /// <value>
-        /// The end.
-        /// </value>
-        public int End
-        {
-            get
-            {
-                return _end;
-            }
-            private set
-            {
-                _end = value;
-            }
-        }
+		/// <summary>
+		/// Gets or sets the end.
+		/// </summary>
+		/// <value>
+		/// The end.
+		/// </value>
+		public int End
+		{
+			get
+			{
+				return _end;
+			}
+			private set
+			{
+				_end = value;
+			}
+		}
 
-        /// <summary>
-        /// Gets the delta.
-        /// </summary>
-        /// <value>
-        /// The delta.
-        /// </value>
-        public int Delta
-        {
-            get
-            {
-                return _start;
-            }
-        }
+		/// <summary>
+		/// Gets the delta.
+		/// </summary>
+		/// <value>
+		/// The delta.
+		/// </value>
+		public int Delta
+		{
+			get
+			{
+				return _start;
+			}
+		}
 
-        /// <summary>
-        /// Gets the step.
-        /// </summary>
-        /// <value>
-        /// The step.
-        /// </value>
-        public int Step
-        {
-            get
-            {
-                return _start;
-            }
-        }
-    }
+		/// <summary>
+		/// Gets the step.
+		/// </summary>
+		/// <value>
+		/// The step.
+		/// </value>
+		public int Step
+		{
+			get
+			{
+				return _start;
+			}
+		}
+	}
 }

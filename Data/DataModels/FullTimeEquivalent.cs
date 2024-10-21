@@ -255,7 +255,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                FullTimeEquivalent.Fail( ex );
+                Fail( ex );
                 return default( int );
             }
         }

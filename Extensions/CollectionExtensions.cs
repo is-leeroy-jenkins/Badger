@@ -75,7 +75,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CollectionExtensions.Fail( ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -107,7 +107,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CollectionExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                CollectionExtensions.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -152,7 +152,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CollectionExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    CollectionExtensions.Fail( ex );
+                    Fail( ex );
                 }
             }
         }
@@ -202,7 +202,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                CollectionExtensions.Fail( ex );
+                Fail( ex );
             }
         }
 
@@ -224,7 +224,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                CollectionExtensions.Fail( ex );
+                Fail( ex );
                 return true;
             }
         }
@@ -251,7 +251,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                CollectionExtensions.Fail( ex );
+                Fail( ex );
                 return default( BindingList<T> );
             }
         }

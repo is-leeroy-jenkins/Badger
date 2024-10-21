@@ -43,9 +43,12 @@ namespace Badger
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
+    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Media;
     using OfficeOpenXml;
+    using RestoreWindowPlace;
     using Syncfusion.Licensing;
     using Syncfusion.SfSkinManager;
     using Syncfusion.Themes.FluentDark.WPF;
@@ -62,6 +65,11 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class App : Application
     {
+        /// <summary>
+        /// The window place
+        /// </summary>
+        private WindowPlace _windowPlace;
+
         /// <summary>
         /// The controls
         /// </summary>
@@ -130,10 +138,11 @@ namespace Badger
         public App( )
         {
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+            TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
             var _key = ConfigurationManager.AppSettings[ "UI" ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            App.ActiveWindows = new Dictionary<string, Window>( );
+            ActiveWindows = new Dictionary<string, Window>( );
             RegisterTheme( );
         }
 
@@ -151,13 +160,34 @@ namespace Badger
                 HeaderFontSize = 16,
                 SubHeaderFontSize = 14,
                 TitleFontSize = 14,
-                SubTitleFontSize = 126,
+                SubTitleFontSize = 16,
                 BodyAltFontSize = 10,
-                FontFamily = new FontFamily( "Segoe UI" )
+                FontFamily = new FontFamily( "Roboto" )
             };
 
             SfSkinManager.RegisterThemeSettings( "FluentDark", _theme );
             SfSkinManager.ApplyStylesOnApplication = true;
+        }
+
+        /// <summary>
+        /// Setups the restore window place.
+        /// </summary>
+        /// <param name="mainWindow">
+        /// The main window.
+        /// </param>
+        private void SetupRestoreWindowPlace( MainWindow mainWindow )
+        {
+            var _config = Path.Combine( AppDomain.CurrentDomain.BaseDirectory, "Badger.config" );
+            _windowPlace = new WindowPlace( _config );
+            _windowPlace.Register( mainWindow );
+
+            // This logic works but I don't like the window being maximized
+            //if (!File.Exists(windowPlaceConfigFilePath))
+            //{
+            //    // For the first time, maximize the window, so it won't go off the screen on laptop
+            //    // WindowPlacement will take care of future runs
+            //    mainWindow.WindowState = WindowState.Maximized;
+            //}
         }
 
         /// <summary>
@@ -174,6 +204,61 @@ namespace Badger
             var _ex = e.ExceptionObject as Exception;
             Fail( _ex );
             Environment.Exit( 1 );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Application.Exit" /> event.
+        /// </summary>
+        /// <param name = "sender" > </param>
+        /// <param name="e">An <see cref="T:System.Windows.ExitEventArgs" />
+        /// that contains the event data.</param>
+        private protected void OnExit( object sender, ExitEventArgs e )
+        {
+            try
+            {
+                _windowPlace?.Save( );
+                Environment.Exit( 0 );
+            }
+            catch( Exception )
+            {
+                // Do Nothing
+            }
+        }
+
+        /// <summary>
+        /// Called when [un handled exception].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="UnobservedTaskExceptionEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnUnobservedTaskException( object sender, UnobservedTaskExceptionEventArgs e )
+        {
+            if( e == null )
+            {
+            }
+            else
+            {
+                var _ex = new Exception( );
+                Fail( _ex );
+                Environment.Exit( 1 );
+            }
+        }
+
+        /// <summary>
+        /// Handles the exception.
+        /// </summary>
+        /// <param name="e">The e.</param>
+        private void HandleException( Exception e )
+        {
+            if( e == null )
+            {
+            }
+            else
+            {
+                Fail( e );
+                Environment.Exit( 1 );
+            }
         }
 
         /// <summary>

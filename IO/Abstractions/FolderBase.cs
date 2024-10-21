@@ -134,7 +134,7 @@ namespace Badger
             }
             catch( IOException ex )
             {
-                FolderBase.Fail( ex );
+                Fail( ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -171,7 +171,7 @@ namespace Badger
                 }
                 catch( IOException ex )
                 {
-                    FolderBase.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, FileInfo> );
                 }
             }
@@ -212,7 +212,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FolderBase.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, DirectoryInfo> );
                 }
             }
@@ -273,7 +273,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    FolderBase.Fail( ex );
+                    Fail( ex );
                     return default( IEnumerable<string> );
                 }
             }

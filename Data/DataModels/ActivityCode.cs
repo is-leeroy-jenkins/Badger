@@ -191,7 +191,7 @@ namespace Badger
                 }
                 catch( Exception ex )
                 {
-                    ActivityCode.Fail( ex );
+                    Fail( ex );
                     return default( IDictionary<string, object> );
                 }
             }

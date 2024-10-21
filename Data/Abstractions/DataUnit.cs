@@ -350,7 +350,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -377,7 +377,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return false;
             }
         }
@@ -406,7 +406,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return false;
             }
 
@@ -428,7 +428,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return default( int );
             }
         }
@@ -448,7 +448,7 @@ namespace Badger
             }
             catch( Exception ex )
             {
-                DataUnit.Fail( ex );
+                Fail( ex );
                 return default( int );
             }
         }
