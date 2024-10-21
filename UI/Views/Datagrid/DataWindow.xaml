@@ -28,7 +28,7 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="sync:GroupDropArea">
@@ -47,7 +47,7 @@
 
     </Window.Resources>
 
-    <!--  ******************************************** Context Menu ******************************************  -->
+    <!--******************************************** Context Menu ******************************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="DataWindowContextMenu">
@@ -142,7 +142,7 @@
     </Window.ContextMenu>
 
 
-    <!--  ******************************************** Layout  *********************************************  -->
+    <!--******************************************** Layout  *********************************************-->
 
     <bdgr:MetroCanvas
         x:Name="DataCanvas"
@@ -805,7 +805,7 @@
         </bdgr:MetroTabControl>
 
 
-        <!--  ******************************************** ToolStrip  *********************************************  -->
+        <!--******************************************** ToolStrip  *********************************************-->
 
         <bdgr:ToolStrip
             x:Name="DataToolStrip"
@@ -861,18 +861,12 @@
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
-            <sync:MenuItemSeparator
-                Width="1"
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                Foreground="{x:Null}" />
-
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                VerticalContentAlignment="Center" />
+                VerticalContentAlignment="Center" Width="250" Margin="1,1,1,1" />
 
             <sync:MenuItemSeparator
                 Width="1"

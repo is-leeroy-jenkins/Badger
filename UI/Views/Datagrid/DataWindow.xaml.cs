@@ -1792,9 +1792,20 @@ namespace Badger
         {
             try
             {
-                FirstListBox.Items?.Clear( );
-                SecondListBox.Items?.Clear( );
-                CommandListBox.Items?.Clear( );
+                if( FirstListBox?.Items?.Count > 0 )
+                {
+                    FirstListBox.Items.Clear( );
+                }
+
+                if( SecondListBox?.Items?.Count > 0 )
+                {
+                    SecondListBox.Items.Clear( );
+                }
+
+                if( CommandListBox?.Items?.Count > 0 )
+                {
+                    CommandListBox.Items.Clear( );
+                }
             }
             catch( Exception ex )
             {
@@ -1809,9 +1820,20 @@ namespace Badger
         {
             try
             {
-                FirstComboBox.Items?.Clear( );
-                SecondComboBox.Items?.Clear( );
-                CommandComboBox.Items?.Clear( );
+                if(FirstComboBox?.Items?.Count > 0)
+                {
+                    FirstComboBox.Items.Clear();
+                }
+
+                if(SecondComboBox?.Items?.Count > 0)
+                {
+                    SecondComboBox.Items.Clear();
+                }
+
+                if(CommandComboBox?.Items?.Count > 0)
+                {
+                    CommandComboBox.Items.Clear();
+                }
             }
             catch( Exception ex )
             {
