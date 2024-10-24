@@ -90,7 +90,7 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private object _path = new object( );
+        private protected object _entry = new object( );
 
         /// <summary>
         /// The status update
@@ -307,7 +307,7 @@ namespace Badger
         {
             get
             {
-                lock( _path )
+                lock( _entry )
                 {
                     return _busy;
                 }
@@ -899,11 +899,11 @@ namespace Badger
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void Busy( )
+        private protected void Busy( )
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = true;
                 }
@@ -917,11 +917,11 @@ namespace Badger
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void Chill( )
+        private protected void Chill( )
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = false;
                 }
@@ -1486,50 +1486,42 @@ namespace Badger
         /// <summary>
         /// Shows the items.
         /// </summary>
-        private void ShowToolbar( )
+        private void SetToolbarVisibility( bool visible = true )
         {
             try
             {
-                FirstButton.Visibility = Visibility.Visible;
-                PreviousButton.Visibility = Visibility.Visible;
-                NextButton.Visibility = Visibility.Visible;
-                LastButton.Visibility = Visibility.Visible;
-                ToolStripTextBox.Visibility = Visibility.Visible;
-                ToolStripComboBox.Visibility = Visibility.Visible;
-                DataSourceButton.Visibility = Visibility.Visible;
-                FilterButton.Visibility = Visibility.Visible;
-                GroupButton.Visibility = Visibility.Visible;
-                LookupButton.Visibility = Visibility.Visible;
-                RefreshButton.Visibility = Visibility.Visible;
-                ExportButton.Visibility = Visibility.Visible;
-                BrowseButton.Visibility = Visibility.Visible;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Hides the items.
-        /// </summary>
-        private void HideToolbar( )
-        {
-            try
-            {
-                FirstButton.Visibility = Visibility.Hidden;
-                PreviousButton.Visibility = Visibility.Hidden;
-                NextButton.Visibility = Visibility.Hidden;
-                LastButton.Visibility = Visibility.Hidden;
-                ToolStripTextBox.Visibility = Visibility.Hidden;
-                ToolStripComboBox.Visibility = Visibility.Hidden;
-                FilterButton.Visibility = Visibility.Hidden;
-                DataSourceButton.Visibility = Visibility.Hidden;
-                ExportButton.Visibility = Visibility.Hidden;
-                GroupButton.Visibility = Visibility.Hidden;
-                RefreshButton.Visibility = Visibility.Hidden;
-                LookupButton.Visibility = Visibility.Hidden;
-                BrowseButton.Visibility = Visibility.Hidden;
+                if( visible )
+                {
+                    FirstButton.Visibility = Visibility.Visible;
+                    PreviousButton.Visibility = Visibility.Visible;
+                    NextButton.Visibility = Visibility.Visible;
+                    LastButton.Visibility = Visibility.Visible;
+                    ToolStripTextBox.Visibility = Visibility.Visible;
+                    ToolStripComboBox.Visibility = Visibility.Visible;
+                    DataSourceButton.Visibility = Visibility.Visible;
+                    FilterButton.Visibility = Visibility.Visible;
+                    GroupButton.Visibility = Visibility.Visible;
+                    LookupButton.Visibility = Visibility.Visible;
+                    RefreshButton.Visibility = Visibility.Visible;
+                    ExportButton.Visibility = Visibility.Visible;
+                    BrowseButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    FirstButton.Visibility = Visibility.Hidden;
+                    PreviousButton.Visibility = Visibility.Hidden;
+                    NextButton.Visibility = Visibility.Hidden;
+                    LastButton.Visibility = Visibility.Hidden;
+                    ToolStripTextBox.Visibility = Visibility.Hidden;
+                    ToolStripComboBox.Visibility = Visibility.Hidden;
+                    FilterButton.Visibility = Visibility.Hidden;
+                    DataSourceButton.Visibility = Visibility.Hidden;
+                    ExportButton.Visibility = Visibility.Hidden;
+                    GroupButton.Visibility = Visibility.Hidden;
+                    RefreshButton.Visibility = Visibility.Hidden;
+                    LookupButton.Visibility = Visibility.Hidden;
+                    BrowseButton.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception ex )
             {
@@ -2858,11 +2850,11 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    ShowToolbar( );
+                    SetToolbarVisibility( false );
                 }
                 else
                 {
-                    HideToolbar( );
+                    SetToolbarVisibility( true );
                 }
             }
             catch( Exception ex )
@@ -2920,7 +2912,7 @@ namespace Badger
                     SetColumnConfiguration( );
                     ActivateFilterTab( );
                     UpdateLabels( );
-                    ShowToolbar( );
+                    SetToolbarVisibility( );
                 }
                 catch( Exception ex )
                 {

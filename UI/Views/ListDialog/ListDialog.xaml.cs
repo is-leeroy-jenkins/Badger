@@ -61,7 +61,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantExtendsListEntry" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public partial class SchemaWindow : Window
+    public partial class ListWindow : Window
     {
         /// <summary>
         /// The busy
@@ -202,7 +202,7 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.SchemaWindow" /> class.
         /// </summary>
-        public SchemaWindow( )
+        public ListWindow( )
             : base( )
         {
             // Theme Properties
@@ -236,7 +236,7 @@ namespace Badger
         /// <see cref="T:Badger.SchemaWindow" /> class.
         /// </summary>
         /// <param name="grid">The grid.</param>
-        public SchemaWindow( MetroDataGrid grid ) 
+        public ListWindow( MetroDataGrid grid ) 
             : this( )
         {
             _grid = grid;

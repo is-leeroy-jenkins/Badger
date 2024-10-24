@@ -33,12 +33,12 @@
     <Optimize>True</Optimize>
     <NoWarn>1701;1702;1006;CA1416</NoWarn>
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
-    <WarningLevel>6</WarningLevel>
+    <WarningLevel>7</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1006;CA1416</NoWarn>
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
-    <WarningLevel>6</WarningLevel>
+    <WarningLevel>7</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|AnyCPU'">
     <DebugType>embedded</DebugType>
@@ -129,6 +129,7 @@
     <None Remove="Resources\Assets\MenuImages\RefreshItem.png" />
     <None Remove="Resources\Assets\MenuImages\SaveItem.png" />
     <None Remove="Resources\Assets\MenuImages\TaskManagerItem.png" />
+    <None Remove="Resources\Assets\NinjaImages\BudExNinjaGrey.ico" />
     <None Remove="Resources\Assets\ProviderImages\Access.png" />
     <None Remove="Resources\Assets\ProviderImages\Excel.ico" />
     <None Remove="Resources\Assets\ProviderImages\Excel.png" />
@@ -250,10 +251,12 @@
     <None Remove="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
     <None Remove="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <None Remove="Resources\Reports\Report.xlsx" />
+    <None Remove="SplashScreen.png" />
     <None Remove="UI\Fonts\Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\NinjaImages\ico\BudExNinja.ico" />
+    <Resource Include="Resources\Assets\NinjaImages\BudExNinjaGrey.ico" />
     <Resource Include="UI\Fonts\Roboto-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -773,6 +776,11 @@
     <Resource Include="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
     <Resource Include="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <Resource Include="Resources\Reports\Report.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
   </ItemGroup>
   <ItemGroup>
     <None Update="Properties\LICENSE.txt">

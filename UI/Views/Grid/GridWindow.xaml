@@ -27,11 +27,12 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -39,7 +40,7 @@
     </Window.Resources>
 
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="GridContextMenu">
@@ -137,7 +138,7 @@
     </Window.ContextMenu>
     <Canvas x:Name="GridCanvas">
 
-        <!--******************************************** ToolStrip ******************************************-->
+        <!--  ******************************************** ToolStrip ******************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"

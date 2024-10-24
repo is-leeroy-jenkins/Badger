@@ -191,7 +191,6 @@ namespace Badger
                 LookupButton.Click += OnLookupButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 EditButton.Click += OnEditButtonClick;
-                UndoButton.Click += OnUndoButtonClick;
                 DeleteButton.Click += OnDeleteButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
                 ExportButton.Click += OnExportButtonClick;
@@ -282,7 +281,6 @@ namespace Badger
                 EditButton.Visibility = Visibility.Hidden;
                 SaveButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;
-                UndoButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 FirstButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
@@ -427,7 +425,6 @@ namespace Badger
                 RefreshButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Visible;
                 SaveButton.Visibility = Visibility.Visible;
-                UndoButton.Visibility = Visibility.Visible;
                 ExportButton.Visibility = Visibility.Visible;
                 BrowseButton.Visibility = Visibility.Visible;
             }
@@ -454,7 +451,6 @@ namespace Badger
                 RefreshButton.Visibility = Visibility.Hidden;
                 DeleteButton.Visibility = Visibility.Hidden;
                 SaveButton.Visibility = Visibility.Hidden;
-                UndoButton.Visibility = Visibility.Hidden;
                 ExportButton.Visibility = Visibility.Hidden;
                 BrowseButton.Visibility = Visibility.Hidden;
             }
@@ -501,7 +497,7 @@ namespace Badger
         {
             try
             {
-                var _form = (MainWindow)App.ActiveWindows[ "MainWindow" ];
+                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
                 _form.Show( );
             }
             catch( Exception ex )

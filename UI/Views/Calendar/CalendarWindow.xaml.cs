@@ -67,7 +67,7 @@ namespace Badger
 	[ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
 	[ SuppressMessage( "ReSharper", "UnusedMember.Local" ) ]
 	[ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-	public partial class CalendarWindow : Window
+	public partial class CalendarWindow : Window, IDisposable
 	{
 		/// <summary>
 		/// The busy
@@ -132,7 +132,7 @@ namespace Badger
 		/// <summary>
 		/// The locked object
 		/// </summary>
-		private object _path = new object( );
+		private protected object _entry = new object( );
 
 		/// <summary>
 		/// The provider
@@ -196,7 +196,7 @@ namespace Badger
 		{
 			get
 			{
-				lock( _path )
+				lock( _entry )
 				{
 					return _busy;
 				}
@@ -1335,6 +1335,35 @@ namespace Badger
 			catch( Exception ex )
 			{
 				Fail( ex );
+			}
+		}
+
+		/// <inheritdoc />
+		/// <summary>
+		/// Performs application-defined tasks
+		/// associated with freeing, releasing,
+		/// or resetting unmanaged resources.
+		/// </summary>
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		/// <summary>
+		/// Releases unmanaged and - optionally - managed resources.
+		/// </summary>
+		/// <param name="disposing">
+		/// <c>true</c>
+		/// to release both managed
+		/// and unmanaged resources;
+		/// <c>false</c> to release only unmanaged resources.
+		/// </param>
+		protected virtual void Dispose(bool disposing)
+		{
+			if(disposing)
+			{
+				_timer?.Dispose();
 			}
 		}
 

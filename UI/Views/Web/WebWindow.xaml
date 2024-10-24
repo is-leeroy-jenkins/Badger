@@ -26,18 +26,19 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="WebWindowContextMenu">
@@ -59,7 +60,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -88,7 +89,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -117,7 +118,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -130,7 +131,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Canvas
         x:Name="WebCanvas"
@@ -156,7 +157,7 @@
                     x:Name="BrowserGrid"
                     Background="{StaticResource FormBackground}">
 
-                    <!--******************************************** Web Browser ******************************************-->
+                    <!--  ******************************************** Web Browser ******************************************  -->
 
                     <WebBrowser
                         x:Name="Browser"
@@ -189,7 +190,7 @@
             </TabItem>
         </bdgr:MetroTabControl>
 
-        <!--******************************************** ToolStrip ******************************************-->
+        <!--  ******************************************** ToolStrip ******************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"

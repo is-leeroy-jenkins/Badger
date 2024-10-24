@@ -28,7 +28,7 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="sync:GroupDropArea">
@@ -40,6 +40,7 @@
 
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -47,7 +48,7 @@
 
     </Window.Resources>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="DataWindowContextMenu">
@@ -142,7 +143,7 @@
     </Window.ContextMenu>
 
 
-    <!--******************************************** Layout  *********************************************-->
+    <!--  ******************************************** Layout  *********************************************-->
 
     <bdgr:MetroCanvas
         x:Name="DataCanvas"
@@ -196,7 +197,7 @@
 
                     <bdgr:MetroLabel
                         x:Name="FirstGridLabel"
-                        Canvas.Left="15"
+                        Canvas.Left="16"
                         Canvas.Top="474"
                         Width="210"
                         HorizontalAlignment="Left"
@@ -225,7 +226,7 @@
                         x:Name="FourthGridLabel"
                         Canvas.Left="798"
                         Canvas.Top="474"
-                        Width="210"
+                        Width="229"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="MetroLabel" />
@@ -805,14 +806,14 @@
         </bdgr:MetroTabControl>
 
 
-        <!--******************************************** ToolStrip  *********************************************-->
+        <!--  ******************************************** ToolStrip  *********************************************-->
 
         <bdgr:ToolStrip
             x:Name="DataToolStrip"
             Canvas.Left="-512"
-            Canvas.Top="724"
+            Canvas.Top="720"
             Width="1350"
-            Height="50"
+            Height="40"
             MinWidth="1350"
             Padding="1"
             HorizontalContentAlignment="Stretch"
@@ -863,10 +864,12 @@
 
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
+                Width="250"
+                Margin="1,1,1,1"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                VerticalContentAlignment="Center" Width="250" Margin="1,1,1,1" />
+                VerticalContentAlignment="Center" />
 
             <sync:MenuItemSeparator
                 Width="1"

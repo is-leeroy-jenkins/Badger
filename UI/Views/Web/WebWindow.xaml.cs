@@ -64,7 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public partial class WebWindow : Window
+    public partial class WebWindow : Window, IDisposable
     {
         /// <summary>
         /// The busy
@@ -79,7 +79,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path = new object( );
+        private protected object _entry = new object( );
 
         /// <summary>
         /// The seconds
@@ -135,39 +135,11 @@ namespace Badger
             Closing += OnClosing;
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Performs application-defined tasks
-        /// associated with freeing, releasing,
-        /// or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
-        }
-
-        /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c>true</c>
-        /// to release both managed
-        /// and unmanaged resources;
-        /// <c>false</c> to release only unmanaged resources.
-        /// </param>
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                _timer?.Dispose( );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
+        /// Initializes event-handlers.
         /// </summary>
         private void RegisterCallbacks( )
+
         {
             try
             {
@@ -193,7 +165,7 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes the delegates.
+        /// Initializes delegates.
         /// </summary>
         private void InitializeDelegates( )
         {
@@ -428,52 +400,44 @@ namespace Badger
         /// <summary>
         /// Shows the items.
         /// </summary>
-        private void SetToolbarVisible( )
+        private void SetToolbarVisibility( bool visible = true )
         {
             try
             {
-                FirstButton.Visibility = Visibility.Visible;
-                PreviousButton.Visibility = Visibility.Visible;
-                NextButton.Visibility = Visibility.Visible;
-                LastButton.Visibility = Visibility.Visible;
-                ToolStripTextBox.Visibility = Visibility.Visible;
-                LookupButton.Visibility = Visibility.Visible;
-                EditButton.Visibility = Visibility.Visible;
-                FilterButton.Visibility = Visibility.Visible;
-                RefreshButton.Visibility = Visibility.Visible;
-                DeleteButton.Visibility = Visibility.Visible;
-                SaveButton.Visibility = Visibility.Visible;
-                UndoButton.Visibility = Visibility.Visible;
-                ExportButton.Visibility = Visibility.Visible;
-                BrowseButton.Visibility = Visibility.Visible;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Hides the items.
-        /// </summary>
-        private void SetToolbarHidden( )
-        {
-            try
-            {
-                FirstButton.Visibility = Visibility.Hidden;
-                PreviousButton.Visibility = Visibility.Hidden;
-                NextButton.Visibility = Visibility.Hidden;
-                LastButton.Visibility = Visibility.Hidden;
-                ToolStripTextBox.Visibility = Visibility.Hidden;
-                LookupButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
-                FilterButton.Visibility = Visibility.Hidden;
-                RefreshButton.Visibility = Visibility.Hidden;
-                DeleteButton.Visibility = Visibility.Hidden;
-                SaveButton.Visibility = Visibility.Hidden;
-                UndoButton.Visibility = Visibility.Hidden;
-                ExportButton.Visibility = Visibility.Hidden;
-                BrowseButton.Visibility = Visibility.Hidden;
+                if( visible )
+                {
+                    FirstButton.Visibility = Visibility.Visible;
+                    PreviousButton.Visibility = Visibility.Visible;
+                    NextButton.Visibility = Visibility.Visible;
+                    LastButton.Visibility = Visibility.Visible;
+                    ToolStripTextBox.Visibility = Visibility.Visible;
+                    LookupButton.Visibility = Visibility.Visible;
+                    EditButton.Visibility = Visibility.Visible;
+                    FilterButton.Visibility = Visibility.Visible;
+                    RefreshButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                    SaveButton.Visibility = Visibility.Visible;
+                    UndoButton.Visibility = Visibility.Visible;
+                    ExportButton.Visibility = Visibility.Visible;
+                    BrowseButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    FirstButton.Visibility = Visibility.Hidden;
+                    PreviousButton.Visibility = Visibility.Hidden;
+                    NextButton.Visibility = Visibility.Hidden;
+                    LastButton.Visibility = Visibility.Hidden;
+                    ToolStripTextBox.Visibility = Visibility.Hidden;
+                    LookupButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
+                    FilterButton.Visibility = Visibility.Hidden;
+                    RefreshButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    SaveButton.Visibility = Visibility.Hidden;
+                    UndoButton.Visibility = Visibility.Hidden;
+                    ExportButton.Visibility = Visibility.Hidden;
+                    BrowseButton.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception ex )
             {
@@ -1003,16 +967,45 @@ namespace Badger
             {
                 if( !FirstButton.IsVisible )
                 {
-                    SetToolbarVisible( );
+                    SetToolbarVisibility( true );
                 }
                 else
                 {
-                    SetToolbarHidden( );
+                    SetToolbarVisibility( false );
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if(disposing)
+            {
+                _timer?.Dispose();
             }
         }
 

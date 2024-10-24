@@ -28,11 +28,12 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -40,7 +41,7 @@
     </Window.Resources>
 
 
-    <!--******************************************* Context Menu  ***************************************************-->
+    <!--  ******************************************* Context Menu  ***************************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="EditorContextMenu">
@@ -137,7 +138,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--******************************************* Context Menu  ***************************************************-->
+    <!--  ******************************************* Context Menu  ***************************************************  -->
 
     <Canvas
         x:Name="EditorCanvas"
@@ -248,7 +249,7 @@
             </TabItem>
         </local:MetroTabControl>
 
-        <!--***************************************************   ToolStrip      **********************************************-->
+        <!--  ***************************************************   ToolStrip      **********************************************  -->
 
         <local:ToolStrip
             x:Name="EditorToolStrip"

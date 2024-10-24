@@ -64,6 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToReturnStatement" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleUnintendedReferenceComparison" ) ]
     public abstract class DataUnit : IDataUnit, INotifyPropertyChanged
     {
         /// <summary>

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-02-2024
+//     Created:                 10-23-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-02-2024
+//     Last Modified On:        10-23-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//   An open source data analysis application for EPA Analysts developed
+//   in C-Sharp using WPF and released under the MIT license
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataWindow.xaml.cs
@@ -79,6 +79,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class DataWindow : Window, IDisposable
     {
         /// <summary>
@@ -251,7 +253,7 @@ namespace Badger
         /// The timer
         /// </summary>
         private protected TimerCallback _timerCallback;
-        
+
         /// <summary>
         /// The column picker
         /// </summary>
@@ -722,8 +724,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                return $"SELECT * FROM {_source} "
-                    + $"WHERE {where.ToCriteria( )};";
+                return $"SELECT * FROM {_source} " + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception ex )
             {
@@ -755,9 +756,7 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names}"
-                        + $"FROM {_dataTable} "
-                        + $"WHERE {_criteria} "
+                    return $"SELECT {_names}" + $"FROM {_dataTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
@@ -777,8 +776,8 @@ namespace Badger
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSelectQuery( IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where )
+        private string CreateSelectQuery( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
         {
             try
             {
@@ -800,9 +799,7 @@ namespace Badger
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} "
-                    + "FROM {Source} "
-                    + $"WHERE {_criteria} "
+                return $"SELECT {_names} " + "FROM {Source} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception ex )
@@ -1056,8 +1053,7 @@ namespace Badger
                     var _data = _db.DataTable;
                     var _list = _data.AsEnumerable( )
                         ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
-                        ?.Select( c => c.Field<string>( "TypeName" ) )
-                        ?.ToList( );
+                        ?.Select( c => c.Field<string>( "TypeName" ) )?.ToList( );
 
                     return _list.Count > 0
                         ? _list
@@ -1106,7 +1102,7 @@ namespace Badger
                     SendMessage( _message );
                     return;
                 }
-                
+
                 DataGrid.SelectedIndex = 0;
             }
             catch( Exception ex )
@@ -1128,7 +1124,7 @@ namespace Badger
                     SendMessage( _message );
                     return;
                 }
-                
+
                 DataGrid.SelectedIndex -= 1;
             }
             catch( Exception ex )
@@ -1212,11 +1208,9 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1248,11 +1242,9 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1284,11 +1276,9 @@ namespace Badger
                 DataSourceListBox.Items?.Clear( );
                 var _model = new DataGenerator( Source.ApplicationTables, _provider );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
-                    ?.ToList( );
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1720,7 +1710,7 @@ namespace Badger
 
                 if( _filter?.Any( ) == true )
                 {
-                    _filter.Clear();
+                    _filter.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1820,19 +1810,19 @@ namespace Badger
         {
             try
             {
-                if(FirstComboBox?.Items?.Count > 0)
+                if( FirstComboBox?.Items?.Count > 0 )
                 {
-                    FirstComboBox.Items.Clear();
+                    FirstComboBox.Items.Clear( );
                 }
 
-                if(SecondComboBox?.Items?.Count > 0)
+                if( SecondComboBox?.Items?.Count > 0 )
                 {
-                    SecondComboBox.Items.Clear();
+                    SecondComboBox.Items.Clear( );
                 }
 
-                if(CommandComboBox?.Items?.Count > 0)
+                if( CommandComboBox?.Items?.Count > 0 )
                 {
-                    CommandComboBox.Items.Clear();
+                    CommandComboBox.Items.Clear( );
                 }
             }
             catch( Exception ex )
@@ -1856,60 +1846,53 @@ namespace Badger
         }
 
         /// <summary>
+        /// 
         /// Shows the items.
         /// </summary>
-        private void ShowToolbar( )
+        private void SetToolbarVisibility( bool visible = true )
         {
             try
             {
-                FirstButton.Visibility = Visibility.Visible;
-                PreviousButton.Visibility = Visibility.Visible;
-                NextButton.Visibility = Visibility.Visible;
-                LastButton.Visibility = Visibility.Visible;
-                ToolStripTextBox.Visibility = Visibility.Visible;
-                LookupButton.Visibility = Visibility.Visible;
-                EditButton.Visibility = Visibility.Visible;
-                FilterButton.Visibility = Visibility.Visible;
-                RefreshButton.Visibility = Visibility.Visible;
-                DeleteButton.Visibility = Visibility.Visible;
-                SaveButton.Visibility = Visibility.Visible;
-                ExportButton.Visibility = Visibility.Visible;
-                BrowseButton.Visibility = Visibility.Visible;
-                GridButton.Visibility = Visibility.Visible;
-                CalendarButton.Visibility = Visibility.Visible;
-                DataSourceButton.Visibility = Visibility.Visible;
-                SqlButton.Visibility = Visibility.Visible;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Hides the items.
-        /// </summary>
-        private void HideToolbar( )
-        {
-            try
-            {
-                FirstButton.Visibility = Visibility.Hidden;
-                PreviousButton.Visibility = Visibility.Hidden;
-                NextButton.Visibility = Visibility.Hidden;
-                LastButton.Visibility = Visibility.Hidden;
-                ToolStripTextBox.Visibility = Visibility.Hidden;
-                LookupButton.Visibility = Visibility.Hidden;
-                EditButton.Visibility = Visibility.Hidden;
-                FilterButton.Visibility = Visibility.Hidden;
-                RefreshButton.Visibility = Visibility.Hidden;
-                DeleteButton.Visibility = Visibility.Hidden;
-                SaveButton.Visibility = Visibility.Hidden;
-                ExportButton.Visibility = Visibility.Hidden;
-                BrowseButton.Visibility = Visibility.Hidden;
-                GridButton.Visibility = Visibility.Hidden;
-                CalendarButton.Visibility = Visibility.Hidden;
-                DataSourceButton.Visibility = Visibility.Hidden;
-                SqlButton.Visibility = Visibility.Hidden;
+                if( visible )
+                {
+                    FirstButton.Visibility = Visibility.Visible;
+                    PreviousButton.Visibility = Visibility.Visible;
+                    NextButton.Visibility = Visibility.Visible;
+                    LastButton.Visibility = Visibility.Visible;
+                    ToolStripTextBox.Visibility = Visibility.Visible;
+                    LookupButton.Visibility = Visibility.Visible;
+                    EditButton.Visibility = Visibility.Visible;
+                    FilterButton.Visibility = Visibility.Visible;
+                    RefreshButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                    SaveButton.Visibility = Visibility.Visible;
+                    ExportButton.Visibility = Visibility.Visible;
+                    BrowseButton.Visibility = Visibility.Visible;
+                    GridButton.Visibility = Visibility.Visible;
+                    CalendarButton.Visibility = Visibility.Visible;
+                    DataSourceButton.Visibility = Visibility.Visible;
+                    SqlButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    FirstButton.Visibility = Visibility.Hidden;
+                    PreviousButton.Visibility = Visibility.Hidden;
+                    NextButton.Visibility = Visibility.Hidden;
+                    LastButton.Visibility = Visibility.Hidden;
+                    ToolStripTextBox.Visibility = Visibility.Hidden;
+                    LookupButton.Visibility = Visibility.Hidden;
+                    EditButton.Visibility = Visibility.Hidden;
+                    FilterButton.Visibility = Visibility.Hidden;
+                    RefreshButton.Visibility = Visibility.Hidden;
+                    DeleteButton.Visibility = Visibility.Hidden;
+                    SaveButton.Visibility = Visibility.Hidden;
+                    ExportButton.Visibility = Visibility.Hidden;
+                    BrowseButton.Visibility = Visibility.Hidden;
+                    GridButton.Visibility = Visibility.Hidden;
+                    CalendarButton.Visibility = Visibility.Hidden;
+                    DataSourceButton.Visibility = Visibility.Hidden;
+                    SqlButton.Visibility = Visibility.Hidden;
+                }
             }
             catch( Exception ex )
             {
@@ -2771,14 +2754,7 @@ namespace Badger
         {
             try
             {
-                if( !FirstButton.IsVisible )
-                {
-                    ShowToolbar( );
-                }
-                else
-                {
-                    HideToolbar( );
-                }
+                SetToolbarVisibility( !FirstButton.IsVisible );
             }
             catch( Exception ex )
             {
@@ -2818,7 +2794,7 @@ namespace Badger
                 {
                     _filter.Clear( );
                     _dataTable?.Clear( );
-                    ShowToolbar( );
+                    SetToolbarVisibility( );
                     var _item = _listBox.SelectedItem as MetroListBoxItem;
                     var _title = _item?.Content.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
@@ -3238,7 +3214,7 @@ namespace Badger
                 }
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -3254,7 +3230,8 @@ namespace Badger
 
                 // Resources has been added to the Merged Dictionaries     
                 _columnPicker.Resources.MergedDictionaries.Add( Resources.MergedDictionaries[ 0 ] );
-                DataGrid.GridColumnDragDropController = new GridColumnChooserController( DataGrid, _columnPicker );
+                DataGrid.GridColumnDragDropController =
+                    new GridColumnChooserController( DataGrid, _columnPicker );
 
                 // ColumnChooser Window will open
                 _columnPicker.Show( );
@@ -3272,10 +3249,10 @@ namespace Badger
         /// associated with freeing, releasing,
         /// or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
+        public void Dispose( )
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            Dispose( true );
+            GC.SuppressFinalize( this );
         }
 
         /// <summary>

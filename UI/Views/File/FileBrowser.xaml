@@ -17,7 +17,7 @@
     BorderBrush="{StaticResource BlueBorderBrush}"
     BorderThickness="1"
     Foreground="{StaticResource LightBlueBrush}"
-    Icon="/Resources/Assets/FormImages/Badger.png"
+    Icon="/Resources/Assets/NinjaImages/BudExNinjaGrey.ico"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

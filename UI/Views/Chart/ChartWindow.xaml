@@ -25,18 +25,19 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
-    <!--**************************************  Context Menu  ****************************************-->
+    <!--  **************************************  Context Menu  ****************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
@@ -131,7 +132,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--************************************** Primary TabControl ****************************************-->
+    <!--  ************************************** Primary TabControl ****************************************  -->
 
     <Canvas x:Name="PrimaryTabCanvas">
         <bdgr:ToolStrip
@@ -655,9 +656,9 @@
                         Content="" />
                     <bdgr:MetroListBox
                         x:Name="DataTableListBox"
-                        Canvas.Left="121"
+                        Canvas.Left="146"
                         Canvas.Top="66"
-                        Width="266"
+                        Width="219"
                         Height="318"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"

@@ -25,11 +25,12 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -37,7 +38,7 @@
     </Window.Resources>
 
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="MapWindowContextMenu">
@@ -131,7 +132,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--************************************** MAP  *************************************-->
+    <!--  ************************************** MAP  *************************************  -->
 
     <Canvas x:Name="MapCanvas">
         <sync:SfMap
@@ -158,7 +159,7 @@
             </sync:SfMap.Layers>
         </sync:SfMap>
 
-        <!--************************************** ToolStrip  *************************************-->
+        <!--  ************************************** ToolStrip  *************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
@@ -184,13 +185,6 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-
-            <Separator
-                Width="50"
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                Foreground="{x:Null}" />
-
             <bdgr:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
@@ -217,7 +211,7 @@
                 Foreground="{x:Null}" />
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
-                Width="200"
+                Width="325"
                 Height="30"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
@@ -264,7 +258,7 @@
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
             <ProgressBar
-                Width="200"
+                Width="100"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}" />
             <Separator
@@ -279,7 +273,7 @@
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
         </bdgr:ToolStrip>
-        <!--************************************** Column Chart  *************************************-->
+        <!--  ************************************** Column Chart  *************************************  -->
         <sync:SfChart
             x:Name="ColumnChart"
             Canvas.Left="745"

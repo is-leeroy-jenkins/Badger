@@ -25,11 +25,12 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -37,7 +38,7 @@
     </Window.Resources>
 
 
-    <!--*******************************   Context Menu      **********************************-->
+    <!--  *******************************   Context Menu      **********************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="EmailWindowContextMenu">
@@ -130,7 +131,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--*******************************************   Layout     *********************************************************-->
+    <!--  *******************************************   Layout     *********************************************************  -->
 
     <bdgr:MetroCanvas
         x:Name="EmailCanvas"
@@ -139,7 +140,7 @@
         Margin="0"
         Background="{StaticResource FormBackground}">
 
-        <!--***************************   ToolStrip      ***************************-->
+        <!--  ***************************   ToolStrip      ***************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"

@@ -29,18 +29,19 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
         </Style>
     </Window.Resources>
 
-    <!--************************************** Context Menu  *************************************-->
+    <!--  ************************************** Context Menu  *************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="PivotWindowContextMenu">
@@ -135,7 +136,7 @@
     </Window.ContextMenu>
     <Canvas x:Name="PivotChartCanvas">
 
-        <!--************************************** ToolStrip  *************************************-->
+        <!--  ************************************** ToolStrip  *************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
@@ -296,7 +297,7 @@
                     Margin="0,13,0,0"
                     Background="{StaticResource FormBackground}">
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
 
                     <bdgr:MetroListBox
@@ -348,7 +349,7 @@
                     x:Name="FilterCanvas"
                     Background="{StaticResource FormBackground}">
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroListBox
                         x:Name="SecondCategoryListBox"
@@ -363,7 +364,7 @@
                         BorderBrush="{StaticResource BlueBorderBrush}"
                         Foreground="{StaticResource LightBlueBrush}" />
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroListBox
                         x:Name="FirstCategoryListBox"
@@ -379,7 +380,7 @@
                         Foreground="{StaticResource LightBlueBrush}"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden" />
 
-                    <!--************************************** Combo Box  *************************************-->
+                    <!--  ************************************** Combo Box  *************************************  -->
 
                     <bdgr:MetroComboBox
                         x:Name="FirstCategoryComboBox"
@@ -396,7 +397,7 @@
                         <sync:ComboBoxItemAdv Content="Item 5" />
                     </bdgr:MetroComboBox>
 
-                    <!--************************************** Combo Box  *************************************-->
+                    <!--  ************************************** Combo Box  *************************************  -->
 
                     <bdgr:MetroComboBox
                         x:Name="SecondCategoryComboBox"
@@ -459,7 +460,7 @@
                         Content="Fields"
                         Foreground="{StaticResource BlueBorderBrush}" />
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroListBox
                         x:Name="FieldListBox"
@@ -483,7 +484,7 @@
                         </bdgr:MetroListBox.RenderTransform>
                     </bdgr:MetroListBox>
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroListBox
                         x:Name="NumericListBox"
@@ -533,7 +534,7 @@
                         Content="First Date"
                         Foreground="{StaticResource BlueBorderBrush}" />
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroCalendar
                         x:Name="FirstCalendar"
@@ -560,7 +561,7 @@
                         Foreground="{StaticResource BlueBorderBrush}"
                         Grid.IsSharedSizeScope="True" />
 
-                    <!--************************************** List Box  *************************************-->
+                    <!--  ************************************** List Box  *************************************  -->
 
                     <bdgr:MetroCalendar
                         x:Name="SecondCalendar"
@@ -597,7 +598,7 @@
                     Margin="0,11,0,0"
                     Background="{StaticResource FormBackground}">
 
-                    <!--************************************** Pivot Grid  *************************************-->
+                    <!--  ************************************** Pivot Grid  *************************************  -->
 
                     <bdgr:MetroPivotGrid
                         x:Name="PivotGrid"
@@ -657,7 +658,7 @@
                     x:Name="ChartCanvas"
                     Background="{StaticResource FormBackground}">
 
-                    <!--************************************** Chart  *************************************-->
+                    <!--  ************************************** Chart  *************************************  -->
 
                     <sync:SfChart
                         x:Name="Chart"
@@ -673,7 +674,7 @@
                 </Canvas>
             </TabItem>
 
-            <!--************************************** Busy Tab  *************************************-->
+            <!--  ************************************** Busy Tab  *************************************  -->
 
             <TabItem
                 x:Name="BusyTab"

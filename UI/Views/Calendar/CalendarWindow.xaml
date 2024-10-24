@@ -19,16 +19,17 @@
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BlueBorderBrush}"
     BorderThickness="1"
-    FontSize="9"
+    FontSize="12"
     Foreground="{StaticResource LightBlueBrush}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -36,7 +37,7 @@
     </Window.Resources>
 
 
-    <!--************************************  Context Menu  *****************************************-->
+    <!--  ************************************  Context Menu  *****************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="CalendarWindowContextMenu">
@@ -132,7 +133,7 @@
         x:Name="CalendarCanvas"
         Margin="1">
 
-        <!--************************************  Chart Control *****************************************-->
+        <!--  ************************************  Chart Control *****************************************  -->
 
         <sync:SfChart3D
             x:Name="CalendarChart"
@@ -159,7 +160,7 @@
             TopWallBrush="{StaticResource ControlInteriorBrush}"
             VerticalHeaderAlignment="Stretch" />
 
-        <!--************************************  Calendar Control  *****************************************-->
+        <!--  ************************************  Calendar Control  *****************************************  -->
 
         <local:MetroCalendar
             x:Name="SecondCalendar"
@@ -174,7 +175,7 @@
             BorderThickness="1"
             Date="1/1/2020" />
 
-        <!--************************************  Calendar Control  *****************************************-->
+        <!--  ************************************  Calendar Control  *****************************************  -->
 
         <local:MetroCalendar
             x:Name="FirstCalendar"
@@ -189,7 +190,7 @@
             Date="1/1/2020"
             ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
-        <!--************************************  ToolStrip  *****************************************-->
+        <!--  ************************************  ToolStrip  *****************************************  -->
 
         <local:ToolStrip
             x:Name="Toolbar"

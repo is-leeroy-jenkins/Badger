@@ -12,7 +12,7 @@
     xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
     x:Name="ProgramView"
     Title="Program Project Data"
-    Width="1350"
+    Width="1358"
     Height="800"
     MinWidth="1250"
     MinHeight="650"
@@ -32,6 +32,7 @@
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -64,7 +65,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnChromeOptionClick"
@@ -93,7 +94,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCalculatorMenuOptionClick"
@@ -122,7 +123,7 @@
                 </sync:MenuItemAdv.Icon>
             </sync:MenuItemAdv>
 
-            <Separator />
+            <Separator Background="{StaticResource BlueBorderBrush}" />
 
             <sync:MenuItemAdv
                 Click="OnCloseOptionClick"
@@ -137,160 +138,155 @@
     </Window.ContextMenu>
     <Canvas x:Name="ProgramCanvas">
 
-        <!--************************************  ToolStrip  *****************************************-->
+
+        <!--  ******************************************** ToolStrip  *********************************************-->
 
         <bdgr:ToolStrip
-            x:Name="ProgramToolbar"
-            Canvas.Left="0"
+            x:Name="DataToolStrip"
             Canvas.Top="720"
-            Width="1348"
+            Width="1350"
             Height="40"
-            Margin="3,1,1,1"
+            MinWidth="1350"
             Padding="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            Margin="3"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
             BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
+
             <bdgr:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="80"
-                Height="30"
                 Padding="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Left"
-                VerticalContentAlignment="Bottom"
-                Content="Date &amp; Time" />
+                HorizontalAlignment="Left"
+                Content="Date &amp; Time"
+                FontSize="10" />
+
             <sync:MenuItemSeparator
+                Width="1"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
-            <Separator
-                Width="100"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+
+
             <bdgr:ToolStripButton
                 x:Name="FirstButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
+
             <bdgr:ToolStripButton
                 x:Name="PreviousButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
+
             <bdgr:ToolStripButton
                 x:Name="NextButton"
-                Height="30"
-                HorizontalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
+
             <bdgr:ToolStripButton
                 x:Name="LastButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
+
             <sync:MenuItemSeparator
+                Width="1"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripTextBox
                 x:Name="ToolStripTextBox"
-                Width="200"
-                Height="30"
-                Margin="1"
+                Width="300"
+                Margin="1,1,1,1"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center" />
+
             <sync:MenuItemSeparator
+                Width="1"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
+
             <bdgr:ToolStripButton
                 x:Name="LookupButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
+
             <bdgr:ToolStripButton
                 x:Name="RefreshButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
+
+            <bdgr:ToolStripButton
+                x:Name="GridButton"
+                Background="{x:Null}"
+                ImageSource="/Resources/Assets/ToolStripImages/GridButton.png"
+                ToolTip="View Data Grid" />
+
             <bdgr:ToolStripButton
                 x:Name="FilterButton"
-                Foreground="#FFA0BDFC"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
-                ToolTip="Filters" />
+                ToolTip="Filter Data Source" />
+
             <bdgr:ToolStripButton
                 x:Name="EditButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
-                ToolTip="Edit" />
+                ToolTip="Edit Current Record" />
+
             <bdgr:ToolStripButton
-                x:Name="UndoButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
-                ToolTip="Undo Last" />
+                x:Name="SqlButton"
+                ImageSource="/Resources/Assets/ToolStripImages/SqlButton.png"
+                ToolTip="Write SQL" />
+
+            <bdgr:ToolStripButton
+                x:Name="DataSourceButton"
+                ImageSource="/Resources/Assets/ToolStripImages/DataSourceButton.png"
+                ToolTip="Select Data Source" />
+
+            <bdgr:ToolStripButton
+                x:Name="CalendarButton"
+                Background="{x:Null}"
+                ImageSource="/Resources/Assets/ToolStripImages/DateButton.png"
+                ToolTip="Filter By Date" />
+
             <bdgr:ToolStripButton
                 x:Name="SaveButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
-                ToolTip="Save" />
+                ToolTip="Save Changes" />
+
             <bdgr:ToolStripButton
                 x:Name="DeleteButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
-                ToolTip="Delete" />
+                ToolTip="Delete Current Record" />
+
             <bdgr:ToolStripButton
                 x:Name="ExportButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
-                ToolTip="Export" />
+                ToolTip="Export Data" />
+
             <bdgr:ToolStripButton
                 x:Name="BrowseButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
-                ToolTip="Browse" />
+                ToolTip="Browse File System" />
+
             <ProgressBar
-                x:Name="ToolStripProgressBar"
-                Width="200"
-                Background="#FF141414"
-                BorderBrush="#FF141414" />
+                Width="100"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
+
             <bdgr:ToolStripButton
                 x:Name="ToggleButton"
-                Height="30"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png"
-                ToolTip="Toggle Command Buttons" />
+                ToolTip="Toogle Commands" />
+
             <bdgr:ToolStripButton
                 x:Name="MenuButton"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
+
         </bdgr:ToolStrip>
     </Canvas>
 </Window>

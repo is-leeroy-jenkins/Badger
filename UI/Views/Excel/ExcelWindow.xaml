@@ -26,11 +26,12 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
             <Setter Property="Background" Value="{StaticResource BlackBackground}" />
             <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
@@ -38,7 +39,7 @@
     </Window.Resources>
 
 
-    <!--****************************************   Context Menu      ***************************************-->
+    <!--  ****************************************   Context Menu      ***************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu x:Name="ExcelWindowContextMenu">
@@ -137,7 +138,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--****************************************  Layout      ***************************************-->
+    <!--  ****************************************  Layout      ***************************************  -->
 
     <Canvas x:Name="ExcelCanvas">
         <bdgr:MetroTabControl
@@ -167,7 +168,7 @@
                     Height="682"
                     Background="{StaticResource FormBackground}">
 
-                    <!--*************************************   Ribbon     *************************************************-->
+                    <!--  *************************************   Ribbon     *************************************************  -->
 
                     <sync:SfSpreadsheetRibbon
                         x:Name="Ribbon"
@@ -178,7 +179,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top" />
 
-                    <!--*************************************  Spreadsheet    *************************************************-->
+                    <!--  *************************************  Spreadsheet    *************************************************  -->
 
                     <sync:SfSpreadsheet
                         x:Name="Spreadsheet"
@@ -379,7 +380,7 @@
                     x:Name="ChartTabCanvas"
                     Background="{StaticResource FormBackground}">
 
-                    <!--*****************************************    Chart      *****************************************-->
+                    <!--  *****************************************    Chart      *****************************************  -->
                     <sync:SfChart
                         x:Name="ColumnChart"
                         Canvas.Left="57"
@@ -418,7 +419,7 @@
             </TabItem>
         </bdgr:MetroTabControl>
 
-        <!--*******************************************************   ToolStrip      *********************************************-->
+        <!--  *******************************************************   ToolStrip      *********************************************  -->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
