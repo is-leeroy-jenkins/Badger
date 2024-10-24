@@ -143,24 +143,24 @@
 
 
 
-## ?? Acknoledgements
+## ?? Acknowledgements
 
-Ninja uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
+Bader uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
 
 |                                                                               |                                                                        |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | [CefSharp.WPF.Core](https://github.com/cefsharp)                              | .NET (WPF/Windows Forms) bindings for the Chromium Embedded Framework  |
-| [Epplus](https://github.com/EPPlusSoftware/EPPlus)                  		| EPPlus-Excel spreadsheets for .NET      				 |
+| [Epplus](https://github.com/EPPlusSoftware/EPPlus)                  		    | EPPlus-Excel spreadsheets for .NET      								 |
 | [Google.Api.CustomSearchAPI.v1](https://developers.google.com/custom-search)  | Google APIs Client Library for working with Customsearch v1            |
-| [LiveCharts.Core](https://github.com/beto-rodriguez/LiveCharts2)              | Simple, flexible, interactive & powerful charts, maps        		 |
+| [LiveCharts.Core](https://github.com/beto-rodriguez/LiveCharts2)              | Simple, flexible, interactive & powerful charts, maps        			 |
 | [Microsoft.Interop.Outlook](https://docusaurus.io/)                           | This an assembly you can use for Outlook 2013/2016/2019 COM interop    |
 | [ModernWpfUI](https://github.com/Kinnara/ModernWpf)                           | Modern styles and controls for your WPF applications                   |
-| [RestoreWindowPlace](https://github.com/punker76/gong-wpf-dragdrop)   	| An easy to use window restore package                                  |
-| [System.Data.SQLite](https://github.com/lduchosal/ipnetwork)                  | .NET Framework Data Provider for SQLite.				 |
-| [System.Data.SqlCe](https://github.com/zeluisping/LoadingIndicators.WPF)      | .NET Framework Data Provider for SQL Compact Edition.			 |
-| [System.Data.OleDb](https://github.com/zeluisping/LoadingIndicators.WPF) 	| .NET Framework Data Provider for OLE DB.				 |
+| [RestoreWindowPlace](https://github.com/punker76/gong-wpf-dragdrop)   	    | An easy to use window restore package									 |
+| [System.Data.SQLite](https://github.com/lduchosal/ipnetwork)                  | .NET Framework Data Provider for SQLite.								 |
+| [System.Data.SqlCe](https://github.com/zeluisping/LoadingIndicators.WPF)      | .NET Framework Data Provider for SQL Compact Edition.					 |
+| [System.Data.OleDb](https://github.com/zeluisping/LoadingIndicators.WPF) 	    | .NET Framework Data Provider for OLE DB.								 |
 | [System.Data.SqlClient](https://github.com/zeluisping/LoadingIndicators.WPF)  | A collection of loading indicators for WPF                             |  
 | [MahApps.Metro](https://mahapps.com/)                                         | UI toolkit for WPF applications                                        |
-| [ToastNotifications.Messages.Net6](https://github.com/nulastudio/NetBeauty2)  | Toast notifications for WPF 						 |
-| [ToastNotifications.Messages](https://github.com/lahell/PSDiscoveryProtocol)  | PowerShell module for LLDP/CDP discovery                               |
-| [Syncfusion 24.1.41](https://github.com/lahell/PSDiscoveryProtocol)  		| PowerShell module for LLDP/CDP discovery                               |
+| [ToastNotifications.Messages.Net6](https://github.com/rafallopatka)		    | Toast notifications for WPF 											 |
+| [ToastNotifications.Messages](https://github.com/rafallopatka)			    | Toast notifications for WPF											 |
+| [Syncfusion 24.1.41](https://www.syncfusion.com/)  							| Custom Controls Used in Badger                                         |
