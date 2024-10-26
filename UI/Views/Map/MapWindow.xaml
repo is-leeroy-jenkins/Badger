@@ -25,7 +25,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -38,7 +38,7 @@
     </Window.Resources>
 
 
-    <!--  ******************************************** Context Menu ******************************************  -->
+    <!--******************************************** Context Menu ******************************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="MapWindowContextMenu">
@@ -132,7 +132,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--  ************************************** MAP  *************************************  -->
+    <!--************************************** MAP  *************************************-->
 
     <Canvas x:Name="MapCanvas">
         <sync:SfMap
@@ -159,7 +159,7 @@
             </sync:SfMap.Layers>
         </sync:SfMap>
 
-        <!--  ************************************** ToolStrip  *************************************  -->
+        <!--************************************** ToolStrip  *************************************-->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"
@@ -273,7 +273,7 @@
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
         </bdgr:ToolStrip>
-        <!--  ************************************** Column Chart  *************************************  -->
+        <!--************************************** Column Chart  *************************************-->
         <sync:SfChart
             x:Name="ColumnChart"
             Canvas.Left="745"

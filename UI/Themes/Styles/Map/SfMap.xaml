@@ -64,7 +64,7 @@
         </Setter>
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.HeaderTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -96,7 +96,7 @@
             <TextBlock
                 FontSize="{StaticResource FluentDark.CaptionText}"
                 FontStyle="{Binding Setting.MapItemFontStyle}"
-                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                FontWeight="Normal"
                 Foreground="{StaticResource ContentForeground}"
                 Text="{Binding MapItemValue}" />
         </Border>
@@ -111,7 +111,7 @@
         <Setter Property="MarkerIconFill" Value="{StaticResource Series1}" />
         <Setter Property="MarkerLabelFontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="MarkerLabelFontSize" Value="{StaticResource FluentDark.HeaderTextStyle}" />
-        <Setter Property="MarkerLabelFontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="MarkerLabelFontWeight" Value="Normal" />
         <Setter Property="MarkerLabelForeground" Value="{StaticResource ContentForeground}" />
         <Setter Property="ItemsTemplate" Value="{StaticResource DefaultLabelTemplate}" />
         <Setter Property="AnnotationTemplate" Value="{StaticResource DefaultAnnotationTemplate}" />
@@ -124,7 +124,7 @@
         <Setter Property="MarkerIconFill" Value="{StaticResource Series1}" />
         <Setter Property="MarkerLabelFontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="MarkerLabelFontSize" Value="{StaticResource FluentDark.HeaderTextStyle}" />
-        <Setter Property="MarkerLabelFontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="MarkerLabelFontWeight" Value="Normal" />
         <Setter Property="MarkerLabelForeground" Value="{StaticResource ContentForeground}" />
         <Setter Property="IsTabStop" Value="False" />
     </Style>

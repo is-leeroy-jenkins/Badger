@@ -16,7 +16,7 @@
     <Style x:Key="SyncfusionCalculatorButtonStyle" TargetType="{x:Type syncfusion:CalculatorButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{StaticResource ContentBackground}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -74,7 +74,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource ContentBackground}" />
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}"/> 
+        <Setter Property="BorderThickness" Value="1"/> 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="syncfusion:FunctionsPane">
@@ -103,7 +103,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="MC"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="MemoryClear" />
                         <syncfusion:CalculatorButton
@@ -115,7 +115,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="MR"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="MemoryRecall" />
                         <syncfusion:CalculatorButton
@@ -127,7 +127,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="MS"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Memory" />
                         <syncfusion:CalculatorButton
@@ -139,7 +139,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="M+"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="MemoryAdd" />
                         <syncfusion:CalculatorButton
@@ -151,7 +151,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="M-"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="MemorySubract" />
                         <syncfusion:CalculatorButton
@@ -163,7 +163,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Function="Back">
                             <syncfusion:CalculatorButton.Content>
                                 <Path
@@ -198,7 +198,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="C"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Clear" />
                         <syncfusion:CalculatorButton
@@ -211,7 +211,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="CE"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="ClearEntry" />
                         <syncfusion:CalculatorButton
@@ -224,7 +224,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="±"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Sign" />
                         <syncfusion:CalculatorButton
@@ -237,7 +237,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="√"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="SquareRoot" />
                         <syncfusion:CalculatorButton
@@ -250,7 +250,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="/"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Divide" />
                         <syncfusion:CalculatorButton
@@ -262,7 +262,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Function="Multiply">
                             <syncfusion:CalculatorButton.Content>
                                 <Path
@@ -374,7 +374,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="%"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Percentage" />
                         <syncfusion:CalculatorButton
@@ -388,7 +388,7 @@
                             Content="1/x"
                             FlowDirection="LeftToRight"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Reciproc" />
                         <syncfusion:CalculatorButton
@@ -402,7 +402,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="="
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Foreground="{TemplateBinding Foreground}"
                             Function="Return" />
                         <syncfusion:InputPane
@@ -456,7 +456,7 @@
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="syncfusion:SfCalculator">
@@ -478,7 +478,7 @@
                                 Margin="1"
                                 
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                BorderThickness="1"
                                 DisplayText="{Binding DisplayText, RelativeSource={RelativeSource TemplatedParent}}"
                                 Expression="{Binding Expression, RelativeSource={RelativeSource TemplatedParent}}"
                                 FontFamily="{TemplateBinding FontFamily}"
@@ -517,7 +517,7 @@
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.CaptionText}" />
         <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightMedium}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="syncfusion:InputPane">
@@ -711,7 +711,7 @@
                             Margin="8"
                             HorizontalAlignment="Right"
                             FontSize="{StaticResource FluentDark.CaptionText}"
-                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                            FontWeight="Normal"
                             Text="{TemplateBinding Expression}"
                             TextAlignment="Right"
                             TextWrapping="Wrap" />

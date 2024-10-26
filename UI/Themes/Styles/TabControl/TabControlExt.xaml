@@ -185,7 +185,7 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
                             <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -212,7 +212,7 @@
                             </MultiDataTrigger.Conditions>
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
                             <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -271,7 +271,7 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
                             <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -310,7 +310,7 @@
                             </MultiDataTrigger.Conditions>
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
                             <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -862,7 +862,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"
                             BorderBrush="{Binding Path=MarkerColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type tools_controls:DragMarkerAdorner}}}"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness}" />
+                            BorderThickness="1" />
                         <Canvas
                             x:Name="PART_Bottom"
                             Width="5"
@@ -1288,7 +1288,7 @@
         <Setter Property="TextElement.Foreground" Value="{StaticResource ContentForegroundAlt1}" />
         <Setter Property="TabItemContextMenuStyle" Value="{StaticResource TabItemContextMenu}" />
         <Setter Property="TabItemContextMenuItemStyle" Value="{StaticResource SyncfusionCustomMenuItemStyle}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="MinHeight" Value="24" />
@@ -1703,8 +1703,8 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="TabPanelStyle" Value="{StaticResource SyncfusionTabControlExtTabPanelAdvStyle}" />
         <Setter Property="TabItemSelectedBackground" Value="Transparent" />
@@ -1713,7 +1713,7 @@
         <Setter Property="TabItemHoverForeground" Value="{StaticResource HoveredForeground}" />
         <Setter Property="TabItemHoverBorderBrush" Value="Transparent" />
         <Setter Property="TabItemSelectedForeground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="SelectedItemFontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="SelectedItemFontWeight" Value="Normal" />
         <Setter Property="DragMarkerColor" Value="{StaticResource PrimaryBackground}" />
         <Setter Property="ScrollingButtonStyle" Value="{StaticResource WPFGlyphButtonStyle}" />
         <Setter Property="TabPanelBackground" Value="Transparent" />

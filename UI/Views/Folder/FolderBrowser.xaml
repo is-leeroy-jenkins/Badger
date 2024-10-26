@@ -22,7 +22,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -35,7 +35,7 @@
     </Window.Resources>
 
 
-    <!--  ******************************************** Context Menu ******************************************  -->
+    <!--******************************************** Context Menu ******************************************-->
 
     <Grid x:Name="BrowserGrid">
         <Grid.RowDefinitions>
@@ -49,7 +49,7 @@
             <ColumnDefinition Width="64*" />
         </Grid.ColumnDefinitions>
 
-        <!--  ******************************************** ListBox ******************************************  -->
+        <!--******************************************** ListBox ******************************************-->
 
         <bdgr:MetroListBox
             x:Name="ListBox"
@@ -60,7 +60,7 @@
             HorizontalAlignment="Left"
             d:ItemsSource="{d:SampleData ItemCount=5}" />
 
-        <!--  ******************************************** Tiles ******************************************  -->
+        <!--******************************************** Tiles ******************************************-->
 
         <bdgr:MetroTile
             x:Name="SelectButton"
@@ -73,7 +73,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Header="" />
-        <!--  ********************************* Tile  *************************************  -->
+        <!--********************************* Tile  *************************************-->
         <bdgr:MetroTile
             x:Name="BrowseButton"
             Title="Browse"
@@ -85,7 +85,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Header="" />
-        <!--  ********************************* Tile  *************************************  -->
+        <!--********************************* Tile  *************************************-->
         <bdgr:MetroTile
             x:Name="ClearButton"
             Title="Clear"
@@ -128,7 +128,7 @@
             HorizontalAlignment="Center"
             Content="Time"
             FontSize="10" />
-        <!--  ********************************* Tile  *************************************  -->
+        <!--********************************* Tile  *************************************-->
         <bdgr:MetroListBox
             x:Name="ListBox_Copy"
             Grid.Row="1"

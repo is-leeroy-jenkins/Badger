@@ -658,7 +658,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     IsDefault="True"
                                     TabIndex="11" />
                                 <Button
@@ -671,7 +671,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="13" />
                             </StackPanel>
                         </Border>
@@ -829,7 +829,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     IsDefault="True"
                                     TabIndex="10" />
                                 <Button
@@ -842,7 +842,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="11" />
                             </StackPanel>
                         </Border>
@@ -905,7 +905,7 @@
                                 VerticalAlignment="Center"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableDialogDefaultCellMargin}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{TemplateBinding Foreground}" />
                             <StackPanel
                                 Grid.Row="2"
@@ -916,7 +916,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TopMargin}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <shared:UpDown
                                     x:Name="PART_CellTopMarginButton"
@@ -925,7 +925,7 @@
                                     Margin="0,0,5,5"
                                     Padding="0,1,1,2"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     MaxValue="2112"
                                     MinValue="0"
                                     Step="1"
@@ -940,7 +940,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=LeftMargin}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <shared:UpDown
                                     x:Name="PART_CellLeftMarginButton"
@@ -949,7 +949,7 @@
                                     Margin="0,0,5,5"
                                     Padding="0,1,1,2"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     MaxValue="2112"
                                     MinValue="0"
                                     Step="1"
@@ -964,7 +964,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BottomMargin}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <shared:UpDown
                                     x:Name="PART_CellBottomMarginButton"
@@ -973,7 +973,7 @@
                                     Margin="0,0,5,5"
                                     Padding="0,1,1,2"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     MaxValue="2112"
                                     MinValue="0"
                                     Step="1"
@@ -988,7 +988,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=RightMargin}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <shared:UpDown
                                     x:Name="PART_CellRightMarginButton"
@@ -997,7 +997,7 @@
                                     Margin="0,0,5,5"
                                     Padding="0,1,1,2"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     MaxValue="2112"
                                     MinValue="0"
                                     Step="1"
@@ -1012,7 +1012,7 @@
                                 VerticalAlignment="Center"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableDialogDefaultCellSpacing}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{TemplateBinding Foreground}" />
                             <CheckBox
                                 x:Name="PART_AllowCellSpacingCheckBox"
@@ -1022,7 +1022,7 @@
                                 Padding="4,2,2,2"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableDialogAllowCellSpacing}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 IsChecked="{Binding AllowCellSpacing, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
                             <shared:UpDown
                                 x:Name="PART_CellSpacingButton"
@@ -1034,7 +1034,7 @@
                                 Margin="0,0,1,5"
                                 Padding="0,0,2,2"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 IsEnabled="{Binding AllowCellSpacing, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                 MaxValue="264"
                                 MinValue="0"
@@ -1058,7 +1058,7 @@
                                 VerticalAlignment="Center"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableOptionsDialogOptions}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{TemplateBinding Foreground}" />
                             <CheckBox
                                 x:Name="PART_AllowAutoFit"
@@ -1067,7 +1067,7 @@
                                 Padding="4,2,2,2"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableOptionsDialogAllowAutoFit}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 IsChecked="{Binding AllowAutoFit, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Grid>
                         <Border
@@ -1094,7 +1094,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     IsDefault="True"
                                     TabIndex="8" />
                                 <Button
@@ -1107,7 +1107,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="9" />
                             </StackPanel>
                         </Border>
@@ -1162,7 +1162,7 @@
                                 VerticalAlignment="Center"
                                 Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogBorders}"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{StaticResource ContentForeground}" />
                             <Grid
                                 Grid.Row="1"
@@ -1190,7 +1190,7 @@
                                         HorizontalAlignment="Left"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogSetting}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <StackPanel
                                         Grid.Row="2"
                                         Orientation="Horizontal">
@@ -1223,7 +1223,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogNoBorder}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             Foreground="{TemplateBinding Foreground}" />
                                     </StackPanel>
                                     <StackPanel
@@ -1258,7 +1258,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogBoxBorder}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             Foreground="{TemplateBinding Foreground}" />
                                     </StackPanel>
                                     <StackPanel
@@ -1293,7 +1293,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogAllBorder}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             Foreground="{TemplateBinding Foreground}" />
                                     </StackPanel>
                                     <StackPanel
@@ -1328,7 +1328,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogCustomBorder}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             Foreground="{TemplateBinding Foreground}" />
                                     </StackPanel>
                                 </Grid>
@@ -1353,7 +1353,7 @@
                                         Padding="0"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogStyle}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <ComboBox
                                         Grid.Row="4"
                                         Width="129"
@@ -1368,7 +1368,7 @@
                                         Padding="0"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogWidth}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <shared:UpDown
                                         Grid.Row="8"
                                         Width="129"
@@ -1384,7 +1384,7 @@
                                         Padding="0"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogColor}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <tools_controls_shared:ColorPickerPalette
                                         x:Name="PART_BorderColorPicker"
                                         Grid.Row="12"
@@ -1407,7 +1407,7 @@
                                     <Label
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogPreview}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <Grid Grid.Row="2">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
@@ -1643,7 +1643,7 @@
                             VerticalAlignment="Center"
                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogShading}"
                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                            FontSize="12"
                             Foreground="{TemplateBinding Foreground}" />
                         <Grid
                             Grid.Row="7"
@@ -1659,7 +1659,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogFill}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <tools_controls_shared:ColorPickerPalette
                                     x:Name="PART_ShadingFillColorPicker"
@@ -1681,7 +1681,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=BordersShadingDialogApplyTo}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <ComboBox
                                     Width="127"
@@ -1714,7 +1714,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     IsDefault="True"
                                     TabIndex="9" />
                                 <Button
@@ -1727,7 +1727,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="10" />
                             </StackPanel>
                         </Border>
@@ -1775,7 +1775,7 @@
                                 Margin="0,12,0,6"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableDialogColumnSize}" />
                             <shared:UpDown
@@ -1796,7 +1796,7 @@
                                 Margin="0,12,0,6"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                FontSize="12"
                                 Foreground="{TemplateBinding Foreground}"
                                 Text="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=TableDialogRowSize}" />
                             <shared:UpDown
@@ -1833,7 +1833,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     IsDefault="True"
                                     TabIndex="3" />
                                 <Button
@@ -1846,7 +1846,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="4" />
                             </StackPanel>
                         </Border>

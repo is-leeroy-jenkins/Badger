@@ -25,7 +25,7 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -38,7 +38,7 @@
     </Window.Resources>
 
 
-    <!--  *******************************   Context Menu      **********************************  -->
+    <!--*******************************   Context Menu      **********************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="EmailWindowContextMenu">
@@ -131,7 +131,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--  *******************************************   Layout     *********************************************************  -->
+    <!--*******************************************   Layout     *********************************************************-->
 
     <bdgr:MetroCanvas
         x:Name="EmailCanvas"
@@ -140,7 +140,7 @@
         Margin="0"
         Background="{StaticResource FormBackground}">
 
-        <!--  ***************************   ToolStrip      ***************************  -->
+        <!--***************************   ToolStrip      ***************************-->
 
         <bdgr:ToolStrip
             x:Name="Toolbar"

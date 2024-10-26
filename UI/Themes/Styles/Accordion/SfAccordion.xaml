@@ -141,7 +141,7 @@
                                     Data="M6.5 1L1 6.5L6.5 12"
                                     RenderTransformOrigin="0.5,0.5"
                                     Stretch="Uniform"
-                                    Stroke="{DynamicResource IconColor}"
+                                    Stroke="{DynamicResource BlueBorderBrush}"
                                     StrokeThickness="{DynamicResource FluentDark.StrokeThickness1}">
                                     <Path.RenderTransform>
                                         <TransformGroup>

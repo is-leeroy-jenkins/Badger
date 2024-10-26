@@ -20,7 +20,7 @@
         x:Key="SyncfusionSfTextInputLayoutStyle"
         TargetType="sync:SfTextInputLayout">
         <Setter Property="OutlineCornerRadius" Value="2" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FocusedStrokeThickness" Value="{StaticResource FluentDark.StrokeThickness2}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.CaptionText}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
@@ -29,7 +29,7 @@
         <Setter Property="ErrorForeground" Value="{StaticResource ErrorForeground}" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="ContainerBackground" Value="{StaticResource ContentBackgroundAlt4}" />
-        <Setter Property="BorderBrush" Value="{StaticResource Border}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="FocusedBorderBrush" Value="{StaticResource PrimaryBackground}" />
         <Setter Property="Template">
             <Setter.Value>

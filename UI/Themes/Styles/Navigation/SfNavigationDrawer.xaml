@@ -174,8 +174,8 @@
                     <Border
                         Background="{Binding Path=DrawerBackground, RelativeSource={RelativeSource AncestorType={x:Type local:SfNavigationDrawer}}}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        BorderThickness="1"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth6}">
                         <Border.Padding>
                             <Thickness>0,4,0,4</Thickness>
@@ -293,11 +293,11 @@
     <Style
         x:Key="SyncfusionDefaultNavigationItemStyle"
         TargetType="local:NavigationItem">
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="SelectionBackground" Value="{StaticResource SelectedForeground}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Style.Triggers>
@@ -366,7 +366,7 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="HamburgurButtonBorder" Property="Background" Value="Transparent" />
-                            <Setter TargetName="HamburgurButtonBorder" Property="BorderBrush" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="HamburgurButtonBorder" Property="BorderBrush" Value="{StaticResource FormBackground}" />
                         </Trigger>
                         <Trigger Property="provider:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
                             <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}" />
@@ -441,7 +441,7 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Data="{StaticResource HamburgerPath}"
-                                            Fill="{StaticResource IconColor}"
+                                            Fill="{StaticResource BlueBorderBrush}"
                                             Stretch="Fill"
                                             Visibility="{Binding ToggleButtonIconTemplate, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ObjectNullToVisibilityConverter}, ConverterParameter=Path}">
                                             <Path.RenderTransformOrigin>
@@ -493,7 +493,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger SourceName="HamburgurButton" Property="IsChecked" Value="True">
-                <Setter TargetName="HamburgerPath" Property="Fill" Value="{StaticResource IconColor}" />
+                <Setter TargetName="HamburgerPath" Property="Fill" Value="{StaticResource BlueBorderBrush}" />
             </Trigger>
             <Trigger SourceName="HamburgurButton" Property="IsMouseOver" Value="True">
                 <Setter TargetName="HamburgerPath" Property="Fill" Value="{StaticResource IconColorHovered}" />
@@ -565,8 +565,8 @@
     <Style
         x:Key="SyncfusionSfNavigationDrawerStyle"
         TargetType="local:SfNavigationDrawer">
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
-        <Setter Property="DrawerBackground" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
+        <Setter Property="DrawerBackground" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="IsTabStop" Value="False" />
         <Style.Triggers>

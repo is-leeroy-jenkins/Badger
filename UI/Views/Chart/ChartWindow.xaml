@@ -25,7 +25,7 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -37,7 +37,7 @@
         </Style>
     </Window.Resources>
 
-    <!--  **************************************  Context Menu  ****************************************  -->
+    <!--**************************************  Context Menu  ****************************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
@@ -132,7 +132,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--  ************************************** Primary TabControl ****************************************  -->
+    <!--************************************** Primary TabControl ****************************************-->
 
     <Canvas x:Name="PrimaryTabCanvas">
         <bdgr:ToolStrip

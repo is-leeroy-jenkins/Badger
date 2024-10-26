@@ -22,9 +22,9 @@
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="SelectionBrush" Value="{StaticResource ContentBackgroundSelected}" />
         <Setter Property="ContextMenu" Value="{StaticResource RichTextBoxAdvContextMenu}" />
         <Setter Property="Template">
@@ -113,7 +113,7 @@
                                         MinHeight="32"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         HorizontalScrollBarVisibility="Hidden"
                                         VerticalScrollBarVisibility="Hidden" />
                                     <Button
@@ -409,7 +409,7 @@
                             <Setter Property="Foreground" Value="{StaticResource DisabledForeground}" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="true">
-                            <Setter Property="BorderBrush" Value="{StaticResource Border}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
                             <Setter Property="Background" Value="{StaticResource ContentBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

@@ -23,7 +23,7 @@
         x:Name="DialogCanvas"
         Margin="1">
 
-        <!--  ******************************   Checklist Box     ********************************  -->
+        <!--******************************   Checklist Box     ********************************-->
 
         <local:MetroCheckList
             x:Name="ColumnCheckList"
@@ -37,7 +37,7 @@
             <syncfusion:CheckListBoxItem Content="CheckListBoxItem2" />
         </local:MetroCheckList>
 
-        <!--  ******************************   Header    ********************************  -->
+        <!--******************************   Header    ********************************-->
 
         <local:MetroLabel
             x:Name="HeaderLabel"
@@ -48,7 +48,7 @@
             VerticalAlignment="Center"
             Content="MetroLabel" />
 
-        <!--  ******************************   Button   ********************************  -->
+        <!--******************************   Button   ********************************-->
 
         <local:MetroTile
             x:Name="ClearButton"
@@ -65,7 +65,7 @@
             Content="Clear"
             Header="" />
 
-        <!--  ******************************  Button    ********************************  -->
+        <!--******************************  Button    ********************************-->
 
         <local:MetroTile
             x:Name="SelectButton"

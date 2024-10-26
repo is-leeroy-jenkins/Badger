@@ -43,9 +43,9 @@
     <Style
         x:Key="SyncfusionZoomInStyle"
         TargetType="local:ZoomIn">
-        <Setter Property="IconBackground" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="EnableColor" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="DisableColor" Value="{StaticResource IconColorDisabled.Color}" />
+        <Setter Property="IconBackground" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="EnableColor" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="DisableColor" Value="{StaticResource FormBackground.Color}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ZoomIn">
@@ -114,9 +114,9 @@
     <Style
         x:Key="SyncfusionZoomOutStyle"
         TargetType="local:ZoomOut">
-        <Setter Property="IconBackground" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="EnableColor" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="DisableColor" Value="{StaticResource IconColorDisabled.Color}" />
+        <Setter Property="IconBackground" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="EnableColor" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="DisableColor" Value="{StaticResource FormBackground.Color}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ZoomOut">
@@ -185,9 +185,9 @@
     <Style
         x:Key="SyncfusionZoomResetStyle"
         TargetType="local:ZoomReset">
-        <Setter Property="IconBackground" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="EnableColor" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="DisableColor" Value="{StaticResource IconColorDisabled.Color}" />
+        <Setter Property="IconBackground" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="EnableColor" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="DisableColor" Value="{StaticResource FormBackground.Color}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ZoomReset">
@@ -256,9 +256,9 @@
     <Style
         x:Key="SyncfusionZoomPanStyle"
         TargetType="local:ZoomPan">
-        <Setter Property="IconBackground" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="EnableColor" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="DisableColor" Value="{StaticResource IconColorDisabled.Color}" />
+        <Setter Property="IconBackground" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="EnableColor" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="DisableColor" Value="{StaticResource FormBackground.Color}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ZoomPan">
@@ -327,9 +327,9 @@
     <Style
         x:Key="SyncfusionSelectionZoomStyle"
         TargetType="local:SelectionZoom">
-        <Setter Property="IconBackground" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="EnableColor" Value="{StaticResource IconColor.Color}" />
-        <Setter Property="DisableColor" Value="{StaticResource IconColorDisabled.Color}" />
+        <Setter Property="IconBackground" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="EnableColor" Value="{StaticResource BlueBorderBrush.Color}" />
+        <Setter Property="DisableColor" Value="{StaticResource FormBackground.Color}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SelectionZoom">

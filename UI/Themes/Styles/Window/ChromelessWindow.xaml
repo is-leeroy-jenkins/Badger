@@ -50,7 +50,7 @@
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="Visibility" Value="Collapsed" />
         <Setter Property="IsTabStop" Value="false" />
-        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Cursor" Value="SizeNWSE" />
         <Setter Property="Template">
             <Setter.Value>
@@ -117,7 +117,7 @@
             Name="border"
             Width="Auto"
             Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ChromelessWindow}}, Path=TitleBarBackground}"
-            BorderThickness="{StaticResource FluentDark.BorderThickness}"
+            BorderThickness="1"
             CornerRadius="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ChromelessWindow}}, Path=CornerRadius, Converter={StaticResource CRConvert}, ConverterParameter=Top}">
             <ContentPresenter
                 HorizontalAlignment="Stretch"
@@ -420,7 +420,7 @@
                 <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_MaximizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Collapsed" />
-                <Setter Property="ResizeBorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+                <Setter Property="ResizeBorderThickness" Value="1" />
                 <Setter TargetName="ContentAreaBorder" Property="BorderThickness">
                     <Setter.Value>
                         <Thickness>0,1,0,0.5</Thickness>
@@ -810,7 +810,7 @@
                 <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_MaximizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Collapsed" />
-                <Setter Property="ResizeBorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+                <Setter Property="ResizeBorderThickness" Value="1" />
                 <Setter TargetName="ContentAreaBorder" Property="BorderThickness" Value="0,1,0,0.5" />
             </Trigger>
             <MultiTrigger>
@@ -1224,7 +1224,7 @@
                 <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_MaximizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Collapsed" />
-                <Setter Property="ResizeBorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+                <Setter Property="ResizeBorderThickness" Value="1" />
                 <Setter TargetName="ContentAreaBorder" Property="BorderThickness" Value="0,1,0,0.5" />
             </Trigger>
             <MultiTrigger>
@@ -1331,13 +1331,13 @@
         TargetType="{x:Type local:ChromelessWindow}">
         <Setter Property="ResizeGripStyle" Value="{StaticResource SyncfusionResizeGripStyle}" />
         <Setter Property="TitleTextAlignment" Value="Left" />
-        <Setter Property="ResizeBorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="ResizeBorderThickness" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="False" />
-        <Setter Property="CornerRadius" Value="{StaticResource FluentDark.CornerRadius2}" />
+        <Setter Property="CornerRadius" Value="2" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.SubHeaderTextStyle}" />
-        <Setter Property="TitleFontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="TitleFontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource ContentBackgroundAlt2}" />

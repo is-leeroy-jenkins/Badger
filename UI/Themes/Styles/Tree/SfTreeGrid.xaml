@@ -101,17 +101,17 @@
 
             <Border
                 Background="{StaticResource ErrorBackground}"
-                CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
+                CornerRadius="2" />
             <Border
                 BorderBrush="{StaticResource ErrorBackground}"
                 BorderThickness="1"
-                CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                CornerRadius="2">
                 <TextBlock
                     MaxWidth="250"
                     Margin="8,4,8,4"
                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource White}"
                     Text="{TemplateBinding Tag}"
                     TextWrapping="Wrap"
@@ -200,7 +200,7 @@
                         Margin="14,0,14,14"
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="2"
                         Effect="{StaticResource Default.ShadowDepth2}">
                         <Grid
                             HorizontalAlignment="Left"
@@ -218,8 +218,8 @@
                             <TextBlock
                                 Padding="12,0,0,0"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                FontSize="12"
+                                FontWeight="Normal"
                                 Foreground="{StaticResource ContentForeground}"
                                 Text="{grid:GridLocalizationResourceExtension ResourceName=DraggingRowsCount}" />
 
@@ -227,8 +227,8 @@
                                 Grid.Column="1"
                                 Margin="-100,0,0,0"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                FontSize="12"
+                                FontWeight="Normal"
                                 Foreground="{StaticResource ContentForeground}"
                                 Text="{Binding DraggingNodes.Count}" />
 
@@ -245,8 +245,8 @@
                                 Grid.Row="2"
                                 Padding="12,0,0,0"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                FontSize="12"
+                                FontWeight="Normal"
                                 Foreground="{StaticResource ContentForeground}"
                                 Text="{grid:GridLocalizationResourceExtension ResourceName=DropStatus}" />
 
@@ -255,8 +255,8 @@
                                 Grid.Column="1"
                                 Margin="-158,0,0,0"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                FontSize="12"
+                                FontWeight="Normal"
                                 Foreground="{StaticResource ContentForeground}"
                                 Text="{Binding DragCaption}" />
                         </Grid>
@@ -328,7 +328,7 @@
                                     </ContentPresenter>
                                     <Border
                                         x:Name="PART_FilterPopUpPresenter"
-                                        CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
+                                        CornerRadius="2" />
                                     <Grid
                                         x:Name="PART_SortButtonPresenter"
                                         Grid.Column="1"
@@ -911,8 +911,8 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="treeGrid:TreeGridCell">
@@ -943,7 +943,7 @@
                             <Border
                                 x:Name="PART_CurrentCellInnerBorder"
                                 BorderBrush="{StaticResource WindowBackgroundBrush}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                BorderThickness="1"
                                 Visibility="Collapsed" />
                         </Border>
                         <Border
@@ -1167,7 +1167,7 @@
                                         <Border
                                             x:Name="PART_CurrentCellInnerBorder"
                                             BorderBrush="{StaticResource WindowBackgroundBrush}"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             Visibility="Collapsed" />
                                     </Border>
                                     <Border
@@ -1489,7 +1489,7 @@
         x:Key="SyncfusionTreeGridExpanderStyle"
         TargetType="treeGrid:TreeGridExpander">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="BorderThickness" Value="1,1,1,1" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
@@ -1597,7 +1597,7 @@
                             Width="{TemplateBinding Width}"
                             Height="{TemplateBinding Height}"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                            CornerRadius="2"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                             <Path
                                 Name="PART_FilterToggleButtonIndicator"
@@ -1622,7 +1622,7 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered}" />
+                                                Value="{StaticResource ControlHoverBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1633,7 +1633,7 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1680,7 +1680,7 @@
     <Style
         x:Key="SyncfusionTreeGridFilterDeleteButtonStyle"
         TargetType="{x:Type Button}">
-        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -1690,7 +1690,7 @@
                         VerticalAlignment="Stretch"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                        CornerRadius="2">
                         <Path
                             x:Name="PART_DeleteButtonPath"
                             Margin="1"
@@ -1716,14 +1716,14 @@
                                             Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered}" />
+                                                Value="{StaticResource ControlHoverBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_DeleteButtonPresenter"
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered}" />
+                                                Value="{StaticResource ControlHoverBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1734,14 +1734,14 @@
                                             Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_DeleteButtonPresenter"
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1761,10 +1761,10 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -1778,7 +1778,7 @@
                             Background="Transparent"
                             BorderBrush="Transparent"
                             BorderThickness="1"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius4}">
+                            CornerRadius="4">
                             <Border.Padding>
                                 <Thickness>0,6,0,6</Thickness>
                             </Border.Padding>
@@ -1794,7 +1794,7 @@
                                     x:Name="PART_ClearButtonPath"
                                     Width="16"
                                     Height="14"
-                                    Fill="{StaticResource IconColor}"
+                                    Fill="{StaticResource BlueBorderBrush}"
                                     Stretch="Uniform">
                                     <Path.Margin>
                                         <Thickness>12,0,4,0</Thickness>
@@ -1910,7 +1910,7 @@
                                             Storyboard.TargetProperty="Fill">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource IconColorDisabled}" />
+                                                Value="{StaticResource FormBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="clearButtonContentPresenter"
@@ -1980,9 +1980,9 @@
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -1994,7 +1994,7 @@
                             Background="Transparent"
                             BorderBrush="Transparent"
                             BorderThickness="1"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius4}">
+                            CornerRadius="4">
                             <Border.Padding>
                                 <Thickness>0,4,0,4</Thickness>
                             </Border.Padding>
@@ -2064,7 +2064,7 @@
                                         x:Name="PART_ExpanderCellPath"
                                         Width="8"
                                         Height="4"
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         RenderTransformOrigin="0.5,0.5"
                                         Stretch="Fill">
                                         <Path.Data>
@@ -2253,8 +2253,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="grid:SortButton">
@@ -2264,14 +2264,14 @@
                         <Border
                             x:Name="PART_SortedBorder"
                             Height="24"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                            CornerRadius="4"
                             Visibility=" Collapsed" />
                         <Border
                             x:Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="Transparent"
                             BorderThickness="1"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius4}">
+                            CornerRadius="4">
                             <StackPanel Orientation="Horizontal">
                                 <Border
                                     x:Name="PART_IconPresenter"
@@ -2280,7 +2280,7 @@
                                     Background="Transparent"
                                     BorderBrush="Transparent"
                                     BorderThickness="1"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                                    CornerRadius="2">
                                     <Border.Margin>
                                         <Thickness>8,2,4,2</Thickness>
                                     </Border.Margin>
@@ -2349,7 +2349,7 @@
                                             Storyboard.TargetProperty="(TextBlock.Foreground)">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource IconColorDisabled}" />
+                                                Value="{StaticResource FormBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -2416,14 +2416,14 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource ContentBackgroundAlt1}" />
+                                                Value="{StaticResource ControlInteriorBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_IconPresenter"
                                             Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource ContentBackgroundAlt1}" />
+                                                Value="{StaticResource ControlInteriorBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -2449,7 +2449,7 @@
         <Setter Property="SelectedDateFormat" Value="Short" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="BorderBrush" Value="{StaticResource Border}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Background" Value="{StaticResource SecondaryBackground}" />
         <Setter Property="BorderThickness">
             <Setter.Value>
@@ -2466,7 +2466,7 @@
                         Background="Transparent"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                        CornerRadius="2">
 
                         <Grid
                             x:Name="PART_Root"
@@ -2497,7 +2497,7 @@
                                                 Height="17"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M8,9 L11,9 11,12 8,12 z M13,6 L2,6 2,14 13.001,14 z M3.4860003,0 C4.0380001,0 4.4860005,0.44700003 4.4860005,1 L4.4860005,2 11,2 11,1 C11,0.44700003 11.448,0 12,0 12.552,0 13,0.44700003 13,1 L13,2 C14.104,2 15,2.8960001 15,4 L15,14 C15,15.104 14.104,16 13,16 L2,16 C0.89600003,16 0,15.104 0,14 L0,4 C0,2.8960001 0.89600003,2 2,2 L2.4860001,2 2.4860001,1 C2.4860003,0.44700003 2.9340003,0 3.4860003,0 z</PathGeometry>
@@ -2557,11 +2557,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ControlHoverBrush}" />
                         </Trigger>
                         <Trigger SourceName="PART_Button" Property="IsPressed" Value="True">
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -2648,8 +2648,8 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                    FontSize="12"
+                                    FontWeight="Normal"
                                     Foreground="{StaticResource ContentForegroundAlt1}"
                                     IsHitTestVisible="False"
                                     Text="{grid:GridLocalizationResourceExtension ResourceName=Search}"
@@ -2668,7 +2668,7 @@
                                         <Thickness>0,5,8,0</Thickness>
                                     </Border.Margin>
                                     <Path
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         RenderTransformOrigin="0.5,0.5"
                                         Stretch="Uniform">
                                         <Path.Data>
@@ -2787,8 +2787,8 @@
                                                                     HorizontalAlignment="Center"
                                                                     VerticalAlignment="Top"
                                                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                                                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                                                    FontSize="12"
+                                                                    FontWeight="Normal"
                                                                     Foreground="{StaticResource ContentForegroundAlt1}"
                                                                     Text="{grid:GridLocalizationResourceExtension ResourceName=NoMatches}"
                                                                     Visibility="{Binding ItemsSource, RelativeSource={RelativeSource TemplatedParent}, ConverterParameter=NoMatchText, Converter={StaticResource ResourceKey=listItemsVisiblityConverter}}" />
@@ -2878,7 +2878,7 @@
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="1"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                                    CornerRadius="2"
                                     Effect="{StaticResource Default.ShadowDepth3}">
                                     <Border.Padding>
                                         <Thickness>0,4,0,4</Thickness>
@@ -2910,7 +2910,7 @@
                                                             Height="15.705"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
-                                                            Fill="{StaticResource IconColor}"
+                                                            Fill="{StaticResource BlueBorderBrush}"
                                                             Stretch="Fill">
                                                             <Path.Data>
                                                                 <PathGeometry>M0.38801098,9.000021 L5.5220246,9.000021 5.5220246,9.5080204 1.7080145,15.019021 5.4740243,15.019021 5.4740243,16.000021 0.093009949,16.000021 0.093009949,15.46802 3.9210205,9.9870205 0.38801098,9.9870205 z M3.2180066,1.0400046 C3.1900063,1.2250037 3.1560063,1.3720028 3.1220064,1.4790025 L2.1640043,4.2719874 4.2960086,4.2719874 3.3290067,1.4790025 C3.3000064,1.3870028 3.2700067,1.2410036 3.2380066,1.0400046 z M2.6070051,1.0252013E-05 L3.9080076,1.0252013E-05 6.4940124,7.0009727 5.2280102,7.0009727 4.6010089,5.2189822 1.8630037,5.2189822 1.2610025,7.0009727 0,7.0009727 z M10.499012,0 L11.499012,0 11.499012,14.135806 13.789003,11.945988 14.484,12.666985 11.000013,15.999971 7.5150249,12.666985 8.2100222,11.945988 10.499012,14.134064 z</PathGeometry>
@@ -2936,7 +2936,7 @@
                                                             Height="15.705"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center"
-                                                            Fill="{StaticResource IconColor}"
+                                                            Fill="{StaticResource BlueBorderBrush}"
                                                             Stretch="Fill">
                                                             <Path.Data>
                                                                 <PathGeometry>M3.2180057,10.040006 C3.1900058,10.225006 3.1560054,10.372005 3.1220055,10.479004 L2.1640038,13.271989 4.2960076,13.271989 3.3290057,10.479004 C3.3000059,10.387005 3.2700057,10.241005 3.2380056,10.040006 z M2.6070046,9.0000122 L3.9080069,9.0000122 6.4940119,16.000975 5.2280095,16.000975 4.6010082,14.218984 1.8630033,14.218984 1.2610021,16.000975 0,16.000975 z M0.38801003,2.2888184E-05 L5.5220239,2.2888184E-05 5.5220239,0.50802231 1.7080135,6.0190225 5.4740238,6.0190225 5.4740238,7.0000224 0.093009472,7.0000224 0.093009472,6.4680223 3.9210196,0.9870224 0.38801003,0.9870224 z M10.499024,0 L11.499024,0 11.499024,14.137797 13.789006,11.947995 14.48401,12.669 11.000014,16.001995 7.5150103,12.669 8.2100148,11.947995 10.499024,14.136076 z</PathGeometry>
@@ -3049,7 +3049,7 @@
                                                                     Width="8"
                                                                     Height="8"
                                                                     Data="M36.396,36.017 L47.901,36.017 47.901,47.521999 36.396,47.521999 z M18.198,36.017 L29.716,36.017 29.716,47.521999 18.198,47.521999 z M0,36.017 L11.511999,36.017 11.511999,47.521999 0,47.521999 z M36.396,18.191001 L47.901,18.191001 47.901,29.696 36.396,29.696 z M18.198,18.191 L29.716,18.191 29.716,29.696 18.198,29.696 z M36.396,0 L47.901,0 47.901,11.512 36.396,11.512 z"
-                                                                    Fill="{StaticResource IconColorDisabled}"
+                                                                    Fill="{StaticResource FormBackground}"
                                                                     Stretch="Fill" />
                                                             </Grid>
                                                         </ControlTemplate>
@@ -3136,9 +3136,9 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Background="Transparent"
-                            BorderBrush="{StaticResource Border}"
+                            BorderBrush="{StaticResource BlueBorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                            CornerRadius="2">
                             <ContentPresenter
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -3163,14 +3163,14 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_CasingInnerBorder"
                                             Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -3192,7 +3192,7 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered}" />
+                                                Value="{StaticResource ControlHoverBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_CasingInnerBorder"
@@ -3212,14 +3212,14 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_CasingInnerBorder"
                                             Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -3234,7 +3234,7 @@
                                             Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected}" />
+                                                Value="{StaticResource SteelBlueBackground}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -3256,7 +3256,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="PART_CasingInnerBorder" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="PART_CasingInnerBorder" Property="Background" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -3290,8 +3290,8 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                FontSize="12"
+                                FontWeight="Normal"
                                 Foreground="{StaticResource ContentForegroundAlt1}"
                                 Text="{grid:GridLocalizationResourceExtension ResourceName=ShowRowsWhere}">
                                 <TextBlock.Margin>
@@ -3367,7 +3367,7 @@
                                                 Height="10.875"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Bottom"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M4.8177202,6.9778699 C4.5546901,7.0650901 4.1380301,7.1718797 3.5690904,7.2916597 3,7.41406 2.6276202,7.5350598 2.4519,7.6511201 2.1849103,7.83853 2.0507803,8.0793504 2.0507803,8.3724097 2.0507803,8.6588401 2.1587801,8.9088401 2.3724103,9.1172799 2.58603,9.3268098 2.8593102,9.4309997 3.1901202,9.4309997 3.5599103,9.4309997 3.9127803,9.3111896 4.2487202,9.0650901 4.4960902,8.8815002 4.6601601,8.6549396 4.7369101,8.3867196 4.7917502,8.2109403 4.8177202,7.8801297 &#10;4.8177202,7.3867201 z M3.5690904,2.7747499 C4.4843802,2.7747499 5.1666901,2.88419 5.6133702,3.0989699 6.0612202,3.3150899 6.3763101,3.58994 6.5585301,3.92441 6.7409701,4.2577199 6.8320302,4.86841 6.8320303,5.7618097 L6.8099103,8.1549396 C6.8099102,8.8333396 6.8437501,9.3385295 6.9076502,9.66016 6.9740602,9.9830598 7.0964402,10.3307 7.2773403,10.7006 L5.2473102,10.7006 C5.1953101,10.5638 5.1303101,10.3621 5.0507801,10.0938 5.0169401,9.9738797 4.99213,9.8945302 4.9778702,9.8541602 4.6276202,10.194 4.2526901,10.4506 3.8527803,10.6211 3.4544401,10.7917 3.0286603,10.875 2.5768399,10.875 1.7786603,10.875 1.1497502,10.6602 0.69012499,10.2266 0.2305603,9.7916602 0,9.2448701 0,8.5847196 0,8.1458997 0.10546923,7.7552199 0.31390429,7.4126901 0.52343798,7.0689401 0.81771898,6.8085899 &#10;1.1940303,6.62363 1.57162,6.4427199 2.1133699,6.2839398 2.8243103,6.1471299 3.7825603,5.9675297 4.4478502,5.79678 4.8177202,5.6432199 L4.8177202,5.4388098 C4.8177202,5.0429701 4.7199702,4.7643098 4.5259702,4.59628 4.3306601,4.4284701 3.9636202,4.3437499 3.4245601,4.3437499 3.0585303,4.3437499 2.7748404,4.41406 2.57025,4.5599097 2.3645,4.7031297 2.2005301,4.95444 2.0729403,5.3138098 L0.21225023,4.9778699 C0.421875,4.2304701 0.78118896,3.67441 1.29175,3.3150899 1.8021903,2.95444 2.5625,2.7747499 3.5690904,2.7747499 z M13.216205,2.49741 L11.770804,6.4675297 14.690106,6.4675297 z M12.099004,0 L14.382807,0 18.666711,10.7006 16.316409,10.7006 15.382808,8.2708396 11.105504,8.2708396 10.224103,10.7006 7.9309104,10.7006 z</PathGeometry>
@@ -3465,7 +3465,7 @@
                                                 Height="10.875"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Bottom"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M4.8177202,6.9778699 C4.5546901,7.0650901 4.1380301,7.1718797 3.5690904,7.2916597 3,7.41406 2.6276202,7.5350598 2.4519,7.6511201 2.1849103,7.83853 2.0507803,8.0793504 2.0507803,8.3724097 2.0507803,8.6588401 2.1587801,8.9088401 2.3724103,9.1172799 2.58603,9.3268098 2.8593102,9.4309997 3.1901202,9.4309997 3.5599103,9.4309997 3.9127803,9.3111896 4.2487202,9.0650901 4.4960902,8.8815002 4.6601601,8.6549396 4.7369101,8.3867196 4.7917502,8.2109403 4.8177202,7.8801297 &#10;4.8177202,7.3867201 z M3.5690904,2.7747499 C4.4843802,2.7747499 5.1666901,2.88419 5.6133702,3.0989699 6.0612202,3.3150899 6.3763101,3.58994 6.5585301,3.92441 6.7409701,4.2577199 6.8320302,4.86841 6.8320303,5.7618097 L6.8099103,8.1549396 C6.8099102,8.8333396 6.8437501,9.3385295 6.9076502,9.66016 6.9740602,9.9830598 7.0964402,10.3307 7.2773403,10.7006 L5.2473102,10.7006 C5.1953101,10.5638 5.1303101,10.3621 5.0507801,10.0938 5.0169401,9.9738797 4.99213,9.8945302 4.9778702,9.8541602 4.6276202,10.194 4.2526901,10.4506 3.8527803,10.6211 3.4544401,10.7917 3.0286603,10.875 2.5768399,10.875 1.7786603,10.875 1.1497502,10.6602 0.69012499,10.2266 0.2305603,9.7916602 0,9.2448701 0,8.5847196 0,8.1458997 0.10546923,7.7552199 0.31390429,7.4126901 0.52343798,7.0689401 0.81771898,6.8085899 &#10;1.1940303,6.62363 1.57162,6.4427199 2.1133699,6.2839398 2.8243103,6.1471299 3.7825603,5.9675297 4.4478502,5.79678 4.8177202,5.6432199 L4.8177202,5.4388098 C4.8177202,5.0429701 4.7199702,4.7643098 4.5259702,4.59628 4.3306601,4.4284701 3.9636202,4.3437499 3.4245601,4.3437499 3.0585303,4.3437499 2.7748404,4.41406 2.57025,4.5599097 2.3645,4.7031297 2.2005301,4.95444 2.0729403,5.3138098 L0.21225023,4.9778699 C0.421875,4.2304701 0.78118896,3.67441 1.29175,3.3150899 1.8021903,2.95444 2.5625,2.7747499 3.5690904,2.7747499 z M13.216205,2.49741 L11.770804,6.4675297 14.690106,6.4675297 z M12.099004,0 L14.382807,0 18.666711,10.7006 16.316409,10.7006 15.382808,8.2708396 11.105504,8.2708396 10.224103,10.7006 7.9309104,10.7006 z</PathGeometry>
@@ -3582,7 +3582,7 @@
                     <Border SnapsToDevicePixels="True">
                         <Path
                             x:Name="PART_UpIndicator"
-                            Fill="{StaticResource ContentBackgroundAlt1}"
+                            Fill="{StaticResource ControlInteriorBrush}"
                             RenderTransformOrigin="0.5,0.5"
                             SnapsToDevicePixels="True"
                             Stretch="Fill"
@@ -3634,7 +3634,7 @@
                     <Border SnapsToDevicePixels="True">
                         <Path
                             x:Name="PART_DownIndicator"
-                            Fill="{StaticResource ContentBackgroundAlt1}"
+                            Fill="{StaticResource ControlInteriorBrush}"
                             RenderTransformOrigin="0.5,0.5"
                             SnapsToDevicePixels="True"
                             Stretch="Fill"

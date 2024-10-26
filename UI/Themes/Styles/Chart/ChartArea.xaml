@@ -21,7 +21,7 @@
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.CaptionText}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="AreaBackground" Value="Transparent" />
         <Setter Property="AreaBorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Background" Value="Transparent" />

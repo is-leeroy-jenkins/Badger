@@ -128,7 +128,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected object _path = new object( );
+        private protected object _entry = new object( );
 
         /// <summary>
         /// The seconds
@@ -172,7 +172,7 @@ namespace Badger
         {
             get
             {
-                lock( _path )
+                lock( _entry )
                 {
                     return _busy;
                 }
@@ -458,7 +458,7 @@ namespace Badger
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = true;
                 }
@@ -476,7 +476,7 @@ namespace Badger
         {
             try
             {
-                lock( _path )
+                lock( _entry )
                 {
                     _busy = false;
                 }
@@ -1228,6 +1228,35 @@ namespace Badger
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c>
+        /// to release both managed
+        /// and unmanaged resources;
+        /// <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if(disposing)
+            {
+                _timer?.Dispose();
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>

@@ -21,7 +21,7 @@
 
     <wpf:RevealItem
         x:Key="sfTreeNavigatorItemRevealItem"
-        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+        CornerRadius="2"
         HoverBackground="{StaticResource ContentBackgroundHovered}"
         HoverBorder="{StaticResource RevealBorder}"
         PressedBackground="{StaticResource RevealBackground}" />
@@ -50,13 +50,13 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="2"
                         Effect="{TemplateBinding Effect}">
                         <Path
                             x:Name="pressed"
                             Width="14"
                             Height="12"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Fill"
                             StrokeThickness="0">
                             <Path.Data>
@@ -69,17 +69,17 @@
                             <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource ControlHoverBrush}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="pressed" Property="Fill" Value="{StaticResource FormBackground}" />
                             <Setter TargetName="PART_Border" Property="Background" Value="Transparent" />
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="Transparent" />
                         </Trigger>
@@ -98,7 +98,7 @@
     <Style
         x:Key="TreeHeaderStyle"
         TargetType="ContentControl">
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightMedium}" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -109,7 +109,7 @@
         TargetType="local:SfTreeNavigatorItem">
         <Setter Property="BorderThickness" Value="0,0,0,0" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="Height" Value="32" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -170,7 +170,7 @@
                                     Height="10"
                                     HorizontalAlignment="Right"
                                     Stretch="Fill"
-                                    Stroke="{StaticResource IconColor}"
+                                    Stroke="{StaticResource BlueBorderBrush}"
                                     StrokeThickness="{StaticResource FluentDark.StrokeThickness1}"
                                     Visibility="{Binding HasItems, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
                                     <Path.Margin>
@@ -215,8 +215,8 @@
                             <Setter TargetName="contentControl" Property="TextElement.Foreground" Value="{StaticResource SelectedForeground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="BorderBrush" Value="{StaticResource ContentBackgroundAlt1}" />
-                            <Setter TargetName="PART_Selection" Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource ControlInteriorBrush}" />
+                            <Setter TargetName="PART_Selection" Property="Background" Value="{StaticResource ControlInteriorBrush}" />
                             <Setter TargetName="contentControl" Property="Control.Foreground" Value="{StaticResource DisabledForeground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -237,9 +237,9 @@
         x:Key="SyncfusionTreeNavigatorHeaderItemStyle"
         TargetType="local:TreeNavigatorHeaderItem">
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightMedium}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Height" Value="40" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -279,7 +279,7 @@
                                 HorizontalAlignment="Right"
                                 Fill="Transparent"
                                 Stretch="Uniform"
-                                Stroke="{StaticResource IconColor}"
+                                Stroke="{StaticResource BlueBorderBrush}"
                                 StrokeThickness="{StaticResource FluentDark.StrokeThickness1}">
                                 <Path.Data>
                                     <PathGeometry>M6.5 1L1 6.5L6.5 12</PathGeometry>
@@ -334,12 +334,12 @@
     <Style
         x:Key="SyncfusionSfTreeNavigatorStyle"
         TargetType="local:SfTreeNavigator">
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -360,7 +360,7 @@
                             <Border
                                 x:Name="PART_DefaultModeHeader"
                                 MinHeight="36"
-                                Background="{StaticResource ContentBackgroundAlt1}"
+                                Background="{StaticResource ControlInteriorBrush}"
                                 BorderBrush="{StaticResource BorderAlt}">
                                 <Border.Padding>
                                     <Thickness>10,0,0,0</Thickness>
@@ -389,7 +389,7 @@
                                         Content="{Binding DrillDownItem.Header, RelativeSource={RelativeSource TemplatedParent}}"
                                         ContentTemplate="{Binding DrillDownItem.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}"
                                         ContentTemplateSelector="{Binding DrillDownItem.HeaderTemplateSelector, RelativeSource={RelativeSource TemplatedParent}}"
-                                        TextElement.FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        TextElement.FontSize="12"
                                         TextElement.FontWeight="{StaticResource FluentDark.FontWeightMedium}"
                                         TextElement.Foreground="{StaticResource ContentForeground}">
                                         <ContentPresenter.Resources>
@@ -413,7 +413,7 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <Border
-                                    Background="{StaticResource ContentBackgroundAlt1}"
+                                    Background="{StaticResource ControlInteriorBrush}"
                                     BorderBrush="{StaticResource BorderAlt}">
                                     <Border.BorderThickness>
                                         <Thickness>0,0,0,2</Thickness>
@@ -427,7 +427,7 @@
                                         Content="{TemplateBinding Header}"
                                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                                         ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
-                                        TextElement.FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        TextElement.FontSize="12"
                                         TextElement.FontWeight="{StaticResource FluentDark.FontWeightMedium}"
                                         TextElement.Foreground="{StaticResource ContentForeground}">
                                         <ContentPresenter.Resources>

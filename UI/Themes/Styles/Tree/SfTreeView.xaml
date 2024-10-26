@@ -24,7 +24,7 @@
 
     <wpf:RevealItem
         x:Key="sfTreeViewRevealItem"
-        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+        CornerRadius="2"
         HoverBackground="{StaticResource ContentBackgroundHovered}"
         HoverBorder="{StaticResource RevealBorder}" />
 
@@ -47,7 +47,7 @@
             Height="{TemplateBinding Height}"
             Background="Transparent"
             BorderBrush="Transparent"
-            CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+            CornerRadius="2">
             <StackPanel
                 x:Name="panel"
                 VerticalAlignment="Center">
@@ -56,7 +56,7 @@
                     Width="6.27"
                     Height="10.008"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Uniform">
                     <Path.Data>
                         M0.68398996,0 L6.2700001,4.9960007 0.66699173,10.007999 0,9.2629985 4.7700011,4.9960007 0.016998228,0.74499984 z
@@ -67,7 +67,7 @@
                     Width="10.008"
                     Height="6.27"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Uniform">
                     <Path.Data>
                         M0.74499548,0 L5.0119957,4.7700001 9.2630047,0.017000169 10.008001,0.68400005 5.0119957,6.2700001 0,0.66699985 z
@@ -91,8 +91,8 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="border" Property="Background" Value="Transparent" />
                 <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                <Setter TargetName="PART_CollapseCellPath" Property="Fill" Value="{StaticResource IconColorDisabled}" />
-                <Setter TargetName="PART_ExpanderCellPath" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                <Setter TargetName="PART_CollapseCellPath" Property="Fill" Value="{StaticResource FormBackground}" />
+                <Setter TargetName="PART_ExpanderCellPath" Property="Fill" Value="{StaticResource FormBackground}" />
             </Trigger>
         </DataTemplate.Triggers>
     </DataTemplate>
@@ -104,7 +104,7 @@
             Height="{TemplateBinding Height}"
             Background="Transparent"
             BorderBrush="Transparent"
-            CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+            CornerRadius="2">
             <StackPanel
                 x:Name="panel"
                 VerticalAlignment="Center">
@@ -113,7 +113,7 @@
                     Width="6.27"
                     Height="10.08"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Uniform">
                     <Path.Data>
                         M5.6040074,0 L6.2710001,0.74499984 1.5000009,5.0119996 6.2529947,9.2629985 5.5860021,10.007999 0,5.0119996 z
@@ -124,7 +124,7 @@
                     Width="10.008"
                     Height="6.27"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Uniform">
                     <Path.Data>
                         M0.74499548,0 L5.0119957,4.7700001 9.2630047,0.017000169 10.008001,0.68400005 5.0119957,6.2700001 0,0.66699985 z
@@ -148,8 +148,8 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="border" Property="Background" Value="Transparent" />
                 <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
-                <Setter TargetName="PART_CollapseCellPath" Property="Fill" Value="{StaticResource IconColorDisabled}" />
-                <Setter TargetName="PART_ExpanderCellPath" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                <Setter TargetName="PART_CollapseCellPath" Property="Fill" Value="{StaticResource FormBackground}" />
+                <Setter TargetName="PART_ExpanderCellPath" Property="Fill" Value="{StaticResource FormBackground}" />
             </Trigger>
         </DataTemplate.Triggers>
     </DataTemplate>
@@ -161,8 +161,8 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -181,16 +181,16 @@
                             Background="Transparent"
                             BorderBrush="{StaticResource BorderAlt}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
+                            CornerRadius="2" />
                         <Border
                             x:Name="PART_CurrentItemBorder"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                            CornerRadius="2"
                             Visibility="Collapsed">
                             <Border
                                 x:Name="PART_CurrentItemInnerBorder"
                                 BorderBrush="{StaticResource SfTreeView.CurrentItem.InnerBorder.Static.Border}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                                CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                                BorderThickness="1"
+                                CornerRadius="2"
                                 Visibility="Collapsed" />
                         </Border>
                         <Border
@@ -198,7 +198,7 @@
                             wpf:FluentHelper.RevealItem="{StaticResource sfTreeViewRevealItem}"
                             Background="{StaticResource ContentBackgroundHovered}"
                             BorderBrush="{StaticResource BorderAlt}"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                            CornerRadius="2"
                             Visibility="Collapsed" />
                         <StackPanel
                             x:Name="PART_IndentContainer"
@@ -450,7 +450,7 @@
     <Style
         x:Key="SyncfusionTreeViewDragPreviewControlStyle"
         TargetType="tree:TreeViewDragPreviewControl">
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -462,7 +462,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="1"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                        CornerRadius="2">
                         <ItemsControl
                             x:Name="PART_ItemsControl"
                             Margin="2" />

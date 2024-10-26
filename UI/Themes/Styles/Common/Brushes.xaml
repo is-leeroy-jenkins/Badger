@@ -11,7 +11,7 @@
     <Color x:Key="BorderAlt1.Color">#66FFFFFF</Color>
     <Color x:Key="ErrorBackground.Color">#FFE81123</Color>
     <Color x:Key="SuccessForeground.Color">#FF1ED700</Color>
-    <Color x:Key="WarningForeground.Color">#FFFF5B03</Color>
+    <Color x:Key="RedForeground">#FFFF5B03</Color>
     <Color x:Key="LinkForeground.Color">#FF0078D4</Color>
     <Color x:Key="ContentForeground.Color">#FFFFFFFF</Color>
     <Color x:Key="ContentBackground.Color">#FF161616</Color>
@@ -25,18 +25,18 @@
     <Color x:Key="SecondaryBorder.Color">#33FFFFFF</Color>
     <Color x:Key="SecondaryBorderHoveredGradient.Color">#0DFFFFFF</Color>
     <Color x:Key="SecondaryBorderHovered.Color">#19FFFFFF</Color>
-    <Color x:Key="IconColor.Color">#FFFFFFFF</Color>
+    <Color x:Key="BlueBorderBrush.Color">#FFFFFFFF</Color>
     <Color x:Key="ContentBackgroundHovered.Color">#19FFFFFF</Color>
     <Color x:Key="PrimaryColorLight2.Color">#FF219EFF</Color>
-    <Color x:Key="SecondaryBackgroundHovered.Color">#19FFFFFF</Color>
-    <Color x:Key="SecondaryBackgroundSelected.Color">#66FFFFFF</Color>
+    <Color x:Key="ControlHoverBrush.Color">#19FFFFFF</Color>
+    <Color x:Key="SteelBlueBackground.Color">#66FFFFFF</Color>
     <Color x:Key="PrimaryButtonBorderGradient.Color">#23000000</Color>
     <Color x:Key="PrimaryButtonBorder.Color">#14FFFFFF</Color>
     <Color x:Key="PrimaryButtonBorderHoveredGradient.Color">#14FFFFFF</Color>
     <Color x:Key="PrimaryButtonBorderHovered.Color">#14FFFFFF</Color>
     <Color x:Key="BorderAlt5Gradient.Color">#11FFFFFF</Color>
     <Color x:Key="BorderAlt5.Color">#17FFFFFF</Color>
-    <Color x:Key="IconColorDisabled.Color">#66FFFFFF</Color>
+    <Color x:Key="FormBackground.Color">#66FFFFFF</Color>
     <Color x:Key="IconColorHovered.Color">#FFFFFFFF</Color>
     <Color x:Key="IconColorSelected.Color">#FFFFFFFF</Color>
     <Color x:Key="ContentBackgroundSelected.Color">#660078D4</Color>
@@ -179,9 +179,6 @@
         x:Key="ContentBackground"
         Color="#FF161616" />
     <SolidColorBrush
-        x:Key="ControlInteriorBrush"
-        Color="#FF333333" />
-    <SolidColorBrush
         x:Key="PrimaryForeground"
         Color="#FFDEDEDE" />
     <SolidColorBrush
@@ -239,9 +236,6 @@
         x:Key="ContentBackgroundDisabled"
         Color="#FF161616" />
     <SolidColorBrush
-        x:Key="ContentBackgroundAlt1"
-        Color="#FF262626" />
-    <SolidColorBrush
         x:Key="ContentBackgroundAlt2"
         Color="#FF333333" />
     <SolidColorBrush
@@ -254,7 +248,7 @@
         x:Key="ContentBackgroundAlt5"
         Color="#66000000" />
     <SolidColorBrush
-        x:Key="IconColor"
+        x:Key="BlueBorderBrush"
         Color="#FFFFFFFF" />
     <SolidColorBrush
         x:Key="IconColorHovered"
@@ -263,7 +257,7 @@
         x:Key="IconColorSelected"
         Color="#FFFFFFFF" />
     <SolidColorBrush
-        x:Key="IconColorDisabled"
+        x:Key="FormBackground"
         Color="#66FFFFFF" />
     <SolidColorBrush
         x:Key="BorderAlt3"
@@ -284,25 +278,22 @@
         x:Key="SecondaryBackground"
         Color="#33FFFFFF" />
     <SolidColorBrush
-        x:Key="SecondaryForeground"
+        x:Key="FormForeground"
         Color="#FFFFFFFF" />
     <SolidColorBrush
         x:Key="SecondaryBorder"
         Color="#33FFFFFF" />
     <SolidColorBrush
-        x:Key="SecondaryBackgroundHovered"
+        x:Key="ControlHoverBrush"
         Color="#19FFFFFF" />
     <SolidColorBrush
         x:Key="SecondaryBorderHovered"
         Color="#19FFFFFF" />
     <SolidColorBrush
-        x:Key="SecondaryForegroundHovered"
-        Color="#FFFFFFFF" />
-    <SolidColorBrush
-        x:Key="SecondaryBackgroundSelected"
+        x:Key="SteelBlueBackground"
         Color="#66FFFFFF" />
     <SolidColorBrush
-        x:Key="SecondaryForegroundSelected"
+        x:Key="WhiteForeground"
         Color="#FFFFFFFF" />
     <SolidColorBrush
         x:Key="SecondaryBorderSelected"

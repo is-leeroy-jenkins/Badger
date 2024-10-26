@@ -63,7 +63,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public partial class EmailWindow : Window
+    public partial class EmailWindow : Window, IDisposable
     {
         /// <summary>
         /// The busy
@@ -73,7 +73,7 @@ namespace Badger
         /// <summary>
         /// The path
         /// </summary>
-        private protected readonly object _path = new object( );
+        private protected readonly object _entry = new object( );
 
         /// <summary>
         /// The seconds
@@ -112,7 +112,7 @@ namespace Badger
         {
             get
             {
-                lock( _path )
+                lock( _entry )
                 {
                     return _busy;
                 }

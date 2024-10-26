@@ -28,14 +28,14 @@
     <Style
         x:Key="SyncfusionChartAxisLineStyle"
         TargetType="Line">
-        <Setter Property="Stroke" Value="{StaticResource Border}" />
+        <Setter Property="Stroke" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="StrokeThickness" Value="1" />
     </Style>
 
     <Style
         x:Key="ticklineStyle"
         TargetType="Line">
-        <Setter Property="Stroke" Value="{StaticResource Border}" />
+        <Setter Property="Stroke" Value="{StaticResource BlueBorderBrush}" />
     </Style>
 
     <ControlTemplate
@@ -103,7 +103,7 @@
                                         Width="4"
                                         Height="8"
                                         Data="F1 M 511.047,352.682L 511.047,342.252L 517.145,347.467L 511.047,352.682 Z "
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         Stretch="Uniform" />
                                     <Rectangle
                                         x:Name="DisabledElement"
@@ -128,7 +128,7 @@
                                         Width="4"
                                         Height="8"
                                         Data="F1 M 110.692,342.252L 110.692,352.682L 104.594,347.467L 110.692,342.252 Z "
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         Stretch="Uniform" />
                                     <Rectangle
                                         x:Name="DisabledElement"
@@ -164,7 +164,7 @@
                                         Width="8"
                                         Height="4"
                                         Data="F1 M 531.107,321.943L 541.537,321.943L 536.322,328.042L 531.107,321.943 Z "
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         Stretch="Uniform" />
                                     <Rectangle
                                         x:Name="DisabledElement"
@@ -198,7 +198,7 @@
                                         Width="8"
                                         Height="4"
                                         Data="F1 M 541.537,173.589L 531.107,173.589L 536.322,167.49L 541.537,173.589 Z "
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         Stretch="Uniform" />
                                     <Rectangle
                                         x:Name="DisabledElement"
@@ -226,7 +226,7 @@
                                             <Path
                                                 Margin="0,0.795,0,0"
                                                 Data="M0,9.5190001 L7.9320002,9.5190001 7.9320002,10.313 0,10.313 z M0,4.7600002 L7.9320002,4.7600002 7.9320002,5.5539999 0,5.5539999 z M0,0 L7.9320002,0 7.9320002,0.7940001 0,0.7940001 z"
-                                                Fill="{StaticResource Border}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill" />
                                             <Path
                                                 Margin="0,0,0,0.794"
@@ -253,7 +253,7 @@
                                             <Path
                                                 Margin="0,0,0.795,0"
                                                 Data="M9.5190001,0 L10.313,0 10.313,7.9320002 9.5190001,7.9320002 z M4.7600002,0 L5.5539999,0 5.5539999,7.9320002 4.7600002,7.9320002 z M0,0 L0.7940001,0 0.7940001,7.9320002 0,7.9320002 z"
-                                                Fill="{StaticResource Border}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill" />
                                             <Path
                                                 Margin="0.794,0,0,0"

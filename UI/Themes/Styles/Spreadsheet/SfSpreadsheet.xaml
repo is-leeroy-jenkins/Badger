@@ -50,7 +50,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -60,7 +60,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="2"
                         SnapsToDevicePixels="true">
                         <ContentPresenter
                             x:Name="contentPresenter"
@@ -74,15 +74,15 @@
                             <Setter Property="MinWidth" Value="{StaticResource TouchMode.MinSize}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="NewButtonBorder" Property="BorderBrush" Value="Transparent" />
                             <Setter TargetName="NewButtonBorder" Property="Background" Value="Transparent" />
-                            <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -489,7 +489,7 @@
                         Height="17"
                         Margin="0,0,0,1"
                         Fill="Transparent"
-                        Stroke="{StaticResource IconColor}"
+                        Stroke="{StaticResource BlueBorderBrush}"
                         Visibility="Visible" />
                 </Grid>
                 <Path
@@ -498,7 +498,7 @@
                     Height="9"
                     Margin="0,0,0,1"
                     Data="M19.833,0L32.501,0 32.501,19.833999 52.334,19.833999 52.334,32.500999 32.501,32.500999 32.501,52.333 19.833,52.333 19.833,32.500999 0,32.500999 0,19.833999 19.833,19.833999z"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Uniform">
                     <Path.RenderTransform>
                         <TransformGroup>
@@ -1171,12 +1171,12 @@
                             <spreadsheet:OutlinesPanel
                                 x:Name="ColumnGroupPanel"
                                 Grid.Column="1"
-                                GroupLineColor="{StaticResource IconColor}"
+                                GroupLineColor="{StaticResource BlueBorderBrush}"
                                 Orientation="Horizontal" />
                             <spreadsheet:OutlinesPanel
                                 x:Name="RowGroupPanel"
                                 Grid.Row="1"
-                                GroupLineColor="{StaticResource IconColor}"
+                                GroupLineColor="{StaticResource BlueBorderBrush}"
                                 Orientation="Vertical" />
                             <tools:TabControlExt
                                 x:Name="PART_TabControlExt"
@@ -1404,7 +1404,7 @@
         x:Key="SyncfusionSpreadsheetGridStyle"
         TargetType="spreadsheet:SpreadsheetGrid">
         <Setter Property="Background" Value="{Binding Path=TabControlExt.TabPanelBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue=Transparent}" />
-        <Setter Property="HeaderBackground" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="HeaderBackground" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="HeaderForeground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HeaderCellBorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="SelectionBorderBrush" Value="{StaticResource PrimaryBackground}" />
@@ -1872,7 +1872,7 @@
                                             VerticalAlignment="Bottom"
                                             BorderThickness="1"
                                             Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_OptionsExpand}"
-                                            Foreground="{StaticResource SecondaryForeground}" />
+                                            Foreground="{StaticResource FormForeground}" />
                                     </Grid>
                                 </StackPanel>
                             </tools:TabItemExt>
@@ -2041,7 +2041,7 @@
                                             VerticalAlignment="Bottom"
                                             BorderThickness="1"
                                             Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_OptionsExpand}"
-                                            Foreground="{StaticResource SecondaryForeground}" />
+                                            Foreground="{StaticResource FormForeground}" />
                                     </Grid>
                                 </StackPanel>
                             </tools:TabItemExt>
@@ -2057,35 +2057,35 @@
                                 Height="24"
                                 Margin="0,1,0,4"
                                 Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_ReplaceAll}"
-                                Foreground="{StaticResource SecondaryForeground}" />
+                                Foreground="{StaticResource FormForeground}" />
                             <Button
                                 x:Name="ReplaceButton"
                                 Width="72"
                                 Height="24"
                                 Margin="8,1,0,4"
                                 Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_Replace}"
-                                Foreground="{StaticResource SecondaryForeground}" />
+                                Foreground="{StaticResource FormForeground}" />
                             <Button
                                 x:Name="FindAllButton"
                                 Width="72"
                                 Height="24"
                                 Margin="18,1,0,4"
                                 Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_FindAll}"
-                                Foreground="{StaticResource SecondaryForeground}" />
+                                Foreground="{StaticResource FormForeground}" />
                             <Button
                                 x:Name="FindNextButton"
                                 Width="83"
                                 Height="24"
                                 Margin="8,1,5,4"
                                 Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Find_FindNext}"
-                                Foreground="{StaticResource SecondaryForeground}" />
+                                Foreground="{StaticResource FormForeground}" />
                             <Button
                                 x:Name="CloseButton"
                                 Width="61"
                                 Height="24"
                                 Margin="3,1,0,4"
                                 Content="{spreadsheet:SpreadsheetLocalizationResourceExtension ResourceName=Close}"
-                                Foreground="{StaticResource SecondaryForeground}" />
+                                Foreground="{StaticResource FormForeground}" />
                         </StackPanel>
                         <DataGrid
                             x:Name="FindAllDetailGrid"
@@ -2201,7 +2201,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="2"
                         SnapsToDevicePixels="true">
                         <ContentPresenter
                             x:Name="contentPresenter"
@@ -2230,21 +2230,21 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="border" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BorderAlt3}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
                         </MultiTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource ContentBackgroundHovered}" />
                             <Setter TargetName="border" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource PrimaryBackground}" />
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
+                            <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="border" Property="Background" Value="Transparent" />

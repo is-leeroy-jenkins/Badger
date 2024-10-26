@@ -24,7 +24,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -37,7 +37,7 @@
     </Window.Resources>
 
 
-    <!--  ************************************  Context Menu  *****************************************  -->
+    <!--************************************  Context Menu  *****************************************-->
 
     <Window.ContextMenu>
         <ContextMenu Name="CalendarWindowContextMenu">
@@ -133,7 +133,7 @@
         x:Name="CalendarCanvas"
         Margin="1">
 
-        <!--  ************************************  Chart Control *****************************************  -->
+        <!--************************************  Chart Control *****************************************-->
 
         <sync:SfChart3D
             x:Name="CalendarChart"
@@ -160,7 +160,7 @@
             TopWallBrush="{StaticResource ControlInteriorBrush}"
             VerticalHeaderAlignment="Stretch" />
 
-        <!--  ************************************  Calendar Control  *****************************************  -->
+        <!--************************************  Calendar Control  *****************************************-->
 
         <local:MetroCalendar
             x:Name="SecondCalendar"
@@ -175,7 +175,7 @@
             BorderThickness="1"
             Date="1/1/2020" />
 
-        <!--  ************************************  Calendar Control  *****************************************  -->
+        <!--************************************  Calendar Control  *****************************************-->
 
         <local:MetroCalendar
             x:Name="FirstCalendar"
@@ -190,7 +190,7 @@
             Date="1/1/2020"
             ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
-        <!--  ************************************  ToolStrip  *****************************************  -->
+        <!--************************************  ToolStrip  *****************************************-->
 
         <local:ToolStrip
             x:Name="Toolbar"

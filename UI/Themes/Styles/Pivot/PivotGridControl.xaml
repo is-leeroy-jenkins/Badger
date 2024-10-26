@@ -52,8 +52,8 @@
             Name="Border"
             Background="{StaticResource ControlBackground}"
             BorderBrush="{StaticResource ControlBackground}"
-            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-            CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+            BorderThickness="1"
+            CornerRadius="2">
             <TextBlock
                 Padding="2"
                 Foreground="{StaticResource FormForeground}"
@@ -142,7 +142,7 @@
         Background="{StaticResource ControlBackground}"
         BorderThickness="1"
         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-        FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+        FontWeight="Normal"
         Foreground="{StaticResource FormForeground}" />
 
     <syncfusion:PivotGridCellStyle
@@ -319,7 +319,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource ValueFilterConverter}, ConverterParameter=Material}"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Fill" />
                     </Grid>
                 </ControlTemplate>
@@ -372,14 +372,14 @@
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
                                 Data="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource SortDirectionConverter}, ConverterParameter=Material}"
-                                Fill="{StaticResource IconColor}"
+                                Fill="{StaticResource BlueBorderBrush}"
                                 Stretch="Fill" />
 
                             <Grid.ContextMenu>
                                 <ContextMenu
                                     x:Name="Part_SortHeaderContext"
                                     Background="{StaticResource PopupBackground}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                    BorderThickness="1"
                                     Style="{StaticResource WPFContextMenuStyle}">
                                     <MenuItem
                                         Command="syncfusion:PivotGridCommands.AllowValueFiltering"
@@ -431,7 +431,7 @@
                                 x:Name="PART_FilterPopupBorder"
                                 Background="{StaticResource PopupBackground}"
                                 BorderBrush="{StaticResource BorderAlt}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                                BorderThickness="1">
                                 <Grid Background="{StaticResource PopupBackground}">
                                     <Grid.RowDefinitions>
                                         <RowDefinition
@@ -448,7 +448,7 @@
                                         Margin="4,2,4,0"
                                         Background="Transparent"
                                         BorderBrush="{StaticResource BorderAlt}"
-                                        BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                        BorderThickness="1"
                                         Style="{StaticResource WPFListBoxStyle}">
                                         <CheckBox
                                             x:Name="PART_AllCheckBox"
@@ -638,7 +638,7 @@
                         Padding="0,0,3,0"
                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBarItemBackground}"
                         BorderBrush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBarItemBorderBrush}"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                        BorderThickness="1">
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition
@@ -677,8 +677,8 @@
                             <Setter TargetName="PART_contentTxt" Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingButtonHoverForeground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="brdItem" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="brdItem" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="brdItem" Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                            <Setter TargetName="brdItem" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
                             <Setter TargetName="PART_contentTxt" Property="Foreground" Value="{StaticResource PlaceholderForeground}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
@@ -728,7 +728,7 @@
                             Height="10"
                             VerticalAlignment="Center"
                             Data="{Binding Converter={StaticResource ImgConverter}, ConverterParameter=Material}"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Uniform"
                             Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBar.AllowMultiFunctionalSortFilter, Converter={StaticResource filterPathVisibilityConverter}, ConverterParameter=Path}" />
                         <Path
@@ -737,7 +737,7 @@
                             Height="10"
                             VerticalAlignment="Center"
                             Data="{Binding Converter={StaticResource ExcelFilterConverter}, ConverterParameter=Material}"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Uniform"
                             Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBar.AllowMultiFunctionalSortFilter, Converter={StaticResource filterPathVisibilityConverter}, ConverterParameter=ExcelPath}" />
                     </Grid>
@@ -762,7 +762,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Data="M14,8 L15.999999,8 C15.999999,12.411003 12.410995,16 8,16 6.1114364,16 4.3292215,15.345842 2.9191647,14.183757 L2.8635542,14.136446 1.0000001,16 1.0000001,11 6,11 4.2856131,12.714387 4.3345137,12.753428 C5.3681693,13.552539 6.6481242,14 8,14 11.308998,14 14,11.308998 14,8 z M7.9999981,0 C9.8459349,0 11.600649,0.63146877 13.000931,1.7533774 L13.135431,1.8645654 14.999996,0 14.999996,5.0000002 9.9999962,5.0000002 11.713318,3.2866783 11.606168,3.2034502 C10.580926,2.4319563 9.3216848,2 7.9999981,2 4.6909988,2 1.9999996,4.6910002 1.9999996,8.0000002 L0,8.0000002 C2.3841858E-07,3.5890002 3.5889993,0 7.9999981,0 z"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill" />
             </MenuItem.Icon>
         </MenuItem>
@@ -780,7 +780,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Data="M3.5,4.999002 L10.5,4.999002 10.5,6.999002 3.5,6.999002 z M12,3.999002 L2,3.999002 2,14 12.001007,14 z M2,0 L12,0 C13.104004,0 14,0.89599609 14,2 L14,14 C14,15.103996 13.104004,16 12,16 L2,16 C0.89599609,16 0,15.103996 0,14 L0,2 C0,0.89599609 0.89599609,0 2,0 z"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill" />
             </MenuItem.Icon>
         </MenuItem>
@@ -805,7 +805,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Data="M14,8 L15.999999,8 C15.999999,12.411003 12.410995,16 8,16 6.1114364,16 4.3292215,15.345842 2.9191647,14.183757 L2.8635542,14.136446 1.0000001,16 1.0000001,11 6,11 4.2856131,12.714387 4.3345137,12.753428 C5.3681693,13.552539 6.6481242,14 8,14 11.308998,14 14,11.308998 14,8 z M7.9999981,0 C9.8459349,0 11.600649,0.63146877 13.000931,1.7533774 L13.135431,1.8645654 14.999996,0 14.999996,5.0000002 9.9999962,5.0000002 11.713318,3.2866783 11.606168,3.2034502 C10.580926,2.4319563 9.3216848,2 7.9999981,2 4.6909988,2 1.9999996,4.6910002 1.9999996,8.0000002 L0,8.0000002 C2.3841858E-07,3.5890002 3.5889993,0 7.9999981,0 z"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill" />
             </MenuItem.Icon>
         </MenuItem>
@@ -855,7 +855,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Data="M3.5,4.999002 L10.5,4.999002 10.5,6.999002 3.5,6.999002 z M12,3.999002 L2,3.999002 2,14 12.001007,14 z M2,0 L12,0 C13.104004,0 14,0.89599609 14,2 L14,14 C14,15.103996 13.104004,16 12,16 L2,16 C0.89599609,16 0,15.103996 0,14 L0,2 C0,0.89599609 0.89599609,0 2,0 z"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill" />
             </MenuItem.Icon>
         </MenuItem>
@@ -950,7 +950,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{Binding IsChecked, ElementName=toggleButtonItem, Converter={StaticResource SortPathConverter}}"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill"
                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBar.AllowSorting, Converter={StaticResource FilterCheckBoxVisibilityConverter}, ConverterParameter=Material}" />
                     <Button
@@ -998,7 +998,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{Binding IsChecked, ElementName=toggleButtonItem, Converter={StaticResource SortPathConverter}}"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill"
                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBar.AllowSorting, Converter={StaticResource FilterCheckBoxVisibilityConverter}, ConverterParameter=Material}" />
                     <Button
@@ -1076,7 +1076,7 @@
                                     x:Name="SubMenuBorder"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                                    BorderThickness="1">
                                     <ScrollViewer
                                         x:Name="SubMenuScrollViewer"
                                         Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,
@@ -1134,7 +1134,7 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="templateRoot" Property="Background" Value="Transparent" />
                             <Setter TargetName="templateRoot" Property="BorderBrush" Value="{StaticResource ContentBackgroundDisabled}" />
-                            <Setter TargetName="PART_MenuExpander" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="PART_MenuExpander" Property="Fill" Value="{StaticResource FormBackground}" />
                             <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
                             <Setter Property="Foreground" Value="{StaticResource DisabledForeground}" />
                         </Trigger>
@@ -1155,7 +1155,7 @@
                         Margin="-1"
                         AllowDrop="True"
                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:PivotGridControl}}, Path=GroupingBar.Background}"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                        BorderThickness="1"
                         ContextMenu="{StaticResource SyncfusionPivotGridGroupingBarContextMenu}"
                         ItemContainerStyle="{StaticResource PivotGroupingItemContainerStyle}"
                         ItemTemplate="{StaticResource PivotRowItemTemplate}"
@@ -1260,7 +1260,7 @@
                                 <Border
                                     Background="{StaticResource PopupBackground}"
                                     BorderBrush="{StaticResource BorderAlt}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                                    BorderThickness="1">
                                     <Grid
                                         x:Name="PopupGrid"
                                         Background="{StaticResource PopupBackground}"
@@ -1281,7 +1281,7 @@
                                         <Menu
                                             x:Name="PART_SortFilterMenu"
                                             Grid.Row="0"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                            BorderThickness="1"
                                             TabIndex="0">
 
                                             <MenuItem
@@ -1301,7 +1301,7 @@
                                                     <Border
                                                         Name="SortAscendingBorder"
                                                         BorderBrush="Transparent"
-                                                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                                        BorderThickness="1"
                                                         CornerRadius="1">
                                                         <Grid
                                                             x:Name="Sort_A_to_Z"
@@ -1316,7 +1316,7 @@
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Top"
                                                                 Data="F1 M 4.84775,5.78772L 2.07043,5.78772L 1.73962,6.55334C 1.63162,6.80792 1.57816,7.01886 1.57816,7.18481C 1.57816,7.40564 1.66666,7.5676 1.84509,7.67258C 1.94934,7.73425 2.20578,7.78058 2.616,7.81125L 2.616,8.026L 0,8.026L 0,7.81125C 0.282684,7.76886 0.514404,7.65161 0.696686,7.46094C 0.877777,7.2695 1.10159,6.87427 1.36856,6.27472L 4.18106,0L 4.29175,0L 7.12778,6.44855C 7.39856,7.05988 7.61987,7.44403 7.79443,7.60284C 7.9259,7.72272 8.11081,7.7923 8.35031,7.81125L 8.35031,8.026L 4.54697,8.026L 4.54697,7.81125L 4.70322,7.81125C 5.00925,7.81125 5.22269,7.76886 5.34644,7.68365C 5.4324,7.62244 5.474,7.5332 5.474,7.41736C 5.474,7.34763 5.46362,7.276 5.44016,7.20245C 5.4324,7.16785 5.37375,7.02283 5.26575,6.76746L 4.84775,5.78772 Z M 4.65109,5.3587L 3.47922,2.65045L 2.27347,5.3587L 4.65109,5.3587 Z "
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                             <Path
                                                                 Width="7.521"
@@ -1324,7 +1324,7 @@
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Data="F1 M 7.15628,9.884L 2.53391,17.3065L 4.03137,17.3065C 4.7384,17.3065 5.23325,17.2623 5.51575,17.1731C 5.97534,17.0339 6.37122,16.778 6.70456,16.405C 7.03653,16.0319 7.26697,15.5319 7.39456,14.9056L 7.61987,14.9056L 7.30081,17.7474L 0.0990906,17.7474L 4.72668,10.3131L 3.56125,10.3131C 3.10815,10.3131 2.81125,10.3268 2.668,10.3535C 2.39722,10.4043 2.14334,10.5032 1.90506,10.6523C 1.668,10.8014 1.47012,10.9994 1.31387,11.2467C 1.15762,11.4941 1.03391,11.8072 0.945343,12.1862L 0.73056,12.1862L 0.945343,9.884L 7.15628,9.884 Z "
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                             <Path
                                                                 Width="10.036"
@@ -1332,7 +1332,7 @@
                                                                 HorizontalAlignment="Right"
                                                                 VerticalAlignment="Top"
                                                                 Data="M4.0410149,0 L5.9969907,0 5.9969907,15.196013 8.8930061,12.299996 10.03601,13.439998 5.0239922,18.450996 5.0174115,18.444404 5.009824,18.452011 0,13.440192 1.1351867,12.303006 4.0410149,15.208251 z"
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                         </Grid>
                                                     </Border>
@@ -1355,7 +1355,7 @@
                                                     <Border
                                                         Name="SortDescendingBorder"
                                                         BorderBrush="Transparent"
-                                                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                                        BorderThickness="1"
                                                         CornerRadius="1">
                                                         <Grid
                                                             x:Name="Sort_Z_to_A"
@@ -1370,7 +1370,7 @@
                                                                 HorizontalAlignment="Right"
                                                                 VerticalAlignment="Top"
                                                                 Data="M4.0419773,0 L5.9979837,0 5.9979837,15.195082 8.8931761,12.299996 10.035993,13.439998 5.0247957,18.450996 5.0174028,18.443595 5.009003,18.452011 0,13.440192 1.1360006,12.303006 4.0419773,15.208875 z"
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                             <Path
                                                                 Width="7.521"
@@ -1378,7 +1378,7 @@
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Top"
                                                                 Data="F1 M 7.15628,0L 2.53384,7.42252L 4.03131,7.42252C 4.73828,7.42252 5.23306,7.37827 5.51563,7.28906C 5.97534,7.14975 6.37109,6.89383 6.70441,6.52097C 7.03653,6.14786 7.26691,5.64786 7.39453,5.02145L 7.61987,5.02145L 7.30081,7.86331L 0.098938,7.86331L 4.7265,0.429077L 3.56119,0.429077C 3.10815,0.429077 2.81119,0.44278 2.668,0.469452C 2.39722,0.520264 2.14319,0.619171 1.90494,0.76828C 1.668,0.917358 1.47012,1.11536 1.31387,1.36267C 1.15759,1.61014 1.03384,1.92322 0.945343,2.30212L 0.73053,2.30212L 0.945343,0L 7.15628,0 Z "
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                             <Path
                                                                 Width="8.35"
@@ -1386,7 +1386,7 @@
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Data="F1 M 4.84772,15.3464L 2.07037,15.3464L 1.73962,16.112C 1.63159,16.3665 1.57813,16.5774 1.57813,16.7436C 1.57813,16.9642 1.66666,17.1264 1.84509,17.2312C 1.94922,17.2931 2.20572,17.3392 2.61588,17.3699L 2.61588,17.5847L 0,17.5847L 0,17.3699C 0.282532,17.3274 0.514404,17.2102 0.696655,17.0196C 0.877594,16.8281 1.10159,16.4329 1.36853,15.8333L 4.18106,9.55862L 4.29175,9.55862L 7.12759,16.0072C 7.39856,16.6185 7.61987,17.0027 7.79425,17.1615C 7.92584,17.2813 8.11066,17.351 8.35025,17.3699L 8.35025,17.5847L 4.54694,17.5847L 4.54694,17.3699L 4.70319,17.3699C 5.00919,17.3699 5.22266,17.3274 5.34637,17.2423C 5.43228,17.1811 5.474,17.0918 5.474,16.976C 5.474,16.9063 5.46362,16.8347 5.44012,16.7611C 5.43228,16.7267 5.37372,16.5815 5.26563,16.3263L 4.84772,15.3464 Z M 4.65106,14.9174L 3.47919,12.2091L 2.27347,14.9174L 4.65106,14.9174 Z "
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
 
                                                         </Grid>
@@ -1408,7 +1408,7 @@
                                                     <Border
                                                         Name="MoreSortOptionsBorder"
                                                         BorderBrush="Transparent"
-                                                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                                        BorderThickness="1"
                                                         CornerRadius="1">
                                                         <Grid
                                                             x:Name="MoreSortOptions"
@@ -1442,7 +1442,7 @@
                                                         Margin="2">
                                                         <Path
                                                             Data="M0.33299977,11.255001L37.041462,11.255001C37.024662,11.5465 36.998562,11.833101 36.998562,12.127001 36.998562,16.835509 39.218578,21.028417 42.66,23.739322L32.947735,35.025546 32.947735,63.215999 21.340952,56.585582 21.340952,34.473741z M1.2878267,4.0470002L39.629997,4.0470002C38.814808,5.2892774,38.189812,6.6619451,37.776917,8.1230001L1.2878267,8.1230001C0.57567823,8.1229997,2.9802322E-08,7.5472746,0,6.8362782L0,5.3361609C2.9802322E-08,4.622725,0.57567823,4.0469999,1.2878267,4.0470002z M49.429409,3.7740004L46.442997,6.7597783 50.784157,11.100458 46.442997,15.441261 49.42902,18.426001 53.769852,14.085821 58.110516,18.426001 61.096996,15.440762 56.756023,11.100098 61.096996,6.7597783 58.111217,3.7740004 53.770287,8.1145711z M53.78915,0C59.935287,0 64.920998,5.0389932 64.920998,11.25525 64.920998,17.469967 59.935287,22.509999 53.78915,22.509999 47.643211,22.509999 42.66,17.469967 42.66,11.25525 42.66,5.0389932 47.643211,0 53.78915,0z"
-                                                            Fill="{StaticResource IconColor}"
+                                                            Fill="{StaticResource BlueBorderBrush}"
                                                             Stretch="Fill" />
                                                     </Grid>
                                                 </MenuItem.Icon>
@@ -1461,7 +1461,7 @@
                                                     <Border
                                                         Name="LabelFilterBorder"
                                                         BorderBrush="Transparent"
-                                                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                                        BorderThickness="1"
                                                         CornerRadius="1">
                                                         <Grid
                                                             x:Name="LabelFilter"
@@ -1488,7 +1488,7 @@
                                                             Margin="2">
                                                             <Path
                                                                 Data="M0.33299977,11.255001L37.041462,11.255001C37.024662,11.5465 36.998562,11.833101 36.998562,12.127001 36.998562,16.835509 39.218578,21.028417 42.66,23.739322L32.947735,35.025546 32.947735,63.215999 21.340952,56.585582 21.340952,34.473741z M1.2878267,4.0470002L39.629997,4.0470002C38.814808,5.2892774,38.189812,6.6619451,37.776917,8.1230001L1.2878267,8.1230001C0.57567823,8.1229997,2.9802322E-08,7.5472746,0,6.8362782L0,5.3361609C2.9802322E-08,4.622725,0.57567823,4.0469999,1.2878267,4.0470002z M49.429409,3.7740004L46.442997,6.7597783 50.784157,11.100458 46.442997,15.441261 49.42902,18.426001 53.769852,14.085821 58.110516,18.426001 61.096996,15.440762 56.756023,11.100098 61.096996,6.7597783 58.111217,3.7740004 53.770287,8.1145711z M53.78915,0C59.935287,0 64.920998,5.0389932 64.920998,11.25525 64.920998,17.469967 59.935287,22.509999 53.78915,22.509999 47.643211,22.509999 42.66,17.469967 42.66,11.25525 42.66,5.0389932 47.643211,0 53.78915,0z"
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                         </Grid>
                                                     </MenuItem.Icon>
@@ -1597,7 +1597,7 @@
                                                     <Border
                                                         Name="ValueFilterBorder"
                                                         BorderBrush="Transparent"
-                                                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                                        BorderThickness="1"
                                                         CornerRadius="1">
                                                         <Grid
                                                             x:Name="ValueFilter"
@@ -1622,7 +1622,7 @@
                                                             Margin="2">
                                                             <Path
                                                                 Data="M0.33299977,11.255001L37.041462,11.255001C37.024662,11.5465 36.998562,11.833101 36.998562,12.127001 36.998562,16.835509 39.218578,21.028417 42.66,23.739322L32.947735,35.025546 32.947735,63.215999 21.340952,56.585582 21.340952,34.473741z M1.2878267,4.0470002L39.629997,4.0470002C38.814808,5.2892774,38.189812,6.6619451,37.776917,8.1230001L1.2878267,8.1230001C0.57567823,8.1229997,2.9802322E-08,7.5472746,0,6.8362782L0,5.3361609C2.9802322E-08,4.622725,0.57567823,4.0469999,1.2878267,4.0470002z M49.429409,3.7740004L46.442997,6.7597783 50.784157,11.100458 46.442997,15.441261 49.42902,18.426001 53.769852,14.085821 58.110516,18.426001 61.096996,15.440762 56.756023,11.100098 61.096996,6.7597783 58.111217,3.7740004 53.770287,8.1145711z M53.78915,0C59.935287,0 64.920998,5.0389932 64.920998,11.25525 64.920998,17.469967 59.935287,22.509999 53.78915,22.509999 47.643211,22.509999 42.66,17.469967 42.66,11.25525 42.66,5.0389932 47.643211,0 53.78915,0z"
-                                                                Fill="{StaticResource IconColor}"
+                                                                Fill="{StaticResource BlueBorderBrush}"
                                                                 Stretch="Fill" />
                                                         </Grid>
                                                     </MenuItem.Icon>
@@ -1706,7 +1706,7 @@
                                             Height="25"
                                             Margin="10,2"
                                             Background="Transparent"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             Focusable="False"
                                             TabIndex="6"
                                             WatermarkText="Search" />
@@ -1797,7 +1797,7 @@
                                 <Border
                                     Background="{StaticResource PopupBackground}"
                                     BorderBrush="{StaticResource BorderAlt}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                                    BorderThickness="1">
                                     <Grid Background="{StaticResource PopupBackground}">
                                         <Grid.RowDefinitions>
                                             <RowDefinition
@@ -1816,7 +1816,7 @@
                                             Height="25"
                                             Margin="10,2"
                                             Background="Transparent"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             WatermarkText="Search" />
                                         <Separator
                                             Grid.Row="1"
@@ -1902,7 +1902,7 @@
                                 AllowDrop="True"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{StaticResource BorderAlt}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                BorderThickness="1"
                                 ContextMenu="{StaticResource SyncfusionPivotGridGroupingBarContextMenu}"
                                 ItemContainerStyle="{StaticResource PivotGroupingItemContainerStyle}"
                                 ItemTemplate="{StaticResource PivotRowItemTemplate}"
@@ -1965,8 +1965,8 @@
         <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="ColumnHeaderCellStyle" Value="{StaticResource SyncfusionPivotGridColumnHeaderStyle}" />
         <Setter Property="RowHeaderCellStyle" Value="{StaticResource SyncfusionPivotGridRowHeaderStyle}" />
         <Setter Property="SummaryHeaderStyle" Value="{StaticResource SyncfusionPivotGridSummaryHeaderStyle}" />
@@ -1975,12 +1975,12 @@
         <Setter Property="SummaryCellStyle" Value="{StaticResource SyncfusionPivotGridSummaryCellStyle}" />
         <Setter Property="ValueCellStyle" Value="{StaticResource SyncfusionPivotGridValueCellStyle}" />
         <Setter Property="GridLineStroke" Value="{StaticResource BorderAlt}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="ExpanderStyle" Value="{StaticResource ExpanderStyle}" />
         <Setter Property="GroupingButtonHoverBackgroundBrush" Value="{StaticResource ContentBackgroundHovered}" />
         <Setter Property="GroupingButtonHoverBorderBrush" Value="{StaticResource ContentBackgroundHovered}" />
         <Setter Property="GroupingButtonCheckedForeground" Value="{StaticResource PlaceholderForeground}" />
-        <Setter Property="GroupingButtonCheckedBackground" Value="{StaticResource SecondaryBackgroundSelected}" />
+        <Setter Property="GroupingButtonCheckedBackground" Value="{StaticResource SteelBlueBackground}" />
         <Setter Property="GroupingButtonHoverForeground" Value="{StaticResource HoveredForeground}" />
         <Setter Property="GroupingBarBackground" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="GroupingBarItemBackground" Value="{StaticResource ControlBackground}" />
@@ -2020,7 +2020,7 @@
                         <Border
                             x:Name="PART_GridOuterBorder"
                             BorderBrush="{Binding Path=GridOuterBorderBrush, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                            BorderThickness="1">
                             <Border.Resources>
                                 <SolidColorBrush
                                     x:Key="MoveColumnHeaderCellBorder"
@@ -2058,8 +2058,8 @@
     <Style
         x:Key="SyncfusionAnimatedGridStyle"
         TargetType="{x:Type syncfusion:AnimatedGrid}">
-        <Setter Property="InnerBrush" Value="{StaticResource IconColor}" />
-        <Setter Property="OuterBrush" Value="{StaticResource IconColor}" />
+        <Setter Property="InnerBrush" Value="{StaticResource BlueBorderBrush}" />
+        <Setter Property="OuterBrush" Value="{StaticResource BlueBorderBrush}" />
     </Style>
 
     <Style

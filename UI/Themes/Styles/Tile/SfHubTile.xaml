@@ -39,7 +39,7 @@
         <Setter Property="TextElement.Foreground" Value="{StaticResource PrimaryForeground}" />
         <Setter Property="Margin" Value="10,5" />
         <Setter Property="TextElement.FontSize" Value="{StaticResource FluentDark.SubHeaderTextStyle}" />
-        <Setter Property="TextElement.FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="TextElement.FontWeight" Value="Normal" />
         <Setter Property="TextElement.FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
@@ -55,8 +55,8 @@
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}" />
         <Setter Property="Margin" Value="5" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">

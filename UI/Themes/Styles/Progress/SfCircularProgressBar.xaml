@@ -23,7 +23,7 @@
         <Setter Property="SecondaryProgressColor" Value="{StaticResource ContentForeground}" />
         <Setter Property="TrackColor" Value="{StaticResource BorderAlt}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="IndicatorCornerRadius" Value="0" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">

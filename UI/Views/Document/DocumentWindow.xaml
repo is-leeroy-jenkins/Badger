@@ -24,7 +24,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--  ******************************************** Resources *********************************************  -->
+    <!--******************************************** Resources *********************************************-->
 
     <Window.Resources>
 
@@ -38,7 +38,7 @@
     </Window.Resources>
 
 
-    <!--  ******************************************** Context Menu *********************************************  -->
+    <!--******************************************** Context Menu *********************************************-->
 
     <Window.ContextMenu>
 
@@ -136,7 +136,7 @@
     <Canvas
         x:Name="DocumentCanvas"
         RenderTransformOrigin="0.634,0.466">
-        <!--  ***************************** PDF Viewer  ***********************************  -->
+        <!--***************************** PDF Viewer  ***********************************-->
         <pdf:PdfViewerControl
             x:Name="PdfViewer"
             Canvas.Left="25"
@@ -148,7 +148,7 @@
             BorderBrush="{StaticResource BlueBorderBrush}"
             BorderThickness="1" />
 
-        <!--  ***************************** ToolStrip  ***********************************  -->
+        <!--***************************** ToolStrip  ***********************************-->
 
         <bdgr:ToolStrip
             x:Name="DocumentToolStrip"

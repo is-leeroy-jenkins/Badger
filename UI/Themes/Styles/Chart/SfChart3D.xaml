@@ -18,14 +18,14 @@
     <Style
         x:Key="SyncfusionSfChart3DlineStyle"
         TargetType="Line">
-        <Setter Property="Stroke" Value="{StaticResource Border}" />
+        <Setter Property="Stroke" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="StrokeThickness" Value="1" />
     </Style>
 
     <Style
         x:Key="3dLineStyle"
         TargetType="Line">
-        <Setter Property="Stroke" Value="{StaticResource Border}" />
+        <Setter Property="Stroke" Value="{StaticResource BlueBorderBrush}" />
     </Style>
 
     <Style
@@ -40,7 +40,7 @@
             Padding="4"
             Background="{StaticResource TooltipBackground}"
             BorderBrush="{StaticResource TooltipBorder}"
-            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+            BorderThickness="1"
             CornerRadius="3">
             <TextBlock
                 FontSize="{StaticResource FluentDark.CaptionText}"
@@ -196,7 +196,7 @@
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontSize" Value="{StaticResource FluentDark.CaptionText}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="ChartResourceDictionary">
             <Setter.Value>
                 <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/SfChart/SfChartCommon.xaml" />

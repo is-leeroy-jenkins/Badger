@@ -39,7 +39,7 @@
             <DrawingGroup>
                 <DrawingGroup.Children>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="M0,0 L14,0 14,1 8.5,7.0000002 8.5,16 5.5,13 5.5,7.0000002 0,1 z" />
                 </DrawingGroup.Children>
             </DrawingGroup>
@@ -51,7 +51,7 @@
             <DrawingGroup>
                 <DrawingGroup.Children>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="M10,11 L10,15 14,15 14,11 z M5,11 L5,15 9,15 9,11 z M10,6 L10,10 14,10 14,6 z M5,6 L5,10 9,10 9,6 z M10,1 L10,5 14,5 14,1 z M5,1 L5,5 9,5 9,1 z M1,0 L14,0 C14.552002,0 15,0.44799805 15,1 L15,15 C15,15.552994 14.552002,16 14,16 L1,16 C0.44702148,16 0,15.552994 0,15 L0,1 C0,0.44799805 0.44702148,0 1,0 z" />
                 </DrawingGroup.Children>
             </DrawingGroup>
@@ -63,7 +63,7 @@
             <DrawingGroup>
                 <DrawingGroup.Children>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="M11,10 L11,14 15,14 15,10 z M6,10 L6,14 10,14 10,10 z M1,10 L1,14 5,14 5,10 z M11,5 L11,9 15,9 15,5 z M6,5 L6,9 10,9 10,5 z M1,5 L1,9 5,9 5,5 z M1,0 L15,0 C15.552002,0 16,0.44799805 16,1 L16,14 C16,14.552994 15.552002,15 15,15 L1,15 C0.44702148,15 0,14.552994 0,14 L0,1 C0,0.44799805 0.44702148,0 1,0 z" />
                 </DrawingGroup.Children>
             </DrawingGroup>
@@ -75,7 +75,7 @@
             <DrawingGroup>
                 <DrawingGroup.Children>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="F1 M 0,0.329224L 7.62939e-006,0L 4.64537,0.0530396L 15.924,0.0908813L 15.874,3.24121C 15.8364,3.46619 14.9597,3.60864 14.2471,3.34613C 13.5346,3.08356 12.7887,1.94598 12.4136,1.62927L 4.97965,1.56262L 12.3469,8.0174L 12.3344,8.49243L 5.5797,15.2305L 12.4362,15.1533C 12.8112,14.8366 13.2846,13.9595 13.9971,13.697C 14.6972,13.2636 15.8739,13.3413 15.9115,13.5663L 15.9615,16.7166L 5.09764,16.7531L 5.09168,16.759L 3.31583,16.759L 1.06017,16.7666L 0.433388,16.7515L 0.412514,16.4848L 8.95908,8.37158L 8.98409,7.89655L 0,0.329224 Z " />
                 </DrawingGroup.Children>
             </DrawingGroup>
@@ -87,21 +87,21 @@
             <DrawingGroup>
                 <DrawingGroup.Children>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="M 2.40021,2.9129L 15.0308,14.5004">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{StaticResource IconColor}"
+                                Brush="{StaticResource BlueBorderBrush}"
                                 MiterLimit="2.75"
                                 Thickness="4.80042" />
                         </GeometryDrawing.Pen>
                     </GeometryDrawing>
                     <GeometryDrawing
-                        Brush="{StaticResource IconColor}"
+                        Brush="{StaticResource BlueBorderBrush}"
                         Geometry="M 23.86,2.40021L 11.4931,14.5204">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{StaticResource IconColor}"
+                                Brush="{StaticResource BlueBorderBrush}"
                                 MiterLimit="2.75"
                                 Thickness="4.80042" />
                         </GeometryDrawing.Pen>
@@ -134,8 +134,8 @@
                         Margin="2,1"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                        BorderThickness="1"
+                        CornerRadius="2">
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -388,7 +388,7 @@
         TargetType="{x:Type schemaDesigner:PivotSchemaDesigner}">
         <Style.Setters>
             <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-            <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+            <Setter Property="FontSize" Value="12" />
             <Setter Property="sfskin:SkinManagerHelper.ScrollBarMode" Value="Default" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -396,7 +396,7 @@
                         <Border
                             Background="{StaticResource ContentBackground}"
                             BorderBrush="{StaticResource BorderAlt}"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness1}">
+                            BorderThickness="1">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition
@@ -558,7 +558,7 @@
                                             HorizontalContentAlignment="Left"
                                             VerticalContentAlignment="Center"
                                             AllowDrop="True"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             ItemContainerStyle="{StaticResource PivotSchemaItemContainerStyle}"
                                             ItemTemplate="{StaticResource PivotSchemaFilterTemplate}"
                                             ItemsSource="{Binding Path=Filters}" />
@@ -586,7 +586,7 @@
                                             HorizontalContentAlignment="Left"
                                             VerticalContentAlignment="Center"
                                             AllowDrop="True"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             ItemContainerStyle="{StaticResource PivotSchemaItemContainerStyle}"
                                             ItemTemplate="{StaticResource PivotSchemaItemTemplate}"
                                             ItemsSource="{Binding Path=PivotControl.PivotColumns}" />
@@ -628,7 +628,7 @@
                                             HorizontalContentAlignment="Left"
                                             VerticalContentAlignment="Center"
                                             AllowDrop="True"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             ItemContainerStyle="{StaticResource PivotSchemaItemContainerStyle}"
                                             ItemTemplate="{StaticResource PivotSchemaItemTemplate}"
                                             ItemsSource="{Binding Path=PivotControl.PivotRows}" />
@@ -658,7 +658,7 @@
                                             HorizontalContentAlignment="Left"
                                             VerticalContentAlignment="Center"
                                             AllowDrop="True"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             ItemContainerStyle="{StaticResource PivotSchemaItemContainerStyle}"
                                             ItemTemplate="{StaticResource PivotSchemaItemTemplate}"
                                             ItemsSource="{Binding Path=PivotControl.PivotCalculations}" />

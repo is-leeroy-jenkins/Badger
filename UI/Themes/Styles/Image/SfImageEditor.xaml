@@ -45,7 +45,7 @@
     <Style
         x:Key="ToolbarStyle"
         TargetType="Border">
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Style.Triggers>
             <DataTrigger
@@ -71,10 +71,10 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="BorderThickness" Value="1,0,1,0" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="ToolbarItemSelectionBackground" Value="{StaticResource SecondaryBackgroundSelected}" />
+        <Setter Property="ToolbarItemSelectionBackground" Value="{StaticResource SteelBlueBackground}" />
         <Setter Property="EditorResourceDictionary">
             <Setter.Value>
                 <ResourceDictionary Source="/Syncfusion.Themes.FluentDark.WPF;component/SfImageEditor/SfImageEditor.xaml" />
@@ -101,7 +101,7 @@
                                 Grid.Row="0"
                                 Width="Auto"
                                 Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.HeaderToolbarHeight}"
-                                Background="{StaticResource ContentBackgroundAlt1}"
+                                Background="{StaticResource ControlInteriorBrush}"
                                 BorderBrush="{StaticResource BorderAlt}"
                                 BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.BorderThickness}"
                                 Style="{StaticResource ToolbarStyle}">
@@ -357,7 +357,7 @@
                                 Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.SubItemToolbarHeight}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Top"
-                                Background="{StaticResource ContentBackgroundAlt1}"
+                                Background="{StaticResource ControlInteriorBrush}"
                                 BorderBrush="{StaticResource BorderAlt}"
                                 BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.BorderThickness}"
                                 Visibility="Collapsed">
@@ -815,7 +815,7 @@
                                 x:Name="PART_FooterToolbarPanel"
                                 Grid.Row="3"
                                 Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.FooterToolbarHeight}"
-                                Background="{StaticResource ContentBackgroundAlt1}"
+                                Background="{StaticResource ControlInteriorBrush}"
                                 BorderBrush="{StaticResource BorderAlt}"
                                 BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ToolbarSettings.BorderThickness}"
                                 Style="{StaticResource ToolbarStyle}">
@@ -1017,7 +1017,7 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Data="M0,0L4,4 8,0z"
-                                            Fill="{StaticResource IconColor}"
+                                            Fill="{StaticResource BlueBorderBrush}"
                                             Focusable="False" />
                                     </Viewbox>
                                     <Popup
@@ -1035,7 +1035,7 @@
                                             MinHeight="14"
                                             Background="{StaticResource PopupBackground}"
                                             BorderBrush="{StaticResource BorderAlt}"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
+                                            BorderThickness="1"
                                             Effect="{StaticResource Default.ShadowDepth2}">
                                             <Border.Margin>
                                                 <Thickness>6,1,6,6</Thickness>
@@ -1063,21 +1063,21 @@
                                     <Setter Property="ToolTipService.IsEnabled" Value="False" />
                                 </Trigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                                    <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
+                                    <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                                    <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="{StaticResource ControlHoverBrush}" />
                                     <Setter Property="Foreground" Value="{StaticResource HoveredForeground}" />
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
                                     <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="#DEDEDE" />
                                     <Setter TargetName="PART_ToggleButton" Property="Background" Value="#DEDEDE" />
                                     <Setter TargetName="label" Property="Foreground" Value="Black" />
-                                    <Setter TargetName="path" Property="Fill" Value="{StaticResource IconColor}" />
+                                    <Setter TargetName="path" Property="Fill" Value="{StaticResource BlueBorderBrush}" />
                                 </Trigger>
                                 <Trigger Property="IsDropDownOpen" Value="True">
                                     <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="Black" />
-                                    <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
+                                    <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource SteelBlueBackground}" />
                                     <Setter TargetName="label" Property="Foreground" Value="Black" />
-                                    <Setter TargetName="path" Property="Fill" Value="{StaticResource IconColor}" />
+                                    <Setter TargetName="path" Property="Fill" Value="{StaticResource BlueBorderBrush}" />
                                     <Setter Property="ToolTipService.IsEnabled" Value="False" />
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="False">
@@ -1087,7 +1087,7 @@
                                         </Setter.Value>
                                     </Setter>
                                     <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="Transparent" />
-                                    <Setter Property="Foreground" Value="{StaticResource IconColorDisabled}" />
+                                    <Setter Property="Foreground" Value="{StaticResource FormBackground}" />
                                     <Setter Property="Opacity" Value="0.7" />
                                 </Trigger>
                                 <Trigger Property="sfskin:SfSkinManager.SizeMode" Value="Touch">
@@ -1153,7 +1153,7 @@
                     Height="16"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill">
                     <Path.Data>
                         <PathGeometry>M5.5000004,6.0000019 C3.0190003,6.0000019 1,8.019002 1,10.500002 1,12.981002 3.0190003,15.000002 5.5000004,15.000002 7.9810002,15.000002 10,12.981002 10,10.500002 10,8.019002 7.9810002,6.0000019 5.5000004,6.0000019 z M7.0000038,1 L7.0000038,5.2078781 7.0040781,5.2089829 C8.8299494,5.7286501 10.271352,7.1700525 10.791019,8.995924 L10.792124,9 15.000004,9 15.000004,1 z M6.0000038,0 L16.000004,0 16.000004,10 10.977039,10 10.983934,10.077413 C10.994579,10.216902 11,10.35783 11,10.500002 11,13.533002 8.5330002,16.000002 5.5000004,16.000002 2.4670002,16.000002 0,13.533002 0,10.500002 0,7.4670019 2.4670002,5.0000019 5.5000004,5.0000019 5.6421721,5.0000019 5.7831003,5.0054226 5.9225893,5.016068 L6.0000038,5.0229626 z</PathGeometry>
@@ -1173,7 +1173,7 @@
                         Height="14"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.Data>
                             <PathGeometry>M8,1 C4.1400146,1 1,4.1410217 1,8 1,11.859009 4.1400146,15 8,15 11.859985,15 15,11.859009 15,8 15,4.1410217 11.859985,1 8,1 z M8,0 C12.411011,0 16,3.5890198 16,8 16,12.411011 12.411011,16 8,16 3.5889893,16 0,12.411011 0,8 0,3.5890198 3.5889893,0 8,0 z</PathGeometry>
@@ -1194,7 +1194,7 @@
                         Height="14"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.Data>
                             <PathGeometry>M1,1 L1,11 15,11 15,1 z M0,0 L16,0 16,12 0,12 z</PathGeometry>
@@ -1215,7 +1215,7 @@
                         Height="14"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.Data>
                             <PathGeometry>M4.0109848,0 L13.010985,0 13.010985,9.0000001 12.010985,9.0000001 12.010985,1.6986566 0.70699739,12.998991 0,12.291991 11.295642,1 4.0109848,1 z</PathGeometry>
@@ -1243,7 +1243,7 @@
                         Height="16"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.Data>
                             <PathGeometry>M5.9999969,2.9999921 L12.999996,2.9999921 12.999996,9.9999924 11.999996,9.9999924 11.999996,3.9999921 5.9999969,3.9999921 z M2.9999859,0 L3.9999861,0 3.9999861,12 15.999986,12 15.999986,13 13,13 13,16.00001 12,16.00001 12,13 2.9999859,13 2.9999859,4.0000091 0,4.0000091 0,3.0000091 2.9999859,3.0000091 z</PathGeometry>
@@ -1265,7 +1265,7 @@
                             Height="14"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Fill">
                             <Path.Data>
                                 <PathGeometry>M1,1 L1,11 15,11 15,1 z M0,0 L16,0 16,12 0,12 z</PathGeometry>
@@ -1286,7 +1286,7 @@
                             Height="14"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Fill="{StaticResource IconColor}"
+                            Fill="{StaticResource BlueBorderBrush}"
                             Stretch="Fill">
                             <Path.Data>
                                 <PathGeometry>M8,1 C4.1400146,1 1,4.1410217 1,8 1,11.859009 4.1400146,15 8,15 11.859985,15 15,11.859009 15,8 15,4.1410217 11.859985,1 8,1 z M8,0 C12.411011,0 16,3.5890198 16,8 16,12.411011 12.411011,16 8,16 3.5889893,16 0,12.411011 0,8 0,3.5890198 3.5889893,0 8,0 z</PathGeometry>
@@ -1313,7 +1313,7 @@
                     Height="16"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Fill="{StaticResource IconColor}"
+                    Fill="{StaticResource BlueBorderBrush}"
                     Stretch="Fill">
                     <Path.Data>
                         <PathGeometry>M15.001001,5.09797 L11.053005,8.2929885 15.001001,11.487 z M0,3.0259854 L6.8900008,8.2929976 0,13.55701 z M16.001001,3.0019849 L16.001001,13.582984 9.4630012,8.2929885 z M7.5010011,0 L8.5010009,0 8.5010009,16 7.5010011,16 z</PathGeometry>
@@ -1332,7 +1332,7 @@
                         Height="14"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.Data>
                             <PathGeometry>M15.001001,5.09797 L11.053005,8.2929885 15.001001,11.487 z M0,3.0259854 L6.8900008,8.2929976 0,13.55701 z M16.001001,3.0019849 L16.001001,13.582984 9.4630012,8.2929885 z M7.5010011,0 L8.5010009,0 8.5010009,16 7.5010011,16 z</PathGeometry>
@@ -1353,7 +1353,7 @@
                         Height="16"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}"
+                        Fill="{StaticResource BlueBorderBrush}"
                         Stretch="Fill">
                         <Path.RenderTransform>
                             <RotateTransform Angle="90" CenterX="8" CenterY="8" />

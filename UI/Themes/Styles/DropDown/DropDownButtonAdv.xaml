@@ -26,8 +26,8 @@
 
     <wpf:RevealItem
         x:Key="DropDownButtonAdvRevealItem"
-        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
-        HoverBackground="{StaticResource SecondaryBackgroundHovered}"
+        CornerRadius="2"
+        HoverBackground="{StaticResource ControlHoverBrush}"
         HoverBorder="{StaticResource RevealBorder}"
         PressedBackground="{StaticResource RevealBackground}" />
 
@@ -58,7 +58,7 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                CornerRadius="2"
                 SnapsToDevicePixels="True">
                 <StackPanel
                     Margin="{TemplateBinding Padding}"
@@ -88,7 +88,7 @@
                         Height="6"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Fill="{StaticResource IconColor}">
+                        Fill="{StaticResource BlueBorderBrush}">
                         <Path.Data>
                             <PathGeometry>M4.9960045,0 L10.008001,5.6040001 9.2630047,6.2709999 4.9960045,1.5 0.74499548,6.2530002 0,5.5860004 z</PathGeometry>
                         </Path.Data>
@@ -111,8 +111,8 @@
                     MinHeight="{TemplateBinding MinHeight}"
                     Background="{StaticResource ControlInteriorBrush}"
                     BorderBrush="{StaticResource BorderAlt}"
-                    BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                    CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                    BorderThickness="1"
+                    CornerRadius="4"
                     Effect="{StaticResource Default.ShadowDepth3}">
                     <Border.Margin>
                         <Thickness>6,1,6,6</Thickness>
@@ -132,11 +132,11 @@
                 <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
             </Trigger>
             <Trigger Property="IsFocused" Value="True">
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource ControlHoverBrush}" />
                 <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource WhiteForeground}" />
             </Trigger>
             <Trigger Property="IsMultiLine" Value="True">
                 <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -145,18 +145,18 @@
                 <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.TextWrapping" Value="NoWrap" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource ControlHoverBrush}" />
                 <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource WhiteForeground}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
+                <Setter TargetName="ItemBorder1" Property="Border.Background" Value="{StaticResource SteelBlueBackground}" />
                 <Setter TargetName="ItemBorder1" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryBackgroundSelected}" />
-                <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
+                <Setter TargetName="PART_TextAreaLarge" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter TargetName="LargeIconContent" Property="Opacity" Value="0.38" />
@@ -183,14 +183,14 @@
         <Setter Property="Label" Value="Dropdown Button" />
         <Setter Property="Background" Value="{StaticResource SecondaryBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource SecondaryBorder}" />
-        <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
+        <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:DropDownButtonAdv}">
@@ -202,7 +202,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                            CornerRadius="2"
                             SnapsToDevicePixels="True">
                             <Grid Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
@@ -243,7 +243,7 @@
                                     Height="6"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Fill="{StaticResource IconColor}">
+                                    Fill="{StaticResource BlueBorderBrush}">
                                     <Path.Data>
                                         <PathGeometry>M4.9960045,0 L10.008001,5.6040001 9.2630047,6.2709999 4.9960045,1.5 0.74499548,6.2530002 0,5.5860004 z</PathGeometry>
                                     </Path.Data>
@@ -267,8 +267,8 @@
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Background="{StaticResource PopupBackground}"
                                 BorderBrush="{StaticResource BorderAlt}"
-                                BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                                CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                                BorderThickness="1"
+                                CornerRadius="4"
                                 Effect="{StaticResource Default.ShadowDepth3}">
                                 <Border.Margin>
                                     <Thickness>6,1,6,6</Thickness>
@@ -293,25 +293,25 @@
                             <Setter Property="MinHeight" Value="{StaticResource TouchMode.MinHeight}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource ControlHoverBrush}" />
                             <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource ControlHoverBrush}" />
                             <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderHovered}" />
-                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource WhiteForeground}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="ItemBorder" Property="Border.Background" Value="{StaticResource SteelBlueBackground}" />
                             <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderSelected}" />
-                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="SmallIconContent" Property="Border.Opacity" Value="0.38" />
@@ -319,7 +319,7 @@
                             <Setter TargetName="ItemBorder" Property="Border.BorderBrush" Value="{StaticResource SecondaryBorderDisabled}" />
                             <Setter TargetName="PART_Text" Property="TextBlock.Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
                             <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundDisabled}" />
-                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="Arrow" Property="Path.Fill" Value="{StaticResource FormBackground}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -352,7 +352,7 @@
         TargetType="{x:Type local:DropDownMenuGroup}">
         <Setter Property="Background" Value="{StaticResource PopupBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="Foreground" Value="{StaticResource SecondaryForeground}" />
+        <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
@@ -396,7 +396,7 @@
                                     Width="23"
                                     HorizontalAlignment="Left"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                    BorderThickness="1"
                                     Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IconBarEnabled, Converter={StaticResource BoolConverter}}" />
                                 <Border>
                                     <ScrollViewer
@@ -416,7 +416,7 @@
                                     Width="23"
                                     HorizontalAlignment="Left"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{StaticResource FluentDark.BorderThickness}"
+                                    BorderThickness="1"
                                     Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsMoreItemsIconTrayEnabled, Converter={StaticResource BoolConverter}}" />
                                 <ItemsControl ItemsSource="{TemplateBinding MoreItems}" />
                             </Grid>
@@ -439,7 +439,7 @@
                                             Width="3"
                                             Height="3"
                                             Margin="-5,0,0,0"
-                                            Background="{StaticResource IconColor}"
+                                            Background="{StaticResource BlueBorderBrush}"
                                             SnapsToDevicePixels="True" />
                                         <Border
                                             Width="3"
@@ -451,7 +451,7 @@
                                             Width="3"
                                             Height="3"
                                             Margin="-5,0,0,0"
-                                            Background="{StaticResource IconColor}"
+                                            Background="{StaticResource BlueBorderBrush}"
                                             SnapsToDevicePixels="True" />
                                         <Border
                                             Width="3"
@@ -463,7 +463,7 @@
                                             Width="3"
                                             Height="3"
                                             Margin="-5,0,0,0"
-                                            Background="{StaticResource IconColor}"
+                                            Background="{StaticResource BlueBorderBrush}"
                                             SnapsToDevicePixels="True" />
                                     </StackPanel>
                                 </Border>
@@ -502,7 +502,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="MinHeight" Value="24" />
         <Setter Property="Padding">
@@ -569,8 +569,8 @@
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Data="M0,0L4,3.5 0,7z"
-                                        Fill="{StaticResource IconColor}"
-                                        Stroke="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
+                                        Stroke="{StaticResource BlueBorderBrush}"
                                         Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasItems, Converter={StaticResource BoolConverter}}" />
                                 </Border>
                                 <Border Margin="2">
@@ -617,8 +617,8 @@
                                         <Border
                                             Background="{StaticResource PopupBackground}"
                                             BorderBrush="{StaticResource BorderAlt}"
-                                            BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                                            CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                                            BorderThickness="1"
+                                            CornerRadius="4"
                                             SnapsToDevicePixels="True">
                                             <Border.Padding>
                                                 <Thickness>0,4,0,4</Thickness>
@@ -639,7 +639,7 @@
                             <Setter TargetName="Bd" Property="Border.Background" Value="{StaticResource ContentBackgroundHovered}" />
                             <Setter TargetName="Bd" Property="Border.BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="content" Property="Foreground" Value="{StaticResource HoveredForeground}" />
-                            <Setter TargetName="path" Property="Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter TargetName="path" Property="Fill" Value="{StaticResource WhiteForeground}" />
                             <Setter Property="Foreground" Value="{StaticResource HoveredForeground}" />
                             <Setter Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
                         </Trigger>
@@ -648,7 +648,7 @@
                             <Setter TargetName="Bd" Property="Border.BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="content" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
                             <Setter TargetName="content" Property="Foreground" Value="{StaticResource HoveredForeground}" />
-                            <Setter TargetName="path" Property="Fill" Value="{StaticResource SecondaryForegroundHovered}" />
+                            <Setter TargetName="path" Property="Fill" Value="{StaticResource WhiteForeground}" />
                             <Setter Property="Foreground" Value="{StaticResource HoveredForeground}" />
                             <Setter Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
                         </Trigger>
@@ -656,7 +656,7 @@
                             <Setter TargetName="Bd" Property="Border.Background" Value="{StaticResource ContentBackgroundSelected}" />
                             <Setter TargetName="Bd" Property="Border.BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="content" Property="Foreground" Value="{StaticResource SelectedForeground}" />
-                            <Setter TargetName="path" Property="Fill" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="path" Property="Fill" Value="{StaticResource SteelBlueBackground}" />
                             <Setter Property="Foreground" Value="{StaticResource SelectedForeground}" />
                             <Setter Property="Background" Value="{StaticResource ContentBackgroundSelected}" />
                         </Trigger>
@@ -664,7 +664,7 @@
                             <Setter TargetName="Bd" Property="Border.Background" Value="{StaticResource PopupBackground}" />
                             <Setter TargetName="Bd" Property="Border.BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="content" Property="Foreground" Value="{StaticResource DisabledForeground}" />
-                            <Setter TargetName="path" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="path" Property="Fill" Value="{StaticResource FormBackground}" />
                             <Setter Property="Foreground" Value="{StaticResource DisabledForeground}" />
                             <Setter Property="Background" Value="{StaticResource PopupBackground}" />
                         </Trigger>

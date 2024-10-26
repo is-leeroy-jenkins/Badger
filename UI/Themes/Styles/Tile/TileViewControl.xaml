@@ -34,7 +34,7 @@
                         x:Name="outerBorder"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                        CornerRadius="2"
                         SnapsToDevicePixels="True">
                         <Grid
                             Width="{TemplateBinding Width}"
@@ -45,7 +45,7 @@
                                 Height="{TemplateBinding Height}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+                                CornerRadius="2"
                                 SnapsToDevicePixels="True">
                                 <Path
                                     x:Name="Maximize"
@@ -53,7 +53,7 @@
                                     Height="10"
                                     Data="M1 1V11H11V1H1Z"
                                     Stretch="Fill"
-                                    Stroke="{StaticResource IconColor}" />
+                                    Stroke="{StaticResource BlueBorderBrush}" />
                             </Border>
                             <Grid x:Name="minButton">
                                 <Path
@@ -62,7 +62,7 @@
                                     Height="2"
                                     Data="M0 1H10"
                                     Stretch="Fill"
-                                    Stroke="{StaticResource IconColor}" />
+                                    Stroke="{StaticResource BlueBorderBrush}" />
                             </Grid>
                         </Grid>
                     </Border>
@@ -92,20 +92,20 @@
                             <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SelectedForeground}" />
                         </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                            <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                            <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource ControlHoverBrush}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                            <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
-                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource FormBackground}" />
+                            <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource FormBackground}" />
                             <Setter TargetName="outerBorder" Property="Background" Value="Transparent" />
                             <Setter TargetName="outerBorder" Property="BorderBrush" Value="Transparent" />
                         </Trigger>
@@ -141,7 +141,7 @@
                                             x:Name="Maximize"
                                             Data="M1 1V11H11V1H1Z"
                                             Stretch="Fill"
-                                            Stroke="{StaticResource IconColor}" />
+                                            Stroke="{StaticResource BlueBorderBrush}" />
                                     </Border>
                                     <Grid
                                         x:Name="minButton"
@@ -153,7 +153,7 @@
                                             x:Name="Minimize"
                                             Data="M0 1H10"
                                             Stretch="Fill"
-                                            Stroke="{StaticResource IconColor}" />
+                                            Stroke="{StaticResource BlueBorderBrush}" />
                                     </Grid>
                                 </Grid>
                             </Border>
@@ -174,20 +174,20 @@
                                     <Setter TargetName="maxButton" Property="Visibility" Value="Visible" />
                                 </Trigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SecondaryForegroundHovered}" />
-                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SecondaryForegroundHovered}" />
-                                    <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                                    <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
+                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                                    <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                                    <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource ControlHoverBrush}" />
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
-                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource SecondaryForegroundSelected}" />
-                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource SecondaryForegroundSelected}" />
-                                    <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                                    <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
+                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource WhiteForeground}" />
+                                    <Setter TargetName="outerBorder" Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                                    <Setter TargetName="outerBorder" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="False">
-                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
-                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource IconColorDisabled}" />
+                                    <Setter TargetName="Minimize" Property="Stroke" Value="{StaticResource FormBackground}" />
+                                    <Setter TargetName="Maximize" Property="Stroke" Value="{StaticResource FormBackground}" />
                                     <Setter TargetName="outerBorder" Property="Background" Value="Transparent" />
                                     <Setter TargetName="outerBorder" Property="BorderBrush" Value="Transparent" />
                                 </Trigger>
@@ -210,9 +210,9 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="HeaderForeground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="HeaderBackground" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="HeaderBackground" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="HeaderBorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{StaticResource FluentDark.ThemeCornerRadiusVariant1}" />
         <Setter Property="HeaderHeight" Value="32" />
         <Setter Property="HeaderBorderThickness" Value="{StaticResource FluentDark.BorderThickness0001}" />
@@ -272,7 +272,7 @@
                                                 VerticalAlignment="Center"
                                                 Content="{TemplateBinding Header}"
                                                 ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                                TextElement.FontSize="{StaticResource FluentDark.BodyTextStyle}">
+                                                TextElement.FontSize="12">
                                                 <ContentPresenter.Resources>
                                                     <Style
                                                         BasedOn="{x:Null}"
@@ -312,7 +312,7 @@
                                                     Height="10"
                                                     Data="M1 11L6 6M6 6L11 1M6 6L11 11M6 6L1 1"
                                                     Stretch="Fill"
-                                                    Stroke="{StaticResource IconColor}" />
+                                                    Stroke="{StaticResource BlueBorderBrush}" />
                                             </shared:TileViewItemCloseButton>
                                         </Grid>
                                     </Grid>
@@ -359,28 +359,28 @@
                             <Setter TargetName="FloatPanelArea" Property="Background" Value="{StaticResource ContentBackgroundSelected}" />
                             <Setter TargetName="FloatPanelArea" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="headercontent" Property="TextElement.Foreground" Value="{StaticResource SelectedForeground}" />
-                            <Setter TargetName="headercontent" Property="TextElement.FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+                            <Setter TargetName="headercontent" Property="TextElement.FontWeight" Value="Normal" />
                             <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource SelectedForeground}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="TileViewItemBorder" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="tileviewcontent" Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
-                            <Setter TargetName="FloatPanelArea" Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+                            <Setter TargetName="FloatPanelArea" Property="Background" Value="{StaticResource ControlInteriorBrush}" />
                             <Setter TargetName="FloatPanelArea" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="headercontent" Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
                         </Trigger>
                         <Trigger SourceName="CloseButton" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource SecondaryForegroundHovered}" />
-                            <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                            <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundHovered}" />
+                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                            <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource ControlHoverBrush}" />
                         </Trigger>
                         <Trigger SourceName="CloseButton" Property="IsPressed" Value="True">
-                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource SecondaryForegroundSelected}" />
-                            <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource SecondaryBackgroundSelected}" />
-                            <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource SecondaryBackgroundSelected}" />
+                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource WhiteForeground}" />
+                            <Setter TargetName="CloseButton" Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                            <Setter TargetName="CloseButton" Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
                         </Trigger>
                         <Trigger SourceName="CloseButton" Property="IsEnabled" Value="False">
-                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="Close_Big" Property="Fill" Value="{StaticResource FormBackground}" />
                             <Setter TargetName="CloseButton" Property="Background" Value="Transparent" />
                             <Setter TargetName="CloseButton" Property="BorderBrush" Value="Transparent" />
                         </Trigger>
@@ -455,9 +455,9 @@
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
     </Style>
 
     <Style

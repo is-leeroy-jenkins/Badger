@@ -48,7 +48,7 @@
                                     HorizontalAlignment="Left"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StylesDialogGeneralHeader}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     TabIndex="0" />
                                 <ListBox
                                     x:Name="PART_StlyeList"
@@ -59,7 +59,7 @@
                                     HorizontalAlignment="Left"
                                     BorderThickness="1"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
                                 <StackPanel
                                     Grid.Row="3"
@@ -73,7 +73,7 @@
                                         HorizontalAlignment="Center"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=New}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                     <Button
                                         x:Name="PART_ModifyButton"
                                         Width="69"
@@ -82,7 +82,7 @@
                                         HorizontalAlignment="Center"
                                         Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=Modify}"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                        FontSize="12" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
@@ -151,7 +151,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogGeneralHeader}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{StaticResource ContentForeground}" />
                                 <Label
                                     Grid.Row="2"
@@ -160,7 +160,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogName}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                    FontSize="12" />
                                 <TextBox
                                     x:Name="PART_StyleName"
                                     Grid.Row="4"
@@ -171,7 +171,7 @@
                                     HorizontalAlignment="Left"
                                     Focusable="True"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                    FontSize="12" />
                                 <Label
                                     Grid.Row="6"
                                     Grid.Column="0"
@@ -179,7 +179,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogBasedOn}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                    FontSize="12" />
                                 <StackPanel
                                     Grid.Row="8"
                                     Grid.Column="0">
@@ -191,7 +191,7 @@
                                         Padding="4,2,2,2"
                                         HorizontalAlignment="Left"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         SelectedIndex="0" />
                                 </StackPanel>
                                 <Label
@@ -201,7 +201,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogStyleType}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                    FontSize="12" />
                                 <StackPanel
                                     Grid.Row="4"
                                     Grid.Column="2">
@@ -212,7 +212,7 @@
                                         Padding="4,2,2,2"
                                         HorizontalAlignment="Left"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         ItemsSource="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleTypeCollection}"
                                         SelectedIndex="1" />
                                 </StackPanel>
@@ -223,7 +223,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogFollowingParagraph}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}" />
+                                    FontSize="12" />
                                 <StackPanel
                                     Grid.Row="8"
                                     Grid.Column="2">
@@ -234,7 +234,7 @@
                                         Padding="4,2,2,2"
                                         HorizontalAlignment="Left"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         SelectedIndex="0" />
                                 </StackPanel>
                             </Grid>
@@ -268,7 +268,7 @@
                                     VerticalAlignment="Center"
                                     Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=StyleDialogFormattingHeader}"
                                     FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                    FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                    FontSize="12"
                                     Foreground="{TemplateBinding Foreground}" />
                                 <StackPanel
                                     Grid.Row="2"
@@ -280,7 +280,7 @@
                                         Padding="4,2,2,2"
                                         HorizontalAlignment="Left"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         IsEditable="True"
                                         SelectedIndex="0"
                                         ToolTipService.ShowOnDisabled="True" />
@@ -294,7 +294,7 @@
                                         Height="24"
                                         Padding="4,2,2,2"
                                         FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                        FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                        FontSize="12"
                                         IsEditable="True"
                                         SelectedIndex="0"
                                         ToolTipService.ShowOnDisabled="True" />
@@ -362,7 +362,7 @@
                                                 Height="11"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M1.3320006,5.8759918 L1.3320006,9.8339996 3.1399993,9.8339996 C3.9220123,9.8339996 4.5279998,9.6549988 4.9589996,9.2969971 5.3899993,8.9389954 5.6040038,8.447998 5.6040038,7.8239899 5.6040038,6.5249939 4.6900024,5.8759918 2.8619995,5.8759918 z M1.3320006,1.1660004 L1.3320006,4.7180023 2.6950073,4.7180023 C3.425003,4.7180023 3.998001,4.5469971 4.4160003,4.2079926 4.8330078,3.8669891 5.0420074,3.3880005 5.0420074,2.769989 5.0420074,1.701004 4.3150024,1.1660004 2.8619995,1.1660004 z M0,0 L3.2340087,0 C4.2180023,0 4.9970092,0.23300171 5.572998,0.69799811 6.149002,1.1629944 6.4370117,1.769989 6.4370117,2.5159912 6.4370117,3.1399994 6.2630004,3.6819916 5.9140014,4.1419983 5.5650024,4.6029968 5.0839996,4.9299927 4.4710082,5.125 L4.4710082,5.1549988 C5.2369995,5.2419891 5.8509979,5.5220032 6.3110046,5.9949951 6.7700042,6.4680023 6.9999999,7.0829926 6.9999999,7.8399963 6.9999999,8.7799988 6.6510009,9.5429993 5.95401,10.125992 5.2560119,10.709 4.376007,11 3.3130035,11 L0,11 z</PathGeometry>
@@ -387,7 +387,7 @@
                                                 Height="10"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M2.000005,0 L6.000005,0 6.000005,1 4.4186966,1 2.4888427,8.9999952 4,8.9999952 4,9.9999952 0,9.9999952 0,8.9999952 1.4594386,8.9999952 3.3901918,1 2.000005,1 z</PathGeometry>
@@ -412,7 +412,7 @@
                                                 Height="12"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 Stretch="Fill">
                                                 <Path.Data>
                                                     <PathGeometry>M0,10.999995 L9.0000002,10.999995 9.0000002,11.999995 0,11.999995 z M1.000005,0 L2.0000049,0 2.0000049,6.5 C2.000005,7.8779907 3.1210072,9 4.500005,9 5.8790028,9 7.000005,7.8779907 7.000005,6.5 L7.000005,0 8.000005,0 8.000005,6.5 C8.000005,8.4299927 6.4299977,10 4.500005,10 2.5699971,10 1.000005,8.4299927 1.000005,6.5 z</PathGeometry>
@@ -449,7 +449,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M1,1 L1,15 15,15 15,9 15,7 15,1 z M0,0 L16,0 16,16 0,16 z</PathGeometry>
@@ -457,7 +457,7 @@
                                                 </Path>
                                                 <Path
                                                     Margin="3,4,3,5"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,6 L7,6 7,7 0,7 z M0,4 L10,4 10,5 0,5 z M0,1.9999998 L7,1.9999998 7,3 0,3 z M0,0 L10,0 10,0.99999996 0,0.99999996 z</PathGeometry>
@@ -485,7 +485,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M1,1 L1,15 15,15 15,1 z M0,0 L16,0 16,16 0,16 z</PathGeometry>
@@ -493,7 +493,7 @@
                                                 </Path>
                                                 <Path
                                                     Margin="3,4,3,5"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M3,5.9999999 L10,5.9999999 10,6.9999999 3,6.9999999 z M0,4 L10,4 10,5 0,5 z M3,2 L10,2 10,3 3,3 z M0,0 L10,0 10,1 0,1 z</PathGeometry>
@@ -521,7 +521,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M1,1 L1,15 15,15 15,1 z M0,0 L16,0 16,16 0,16 z</PathGeometry>
@@ -529,7 +529,7 @@
                                                 </Path>
                                                 <Path
                                                     Margin="3,4,3,5"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0.99999994,6 L9,6 9,7 0.99999994,7 z M0,4 L10,4 10,5 0,5 z M0.99999994,1.9999998 L9,1.9999998 9,3 0.99999994,3 z M0,0 L10,0 10,0.99999996 0,0.99999996 z</PathGeometry>
@@ -557,7 +557,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M1,1 L1,15 15,15 15,1 z M0,0 L16,0 16,16 0,16 z</PathGeometry>
@@ -565,7 +565,7 @@
                                                 </Path>
                                                 <Path
                                                     Margin="3,4,3,5"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,5.9999999 L10,5.9999999 10,6.9999999 0,6.9999999 z M0,4 L10,4 10,5 0,5 z M0,2 L10,2 10,3 0,3 z M0,0 L10,0 10,1 0,1 z</PathGeometry>
@@ -604,7 +604,7 @@
                                                 <Path
                                                     Width="8"
                                                     HorizontalAlignment="Right"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,13 L8,13 8,14 0,14 z M1.9990071,9 L8,9 8,10 1.9990071,10 z M0,4 L8,4 8,5 0,5 z M1.9990071,0 L8,0 8,1 1.9990071,1 z</PathGeometry>
@@ -613,7 +613,7 @@
                                                 <Path
                                                     Width="4.991"
                                                     HorizontalAlignment="Left"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M1.9950032,8.0000002 L2.9950032,8.0000002 2.9950032,11.963503 4.2560117,10.595992 4.9910123,11.272994 2.4760118,13.999983 1.2308344E-05,11.205977 0.74801373,10.542983 1.9950032,11.948717 z M2.5140014,0 L4.9910028,2.7939997 4.2430022,3.4569993 2.9950032,2.0501394 2.9950032,6 1.9950032,6 1.9950032,2.0372591 0.73400038,3.4039993 0,2.7259998 z</PathGeometry>
@@ -643,7 +643,7 @@
                                                 <Path
                                                     Width="8"
                                                     HorizontalAlignment="Right"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,13 L8,13 8,14 0,14 z M1.9999998,9 L8,9 8,10 1.9999998,10 z M0,4 L8,4 8,5 0,5 z M1.9999998,0 L8,0 8,1 1.9999998,1 z</PathGeometry>
@@ -652,7 +652,7 @@
                                                 <Path
                                                     Width="5.032"
                                                     HorizontalAlignment="Left"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M2.5080084,8.0000112 L4.9770002,10.78001 4.2289996,11.444011 3.0420038,10.107287 3.0420038,14 2.0420038,14 2.0420038,9.9769595 0.73499992,11.391033 0,10.713024 z M2.0420038,0 L3.0420038,0 3.0420038,3.9605951 4.2950015,2.5969892 5.0320019,3.272994 2.5229997,6.0010116 0.051997603,3.2059932 0.80199828,2.5429888 2.0420038,3.9457664 z</PathGeometry>
@@ -689,7 +689,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,12 L14,12 14,13 0,13 z M8,8 L14,8 14,9 8,9 z M8,4 L14,4 14,5 8,5 z M0,0 L14,0 14,1 0,1 z</PathGeometry>
@@ -699,7 +699,7 @@
                                                     Width="6.187"
                                                     Margin="0,3.991,0,4.059"
                                                     HorizontalAlignment="Left"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M3.7870274,0 L6.1870296,2.5269938 3.7140274,4.9499879 3.0150268,4.2359896 4.2667925,3.008994 0,3.008994 0,2.0089941 4.3160441,2.0089941 3.0630267,0.68899834 z</PathGeometry>
@@ -727,7 +727,7 @@
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Top">
                                                 <Path
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M0,12 L14,12 14,13 0,13 z M0,8 L6,8 6,9 0,9 z M0,4 L6,4 6,5 0,5 z M0,0 L14,0 14,1 0,1 z</PathGeometry>
@@ -737,7 +737,7 @@
                                                     Width="6.104"
                                                     Margin="0,3.967,0,4.043"
                                                     HorizontalAlignment="Right"
-                                                    Fill="{StaticResource IconColor}"
+                                                    Fill="{StaticResource BlueBorderBrush}"
                                                     Stretch="Fill">
                                                     <Path.Data>
                                                         <PathGeometry>M2.7930241,0 L3.4570298,0.74799681 2.0067817,2.0329917 6.1040182,2.0329917 6.1040182,3.0329916 2.0795547,3.0329916 3.4040294,4.2549822 2.7260236,4.9899793 0,2.4759896 z</PathGeometry>
@@ -785,7 +785,7 @@
                                             HorizontalAlignment="Left"
                                             HorizontalContentAlignment="Left"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             IconHeight="0"
                                             IconWidth="0"
                                             Label="Format"
@@ -814,7 +814,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxOk}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             IsDefault="True"
                                             TabIndex="10" />
                                         <Button
@@ -827,7 +827,7 @@
                                             VerticalAlignment="Center"
                                             Content="{resources:RichTextBoxAdvLocalizationResourceExtension ResourceName=DialogBoxCancel}"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-                                            FontSize="{StaticResource FluentDark.BodyTextStyle}"
+                                            FontSize="12"
                                             TabIndex="11" />
                                     </StackPanel>
                                 </Grid>

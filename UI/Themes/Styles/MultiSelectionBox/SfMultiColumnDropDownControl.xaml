@@ -28,14 +28,14 @@
         BasedOn="{StaticResource WPFTextBoxStyle}"
         TargetType="TextBox">
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="TextWrapping" Value="NoWrap" />
         <Setter Property="IsReadOnlyCaretVisible" Value="True" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Margin">
             <Setter.Value>
                 <Thickness>4,0,0,0</Thickness>
@@ -107,18 +107,18 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="BorderThickness" Value="{StaticResource FluentDark.ThemeBorderThicknessVariant1}" />
-        <Setter Property="BorderBrush" Value="{StaticResource Border}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt4}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="PopupBorderBrush" Value="{StaticResource BorderAlt}" />
-        <Setter Property="PopupBorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="PopupBorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="PopupDropDownGridBackground" Value="{StaticResource PopupBackground}" />
         <Setter Property="PopupBackground" Value="{StaticResource PopupBackground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="MinHeight" Value="26" />
         <Setter Property="Template">
@@ -147,7 +147,7 @@
                                     Background="{TemplateBinding PopupBackground}"
                                     BorderBrush="{TemplateBinding PopupBorderBrush}"
                                     BorderThickness="{TemplateBinding PopupBorderThickness}"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                                    CornerRadius="4"
                                     Effect="{StaticResource Default.ShadowDepth3}">
                                     <Border.Margin>
                                         <Thickness>11,0,11,11</Thickness>
@@ -255,7 +255,7 @@
                                                                 Width="8"
                                                                 Height="8"
                                                                 Data="M36.396,36.017 L47.901,36.017 47.901,47.521999 36.396,47.521999 z M18.198,36.017 L29.716,36.017 29.716,47.521999 18.198,47.521999 z M0,36.017 L11.511999,36.017 11.511999,47.521999 0,47.521999 z M36.396,18.191001 L47.901,18.191001 47.901,29.696 36.396,29.696 z M18.198,18.191 L29.716,18.191 29.716,29.696 18.198,29.696 z M36.396,0 L47.901,0 47.901,11.512 36.396,11.512 z"
-                                                                Fill="{StaticResource IconColorDisabled}"
+                                                                Fill="{StaticResource FormBackground}"
                                                                 Stretch="Fill" />
                                                         </Grid>
                                                     </ControlTemplate>
@@ -306,7 +306,7 @@
                                     Margin="0"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{StaticResource FluentDark.ThemeBorderThicknessVariant1}"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
+                                    CornerRadius="2" />
                                 <ToggleButton
                                     x:Name="PART_ToggleButton"
                                     Grid.RowSpan="2"
@@ -343,7 +343,7 @@
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{StaticResource FluentDark.ThemeBorderThicknessVariant1}"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius2}" />
+                                    CornerRadius="2" />
                                 <ToggleButton
                                     x:Name="PART_MultiSelectToggleButton"
                                     Grid.RowSpan="2"
@@ -486,19 +486,19 @@
 
                         <Trigger SourceName="PART_ToggleButton" Property="IsPressed" Value="true">
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_TextBox" Property="Foreground" Value="{StaticResource ContentForeground}" />
                             <Setter TargetName="PART_TextBox" Property="Background" Value="{StaticResource ContentBackground}" />
                         </Trigger>
 
                         <Trigger SourceName="PART_TextBox" Property="IsFocused" Value="true">
                             <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="Transparent" />
-                            <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource SecondaryBackgroundHovered}" />
-                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{StaticResource IconColor}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Background" Value="{StaticResource ControlHoverBrush}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
                             <Setter TargetName="PART_TextBox" Property="Background" Value="{StaticResource ContentBackground}" />
                             <Setter TargetName="PART_TextBox" Property="Foreground" Value="{StaticResource ContentForeground}" />
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="2" />
                         </Trigger>
 
                         <MultiTrigger>
@@ -508,7 +508,7 @@
                                 <Condition SourceName="PART_ToggleButton" Property="IsChecked" Value="true" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{StaticResource IconColorHovered}" />
                             <Setter TargetName="PART_ToggleButton" Property="Background" Value="Transparent" />
                             <Setter TargetName="PART_ToggleButton" Property="BorderBrush" Value="Transparent" />
@@ -520,9 +520,9 @@
                                 <Condition SourceName="PART_ToggleButton" Property="IsFocused" Value="false" />
                                 <Condition SourceName="PART_ToggleButton" Property="IsChecked" Value="false" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{StaticResource IconColor}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
                             <Setter TargetName="PART_ToggleButton" Property="Background" Value="Transparent" />
                         </MultiTrigger>
 
@@ -547,32 +547,32 @@
                         <Trigger SourceName="PART_MultiSelectToggleButton" Property="IsPressed" Value="true">
                             <Setter TargetName="PART_MultiSelectBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="Margin" Value="0,-1,0,0" />
-                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="2" />
                         </Trigger>
 
                         <Trigger SourceName="PART_MultiSelectToggleButton" Property="IsChecked" Value="true">
                             <Setter TargetName="PART_MultiSelectBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="Margin" Value="0,-1,0,0" />
-                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="2" />
                         </Trigger>
 
                         <Trigger SourceName="PART_MultiSelectToggleButton" Property="IsFocused" Value="true">
                             <Setter TargetName="PART_MultiSelectBorder" Property="Margin" Value="0,-1,0,0" />
-                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
                         </Trigger>
 
                         <Trigger SourceName="PART_ItemsControl" Property="IsFocused" Value="true">
                             <Setter TargetName="PART_MultiSelectBorder" Property="Margin" Value="0,-1,0,0" />
-                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
                             <Setter TargetName="PART_MultiSelectToggleButton" Property="Foreground" Value="{StaticResource IconColorHovered}" />
                         </Trigger>
 
                         <Trigger Property="IsDropDownOpen" Value="true">
                             <Setter TargetName="PART_Border" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
-                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness2}" />
+                            <Setter TargetName="PART_Border" Property="BorderThickness" Value="2" />
+                            <Setter TargetName="PART_MultiSelectBorder" Property="BorderThickness" Value="2" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="BorderBrush" Value="{StaticResource PrimaryBackground}" />
                             <Setter TargetName="PART_MultiSelectBorder" Property="Margin" Value="0,-1,0,0" />
                         </Trigger>

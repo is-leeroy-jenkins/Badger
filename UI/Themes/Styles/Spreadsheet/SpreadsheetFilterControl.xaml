@@ -86,7 +86,7 @@
                                             Width="6.25"
                                             HorizontalAlignment="Right"
                                             Data="F1M120.3963,49.5265L117.8963,52.1345L117.8963,38.4115L116.6463,38.4115L116.6463,52.0725L114.1463,49.4885L114.1513,51.2185L117.2713,54.4115L120.3963,51.2965z"
-                                            Fill="{StaticResource IconColor}"
+                                            Fill="{StaticResource BlueBorderBrush}"
                                             Stretch="Fill" />
                                     </Grid>
                                 </Border>
@@ -110,7 +110,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered.Color}" />
+                                                Value="{StaticResource ControlHoverBrush.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -128,7 +128,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -142,7 +142,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="AscendingIcon"
@@ -162,7 +162,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="AscendingIcon"
@@ -271,7 +271,7 @@
                                             Width="6.25"
                                             HorizontalAlignment="Right"
                                             Data="F1M92.3963,49.5265L89.8963,52.1345L89.8963,38.4115L88.6463,38.4115L88.6463,52.0725L86.1463,49.4885L86.1513,51.2185L89.2713,54.4115L92.3963,51.2965z"
-                                            Fill="{StaticResource IconColor}"
+                                            Fill="{StaticResource BlueBorderBrush}"
                                             Stretch="Fill" />
                                     </Grid>
                                 </Border>
@@ -295,7 +295,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered.Color}" />
+                                                Value="{StaticResource ControlHoverBrush.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -313,7 +313,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -333,7 +333,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="DescendingIcon"
@@ -423,7 +423,7 @@
                                         <Path
                                             Margin="0,0,3.813,5.163"
                                             Data="F1M196.3963,39.4113L207.3963,39.4113L207.3963,40.3903L203.3803,44.4113L203.3843,50.4113L200.3963,50.4113L200.4123,44.4323L196.3963,40.3693z"
-                                            Fill="{StaticResource IconColor}"
+                                            Fill="{StaticResource BlueBorderBrush}"
                                             Stretch="Fill" />
                                         <Path
                                             Width="4.594"
@@ -466,7 +466,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundHovered.Color}" />
+                                                Value="{StaticResource ControlHoverBrush.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -484,7 +484,7 @@
                                             Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -575,7 +575,7 @@
                                     Height="14"
                                     Margin="4,5,4,4"
                                     Data="M 12.4227,0.00012207C 12.4867,0.126587 12.5333,0.274536 12.6787,0.321411C 9.49199,3.24792 6.704,6.57336 4.69865,10.6827C 4.04399,11.08 3.47066,11.5573 2.83199,11.9706C 2.09467,10.2198 1.692,8.13196 3.8147e-006,7.33606C 0.500004,6.79871 1.31733,6.05994 1.93067,6.2428C 2.85999,6.51868 3.14,7.9054 3.60399,8.81604C 5.80133,5.5387 8.53734,2.19202 12.4227,0.00012207 Z "
-                                    Fill="{StaticResource IconColor}"
+                                    Fill="{StaticResource BlueBorderBrush}"
                                     Stretch="Uniform"
                                     Visibility="Collapsed">
                                     <Path.RenderTransform>
@@ -605,7 +605,7 @@
                                         Width="7.758"
                                         Height="10.667"
                                         Data="F1 M 335.667,278.908L 335.667,268.241L 343.425,273.574L 335.667,278.908 Z "
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         RenderTransformOrigin="0.5,0.5"
                                         Stretch="Fill">
                                         <Path.RenderTransform>
@@ -629,7 +629,7 @@
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -647,7 +647,7 @@
                                             Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame
                                                 KeyTime="0"
-                                                Value="{StaticResource SecondaryBackgroundSelected.Color}" />
+                                                Value="{StaticResource SteelBlueBackground.Color}" />
                                         </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames
                                             Storyboard.TargetName="PART_RootBorder"
@@ -757,7 +757,7 @@
                                 Width="15"
                                 Height="15"
                                 Data="M 12.4227,0.00012207C 12.4867,0.126587 12.5333,0.274536 12.6787,0.321411C 9.49199,3.24792 6.704,6.57336 4.69865,10.6827C 4.04399,11.08 3.47066,11.5573 2.83199,11.9706C 2.09467,10.2198 1.692,8.13196 3.8147e-006,7.33606C 0.500004,6.79871 1.31733,6.05994 1.93067,6.2428C 2.85999,6.51868 3.14,7.9054 3.60399,8.81604C 5.80133,5.5387 8.53734,2.19202 12.4227,0.00012207 Z "
-                                Fill="{StaticResource IconColor}"
+                                Fill="{StaticResource BlueBorderBrush}"
                                 Stretch="Uniform"
                                 Visibility="Collapsed">
                                 <Path.RenderTransform>
@@ -808,7 +808,7 @@
                                     Visibility="{Binding Text, ElementName=PART_SearchTextBox, ConverterParameter=true, Converter={StaticResource textBlockVisibilityConverter}}">
 
                                     <Path
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         RenderTransformOrigin="0.5,0.5"
                                         Stretch="Uniform">
                                         <Path.Data>
@@ -838,7 +838,7 @@
                                         Height="10"
                                         Margin="3"
                                         Data="F1M54.0573,47.8776L38.1771,31.9974 54.0547,16.1198C55.7604,14.4141 55.7604,11.6511 54.0573,9.94531 52.3516,8.23962 49.5859,8.23962 47.8802,9.94531L32.0026,25.8229 16.1224,9.94531C14.4167,8.23962 11.6511,8.23962 9.94794,9.94531 8.24219,11.6511 8.24219,14.4141 9.94794,16.1198L25.8255,32 9.94794,47.8776C8.24219,49.5834 8.24219,52.3477 9.94794,54.0534 11.6511,55.7572 14.4167,55.7585 16.1224,54.0534L32.0026,38.1745 47.8802,54.0534C49.5859,55.7585 52.3516,55.7572 54.0573,54.0534 55.7604,52.3477 55.763,49.5834 54.0573,47.8776z"
-                                        Fill="{StaticResource IconColor}"
+                                        Fill="{StaticResource BlueBorderBrush}"
                                         Stretch="Fill">
                                         <Path.RenderTransform>
                                             <TransformGroup>
@@ -882,7 +882,7 @@
                                                 Width="26"
                                                 Height="26"
                                                 Data="M33.091251,58.314999C35.398258,58.314999 37.268002,60.186188 37.268002,62.490997 37.268002,64.797111 35.398258,66.667 33.091251,66.667 30.786645,66.667 28.917001,64.797111 28.917001,62.490997 28.917001,60.186188 30.786645,58.314999 33.091251,58.314999z M47.2943,55.271999C49.601437,55.271999 51.471003,57.141811 51.471003,59.447948 51.471003,61.752788 49.601437,63.624 47.2943,63.624 44.989765,63.624 43.119999,61.752788 43.119999,59.447948 43.119999,57.141811 44.989765,55.271999 47.2943,55.271999z M18.6666,54.257999C21.252921,54.257999 23.352,56.354423 23.352,58.94035 23.352,61.526379 21.252921,63.624 18.6666,63.624 16.08058,63.624 13.984001,61.526379 13.984001,58.94035 13.984001,56.354423 16.08058,54.257999 18.6666,54.257999z M57.4405,45.199001C59.3416,45.199001 60.891001,46.743435 60.891001,48.651199 60.891001,50.557564 59.3416,52.102001 57.4405,52.102001 55.534201,52.102001 53.99,50.557564 53.99,48.651199 53.99,46.743435 55.534201,45.199001 57.4405,45.199001z M8.3045502,43.967003C10.890694,43.967003 12.987,46.064644 12.987,48.6507 12.987,51.236656 10.890694,53.333 8.3045502,53.333 5.7185383,53.333 3.6219997,51.236656 3.6219997,48.6507 3.6219997,46.064644 5.7185383,43.967003 8.3045502,43.967003z M61.643499,30.851999C63.544542,30.851999 65.093996,32.396133 65.093996,34.30365 65.093996,36.209869 63.544542,37.754002 61.643499,37.754002 59.737253,37.754002 58.193001,36.209869 58.193001,34.30365 58.193001,32.396133 59.737253,30.851999 61.643499,30.851999z M4.6824703,29.619999C7.268652,29.619999 9.3649998,31.717722 9.3649998,34.30365 9.3649998,36.88958 7.268652,38.986 4.6824703,38.986 2.0965385,38.986 0,36.88958 0,34.30365 0,31.717722 2.0965385,29.619999 4.6824703,29.619999z M57.440451,16.938999C59.101923,16.938999 60.455999,18.287865 60.455999,19.9543 60.455999,21.620834 59.101923,22.971001 57.440451,22.971001 55.773779,22.971001 54.425001,21.620834 54.425001,19.9543 54.425001,18.287865 55.773779,16.938999 57.440451,16.938999z M8.3045502,15.272C10.890694,15.272 12.987,17.368345 12.987,19.9543 12.987,22.540255 10.890694,24.637999 8.3045502,24.637999 5.7185383,24.637999 3.6219997,22.540255 3.6219997,19.9543 3.6219997,17.368345 5.7185383,15.272 8.3045502,15.272z M47.294703,7.0829992C48.875502,7.0829996 50.167002,8.3696136 50.167002,9.9543542 50.167002,11.540385 48.875502,12.827 47.294703,12.827 45.711302,12.827 44.425001,11.540385 44.425001,9.9543542 44.425001,8.3696136 45.711302,7.0829996 47.294703,7.0829992z M18.666401,4.0399989C21.61159,4.0399999 23.997,6.4307284 23.997001,9.3748798 23.997,12.319001 21.61159,14.710999 18.666401,14.710999 15.72391,14.710999 13.336,12.319001 13.335999,9.3748798 13.336,6.4307284 15.72391,4.0399999 18.666401,4.0399989z M33.091201,0C36.294464,-7.5211233E-08 38.891,2.59503 38.891,5.7968797 38.891,8.9987201 36.294464,11.595 33.091201,11.595 29.890533,11.595 27.294,8.9987201 27.294001,5.7968797 27.294,2.59503 29.890533,-7.5211233E-08 33.091201,0z"
-                                                Fill="{StaticResource IconColor}"
+                                                Fill="{StaticResource BlueBorderBrush}"
                                                 RenderTransformOrigin="0.5,0.5"
                                                 Stretch="Uniform"
                                                 Visibility="{Binding IsItemSourceLoaded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, ConverterParameter={StaticResource LoadingAnimation}, Converter={StaticResource ResourceKey=loadingVisiblityConverter}}">
@@ -1152,7 +1152,7 @@
                                                             Width="8"
                                                             Height="8"
                                                             Data="M36.396,36.017 L47.901,36.017 47.901,47.521999 36.396,47.521999 z M18.198,36.017 L29.716,36.017 29.716,47.521999 18.198,47.521999 z M0,36.017 L11.511999,36.017 11.511999,47.521999 0,47.521999 z M36.396,18.191001 L47.901,18.191001 47.901,29.696 36.396,29.696 z M18.198,18.191 L29.716,18.191 29.716,29.696 18.198,29.696 z M36.396,0 L47.901,0 47.901,11.512 36.396,11.512 z"
-                                                            Fill="{StaticResource IconColor}"
+                                                            Fill="{StaticResource BlueBorderBrush}"
                                                             Stretch="Fill" />
                                                     </Grid>
                                                 </ControlTemplate>

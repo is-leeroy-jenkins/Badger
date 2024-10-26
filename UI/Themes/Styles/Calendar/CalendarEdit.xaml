@@ -44,7 +44,7 @@
             BorderThickness="{TemplateBinding Border.BorderThickness}"
             CornerRadius="{TemplateBinding Border.CornerRadius}"
             TextBlock.FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
-            TextBlock.FontSize="{StaticResource FluentDark.BodyTextStyle}"
+            TextBlock.FontSize="12"
             TextBlock.FontWeight="{StaticResource FluentDark.FontWeightMedium}"
             TextBlock.Foreground="{StaticResource ContentForeground}">
             <ContentPresenter
@@ -186,8 +186,8 @@
         <Setter Property="Control.VerticalContentAlignment" Value="{x:Static VerticalAlignment.Stretch}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Focusable" Value="True" />
@@ -428,7 +428,7 @@
                             <Setter TargetName="HighlightBackground" Property="Background" Value="{StaticResource ContentBackgroundHovered}" />
                             <Setter TargetName="HighlightBackground" Property="BorderBrush" Value="Transparent" />
                             <Setter TargetName="DayContentPresenter" Property="TextElement.Foreground" Value="{StaticResource HoveredForeground}" />
-                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource FormBackground}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -442,7 +442,7 @@
                             <Setter TargetName="HighlightBackground" Property="Background" Value="{StaticResource ContentBackgroundPressed}" />
                             <Setter TargetName="HighlightBackground" Property="BorderBrush" Value="{StaticResource BorderAlt}" />
                             <Setter TargetName="DayContentPresenter" Property="TextElement.Foreground" Value="{StaticResource ContentForegroundAlt1}" />
-                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource FormBackground}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -456,7 +456,7 @@
                             <Setter TargetName="HighlightBackground" Property="Background" Value="Transparent" />
                             <Setter TargetName="HighlightBackground" Property="BorderBrush" Value="Transparent" />
                             <Setter TargetName="DayContentPresenter" Property="TextElement.Foreground" Value="{StaticResource DisabledForeground}" />
-                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="BlockoutDate" Property="Fill" Value="{StaticResource FormBackground}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -481,8 +481,8 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Width" Value="45" />
         <Setter Property="Height" Value="47" />
         <Setter Property="Margin" Value="0"/>
@@ -569,8 +569,8 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Width" Value="45" />
         <Setter Property="Height" Value="47" />
         <Setter Property="Margin" Value="0"/>
@@ -665,8 +665,8 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Width" Value="45" />
         <Setter Property="Height" Value="47" />
         <Setter Property="Margin" Value="0"/>
@@ -823,7 +823,7 @@
     <!--  NavigateButtonBase  -->
     <Style x:Key="SyncfusionNavigateButtonBaseStyle" TargetType="{x:Type shared:NavigateButtonBase}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource ContentForegroundAlt1}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -854,7 +854,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
-                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Border}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
                             <Setter Property="Foreground" Value="{StaticResource ContentForegroundAlt1}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -913,7 +913,7 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="TextBlock.FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
         <Setter Property="TextBlock.FontSize" Value="{StaticResource FluentDark.TitleTextStyle}" />
-        <Setter Property="TextBlock.FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Focusable" Value="false" />
@@ -967,8 +967,8 @@
         <Setter Property="Background" Value="{StaticResource ContentBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="HeaderBackground" Value="Transparent" />
         <Setter Property="HeaderForeground" Value="{StaticResource ContentForegroundAlt1}" />
         <Setter Property="WeekNumberBackground" Value="Transparent" />
@@ -997,7 +997,7 @@
         <Setter Property="SelectedDayCellForeground" Value="{StaticResource SelectedForeground}" />
         <Setter Property="BlackoutDatesBackground" Value="Transparent" />
         <Setter Property="BlackoutDatesBorderBrush" Value="Transparent" />
-        <Setter Property="BlackoutDatesCrossBrush" Value="{StaticResource IconColorDisabled}" />
+        <Setter Property="BlackoutDatesCrossBrush" Value="{StaticResource FormBackground}" />
         <Setter Property="BlackoutDatesForeground" Value="{StaticResource DisabledForeground}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="DayCellsStyle" Value="{StaticResource SyncfusionDayCellStyle}" />

@@ -113,10 +113,10 @@
                     <Border
                         Margin="-2"
                         BorderBrush="#99FFFFFF"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness2}">
+                        BorderThickness="2">
                         <Border
                             BorderBrush="#FF161616"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness2}" />
+                            BorderThickness="2" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -130,7 +130,7 @@
                     <Border
                         Margin="-4"
                         BorderBrush="#99FFFFFF"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness2}" />
+                        BorderThickness="2" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -142,10 +142,10 @@
                 <ControlTemplate>
                     <Border
                         BorderBrush="#99FFFFFF"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness2}">
+                        BorderThickness="2">
                         <Border
                             BorderBrush="#FF161616"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness1}" />
+                            BorderThickness="1" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -159,11 +159,11 @@
                     <Border
                         Margin="-2"
                         BorderBrush="#99FFFFFF"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness2}"
+                        BorderThickness="2"
                         CornerRadius="100">
                         <Border
                             BorderBrush="#FF161616"
-                            BorderThickness="{StaticResource FluentDark.BorderThickness2}"
+                            BorderThickness="2"
                             CornerRadius="100" />
                     </Border>
                 </ControlTemplate>

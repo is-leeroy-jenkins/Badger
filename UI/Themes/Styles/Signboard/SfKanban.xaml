@@ -43,21 +43,21 @@
                     Margin="8,4,0,8"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding [ItemsCount]}" />
                 <TextBlock
                     Margin="3,4,0,8"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding CardCount}" />
                 <TextBlock
                     Margin="3,4,0,8"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}, ConverterParameter=MinMaxLimit, Converter={StaticResource CardCountConverter}}" />
             </StackPanel>
@@ -75,7 +75,7 @@
                 Height="24"
                 Margin="2"
                 Background="Transparent"
-                CornerRadius="{StaticResource FluentDark.CornerRadius2}">
+                CornerRadius="2">
                 <Grid
                     x:Name="CollapsedIcon"
                     Background="Transparent">
@@ -87,7 +87,7 @@
                         IsHitTestVisible="False"
                         RenderTransformOrigin="0.5,0.5"
                         Stretch="Uniform"
-                        Stroke="{StaticResource IconColor}">
+                        Stroke="{StaticResource BlueBorderBrush}">
                         <Path.Data>
                             <PathGeometry>M1 1L7 7L13 1</PathGeometry>
                         </Path.Data>
@@ -108,7 +108,7 @@
                         IsHitTestVisible="False"
                         RenderTransformOrigin="0.5,0.5"
                         Stretch="Uniform"
-                        Stroke="{StaticResource IconColor}"
+                        Stroke="{StaticResource BlueBorderBrush}"
                         Visibility="Collapsed">
                         <Path.Data>
                             <PathGeometry>M1 1L7 7L1 13</PathGeometry>
@@ -138,7 +138,7 @@
                 Margin="5,0,0,0"
                 VerticalAlignment="Center"
                 FontSize="{StaticResource FluentDark.CaptionText}"
-                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                FontWeight="Normal"
                 Foreground="{StaticResource ContentForegroundAlt1}"
                 IsHitTestVisible="False"
                 Text="-"
@@ -148,7 +148,7 @@
                 Margin="5,0,0,0"
                 VerticalAlignment="Center"
                 FontSize="{StaticResource FluentDark.CaptionText}"
-                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                FontWeight="Normal"
                 Foreground="{StaticResource ContentForegroundAlt1}"
                 IsHitTestVisible="False"
                 Text="{Binding ItemsCount, ConverterParameter=SwimlaneCardCount, Converter={StaticResource CardCountConverter}}"
@@ -196,21 +196,21 @@
                     Margin="0,2,0,5"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding [ItemsCount]}" />
                 <TextBlock
                     Margin="5,2,0,5"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding CardCount}" />
                 <TextBlock
                     Margin="0,2,0,5"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FluentDark.CaptionText}"
-                    FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                    FontWeight="Normal"
                     Foreground="{StaticResource ContentForegroundAlt1}"
                     Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource CardCountConverter}}" />
             </StackPanel>
@@ -227,7 +227,7 @@
                     Data="M172.444,310.778 L158.444,317.111 L171.222,324.222"
                     IsHitTestVisible="False"
                     Stretch="Fill"
-                    Stroke="{StaticResource IconColor}"
+                    Stroke="{StaticResource BlueBorderBrush}"
                     StrokeLineJoin="Miter"
                     StrokeThickness="2"
                     UseLayoutRounding="False" />
@@ -244,8 +244,8 @@
                 Margin="10,1,10,1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                FontSize="{StaticResource FluentDark.BodyTextStyle}"
-                FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                FontSize="12"
+                FontWeight="Normal"
                 Foreground="{Binding CardStyle.TagForeground, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SfKanban}}"
                 Text="{Binding}"
                 TextTrimming="CharacterEllipsis" />
@@ -259,8 +259,8 @@
         <Setter Property="RadiusX" Value="6" />
         <Setter Property="RadiusY" Value="6" />
         <Setter Property="Fill" Value="{StaticResource ContentBackground}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Foreground" Value="{StaticResource ContentForegroundAlt1}" />
         <Setter Property="Stroke" Value="{StaticResource BorderAlt1}" />
         <Setter Property="StrokeDashArray" Value="4,2" />
@@ -269,9 +269,9 @@
         <Setter Property="TextVerticalAlignment" Value="Top" />
         <Setter Property="SelectedBackground" Value="{StaticResource ContentBackground}" />
         <Setter Property="SelectedForeground" Value="{StaticResource ContentForegroundAlt1}" />
-        <Setter Property="SelectedFontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="SelectedFontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
-        <Setter Property="SelectedStroke" Value="{StaticResource Border}" />
+        <Setter Property="SelectedFontSize" Value="12" />
+        <Setter Property="SelectedFontWeight" Value="Normal" />
+        <Setter Property="SelectedStroke" Value="{StaticResource BlueBorderBrush}" />
         <Setter Property="Effect" Value="{StaticResource Default.ShadowDepth1}" />
     </Style>
     <Style
@@ -290,17 +290,17 @@
         <Setter Property="TagVisibility" Value="Visible" />
         <Setter Property="IndicatorVisibility" Value="Visible" />
         <Setter Property="IconVisibility" Value="Visible" />
-        <Setter Property="TagBackground" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="TagBackground" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="TagForeground" Value="{StaticResource ContentForeground}" />
 
         <Setter Property="FontSize" Value="{StaticResource FluentDark.CaptionText}" />
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontWeight" Value="Normal" />
 
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="BorderThickness" Value="1.5" />
 
-        <Setter Property="Background" Value="{StaticResource ContentBackgroundAlt1}" />
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
         <Setter Property="Effect" Value="{StaticResource Default.ShadowDepth1}" />
     </Style>
 
@@ -315,7 +315,7 @@
                 <local:KanbanCardStyle Style="{StaticResource SyncfusionSfKanbanCardStyle}" />
             </Setter.Value>
         </Setter>
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="ColumnHeaderTemplate" Value="{StaticResource DefaultSwimlaneColumnHeaderTemplate}" />
         <Setter Property="SwimlaneHeaderTemplate" Value="{StaticResource DefaultSwimlaneHeaderTemplate}" />
         <Setter Property="PlaceholderStyle">

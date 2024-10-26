@@ -839,7 +839,7 @@
         TargetType="Border">
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="Background" Value="{StaticResource PopupBackground}" />
-        <Setter Property="BorderThickness" Value="{StaticResource FluentDark.BorderThickness1}" />
+        <Setter Property="BorderThickness" Value="1" />
     </Style>
 
     <Style

@@ -76,7 +76,7 @@
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
-            CornerRadius="{StaticResource FluentDark.CornerRadius2}"
+            CornerRadius="2"
             SnapsToDevicePixels="true">
             <ContentPresenter
                 x:Name="contentPresenter"
@@ -126,7 +126,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         SnapsToDevicePixels="True">
                         <Grid x:Name="Grid">
                             <Grid.ColumnDefinitions>
@@ -172,7 +172,7 @@
                                 Grid.Column="3"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Fill="{StaticResource IconColor}">
+                                Fill="{StaticResource BlueBorderBrush}">
                                 <Path.Data>
                                     <PathGeometry>M0,0L4,3.5 0,7z</PathGeometry>
                                 </Path.Data>
@@ -192,7 +192,7 @@
                                     Background="{StaticResource PopupBackground}"
                                     BorderBrush="{StaticResource BorderAlt}"
                                     BorderThickness="1"
-                                    CornerRadius="{StaticResource FluentDark.CornerRadius4}">
+                                    CornerRadius="4">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition />
@@ -295,7 +295,7 @@
         x:Key="LayerGridStyle"
         TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
+        <Setter Property="FontSize" Value="12" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="true">
                 <Setter Property="Foreground" Value="{StaticResource ContentForeground}" />
@@ -323,10 +323,10 @@
     <Style
         x:Key="MenuIconStyle"
         TargetType="{x:Type Path}">
-        <Setter Property="Fill" Value="{StaticResource IconColor}" />
+        <Setter Property="Fill" Value="{StaticResource BlueBorderBrush}" />
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Fill" Value="{StaticResource IconColorDisabled}" />
+                <Setter Property="Fill" Value="{StaticResource FormBackground}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -815,7 +815,7 @@
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="2"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}">
+                        CornerRadius="4">
                         <Grid Margin="12,2,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="15" />
@@ -872,7 +872,7 @@
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="1"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -926,7 +926,7 @@
                                 Padding="16,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                FontSize="{StaticResource FluentDark.BodyTextStyle}">
+                                FontSize="12">
                                 <Hyperlink Style="{StaticResource WPFHyperlinkStyle}">
                                     Copy exception details to the clipboard
                                 </Hyperlink>
@@ -952,7 +952,7 @@
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="2"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <Grid
                             Name="searchBarGrid"
@@ -1065,7 +1065,7 @@
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="1"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <Grid
                             Width="251"
@@ -1139,8 +1139,8 @@
                         Padding="8,8,8,8"
                         Background="{StaticResource PopupBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        BorderThickness="1"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <Grid Name="freeTextGrid">
                             <Grid.ColumnDefinitions>
@@ -1242,7 +1242,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pdfviewer:RedactionToolbar}">
                     <Border
-                        Background="{StaticResource ContentBackgroundAlt1}"
+                        Background="{StaticResource ControlInteriorBrush}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="0,0,0,1"
                         KeyboardNavigation.TabNavigation="Cycle">
@@ -1264,7 +1264,7 @@
                                 Content="Redaction"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                 FontSize="12"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}" />
+                                FontWeight="Normal" />
                             <StackPanel
                                 Name="redactToolBar"
                                 Grid.Column="2"
@@ -1303,7 +1303,7 @@
                                             Content="Mark for Redaction"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                            FontWeight="Normal"
                                             Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                                     </Grid>
                                 </ToggleButton>
@@ -1340,7 +1340,7 @@
                                             Content="Apply"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                            FontWeight="Normal"
                                             Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                                     </Grid>
                                 </ToggleButton>
@@ -1377,7 +1377,7 @@
                                             Content="Properties"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                            FontWeight="Normal"
                                             Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                                     </Grid>
                                 </ToggleButton>
@@ -1415,7 +1415,7 @@
                                             Content="Import"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                            FontWeight="Normal"
                                             Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                                     </Grid>
                                 </ToggleButton>
@@ -1454,7 +1454,7 @@
                                             Content="Export"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}"
+                                            FontWeight="Normal"
                                             Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                                     </Grid>
                                 </ToggleButton>
@@ -1495,7 +1495,7 @@
                 <ControlTemplate TargetType="{x:Type pdfviewer:DocumentToolbar}">
                     <StackPanel>
                         <Border
-                            Background="{StaticResource ContentBackgroundAlt1}"
+                            Background="{StaticResource ControlInteriorBrush}"
                             BorderBrush="{StaticResource BorderAlt}"
                             BorderThickness="0,0,0,1px"
                             KeyboardNavigation.TabNavigation="Cycle">
@@ -1596,7 +1596,7 @@
                                         x:Name="PART_PrimaryLeftScrollButton"
                                         Grid.Column="0"
                                         Width="24"
-                                        Background="{StaticResource ContentBackgroundAlt1}"
+                                        Background="{StaticResource ControlInteriorBrush}"
                                         Style="{StaticResource WPFGlyphRepeatButtonStyle}">
                                         <RepeatButton.Margin>
                                             <Thickness>-1,-2,0,-2</Thickness>
@@ -2095,7 +2095,7 @@
                                         x:Name="PART_PrimaryRightScrollButton"
                                         Grid.Column="2"
                                         Width="24"
-                                        Background="{StaticResource ContentBackgroundAlt1}"
+                                        Background="{StaticResource ControlInteriorBrush}"
                                         Style="{StaticResource WPFGlyphRepeatButtonStyle}">
                                         <RepeatButton.Margin>
                                             <Thickness>0,-2,-1,-2</Thickness>
@@ -2147,7 +2147,7 @@
                         <Border
                             Name="Part_AnnotationToolbar"
                             Height="40"
-                            Background="{StaticResource ContentBackgroundAlt1}"
+                            Background="{StaticResource ControlInteriorBrush}"
                             BorderBrush="{StaticResource BorderAlt}"
                             BorderThickness="0,1px,0,1px"
                             KeyboardNavigation.TabNavigation="Cycle">
@@ -2166,7 +2166,7 @@
                                         x:Name="PART_SecondaryLeftScrollButton"
                                         Grid.Column="0"
                                         Width="24"
-                                        Background="{StaticResource ContentBackgroundAlt1}"
+                                        Background="{StaticResource ControlInteriorBrush}"
                                         Style="{StaticResource WPFGlyphRepeatButtonStyle}">
                                         <RepeatButton.Margin>
                                             <Thickness>-1,-1,0,-2</Thickness>
@@ -2231,7 +2231,7 @@
                                                                         Height="14"
                                                                         Margin="8,0,8,0"
                                                                         Data="M11 2.625V0H10.0666V1.75H0.915141V0H0V2.625C0.345088 2.60962 0.689316 2.66946 1.00666 2.8C1.25149 2.90222 1.46549 3.0617 1.62895 3.26375C1.78769 3.46984 1.89989 3.70524 1.9584 3.955C2.02242 4.24292 2.05918 4.53577 2.06822 4.83V5.705V7.02625H3.66972V10.5262L7.33028 8.5575V7.02625H8.93178V5.705V4.83C8.94374 4.5355 8.98355 4.24264 9.05075 3.955C9.10625 3.70585 9.21532 3.47045 9.37105 3.26375C9.53639 3.0635 9.74987 2.9044 9.99334 2.8C10.311 2.67033 10.655 2.61053 11 2.625ZM8.25458 5.01375V6.125L2.78203 6.13375V5.01375C2.79155 4.72138 2.77625 4.42875 2.73627 4.13875C2.69354 3.86456 2.61355 3.59689 2.49834 3.3425C2.37074 3.06808 2.19074 2.81881 1.96755 2.6075H9.0782C8.84855 2.81545 8.66494 3.06539 8.53827 3.3425C8.42476 3.59682 8.3478 3.86468 8.30948 4.13875C8.26216 4.42809 8.24378 4.72108 8.25458 5.01375ZM6.42429 7H4.59401V9.065L6.42429 8.12V7ZM11 12.25H0.0183028V14H11V12.25Z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         FlowDirection="LeftToRight"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
@@ -2247,7 +2247,7 @@
                                                                         Height="14"
                                                                         Margin="8,0,8,0"
                                                                         Data="M9.16667 0V7.875C9.17583 8.47576 9.06512 9.07187 8.84167 9.625C8.63156 10.1442 8.32891 10.6164 7.95 11.0162C7.56996 11.4151 7.12003 11.733 6.625 11.9525C6.1116 12.1829 5.5583 12.2991 5 12.2937C4.44186 12.2973 3.8889 12.1812 3.375 11.9525C2.37573 11.5092 1.5805 10.6742 1.15833 9.625C0.934882 9.07187 0.824175 8.47576 0.833333 7.875V0H1.66667V7.875C1.6649 8.34162 1.75572 8.80351 1.93333 9.23125C2.2755 10.0685 2.91095 10.7357 3.70833 11.095C4.1157 11.2815 4.5556 11.3769 5 11.375C5.44709 11.3768 5.88969 11.2815 6.3 11.095C6.69443 10.9158 7.0534 10.6605 7.35833 10.3425C7.66325 10.0241 7.90662 9.64674 8.075 9.23125C8.24999 8.80295 8.33797 8.34103 8.33333 7.875V0H9.16667ZM0 13.125H10V14H0V13.125Z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2262,7 +2262,7 @@
                                                                         Height="13"
                                                                         Margin="8,0,8,0"
                                                                         Data="M3.53733 11.3509V12.3424C4.00027 12.5485 4.49323 12.6989 5.00267 12.7894C5.56457 12.9129 6.14062 12.9811 6.72 12.9926C7.89826 13.0543 9.06035 12.7295 9.97733 12.0823C10.7402 11.479 11.16 10.6142 11.1253 9.71727C11.1359 9.10218 10.9192 8.50116 10.5085 8.0024H9.07329C9.22868 8.11532 9.38075 8.23184 9.52933 8.35188C9.93873 8.78517 10.1483 9.33562 10.1173 9.89607C10.1561 10.5546 9.82978 11.1893 9.24 11.6028C8.4886 12.0536 7.58352 12.2685 6.67333 12.2124C5.55458 12.1939 4.4657 11.8948 3.53733 11.3509ZM6.1368 6.37694H8.23749L14 6.37694V7.18967H9.56962H7.78404H0V6.37694L6.1368 6.37694ZM4.90615 5.56421H6.61179C6.11994 5.27649 5.65368 4.95594 5.21733 4.60518C4.80364 4.17715 4.5933 3.62769 4.62933 3.06912C4.61932 2.44047 4.93884 1.84211 5.49733 1.44365C6.15188 0.982304 6.98069 0.75043 7.82133 0.793468C8.75699 0.78746 9.68321 0.956528 10.5373 1.28923V0.378975C9.70469 0.132575 8.83141 0.00629236 7.952 0.00511798C6.80069 -0.0458424 5.67001 0.285253 4.788 0.931633C4.02366 1.49253 3.58579 2.32065 3.59333 3.19103C3.58039 3.8095 3.78562 4.41656 4.18133 4.93027C4.40974 5.1535 4.65176 5.36509 4.90615 5.56421Z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2277,7 +2277,7 @@
                                                                         Height="14"
                                                                         Margin="8,0,8,0"
                                                                         Data="M14 1.5H9.5V10H8.5L8.5 1.5H4V0.5H14V1.5ZM0.700195 11.4001L2.76686 12.9501C3.3002 13.3501 4.03353 13.3501 4.56686 12.9501L6.03353 11.8501C6.21131 11.7168 6.45575 11.7168 6.63353 11.8501L8.1002 12.9501C8.63353 13.3501 9.36686 13.3501 9.9002 12.9501L11.3669 11.8501C11.5446 11.7168 11.7891 11.7168 11.9669 11.8501L13.4335 12.9501C13.9669 13.3501 14.7002 13.3501 15.2335 12.9501L17.3002 11.4001L16.7002 10.6001L14.6335 12.1501C14.4558 12.2834 14.2113 12.2834 14.0335 12.1501L12.5669 11.0501C12.0335 10.6501 11.3002 10.6501 10.7669 11.0501L9.3002 12.1501C9.12242 12.2834 8.87797 12.2834 8.7002 12.1501L7.23353 11.0501C6.7002 10.6501 5.96686 10.6501 5.43353 11.0501L3.96686 12.1501C3.78908 12.2834 3.54464 12.2834 3.36686 12.1501L1.3002 10.6001L0.700195 11.4001Z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2390,7 +2390,7 @@
                                                                         Height="14.001"
                                                                         Margin="8,0,8,0"
                                                                         Data="M13.327999,0 L14.034,0.70800023 0.70600039,14.000999 0,13.292999 z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2405,7 +2405,7 @@
                                                                         Height="12"
                                                                         Margin="8,0,8,0"
                                                                         Data="M1,1 L1,11 15,11 15,1 z M0,0 L16,0 16,12 0,12 z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2420,7 +2420,7 @@
                                                                         Height="16"
                                                                         Margin="8,0,8,0"
                                                                         Data="M8,1 C4.1400146,1 1,4.1410217 1,8 1,11.859009 4.1400146,15 8,15 11.859985,15 15,11.859009 15,8 15,4.1410217 11.859985,1 8,1 z M8,0 C12.411011,0 16,3.5890198 16,8 16,12.411011 12.411011,16 8,16 3.5889893,16 0,12.411011 0,8 0,3.5890198 3.5889893,0 8,0 z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2435,7 +2435,7 @@
                                                                         Height="12.999"
                                                                         Margin="8,0,8,0"
                                                                         Data="M4.0109848,0 L13.010985,0 13.010985,9.0000001 12.010985,9.0000001 12.010985,1.6986566 0.70699739,12.998991 0,12.291991 11.295642,1 4.0109848,1 z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2450,7 +2450,7 @@
                                                                         Height="14"
                                                                         Margin="8,0,8,0"
                                                                         Data="M4.5770001,1.0000001 L1.1510011,7.0000001 4.5770001,13 11.419001,13 14.845003,7.0000001 11.419001,1.0000001 z M3.997002,0 L11.999002,0 15.996,7.0000001 11.999002,14 3.997002,14 0,7.0000001 z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2465,7 +2465,7 @@
                                                                         Height="14.249"
                                                                         Margin="8,0,8,0"
                                                                         Data="F1M112.1182,27.7227L108.0002,20.4997L112.0122,13.4637L120.0642,13.4637L123.9342,20.2527C124.0712,20.4927,123.9872,20.7977,123.7472,20.9347C123.5072,21.0707,123.2022,20.9867,123.0652,20.7477L119.4832,14.4637L112.5932,14.4637L109.1512,20.4997L112.4862,26.3497L117.9982,23.1277C118.2392,22.9887,118.5432,23.0687,118.6822,23.3067C118.8222,23.5457,118.7422,23.8517,118.5032,23.9917z"
-                                                                        Fill="{StaticResource IconColor}"
+                                                                        Fill="{StaticResource BlueBorderBrush}"
                                                                         Stretch="Fill" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
@@ -2480,7 +2480,7 @@
                                                                         Height="16"
                                                                         Data="M8.04725 9.48717C6.9776 11.3997 4.83829 11.7185 3.47833 9.15833C0.559587 9.48717 0.0248013 5.3796 2.92137 5.3796C2.69888 0.243307 6.17536 2.86045 6.17536 2.86045C6.71009 -0.0754566 9.11681 0.880817 9.32569 2.86044C10.454 0.880782 13.3955 1.5183 12.667 4.43493C15.7299 4.74982 16.0083 9.15834 12.1102 8.52854C11.2562 11.3997 9.91914 10.7622 8.04725 9.48717Z"
                                                                         Stretch="Fill"
-                                                                        Stroke="{StaticResource IconColor}" />
+                                                                        Stroke="{StaticResource BlueBorderBrush}" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
                                                             <MenuItem
@@ -2495,7 +2495,7 @@
                                                                         Margin="8,0,8,0"
                                                                         Data="M7 6L4.5 3H1M1 3L3 5M1 3L3 1M9 4.5H15M9 7.5H15M7 1H17V11H7V1Z"
                                                                         Stretch="Fill"
-                                                                        Stroke="{StaticResource IconColor}" />
+                                                                        Stroke="{StaticResource BlueBorderBrush}" />
                                                                 </MenuItem.Icon>
                                                             </MenuItem>
                                                         </ContextMenu>
@@ -2623,7 +2623,7 @@
                                         x:Name="PART_SecondaryRightScrollButton"
                                         Grid.Column="2"
                                         Width="24"
-                                        Background="{StaticResource ContentBackgroundAlt1}"
+                                        Background="{StaticResource ControlInteriorBrush}"
                                         Style="{StaticResource WPFGlyphRepeatButtonStyle}">
                                         <RepeatButton.Margin>
                                             <Thickness>0,-1,-1,-2</Thickness>
@@ -2686,7 +2686,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type pdfviewer:OutlinePane}">
                     <Border
-                        Background="{StaticResource ContentBackgroundAlt1}"
+                        Background="{StaticResource ControlInteriorBrush}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="0,0,1px,0">
                         <StackPanel Name="PART_OutlineStackPanel">
@@ -2866,7 +2866,7 @@
                                 Content="Bookmarks"
                                 FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                 FontSize="12"
-                                FontWeight="{StaticResource FluentDark.FontWeightNormal}" />
+                                FontWeight="Normal" />
                             <Button
                                 Name="PART_RemoveLayer"
                                 Grid.Column="1"
@@ -2988,7 +2988,7 @@
                         Background="{StaticResource ContentBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="1"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <StackPanel
                             VerticalAlignment="Center"
@@ -3060,7 +3060,7 @@
                         Background="{StaticResource ContentBackground}"
                         BorderBrush="{StaticResource BorderAlt}"
                         BorderThickness="0,0,1,1"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth3}">
                         <DockPanel LastChildFill="True">
                             <Grid x:Name="Thumb_ParentGrid">
@@ -3085,7 +3085,7 @@
                                             Content="Organize Pages"
                                             FontFamily="{StaticResource FluentDark.ThemeFontFamily}"
                                             FontSize="12"
-                                            FontWeight="{StaticResource FluentDark.FontWeightNormal}" />
+                                            FontWeight="Normal" />
                                         <StackPanel
                                             x:Name="Thumb_StackPanel"
                                             Grid.Row="0"

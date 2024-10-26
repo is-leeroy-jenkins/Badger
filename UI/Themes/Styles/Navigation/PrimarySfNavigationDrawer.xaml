@@ -172,8 +172,8 @@
                     <Border
                         Background="{Binding Path=DrawerBackground, RelativeSource={RelativeSource AncestorType={x:Type local:SfNavigationDrawer}}}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{StaticResource FluentDark.BorderThickness1}"
-                        CornerRadius="{StaticResource FluentDark.CornerRadius4}"
+                        BorderThickness="1"
+                        CornerRadius="4"
                         Effect="{StaticResource Default.ShadowDepth6}">
                         <Border.Padding>
                             <Thickness>0,4,0,4</Thickness>
@@ -288,8 +288,8 @@
         <Setter Property="Background" Value="{StaticResource PrimaryBackground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderAlt}" />
         <Setter Property="FontFamily" Value="{StaticResource FluentDark.ThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FluentDark.BodyTextStyle}" />
-        <Setter Property="FontWeight" Value="{StaticResource FluentDark.FontWeightNormal}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="SelectionBackground" Value="{StaticResource PrimaryForeground}" />
         <Setter Property="Foreground" Value="{StaticResource PrimaryForeground}" />
         <Style.Triggers>
@@ -354,7 +354,7 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="HamburgurButtonBorder" Property="Background" Value="Transparent" />
-                            <Setter TargetName="HamburgurButtonBorder" Property="BorderBrush" Value="{StaticResource IconColorDisabled}" />
+                            <Setter TargetName="HamburgurButtonBorder" Property="BorderBrush" Value="{StaticResource FormBackground}" />
                         </Trigger>
                         <Trigger Property="provider:SkinManagerHelper.FocusVisualKind" Value="HighVisibility">
                             <Setter Property="FocusVisualStyle" Value="{StaticResource FlatKeyboardFocusVisualStyle}" />
