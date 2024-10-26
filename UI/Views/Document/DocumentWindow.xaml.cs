@@ -73,7 +73,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public partial class DocumentWindow : Window
+    public partial class DocumentWindow : Window, IDisposable
     {
         /// <summary>
         /// The data model

@@ -1,13 +1,9 @@
 ﻿namespace Badger
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Forms;
     using Point = System.Drawing.Point;
@@ -36,8 +32,7 @@
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "MergeIntoPattern")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class WebControl : MetroTabControl, ISupportInitialize
-
+    public class WebControl : MetroTabControl, ISupportInitialize, IDisposable
     {
         /// <summary>
         /// The text left margin
@@ -82,12 +77,12 @@
         /// <summary>
         /// The menu
         /// </summary>
-        private readonly ContextMenuStrip _menu;
+        private protected readonly ContextMenuStrip _menu;
 
         /// <summary>
         /// The open
         /// </summary>
-        private bool _open;
+        private protected bool _open;
 
         /// <summary>
         /// The selected item
@@ -476,10 +471,7 @@
                 for( var _i = 0; _i < Items.Count; _i++ )
                 {
                     var _item = Items[ _i ];
-                    if( _item != null )
-                    {
-                        _item.Dispose( );
-                    }
+                    _item?.Dispose( );
                 }
 
                 if( _menu != null
@@ -490,6 +482,18 @@
 
                 _formatString?.Dispose( );
             }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs application-defined tasks
+        /// associated with freeing, releasing,
+        /// or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
         }
     }
 }
