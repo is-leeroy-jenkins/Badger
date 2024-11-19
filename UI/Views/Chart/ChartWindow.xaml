@@ -7,10 +7,8 @@
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="ChartView"
-    Width="1350"
-    Height="800"
-    MinWidth="1250"
-    MinHeight="650"
+    MinWidth="1350"
+    MinHeight="800"
     Margin="1"
     Padding="1,1,1,3"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
@@ -18,14 +16,14 @@
     BorderBrush="{StaticResource BlueBorderBrush}"
     BorderThickness="1"
     FontFamily="Roboto"
-    FontSize="10"
+    FontSize="12"
     Foreground="{StaticResource LightBlueBrush}"
     Icon="/Resources/Assets/FormImages/Application.png"
     ResizeMode="CanResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -37,7 +35,7 @@
         </Style>
     </Window.Resources>
 
-    <!--**************************************  Context Menu  ****************************************-->
+    <!--  **************************************  Context Menu  ****************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="ChartWindowContextMenu">
@@ -132,7 +130,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--************************************** Primary TabControl ****************************************-->
+    <!--  ************************************** Primary TabControl ****************************************  -->
 
     <Canvas x:Name="PrimaryTabCanvas">
         <bdgr:ToolStrip
@@ -141,7 +139,7 @@
             Canvas.Top="720"
             Width="1350"
             Height="40"
-            Margin="3,1,1,1"
+            Margin="1"
             Padding="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -193,7 +191,7 @@
 
             <bdgr:MetroComboBox
                 x:Name="ToolStripComboBox"
-                Width="200"
+                Width="100"
                 AllowMultiSelect="false">
                 <bdgr:MetroComboBoxItem Content="Column" />
                 <bdgr:MetroComboBoxItem Content="Line" />

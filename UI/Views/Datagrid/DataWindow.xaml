@@ -9,13 +9,13 @@
     xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="DataView"
-    Width="1383"
     MinWidth="1350"
     MinHeight="800"
     Margin="1"
     Padding="1,1,1,3"
     VerticalContentAlignment="Bottom"
     d:DesignHeight="800"
+    d:DesignWidth="1383"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BlueBorderBrush}"
@@ -28,7 +28,7 @@
     WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="sync:GroupDropArea">
@@ -48,7 +48,7 @@
 
     </Window.Resources>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="DataWindowContextMenu">
@@ -143,7 +143,7 @@
     </Window.ContextMenu>
 
 
-    <!--******************************************** Layout  *********************************************-->
+    <!--  ******************************************** Layout  *********************************************  -->
 
     <bdgr:MetroCanvas
         x:Name="DataCanvas"
@@ -806,7 +806,7 @@
         </bdgr:MetroTabControl>
 
 
-        <!--******************************************** ToolStrip  *********************************************-->
+        <!--  ******************************************** ToolStrip  *********************************************  -->
 
         <bdgr:ToolStrip
             x:Name="DataToolStrip"

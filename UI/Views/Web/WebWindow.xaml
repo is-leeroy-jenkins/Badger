@@ -2,7 +2,7 @@
     x:Class="Badger.WebWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:bdgr="clr-namespace:Badger"
+    xmlns:b="clr-namespace:Badger"
     xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,12 +10,12 @@
     xmlns:sync="http://schemas.syncfusion.com/wpf"
     x:Name="WebView"
     Title="Internet "
-    Width="1350"
-    Height="800"
     MinWidth="1250"
     MinHeight="650"
     Margin="1"
     Padding="3,1,1,1"
+    d:DesignHeight="800"
+    d:DesignWidth="1350"
     sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
     Background="{StaticResource FormBackground}"
     BorderBrush="{StaticResource BlueBorderBrush}"
@@ -26,7 +26,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--******************************************** Resources *********************************************-->
+    <!--  ******************************************** Resources *********************************************  -->
 
     <Window.Resources>
         <Style TargetType="ToolTip">
@@ -38,7 +38,7 @@
         </Style>
     </Window.Resources>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Window.ContextMenu>
         <ContextMenu Name="WebWindowContextMenu">
@@ -131,12 +131,12 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <!--******************************************** Context Menu ******************************************-->
+    <!--  ******************************************** Context Menu ******************************************  -->
 
     <Canvas
         x:Name="WebCanvas"
         Background="{StaticResource FormBackground}">
-        <bdgr:MetroTabControl
+        <b:MetroTabControl
             x:Name="TabControl"
             Canvas.Left="16"
             Canvas.Top="10"
@@ -145,7 +145,9 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top">
 
-            <TabItem
+            <!--  ******************************************** Web Browser ******************************************  -->
+
+            <b:BrowserTabItem
                 x:Name="BrowserTab"
                 Width="100"
                 Background="{StaticResource FormBackground}"
@@ -157,8 +159,6 @@
                     x:Name="BrowserGrid"
                     Background="{StaticResource FormBackground}">
 
-                    <!--******************************************** Web Browser ******************************************-->
-
                     <WebBrowser
                         x:Name="Browser"
                         Canvas.Left="27"
@@ -167,10 +167,14 @@
                         Height="600"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Source="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" />
+                        Source="https://www.google.com/" />
                 </Canvas>
-            </TabItem>
-            <TabItem
+            </b:BrowserTabItem>
+
+
+            <!--  ******************************************** Web Browser ******************************************  -->
+
+            <b:BrowserTabItem
                 x:Name="BabyTab"
                 Width="100"
                 Height="24"
@@ -187,12 +191,12 @@
                         Grid.Row="0"
                         Margin="0" />
                 </Grid>
-            </TabItem>
-        </bdgr:MetroTabControl>
+            </b:BrowserTabItem>
+        </b:MetroTabControl>
 
-        <!--******************************************** ToolStrip ******************************************-->
+        <!--  ******************************************** ToolStrip ******************************************  -->
 
-        <bdgr:ToolStrip
+        <b:ToolStrip
             x:Name="Toolbar"
             Canvas.Left="0"
             Canvas.Top="720"
@@ -206,7 +210,7 @@
             BorderThickness="1"
             OverflowButtonVisibility="Collapsed">
 
-            <bdgr:ToolStripLabel
+            <b:ToolStripLabel
                 x:Name="StatusLabel"
                 Width="70"
                 Padding="3,1,1,1"
@@ -220,27 +224,22 @@
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
-            <Separator
-                Width="80"
-                Background="{StaticResource FormBackground}"
-                BorderBrush="{StaticResource FormBackground}" />
-
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="FirstButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
                 ToolTip="First Record" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="PreviousButton"
                 ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
                 ToolTip="Previous Record" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="NextButton"
                 ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
                 ToolTip="Next Record" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="LastButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
                 ToolTip="Last Record" />
@@ -255,66 +254,75 @@
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
-            <bdgr:ToolStripTextBox
+            <b:ToolStripTextBox
                 x:Name="ToolStripTextBox"
                 Width="200"
                 Height="30"
+                Margin="1,1,1,1"
                 Padding="10,1,1,1"
                 HorizontalAlignment="Left"
-                VerticalContentAlignment="Center" />
+                VerticalContentAlignment="Stretch"
+                FontFamily="Roboto" />
 
             <sync:MenuItemSeparator
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Foreground="{x:Null}" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripDropDown Width="60" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <b:ToolStripButton
                 x:Name="LookupButton"
                 ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
                 ToolTip="Look Up" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="RefreshButton"
                 ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
                 ToolTip="Refresh" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="FilterButton"
                 ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
                 ToolTip="Filters" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="EditButton"
                 ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
                 ToolTip="Edit" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="UndoButton"
                 ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
                 ToolTip="Undo Last" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="SaveButton"
                 ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
                 ToolTip="Save" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="DeleteButton"
                 ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
                 ToolTip="Delete" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="ExportButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
                 ToolTip="Export" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="BrowseButton"
                 ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
                 ToolTip="Browse" />
 
             <ProgressBar
-                Width="160"
+                Width="100"
                 Background="{StaticResource FormBackground}"
                 BorderBrush="{StaticResource FormBackground}" />
 
@@ -323,15 +331,15 @@
                 Background="{x:Null}"
                 BorderBrush="{x:Null}" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="ToggleButton"
                 ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
 
-            <bdgr:ToolStripButton
+            <b:ToolStripButton
                 x:Name="MenuButton"
                 ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
                 ToolTip="Main Menu" />
 
-        </bdgr:ToolStrip>
+        </b:ToolStrip>
     </Canvas>
 </Window>
