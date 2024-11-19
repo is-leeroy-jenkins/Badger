@@ -143,9 +143,9 @@
 
 
 
-## ?? Acknowledgements
+## 🙏 Acknowledgements
 
-Bader uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
+Badger uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
 
 |                                                                               |                                                                        |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
