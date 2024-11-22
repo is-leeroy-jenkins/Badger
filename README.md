@@ -45,6 +45,15 @@
 - [Distribution Guide](Resources/Github/Distribution.md)
 
 
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Machine Learning 
+
+- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - federal funding data available for fine-tuning learning models
+- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - regulatory data available for fine-tuning learning models
+
+
+
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
 - Badger uses CefSharp 106 for Baby Browser and is built on NET 6
