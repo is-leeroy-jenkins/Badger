@@ -2,9 +2,9 @@
 
 
 
-## Badger's AI layer provides access to the OpenAI VectorStores for fine-tuning using the OpenAI API
+### Badger's AI layer provides access to the OpenAI VectorStores for fine-tuning using the OpenAI API
 
-### Federal Appropriations
+## Federal Appropriations
 
 
 |               Public Law                     |           Explanatory Statement       |	  	Appropriation Title			                                                  |   
