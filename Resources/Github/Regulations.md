@@ -1,5 +1,7 @@
-![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/congress.png) Regulations
-## Badger's AI layer provides access to the OpenAI VectorStores and Files
+![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/congress.png) 
+
+# Regulations
+### Badger's AI layer provides access to the OpenAI VectorStores and Files
 
 ## Federal Regulations
  
