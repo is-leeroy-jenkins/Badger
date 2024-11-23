@@ -46,7 +46,7 @@
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  ML Vector Stores
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  OpenAI Vector Stores
 
 - [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - federal funding text & financial data vectorized for embedding & fine-tuning learning models
 - [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - regulatory text data vectorized for embedding & fine-tuning learning models
