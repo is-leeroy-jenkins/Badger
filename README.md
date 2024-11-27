@@ -46,10 +46,10 @@
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  OpenAI 
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Machine/Deep Learning
 
-- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized dataset of federal appropriations available for fine-tuning machine learning models
-- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dataset of federal finance regulations available for fine-tuning machine learning models
+- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized dataset of federal appropriations available for fine-tuning learning models
+- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dataset of federal finance regulations available for fine-tuning learning models
 
 
 
@@ -90,6 +90,36 @@
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Images/Overview.gif)
+
+
+## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/chrome.png) CefSharp Requirements
+
+#### The binaries directory must contain these required dependencies:
+
+- libcef.dll (Chromium Embedded Framework Core library)
+- icudtl.dat (Unicode Support data)
+- chrome_elf.dll(Crash reporting library)
+- snapshot_blob.bin, v8_context_snapshot.bin (V8 snapshot data)
+- locales\en-US.pak, chrome_100_percent.pak, chrome_200_percent.pak, resources.pak, 
+- d3dcompiler_47.dll 
+- libEGL.dll 
+- libGLESv2.dll
+
+#### Whilst these are technically listed as optional, the browser is unlikely to function without these files.
+
+- CefSharp.Core.dll, CefSharp.dll 
+- CefSharp.Core.Runtime.dll
+- CefSharp.BrowserSubprocess.exe 
+- CefSharp.BrowserSubProcess.Core.dll
+
+#### These are required CefSharp binaries that are the common core logic binaries of CefSharp (only 1 required).
+
+- CefSharp.WinForms.dll
+- CefSharp.Wpf.dll
+- CefSharp.OffScreen.dll
+
+#### By default `CEF` has it's own log file, `Debug.log` which is located in your executing folder. e.g. `bin`
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
 - ##### Ad-hoc calculations directly on bound data.
