@@ -1,17 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Baby
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-09-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-09-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="NetUtility.cs" company="Terry D. Eppler">
-//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
-//     in C#.  The baby browser is designed for budget execution and data analysis.
-//     A tool for EPA analysts and a component that can be used for general browsing.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -80,7 +79,7 @@ namespace Badger
         /// <param name="ctrl">if set to <c>true</c> [control].</param>
         /// <param name="shift">if set to <c>true</c> [shift].</param>
         /// <param name="alt">if set to <c>true</c> [alt].</param>
-        public static void AddHotKey( Window form, Action function, bool ctrl = false, 
+        public static void AddHotKey( Window form, Action function, bool ctrl = false,
             bool shift = false, bool alt = false )
         {
             form.KeyDown += delegate( object sender, KeyEventArgs e )
@@ -133,7 +132,7 @@ namespace Badger
                 {
                     if( path[ 2 ] == '\\' )
                     {
-                        if( Char.IsLetter( path[ 0 ] ) )
+                        if( char.IsLetter( path[ 0 ] ) )
                         {
                             return true;
                         }
@@ -157,7 +156,7 @@ namespace Badger
                 {
                     if( path[ 2 ] == '/' )
                     {
-                        if( Char.IsLetter( path[ 0 ] ) )
+                        if( char.IsLetter( path[ 0 ] ) )
                         {
                             return true;
                         }
@@ -382,7 +381,7 @@ namespace Badger
 
                 if( beginsWith.Length == str.Length )
                 {
-                    return String.Equals( beginsWith, str, caseSensitive
+                    return string.Equals( beginsWith, str, caseSensitive
                         ? StringComparison.Ordinal
                         : StringComparison.OrdinalIgnoreCase );
                 }

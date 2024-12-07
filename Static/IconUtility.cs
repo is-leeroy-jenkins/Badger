@@ -1,17 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Baby
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-09-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-09-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
-// <copyright file="IconUtils.cs" company="Terry D. Eppler">
-//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
-//     in C#.  The baby browser is designed for budget execution and data analysis.
-//     A tool for EPA analysts and a component that can be used for general browsing.
+// <copyright file="IconUtility.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -36,7 +35,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   IconUtils.cs
+//   IconUtility.cs
 // </summary>
 // ******************************************************************************************
 
@@ -272,8 +271,8 @@ namespace Badger
             IntPtr[ ] _large = new IntPtr[ 1 ], _small = new IntPtr[ 1 ];
 
             //extracts the icon from the file.
-            ExtractIconEx( _iconPath[ 0 ], Convert.ToInt16( _iconPath[ 1 ] ), _large,
-                _small, 1 );
+            ExtractIconEx( _iconPath[ 0 ], Convert.ToInt16( _iconPath[ 1 ] ), _large, _small,
+                1 );
 
             return size == IconSize.Large
                 ? FromHandle( _large[ 0 ] )

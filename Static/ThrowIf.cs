@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Bubba
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 11-26-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ThrowIf.cs" company="Terry D. Eppler">
-//    Bubba is a small windows (wpf) application for interacting with
-//    Chat GPT that's developed in C-Sharp under the MIT license
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
