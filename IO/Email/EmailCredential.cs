@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="EmailCredential.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   EmailCredential.cs
@@ -160,8 +162,8 @@ namespace Badger
         /// <param name="lastName"> </param>
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
-        public EmailCredential( string firstName, string lastName,
-            string userName, string password )
+        public EmailCredential( string firstName, string lastName, string userName,
+            string password )
         {
             _firstName = firstName;
             _lastName = lastName;
@@ -189,8 +191,8 @@ namespace Badger
         /// <param name="lastName">The last name.</param>
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
-        public void Deconstruct( out string firstName, out string lastName,
-            out string userName, out string password )
+        public void Deconstruct( out string firstName, out string lastName, out string userName,
+            out string password )
         {
             firstName = _firstName;
             lastName = _lastName;

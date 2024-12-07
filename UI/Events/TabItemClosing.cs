@@ -1,13 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Bobo
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 10-16-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        10-16-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="TabItemClosing.cs" company="Terry D. Eppler">
-//    A windows presentation foundation (WPF) app to communicate with the Chat GPT-3.5 Turbo API
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-07-2020
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-07-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ToolStripButton.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -94,7 +94,7 @@ namespace Badger
         /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private protected override void OnMouseEnter(object sender, MouseEventArgs e)
+        private protected override void OnMouseEnter( object sender, MouseEventArgs e )
         {
             try
             {
@@ -102,9 +102,9 @@ namespace Badger
                 BorderBrush = _theme.LightBlueBrush;
                 Foreground = _theme.WhiteForeground;
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
-                Fail(ex);
+                Fail( ex );
             }
         }
 
@@ -116,7 +116,7 @@ namespace Badger
         /// <see cref="T:System.EventArgs" />
         /// instance containing the event data.
         /// </param>
-        private protected override void OnMouseLeave(object sender, MouseEventArgs e)
+        private protected override void OnMouseLeave( object sender, MouseEventArgs e )
         {
             try
             {
@@ -124,9 +124,9 @@ namespace Badger
                 BorderBrush = _theme.Background;
                 Foreground = _theme.LightBlueBrush;
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
-                Fail(ex);
+                Fail( ex );
             }
         }
     }

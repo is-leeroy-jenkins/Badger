@@ -1,4 +1,43 @@
-﻿
+﻿// ******************************************************************************************
+//     Assembly:                Badger
+//     Author:                  Terry D. Eppler
+//     Created:                 12-07-2024
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-07-2024
+// ******************************************************************************************
+// <copyright file="ToolStripDropDownItem.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   ToolStripDropDownItem.cs
+// </summary>
+// ******************************************************************************************
 
 namespace Badger
 {
@@ -19,7 +58,7 @@ namespace Badger
         /// <summary>
         /// The theme
         /// </summary>
-        private protected readonly DarkMode _theme = new DarkMode();
+        private protected readonly DarkMode _theme = new DarkMode( );
 
         /// <summary>
         /// Gets or sets an arbitrary object value that can be used
@@ -91,9 +130,9 @@ namespace Badger
                     _item.BorderBrush = _theme.ControlInterior;
                 }
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
-                Fail(ex);
+                Fail( ex );
             }
         }
 
@@ -103,9 +142,9 @@ namespace Badger
         /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
-            var _error = new ErrorWindow( ex);
-            _error?.SetText();
-            _error?.ShowDialog();
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

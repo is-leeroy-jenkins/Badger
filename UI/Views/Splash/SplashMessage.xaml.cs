@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="SplashMessage.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   SplashMessage.xaml.cs
@@ -129,7 +129,12 @@ namespace Badger
         /// <summary>
         /// The message
         /// </summary>
-        private protected string _text;
+        private protected string _title;
+
+        /// <summary>
+        /// The message
+        /// </summary>
+        private protected string _message;
 
         /// <summary>
         /// The time
@@ -182,20 +187,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _path )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -203,7 +197,6 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Windows.Splash.SplashMessage" /> class.
         /// </summary>
         public SplashMessage( )
         {
@@ -213,7 +206,7 @@ namespace Badger
 
             // Basic Properties
             FontFamily = new FontFamily( "Roboto" );
-            FontSize = 12d;
+            FontSize = 11d;
             Width = 560;
             Height = 250;
             Margin = new Thickness( 3 );
@@ -229,6 +222,7 @@ namespace Badger
             IsVisibleChanged += OnVisibleChanged;
             MouseLeftButtonDown += OnClick;
             MouseRightButtonDown += OnClick;
+            Loaded += OnLoad;
         }
 
         /// <inheritdoc />
@@ -240,8 +234,21 @@ namespace Badger
         public SplashMessage( string message )
             : this( )
         {
-            TitleLabel.Content = "Message";
-            MessageLabel.Content = message;
+            _message = message;
+            _title = "";
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:Badger.SplashMessage" /> class.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="message">The message.</param>
+        public SplashMessage( string title, string message )
+            : this( )
+        {
+            _message = message;
+            _title = title;
         }
 
         /// <summary>
@@ -370,6 +377,32 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( _message ) )
+                {
+                    MessageText.Content = _message;
+                }
+
+                if( !string.IsNullOrEmpty( _title ) )
+                {
+                    TitleLabel.Content = _title;
+                }
             }
             catch( Exception ex )
             {

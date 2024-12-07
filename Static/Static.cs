@@ -56,17 +56,17 @@ namespace Badger
         /// Converts to log string.
         /// </summary>
         /// <param name="exception">The exception.</param>
-        /// <param name="message">The message.</param>
+        /// <param name="title">The message.</param>
         /// <returns>
         /// string
         /// </returns>
-        public static string ToLogString( this Exception exception, string message )
+        public static string ToLogString( this Exception exception, string title )
         {
             try
             {
-                ThrowIf.Null( message, nameof( message ) );
+                ThrowIf.Null( title, nameof( title ) );
                 var _builder = new StringBuilder( );
-                _builder.Append( message );
+                _builder.Append( title );
                 _builder.Append( Environment.NewLine );
                 _builder.Append( Environment.NewLine );
                 var _exception = exception;

@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="FolderBase.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   FolderBase.cs
@@ -235,10 +237,8 @@ namespace Badger
                     var _paths = Directory.GetFiles( _input );
                     foreach( var _fp in _paths )
                     {
-                        var _first = Directory.GetFiles( _fp )
-                            ?.Where( f => File.Exists( f ) )
-                            ?.Select( f => Path.GetFullPath( f ) )
-                            ?.ToList( );
+                        var _first = Directory.GetFiles( _fp )?.Where( f => File.Exists( f ) )
+                            ?.Select( f => Path.GetFullPath( f ) )?.ToList( );
 
                         _list.AddRange( _first );
                         var _folders = Directory.GetDirectories( _fp );
@@ -248,8 +248,7 @@ namespace Badger
                             {
                                 var _second = Directory.GetFiles( _fr )
                                     ?.Where( s => File.Exists( s ) )
-                                    ?.Select( s => Path.GetFullPath( s ) )
-                                    ?.ToList( );
+                                    ?.Select( s => Path.GetFullPath( s ) )?.ToList( );
 
                                 _list.AddRange( _second );
                                 var _subfolders = Directory.GetDirectories( _fr );
@@ -258,8 +257,7 @@ namespace Badger
                                     var _path = _subfolders[ _i ];
                                     var _last = Directory.GetFiles( _path )
                                         ?.Where( l => File.Exists( l ) )
-                                        ?.Select( l => Path.GetFullPath( l ) )
-                                        ?.ToList( );
+                                        ?.Select( l => Path.GetFullPath( l ) )?.ToList( );
 
                                     _list.AddRange( _last );
                                 }

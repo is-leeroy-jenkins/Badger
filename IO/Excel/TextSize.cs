@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="TextSize.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   TextSize.cs
@@ -55,14 +57,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class TextSize : ITextMeasurer
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="TextSize"/> class.
-        /// </summary>
-        public TextSize( )
-        {
-        }
-
         /// <summary>
         /// Converts to skfontstyle.
         /// </summary>
@@ -104,6 +98,25 @@ namespace Badger
         }
 
         /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="TextSize"/> class.
+        /// </summary>
+        public TextSize( )
+        {
+        }
+
+        /// <summary>
         /// Measures the text.
         /// </summary>
         /// <param name="text">The text.</param>
@@ -142,17 +155,6 @@ namespace Badger
         public bool ValidForEnvironment( )
         {
             return true;
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            var _error = new ErrorWindow( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

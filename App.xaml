@@ -19,7 +19,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/UI/Themes/Styles/Common/Colors.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/ToastNotifications.Messages;component/Themes/Default.xaml" />
-                <ResourceDictionary Source="/UI/Themes/Generic.xaml" />
+                <ResourceDictionary Source="/UI/Themes/generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

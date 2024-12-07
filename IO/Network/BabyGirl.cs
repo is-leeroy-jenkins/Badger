@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="BabyGirl.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   BabyGirl.cs
@@ -84,31 +86,32 @@ namespace Badger
         /// <value>
         /// The port.
         /// </value>
-        public int Port
+        public override int Port
         {
             get
             {
                 return _port;
             }
-            private set
+            set
             {
                 _port = value;
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the buffer.
         /// </summary>
         /// <value>
         /// The buffer.
         /// </value>
-        public byte[ ] Data
+        public override byte[ ] Data
         {
             get
             {
                 return _data;
             }
-            private set
+            set
             {
                 _data = value;
             }
@@ -120,13 +123,13 @@ namespace Badger
         /// <value>
         /// The message.
         /// </value>
-        public string Message
+        public override string Message
         {
             get
             {
                 return _message;
             }
-            private set
+            set
             {
                 _message = value;
             }
@@ -138,33 +141,34 @@ namespace Badger
         /// <value>
         /// The server.
         /// </value>
-        public Socket Socket
+        public override Socket Socket
         {
             get
             {
                 return _socket;
             }
-            private set
+            set
             {
                 _socket = value;
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the local.
         /// </summary>
         /// <value>
         /// The local.
         /// </value>
-        public IPAddress Address
+        public override IPAddress Address
         {
             get
             {
-                return _ipAddress;
+                return _address;
             }
-            private set
+            set
             {
-                _ipAddress = value;
+                _address = value;
             }
         }
 
@@ -174,15 +178,15 @@ namespace Badger
         /// <value>
         /// The local.
         /// </value>
-        public IPEndPoint EndPoint
+        public override IPEndPoint EndPoint
         {
             get
             {
-                return _ipEndPoint;
+                return _endPoint;
             }
-            private set
+            set
             {
-                _ipEndPoint = value;
+                _endPoint = value;
             }
         }
 
@@ -192,12 +196,12 @@ namespace Badger
         /// </summary>
         public BabyGirl( )
         {
-            _path = new object( );
+            _entry = new object( );
             _count = 1024;
             _port = 5000;
             _data = new byte[ Count ];
-            _ipAddress = IPAddress.Any;
-            _ipEndPoint = new IPEndPoint( _ipAddress, Port );
+            _address = IPAddress.Any;
+            _endPoint = new IPEndPoint( _address, Port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
@@ -215,8 +219,8 @@ namespace Badger
             _count = size;
             _port = port;
             _data = new byte[ size ];
-            _ipAddress = address;
-            _ipEndPoint = new IPEndPoint( address, port );
+            _address = address;
+            _endPoint = new IPEndPoint( address, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
@@ -234,8 +238,8 @@ namespace Badger
             _count = size;
             _port = port;
             _data = new byte[ size ];
-            _ipAddress = IPAddress.Parse( address );
-            _ipEndPoint = new IPEndPoint( _ipAddress, port );
+            _address = IPAddress.Parse( address );
+            _endPoint = new IPEndPoint( _address, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
@@ -251,8 +255,8 @@ namespace Badger
             _count = girl.Count;
             _port = girl.Port;
             _data = girl.Data;
-            _ipAddress = girl.Address;
-            _ipEndPoint = girl.EndPoint;
+            _address = girl.Address;
+            _endPoint = girl.EndPoint;
             _socket = girl.Socket;
             _busy = girl.IsBusy;
         }
@@ -265,7 +269,7 @@ namespace Badger
             try
             {
                 var _received = 0;
-                _socket.Bind( _ipEndPoint );
+                _socket.Bind( _endPoint );
                 _socket.Listen( 10 );
                 _message = "Welcome to the Baby Server!";
                 SendNotification( _message );
@@ -298,19 +302,19 @@ namespace Badger
         /// <param name="bytes">The bytes.</param>
         /// <param name="port">The port.</param>
         /// <param name="data">The data.</param>
-        /// <param name="ipAddress">The ip address.</param>
+        /// <param name="address">The ip address.</param>
         /// <param name="endPoint">The end point.</param>
         /// <param name="socket">The socket.</param>
         /// <param name="message">The message.</param>
         public void Deconstruct( out int bytes, out int port, out byte[ ] data,
-            out IPAddress ipAddress, out IPEndPoint endPoint, out Socket socket,
+            out IPAddress address, out IPEndPoint endPoint, out Socket socket,
             out string message )
         {
             bytes = _count;
             port = _port;
             data = _data;
-            ipAddress = _ipAddress;
-            endPoint = _ipEndPoint;
+            address = _address;
+            endPoint = _endPoint;
             socket = _socket;
             message = _message;
         }

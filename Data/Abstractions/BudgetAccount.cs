@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-25-2020
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-25-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="BudgetAccount.cs" company="Terry D. Eppler">
-//    Badger is budget execution and data analysis tool for EPA Analysts
-//    based on WPF, NET6.0, and is written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -123,10 +123,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_activityCode != value)
+                if( _activityCode != value )
                 {
                     _activityCode = value;
-                    OnPropertyChanged(nameof(ActivityCode));
+                    OnPropertyChanged( nameof( ActivityCode ) );
                 }
             }
         }
@@ -233,10 +233,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_goalName != value)
+                if( _goalName != value )
                 {
                     _goalName = value;
-                    OnPropertyChanged(nameof(GoalName));
+                    OnPropertyChanged( nameof( GoalName ) );
                 }
             }
         }
@@ -255,10 +255,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_objectiveCode != value)
+                if( _objectiveCode != value )
                 {
                     _objectiveCode = value;
-                    OnPropertyChanged(nameof(ObjectiveCode));
+                    OnPropertyChanged( nameof( ObjectiveCode ) );
                 }
             }
         }
@@ -277,10 +277,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_objectiveName != value)
+                if( _objectiveName != value )
                 {
                     _objectiveName = value;
-                    OnPropertyChanged(nameof(ObjectiveName));
+                    OnPropertyChanged( nameof( ObjectiveName ) );
                 }
             }
         }
@@ -299,10 +299,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_programProjectCode != value)
+                if( _programProjectCode != value )
                 {
                     _programProjectCode = value;
-                    OnPropertyChanged(nameof(ProgramProjectCode));
+                    OnPropertyChanged( nameof( ProgramProjectCode ) );
                 }
             }
         }

@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="TimeSpanExtensions.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   TimeSpanExtensions.cs
@@ -70,7 +72,7 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays / AvgDaysInAYear );
+                return ( int )( timeSpan.TotalDays / AvgDaysInAYear );
             }
             catch( Exception _ex )
             {
@@ -106,8 +108,7 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays % AvgDaysInAYear
-                    / AvgDaysInAMonth );
+                return ( int )( timeSpan.TotalDays % AvgDaysInAYear / AvgDaysInAMonth );
             }
             catch( Exception _ex )
             {
@@ -143,8 +144,7 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays % AvgDaysInAYear
-                    % AvgDaysInAMonth / 7d );
+                return ( int )( timeSpan.TotalDays % AvgDaysInAYear % AvgDaysInAMonth / 7d );
             }
             catch( Exception _ex )
             {
@@ -180,7 +180,7 @@ namespace Badger
         {
             try
             {
-                return (int)( timeSpan.TotalDays % 7d );
+                return ( int )( timeSpan.TotalDays % 7d );
             }
             catch( Exception _ex )
             {
@@ -237,7 +237,7 @@ namespace Badger
         {
             try
             {
-                var _time = Math.Round( timeSpan.Ticks / (double)interval.Ticks, rounding );
+                var _time = Math.Round( timeSpan.Ticks / ( double )interval.Ticks, rounding );
                 return new TimeSpan( Convert.ToInt64( Math.Round( _time ) * interval.Ticks ) );
             }
             catch( Exception _ex )

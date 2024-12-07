@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-25-2020
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-25-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="BudgetUnit.cs" company="Terry D. Eppler">
-//    Badger is budget execution and data analysis tool for EPA Analysts
-//    based on WPF, NET6.0, and is written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -146,10 +146,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_bfy != value)
+                if( _bfy != value )
                 {
                     _bfy = value;
-                    OnPropertyChanged(nameof(BFY));
+                    OnPropertyChanged( nameof( BFY ) );
                 }
             }
         }
@@ -215,10 +215,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_fundName != value)
+                if( _fundName != value )
                 {
                     _fundName = value;
-                    OnPropertyChanged(nameof(FundName));
+                    OnPropertyChanged( nameof( FundName ) );
                 }
             }
         }
@@ -237,10 +237,10 @@ namespace Badger
             }
             private protected set
             {
-                if( _mainAccount != value)
+                if( _mainAccount != value )
                 {
                     _mainAccount = value;
-                    OnPropertyChanged(nameof(MainAccount));
+                    OnPropertyChanged( nameof( MainAccount ) );
                 }
             }
         }
@@ -260,10 +260,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_treasuryAccountCode != value)
+                if( _treasuryAccountCode != value )
                 {
                     _treasuryAccountCode = value;
-                    OnPropertyChanged(nameof(TreasuryAccountCode));
+                    OnPropertyChanged( nameof( TreasuryAccountCode ) );
                 }
             }
         }
@@ -283,10 +283,10 @@ namespace Badger
             }
             private protected set
             {
-                if(_treasuryAccountName != value)
+                if( _treasuryAccountName != value )
                 {
                     _treasuryAccountName = value;
-                    OnPropertyChanged(nameof(TreasuryAccountName));
+                    OnPropertyChanged( nameof( TreasuryAccountName ) );
                 }
             }
         }

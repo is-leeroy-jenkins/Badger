@@ -12,43 +12,8 @@
     <!--  *********************************************** TAB CONTROL  *****************************************************  -->
 
     <Style
-        x:Key="TabControlStyle"
-        TargetType="{x:Type TabControl}">
-        <Setter Property="Background" Value="{DynamicResource FormBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FormBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource FormForeground}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="Padding" Value="1" />
-        <Setter Property="Margin" Value="1" />
-    </Style>
-
-    <!--  *********************************************** BROWSER TAB CONTROL  *****************************************************  -->
-
-    <Style
-        x:Key="WebControlStyle"
-        TargetType="{x:Type b:WebControl}">
-        <Setter Property="Background" Value="{DynamicResource FormBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource FormBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource FormForeground}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="Padding" Value="1" />
-        <Setter Property="Margin" Value="1" />
-    </Style>
-
-    <!--  *********************************************** METRO TAB CONTROL  *****************************************************  -->
-
-
-    <Style
         x:Key="MetroTabControlStyle"
-        TargetType="{x:Type b:MetroTabControl}">
+        TargetType="{x:Type TabControl}">
         <Setter Property="Background" Value="{DynamicResource FormBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FormBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource FormForeground}" />

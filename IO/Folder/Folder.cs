@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="Folder.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   Folder.cs
@@ -408,17 +410,15 @@ namespace Badger
                 var _bytes = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
                 var _nl = Environment.NewLine;
                 var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl +
-                    _tb + "Folder Path: " + _tb + _path + _nl + _nl +
-                    _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                    _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl +
-                    _tb + "Sub-Folders: " + _tb + _subfolders + _nl + _nl +
-                    _tb + "File Size: " + _tb + _bytes + _nl + _nl +
-                    _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
-                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
-                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl;
+                var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl + _tb
+                    + "Folder Path: " + _tb + _path + _nl + _nl + _tb + "Parent Path: " + _tb
+                    + _dirPath + _nl + _nl + _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl + _tb
+                    + "Sub-Folders: " + _tb + _subfolders + _nl + _nl + _tb + "File Size: " + _tb
+                    + _bytes + _nl + _nl + _tb + "Created On: " + _tb + _create.ToShortDateString( )
+                    + _nl + _nl + _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl
+                    + _nl + _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl + _tb
+                    + "Drive Separator: " + _tb + _drivesep + _nl + _nl + _tb + "Folder Separator: "
+                    + _tb + _foldersep + _nl + _nl;
 
                 return !string.IsNullOrEmpty( _text )
                     ? _text

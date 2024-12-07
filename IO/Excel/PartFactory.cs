@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="PartFactory.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   PartFactory.cs
@@ -68,54 +70,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class PartFactory : Workbook
     {
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the file path.
-        /// </summary>
-        /// <value>
-        /// The file path.
-        /// </value>
-        public string FilePath
-        {
-            get
-            {
-                return _filePath;
-            }
-
-            private protected set
-            {
-                _filePath = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
-        public string FileName
-        {
-            get
-            {
-                return _fileName;
-            }
-
-            private protected set
-            {
-                _fileName = value;
-            }
-        }
-
-        /// <inheritdoc />
-        ///  <summary>
-        ///  </summary>
-        protected PartFactory( )
-            : base( )
-        {
-        }
-
         /// <summary>
         /// Creates the excel table.
         /// </summary>
@@ -124,12 +78,12 @@ namespace Badger
             try
             {
                 ThrowIf.Null( dataTable, nameof( dataTable ) );
-                _dataRange = (ExcelRange)_dataWorksheet.Cells[ "A2" ]
+                _dataRange = ( ExcelRange )_dataWorksheet.Cells[ "A2" ]
                     ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
 
                 var _title = _dataTable.TableName.SplitPascal( ) ?? "Badger";
                 _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
-                _dataRange.Style.Font.Name = "Roboto";
+                _dataRange.Style.Font.Name = "Segoe UI";
                 _dataRange.Style.Font.Size = 8;
                 _dataRange.Style.Font.Bold = false;
                 _dataRange.Style.Font.Italic = false;
@@ -161,8 +115,8 @@ namespace Badger
         /// <returns>
         /// DataTable
         /// </returns>
-        private protected DataTable CreateDataTable( int startRow, int startColumn,
-            int endRow, int endColumn )
+        private protected DataTable CreateDataTable( int startRow, int startColumn, int endRow,
+            int endColumn )
         {
             try
             {
@@ -199,8 +153,8 @@ namespace Badger
         /// <returns>
         /// ExcelPivotTable
         /// </returns>
-        private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange,
-            string tableName, IList<string> rows, IList<string> data )
+        private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange, string tableName,
+            IList<string> rows, IList<string> data )
         {
             try
             {
@@ -214,7 +168,7 @@ namespace Badger
                 var _endColumn = excelRange.End.Column;
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
                 _pivotRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _pivotRange.Style.Font.Name = "Roboto";
+                _pivotRange.Style.Font.Name = "Segoe UI";
                 _pivotRange.Style.Font.Size = 8;
                 _pivotRange.Style.Font.Bold = false;
                 _pivotRange.Style.Font.Italic = false;
@@ -298,8 +252,8 @@ namespace Badger
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
                 _dataField.Format = "#,##0";
                 _pivotTable.DataOnRows = true;
-                _pieChart = _chartWorksheet.Drawings
-                    ?.AddPieChart( "Chart", ePieChartType.PieExploded3D, _pivotTable );
+                _pieChart = _chartWorksheet.Drawings?.AddPieChart( "Chart",
+                    ePieChartType.PieExploded3D, _pivotTable );
 
                 _pieChart.SetPosition( 1, 0, 4, 0 );
                 _pieChart.SetSize( 800, 600 );
@@ -345,8 +299,8 @@ namespace Badger
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
                 _dataField.Format = "#,##0";
                 _pivotTable.DataOnRows = true;
-                _barChart = _chartWorksheet.Drawings
-                    ?.AddBarChart( "Chart", eBarChartType.BarClustered3D, _pivotTable );
+                _barChart = _chartWorksheet.Drawings?.AddBarChart( "Chart",
+                    eBarChartType.BarClustered3D, _pivotTable );
 
                 _barChart.SetPosition( 1, 0, 4, 0 );
                 _barChart.SetSize( 800, 600 );
@@ -392,8 +346,8 @@ namespace Badger
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
                 _dataField.Format = "#,##0";
                 _pivotTable.DataOnRows = true;
-                _areaChart = _chartWorksheet.Drawings
-                    ?.AddAreaChart( "Chart", eAreaChartType.AreaStacked3D, _pivotTable );
+                _areaChart = _chartWorksheet.Drawings?.AddAreaChart( "Chart",
+                    eAreaChartType.AreaStacked3D, _pivotTable );
 
                 _areaChart.SetPosition( 1, 0, 4, 0 );
                 _areaChart.SetSize( 800, 600 );
@@ -435,7 +389,7 @@ namespace Badger
                 _comment.To.Row = _commentRange.End.Row;
                 _comment.To.Column = _commentRange.End.Column;
                 _comment.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-                _comment.Font.FontName = "Roboto";
+                _comment.Font.FontName = "Segoe UI";
                 _comment.Font.Size = 8;
                 _comment.Font.Color = Color.FromArgb( 106, 189, 252 );
                 _comment.Text = text;
@@ -444,6 +398,54 @@ namespace Badger
             {
                 Dispose( );
                 Fail( ex );
+            }
+        }
+
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
+        protected PartFactory( )
+            : base( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath
+        {
+            get
+            {
+                return _filePath;
+            }
+
+            private protected set
+            {
+                _filePath = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+
+            private protected set
+            {
+                _fileName = value;
             }
         }
     }

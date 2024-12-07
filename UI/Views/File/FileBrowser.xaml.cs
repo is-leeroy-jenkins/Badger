@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="FileBrowser.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   FileBrowser.xaml.cs
@@ -43,13 +43,17 @@ namespace Badger
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Runtime.CompilerServices;
     using System.Threading;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Media.Imaging;
+    using Syncfusion.SfSkinManager;
 
     /// <inheritdoc />
     /// <summary>
@@ -64,7 +68,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    public partial class FileBrowser : Window, IDisposable
+    public partial class FileBrowser : Window, INotifyPropertyChanged, IDisposable
     {
         /// <summary>
         /// The busy
@@ -119,12 +123,12 @@ namespace Badger
         /// <summary>
         /// The locked object
         /// </summary>
-        private protected object _path = new object( );
+        private protected object _entry = new object( );
 
         /// <summary>
         /// The radio buttons
         /// </summary>
-        private protected IList<MetroRadioButton> _radioButtons;
+        private protected IList<RadioButton> _radioButtons;
 
         /// <summary>
         /// The seconds
@@ -165,6 +169,12 @@ namespace Badger
         /// The timer
         /// </summary>
         private protected TimerCallback _timerCallback;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets the selected path.
@@ -214,7 +224,7 @@ namespace Badger
         {
             get
             {
-                lock( _path )
+                lock( _entry )
                 {
                     return _busy;
                 }
@@ -224,10 +234,13 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.FileBrowser" /> class.
         /// </summary>
         public FileBrowser( )
         {
+            // Theme Properties
+            SfSkinManager.SetTheme( this, new Theme( "FluentDark", App.Controls ) );
+
+            // Wwindow Initialization
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
@@ -256,11 +269,12 @@ namespace Badger
             // Budget Properties
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
-            _radioButtons = GetRadioButtons( );
+            _radioButtons = GetCheckBoxes( );
             _initialPaths = CreateInitialDirectoryPaths( );
 
             // Wire Events
             Loaded += OnLoaded;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -307,20 +321,6 @@ namespace Badger
         }
 
         /// <summary>
-        /// Initializes the text box.
-        /// </summary>
-        private void InitializeTextBoxes( )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the timer.
         /// </summary>
         private void InitializeTimer( )
@@ -343,9 +343,119 @@ namespace Badger
         {
             try
             {
-                BrowseButton.Content = "Browse";
-                ClearButton.Content = "Clear";
-                SelectButton.Content = "Select";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        private void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        private void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void Busy( )
+        {
+            try
+            {
+                lock( _entry )
+                {
+                    _busy = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void Chill( )
+        {
+            try
+            {
+                lock( _entry )
+                {
+                    _busy = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the callbacks.
+        /// </summary>
+        private void ClearCallbacks( )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the delegates.
+        /// </summary>
+        private void ClearDelegates( )
+        {
+            try
+            {
+                _timerCallback += UpdateStatus;
             }
             catch( Exception ex )
             {
@@ -405,8 +515,8 @@ namespace Badger
         {
             try
             {
-                TimeLabel.Content = DateTime.Now.ToLongTimeString( );
-                DateLabel.Content = DateTime.Now.ToLongDateString( );
+                TimeLabel.Content = DateTime.Now.ToShortTimeString( );
+                DateLabel.Content = DateTime.Now.ToShortDateString( );
             }
             catch( Exception ex )
             {
@@ -436,36 +546,10 @@ namespace Badger
         {
             try
             {
-                var _file = $@"/UI/Windows/File/{_fileExtension.ToUpper( )}.png";
+                var _file = $@"/Resources/Assets/ExtensionImages/{_fileExtension.ToUpper( )}.png";
                 var _uri = new Uri( _file, UriKind.Relative );
                 _image = new BitmapImage( _uri );
                 PictureBox.Source = _image;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLoaded( object sender, EventArgs e )
-        {
-            try
-            {
-                ExcelRadioButton.IsChecked = true;
-                _filePaths = GetFilePaths( );
-                _count = _filePaths.Count;
-                InitializeTimer( );
-                PopulateListBox( );
-                InitializeLabels( );
-                InitializeButtons( );
-                RegisterRadioButtonEvents( );
-                SetImage( );
             }
             catch( Exception ex )
             {
@@ -480,9 +564,9 @@ namespace Badger
         {
             try
             {
-                foreach( var _radioButton in _radioButtons )
+                foreach( var _checkBox in _radioButtons )
                 {
-                    _radioButton.Click += OnRadioButtonSelected;
+                    _checkBox.Click += OnRadioButtonSelected;
                 }
             }
             catch( Exception ex )
@@ -497,33 +581,33 @@ namespace Badger
         /// <returns>
         /// List( MetroRadioButton )
         /// </returns>
-        private protected virtual IList<MetroRadioButton> GetRadioButtons( )
+        private protected virtual IList<RadioButton> GetCheckBoxes( )
         {
             try
             {
-                var _list = new List<MetroRadioButton>
+                var _list = new List<RadioButton>
                 {
                     PdfRadioButton,
-                    AccessRadioButton,
-                    SQLiteRadioButton,
-                    SqlServerRadioButton,
-                    ExcelRadioButton,
-                    CsvRadioButton,
-                    TextRadioButton,
-                    PowerPointRadioButton,
-                    WordRadioButton,
-                    ExecutableRadioButton,
-                    LibraryRadioButton
+                    AccessCheckBox,
+                    SqLiteCheckBox,
+                    SqlServerCheckBox,
+                    ExcelCheckBox,
+                    CsvCheckBox,
+                    TextCheckBox,
+                    PowerPointCheckBox,
+                    WordCheckBox,
+                    ExecutableCheckBox,
+                    LibraryCheckBox
                 };
 
                 return _list?.Any( ) == true
                     ? _list
-                    : default( IList<MetroRadioButton> );
+                    : default( IList<RadioButton> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<MetroRadioButton> );
+                return default( IList<RadioButton> );
             }
         }
 
@@ -583,6 +667,8 @@ namespace Badger
         {
             try
             {
+                Busy( );
+                var _watch = new Stopwatch( );
                 _filePaths?.Clear( );
                 var _pattern = "*." + _fileExtension;
                 for( var _i = 0; _i < _initialPaths.Count; _i++ )
@@ -590,13 +676,11 @@ namespace Badger
                     var _dirPath = _initialPaths[ _i ];
                     var _parent = Directory.CreateDirectory( _dirPath );
                     var _folders = _parent.GetDirectories( )
-                        ?.Where( s => s.Name.Contains( "My" ) == false )
-                        ?.Select( s => s.FullName )
+                        ?.Where( s => s.Name.Contains( "My" ) == false )?.Select( s => s.FullName )
                         ?.ToList( );
 
                     var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
-                        ?.Select( f => f.FullName )
-                        ?.ToArray( );
+                        ?.Select( f => f.FullName )?.ToArray( );
 
                     _filePaths.AddRange( _topLevelFiles );
                     for( var _k = 0; _k < _folders.Count; _k++ )
@@ -604,12 +688,18 @@ namespace Badger
                         var _folder = Directory.CreateDirectory( _folders[ _k ] );
                         var _lowerLevelFiles = _folder
                             .GetFiles( _pattern, SearchOption.AllDirectories )
-                            ?.Select( s => s.FullName )
-                            ?.ToArray( );
+                            ?.Select( s => s.FullName )?.ToArray( );
 
                         _filePaths.AddRange( _lowerLevelFiles );
                     }
                 }
+
+                Chill( );
+                _watch.Stop( );
+                _count = _filePaths?.Count ?? 0;
+                CountLabel.Content = $"{_count:N0}";
+                _duration = _watch.Elapsed.TotalMilliseconds;
+                DurationLabel.Content = $"{_duration:N0}";
             }
             catch( Exception ex )
             {
@@ -625,23 +715,21 @@ namespace Badger
         {
             try
             {
-                BeginInit( );
+                Busy( );
                 var _watch = new Stopwatch( );
                 _watch.Start( );
                 var _list = new List<string>( );
-                var _pattern = "*" + _fileExtension;
+                var _pattern = "*." + _fileExtension;
                 for( var _i = 0; _i < _initialPaths.Count; _i++ )
                 {
                     var _dirPath = _initialPaths[ _i ];
                     var _parent = Directory.CreateDirectory( _dirPath );
                     var _folders = _parent.GetDirectories( )
                         ?.Where( s => s.Name.StartsWith( "My" ) == false )
-                        ?.Select( s => s.FullName )
-                        ?.ToList( );
+                        ?.Select( s => s.FullName )?.ToList( );
 
                     var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
-                        ?.Select( f => f.FullName )
-                        ?.ToArray( );
+                        ?.Select( f => f.FullName )?.ToArray( );
 
                     _list.AddRange( _topLevelFiles );
                     for( var _k = 0; _k < _folders.Count; _k++ )
@@ -649,16 +737,18 @@ namespace Badger
                         var _folder = Directory.CreateDirectory( _folders[ _k ] );
                         var _lowerLevelFiles = _folder
                             .GetFiles( _pattern, SearchOption.AllDirectories )
-                            ?.Select( s => s.FullName )
-                            ?.ToArray( );
+                            ?.Select( s => s.FullName )?.ToArray( );
 
                         _list.AddRange( _lowerLevelFiles );
                     }
                 }
 
-                EndInit( );
+                Chill( );
                 _watch.Stop( );
+                _count = _list.Count;
+                CountLabel.Content = $"{_count:N0}";
                 _duration = _watch.Elapsed.TotalMilliseconds;
+                DurationLabel.Content = $"{_duration:N0}";
                 return _list;
             }
             catch( Exception ex )
@@ -685,7 +775,6 @@ namespace Badger
                     Environment.GetFolderPath( Environment.SpecialFolder.Personal ),
                     Environment.GetFolderPath( Environment.SpecialFolder.Recent ),
                     Environment.CurrentDirectory,
-                    @"C:\Users\terry\source\repos\Badger\Resources\Documents",
                     _current
                 };
 
@@ -701,6 +790,32 @@ namespace Badger
         }
 
         /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                ExcelCheckBox.IsChecked = true;
+                _filePaths = GetFilePaths( );
+                _count = _filePaths.Count;
+                InitializeTimer( );
+                PopulateListBox( );
+                InitializeLabels( );
+                InitializeButtons( );
+                RegisterRadioButtonEvents( );
+                SetImage( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [RadioButton selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -709,6 +824,9 @@ namespace Badger
         {
             try
             {
+                Busy( );
+                var _watch = new Stopwatch( );
+                _watch.Start( );
                 var _radioButton = sender as MetroRadioButton;
                 _fileExtension = _radioButton?.Tag?.ToString( );
                 if( !string.IsNullOrEmpty( _fileExtension ) )
@@ -718,13 +836,48 @@ namespace Badger
 
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
+                _duration = _watch.ElapsedMilliseconds;
+                CountLabel.Content = $"{_count:N0}";
+                DurationLabel.Content = $"{_duration:N0}";
                 PopulateListBox( _filePaths );
-                SetImage( );
+                var _file = $@"/Resources/Assets/ExtensionImages/{_fileExtension?.ToUpper( )}.png";
+                var _uri = new Uri( _file, UriKind.Relative );
+                _image = new BitmapImage( _uri );
+                PictureBox.Source = _image;
+                Chill( );
             }
             catch( Exception ex )
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        private void OnClosing( object sender, CancelEventArgs e )
+        {
+            try
+            {
+                SfSkinManager.Dispose( this );
+                ClearDelegates( );
+                _timer?.Dispose( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        protected void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
+        {
+            PropertyChanged?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );
         }
 
         /// <inheritdoc />

@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
-// <copyright file="BabyClient.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+// <copyright file="ClientBase.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,10 +32,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BabyClient.cs
+//   ClientBase.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,23 +48,23 @@ namespace Badger
     using System.Net.Sockets;
     using System.Text;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class ClientBase
+    public abstract class ClientBase : PropertyChangedBase
     {
-        /// <summary>
-        /// The locked object
-        /// </summary>
-        private protected object _path;
-
         /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
+
+        /// <summary>
+        /// The is connected
+        /// </summary>
+        private protected bool _isConnected;
 
         /// <summary>
         /// The bytes
@@ -70,14 +72,19 @@ namespace Badger
         private protected int _count;
 
         /// <summary>
-        /// The port
-        /// </summary>
-        private protected int _port;
-
-        /// <summary>
         /// The data
         /// </summary>
         private protected byte[ ] _data;
+
+        /// <summary>
+        /// The ip address
+        /// </summary>
+        private protected IPAddress _address;
+
+        /// <summary>
+        /// The ip end point
+        /// </summary>
+        private protected IPEndPoint _endPoint;
 
         /// <summary>
         /// The message
@@ -85,63 +92,19 @@ namespace Badger
         private protected string _message;
 
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _entry;
+
+        /// <summary>
+        /// The port
+        /// </summary>
+        private protected int _port;
+
+        /// <summary>
         /// The socket
         /// </summary>
         private protected Socket _socket;
-
-        /// <summary>
-        /// The ip address
-        /// </summary>
-        private protected IPAddress _ipAddress;
-
-        /// <summary>
-        /// The ip end point
-        /// </summary>
-        private protected IPEndPoint _ipEndPoint;
-
-        /// <summary>
-        /// The is connected
-        /// </summary>
-        private protected bool _connected;
-
-        /// <summary>
-        /// Gets a value indicating whether this instance is busy.
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is busy; otherwise,
-        /// <c> false </c>
-        /// </value>
-        public bool IsBusy
-        {
-            get
-            {
-                lock( _path )
-                {
-                    return _busy;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether
-        /// this instance is connected.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is connected;
-        /// otherwise, <c>false</c>.
-        /// </value>
-        public bool IsConnected
-        {
-            get
-            {
-                return _connected;
-            }
-            private protected set
-            {
-                _connected = value;
-            }
-        }
 
         /// <summary>
         /// Pings the network.
@@ -152,7 +115,7 @@ namespace Badger
         /// <returns>
         /// bool
         /// </returns>
-        private protected bool PingNetwork( string ipAddress )
+        private protected virtual bool PingNetwork( string ipAddress )
         {
             var _status = false;
             try
@@ -179,7 +142,7 @@ namespace Badger
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private protected void SendNotification( string message )
+        private protected virtual void SendNotification( string message )
         {
             try
             {
@@ -196,24 +159,13 @@ namespace Badger
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private protected void BeginInit( )
+        private protected virtual void Busy( )
         {
             try
             {
-                if( _path == null )
+                lock( _entry )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
+                    _busy = true;
                 }
             }
             catch( Exception ex )
@@ -225,29 +177,193 @@ namespace Badger
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private protected void EndInit( )
+        private protected virtual void Chill( )
         {
             try
             {
-                if( _path == null )
+                lock( _entry )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
+                    _busy = false;
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public virtual bool IsBusy
+        {
+            get
+            {
+                lock( _entry )
+                {
+                    return _busy;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether
+        /// this instance is connected.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is connected;
+        /// otherwise, <c>false</c>.
+        /// </value>
+        public virtual bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+            set
+            {
+                if( _isConnected != value )
+                {
+                    _isConnected = value;
+                    OnPropertyChanged( nameof( IsConnected ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public virtual byte[ ] Data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                if( _data != value )
+                {
+                    _data = value;
+                    OnPropertyChanged( nameof( Data ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the ip address.
+        /// </summary>
+        /// <value>
+        /// The ip address.
+        /// </value>
+        public virtual IPAddress Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                if( _address != value )
+                {
+                    _address = value;
+                    OnPropertyChanged( nameof( Address ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the end point.
+        /// </summary>
+        /// <value>
+        /// The end point.
+        /// </value>
+        public virtual IPEndPoint EndPoint
+        {
+            get
+            {
+                return _endPoint;
+            }
+            set
+            {
+                if( _endPoint != value )
+                {
+                    _endPoint = value;
+                    OnPropertyChanged( nameof( EndPoint ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        public virtual string Message
+        {
+            get
+            {
+                return _message;
+            }
+            set
+            {
+                if( _message != value )
+                {
+                    _message = value;
+                    OnPropertyChanged( nameof( Message ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the socket.
+        /// </summary>
+        /// <value>
+        /// The socket.
+        /// </value>
+        public virtual Socket Socket
+        {
+            get
+            {
+                return _socket;
+            }
+            set
+            {
+                if( _socket != value )
+                {
+                    _socket = value;
+                    OnPropertyChanged( nameof( Socket ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the port.
+        /// </summary>
+        /// <value>
+        /// The port.
+        /// </value>
+        public virtual int Port
+        {
+            get
+            {
+                return _port;
+            }
+            set
+            {
+                if( _port != value )
+                {
+                    _port = value;
+                    OnPropertyChanged( nameof( Port ) );
+                }
             }
         }
 

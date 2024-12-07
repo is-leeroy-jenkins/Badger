@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="GoogleSearch.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   GoogleSearch.cs
@@ -43,7 +45,6 @@ namespace Badger
     using Google.Apis.Services;
     using System;
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -65,11 +66,6 @@ namespace Badger
     public class GoogleSearch : WebSearch
     {
         /// <summary>
-        /// The configuration
-        /// </summary>
-        private protected NameValueCollection _config;
-
-        /// <summary>
         /// The key
         /// </summary>
         private readonly string _key;
@@ -77,25 +73,7 @@ namespace Badger
         /// <summary>
         /// The engine
         /// </summary>
-        private readonly string _engine;
-
-        /// <summary>
-        /// Gets or sets the query.
-        /// </summary>
-        /// <value>
-        /// The query.
-        /// </value>
-        public string Query
-        {
-            get
-            {
-                return _query;
-            }
-            private set
-            {
-                _query = value;
-            }
-        }
+        private readonly string _engineId;
 
         /// <inheritdoc />
         /// <summary>
@@ -106,7 +84,7 @@ namespace Badger
             : base( )
         {
             _key = ConfigurationManager.AppSettings[ "ApiKey" ];
-            _engine = ConfigurationManager.AppSettings[ "SearchEngineId" ];
+            _engineId = ConfigurationManager.AppSettings[ "SearchEngineId" ];
         }
 
         /// <inheritdoc />
@@ -120,7 +98,30 @@ namespace Badger
         public GoogleSearch( string keywords )
             : this( )
         {
-            _query = keywords;
+            _keyWords = keywords;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
+        public override string KeyWords
+        {
+            get
+            {
+                return _keyWords;
+            }
+            set
+            {
+                if( _keyWords != value )
+                {
+                    _keyWords = value;
+                    OnPropertyChanged( nameof( KeyWords ) );
+                }
+            }
         }
 
         /// <summary>
@@ -138,19 +139,13 @@ namespace Badger
                 var _initializer = new BaseClientService.Initializer( );
                 _initializer.ApiKey = _key;
                 var _customSearch = new CustomSearchAPIService( _initializer );
-                var _searchRequest = _customSearch
-                    ?.Cse
-                    ?.List( );
-
+                var _searchRequest = _customSearch?.Cse?.List( );
                 if( _searchRequest != null )
                 {
-                    _searchRequest.Q = _query;
-                    _searchRequest.Cx = _engine;
+                    _searchRequest.Q = _keyWords;
+                    _searchRequest.Cx = _engineId;
                     _searchRequest.Start = _count;
-                    var _list = _searchRequest.Execute( )
-                        ?.Items
-                        ?.ToList( );
-
+                    var _list = _searchRequest.Execute( )?.Items?.ToList( );
                     if( _list?.Any( ) == true )
                     {
                         for( var _i = 0; _i < _list.Count; _i++ )
@@ -202,19 +197,13 @@ namespace Badger
                 var _initializer = new BaseClientService.Initializer( );
                 _initializer.ApiKey = _key;
                 var _customSearch = new CustomSearchAPIService( _initializer );
-                var _searchRequest = _customSearch
-                    ?.Cse
-                    ?.List( );
-
+                var _searchRequest = _customSearch?.Cse?.List( );
                 if( _searchRequest != null )
                 {
-                    _searchRequest.Q = _query;
-                    _searchRequest.Cx = _engine;
+                    _searchRequest.Q = _keyWords;
+                    _searchRequest.Cx = _engineId;
                     _searchRequest.Start = _count;
-                    var _list = _searchRequest.Execute( )
-                        ?.Items
-                        ?.ToList( );
-
+                    var _list = _searchRequest.Execute( )?.Items?.ToList( );
                     if( _list?.Any( ) == true )
                     {
                         for( var _i = 0; _i < _list.Count; _i++ )
@@ -249,6 +238,24 @@ namespace Badger
                 _async.SetException( ex );
                 Fail( ex );
                 return default( Task<IList<SearchResult>> );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
+        private protected override void SendNotification( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _notify = new SplashMessage( message );
+                _notify.Show( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
     }

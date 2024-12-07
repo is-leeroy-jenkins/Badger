@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="AsyncFile.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   AsyncFile.cs
@@ -355,17 +357,15 @@ namespace Badger
                 var _nl = Environment.NewLine;
                 var _attrs = _file.FileAttributes;
                 var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                    _tb + "File Path: " + _tb + _filePath + _nl + _nl +
-                    _tb + "File Attributes: " + _tb + _attrs + _nl + _nl +
-                    _tb + "Extension: " + _tb + _extenstion + _nl + _nl +
-                    _tb + "Path Root: " + _tb + _root + _nl + _nl +
-                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
-                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
-                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl +
-                    _tb + "Length: " + _tb + _len + _nl + _nl +
-                    _tb + "Created: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
+                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "File Attributes: " + _tb
+                    + _attrs + _nl + _nl + _tb + "Extension: " + _tb + _extenstion + _nl + _nl + _tb
+                    + "Path Root: " + _tb + _root + _nl + _nl + _tb + "Path Separator: " + _tb
+                    + _pathsep + _nl + _nl + _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl
+                    + _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl + _tb + "Length: "
+                    + _tb + _len + _nl + _nl + _tb + "Created: " + _tb
+                    + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
+                    + _modify.ToShortDateString( ) + _nl + _nl;
 
                 return !string.IsNullOrEmpty( _text )
                     ? _text

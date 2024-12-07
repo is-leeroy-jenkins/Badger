@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="StringExtensions.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   StringExtensions.cs
@@ -193,7 +195,7 @@ namespace Badger
         {
             try
             {
-                ThrowIf.NegativeOrZero( length, nameof( length ) );
+                ThrowIf.Negative( length, nameof( length ) );
                 return text?.Length > length
                     ? text.Substring( text.Length - length )
                     : text;
@@ -220,7 +222,7 @@ namespace Badger
         {
             try
             {
-                ThrowIf.NegativeOrZero( length, nameof( length ) );
+                ThrowIf.Negative( length, nameof( length ) );
                 return text?.Length > length
                     ? text[ length ].ToString( )
                     : text;
@@ -404,8 +406,8 @@ namespace Badger
         /// <returns>
         /// A boolean value indicating the success of the email send.
         /// </returns>
-        public static bool Email( this string body, string subject, string sender, string recipient,
-            string server )
+        public static bool Email( this string body, string subject, string sender,
+            string recipient, string server )
         {
             try
             {

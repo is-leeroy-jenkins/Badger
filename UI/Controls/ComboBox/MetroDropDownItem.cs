@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Bocifus
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-07-2020
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-07-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
-// <copyright file="MetroComboBoxItem.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
+// <copyright file="MetroDropDownItem.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -35,7 +35,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MetroComboBoxItem.cs
+//   MetroDropDownItem.cs
 // </summary>
 // ******************************************************************************************
 
@@ -100,20 +100,20 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnItemMouseEnter(object sender, EventArgs e)
+        private protected void OnItemMouseEnter( object sender, EventArgs e )
         {
             try
             {
-                if(sender is MetroDropDownItem _item )
+                if( sender is MetroDropDownItem _item )
                 {
                     _item.Foreground = _theme.WhiteForeground;
                     _item.Background = _theme.SteelBlueBrush;
                     _item.BorderBrush = _theme.SteelBlueBrush;
                 }
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
-                Fail(ex);
+                Fail( ex );
             }
         }
 
@@ -123,20 +123,20 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnItemMouseLeave(object sender, EventArgs e)
+        private protected void OnItemMouseLeave( object sender, EventArgs e )
         {
             try
             {
-                if(sender is MetroDropDownItem _item)
+                if( sender is MetroDropDownItem _item )
                 {
                     _item.Foreground = _theme.Foreground;
                     _item.Background = _theme.ControlInterior;
                     _item.BorderBrush = _theme.ControlInterior;
                 }
             }
-            catch(Exception ex)
+            catch( Exception ex )
             {
-                Fail(ex);
+                Fail( ex );
             }
         }
 
@@ -144,11 +144,11 @@ namespace Badger
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected void Fail(Exception ex)
+        private protected void Fail( Exception ex )
         {
-            var _error = new ErrorWindow(ex);
-            _error?.SetText();
-            _error?.ShowDialog();
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

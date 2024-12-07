@@ -1,17 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Baby
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-09-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-09-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
-// <copyright file="BrowserTab.cs" company="Terry D. Eppler">
-//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
-//     in C#.  The baby browser is designed for budget execution and data analysis.
-//     A tool for EPA analysts and a component that can be used for general browsing.
+// <copyright file="BrowserTabItem.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -36,7 +35,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BrowserTab.cs
+//   BrowserTabItem.cs
 // </summary>
 // ******************************************************************************************
 
@@ -399,7 +398,7 @@ namespace Badger
                 if( _tab != value )
                 {
                     _tab = value;
-                    OnPropertyChanged(nameof(Tab));
+                    OnPropertyChanged( nameof( Tab ) );
                 }
             }
         }
@@ -415,14 +414,14 @@ namespace Badger
             }
             set
             {
-                if(_browser != value)
+                if( _browser != value )
                 {
                     _browser = value;
-                    OnPropertyChanged(nameof(Browser));
+                    OnPropertyChanged( nameof( Browser ) );
                 }
             }
         }
-        
+
         /// <summary>
         /// Assigns the specified item.
         /// </summary>
@@ -466,12 +465,13 @@ namespace Badger
                 Title = caption;
             }
         }
+
         /// <summary>
         /// Called when [property changed].
         /// </summary>
         /// <param name="propertyName">
         /// Name of the property.</param>
-        protected void OnPropertyChanged( [ CallerMemberName ] string propertyName = null ) 
+        protected void OnPropertyChanged( [ CallerMemberName ] string propertyName = null )
         {
             PropertyChanged?.Invoke( this, new PropertyChangedEventArgs( propertyName ) );
         }
@@ -482,10 +482,10 @@ namespace Badger
         /// associated with freeing, releasing,
         /// or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
+        public void Dispose( )
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            Dispose( true );
+            GC.SuppressFinalize( this );
         }
 
         /// <summary>
@@ -497,11 +497,11 @@ namespace Badger
         /// and unmanaged resources;
         /// <c>false</c> to release only unmanaged resources.
         /// </param>
-        protected virtual void Dispose(bool disposing)
+        protected virtual void Dispose( bool disposing )
         {
-            if(disposing)
+            if( disposing )
             {
-                _timer?.Dispose();
+                _timer?.Dispose( );
             }
         }
 
@@ -509,11 +509,11 @@ namespace Badger
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected void Fail(Exception ex )
+        private protected void Fail( Exception ex )
         {
-            var _error = new ErrorWindow(ex);
-            _error?.SetText();
-            _error?.ShowDialog();
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

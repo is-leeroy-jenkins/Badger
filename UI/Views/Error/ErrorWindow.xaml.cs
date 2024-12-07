@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ErrorWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ErrorWindow.xaml.cs
@@ -48,6 +48,7 @@ namespace Badger
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
+    using Syncfusion.SfSkinManager;
 
     /// <inheritdoc />
     /// <summary>
@@ -67,6 +68,16 @@ namespace Badger
     public partial class ErrorWindow : Window, IDisposable
     {
         /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The path
+        /// </summary>
+        private protected object _entry = new object( );
+
+        /// <summary>
         /// The exception
         /// </summary>
         private protected Exception _exception;
@@ -77,12 +88,27 @@ namespace Badger
         private protected string _message;
 
         /// <summary>
+        /// The stack trace
+        /// </summary>
+        private protected string _stackTrace;
+
+        /// <summary>
+        /// The timer callback
+        /// </summary>
+        private protected TimerCallback _timerCallback;
+
+        /// <summary>
         /// The status update
         /// </summary>
         private protected Action _statusUpdate;
 
         /// <summary>
         /// The title
+        /// </summary>
+        private protected string _title;
+
+        /// <summary>
+        /// The text
         /// </summary>
         private protected string _text;
 
@@ -99,30 +125,40 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ErrorWindow" /> class.
         /// </summary>
         public ErrorWindow( )
         {
+            // Window Initialization
             InitializeComponent( );
             InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
-            Width = 560;
-            Height = 250;
-            FontFamily = new FontFamily( "Roboto" );
-            FontSize = 12d;
-            WindowStyle = _theme.WindowStyle;
+            Width = 900;
+            Height = 350;
+            FontFamily = _theme.FontFamily;
+            FontSize = _theme.FontSize;
+            WindowStyle = WindowStyle.None;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             HorizontalAlignment = HorizontalAlignment.Stretch;
             VerticalAlignment = VerticalAlignment.Stretch;
-            Background = _theme.Background;
-            Foreground = _theme.Foreground;
-			BorderBrush = _theme.RedBrush;
-            ToolTip = "click to clear";
+            Background = _theme.DarkRedBrush;
+            Foreground = _theme.WhiteForeground;
+            BorderBrush = _theme.RedBrush;
+            BorderThickness = new Thickness( 1 );
+            Margin = new Thickness( 1 );
+            Topmost = true;
+
+            // Control Properties
+            Header.FontFamily = FontFamily;
+            Header.FontSize = 14;
+            MessageText.BorderBrush = _theme.RedBrush;
+            MessageText.FontFamily = FontFamily;
+            MessageText.FontSize = 12;
 
             // Event Wiring
-            IsVisibleChanged += OnVisibleChanged;
+            Loaded += OnLoaded;
+            _title = "Abnormal Termination!";
             MouseLeftButtonDown += OnClick;
             MouseRightButtonDown += OnClick;
         }
@@ -130,7 +166,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ErrorWindow" />
+        /// <see cref="ErrorWindow" />
         /// class.
         /// </summary>
         /// <param name="exception"> The exception. </param>
@@ -138,66 +174,100 @@ namespace Badger
             : this( )
         {
             _exception = exception;
-            MessageText.Content = exception.ToLogString( exception.Message );
-            Header.Content = "There has been an error!";
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:Badger.ErrorWindow" /> class.
-        /// </summary>
-        /// <param name="exception">The
-        /// <see cref="T:System.Threading.Tasks.UnobservedTaskExceptionEventArgs" />
-        /// instance containing the event data.</param>
-        public ErrorWindow( UnobservedTaskExceptionEventArgs exception )
-            : this( )
-        {
-            _exception = new Exception( "UnObserved Task Exception" );
-            MessageText.Content = _exception.ToLogString( _exception.Message );
-            Header.Content = "There has been an error!";
+            _title = "Abnormal Termination!";
+            _stackTrace = exception.StackTrace;
+            _message = exception.Message;
+            _text = exception.ToLogString( _title );
+            Header.Content = _title;
+            MessageText.Text = _text;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.ErrorWindow" /> class.
+        /// <see cref="ErrorWindow" /> class.
         /// </summary>
         /// <param name="exception">The exception.</param>
         /// <param name="title">The title.</param>
         public ErrorWindow( Exception exception, string title )
             : this( exception )
-		{
-			_exception = exception;
-            MessageText.Content = exception.ToLogString( exception.Message );
-            Header.Content = title;
+        {
+            _exception = exception;
+            _title = title;
+            _stackTrace = exception.StackTrace;
+            _message = exception.Message;
+            _text = exception.ToLogString( _title );
+            Header.Content = _title;
+            MessageText.Text = _text;
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.ErrorWindow" />
-        /// class.
+        /// Gets or sets the exception.
         /// </summary>
-        /// <param name="message"> The message. </param>
-        public ErrorWindow( string message )
-            : this( )
+        /// <value>
+        /// The exception.
+        /// </value>
+        public Exception Exception
         {
-            MessageText.Content = message;
-            Header.Content = "There has been an error!";
+            get
+            {
+                return _exception;
+            }
+            set
+            {
+                _exception = value;
+            }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.ErrorWindow" /> class.
+        /// Gets or sets the message.
         /// </summary>
-        /// <param name="title">The title.</param>
-        /// <param name="message">The message.</param>
-        public ErrorWindow( string title, string message )
-            : this( )
+        /// <value>
+        /// The message.
+        /// </value>
+        public string Message
         {
-            Header.Content = title;
-            MessageText.Content = message;
+            get
+            {
+                return _message;
+            }
+            set
+            {
+                _message = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the stack trace.
+        /// </summary>
+        /// <value>
+        /// The stack trace.
+        /// </value>
+        public string StackTrace
+        {
+            get
+            {
+                return _stackTrace;
+            }
+            set
+            {
+                _stackTrace = value;
+            }
+        }
+
+        /// <summary>
+        /// Clears the delegates.
+        /// </summary>
+        private void ClearDelegates( )
+        {
+            try
+            {
+                _statusUpdate -= UpdateStatus;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -207,28 +277,15 @@ namespace Badger
         {
             try
             {
-                MessageText.Content = _exception?.ToLogString( "" );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
+                if( string.IsNullOrEmpty( Header.Content.ToString( ) ) )
+                {
+                    Header.Content = _title;
+                }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                InitializeTimer( );
-                FadeInAsync( this );
+                if( string.IsNullOrEmpty( MessageText.Text ) )
+                {
+                    MessageText.Text = _text;
+                }
             }
             catch( Exception ex )
             {
@@ -243,8 +300,8 @@ namespace Badger
         {
             try
             {
-                var _callback = new TimerCallback( UpdateStatus );
-                _timer = new Timer( _callback, null, 0, 80 );
+                _timerCallback += UpdateStatus;
+                _timer = new Timer( _timerCallback, null, 0, 260 );
             }
             catch( Exception ex )
             {
@@ -260,7 +317,6 @@ namespace Badger
         {
             try
             {
-                //CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception ex )
             {
@@ -304,6 +360,42 @@ namespace Badger
         {
             try
             {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Busies this instance.
+        /// </summary>
+        private void Busy( )
+        {
+            try
+            {
+                lock( _entry )
+                {
+                    _busy = true;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Chills this instance.
+        /// </summary>
+        private void Chill( )
+        {
+            try
+            {
+                lock( _entry )
+                {
+                    _busy = false;
+                }
             }
             catch( Exception ex )
             {
@@ -381,7 +473,73 @@ namespace Badger
         {
             try
             {
-                Dispatcher.BeginInvoke( _statusUpdate );
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action<object> action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( Dispatcher.CheckAccess( ) )
+                {
+                    action?.Invoke( null );
+                }
+                else
+                {
+                    Dispatcher.BeginInvoke( action );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnLoaded( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                InitializeTimer( );
             }
             catch( Exception ex )
             {
@@ -399,6 +557,7 @@ namespace Badger
         {
             try
             {
+                _timer?.Dispose( );
                 Close( );
             }
             catch( Exception ex )
@@ -408,31 +567,39 @@ namespace Badger
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Called when [click].
         /// </summary>
-        /// <param name="ex"> The ex. </param>
-        private void Fail( Exception ex )
-        {
-            Console.WriteLine( ex.Message );
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">The action.</param>
-        private protected void InvokeIf( Action action )
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClose( object sender, RoutedEventArgs e )
         {
             try
             {
-                ThrowIf.Null( action, nameof( action ) );
-                if( Dispatcher.CheckAccess( ) )
-                {
-                    action?.Invoke( );
-                }
-                else
-                {
-                    Dispatcher.BeginInvoke( action );
-                }
+                _timer?.Dispose( );
+                SfSkinManager.Dispose( this );
+                Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                InitializeTimer( );
+                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -467,6 +634,15 @@ namespace Badger
             {
                 _timer?.Dispose( );
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex"> The ex. </param>
+        private void Fail( Exception ex )
+        {
+            Console.WriteLine( ex.Message );
         }
     }
 }

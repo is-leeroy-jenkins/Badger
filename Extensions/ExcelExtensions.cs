@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ExcelExtensions.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ExcelExtensions.cs
@@ -94,7 +96,7 @@ namespace Badger
         {
             try
             {
-                ThrowIf.NegativeOrZero( header, nameof( header ) );
+                ThrowIf.Negative( header, nameof( header ) );
                 var _result = new DataSet( );
                 foreach( var _worksheet in excelPackage.Workbook.Worksheets )
                 {
@@ -207,9 +209,9 @@ namespace Badger
                 {
                     var _first = width >= 1.0
                         ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                        : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 )
-                                - Math.Round( 5.0 * width, 0 ) )
-                            / 12.0, 2 );
+                        : Math.Round(
+                            ( Math.Round( 12.0 * ( width - 0.0 ), 0 )
+                                - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
 
                     var _second = width - _first;
                     var _third = width >= 1.0

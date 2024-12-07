@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
-// <copyright file="SchemaWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+// <copyright file="ListDialog.xaml.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,10 +32,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SchemaWindow.xaml.cs
+//   ListDialog.xaml.cs
 // </summary>
 // ******************************************************************************************
 
@@ -141,7 +141,7 @@ namespace Badger
         {
             get
             {
-                return _columnNames; 
+                return _columnNames;
             }
             private protected set
             {
@@ -236,7 +236,7 @@ namespace Badger
         /// <see cref="T:Badger.SchemaWindow" /> class.
         /// </summary>
         /// <param name="grid">The grid.</param>
-        public ListWindow( MetroDataGrid grid ) 
+        public ListWindow( MetroDataGrid grid )
             : this( )
         {
             _grid = grid;
@@ -265,7 +265,7 @@ namespace Badger
         {
             try
             {
-                if( _grid != null 
+                if( _grid != null
                     && _grid.Columns.Count > 0 )
                 {
                     ColumnCheckList.Items?.Clear( );
@@ -278,7 +278,7 @@ namespace Badger
                         };
 
                         _columnNames?.Add( _name.HeaderText );
-                        ColumnCheckList.Items.Add( _item ); 
+                        ColumnCheckList.Items.Add( _item );
                     }
                 }
             }

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="MainWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2020  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MainWindow.xaml.cs
@@ -46,6 +46,7 @@ namespace Badger
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
     using ToastNotifications;
@@ -69,6 +70,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedMember.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Local" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "CanSimplifyDictionaryLookupWithTryGetValue" ) ]
     public partial class MainWindow : Window, IDisposable
     {
         /// <summary>
@@ -84,7 +86,7 @@ namespace Badger
         /// <summary>
         /// The timer
         /// </summary>
-        private protected System.Threading.Timer _timer;
+        private protected Timer _timer;
 
         /// <summary>
         /// The seconds
@@ -324,13 +326,23 @@ namespace Badger
         {
             try
             {
-                var _window = new DataWindow( )
+                if( App.ActiveWindows?.ContainsKey( "DataWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( DataWindow )App.ActiveWindows[ "DataWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new DataWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -345,13 +357,23 @@ namespace Badger
         {
             try
             {
-                var _window = new ChartWindow( )
+                if( App.ActiveWindows?.ContainsKey( "ChartWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( ChartWindow )App.ActiveWindows[ "ChartWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new ChartWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -366,13 +388,23 @@ namespace Badger
         {
             try
             {
-                var _window = new DocumentWindow( )
+                if( App.ActiveWindows?.ContainsKey( "DocumentWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( DocumentWindow )App.ActiveWindows[ "DocumentWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new DocumentWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -387,13 +419,23 @@ namespace Badger
         {
             try
             {
-                var _window = new ExcelWindow( )
+                if( App.ActiveWindows?.ContainsKey( "ExcelWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( ExcelWindow )App.ActiveWindows[ "ExcelWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new ExcelWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -408,13 +450,23 @@ namespace Badger
         {
             try
             {
-                var _window = new EditorWindow
+                if( App.ActiveWindows?.ContainsKey( "EditorWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( EditorWindow )App.ActiveWindows[ "EditorWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new EditorWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -429,13 +481,23 @@ namespace Badger
         {
             try
             {
-                var _window = new MapWindow( )
+                if( App.ActiveWindows?.ContainsKey( "MapWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( MapWindow )App.ActiveWindows[ "MapWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new MapWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -450,13 +512,23 @@ namespace Badger
         {
             try
             {
-                var _window = new CalendarWindow
+                if( App.ActiveWindows?.ContainsKey( "CalendarWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( CalendarWindow )App.ActiveWindows[ "CalendarWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new CalendarWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -471,13 +543,23 @@ namespace Badger
         {
             try
             {
-                var _window = new EmailWindow( )
+                if( App.ActiveWindows?.ContainsKey( "EmailWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( EmailWindow )App.ActiveWindows[ "EmailWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new EmailWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -492,13 +574,23 @@ namespace Badger
         {
             try
             {
-                var _window = new ProgramWindow
+                if( App.ActiveWindows?.ContainsKey( "ProgramWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( EmailWindow )App.ActiveWindows[ "ProgramWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new ProgramWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -513,13 +605,23 @@ namespace Badger
         {
             try
             {
-                var _window = new PivotWindow
+                if( App.ActiveWindows?.ContainsKey( "PivotWindow" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( PivotWindow )App.ActiveWindows[ "PivotWindow" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new PivotWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {
@@ -534,13 +636,23 @@ namespace Badger
         {
             try
             {
-                var _window = new WebWindow( )
+                if( App.ActiveWindows?.ContainsKey( "WebBrowser" ) == true )
                 {
-                    Owner = this
-                };
+                    var _form = ( WebBrowser )App.ActiveWindows[ "WebBrowser" ];
+                    Hide( );
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new WebBrowser( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
 
-                _window.Show( );
-                Hide( );
+                    Hide( );
+                    _form.Show( );
+                }
             }
             catch( Exception ex )
             {

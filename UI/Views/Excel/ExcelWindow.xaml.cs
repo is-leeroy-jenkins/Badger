@@ -1,18 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Baby
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-09-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-09-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ExcelWindow.xaml.cs" company="Terry D. Eppler">
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Baby is a light-weight, full-featured, web-browser built with .NET 6 and is written
-//     in C#.  The baby browser is designed for budget execution and data analysis.
-//     A tool for EPA analysts and a component that can be used for general browsing.
-// 
-//     Copyright ©  2020 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),

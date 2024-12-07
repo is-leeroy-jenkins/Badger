@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="DataService.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataService.cs
@@ -185,7 +187,9 @@ namespace Badger
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, updates, where,
+                commandType );
+
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -212,7 +216,9 @@ namespace Badger
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _sqlStatement = new SqlStatement( source, provider, columns, where,
+                commandType );
+
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -235,14 +241,13 @@ namespace Badger
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataService( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where,
-            Command commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
         {
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
-                commandType );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics,
+                where, commandType );
 
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
@@ -365,10 +370,7 @@ namespace Badger
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
                 ThrowIf.Null( column, nameof( column ) );
-                var _query = dataRows
-                    ?.Select( v => v.Field<string>( column ) )
-                    ?.Distinct( );
-
+                var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
                 return _query?.Any( ) == true
                     ? _query
                     : default( IEnumerable<string> );
@@ -394,10 +396,8 @@ namespace Badger
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
                 ThrowIf.Null( value, nameof( value ) );
-                var _query = dataRows
-                    ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                    ?.Select( v => v.Field<string>( $"{name}" ) )
-                    ?.Distinct( );
+                var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                    ?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
 
                 return _query?.Any( ) == true
                     ? _query
@@ -425,9 +425,7 @@ namespace Badger
                 using var _excelPackage = new ExcelPackage( );
                 using var _fileStream = OpenRead( filePath );
                 _excelPackage.Load( _fileStream );
-                var _worksheet = _excelPackage?.Workbook
-                    ?.Worksheets?.First( );
-
+                var _worksheet = _excelPackage?.Workbook?.Worksheets?.First( );
                 var _dataTable = new DataTable( _worksheet?.Name );
                 if( _worksheet?.Cells != null )
                 {

@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="Palette.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2020  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   Palette.cs
@@ -51,7 +51,7 @@ namespace Badger
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:Badger.Dimensions" />
+    /// <seealso cref="Dimensions" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -126,9 +126,9 @@ namespace Badger
         private protected Color _controlInteriorColor = new Color( )
         {
             A = 255,
-            R = 45,
-            G = 45,
-            B = 45
+            R = 61,
+            G = 61,
+            B = 61
         };
 
         /// <summary>
@@ -137,9 +137,9 @@ namespace Badger
         private protected Color _darkBlueColor = new Color( )
         {
             A = 255,
-            R = 1,
-            G = 28,
-            B = 43
+            R = 14,
+            G = 60,
+            B = 94
         };
 
         /// <summary>
@@ -250,8 +250,8 @@ namespace Badger
         {
             A = 255,
             R = 1,
-            G = 61,
-            B = 17
+            G = 43,
+            B = 12
         };
 
         /// <summary>
@@ -279,7 +279,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.Palette" /> class.
+        /// <see cref="Palette" /> class.
         /// </summary>
         protected Palette( )
             : base( )

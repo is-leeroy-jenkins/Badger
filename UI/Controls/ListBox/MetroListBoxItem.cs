@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 09-07-2020
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-07-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="MetroListBoxItem.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -79,17 +79,18 @@ namespace Badger
             // Control Properties
             Height = 35;
             Background = _theme.ControlInterior;
-            Foreground = _theme.LightBlueBrush;
+            Foreground = _theme.Foreground;
             BorderBrush = _theme.ControlInterior;
             Margin = _theme.Margin;
-            Padding = new Thickness( 30, 10, 1, 1 );
+            Padding = new Thickness( 30, 1, 1, 1 );
             BorderThickness = new Thickness( 0 );
-            HorizontalContentAlignment = HorizontalAlignment.Stretch;
-            VerticalContentAlignment = VerticalAlignment.Stretch;
+            HorizontalContentAlignment = HorizontalAlignment.Left;
+            VerticalContentAlignment = VerticalAlignment.Center;
 
             // Event Wiring
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
+            Selected += OnItemSelected;
         }
 
         /// <summary>
@@ -132,6 +133,31 @@ namespace Badger
                     _item.Background = _theme.ControlInterior;
                     _item.BorderBrush = _theme.ControlInterior;
                     _item.FontWeight = FontWeights.Normal;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnItemSelected( object sender, RoutedEventArgs e )
+        {
+            try
+            {
+                if( sender is MetroListBoxItem _item
+                    && _item.IsSelected )
+                {
+                    _item.Foreground = _theme.WhiteForeground;
+                    _item.Background = _theme.DarkGreenBrush;
+                    _item.BorderBrush = _theme.GreenBrush;
+                    _item.FontWeight = FontWeights.Bold;
                 }
             }
             catch( Exception ex )

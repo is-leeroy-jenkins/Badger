@@ -180,9 +180,9 @@
 
                     <bdgr:MetroDataGrid
                         x:Name="DataGrid"
-                        Canvas.Left="16"
+                        Canvas.Left="34"
                         Canvas.Top="28"
-                        Width="1011"
+                        Width="993"
                         Height="436"
                         Padding="1"
                         HorizontalAlignment="Left"
@@ -197,9 +197,9 @@
 
                     <bdgr:MetroLabel
                         x:Name="FirstGridLabel"
-                        Canvas.Left="16"
+                        Canvas.Left="34"
                         Canvas.Top="474"
-                        Width="210"
+                        Width="192"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="MetroLabel" />
@@ -529,7 +529,6 @@
 
         <bdgr:MetroTabControl
             x:Name="SecondaryTabControl"
-            Grid.Row="0"
             Canvas.Left="544"
             Canvas.Top="10"
             Width="294"
@@ -577,10 +576,8 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         AllowMultiSelect="False"
-                        DefaultText="   Select Model Type">
-                        <bdgr:MetroComboBox.Background>
-                            <SolidColorBrush Color="{DynamicResource BackColor3}" />
-                        </bdgr:MetroComboBox.Background>
+                        DefaultText="   Select Model Type"
+                        Background="{DynamicResource ControlInteriorBrush}">
 
                         <bdgr:MetroComboBoxItem
                             Padding="30,1,1,1"

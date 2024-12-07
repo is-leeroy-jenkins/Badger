@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 10-19-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        10-19-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="MetroTabItem.cs" company="Terry D. Eppler">
-//   An open source data analysis application for EPA Analysts developed
-//   in C-Sharp using WPF and released under the MIT license
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 

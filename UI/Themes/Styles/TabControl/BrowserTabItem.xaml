@@ -12,7 +12,7 @@
     <!--  *********************************************** BROWSER TAB  *****************************************************  -->
 
     <Style
-        x:Key="BrowserTabStyle"
+        x:Key="MetroBrowserTabStyle"
         TargetType="{x:Type b:BrowserTabItem}">
         <Setter Property="Background" Value="{DynamicResource FormBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource FormBackground}" />

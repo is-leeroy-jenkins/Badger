@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 10-23-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        10-23-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="DataWindow.xaml.cs" company="Terry D. Eppler">
-//   An open source data analysis application for EPA Analysts developed
-//   in C-Sharp using WPF and released under the MIT license
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -2027,8 +2027,23 @@ namespace Badger
         {
             try
             {
-                var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
-                _form.Show( );
+                if( App.ActiveWindows?.ContainsKey( "MainWindow" ) == true )
+                {
+                    var _form = ( MainWindow )App.ActiveWindows[ "MainWindow" ];
+                    _form.Show( );
+                }
+                else
+                {
+                    var _form = new MainWindow( )
+                    {
+                        Owner = this,
+                        Topmost = true
+                    };
+
+                    _form.Show( );
+                }
+
+                Hide( );
             }
             catch( Exception ex )
             {
@@ -2135,7 +2150,7 @@ namespace Badger
                         Provider.SQLite => Provider.SQLite,
                         Provider.SqlCe => Provider.SqlCe,
                         Provider.SqlServer => Provider.SqlServer,
-                        _ => Provider.Access
+                        var _ => Provider.Access
                     };
                 }
             }
@@ -2162,6 +2177,7 @@ namespace Badger
                 InitializeToolbar( );
                 UpdateLabels( );
                 HideTabs( );
+                App.ActiveWindows.Add( "DataWindow", this );
                 FadeInAsync( this );
             }
             catch( Exception ex )
@@ -3235,11 +3251,11 @@ namespace Badger
         /// and unmanaged resources;
         /// <c>false</c> to release only unmanaged resources.
         /// </param>
-        protected virtual void Dispose(bool disposing)
+        protected virtual void Dispose( bool disposing )
         {
-            if(disposing)
+            if( disposing )
             {
-                _timer?.Dispose();
+                _timer?.Dispose( );
             }
         }
 

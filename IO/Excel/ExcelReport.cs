@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="ExcelReport.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ExcelReport.cs
@@ -43,6 +45,7 @@ namespace Badger
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
     using System;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -51,7 +54,7 @@ namespace Badger
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:Badger.SheetConfig"/>
+    /// <seealso cref="T:Bubba.SheetConfig"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -66,199 +69,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class ExcelReport : PartFactory
     {
-        /// <summary>
-        /// Gets or sets the height of the row.
-        /// </summary>
-        /// <value>
-        /// The height of the row.
-        /// </value>
-        public double RowHeight
-        {
-            get
-            {
-                return _rowHeight;
-            }
-
-            private protected set
-            {
-                _rowHeight = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the width of the column.
-        /// </summary>
-        /// <value>
-        /// The width of the column.
-        /// </value>
-        public double ColumnWidth
-        {
-            get
-            {
-                return _columnWidth;
-            }
-
-            private protected set
-            {
-                _columnWidth = value;
-            }
-        }
-
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        public string InternalPath
-        {
-            get
-            {
-                return _internalPath;
-            }
-
-            private protected set
-            {
-                _internalPath = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.ExcelReport" /> class.
-        /// </summary>
-        public ExcelReport( )
-            : base( )
-        {
-            _startRow = 2;
-            _startColumn = 1;
-            _fontColor = Color.Black;
-            _font = new Font( "Roboto", 8, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 9 );
-            _fileName = "Budget.xlsx";
-            _rowHeight = 0.27d;
-            _columnWidth = 0.69d;
-            _leftMargin = .25m;
-            _rightMargin = .25m;
-            _topMargin = 1m;
-            _bottomMargin = 1m;
-            _headerMargin = 0.4m;
-            _footerMargin = 0.4m;
-            _zoomLevel = 100;
-            _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
-            _rowCount = 55;
-            _columnCount = 11;
-            _internalPath = AppSettings[ "Reports" ];
-            _savePath = AppSettings[ "Desktop" ] + _fileName;
-            _fileInfo = new FileInfo( _internalPath );
-            _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
-            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
-            _excelWorkbook = _excelPackage.Workbook;
-            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
-            _excelWorkbook.View.ShowHorizontalScrollBar = true;
-            _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbook( );
-            InitializeActiveGrid( );
-            InitializeSheetView( );
-            InitializePrinterSettings( );
-            InitializeHeaderFooter( );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.BudgetWorkbook" /> class.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public ExcelReport( string filePath )
-            : base( )
-        {
-            _startRow = 2;
-            _startColumn = 1;
-            _fontColor = Color.Black;
-            _font = new Font( "Roboto", 8, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 9 );
-            _rowHeight = 0.27d;
-            _columnWidth = 0.69d;
-            _leftMargin = .25m;
-            _rightMargin = .25m;
-            _topMargin = 1m;
-            _bottomMargin = 1m;
-            _headerMargin = 0.4m;
-            _footerMargin = 0.4m;
-            _zoomLevel = 100;
-            _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
-            _internalPath = AppSettings[ "Reports" ];
-            _savePath = AppSettings[ "Desktop" ] + _fileName + ".xlsx";
-            _filePath = filePath;
-            _fileName = Path.GetFileNameWithoutExtension( filePath );
-            _fileInfo = new FileInfo( filePath );
-            _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
-            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
-            _excelWorkbook = _excelPackage.Workbook;
-            _dataWorksheet = _excelWorkbook.Worksheets[ 0 ];
-            _excelWorkbook.View.ShowHorizontalScrollBar = true;
-            _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbook( );
-            InitializeActiveGrid( );
-            InitializeSheetView( );
-            InitializePrinterSettings( );
-            InitializeHeaderFooter( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.BudgetWorkbook"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataTable">
-        /// The data table.
-        /// </param>
-        public ExcelReport( DataTable dataTable )
-            : base( )
-        {
-            _startRow = 2;
-            _startColumn = 1;
-            _fontColor = Color.Black;
-            _font = new Font( "Roboto", 8, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 9, FontStyle.Regular );
-            _rowHeight = 0.27d;
-            _columnWidth = 0.69d;
-            _leftMargin = .25m;
-            _rightMargin = .25m;
-            _topMargin = 1m;
-            _bottomMargin = 1m;
-            _headerMargin = 0.4m;
-            _footerMargin = 0.4m;
-            _zoomLevel = 100;
-            _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
-            _internalPath = AppSettings[ "Reports" ];
-            _dataTable = dataTable;
-            _columnCount = dataTable.Columns.Count;
-            _rowCount = dataTable.Rows.Count;
-            _fileName = dataTable.TableName + ".xlsx";
-            _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
-            DataMeasure = new DataMeasure( dataTable );
-            _fileInfo = new FileInfo( _internalPath );
-            _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
-            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
-            _excelWorkbook = _excelPackage.Workbook;
-            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _excelWorkbook.View.ShowHorizontalScrollBar = true;
-            _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbook( );
-            InitializeActiveGrid( );
-            InitializeSheetView( );
-            InitializePrinterSettings( );
-            InitializeHeaderFooter( );
-        }
-
         /// <summary>
         /// Initializes the worksheets.
         /// </summary>
@@ -316,24 +126,15 @@ namespace Badger
             {
                 var _rows = _dataTable.Rows.Count.ToString( "N0" );
                 var _cols = _dataTable.Columns.Count.ToString( );
-                _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText = "Records:" + '\t'
-                    + "  "
-                    + _rows.PadLeft( 16 )
-                    + Environment.NewLine
-                    + "Columns:" + '\t'
-                    + "  "
+                _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText = "Records:" + '\t' + "  "
+                    + _rows.PadLeft( 16 ) + Environment.NewLine + "Columns:" + '\t' + "  "
                     + _cols.PadLeft( 19 );
 
-                _dataWorksheet.HeaderFooter.OddFooter.CenteredText =
-                    "Page" + '\r' + '\n' +
-                    ExcelHeaderFooter.PageNumber
-                    + " of "
-                    + ExcelHeaderFooter.NumberOfPages;
+                _dataWorksheet.HeaderFooter.OddFooter.CenteredText = "Page" + '\r' + '\n'
+                    + ExcelHeaderFooter.PageNumber + " of " + ExcelHeaderFooter.NumberOfPages;
 
-                _dataWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
-                    "Data as of:"
-                    + Environment.NewLine
-                    + DateTime.Today.ToLongDateString( );
+                _dataWorksheet.HeaderFooter.OddFooter.LeftAlignedText = "Data as of:"
+                    + Environment.NewLine + DateTime.Today.ToLongDateString( );
             }
             catch( Exception ex )
             {
@@ -352,7 +153,7 @@ namespace Badger
                 if( _dataTable == null )
                 {
                     _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
-                    _dataRange.Style.Font.Name = "Roboto";
+                    _dataRange.Style.Font.Name = "Segoe UI";
                     _dataRange.Style.Font.Size = 8;
                     _dataRange.Style.Font.Bold = false;
                     _dataRange.Style.Font.Italic = false;
@@ -414,6 +215,199 @@ namespace Badger
             {
                 Fail( ex );
                 Dispose( );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.ExcelReport" /> class.
+        /// </summary>
+        public ExcelReport( )
+            : base( )
+        {
+            _startRow = 2;
+            _startColumn = 1;
+            _fontColor = Color.Black;
+            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
+            _titleFont = new Font( "Segoe UI", 9 );
+            _fileName = "Budget.xlsx";
+            _rowHeight = 0.27d;
+            _columnWidth = 0.69d;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
+            _rowCount = 55;
+            _columnCount = 11;
+            _internalPath = AppSettings[ "Reports" ];
+            _savePath = AppSettings[ "Desktop" ] + _fileName;
+            _fileInfo = new FileInfo( _internalPath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
+            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
+            _excelWorkbook = _excelPackage.Workbook;
+            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeWorkbook( );
+            InitializeActiveGrid( );
+            InitializeSheetView( );
+            InitializePrinterSettings( );
+            InitializeHeaderFooter( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.BudgetWorkbook" /> class.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        public ExcelReport( string filePath )
+            : base( )
+        {
+            _startRow = 2;
+            _startColumn = 1;
+            _fontColor = Color.Black;
+            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
+            _titleFont = new Font( "Segoe UI", 9 );
+            _rowHeight = 0.27d;
+            _columnWidth = 0.69d;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
+            _internalPath = AppSettings[ "Reports" ];
+            _savePath = AppSettings[ "Desktop" ] + _fileName + ".xlsx";
+            _filePath = filePath;
+            _fileName = Path.GetFileNameWithoutExtension( filePath );
+            _fileInfo = new FileInfo( filePath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
+            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
+            _excelWorkbook = _excelPackage.Workbook;
+            _dataWorksheet = _excelWorkbook.Worksheets[ 0 ];
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeWorkbook( );
+            InitializeActiveGrid( );
+            InitializeSheetView( );
+            InitializePrinterSettings( );
+            InitializeHeaderFooter( );
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.BudgetWorkbook"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
+        public ExcelReport( DataTable dataTable )
+            : base( )
+        {
+            _startRow = 2;
+            _startColumn = 1;
+            _fontColor = Color.Black;
+            _font = new Font( "Segoe UI", 8, FontStyle.Regular );
+            _titleFont = new Font( "Segoe UI", 9, FontStyle.Regular );
+            _rowHeight = 0.27d;
+            _columnWidth = 0.69d;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
+            _internalPath = AppSettings[ "Reports" ];
+            _dataTable = dataTable;
+            _columnCount = dataTable.Columns.Count;
+            _rowCount = dataTable.Rows.Count;
+            _fileName = dataTable.TableName + ".xlsx";
+            _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
+            DataMeasure = new DataMeasure( dataTable );
+            _fileInfo = new FileInfo( _internalPath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
+            _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
+            _excelWorkbook = _excelPackage.Workbook;
+            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeWorkbook( );
+            InitializeActiveGrid( );
+            InitializeSheetView( );
+            InitializePrinterSettings( );
+            InitializeHeaderFooter( );
+        }
+
+        /// <summary>
+        /// Gets or sets the height of the row.
+        /// </summary>
+        /// <value>
+        /// The height of the row.
+        /// </value>
+        public double RowHeight
+        {
+            get
+            {
+                return _rowHeight;
+            }
+
+            private protected set
+            {
+                _rowHeight = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the width of the column.
+        /// </summary>
+        /// <value>
+        /// The width of the column.
+        /// </value>
+        public double ColumnWidth
+        {
+            get
+            {
+                return _columnWidth;
+            }
+
+            private protected set
+            {
+                _columnWidth = value;
+            }
+        }
+
+        /// <summary>
+        /// The configuration
+        /// </summary>
+        public string InternalPath
+        {
+            get
+            {
+                return _internalPath;
+            }
+
+            private protected set
+            {
+                _internalPath = value;
             }
         }
     }

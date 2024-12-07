@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="EnumerableExtensions.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   EnumerableExtensions.cs
@@ -203,8 +205,7 @@ namespace Badger
                 var _array = _dictionary.Keys.ToArray( );
                 if( _array?.Contains( name ) == true )
                 {
-                    var _select = dataRow
-                        ?.Where( p => p.Field<string>( name ) == value )
+                    var _select = dataRow?.Where( p => p.Field<string>( name ) == value )
                         ?.Select( p => p );
 
                     return _select?.Any( ) == true
@@ -321,8 +322,8 @@ namespace Badger
         public static IEnumerable<T> Slice<T>( this IEnumerable<T> sequence, int startIndex,
             int count )
         {
-            ThrowIf.NegativeOrZero( startIndex, nameof( startIndex ) );
-            ThrowIf.NegativeOrZero( count, nameof( count ) );
+            ThrowIf.Negative( startIndex, nameof( startIndex ) );
+            ThrowIf.Negative( count, nameof( count ) );
             return sequence switch
             {
                 IList<T> _list => SliceList( _list.Count, i => _list[ i ] ),
@@ -352,8 +353,8 @@ namespace Badger
         /// <returns></returns>
         public static IEnumerable<T> LazySlice<T>( this IEnumerable<T> type, int start, int end )
         {
-            ThrowIf.NegativeOrZero( start, nameof( start ) );
-            ThrowIf.NegativeOrZero( end, nameof( end ) );
+            ThrowIf.Negative( start, nameof( start ) );
+            ThrowIf.Negative( end, nameof( end ) );
             var _index = 0;
             foreach( var _item in type )
             {
@@ -415,7 +416,6 @@ namespace Badger
             foreach( var _element in source )
             {
                 yield return _element;
-
                 _elementBuffer.Add( _element );
             }
 
@@ -428,7 +428,6 @@ namespace Badger
             while( true )
             {
                 yield return _elementBuffer[ _index ];
-
                 _index = ( _index + 1 ) % _elementBuffer.Count;
             }
         }

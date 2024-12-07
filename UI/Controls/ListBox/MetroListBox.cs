@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2022
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2022
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="MetroListBox.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2022  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MetroListBox.cs
@@ -71,12 +71,40 @@ namespace Badger
         {
             // Control Properties
             Background = _theme.ControlInterior;
-            Foreground = _theme.LightBlueBrush;
+            Foreground = _theme.Foreground;
             BorderBrush = _theme.BorderBrush;
+            Height = 60;
+            Width = 100;
             Margin = _theme.Margin;
             Padding = _theme.Padding;
             BorderThickness = _theme.BorderThickness;
-            HorizontalContentAlignment = HorizontalAlignment.Left;
+        }
+
+        /// <summary>
+        /// Creates the item.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        public void CreateItem( string name )
+        {
+            try
+            {
+                Items?.Clear( );
+                var _item = new MetroListBoxItem
+                {
+                    Background = _theme.ControlInterior,
+                    Foreground = _theme.Foreground,
+                    BorderBrush = _theme.ControlInterior,
+                    Content = name,
+                    Tag = name,
+                    Height = 35
+                };
+
+                Items.Add( _item );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows7.0</TargetFrameworks>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -28,6 +28,8 @@
     <Version>2.0.0
     </Version>
     <Copyright>@ 2016-2024 Terry Eppler</Copyright>
+    <NuGetAudit>False</NuGetAudit>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
@@ -157,6 +159,8 @@
     <None Remove="Resources\Assets\ToolStripImages\BackButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\BarButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\BrowseButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\CancelButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\ChatButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\ColumnButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\DataSourceButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\DateButton.png" />
@@ -169,11 +173,13 @@
     <None Remove="Resources\Assets\ToolStripImages\FilterButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\FirstButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\GanttButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\GoButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\GraphButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\GridButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\GroupButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\HeatButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\HistogramButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\HomeButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\IncreaseButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\LastButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\LookUpButton.png" />
@@ -190,6 +196,7 @@
     <None Remove="Resources\Assets\ToolStripImages\SchemaButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SmithButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SqlButton.png" />
+    <None Remove="Resources\Assets\ToolStripImages\StopButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\SunButton.png" />
     <None Remove="Resources\Assets\ToolStripImages\ToggleButton.png" />
     <None Remove="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf" />
@@ -257,17 +264,24 @@
   <ItemGroup>
     <Content Include="Resources\Assets\NinjaImages\ico\BudExNinja.ico" />
     <Resource Include="Resources\Assets\NinjaImages\BudExNinjaGrey.ico" />
+    <Resource Include="Resources\Assets\ToolStripImages\CancelButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\ChatButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\GoButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\HomeButton.png" />
+    <Resource Include="Resources\Assets\ToolStripImages\StopButton.png" />
     <Resource Include="UI\Fonts\Roboto-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="cef.sdk" Version="129.0.11" />
-    <PackageReference Include="CefSharp.Common.NETCore" Version="129.0.110" />
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="129.0.110" />
-    <PackageReference Include="EPPlus" Version="7.4.1" />
-    <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
-    <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
+    <PackageReference Include="cef.sdk" Version="131.2.7" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="131.2.70" />
+    <PackageReference Include="CefSharp.OffScreen.NETCore" Version="131.2.70" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="131.2.70" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="131.2.70" />
+    <PackageReference Include="EPPlus" Version="7.5.1" />
+    <PackageReference Include="EPPlus.Interfaces" Version="7.5.0" />
+    <PackageReference Include="EPPlus.System.Drawing" Version="7.5.0" />
     <PackageReference Include="Google.Apis" Version="1.68.0" />
     <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3520" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
@@ -276,12 +290,52 @@
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="RestoreWindowPlace" Version="2.1.0" />
-    <PackageReference Include="SkiaSharp" Version="2.88.8" />
-    <PackageReference Include="SQLite" Version="3.13.0" />
-    <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
-    <PackageReference Include="System.Data.OleDb" Version="8.0.1" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
+    <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.119" />
+    <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Edit.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.OCR.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PivotTable.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Presentation.Wpf" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfBarcode.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfChromelessWindow.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfColorPalette.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfGauge.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfHubTile.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfImageEditor.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfKanban.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfProgressBar.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfRadialMenu.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfRichTextRibbon.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfSpreadsheet.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeNavigator.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
+    <PackageReference Include="System.Data.OleDb" Version="9.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
     <PackageReference Include="ToastNotifications.Messages.Net6" Version="1.0.4" />
     <PackageReference Include="ToastNotifications.Net6" Version="1.0.4" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
@@ -290,290 +344,8 @@
     <Reference Include="LinqStatistics">
       <HintPath>Libraries\LinqStatistics\LinqStatistics.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Calculate.Base">
-      <HintPath>Libraries\UI\Syncfusion.Calculate.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Calculate.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Calculate.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Chart.Base">
-      <HintPath>Libraries\UI\Syncfusion.Chart.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Compression.Base">
-      <HintPath>Libraries\UI\Syncfusion.Compression.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Compression.Portable">
-      <HintPath>Libraries\UI\Syncfusion.Compression.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Data.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Data.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Diagram.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Diagram.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocIO.Base">
-      <HintPath>Libraries\UI\Syncfusion.DocIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocIO.Portable">
-      <HintPath>Libraries\UI\Syncfusion.DocIO.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocIORenderer.Portable">
-      <HintPath>Libraries\UI\Syncfusion.DocIORenderer.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.DocToPDFConverter.Base">
-      <HintPath>Libraries\UI\Syncfusion.DocToPdfConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Edit.MVVM.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Edit.MVVM.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Edit.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Edit.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ExcelChartToImageConverter.WPF">
-      <HintPath>Libraries\UI\Syncfusion.ExcelChartToImageConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ExcelToPDFConverter.Base">
-      <HintPath>Libraries\UI\Syncfusion.ExcelToPDFConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Gantt.MVVM.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Gantt.MVVM.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Gantt.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Gantt.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Grid.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.GridCommon.WPF">
-      <HintPath>Libraries\UI\Syncfusion.GridCommon.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.GridConverter.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.GridConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grouping.Base">
-      <HintPath>Libraries\UI\Syncfusion.Grouping.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.HtmlConverter.Base">
-      <HintPath>Libraries\UI\Syncfusion.HTMLConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Linq.Base">
-      <HintPath>Libraries\UI\Syncfusion.Linq.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OfficeChart.Base">
-      <HintPath>Libraries\UI\Syncfusion.OfficeChart.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OfficeChart.Portable">
-      <HintPath>Libraries\UI\Syncfusion.OfficeChart.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.OfficeChartToImageConverter.WPF">
-      <HintPath>Libraries\UI\Syncfusion.OfficeChartToImageConverter.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Base">
-      <HintPath>Libraries\UI\Syncfusion.Pdf.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Imaging.Portable">
-      <HintPath>Libraries\UI\Syncfusion.Pdf.Imaging.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Portable">
-      <HintPath>Libraries\UI\Syncfusion.Pdf.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PdfToImageConverter.Base">
-      <HintPath>Libraries\UI\Syncfusion.PdfToImageConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PdfViewer.WPF">
-      <HintPath>Libraries\UI\Syncfusion.PdfViewer.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotAnalysis.Base">
-      <HintPath>Libraries\UI\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotAnalysis.WPF">
-      <HintPath>Libraries\UI\Syncfusion.PivotAnalysis.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotGridConverter.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.PivotGridConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PMML.Base">
-      <HintPath>Libraries\UI\Syncfusion.PMML.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Presentation.Base">
-      <HintPath>Libraries\UI\Syncfusion.Presentation.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Presentation.Portable">
-      <HintPath>Libraries\UI\Syncfusion.Presentation.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PresentationRenderer.Portable">
-      <HintPath>Libraries\UI\Syncfusion.PresentationRenderer.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PresentationToPdfConverter.Base">
-      <HintPath>Libraries\UI\Syncfusion.PresentationToPdfConverter.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.ProjIO.Base">
-      <HintPath>Libraries\UI\Syncfusion.ProjIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PropertyGrid.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.PropertyGrid.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfAccordion.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfAccordion.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfBarcode.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfBarcode.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfBulletGraph.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfBulletGraph.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfBusyIndicator.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfBusyIndicator.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfCellGrid.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfCellGrid.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfChart.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfChart.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfChromelessWindow.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfChromelessWindow.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfColorPalette.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfColorPalette.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfDiagram.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDiagramRibbon.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfDiagramRibbon.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGauge.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfGauge.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGrid.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfGrid.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGridCommon.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfGridCommon.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfGridConverter.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfGridConverter.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfHeatMap.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfHeatMap.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfHubTile.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfHubTile.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfImageEditor.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfImageEditor.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfInput.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfInput.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfKanban.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfKanban.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfMaps.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfMaps.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfNavigationDrawer.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfNavigationDrawer.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfProgressBar.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfProgressBar.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfRadialMenu.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfRadialMenu.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfRichTextBoxAdv.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfRichTextBoxAdv.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfRichTextRibbon.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfRichTextRibbon.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSchedule.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSchedule.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfScheduler.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfScheduler.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfShared.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.SfShared.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSkinManager.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSkinManager.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSmithChart.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSmithChart.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSpellChecker.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSpellChecker.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSpreadsheet.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSpreadsheet.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSpreadsheetHelper.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSpreadsheetHelper.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSunburstChart.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfSunburstChart.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfTextInputLayout.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfTextInputLayout.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfTreeMap.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfTreeMap.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfTreeNavigator.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfTreeNavigator.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfTreeView.WPF">
-      <HintPath>Libraries\UI\Syncfusion.SfTreeView.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Base">
-      <HintPath>Libraries\UI\Syncfusion.Shared.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.MVVM.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Shared.MVVM.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Windows">
-      <HintPath>Libraries\UI\Syncfusion.Shared.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.WPF.Classic">
-      <HintPath>Libraries\UI\Syncfusion.Shared.WPF.Classic.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SkiaSharpHelper.Portable">
-      <HintPath>Libraries\UI\Syncfusion.SkiaSharpHelper.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SpellChecker.Base">
-      <HintPath>Libraries\UI\Syncfusion.SpellChecker.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.FluentDark.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Themes.FluentDark.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.MVVM.WPF">
-      <HintPath>Libraries\UI\Syncfusion.Tools.MVVM.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Windows">
-      <HintPath>Libraries\UI\Syncfusion.Tools.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.Tools.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Wpf.Classic">
-      <HintPath>Libraries\UI\Syncfusion.Tools.WPF.Classic.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.VectorImages.Wpf">
-      <HintPath>Libraries\UI\Syncfusion.VectorImages.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base">
-      <HintPath>Libraries\UI\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Portable">
-      <HintPath>Libraries\UI\Syncfusion.XlsIO.Portable.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIORenderer.Portable">
-      <HintPath>Libraries\UI\Syncfusion.XlsIORenderer.Portable.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>Libraries\UI\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe">
       <HintPath>Libraries\SQLCE\System.Data.SqlServerCe.dll</HintPath>
@@ -797,12 +569,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="129.0.11" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="131.2.7" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="129.0.11" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="131.2.7" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="129.0.11" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="131.2.7" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7.0'">
+    <PackageReference Include="Notifications.Wpf.Core">
+      <Version>2.0.1</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>

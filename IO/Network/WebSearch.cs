@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="WebSearch.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   WebSearch.cs
@@ -44,17 +46,17 @@ namespace Badger
     using System.Net.NetworkInformation;
     using System.Text;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class WebSearch
+    public abstract class WebSearch : PropertyChangedBase
     {
         /// <summary>
         /// The locked object
         /// </summary>
-        private protected object _path;
+        private protected object _entry;
 
         /// <summary>
         /// The busy
@@ -64,7 +66,7 @@ namespace Badger
         /// <summary>
         /// The query
         /// </summary>
-        private protected string _query;
+        private protected string _keyWords;
 
         /// <summary>
         /// The link
@@ -98,20 +100,9 @@ namespace Badger
         {
             get
             {
-                if( _path == null )
+                lock( _entry )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        return _busy;
-                    }
+                    return _busy;
                 }
             }
         }
@@ -125,6 +116,116 @@ namespace Badger
         }
 
         /// <summary>
+        /// Gets or sets the query.
+        /// </summary>
+        /// <value>
+        /// The query.
+        /// </value>
+        public virtual string KeyWords
+        {
+            get
+            {
+                return _keyWords;
+            }
+            set
+            {
+                if( _keyWords != value )
+                {
+                    _keyWords = value;
+                    OnPropertyChanged( nameof( KeyWords ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the link.
+        /// </summary>
+        /// <value>
+        /// The link.
+        /// </value>
+        public virtual string Link
+        {
+            get
+            {
+                return _link;
+            }
+            set
+            {
+                if( _link != value )
+                {
+                    _link = value;
+                    OnPropertyChanged( nameof( Link ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public virtual string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if( _name != value )
+                {
+                    _name = value;
+                    OnPropertyChanged( nameof( Name ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public virtual string Content
+        {
+            get
+            {
+                return _content;
+            }
+            set
+            {
+                if( _content != value )
+                {
+                    _content = value;
+                    OnPropertyChanged( nameof( Content ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
+        public virtual string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                if( _title != value )
+                {
+                    _title = value;
+                    OnPropertyChanged( nameof( Title ) );
+                }
+            }
+        }
+
+        /// <summary>
         /// Pings the network.
         /// </summary>
         /// <param name="ipAddress">
@@ -133,14 +234,14 @@ namespace Badger
         /// <returns>
         /// bool
         /// </returns>
-        private protected bool PingNetwork( string ipAddress )
+        private protected virtual bool PingNetwork( string ipAddress )
         {
             var _status = false;
             try
             {
                 ThrowIf.Null( ipAddress, nameof( ipAddress ) );
                 using var _ping = new Ping( );
-                var _buffer = Encoding.ASCII.GetBytes( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" );
+                var _buffer = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"u8.ToArray( );
                 var _timeout = 5000;// 5sg
                 var _reply = _ping.Send( ipAddress, _timeout, _buffer );
                 if( _reply != null )
@@ -160,7 +261,7 @@ namespace Badger
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private protected void SendNotification( string message )
+        private protected virtual void SendNotification( string message )
         {
             try
             {
@@ -177,24 +278,13 @@ namespace Badger
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private protected void BeginInit( )
+        private protected void Busy( )
         {
             try
             {
-                if( _path == null )
+                lock( _entry )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = true;
-                    }
+                    _busy = true;
                 }
             }
             catch( Exception ex )
@@ -206,24 +296,13 @@ namespace Badger
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private protected void EndInit( )
+        private protected void Chill( )
         {
             try
             {
-                if( _path == null )
+                lock( _entry )
                 {
-                    _path = new object( );
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
-                }
-                else
-                {
-                    lock( _path )
-                    {
-                        _busy = false;
-                    }
+                    _busy = false;
                 }
             }
             catch( Exception ex )

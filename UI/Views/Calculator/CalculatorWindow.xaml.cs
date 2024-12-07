@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 08-01-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        08-01-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="CalculatorWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    based on WPF, NET6.0, and written in C-Sharp.
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2024  Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   CalculatorWindow.xaml.cs
@@ -43,6 +43,7 @@ namespace Badger
 {
     using Syncfusion.SfSkinManager;
     using System;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Windows;
@@ -70,7 +71,7 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.CalculatorWindow" /> class.
+        /// <see cref="CalculatorWindow" /> class.
         /// </summary>
         public CalculatorWindow( )
             : base( )
@@ -85,17 +86,17 @@ namespace Badger
             // Window Properties
             FontFamily = _theme.FontFamily;
             FontSize = _theme.FontSize;
-            Height = 460;
-            Width = 410;
-            Padding = new Thickness( 1 );
+            Height = 480;
+            Width = 425;
+            Padding = new Thickness( 5 );
             Margin = new Thickness( 1 );
-            BorderThickness = new Thickness( 1 );
             WindowStyle = WindowStyle.None;
             Title = "Calculator";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             // Window Event Wiring
             Loaded += OnLoaded;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -107,6 +108,22 @@ namespace Badger
             {
                 CloseButton.MouseLeftButtonDown += OnCloseButtonClick;
                 PictureBox.MouseLeftButtonDown += OnLeftClick;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the callbacks.
+        /// </summary>
+        private void ClearCallbacks( )
+        {
+            try
+            {
+                CloseButton.MouseLeftButtonDown += OnCloseButtonClick;
+                PictureBox.MouseLeftButtonDown -= OnLeftClick;
             }
             catch( Exception ex )
             {
@@ -172,8 +189,6 @@ namespace Badger
         {
             try
             {
-                Opacity = 0;
-                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -210,9 +225,26 @@ namespace Badger
         {
             try
             {
-                Opacity = 1.0;
-                FadeOutAsync( this );
                 Close( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="CancelEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClosing( object sender, CancelEventArgs e )
+        {
+            try
+            {
+                SfSkinManager.Dispose( this );
+                ClearCallbacks( );
             }
             catch( Exception ex )
             {

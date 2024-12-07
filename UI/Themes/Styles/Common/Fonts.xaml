@@ -1,24 +1,24 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:b="clr-namespace:Badger"
     xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
     xmlns:skin="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
     xmlns:sync="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
-    xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF">
+    xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF"
+    xmlns:b="clr-namespace:Badger">
 
+    <!--  *********************************************** RESOURCE *****************************************************  -->
 
-    <!--  *********************************************** RESOURCES *****************************************************  -->
 
     <FontFamily x:Key="DefaultFontFamily">Roboto</FontFamily>
 
     <sys:Double x:Key="LargeFontSize">16</sys:Double>
     <sys:Double x:Key="TitleFontSize">14</sys:Double>
     <sys:Double x:Key="DefaultFontSize">12</sys:Double>
-    <sys:Double x:Key="CodeFontSize">11</sys:Double>
-    <sys:Double x:Key="SmallFontSize">10</sys:Double>
+    <sys:Double x:Key="CodeFontSize">10</sys:Double>
+    <sys:Double x:Key="SmallFontSize">9</sys:Double>
 
 
     <sys:Double x:Key="H1FontSize">36</sys:Double>

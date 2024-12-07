@@ -44283,73 +44283,73 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Badger.WebWindow">
+        <member name="T:Badger.WebBrowser">
             <inheritdoc />
             <summary>
-            Interaction logic for WebWindow.xaml
+            Interaction logic for WebBrowser.xaml
             </summary>
             <summary>
-            WebWindow
+            WebBrowser
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._busy">
+        <member name="F:Badger.WebBrowser._busy">
             <summary>
             The busy
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._homePage">
+        <member name="F:Badger.WebBrowser._homePage">
             <summary>
             The home page
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._path">
+        <member name="F:Badger.WebBrowser._path">
             <summary>
             The path
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._seconds">
+        <member name="F:Badger.WebBrowser._seconds">
             <summary>
             The seconds
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._statusUpdate">
+        <member name="F:Badger.WebBrowser._statusUpdate">
             <summary>
             The update status
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._theme">
+        <member name="F:Badger.WebBrowser._theme">
             <summary>
             The theme
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._time">
+        <member name="F:Badger.WebBrowser._time">
             <summary>
             The time
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._timer">
+        <member name="F:Badger.WebBrowser._timer">
             <summary>
             The timer
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._timerCallback">
+        <member name="F:Badger.WebBrowser._timerCallback">
             <summary>
             The timer
             </summary>
         </member>
-        <member name="F:Badger.WebWindow._uri">
+        <member name="F:Badger.WebBrowser._uri">
             <summary>
             The URI
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.#ctor">
+        <member name="M:Badger.WebBrowser.#ctor">
             <inheritdoc />
             <summary>
             Initializes a new instance of the
-            <see cref="T:Badger.WebWindow" /> class.
+            <see cref="T:Badger.WebBrowser" /> class.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.Dispose">
+        <member name="M:Badger.WebBrowser.Dispose">
             <inheritdoc />
             <summary>
             Performs application-defined tasks
@@ -44357,7 +44357,7 @@
             or resetting unmanaged resources.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.Dispose(System.Boolean)">
+        <member name="M:Badger.WebBrowser.Dispose(System.Boolean)">
             <summary>
             Releases unmanaged and - optionally - managed resources.
             </summary>
@@ -44368,61 +44368,61 @@
             <c>false</c> to release only unmanaged resources.
             </param>
         </member>
-        <member name="M:Badger.WebWindow.RegisterCallbacks">
+        <member name="M:Badger.WebBrowser.RegisterCallbacks">
             <summary>
             Initializes the callbacks.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeDelegates">
+        <member name="M:Badger.WebBrowser.InitializeDelegates">
             <summary>
             Initializes the delegates.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeLabels">
+        <member name="M:Badger.WebBrowser.InitializeLabels">
             <summary>
             Initializes the labels.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeTextBoxes">
+        <member name="M:Badger.WebBrowser.InitializeTextBoxes">
             <summary>
             Initializes the text box.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeComboBoxes">
+        <member name="M:Badger.WebBrowser.InitializeComboBoxes">
             <summary>
             Initializes the combo boxes.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeListBoxes">
+        <member name="M:Badger.WebBrowser.InitializeListBoxes">
             <summary>
             Initializes the list boxes.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeTimer">
+        <member name="M:Badger.WebBrowser.InitializeTimer">
             <summary>
             Initializes the timer.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.InitializeToolbar">
+        <member name="M:Badger.WebBrowser.InitializeToolbar">
             <summary>
             Initializes the toolbar.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.FadeInAsync(System.Windows.Window,System.Int32)">
+        <member name="M:Badger.WebBrowser.FadeInAsync(System.Windows.Window,System.Int32)">
             <summary>
             Fades the in asynchronous.
             </summary>
             <param name="form">The o.</param>
             <param name="interval">The interval.</param>
         </member>
-        <member name="M:Badger.WebWindow.FadeOutAsync(System.Windows.Window,System.Int32)">
+        <member name="M:Badger.WebBrowser.FadeOutAsync(System.Windows.Window,System.Int32)">
             <summary>
             Fades the out asynchronous.
             </summary>
             <param name="form">The o.</param>
             <param name="interval">The interval.</param>
         </member>
-        <member name="M:Badger.WebWindow.CreateNotifier">
+        <member name="M:Badger.WebBrowser.CreateNotifier">
             <summary>
             Creates a notifier.
             </summary>
@@ -44430,7 +44430,7 @@
             Notifier
             </returns>
         </member>
-        <member name="M:Badger.WebWindow.SendNotification(System.String)">
+        <member name="M:Badger.WebBrowser.SendNotification(System.String)">
             <summary>
             Sends the notification.
             </summary>
@@ -44438,37 +44438,37 @@
             The message.
             </param>
         </member>
-        <member name="M:Badger.WebWindow.SendMessage(System.String)">
+        <member name="M:Badger.WebBrowser.SendMessage(System.String)">
             <summary>
             Shows the splash message.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.SetToolbarVisible">
+        <member name="M:Badger.WebBrowser.SetToolbarVisible">
             <summary>
             Shows the items.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.SetToolbarHidden">
+        <member name="M:Badger.WebBrowser.SetToolbarHidden">
             <summary>
             Hides the items.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.UpdateStatus">
+        <member name="M:Badger.WebBrowser.UpdateStatus">
             <summary>
             Updates the status.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.UpdateStatus(System.Object)">
+        <member name="M:Badger.WebBrowser.UpdateStatus(System.Object)">
             <summary>
             Updates the status.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.OpenMainWindow">
+        <member name="M:Badger.WebBrowser.OpenMainWindow">
             <summary>
             Opens the main form.
             </summary>
         </member>
-        <member name="M:Badger.WebWindow.OnLoaded(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnLoaded(System.Object,System.EventArgs)">
             <summary>
             Called when [load].
             </summary>
@@ -44476,7 +44476,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnFirstButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnFirstButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [first button click].
             </summary>
@@ -44484,7 +44484,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnPreviousButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnPreviousButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [previous button click].
             </summary>
@@ -44492,7 +44492,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnNextButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnNextButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [next button click].
             </summary>
@@ -44500,7 +44500,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnLastButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnLastButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [last button click].
             </summary>
@@ -44508,7 +44508,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnBrowseButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnBrowseButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [browse button click].
             </summary>
@@ -44516,7 +44516,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnEditButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnEditButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [edit button click].
             </summary>
@@ -44524,7 +44524,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnRefreshButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnRefreshButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [refresh button click].
             </summary>
@@ -44532,7 +44532,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnLookupButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnLookupButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [lookup button click].
             </summary>
@@ -44540,7 +44540,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnUndoButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnUndoButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [undo button click].
             </summary>
@@ -44548,7 +44548,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnDeleteButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnDeleteButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [delete button click].
             </summary>
@@ -44556,7 +44556,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnExportButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnExportButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [export button click].
             </summary>
@@ -44564,7 +44564,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnSaveButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnSaveButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [save button click].
             </summary>
@@ -44572,7 +44572,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnMenuButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnMenuButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [menu button click].
             </summary>
@@ -44580,7 +44580,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnClosing(System.Object,System.ComponentModel.CancelEventArgs)">
+        <member name="M:Badger.WebBrowser.OnClosing(System.Object,System.ComponentModel.CancelEventArgs)">
             <summary>
             Called when [closing].
             </summary>
@@ -44588,7 +44588,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnCalculatorMenuOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnCalculatorMenuOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [calculator menu option click].
             </summary>
@@ -44596,7 +44596,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnFileMenuOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnFileMenuOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [file menu option click].
             </summary>
@@ -44604,7 +44604,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnFolderMenuOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnFolderMenuOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [folder menu option click].
             </summary>
@@ -44612,7 +44612,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnControlPanelOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnControlPanelOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [control panel option click].
             </summary>
@@ -44620,7 +44620,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnTaskManagerOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnTaskManagerOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [task manager option click].
             </summary>
@@ -44628,7 +44628,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnCloseOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnCloseOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [close option click].
             </summary>
@@ -44636,7 +44636,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnChromeOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnChromeOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [chrome option click].
             </summary>
@@ -44644,7 +44644,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnEdgeOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnEdgeOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [edge option click].
             </summary>
@@ -44652,7 +44652,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnFirefoxOptionClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnFirefoxOptionClick(System.Object,System.EventArgs)">
             <summary>
             Called when [firefox option click].
             </summary>
@@ -44660,7 +44660,7 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.OnToggleButtonClick(System.Object,System.EventArgs)">
+        <member name="M:Badger.WebBrowser.OnToggleButtonClick(System.Object,System.EventArgs)">
             <summary>
             Called when [toggle button click].
             </summary>
@@ -44668,13 +44668,13 @@
             <param name="e">The <see cref="T:System.EventArgs"/>
             instance containing the event data.</param>
         </member>
-        <member name="M:Badger.WebWindow.Fail(System.Exception)">
+        <member name="M:Badger.WebBrowser.Fail(System.Exception)">
             <summary>
             Fails the specified ex.
             </summary>
             <param name="ex">The ex.</param>
         </member>
-        <member name="M:Badger.WebWindow.InitializeComponent">
+        <member name="M:Badger.WebBrowser.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

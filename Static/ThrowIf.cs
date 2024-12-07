@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bubba
 //     Author:                  Terry D. Eppler
-//     Created:                 09-08-2020
+//     Created:                 11-26-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        09-08-2024
+//     Last Modified On:        11-26-2024
 // ******************************************************************************************
 // <copyright file="ThrowIf.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts
-//    that is based on WPF, NET6.0, and written in C-Sharp.
+//    Bubba is a small windows (wpf) application for interacting with
+//    Chat GPT that's developed in C-Sharp under the MIT license
 // 
-//     Copyright ©  2020, 2022, 2204 Terry D. Eppler
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -236,7 +236,7 @@ namespace Badger
 
                     break;
                 }
-                case Grid _grid:
+                case ExcelGrid _grid:
                 {
                     if( _grid == null )
                     {
@@ -396,7 +396,7 @@ namespace Badger
         /// <param name="argument">The argument.</param>
         /// <param name="paramName">The argument's name.</param>
         /// <exception cref="System.ArgumentOutOfRangeException"></exception>
-        public static void NegativeOrZero( object argument, string paramName )
+        public static void Negative( object argument, string paramName )
         {
             var _message = @$"{paramName} must be greater than zero";
             switch( argument )

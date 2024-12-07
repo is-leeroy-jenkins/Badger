@@ -1,14 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 07-28-2024
+//     Created:                 12-07-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-28-2024
+//     Last Modified On:        12-07-2024
 // ******************************************************************************************
 // <copyright file="DataGenerator.cs" company="Terry D. Eppler">
-//    Badger is data analysis and reporting tool for EPA Analysts.
-//    Copyright ©  2024  Terry D. Eppler
+//    Badger is a budget execution & data analysis tool for federal budget analysts
+//     with the EPA based on WPF, Net 6, and is written in C#.
+// 
+//    Copyright ©  2020-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -30,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataGenerator.cs
@@ -220,7 +222,8 @@ namespace Badger
         /// <param name="commandType">Type of the command.</param>
         public DataGenerator( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, Command commandType = Command.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, provider, updates, where,
+                commandType )
         {
         }
 
@@ -236,7 +239,8 @@ namespace Badger
         /// <param name="commandType">Type of the command.</param>
         public DataGenerator( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, Command commandType = Command.SELECT )
-            : base( source, provider, columns, where, commandType )
+            : base( source, provider, columns, where,
+                commandType )
         {
         }
 
@@ -253,8 +257,8 @@ namespace Badger
         /// <param name="commandType">Type of the command.</param>
         public DataGenerator( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
-            : base( source, provider, fields, numerics, where,
-                commandType )
+            : base( source, provider, fields, numerics,
+                where, commandType )
         {
         }
 
@@ -308,12 +312,12 @@ namespace Badger
                 ThrowIf.Null( provider, nameof( provider ) );
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
-                    return (Provider)Enum.Parse( typeof( Provider ), provider );
+                    return ( Provider )Enum.Parse( typeof( Provider ), provider );
                 }
                 else if( Path.HasExtension( provider ) )
                 {
                     var _path = Path.GetExtension( provider );
-                    var _ext = (EXT)Enum.Parse( typeof( EXT ), _path );
+                    var _ext = ( EXT )Enum.Parse( typeof( EXT ), _path );
                     switch( _ext )
                     {
                         case EXT.MDB:
@@ -417,7 +421,7 @@ namespace Badger
                 {
                     if( _name.Equals( tableName ) )
                     {
-                        return (Source)Enum.Parse( typeof( Source ), tableName );
+                        return ( Source )Enum.Parse( typeof( Source ), tableName );
                     }
                 }
 

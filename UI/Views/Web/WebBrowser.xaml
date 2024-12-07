@@ -1,0 +1,348 @@
+﻿<Window
+    x:Class="Badger.WebBrowser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger"
+    xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    x:Name="WebView"
+    Title="Internet "
+    MinWidth="1250"
+    MinHeight="650"
+    Margin="1"
+    Padding="3,1,1,1"
+    d:DesignHeight="800"
+    d:DesignWidth="1350"
+    sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BlueBorderBrush}"
+    BorderThickness="1"
+    Foreground="{StaticResource FormForeground}"
+    Icon="/Resources/Assets/FormImages/Application.png"
+    ScrollViewer.CanContentScroll="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <!--  ******************************************** Resources *********************************************  -->
+
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
+        </Style>
+    </Window.Resources>
+
+    <!--  ******************************************** Context Menu ******************************************  -->
+
+    <Window.ContextMenu>
+        <ContextMenu Name="WebWindowContextMenu">
+            <sync:MenuItemAdv
+                Click="OnFileMenuOptionClick"
+                Header="File"
+                ToolTip="Browse File System">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnFolderMenuOptionClick"
+                Header="Folder"
+                ToolTip="Browse Directories">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FolderItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnChromeOptionClick"
+                Header="Chrome"
+                ToolTip="Launch Chrome Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnEdgeOptionClick"
+                Header="Edge"
+                ToolTip="Launch Edge Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnFirefoxOptionClick"
+                Header="FireFox"
+                ToolTip="Launch Firefox Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Calculator"
+                ToolTip="Open Calculator">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Control Panel"
+                ToolTip="Windows 10 Control Panel">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="Task Manager"
+                ToolTip="Windows 10 Task Manager">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCloseOptionClick"
+                Header="Close"
+                ToolTip="Exit Application">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <!--  ******************************************** Context Menu ******************************************  -->
+
+    <Canvas
+        x:Name="WebCanvas"
+        Background="{StaticResource FormBackground}">
+        <b:MetroTabControl
+            x:Name="TabControl"
+            Canvas.Left="17"
+            Canvas.Top="64"
+            Width="1322"
+            Height="650"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+
+            <!--  ******************************************** Web Browser ******************************************  -->
+
+            <b:BrowserTabItem
+                x:Name="BrowserTab"
+                Width="100"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                Foreground="{StaticResource FormForeground}"
+                Header="Badger">
+
+                <Canvas
+                    x:Name="BrowserGrid"
+                    Background="{StaticResource FormBackground}">
+
+                    <cef:ChromiumWebBrowser
+                        x:Name="Browser"
+                        Canvas.Left="27"
+                        Canvas.Top="27"
+                        Width="1240"
+                        Height="600"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Address="https://www.google.com/" />
+                </Canvas>
+            </b:BrowserTabItem>
+
+
+            <!--  ******************************************** Web Browser ******************************************  -->
+
+            <b:BrowserTabItem
+                x:Name="BabyTab"
+                Width="100"
+                Height="24"
+                Margin="0"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}"
+                BorderThickness="1"
+                Foreground="{StaticResource FormForeground}"
+                Header="Baby">
+                <Grid
+                    x:Name="BabyGrid"
+                    Background="{StaticResource FormBackground}">
+                    <cef:ChromiumWebBrowser
+                        Grid.Row="0"
+                        Margin="0" />
+                </Grid>
+            </b:BrowserTabItem>
+        </b:MetroTabControl>
+
+        <!--  ******************************************** ToolStrip ******************************************  -->
+
+        <b:ToolStrip
+            x:Name="Toolbar"
+            Canvas.Left="0"
+            Canvas.Top="720"
+            Width="1348"
+            Height="40"
+            Margin="1"
+            Padding="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            BorderBrush="{StaticResource FormBackground}"
+            BorderThickness="1"
+            OverflowButtonVisibility="Collapsed">
+
+            <b:ToolStripLabel
+                x:Name="StatusLabel"
+                Width="70"
+                Padding="3,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Bottom"
+                Content="Date &amp; Time" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripFirstButton"
+                ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
+                ToolTip="First Record" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripPreviousButton"
+                ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
+                ToolTip="Previous Record" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripNextButton"
+                ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
+                ToolTip="Next Record" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripLastButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
+                ToolTip="Last Record" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <b:ToolStripTextBox
+                x:Name="ToolStripTextBox"
+                Width="200"
+                Height="30"
+                Margin="1,1,1,1"
+                Padding="10,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Stretch"
+                BorderThickness="2"
+                FontFamily="Roboto" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <b:ToolStripDropDown
+                x:Name="ToolStripComboBox"
+                Width="73"
+                BorderBrush="{DynamicResource BlueBorderBrush}" />
+
+            <sync:MenuItemSeparator
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Foreground="{x:Null}" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripLookupButton"
+                ImageSource="/Resources/Assets/ToolStripImages/LookUpButton.png"
+                ToolTip="Look Up" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripRefreshButton"
+                ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+                ToolTip="Refresh" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripFilterButton"
+                ImageSource="/Resources/Assets/ToolStripImages/FilterButton.png"
+                ToolTip="Filters" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripEditButton"
+                ImageSource="/Resources/Assets/ToolStripImages/EditButton.png"
+                ToolTip="Edit" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripUndoButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BackButton.png"
+                ToolTip="Undo Last" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripSaveButton"
+                ImageSource="/Resources/Assets/ToolStripImages/SaveButton.png"
+                ToolTip="Save" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripDeleteButton"
+                ImageSource="/Resources/Assets/ToolStripImages/DeleteButton.png"
+                ToolTip="Delete" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripExportButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ExportButton.png"
+                ToolTip="Export" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripBrowseButton"
+                ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
+                ToolTip="Browse" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripCancelButton"
+                ImageSource="/Resources/Assets/ToolStripImages/CancelButton.png" />
+
+            <ProgressBar
+                Width="100"
+                Background="{StaticResource FormBackground}"
+                BorderBrush="{StaticResource FormBackground}" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripToogleButton"
+                ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png" />
+
+            <b:ToolStripButton
+                x:Name="ToolStripMenuButton"
+                ImageSource="/Resources/Assets/ToolStripImages/MenuButton.png"
+                ToolTip="Main Menu" />
+
+        </b:ToolStrip>
+    </Canvas>
+</Window>
