@@ -80,6 +80,9 @@
 
   
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/tools.png)  Data Tools
+> The tools used in environmental data analysis & buget execution play a crucial role by facilitating the collection, cleaning, organization, analysis, and interpretation of large datasets, allowing users to extract meaningful insights and make informed decisions by transforming raw data into actionable information through features like statistical analysis, data visualization, and machine learning algorithms.
+> Some of the tools offered by Bubba include the following:
+
 - ##### Datagrids
 - ##### Pivot Tables
 - ##### Plotting
