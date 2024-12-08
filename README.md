@@ -211,12 +211,6 @@
 > that's open source.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
-## MS Access
-> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE)
-> with a graphical user interface and software-development tools
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
-
 ## SQL Compact Edition
 > A discontinued but super useful relational database produced by Microsoft for applications that run on mobile devices and desktops.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
