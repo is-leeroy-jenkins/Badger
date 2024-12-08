@@ -117,6 +117,8 @@
 - Definitions and statutory authorities
 - Legal information bound directly to financial data
 
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+
 
 --Air Research
 >EPA conducts air research that provides the critical science to develop and implement Clean Air Act regulations that protect the quality of the air we breathe.  This research also puts new tools and information in the hands of citizens, communities, air quality managers and regulators to reduce air pollution.
@@ -145,7 +147,7 @@
 --Water Research
 >EPA’s water research is supporting solutions that ensure adequate supplies of clean water to protect our health and livelihood, protect and restore watersheds and ecosystems, and strengthen our economy.
 
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
 - ##### 3D Charting
