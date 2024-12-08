@@ -210,7 +210,7 @@
 
 ## SQLite
 > A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
-> that's open source.
+> that's open source and hand's-down one the best tools available.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 ## SQL Compact Edition
@@ -364,5 +364,4 @@ Bubba has integrated the following services for additional functions, which can 
 
 Bubba is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/Bubba/blob/main/LICENSE).
 
-The licenses of the libraries used can be found [here](https://github.com/is-leeroy-jenkins/Bubba/tree/main/Resources/Licenses).
 
