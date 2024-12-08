@@ -100,7 +100,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
-- ##### Calculation based on the federal fiscal year beginning Oct 1.
+- ##### Calculations involving appropriations are based on the federal fiscal year beginning Oct 1.
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
@@ -169,16 +169,19 @@ Joining tables: Combining data from multiple tables using JOIN operations to cre
 Subqueries: Using nested queries to filter data based on results from another query
 
 - ##### SQLite
-> A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
+> A C-language library that implements a small, fast, self-contained, high-reliability, full-featured,
+> SQL database engine that runs in an existing process.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 - ##### MS Access
-> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools
+> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE)
+>  with a graphical user interface and software-development tools provided by Microsoft.
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
 - ##### SQL Compact Edition
-> A discontinued but super useful relational database produced by Microsoft for applications that run on mobile devices and desktops.
+> A discontinued but super useful relational database produced by Microsoft
+> that is for applications that run on mobile devices and desktops.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
 - ##### SQL Server Express
@@ -187,9 +190,11 @@ Subqueries: Using nested queries to filter data based on results from another qu
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
+##  Baby Overview
 
-> A light-weight, full-featured, open source version of Google Chrome web-browser  written in C#.
+> A light-weight, full-featured, open source version of Google Chrome web-browser
+> thats written in C-Sharp using Windows Presentation Foundation (WPF).
+
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
 - Tabbed browsing
 - Address bar (also opens Google)
@@ -202,16 +207,16 @@ Subqueries: Using nested queries to filter data based on results from another qu
 - Easily add vendor-specific branding, buttons or hotkeys
 - View online & offline webpages
 
-## Baby Overview
-- ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby Browser
+
+- ##### Stand-alone web browser built upon the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### customized search using Google's engine to query across multiple government research domains
-  
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Overview.gif)
 
 
-## ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/tools.png)  Hotkeys
 
+## ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/tools.png)  Hotkeys
 Hotkeys | Function
 ------------ | -------------
 Ctrl+T		| Add a new tab
