@@ -124,7 +124,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 
-## Simultaneous access to active research and financial resources
+## Studies
 >Active research topics
 
 - [Air Research](https://www.epa.gov/air-research)
