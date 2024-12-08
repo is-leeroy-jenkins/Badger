@@ -110,8 +110,8 @@
 -	**Data validation** – Provides support to ensure the data integrity by enforcing end users to enter valid data into the cells and if entered data does not meet the specified criteria, and error message is displayed.
 -	**Floating Cells** - Provides support for floating cell mode that is when the text exceeds the length of the cell, it will float the text to the adjacent cell.
 -	**Merge Cells** - Merge two or more adjacent cells into a single cell and display the contents of one cell in the merged cell.
--	**Conditional Formatting** - Provides support for excel compatible conditional formatting and allows you to apply formats to a cell or range of cells depending on the value of cells or formula that meet specific criteria. - Also provides support to define and import the conditional formatting. rules such as Data Bars, Icon Sets and Color Scales options which are used to visualize the data.
-- Import/Export data.
+-	**Conditional Formatting** - Provides support for excel compatible conditional formatting and allows you to apply formats to a range of cells depending on the value of cells or formula that meet specific criteria.
+- **Import/Export** data
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
 
@@ -160,13 +160,19 @@
 
 ## EPA Data Sets Available Online
 - [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
->EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
+>EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources.
+>Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve
+>EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the
+>utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
 
 - [EPA STOrage and RETrieval database (STORET)](https://www3.epa.gov/storet/index-.html#:~:text=Welcome%20to%20STORET%2C%20EPA's%20largest,private%20citizens%2C%20and%20many%20others.)
->The STORET Data Warehouse is U.S. EPA's repository of the water quality monitoring data collected by water resource management groups across the country. These organizations, including states, tribes, watershed groups, other federal agencies, volunteer groups and universities, submit datasets to the STORET Warehouse in order to make them publically accessible.
+>The STORET Data Warehouse is U.S. EPA's repository of the water quality monitoring data collected by water resource management groups across the country.
+>These organizations, including states, tribes, watershed groups, other federal agencies, volunteer groups and universities, submit datasets to the STORET Warehouse in order to make them publically accessible.
 
 - [Wadeable Streams Assessment (WSA)](https://www.epa.gov/national-aquatic-resource-surveys/wadeable-streams-assessment)
->WSA is a survey of the biological condition of small streams throughout the U.S. conducted by the U.S. EPA in collaboration with states and tribes. The first WSA in 2004-2005 sampled 1,392 sites selected at random to represent the condition of all streams in regions that share similar ecological characteristics. Participants used the same standard methods at all sites, to ensure results that are comparable across the nation.
+>WSA is a survey of the biological condition of small streams throughout the U.S. conducted by the U.S. EPA in collaboration with states and tribes.
+>The first WSA in 2004-2005 sampled 1,392 sites selected at random to represent the condition of all streams in regions that share similar ecological characteristics.
+>Participants used the same standard methods at all sites, to ensure results that are comparable across the nation.
 
  ## Active studies
 - [Air Research](https://www.epa.gov/air-research)
@@ -200,22 +206,22 @@
 >Joining tables: Combining data from multiple tables using JOIN operations to create a comprehensive view.
 >Subqueries: Using nested queries to filter data based on results from another query.
 
-- ##### SQLite
+## SQLite
 > A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
 > that's open source.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
-- ##### MS Access
+## MS Access
 > A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE)
 > with a graphical user interface and software-development tools
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
-- ##### SQL Compact Edition
+## SQL Compact Edition
 > A discontinued but super useful relational database produced by Microsoft for applications that run on mobile devices and desktops.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
-- ##### SQL Server Express
+## SQL Server Express
 > A free edition of MS' flagship database SQL Server, which includes the core database engine.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
@@ -223,6 +229,12 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
 
 > A light-weight, full-featured, open source version of Google Chrome web-browser  written in C#.
+> Baby embraces modern web standards, and supports HTML5, JavaScript, CSS3 and HTML5 audio/video elements.
+> 3D content is supported via WebGL which uses OpenGL/DirectX for hardware accelerated rendering.
+> Baby includes embedded modules for PDF, web page printing and the WebKit Inspector (developer tools). Baby has no external dependencies.
+- ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+- ##### Ad-hoc searches with customized pop-up input.
+- ##### customized search using Google's engine to query across multiple government research domains
 
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
 - Tabbed browsing
@@ -235,14 +247,6 @@
 - Custom context menu
 - Easily add vendor-specific branding, buttons or hotkeys
 - View online & offline webpages
-
-## Baby Overview
-> Baby embraces modern web standards, and supports HTML5, JavaScript, CSS3 and HTML5 audio/video elements.
-> 3D content is supported via WebGL which uses OpenGL/DirectX for hardware accelerated rendering.
-> Baby includes embedded modules for PDF, web page printing and the WebKit Inspector (developer tools). Baby has no external dependencies.
-- ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
-- ##### Ad-hoc searches with customized pop-up input.
-- ##### customized search using Google's engine to query across multiple government research domains
   
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Overview.gif)
 
@@ -308,7 +312,7 @@ Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 - libEGL.dll 
 - libGLESv2.dll
 
-#### Whilst these are technically listed as optional, the browser is unlikely to function without these files.
+#### These are technically listed as optional, but the browser is unlikely to function without these files.
 
 - CefSharp.Core.dll, CefSharp.dll 
 - CefSharp.Core.Runtime.dll
