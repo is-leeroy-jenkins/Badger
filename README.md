@@ -124,9 +124,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 
-## Studies
->Active research topics
-
+>A On-going studies
 - [Air Research](https://www.epa.gov/air-research)
 - [Climate Change Research](https://www.epa.gov/climate-research)
 - [Ecosystems Research](https://www.epa.gov/eco-research)
@@ -138,12 +136,13 @@
 - [Water Research](https://www.epa.gov/water-research)
 
 
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
-  
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
+
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/document.png) Document Viewer
