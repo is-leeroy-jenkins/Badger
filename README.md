@@ -128,6 +128,11 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) Editors
+>Common SQL operations used in data analysis:
+Filtering data: Using the WHERE clause to select specific rows based on conditions. 
+Aggregation: Employing functions like SUM, AVG, COUNT, MIN, MAX to calculate summary statistics on groups of data. 
+Joining tables: Combining data from multiple tables using JOIN operations to create a comprehensive view. 
+Subqueries: Using nested queries to filter data based on results from another query
 
 - ##### SQLite
 
