@@ -56,8 +56,7 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
-- Badger uses CefSharp 106 for Baby Browser and is built on NET 8
-- Badger supports x64 specific builds
+
 - [Controls](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Controls) - main UI layer with 36 controls and related functionality.
 - [Styles](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Themes/Styles) - XAML-based styles for the Bubba UI layer.
 - [Enumerations](https://github.com/is-leeroy-jenkins/Badger/tree/main/Enumerations) - various enumerations used for budgetary accounting.
@@ -68,6 +67,8 @@
 - [Static](https://github.com/is-leeroy-jenkins/Badger/tree/main/Static) - static types used in the analysis of environmental budget data.
 - [Interfaces](https://github.com/is-leeroy-jenkins/Badger/tree/Interfaces) - abstractions used in the analysis of environmental budget data.
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
+- Badger uses CefSharp 106 for Baby Browser and is built on NET 8
+- Badger supports x64 specific builds
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
 
@@ -77,6 +78,7 @@
 - ##### Pivot Tables
 - ##### Plotting
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/excel.png) The Interface.
 - ##### Excel-ish UI over a real database.
@@ -103,6 +105,7 @@
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
 
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/is-leeroy-jenkins/Orca)
 >Create, build, and maintain ad-hoc documents with Orca to provide real-time information for other analysts, scientists, and engineers via the web.
 - ##### Single or multi-page documents
@@ -114,18 +117,21 @@
 ![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
    
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
+>Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
 - Definitions and statutory authorities
 - Legal information bound directly to financial data
-#### Research Topics
---[Air Research](https://www.epa.gov/air-research)
---[Climate Change Research](https://www.epa.gov/climate-research)
---[Ecosystems Research](https://www.epa.gov/eco-research)
---[Emergency Response](https://www.epa.gov/emergency-response-research)
---[Health Research](https://www.epa.gov/healthresearch)
---[Human Health Risk Assessment](https://www.epa.gov/risk/human-health-risk-assessment)
---[Land and Waste Management Research](https://www.epa.gov/land-research)
---[Chemical Safety Research](https://www.epa.gov/chemical-research)
---[Water Research](https://www.epa.gov/water-research)
+ 
+### Research Topics
+-[Air Research](https://www.epa.gov/air-research)
+-[Climate Change Research](https://www.epa.gov/climate-research)
+-[Ecosystems Research](https://www.epa.gov/eco-research)
+-[Emergency Response](https://www.epa.gov/emergency-response-research)
+-[Health Research](https://www.epa.gov/healthresearch)
+-[Human Health Risk Assessment](https://www.epa.gov/risk/human-health-risk-assessment)
+-[Land and Waste Management Research](https://www.epa.gov/land-research)
+-[Chemical Safety Research](https://www.epa.gov/chemical-research)
+-[Water Research](https://www.epa.gov/water-research)
+
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
