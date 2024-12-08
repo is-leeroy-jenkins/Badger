@@ -102,6 +102,7 @@
 - ##### Ad-hoc web development
 - ##### Network communications
 - ##### HTML5, CSS, and Javascript
+
   
 ![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
    
@@ -184,10 +185,11 @@ Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 
 ## What is WebAssembly & WebGL
 
->WebAssembly or WASM is a "binary instruction format for a stack-based virtual machine [...] designed as a portable compilation target for programming languages, enabling deployment on the web". Said another way it's an >intermediate bytecode format that can shipped to browsers to be run. This is notable because as an intermediate format it enables language designers to target browser development from languages beyond JavaScript. Many >languages today have compilers available that will output WASM as a target some notable examples are C/C++, C#, Rust, Zig. Beyond that the ubiquity of javascript engines there's a large number of environments that have >suddenly become possible WASM targets.
+>WebAssembly or WASM is a "binary instruction format for a stack-based virtual machine [...] designed as a portable compilation target for programming languages, enabling deployment on the web". Said another way it's an intermediate bytecode format that can shipped to browsers to be run. This is notable because as an intermediate format it enables language designers to target browser development from languages beyond JavaScript. Many languages today have compilers available that will output WASM as a target some notable examples are C/C++, C#, Rust, Zig. Beyond that the ubiquity of javascript engines there's a large number of environments that have suddenly become possible WASM targets.
 
 ## What is WebAssembly & WebGL
->WebGL a 3D graphics API based on OpenGL ES itself a subset of the OpenGL graphics API designed for mobile or embedded applications. WebGL is notable because it offers a powerful, cross platform, 3D graphics target for >the browser. For many targets the browser is able to use 3D acceleration and run directly on the computer's GPU which provides a much high performance graphics target than you otherwise have access to from the browser >APIs. There are examples of rich 3D environments, games, and 3D accelerated applications that have shipped to browsers enabled by this technology.
+>WebGL a 3D graphics API based on OpenGL ES itself a subset of the OpenGL graphics API designed for mobile or embedded applications. WebGL is notable because it offers a powerful, cross platform, 3D graphics target for the browser. For many targets the browser is able to use 3D acceleration and run directly on the computer's GPU which provides a much high performance graphics target than you otherwise have access to from the browser APIs. There are examples of rich 3D environments, games, and 3D accelerated applications that have shipped to browsers enabled by this technology.
+
 
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/5.png)
 
