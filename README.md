@@ -3,7 +3,7 @@
 
 
 ## An open source data analysis application for federal analysts developed in C# using WPF and released under the MIT license
-####
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/features.png) Features
 
@@ -18,7 +18,7 @@
 - Ad-hoc calculations.
 - Add agency/region/division-specific branding.
 - The winforms version of Badger is [Sherpa](https://github.com/is-leeroy-jenkins/Sherpa?tab=readme-ov-file) 
----
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Database Providers
 > Databases play a fundamental role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
@@ -28,7 +28,7 @@
 - [SQL CE](https://www.microsoft.com/en-us/download/details.aspx?id=30709) is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. 
 - [SQL Server Express Edition](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) is a scaled down, free edition of SQL Server, which includes the core database engine.
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. [more here](https://www.microsoft.com/en-us/microsoft-365/access)
----
+
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/system_requirements.png) System requirements
@@ -46,7 +46,7 @@
 - [Compilation Guide](Resources/Github/Compilation.md) 
 - [Configuration Guide](Resources/Github/Configuration.md)
 - [Distribution Guide](Resources/Github/Distribution.md)
----
+
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
