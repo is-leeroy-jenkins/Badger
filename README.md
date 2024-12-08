@@ -70,6 +70,8 @@
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
 
+
+  
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/tools.png)  Data Tools
 - ##### Datagrids
 - ##### Pivot Tables
@@ -81,16 +83,19 @@
 - ##### Import and export spreadsheet data.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Maps.png) Maps.
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
 - ##### Ad-hoc calculations directly on bound data.
 - ##### Quick access to the full functionality of the widows 10 calculator.
-
 ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
+
+
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
 - ##### Calculation based on the federal fiscal year beginning Oct 1.
@@ -100,7 +105,8 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/is-leeroy-jenkins/Orca)
 >Create, build, and maintain ad-hoc documents with Orca to provide real-time information for other analysts, scientists, and engineers via the web.
-- ##### Ad-hoc web development
+- ##### Single or multi-page documents
+- #### Present and access media (*.mp3, *mp4, etc)
 - ##### Network communications
 - ##### HTML5, CSS, and Javascript
 
@@ -108,8 +114,36 @@
 ![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
    
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
-- ##### Definitions and statutory authorities
-- ##### Legal information bound directly to financial data
+- Definitions and statutory authorities
+- Legal information bound directly to financial data
+
+
+--Air Research
+>EPA conducts air research that provides the critical science to develop and implement Clean Air Act regulations that protect the quality of the air we breathe.  This research also puts new tools and information in the hands of citizens, communities, air quality managers and regulators to reduce air pollution.
+
+--Climate Change Research
+>EPA's climate change research improves knowledge of the impacts of climate change on human health and the environment. The scientific information and tools can be used by communities to effectively, equitably and sustainably tackle the climate crisis. 
+
+--Ecosystems Research
+>EPA’s ecosystems research is working to protect ecosystems and the air and water resources that provide numerous benefits for humans and other living things.
+
+--Emergency Response
+>EPA's emergency response and homeland security research provides science and technology needed to effectively respond to and recover from disasters. 
+
+--Health Research
+>EPA's health research is helping communities and policymakers develop and implement policies and practices to improve public health, especially for vulnerable groups such as children, the elderly and the socioeconomically disadvantaged.
+
+--Human Health Risk Assessment
+>A human health risk assessment is the process to estimate the nature and probability of adverse health effects in humans who may be exposed to chemicals in contaminated environmental media, now or in the future.
+
+--Land and Waste Management Research
+>EPA's land and waste management research is reducing risks from such contamination, and developing less costly methods for remediation in ways that advance public health and community revitalization.
+
+--Safer Chemicals Research
+>EPA's safer chemicals research is transforming chemical risk-based decisions by conducting high-quality, innovative scientific research. The results of this research support the Agency, states, tribes, and other stakeholders in fulfilling their shared objectives to protect human health and the environment.
+
+--Water Research
+>EPA’s water research is supporting solutions that ensure adequate supplies of clean water to protect our health and livelihood, protect and restore watersheds and ecosystems, and strengthen our economy.
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
