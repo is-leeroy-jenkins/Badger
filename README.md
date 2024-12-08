@@ -56,9 +56,10 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
-- Badger uses CefSharp 106 for Baby Browser and is built on NET 6
-- Badger supports AnyCPU as well as x86/x64 specific builds
+- Badger uses CefSharp 106 for Baby Browser and is built on NET 8
+- Badger supports x64 specific builds
 - [Controls](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Controls) - main UI layer with 36 controls and related functionality.
+- [Styles] (https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Themes/Styles) - XAML-based styles for the Bubba UI layer.
 - [Enumerations](https://github.com/is-leeroy-jenkins/Badger/tree/main/Enumerations) - various enumerations used for budgetary accounting.
 - [Extensions](https://github.com/is-leeroy-jenkins/Badger/tree/main/Extensions)- useful extension methods for budget analysis by type.
 - [Clients](https://github.com/is-leeroy-jenkins/Badger/tree/main/Clients) - other tools used and available.
