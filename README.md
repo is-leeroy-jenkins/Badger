@@ -153,7 +153,7 @@
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) Editors
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) SQL Editors
 >Common SQL operations used in data analysis:
 Filtering data: Using the WHERE clause to select specific rows based on conditions. 
 Aggregation: Employing functions like SUM, AVG, COUNT, MIN, MAX to calculate summary statistics on groups of data. 
@@ -179,6 +179,8 @@ Subqueries: Using nested queries to filter data based on results from another qu
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
+
+> A light-weight, full-featured, open source version of Google Chrome web-browser that is written in C#.
 
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
 - Tabbed browsing
