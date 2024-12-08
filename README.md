@@ -100,6 +100,11 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
+> Every year, the U.S. Congress begins work on a federal budget for the next fiscal year.
+> The federal government’s fiscal year runs from October 1 of one calendar year through September 30 of the next.
+> A fiscal year (FY) is a 52- or 53-week (or, alternatively, a 12-month) period that companies and governments use for taxing or accounting purposes.
+> Fiscal years are most commonly used by entities that depend on a cycle that doesn't correspond to the calendar year.
+
 - ##### Calculation based on the federal fiscal year beginning Oct 1.
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
@@ -124,8 +129,8 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 ## Monitoring Data Sets Available Online
-> [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
-EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
+- [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
+>EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
 
 - [EPA STOrage and RETrieval database (STORET)](https://www3.epa.gov/storet/index-.html#:~:text=Welcome%20to%20STORET%2C%20EPA's%20largest,private%20citizens%2C%20and%20many%20others.)
 >The STORET Data Warehouse is U.S. EPA's repository of the water quality monitoring data collected by water resource management groups across the country. These organizations, including states, tribes, watershed groups, other federal agencies, volunteer groups and universities, submit datasets to the STORET Warehouse in order to make them publically accessible.
