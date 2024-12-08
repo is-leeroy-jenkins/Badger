@@ -87,11 +87,75 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
+
+- HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
+- Tabbed browsing
+- Address bar (also opens Google)
+- Back, Forward, Stop, Refresh
+- Developer tools
+- Search bar (also highlights all instances)
+- Download manager
+- Custom error pages
+- Custom context menu
+- Easily add vendor-specific branding, buttons or hotkeys
+- View online & offline webpages
+
+## ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/tools.png)  Hotkeys
+
+Hotkeys | Function
+------------ | -------------
+Ctrl+T		| Add a new tab
+Ctrl+N		| Add a new window
+Ctrl+W		| Close active tab
+F5			| Refresh active tab
+F12			| Open developer tools
+Ctrl+Tab	| Switch to the next tab
+Ctrl+Shift+Tab	| Switch to the previous tab
+Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### Search across multiple .gov domains
-![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Images/Overview.gif)
 
+
+# Baby Overview
+
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Overview.gif)
+
+
+## Apple.com
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/1.png)
+
+
+## WebAssembly & WebGL
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/5.png)
+
+
+## YouTube
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/6.png)
+
+
+## Google Maps
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/2.png)
+
+
+## Search Bar
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/search.png)
+
+
+## Downloads Tab
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/3.png)
+
+
+## Developer Tools
+
+![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/4.png)
 
 ## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/chrome.png) CefSharp Requirements
 
