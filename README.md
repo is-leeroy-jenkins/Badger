@@ -57,8 +57,7 @@
 - [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
 
->
-> 
+
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
@@ -100,7 +99,20 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/excel.png) The Interface.
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/excel.png) The Spreadsheet Interface.
+> An excel inspired control that allows you to create, edit, view and format the Microsoft Excel files without excel installed.
+> It provides absolute ease of use UI experience with integrated ribbon to cover any possible business scenario.
+
+#### Key Spreadhsheet Features
+> •	Ribbon – Ribbon integrated with organically enhanced UI experience.
+> •	Editing and Selection- Interactive support for editing and cell selection in workbook.
+> •	Formulas - Provides support for 400+ most widely used formulas which any business user needs and allows you to add, remove and edit the formulas like in excel.
+> •	Name Manager – Supports the name ranges in the formulas. By using the name ranges, you can specify the name of the cell range.
+> •	Data validation – Provides support to ensure the data integrity by enforcing end users to enter valid data into the cells and if entered data does not meet the specified criteria, and error message is displayed.
+> •	Floating Cells- Provides support for floating cell mode that is when the text exceeds the length of the cell, it will float the text to the adjacent cell.
+> •	Merge Cells - Merge two or more adjacent cells into a single cell and display the contents of one cell in the merged cell.
+> •	Conditional Formatting- Provides support for excel compatible conditional formatting and allows you to apply formats to a cell or range of cells depending on the value of cells or formula that meet specific criteria. > • Also provides support to define and import the conditional formatting. rules such as Data Bars, Icon Sets and Color Scales options which are used to visualize the data.
+
 - ##### User Interface based on MS Excel over a real database.
 - ##### Import and export spreadsheet data.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
