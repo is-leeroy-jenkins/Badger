@@ -155,9 +155,7 @@
 
 - Definitions and statutory authorities
 - Legal information bound directly to financial data in the user interface.
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
-
+  
 ## EPA Data Sets Available Online
 - [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
 >EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources.
@@ -173,6 +171,9 @@
 >WSA is a survey of the biological condition of small streams throughout the U.S. conducted by the U.S. EPA in collaboration with states and tribes.
 >The first WSA in 2004-2005 sampled 1,392 sites selected at random to represent the condition of all streams in regions that share similar ecological characteristics.
 >Participants used the same standard methods at all sites, to ensure results that are comparable across the nation.
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+***
 
  ## Active studies
 - [Air Research](https://www.epa.gov/air-research)
