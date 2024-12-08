@@ -123,8 +123,15 @@
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
+- Monitoring Data Sets Available Online
+> [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
+EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
+- [EPA STOrage and RETrieval database (STORET)](https://www3.epa.gov/storet/index-.html#:~:text=Welcome%20to%20STORET%2C%20EPA's%20largest,private%20citizens%2C%20and%20many%20others.)
+>The STORET Data Warehouse is U.S. EPA's repository of the water quality monitoring data collected by water resource management groups across the country. These organizations, including states, tribes, watershed groups, other federal agencies, volunteer groups and universities, submit datasets to the STORET Warehouse in order to make them publically accessible.
+- [Wadeable Streams Assessment (WSA)](https://www.epa.gov/national-aquatic-resource-surveys/wadeable-streams-assessment)
+>WSA is a survey of the biological condition of small streams throughout the U.S. conducted by the U.S. EPA in collaboration with states and tribes. The first WSA in 2004-2005 sampled 1,392 sites selected at random to represent the condition of all streams in regions that share similar ecological characteristics. Participants used the same standard methods at all sites, to ensure results that are comparable across the nation.
 
-> On-going studies
+ ## Active studies
 - [Air Research](https://www.epa.gov/air-research)
 - [Climate Change Research](https://www.epa.gov/climate-research)
 - [Ecosystems Research](https://www.epa.gov/eco-research)
