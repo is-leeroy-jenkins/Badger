@@ -90,7 +90,7 @@
 - ##### Ad-hoc calculations directly on bound data.
 - ##### Quick access to the full functionality of the widows 10 calculator.
 
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
+![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
 - ##### Calculation based on the federal fiscal year beginning Oct 1.
