@@ -112,9 +112,9 @@
 - #### Present and access media (*.mp3, *mp4, etc)
 - ##### Network communications
 - ##### HTML5, CSS, and Javascript
-
-  
+    
 ![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
+
    
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
 >Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
@@ -123,7 +123,7 @@
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-- Monitoring Data Sets Available Online
+## Monitoring Data Sets Available Online
 > [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
 EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
 
@@ -147,6 +147,8 @@ EMAP was a research program to develop the tools necessary to monitor and assess
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
+>Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
+
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
@@ -213,7 +215,6 @@ Subqueries: Using nested queries to filter data based on results from another qu
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### customized search using Google's engine to query across multiple government research domains
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Overview.gif)
-
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/tools.png)  Hotkeys
