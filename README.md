@@ -120,8 +120,6 @@
 >Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
 - Definitions and statutory authorities
 - Legal information bound directly to financial data
- 
-### Research Topics
 -[Air Research](https://www.epa.gov/air-research)
 -[Climate Change Research](https://www.epa.gov/climate-research)
 -[Ecosystems Research](https://www.epa.gov/eco-research)
