@@ -124,7 +124,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
 
->A On-going studies
+> On-going studies
 - [Air Research](https://www.epa.gov/air-research)
 - [Climate Change Research](https://www.epa.gov/climate-research)
 - [Ecosystems Research](https://www.epa.gov/eco-research)
