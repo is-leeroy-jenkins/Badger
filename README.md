@@ -182,25 +182,32 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/document.png) Document Viewer
+> The PDF Viewer control supports viewing, reviewing, and printing PDF files in the WPF applications. The thumbnail, bookmark, hyperlink, and
+> table of contents support provide easy navigation within and outside the PDF files. The form-filling support provides a platform to fill,
+> flatten, save, and print PDF files with AcroForm. The PDF files can be reviewed with the abundantly available annotation tools.
+
 - ##### Library of legal documentation used in evnironmental data analysis.
 - ##### Interact with, view and access PDFs outside the application
+  
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
 
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) SQL Editors
 >Common SQL operations used in data analysis:
-Filtering data: Using the WHERE clause to select specific rows based on conditions. 
-Aggregation: Employing functions like SUM, AVG, COUNT, MIN, MAX to calculate summary statistics on groups of data. 
-Joining tables: Combining data from multiple tables using JOIN operations to create a comprehensive view. 
-Subqueries: Using nested queries to filter data based on results from another query
+>Filtering data: Using the WHERE clause to select specific rows based on conditions.
+>Aggregation: Employing functions like SUM, AVG, COUNT, MIN, MAX to calculate summary statistics on groups of data.
+>Joining tables: Combining data from multiple tables using JOIN operations to create a comprehensive view.
+>Subqueries: Using nested queries to filter data based on results from another query.
 
 - ##### SQLite
 > A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
+> that's open source.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 - ##### MS Access
-> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools
+> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE)
+> with a graphical user interface and software-development tools
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
@@ -213,10 +220,10 @@ Subqueries: Using nested queries to filter data based on results from another qu
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
 
-
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
 
 > A light-weight, full-featured, open source version of Google Chrome web-browser  written in C#.
+
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
 - Tabbed browsing
 - Address bar (also opens Google)
@@ -230,6 +237,9 @@ Subqueries: Using nested queries to filter data based on results from another qu
 - View online & offline webpages
 
 ## Baby Overview
+> Baby embraces modern web standards, and supports HTML5, JavaScript, CSS3 and HTML5 audio/video elements.
+> 3D content is supported via WebGL which uses OpenGL/DirectX for hardware accelerated rendering.
+> Baby includes embedded modules for PDF, web page printing and the WebKit Inspector (developer tools). Baby has no external dependencies.
 - ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### customized search using Google's engine to query across multiple government research domains
