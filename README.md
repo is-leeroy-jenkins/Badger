@@ -86,6 +86,66 @@
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
+- ##### Ad-hoc calculations directly on bound data.
+- ##### Quick access to the full functionality of the widows 10 calculator.
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
+- ##### Calculation based on the federal fiscal year beginning Oct 1.
+- ##### Compatible with full-time equivalency metrics.
+- ##### Ad-hoc analysis of variable periods of availability.
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/is-leeroy-jenkins/Orca)
+- ##### Ad-hoc web development
+- ##### Network communications
+- ##### HTML5, CSS, and Javascript
+  
+![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
+   
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
+- ##### Definitions and statutory authorities
+- ##### Legal information bound directly to financial data
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
+- ##### 3D Charting
+- ##### Pivot Charts
+- ##### Plotting & Graphs
+  
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
+
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/document.png) Document Viewer
+- ##### Library of legal documentation used in evnironmental data analysis.
+- ##### Interact with, view and access PDFs outside the application
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
+
+
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) Editors
+
+- ##### SQLite
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
+
+- ##### MS Access
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
+
+- ##### SQL Compact Edition
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
+
+- ##### SQL Server Express
+
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
+
+
+
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
 
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
@@ -184,66 +244,6 @@ Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 - CefSharp.OffScreen.dll
 
 #### By default `CEF` has it's own log file, `Debug.log` which is located in your executing folder. e.g. `bin`
-
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
-- ##### Ad-hoc calculations directly on bound data.
-- ##### Quick access to the full functionality of the widows 10 calculator.
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
-- ##### Calculation based on the federal fiscal year beginning Oct 1.
-- ##### Compatible with full-time equivalency metrics.
-- ##### Ad-hoc analysis of variable periods of availability.
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/is-leeroy-jenkins/Orca)
-- ##### Ad-hoc web development
-- ##### Network communications
-- ##### HTML5, CSS, and Javascript
-  
-![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
-   
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
-- ##### Definitions and statutory authorities
-- ##### Legal information bound directly to financial data
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
-- ##### 3D Charting
-- ##### Pivot Charts
-- ##### Plotting & Graphs
-  
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
-
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/document.png) Document Viewer
-- ##### Library of legal documentation used in evnironmental data analysis.
-- ##### Interact with, view and access PDFs outside the application
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Guidance.gif)
-
-
-
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sql.png) Editors
-
-- ##### SQLite
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
-
-- ##### MS Access
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
-
-- ##### SQL Compact Edition
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
-
-- ##### SQL Server Express
-
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
-
 
 
 
