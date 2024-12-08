@@ -120,18 +120,22 @@
 >Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
 - Definitions and statutory authorities
 - Legal information bound directly to financial data
--[Air Research](https://www.epa.gov/air-research)
--[Climate Change Research](https://www.epa.gov/climate-research)
--[Ecosystems Research](https://www.epa.gov/eco-research)
--[Emergency Response](https://www.epa.gov/emergency-response-research)
--[Health Research](https://www.epa.gov/healthresearch)
--[Human Health Risk Assessment](https://www.epa.gov/risk/human-health-risk-assessment)
--[Land and Waste Management Research](https://www.epa.gov/land-research)
--[Chemical Safety Research](https://www.epa.gov/chemical-research)
--[Water Research](https://www.epa.gov/water-research)
-
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
+
+
+## Simultaneous access to active research and financial resources
+>Active research topics
+
+- [Air Research](https://www.epa.gov/air-research)
+- [Climate Change Research](https://www.epa.gov/climate-research)
+- [Ecosystems Research](https://www.epa.gov/eco-research)
+- [Emergency Response](https://www.epa.gov/emergency-response-research)
+- [Health Research](https://www.epa.gov/healthresearch)
+- [Human Health Risk Assessment](https://www.epa.gov/risk/human-health-risk-assessment)
+- [Land and Waste Management Research](https://www.epa.gov/land-research)
+-[Chemical Safety Research](https://www.epa.gov/chemical-research)
+- [Water Research](https://www.epa.gov/water-research)
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
