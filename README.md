@@ -46,15 +46,17 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
-> A natural language processing (NLP) model is a combination of multiple mathematical and statistical steps. It usually starts with raw text and ends with a model that can predict outcomes. In between, there are multiple steps that include text cleaning, modeling, and hyperparameter tuning.
-> Text cleaning, or normalization, is one of the most important steps of any NLP task. It includes removing unwanted data, converting words to their base forms (stemming or lemmatization), and vectorization.
-> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. In this article, we will discuss some of the best techniques to perform vectorization.
+
 >
 > 
 > To support machine-learning for environmental data analysis, Bubba provides the following vector stores on the OpenAI platform:
 
 - [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+
+>> A natural language processing (NLP) model is a combination of multiple mathematical and statistical steps. It usually starts with raw text and ends with a model that can predict outcomes. In between, there are multiple steps that include text cleaning, modeling, and hyperparameter tuning.
+> Text cleaning, or normalization, is one of the most important steps of any NLP task. It includes removing unwanted data, converting words to their base forms (stemming or lemmatization), and vectorization.
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. In this article, we will discuss some of the best techniques to perform vectorization.
 
 
 
