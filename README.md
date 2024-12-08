@@ -51,7 +51,7 @@
 
 >
 > 
-> To support machine-learning for environmental data analysis, Bubba provides the following vector stores on the OpenAI platform:
+>  Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning:
 
 - [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
@@ -63,7 +63,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
 
-- [Controls](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Controls) - main UI layer with 36 controls and related functionality.
+- [Controls](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Controls) - main UI layer with numerous controls and related functionality.
 - [Styles](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Themes/Styles) - XAML-based styles for the Bubba UI layer.
 - [Enumerations](https://github.com/is-leeroy-jenkins/Badger/tree/main/Enumerations) - various enumerations used for budgetary accounting.
 - [Extensions](https://github.com/is-leeroy-jenkins/Badger/tree/main/Extensions)- useful extension methods for budget analysis by type.
