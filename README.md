@@ -116,6 +116,9 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Maps.png) Maps.
+> Collects information about facilities or specific sites subject to environmental regulation. The EPA's Geospatial Data Access Project provides
+> downloadable files of these facilities or sites in the following formats: Extensible Markup Language (XML), Keyhole Markup Language (KML),
+> ESRI Geodatabase, and Comma Separated Value (CSV). Within the file is key facility information for use in mapping and reporting applications. 
 - ##### Congressional earmark reporting
 - ##### Monitor pollution site remediation costs
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
@@ -142,7 +145,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/web.png) [Orca](https://github.com/is-leeroy-jenkins/Orca)
->Create, build, and maintain ad-hoc documents with Orca to provide real-time information for other analysts, scientists, and engineers via the web.
+>Create, build, and maintain ad-hoc documents with Orca to provide real-time information for others via the web.
 - ##### Single or multi-page documents
 - #### Present and access media (*.mp3, *mp4, etc)
 - ##### Network communications (HTTP, HTTPS, FTP, and UDP)
