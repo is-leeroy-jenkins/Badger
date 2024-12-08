@@ -39,17 +39,16 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
-- [User Guide](Resources/Github/Users.md)
-- [Compilation Guide](Resources/Github/Compilation.md)
+- [Compilation Guide](Resources/Github/Compilation.md) 
 - [Configuration Guide](Resources/Github/Configuration.md)
 - [Distribution Guide](Resources/Github/Distribution.md)
 
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
-
-- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized dataset of federal appropriations available for fine-tuning learning models
-- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dataset of federal finance regulations available for fine-tuning learning models
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. In this article, we will discuss some of the best techniques to perform vectorization.
+- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
+- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
 
 
 
@@ -81,7 +80,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/excel.png) The Interface.
-- ##### Excel-ish UI over a real database.
+- ##### User Interface based on MS Excel over a real database.
 - ##### Import and export spreadsheet data.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.gif)
 
@@ -93,14 +92,15 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
-- ##### Ad-hoc calculations directly on bound data.
+- ##### Perform ad-hoc calculations directly on bound data.
+- #### Avoid errors caused by toggling to and from different applications to add two numbers.
 - ##### Quick access to the full functionality of the widows 10 calculator.
 ![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/calendar.png) Federal Calendar
-- ##### Calculations involving appropriations are based on the federal fiscal year beginning Oct 1.
+- ##### Calculation based on the federal fiscal year beginning Oct 1.
 - ##### Compatible with full-time equivalency metrics.
 - ##### Ad-hoc analysis of variable periods of availability.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/FiscalYear.gif)
@@ -110,20 +110,20 @@
 >Create, build, and maintain ad-hoc documents with Orca to provide real-time information for other analysts, scientists, and engineers via the web.
 - ##### Single or multi-page documents
 - #### Present and access media (*.mp3, *mp4, etc)
-- ##### Network communications
+- ##### Network communications (HTTP, HTTPS, FTP, and UDP)
 - ##### HTML5, CSS, and Javascript
-    
-![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
 
+  
+![](https://github.com/is-leeroy-jenkins/Orca/blob/main/etc/github/Overview.gif)
    
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
->Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
+
 - Definitions and statutory authorities
-- Legal information bound directly to financial data
+- Legal information bound directly to financial data in the user interface.
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 
-## Monitoring Data Sets Available Online
+- Monitoring Data Sets Available Online
 > [Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/)  and [Regional Environmental Monitoring and Assessment Program](https://archive.epa.gov/emap/archive-emap/web/html/index-171.html)
 EMAP was a research program to develop the tools necessary to monitor and assess the status and trends of national ecological resources. Data sets generated in the course of EMAP's research are available to be searched and downloaded. The objectives of REMAP are to evaluate and improve EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
 
@@ -171,19 +171,16 @@ Joining tables: Combining data from multiple tables using JOIN operations to cre
 Subqueries: Using nested queries to filter data based on results from another query
 
 - ##### SQLite
-> A C-language library that implements a small, fast, self-contained, high-reliability, full-featured,
-> SQL database engine that runs in an existing process.
+> A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
 - ##### MS Access
-> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE)
->  with a graphical user interface and software-development tools provided by Microsoft.
+> A database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Access.gif)
 
 - ##### SQL Compact Edition
-> A discontinued but super useful relational database produced by Microsoft
-> that is for applications that run on mobile devices and desktops.
+> A discontinued but super useful relational database produced by Microsoft for applications that run on mobile devices and desktops.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
 - ##### SQL Server Express
@@ -192,11 +189,9 @@ Subqueries: Using nested queries to filter data based on results from another qu
 
 
 
-##  Baby Overview
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby 
 
-> A light-weight, full-featured, open source version of Google Chrome web-browser
-> thats written in C-Sharp using Windows Presentation Foundation (WPF).
-
+> A light-weight, full-featured, open source version of Google Chrome web-browser  written in C#.
 - HTML5, CSS3, JS, HTML5 Video, WebGL 3D, WebAssembly, etc
 - Tabbed browsing
 - Address bar (also opens Google)
@@ -209,15 +204,16 @@ Subqueries: Using nested queries to filter data based on results from another qu
 - Easily add vendor-specific branding, buttons or hotkeys
 - View online & offline webpages
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/baby.png) Baby Browser
-
-- ##### Stand-alone web browser built upon the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
+## Baby Overview
+- ##### Stand-alone web browser built with the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
 - ##### Ad-hoc searches with customized pop-up input.
 - ##### customized search using Google's engine to query across multiple government research domains
+  
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/Overview.gif)
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/tools.png)  Hotkeys
+
 Hotkeys | Function
 ------------ | -------------
 Ctrl+T		| Add a new tab
@@ -334,3 +330,4 @@ Bubba has integrated the following services for additional functions, which can 
 Bubba is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/Bubba/blob/main/LICENSE).
 
 The licenses of the libraries used can be found [here](https://github.com/is-leeroy-jenkins/Bubba/tree/main/Resources/Licenses).
+
