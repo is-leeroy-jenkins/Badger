@@ -116,37 +116,18 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/epa.png) Environmental Program Analysis
 - Definitions and statutory authorities
 - Legal information bound directly to financial data
+#### Research Topics
+--[Air Research](https://www.epa.gov/air-research)
+--[Climate Change Research](https://www.epa.gov/climate-research)
+--[Ecosystems Research](https://www.epa.gov/eco-research)
+--[Emergency Response](https://www.epa.gov/emergency-response-research)
+--[Health Research](https://www.epa.gov/healthresearch)
+--[Human Health Risk Assessment](https://www.epa.gov/risk/human-health-risk-assessment)
+--[Land and Waste Management Research](https://www.epa.gov/land-research)
+--[Chemical Safety Research](https://www.epa.gov/chemical-research)
+--[Water Research](https://www.epa.gov/water-research)
 
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
-
-
---![Air Research](https://www.epa.gov/air-research)
->EPA conducts air research that provides the critical science to develop and implement Clean Air Act regulations that protect the quality of the air we breathe.  This research also puts new tools and information in the hands of citizens, communities, air quality managers and regulators to reduce air pollution.
-
---Climate Change Research
->EPA's climate change research improves knowledge of the impacts of climate change on human health and the environment. The scientific information and tools can be used by communities to effectively, equitably and sustainably tackle the climate crisis. 
-
---Ecosystems Research
->EPA’s ecosystems research is working to protect ecosystems and the air and water resources that provide numerous benefits for humans and other living things.
-
---Emergency Response
->EPA's emergency response and homeland security research provides science and technology needed to effectively respond to and recover from disasters. 
-
---Health Research
->EPA's health research is helping communities and policymakers develop and implement policies and practices to improve public health, especially for vulnerable groups such as children, the elderly and the socioeconomically disadvantaged.
-
---Human Health Risk Assessment
->A human health risk assessment is the process to estimate the nature and probability of adverse health effects in humans who may be exposed to chemicals in contaminated environmental media, now or in the future.
-
---Land and Waste Management Research
->EPA's land and waste management research is reducing risks from such contamination, and developing less costly methods for remediation in ways that advance public health and community revitalization.
-
---Safer Chemicals Research
->EPA's safer chemicals research is transforming chemical risk-based decisions by conducting high-quality, innovative scientific research. The results of this research support the Agency, states, tribes, and other stakeholders in fulfilling their shared objectives to protect human health and the environment.
-
---Water Research
->EPA’s water research is supporting solutions that ensure adequate supplies of clean water to protect our health and livelihood, protect and restore watersheds and ecosystems, and strengthen our economy.
-
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
