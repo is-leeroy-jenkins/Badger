@@ -116,7 +116,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Maps.png) Maps.
-> Collects information about facilities or specific sites subject to environmental regulation. The EPA's Geospatial Data Access Project provides
+> Visualize data about facilities or specific sites subject to environmental regulation. The EPA's Geospatial Data Access Project provides
 > downloadable files of these facilities or sites in the following formats: Extensible Markup Language (XML), Keyhole Markup Language (KML),
 > ESRI Geodatabase, and Comma Separated Value (CSV). Within the file is key facility information for use in mapping and reporting applications. 
 - ##### Congressional earmark reporting
