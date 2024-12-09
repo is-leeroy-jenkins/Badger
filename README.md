@@ -95,6 +95,13 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/pbi.png)  Dashboards
+> Environmental data dashboards providing views that help users explore and analyze complex environmental data to make informed decisions,
+> manage operations and research.
+- ##### Status Of Programs
+- ##### OMB Apportionments
+- ##### MAX A-11
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Dashboards.gif)
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
 >Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
