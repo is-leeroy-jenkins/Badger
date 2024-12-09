@@ -28,7 +28,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Database Providers
-> Databases play a fundamental role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
+> Databases play a critical role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
 > Bubba provides the following providers to store and analyze data locally.
 
 - [SQLite](https://sqlite.org/index.html) is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
