@@ -182,7 +182,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 ***
 
- ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ORD.png) Active studies
+ ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ORD.png) Some studies
 - [Air Research](https://www.epa.gov/air-research)
 - [Climate Change Research](https://www.epa.gov/climate-research)
 - [Ecosystems Research](https://www.epa.gov/eco-research)
