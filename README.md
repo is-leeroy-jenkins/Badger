@@ -99,7 +99,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/excel.png) The Spreadsheet Interface.
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelData.png) The Spreadsheet Interface.
 > An excel inspired control that allows you to create, edit, view and format the Microsoft Excel files without excel installed.
 > It provides absolute ease of use UI experience with integrated ribbon to cover any possible business scenario.
 #### Spreadhsheet Features
@@ -176,7 +176,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.gif)
 ***
 
- ## Active studies
+ ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ORD.png) Active studies
 - [Air Research](https://www.epa.gov/air-research)
 - [Climate Change Research](https://www.epa.gov/climate-research)
 - [Ecosystems Research](https://www.epa.gov/eco-research)
