@@ -137,7 +137,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png)  Calculations 
 - ##### Perform ad-hoc calculations directly on bound data.
 - #### Avoid errors caused by toggling to and from different applications to add two numbers.
 - ##### Quick access to the full functionality of the widows 10 calculator.
