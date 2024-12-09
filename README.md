@@ -1,8 +1,15 @@
-
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
+***
 ## An open source data analysis application for federal analysts developed in C# using WPF and released under the MIT license
- ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
 
-
+<div align="left">
+  <p>
+    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#-documentation">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Bubba/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="[#-license](https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt)">License</a>
+  </p>
+  <p>
+    
+  </p>
+</div>
 
 
 
