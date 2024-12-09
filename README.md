@@ -208,16 +208,16 @@
 >Joining tables: Combining data from multiple tables using JOIN operations to create a comprehensive view.
 >Subqueries: Using nested queries to filter data based on results from another query.
 
-## SQLite
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/sqlite.png) SQLite
 > A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine
 > that's open source and hand's-down one the best tools available.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SQLite.gif)
 
-## SQL Compact Edition
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.png) SQL Compact Edition
 > A discontinued but super useful relational database produced by Microsoft for applications that run on mobile devices and desktops.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlCe.gif)
 
-## SQL Server Express
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/mssql.png) SQL Server Express
 > A free edition of MS' flagship database SQL Server, which includes the core database engine.
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/SqlServer.gif)
 
@@ -281,7 +281,7 @@ Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/2.png)
 
 
-## Search Bar
+## Popup Search Bar
 
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/search.png)
 
