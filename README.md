@@ -6,7 +6,7 @@
     <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#-documentation">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Bubba/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a>
   </p>
   <p>
-    An open source data analysis application for federal analysts developed in C# using WPF and released under the MIT license
+    An open source budget execution & data analysis application for federal analysts developed in C# using WPF and released under the MIT license
   </p>
 </div>
 
@@ -28,7 +28,7 @@
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Database Providers
-> Databases play a fundamental role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
+> Databases play a critical role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
 > Bubba provides the following providers to store and analyze data locally.
 
 - [SQLite](https://sqlite.org/index.html) is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
@@ -56,16 +56,6 @@
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
-
-> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning:
-
-- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
-- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
-
-
-
-
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/csharp.png) Code
 
 
@@ -82,6 +72,16 @@
 - Badger uses CefSharp 106 for Baby Browser and is built on NET 8
 - Badger supports x64 specific builds
 - `bin/storage` - HTML and JS required for downloads manager and custom error pages
+
+
+
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
+
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning:
+
+- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
+- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+
 
 
   
@@ -137,7 +137,7 @@
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Map.gif)
 
 
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png) Budget Calculations 
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculation.png)  Calculations 
 - ##### Perform ad-hoc calculations directly on bound data.
 - #### Avoid errors caused by toggling to and from different applications to add two numbers.
 - ##### Quick access to the full functionality of the widows 10 calculator.
