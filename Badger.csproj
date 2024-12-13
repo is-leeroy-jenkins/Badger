@@ -58,8 +58,12 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Resources\Assets\ApplicationImages\Badger.ico" />
+    <None Remove="Resources\Assets\ApplicationImages\Badger.png" />
     <None Remove="Resources\Assets\CalculatorImages\Cancel.png" />
+    <None Remove="Resources\Assets\CalculatorImages\CloseButton.png" />
     <None Remove="Resources\Assets\CalculatorImages\Main.png" />
+    <None Remove="Resources\Assets\CalculatorImages\WindowsButton.png" />
     <None Remove="Resources\Assets\DialogImages\AddColumnButton.png" />
     <None Remove="Resources\Assets\DialogImages\AddRecordButton.png" />
     <None Remove="Resources\Assets\DialogImages\AddTableButton.png" />
@@ -263,6 +267,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\NinjaImages\ico\BudExNinja.ico" />
+    <Resource Include="Resources\Assets\ApplicationImages\Badger.ico" />
+    <Resource Include="Resources\Assets\ApplicationImages\Badger.png" />
+    <Resource Include="Resources\Assets\CalculatorImages\CloseButton.png" />
+    <Resource Include="Resources\Assets\CalculatorImages\WindowsButton.png" />
     <Resource Include="Resources\Assets\NinjaImages\BudExNinjaGrey.ico" />
     <Resource Include="Resources\Assets\ToolStripImages\CancelButton.png" />
     <Resource Include="Resources\Assets\ToolStripImages\ChatButton.png" />
@@ -354,8 +362,6 @@
   <ItemGroup>
     <Resource Include="Data\Clients\SqlCe\CompactView.exe" />
     <Resource Include="Data\Clients\SQLite\DB Browser for SQLite.exe" />
-    <Resource Include="Resources\Assets\CalculatorImages\Cancel.png" />
-    <Resource Include="Resources\Assets\CalculatorImages\Main.png" />
     <Resource Include="Resources\Assets\DialogImages\AddColumnButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddRecordButton.png" />
     <Resource Include="Resources\Assets\DialogImages\AddTableButton.png" />

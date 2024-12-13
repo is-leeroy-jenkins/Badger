@@ -21,7 +21,7 @@
     BorderBrush="{StaticResource BlueBorderBrush}"
     BorderThickness="1"
     Foreground="{StaticResource LightBlueBrush}"
-    Icon="/Resources/Assets/ApplicationImages/Bubba.png"
+    Icon="/Resources/Assets/ApplicationImages/Badger.ico"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
@@ -64,9 +64,9 @@
 
             <b:MetroListBox
                 x:Name="ListBox"
-                Canvas.Left="14"
-                Canvas.Top="19"
-                Width="390"
+                Canvas.Left="15"
+                Canvas.Top="20"
+                Width="395"
                 Height="298"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -94,8 +94,8 @@
                     x:Name="SelectButton"
                     Grid.Column="2"
                     Width="90"
-                    Margin="0,26,28,26"
-                    HorizontalAlignment="Right"
+                    Margin="0,26,0,26"
+                    HorizontalAlignment="Center"
                     Content="Select"
                     Background="{DynamicResource ControlBackground}"
                     BorderBrush="{DynamicResource BlueBorderBrush}" />
