@@ -1,4 +1,4 @@
-_
+#### Badger
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
 
 <div align="left">
