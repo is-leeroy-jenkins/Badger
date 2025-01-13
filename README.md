@@ -1,5 +1,5 @@
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
 _
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
 
 <div align="left">
   <p>
