@@ -88,41 +88,54 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Bubba.gif)
 
 > Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
-> This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
-> Badger interacts with pre-trained Large Language Models (LLMs) like GPT-4o and o1-mini  to enhance its analytical capabilities.
-> Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
+This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
+Badger interacts with pre-trained Large Language Models (LLMs) like GPT-4o and o1-mini  to enhance its analytical capabilities.
+Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/tools.png)  Data Tools
-> The tools used in environmental data analysis & buget execution play a crucial role by facilitating the collection, cleaning, organization, analysis, and interpretation of large datasets, allowing users to extract meaningful insights and make informed decisions by transforming raw data into actionable information through features like statistical analysis, data visualization, and machine learning algorithms.
+
+> The tools used in environmental data analysis & buget execution play a crucial role by facilitating the collection, cleaning, organization, analysis,
+> and interpretation of large datasets, allowing users to extract meaningful insights and make informed decisions by transforming raw data
+> into actionable information through features like statistical analysis, data visualization, and machine learning algorithms.
 > Some of the tools offered by Bubba include the following:
 
 - ##### Datagrids
 - ##### Pivot Tables
 - ##### Plotting
+  
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Datagrid.gif)
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/pbi.png)  Dashboards
+
 > Environmental data dashboards providing views that help users explore and analyze complex environmental data to make informed decisions,
 > manage operations and research.
+
 - ##### Status Of Programs
 - ##### OMB Apportionments
 - ##### MAX A-11
+- ##### General Ledger Reconciliation
+  
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Dashboards.gif)
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Analysis.png) Visualization Tools
->Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection, natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis, time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
+
+> Data analysis in environmental science is used for a wide range of applications including: climate change analysis, biodiversity assessment, pollution detection,
+> natural disaster management, land use monitoring, ecosystem health evaluation, and identifying environmental trends by utilizing techniques like spatial analysis,
+> time series analysis, and statistical modeling, often leveraging satellite imagery and remote sensing data to analyze large datasets effectively.
 
 - ##### 3D Charting
 - ##### Pivot Charts
 - ##### Plotting & Graphs
+  
 ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Charts.gif)
 
-
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ExcelData.png) The Spreadsheet Interface.
+
 > An excel inspired control that allows you to create, edit, view and format the Microsoft Excel files without excel installed.
 > It provides absolute ease of use UI experience with integrated ribbon to cover any possible business scenario.
+
 #### Spreadhsheet Features
 -	**Ribbon** – Ribbon integrated with organically enhanced UI experience.
 -	**Editing and Selection** - Interactive support for editing and cell selection in workbook.
