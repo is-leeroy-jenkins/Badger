@@ -48,9 +48,9 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
-- [Compilation Guide](Resources/Github/Compilation.md) 
-- [Configuration Guide](Resources/Github/Configuration.md)
-- [Distribution Guide](Resources/Github/Distribution.md)
+- [Compilation Guide](Resources/Github/Compilation.md) - instructions on how to compile Badger.
+- [Configuration Guide](Resources/Github/Configuration.md) - information for the Bubba configuration file. 
+- [Distribution Guide](Resources/Github/Distribution.md) -  distributing Bubba.
 
 
 
@@ -162,7 +162,7 @@ Users leverage LLMs for rapid information retrieval from vast datasets, automate
 - ##### Perform ad-hoc calculations directly on bound data.
 - #### Avoid errors caused by toggling to and from different applications to add two numbers.
 - ##### Quick access to the full functionality of the widows 10 calculator.
-![](https://github.com/is-leeroy-jenkins/Sherpa/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
+![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Calculator.gif)
 
 
 
