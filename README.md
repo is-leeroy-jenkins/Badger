@@ -41,9 +41,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/system_requirements.png) System requirements
 
 - You need [VC++ 2019 Runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) 32-bit and 64-bit versions
-
 - You will need .NET 6.
-
 - You need to install the version of VC++ Runtime that Baby Browser needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
 
 
@@ -77,14 +75,24 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
 
-> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned. It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning:
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
+> It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 
-- [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
-- [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+- #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
+- #### [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+
+> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+> This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
+
+- #### Example gpt-4o-mini run
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Bubba.gif)
+
+> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+> This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
+> Badger interacts with pre-trained Large Language Models (LLMs) like GPT-4o and o1-mini  to enhance its analytical capabilities.
+> Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
-
-  
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/tools.png)  Data Tools
 > The tools used in environmental data analysis & buget execution play a crucial role by facilitating the collection, cleaning, organization, analysis, and interpretation of large datasets, allowing users to extract meaningful insights and make informed decisions by transforming raw data into actionable information through features like statistical analysis, data visualization, and machine learning algorithms.
 > Some of the tools offered by Bubba include the following:
