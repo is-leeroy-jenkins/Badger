@@ -15,7 +15,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/features.png) Features
 
 - Mutliple data providers.
-- Datasets can be found on Kaggle.  [click here for data](https://www.kaggle.com/datasets/terryeppler/badger)
+- Datasets can be found on [Kaggle](https://www.kaggle.com/datasets/terryeppler/badger)
 - Charting and reporting.
 - Internal web browser, [Baby](https://github.com/is-leeroy-jenkins/Baby/blob/main/README.md),  with queries optimized for searching .gov domains.
 - Pre-defined schema for moret than 100 environmental data models.
