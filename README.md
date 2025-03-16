@@ -24,7 +24,8 @@
 - Finanical data bound to environmental programs and statutory authority.
 - Ad-hoc calculations.
 - Add agency/region/division-specific branding.
-- The winforms version of Badger is [Sherpa](https://github.com/is-leeroy-jenkins/Sherpa?tab=readme-ov-file) 
+- The winforms version of Badger is [Sherpa](https://github.com/is-leeroy-jenkins/Sherpa?tab=readme-ov-file)
+- Datasets can be found on Kaggle.  [click here for data](https://www.kaggle.com/datasets/terryeppler/badger)
 
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Database Providers
