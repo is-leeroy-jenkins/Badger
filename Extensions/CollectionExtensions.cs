@@ -75,9 +75,9 @@ namespace Badger
                     collection.Add( value );
                     return true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
