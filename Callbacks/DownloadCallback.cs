@@ -94,7 +94,7 @@ namespace Badger
         /// <param name="item"> The item. </param>
         /// <param name="callback"> The callback. </param>
         public bool OnBeforeDownload( IWebBrowser webBrowser, IBrowser browser, DownloadItem item,
-            IBeforeDownloadCallback callback )
+                                      IBeforeDownloadCallback callback )
         {
             if( !callback.IsDisposed )
             {
@@ -124,7 +124,7 @@ namespace Badger
         /// <param name="downloadItem"> The download item. </param>
         /// <param name="callback"> The callback. </param>
         public void OnDownloadUpdated( IWebBrowser webBrowser, IBrowser browser,
-            DownloadItem downloadItem, IDownloadItemCallback callback )
+                                       DownloadItem downloadItem, IDownloadItemCallback callback )
         {
             _webBrowser.UpdateDownloadItem( downloadItem );
             if( downloadItem.IsInProgress

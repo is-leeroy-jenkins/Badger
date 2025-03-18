@@ -282,22 +282,22 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="cef.sdk" Version="131.2.7" />
-    <PackageReference Include="CefSharp.Common.NETCore" Version="131.2.70" />
-    <PackageReference Include="CefSharp.OffScreen.NETCore" Version="131.2.70" />
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="131.2.70" />
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="131.2.70" />
-    <PackageReference Include="EPPlus" Version="7.5.1" />
-    <PackageReference Include="EPPlus.Interfaces" Version="7.5.0" />
-    <PackageReference Include="EPPlus.System.Drawing" Version="7.5.0" />
-    <PackageReference Include="Google.Apis" Version="1.68.0" />
+    <PackageReference Include="cef.sdk" Version="133.4.2" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="133.4.21" />
+    <PackageReference Include="CefSharp.OffScreen.NETCore" Version="133.4.21" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="133.4.21" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="133.4.21" />
+    <PackageReference Include="EPPlus" Version="7.7.0" />
+    <PackageReference Include="EPPlus.Interfaces" Version="8.0.0" />
+    <PackageReference Include="EPPlus.System.Drawing" Version="8.0.0" />
+    <PackageReference Include="Google.Apis" Version="1.69.0" />
     <PackageReference Include="Google.Apis.CustomSearchAPI.v1" Version="1.68.0.3520" />
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
-    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
-    <PackageReference Include="RestoreWindowPlace" Version="2.1.0" />
+    <PackageReference Include="RestoreWindowPlace" Version="3.1.0" />
     <PackageReference Include="SkiaSharp" Version="3.116.1" />
     <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.119" />
     <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />
@@ -340,7 +340,7 @@
     <PackageReference Include="Syncfusion.Tools.WPF" Version="24.1.41" />
     <PackageReference Include="Syncfusion.UI.WPF.NET" Version="24.1.41" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="24.1.41" />
-    <PackageReference Include="System.Data.OleDb" Version="9.0.0" />
+    <PackageReference Include="System.Data.OleDb" Version="9.0.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
@@ -495,62 +495,6 @@
     <Resource Include="Resources\Assets\ToolStripImages\SqlButton.png" />
     <Resource Include="Resources\Assets\ToolStripImages\SunButton.png" />
     <Resource Include="Resources\Assets\ToolStripImages\ToggleButton.png" />
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf" />
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2022.pdf" />
-    <Resource Include="Resources\Documents\AdviceOfAllowanceFiscalYear2023.pdf" />
-    <Resource Include="Resources\Documents\AntiDeficiencyAct.pdf" />
-    <Resource Include="Resources\Documents\BudgetControlAct.pdf" />
-    <Resource Include="Resources\Documents\CleanAirAct.pdf" />
-    <Resource Include="Resources\Documents\CleanWaterAct.pdf" />
-    <Resource Include="Resources\Documents\ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct.pdf" />
-    <Resource Include="Resources\Documents\DataAct.pdf" />
-    <Resource Include="Resources\Documents\DeobligationRecertificationGuidance.pdf" />
-    <Resource Include="Resources\Documents\EmergencyResponseMissionAssignmentGuidance.pdf" />
-    <Resource Include="Resources\Documents\FederalAccountSymbolsAndTitlesBook.pdf" />
-    <Resource Include="Resources\Documents\FederalGovernmentStandardsForInternalControls.pdf" />
-    <Resource Include="Resources\Documents\FederalTrustFundAccountingGuide.pdf" />
-    <Resource Include="Resources\Documents\FundsControlManual.pdf" />
-    <Resource Include="Resources\Documents\GovernmentAuditingStandards.pdf" />
-    <Resource Include="Resources\Documents\GovernmentInvoicingUserGuide.pdf" />
-    <Resource Include="Resources\Documents\IncidentManagementHandbook.pdf" />
-    <Resource Include="Resources\Documents\IndirectCostsOfAssistanceAgreements.pdf" />
-    <Resource Include="Resources\Documents\InflationReductionActAdviceOfAllowanceFiscalYear2023.pdf" />
-    <Resource Include="Resources\Documents\ItCodeGuidance.pdf" />
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2022.pdf" />
-    <Resource Include="Resources\Documents\JobsActAdviceOfAllowanceFiscalYear2023.pdf" />
-    <Resource Include="Resources\Documents\ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl.pdf" />
-    <Resource Include="Resources\Documents\MoneyAndFinance.pdf" />
-    <Resource Include="Resources\Documents\NonDirectAllocableCosts.pdf" />
-    <Resource Include="Resources\Documents\ObjectClassManual.pdf" />
-    <Resource Include="Resources\Documents\OfficialTravel.pdf" />
-    <Resource Include="Resources\Documents\OilPollutionAct.pdf" />
-    <Resource Include="Resources\Documents\PollutionPreventionAct.pdf" />
-    <Resource Include="Resources\Documents\PreparationSubmissionAndExecutionOfTheBudget.pdf" />
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeOne.pdf" />
-    <Resource Include="Resources\Documents\PrinciplesOfFederalAppropriationsLawVolumeTwo.pdf" />
-    <Resource Include="Resources\Documents\PurchaseCardPolicy.pdf" />
-    <Resource Include="Resources\Documents\ResourceConservationAndRecoveryAct.pdf" />
-    <Resource Include="Resources\Documents\SafeDrinkingWaterAct.pdf" />
-    <Resource Include="Resources\Documents\SepartationOfDuties.pdf" />
-    <Resource Include="Resources\Documents\SolidWasteDisposalAct.pdf" />
-    <Resource Include="Resources\Documents\SplitFundingRequirements.pdf" />
-    <Resource Include="Resources\Documents\StaffordAct.pdf" />
-    <Resource Include="Resources\Documents\StatutoryAuthoritiesForInterAgencyAgreements.pdf" />
-    <Resource Include="Resources\Documents\SuperfundAmendmentsAndReauthorizationAct.pdf" />
-    <Resource Include="Resources\Documents\SuperfundAnnualAllocationGuidance.pdf" />
-    <Resource Include="Resources\Documents\SuperfundBudgetAndResourceManagement.pdf" />
-    <Resource Include="Resources\Documents\SuperfundContracts.pdf" />
-    <Resource Include="Resources\Documents\SuperfundCostRecoveryProcess.pdf" />
-    <Resource Include="Resources\Documents\SuperfundDirectChargingOfSuperfundCosts.pdf" />
-    <Resource Include="Resources\Documents\SuperfundGeneralInformation.pdf" />
-    <Resource Include="Resources\Documents\SuperfundInterAgencyAgreements.pdf" />
-    <Resource Include="Resources\Documents\SuperfundIntroduction.pdf" />
-    <Resource Include="Resources\Documents\SuperfundPersonnelAndSupportCostAllocation.pdf" />
-    <Resource Include="Resources\Documents\SuperfundSiteSpecificCostAccounting.pdf" />
-    <Resource Include="Resources\Documents\SuperfundSpecialAccounts.pdf" />
-    <Resource Include="Resources\Documents\ToxicSubstancesControlAct.pdf" />
-    <Resource Include="Resources\Documents\WaterInfrastructureFinanceAndInnovationAct.pdf" />
-    <Resource Include="Resources\Documents\WaterInfrastructureImprovementsForTheNation.pdf" />
     <Resource Include="Resources\Reports\PBI\General Ledger Reconciliation.pbix" />
     <Resource Include="Resources\Reports\PBI\OMB Max A-11 Reporting.pbix" />
     <Resource Include="Resources\Reports\Report.xlsx" />
@@ -575,13 +519,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="131.2.7" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="133.4.2" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="131.2.7" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="133.4.2" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="131.2.7" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="133.4.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7.0'">
     <PackageReference Include="Notifications.Wpf.Core">

@@ -55,78 +55,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class SearchResult : WebSearch
     {
-        /// <summary>
-        /// Gets or sets the link.
-        /// </summary>
-        /// <value>
-        /// The link.
-        /// </value>
-        public string Link
-        {
-            get
-            {
-                return _link;
-            }
-            private set
-            {
-                _link = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            private set
-            {
-                _name = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the content.
-        /// </summary>
-        /// <value>
-        /// The content.
-        /// </value>
-        public string Content
-        {
-            get
-            {
-                return _content;
-            }
-            private set
-            {
-                _content = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the title.
-        /// </summary>
-        /// <value>
-        /// The title.
-        /// </value>
-        public string Title
-        {
-            get
-            {
-                return _title;
-            }
-            private set
-            {
-                _title = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -182,6 +110,81 @@ namespace Badger
             name = _name;
             content = _content;
             title = _title;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <value>
+        /// The link.
+        /// </value>
+        public override string Link
+        {
+            get
+            {
+                return _link;
+            }
+            set
+            {
+                _link = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public override string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public override string Content
+        {
+            get
+            {
+                return _content;
+            }
+            set
+            {
+                _content = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
+        public override string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                _title = value;
+            }
         }
 
         /// <summary>
