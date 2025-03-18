@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="TextSize.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -128,10 +128,10 @@ namespace Badger
             {
                 ThrowIf.Null( text, nameof( text ) );
                 var _fontStyle = ToSkFontStyle( font.Style );
-                var _typeface = SKTypeface.FromFamilyName( font.FontFamily, _fontStyle );
+                var Typeface = SKTypeface.FromFamilyName( font.FontFamily, _fontStyle );
                 using var _paint = new SKPaint( );
                 _paint.TextSize = font.Size;
-                _paint.Typeface = _typeface;
+                _paint.Typeface = Typeface;
                 var _rect = SKRect.Empty;
                 _paint.MeasureText( text.AsSpan( ), ref _rect );
                 var _width = _rect.Width / 0.7282505F + 0.444444444F * font.Size;

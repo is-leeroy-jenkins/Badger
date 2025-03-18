@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bocifus
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 10-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        10-31-2024
 // ******************************************************************************************
 // <copyright file="DateTimeExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//   Bocifus is an open source windows (wpf) application that interacts with OpenAI GPT-3.5 Turbo API
+//   based on NET6 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -65,7 +65,7 @@ namespace Badger
         {
             try
             {
-                return DateTime.TryParse( date.ToString( ), out var _ );
+                return DateTime.TryParse( date.ToString( ), out _ );
             }
             catch( Exception ex )
             {
@@ -131,9 +131,9 @@ namespace Badger
                 var _weekdays = new List<DateTime>( );
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
+                    var TimeSpan = endDate - startDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = startDate.AddDays( _days );
                         if( _dateTime.IsWeekDay( ) )
@@ -148,9 +148,9 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
+                    var TimeSpan = startDate - endDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = startDate.AddDays( _days );
                         if( _dateTime.IsWeekDay( ) )
@@ -184,9 +184,9 @@ namespace Badger
                 var _weekends = new List<DateTime>( );
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
+                    var TimeSpan = endDate - startDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = startDate.AddDays( _days );
                         if( _dateTime.IsWeekEnd( ) )
@@ -201,9 +201,9 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
+                    var TimeSpan = startDate - endDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = endDate.AddDays( _days );
                         if( _dateTime.IsWeekEnd( ) )
@@ -237,8 +237,8 @@ namespace Badger
                 var _holidays = new List<DateTime>( );
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = endDate - startDate;
+                    var _days = TimeSpan.TotalDays;
                     int _count;
                     for( _count = 0; _count < _days; _count++ )
                     {
@@ -255,8 +255,8 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = startDate - endDate;
+                    var _days = TimeSpan.TotalDays;
                     int _count;
                     for( _count = 0; _count < _days; _count++ )
                     {
@@ -293,9 +293,9 @@ namespace Badger
                 var _workdays = new List<DateTime>( );
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
+                    var TimeSpan = endDate - startDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = startDate.AddDays( _days );
                         if( !_dateTime.IsFederalHoliday( )
@@ -311,9 +311,9 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
+                    var TimeSpan = startDate - endDate;
                     int _days;
-                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    for( _days = 0; _days < TimeSpan.Days; _days++ )
                     {
                         var _dateTime = endDate.AddDays( _days );
                         if( !_dateTime.IsFederalHoliday( )
@@ -411,8 +411,8 @@ namespace Badger
                 var _weekDays = 0;
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = endDate - startDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = startDate.AddDays( _i );
@@ -428,8 +428,8 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = startDate - endDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = endDate.AddDays( _i );
@@ -466,8 +466,8 @@ namespace Badger
                 var _weekEnds = 0;
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = endDate - startDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = startDate.AddDays( _i );
@@ -483,8 +483,8 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = startDate - endDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = endDate.AddDays( _i );
@@ -520,8 +520,8 @@ namespace Badger
                 var _workdays = 0;
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = endDate - startDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = startDate.AddDays( _i );
@@ -538,8 +538,8 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = startDate - endDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _dateTime = endDate.AddDays( _i );
@@ -577,8 +577,8 @@ namespace Badger
                 var _holidays = 0;
                 if( endDate > startDate )
                 {
-                    var _timeSpan = endDate - startDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = endDate - startDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _date = startDate.AddDays( _days );
@@ -592,8 +592,8 @@ namespace Badger
                 }
                 else
                 {
-                    var _timeSpan = startDate - endDate;
-                    var _days = _timeSpan.TotalDays;
+                    var TimeSpan = startDate - endDate;
+                    var _days = TimeSpan.TotalDays;
                     for( var _i = 0; _i < _days; _i++ )
                     {
                         var _date = endDate.AddDays( _days );
@@ -626,7 +626,7 @@ namespace Badger
             // to ease typing
             var _nthDay = ( int )Math.Ceiling( dateTime.Day / 7.0d );
             var _day = dateTime.DayOfWeek;
-            var _thursday = _day == DayOfWeek.Thursday;
+            var Thursday = _day == DayOfWeek.Thursday;
             var _friday = _day == DayOfWeek.Friday;
             var _monday = _day == DayOfWeek.Monday;
             var _weekend = ( _day == DayOfWeek.Saturday ) | ( _day == DayOfWeek.Sunday );
@@ -677,7 +677,7 @@ namespace Badger
                     return true;
 
                 // Thanksgiving Day (4th Thursday in November)
-                case 11 when _thursday && ( _nthDay == 4 ):
+                case 11 when Thursday && ( _nthDay == 4 ):
                     return true;
 
                 // Christmas Day (December 25, or preceding Friday/following Monday if weekend))

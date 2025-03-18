@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bocifus
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 10-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        10-31-2024
 // ******************************************************************************************
 // <copyright file="EnumerableExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//   Bocifus is an open source windows (wpf) application that interacts with OpenAI GPT-3.5 Turbo API
+//   based on NET6 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -62,6 +62,8 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
     public static class EnumerableExtensions
     {
         /// <summary>
@@ -106,7 +108,7 @@ namespace Badger
         {
             try
             {
-                if( enumerable.Any( ) )
+                if( enumerable?.Any( ) == true )
                 {
                     var _rows = new ObservableCollection<DataRow>( );
                     foreach( var _row in enumerable )
@@ -158,16 +160,19 @@ namespace Badger
         }
 
         /// <summary>
-        /// Filters a sequence of values based on a predicate and returns those values that don't match the
-        /// given predicate. Each element's index is used in the logic of predicate function.
+        /// Filters a sequence of values based on a predicate
+        /// and returns those values that don't match the
+        /// given predicate. Each element's index is used in
+        /// the logic of predicate function.
         /// </summary>
-        /// <typeparam name="T">The type of the elements of
+        /// <typeparam name="_">The type of the elements of
         /// <paramref name="source" />
         /// .</typeparam>
         /// <param name="source">An
         /// <see cref="IEnumerable{T}" />
         /// to filter.</param>
-        /// <param name="predicate">A function to test each element for a condition; the second parameter of the functions represents
+        /// <param name="predicate">A function to test each element
+        /// for a condition; the second parameter of the functions represents
         /// the index of the source element.</param>
         /// <returns>
         /// Those values that don't match the given predicate.
@@ -238,8 +243,8 @@ namespace Badger
             {
                 try
                 {
-                    var _table = dataRow.CopyToDataTable( );
-                    var _rows = _table?.Select( where.ToCriteria( ) );
+                    var Table = dataRow.CopyToDataTable( );
+                    var _rows = Table?.Select( where.ToCriteria( ) );
                     return _rows?.Any( ) == true
                         ? _rows
                         : default( IEnumerable<DataRow> );

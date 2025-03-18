@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="OutlookMail.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -65,9 +65,9 @@ namespace Badger
     public class OutlookMail : EmailManager
     {
         /// <summary>
-        /// The host name
+        /// The email configuration
         /// </summary>
-        private string _hostName;
+        private EmailConfig _emailConfig;
 
         /// <summary>
         /// The email content
@@ -80,81 +80,9 @@ namespace Badger
         private EmailCredential _emailCredential;
 
         /// <summary>
-        /// The email configuration
+        /// The host name
         /// </summary>
-        private EmailConfig _emailConfig;
-
-        /// <summary>
-        /// Gets the address.
-        /// </summary>
-        /// <value>
-        /// The address.
-        /// </value>
-        public string HostName
-        {
-            get
-            {
-                return _hostName;
-            }
-            private protected set
-            {
-                _hostName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the credentials.
-        /// </summary>
-        /// <value>
-        /// The credentials.
-        /// </value>
-        public EmailCredential Credentials
-        {
-            get
-            {
-                return _emailCredential;
-            }
-            private set
-            {
-                _emailCredential = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the configuration.
-        /// </summary>
-        /// <value>
-        /// The configuration.
-        /// </value>
-        public EmailConfig Configuration
-        {
-            get
-            {
-                return _emailConfig;
-            }
-            private set
-            {
-                _emailConfig = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the content.
-        /// </summary>
-        /// <value>
-        /// The content.
-        /// </value>
-        public EmailContent Content
-        {
-            get
-            {
-                return _emailContent;
-            }
-            private set
-            {
-                _emailContent = value;
-            }
-        }
+        private string _hostName;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -193,19 +121,91 @@ namespace Badger
         }
 
         /// <summary>
+        /// Gets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
+        public string HostName
+        {
+            get
+            {
+                return _hostName;
+            }
+            set
+            {
+                _hostName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the credentials.
+        /// </summary>
+        /// <value>
+        /// The credentials.
+        /// </value>
+        public EmailCredential Credentials
+        {
+            get
+            {
+                return _emailCredential;
+            }
+            set
+            {
+                _emailCredential = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
+        public EmailConfig Configuration
+        {
+            get
+            {
+                return _emailConfig;
+            }
+            set
+            {
+                _emailConfig = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public EmailContent Content
+        {
+            get
+            {
+                return _emailContent;
+            }
+            set
+            {
+                _emailContent = value;
+            }
+        }
+        
+        /// <summary>
         /// Deconstructs the specified email credentials.
         /// </summary>
-        /// <param name="emailCredentials">The email credentials.</param>
-        /// <param name="emailConfig">The email configuration.</param>
-        /// <param name="emailContent">Content of the email.</param>
+        /// <param name="credentials">The email credentials.</param>
+        /// <param name="config">The email configuration.</param>
+        /// <param name="content">Content of the email.</param>
         /// <param name="hostName">Name of the host.</param>
-        public void Deconstruct( out EmailCredential emailCredentials, out EmailConfig emailConfig,
-            out EmailContent emailContent, out string hostName )
+        public void Deconstruct( out EmailCredential credentials, out EmailConfig config,
+            out EmailContent content, out string hostName )
         {
             hostName = _hostName;
-            emailCredentials = _emailCredential;
-            emailConfig = _emailConfig;
-            emailContent = _emailContent;
+            credentials = _emailCredential;
+            config = _emailConfig;
+            content = _emailContent;
         }
 
         /// <summary>
@@ -301,10 +301,10 @@ namespace Badger
                 var _message = new MailMessage( );
                 for( var _i = 0; _i < _emailConfig.Recipients.Count; _i++ )
                 {
-                    var _to = _emailConfig.Recipients[ _i ];
-                    if( !string.IsNullOrEmpty( _to ) )
+                    var To = _emailConfig.Recipients[ _i ];
+                    if( !string.IsNullOrEmpty( To ) )
                     {
-                        _message.To.Add( _to );
+                        _message.To.Add( To );
                     }
                 }
 
@@ -334,12 +334,12 @@ namespace Badger
 
                 return _message != null
                     ? _message
-                    : default( MailMessage );
+                    : null;
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( MailMessage );
+                return null;
             }
         }
 

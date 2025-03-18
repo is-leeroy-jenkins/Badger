@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-11-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-11-2025
 // ******************************************************************************************
 // <copyright file="DictionaryExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -52,6 +52,9 @@ namespace Badger
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Text.Encodings.Web;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// 
@@ -62,25 +65,27 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public static class DictionaryExtensions
     {
         /// <summary>
         /// Updates a IDictionary( K, V ) with a TKey and TValue or adds it
         /// </summary>
-        /// <typeparam name="TKey">The type of the key.</typeparam>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
+        /// <typeparam name="K">The type of the key.</typeparam>
+        /// <typeparam name="V">The type of the value.</typeparam>
         /// <param name="dict">The dictionary.</param>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict,
-            TKey key, TValue value )
+        public static V AddOrUpdate<K, V>( this IDictionary<K, V> dict, K key, V value )
         {
             try
             {
                 if( !dict.ContainsKey( key ) )
                 {
-                    dict.Add( new KeyValuePair<TKey, TValue>( key, value ) );
+                    dict.Add( new KeyValuePair<K, V>( key, value ) );
                 }
                 else
                 {
@@ -92,7 +97,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( TValue );
+                return default( V );
             }
         }
 
@@ -138,36 +143,15 @@ namespace Badger
                 try
                 {
                     var _criteria = "";
-                    if( dict.HasPrimaryKey( ) )
+                    foreach( var _kvp in dict )
                     {
-                        var _key = dict.GetPrimaryKey( );
-                        if( !string.IsNullOrEmpty( _key.Key )
-                            & ( int.Parse( _key.Value.ToString( ) ) > -1 ) )
-                        {
-                            foreach( var _kvp in dict )
-                            {
-                                _criteria += $"{_kvp.Key} = '{_kvp.Value}' AND ";
-                            }
-
-                            var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
-                            _sql += $" WHERE {_key.Key} = {int.Parse( _key.Value.ToString( ) )};";
-                            return !string.IsNullOrEmpty( _sql )
-                                ? _sql
-                                : string.Empty;
-                        }
+                        _criteria += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                     }
-                    else if( !dict.HasPrimaryKey( ) )
-                    {
-                        foreach( var _kvp in dict )
-                        {
-                            _criteria += $"{_kvp.Key} = '{_kvp.Value}' AND ";
-                        }
 
-                        var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
-                        return !string.IsNullOrEmpty( _sql )
-                            ? _sql
-                            : string.Empty;
-                    }
+                    var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
+                    return !string.IsNullOrEmpty( _sql )
+                        ? _sql
+                        : string.Empty;
                 }
                 catch( Exception ex )
                 {
@@ -182,15 +166,15 @@ namespace Badger
         /// <summary>
         /// Converts an IDictionary( string, object) to a bindinglist.
         /// </summary>
-        /// <param name="dictionary">The NVC.</param>
+        /// <param name="dict">The NVC.</param>
         /// <returns></returns>
         public static BindingList<KeyValuePair<string, object>> ToBindingList(
-            this IDictionary<string, object> dictionary )
+            this IDictionary<string, object> dict )
         {
             try
             {
                 var _bindingList = new BindingList<KeyValuePair<string, object>>( );
-                foreach( var _kvp in dictionary )
+                foreach( var _kvp in dict )
                 {
                     _bindingList.Add( _kvp );
                 }
@@ -350,76 +334,9 @@ namespace Badger
         }
 
         /// <summary>
-        /// Determines whether [has a primary key].
-        /// </summary>
-        /// <param name="dict">The row.</param>
-        /// <returns>
-        /// <c> true </c>
-        /// if [has primary key] [the specified row]; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </returns>
-        public static bool HasPrimaryKey( this IDictionary<string, object> dict )
-        {
-            try
-            {
-                var _array = dict.Keys?.ToArray( );
-                var _names = Enum.GetNames( typeof( PrimaryKey ) );
-                var _count = 0;
-                for( var _i = 1; _i < _array.Length; _i++ )
-                {
-                    var _name = _array[ _i ];
-                    if( _names.Contains( _name ) )
-                    {
-                        _count++;
-                    }
-                }
-
-                return _count > 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( bool );
-            }
-        }
-
-        /// <summary>
-        /// Gets the primary key.
-        /// </summary>
-        /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
-        public static KeyValuePair<string, object> GetPrimaryKey(
-            this IDictionary<string, object> dict )
-        {
-            if( dict?.Any( ) == true
-                && dict.HasPrimaryKey( ) )
-            {
-                try
-                {
-                    var _names = Enum.GetNames( typeof( PrimaryKey ) );
-                    foreach( var _kvp in dict )
-                    {
-                        if( _names.Contains( _kvp.Key ) )
-                        {
-                            return new KeyValuePair<string, object>( _kvp.Key, _kvp.Value );
-                        }
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( KeyValuePair<string, object> );
-                }
-            }
-
-            return default( KeyValuePair<string, object> );
-        }
-
-        /// <summary>
         /// Converts to Key bindinglist.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
         public static BindingList<string> ToKeyBindingList<T>(
@@ -452,7 +369,7 @@ namespace Badger
         /// <summary>
         /// Converts to value bindinglist.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="dict">The dictionary.</param>
         /// <returns></returns>
         public static BindingList<object> ToValueBindingList<T>(
@@ -480,6 +397,109 @@ namespace Badger
             }
 
             return default( BindingList<object> );
+        }
+
+        /// <summary>
+        /// Converts to json.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// dictionary - Dictionary cannot be null</exception>
+        public static string ToJson( this IDictionary<string, object> dict )
+        {
+            try
+            {
+                if( dict?.Any( ) == false )
+                {
+                    var _msg = "Dictionary cannot be empty!";
+                    throw new ArgumentNullException( nameof( dict ), _msg );
+                }
+
+                var _options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = false,
+                    WriteIndented = true,
+                    AllowTrailingCommas = false,
+                    ReadCommentHandling = JsonCommentHandling.Skip,
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.Always,
+                    IncludeFields = false
+                };
+
+                return JsonSerializer.Serialize( dict, typeof( Dictionary<string, object> ),
+                    _options );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Converts to json.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// dict - Dictionary cannot be null</exception>
+        public static string ToJson( this IDictionary<string, string> dict )
+        {
+            try
+            {
+                if( dict?.Any( ) == false )
+                {
+                    var _msg = "Dictionary cannot be empty!";
+                    throw new ArgumentNullException( nameof( dict ), _msg );
+                }
+
+                var _options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = false,
+                    WriteIndented = true,
+                    AllowTrailingCommas = false,
+                    ReadCommentHandling = JsonCommentHandling.Skip,
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.Always,
+                    IncludeFields = false
+                };
+
+                return JsonSerializer.Serialize( dict, typeof( Dictionary<string, object> ),
+                    _options );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Converts to json.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">dict</exception>
+        public static string ToJson( this NameValueCollection dict )
+        {
+            if( dict.Count == 0 )
+            {
+                var _msg = "NameValueCollection cannot be empty!";
+                throw new ArgumentNullException( nameof( dict ), _msg );
+            }
+
+            var _options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DictionaryKeyPolicy = JsonNamingPolicy.SnakeCaseLower
+            };
+
+            return JsonSerializer.Serialize( dict, typeof( NameValueCollection ), _options );
         }
 
         /// <summary>

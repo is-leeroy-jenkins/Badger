@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="EmailAttribute.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -61,55 +61,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "GrammarMistakeInComment" ) ]
     public class EmailAttribute : ValidationAttribute
     {
-        /// <summary>
-        /// Get or set whether or not the validator
-        /// should allow top-level domains.
-        /// </summary>
-        /// <remarks>
-        /// Gets or sets whether or not the validator
-        /// should allow top-level domains.
-        /// </remarks>
-        /// <value><c>true</c> if top-level domains
-        /// should be allowed;
-        /// otherwise, <c>false</c>.</value>
-        private bool AllowTopLevelDomains { get; set; }
-
-        /// <summary>
-        /// Get or set whether or not the validator s
-        /// should allow international characters.
-        /// </summary>
-        /// <remarks>
-        /// Gets or sets whether or not the validator
-        /// should allow international characters.
-        /// </remarks>
-        /// <value><c>true</c> if international characters
-        /// should be allowed; otherwise,
-        /// <c>false</c>.</value>
-        private bool AllowInternational { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Instantiates a new instance of
-        /// <see cref="T:Badger.EmailAttribute" />.
-        /// </summary>
-        /// <remarks>
-        /// Creates a new
-        /// <see cref="T:Badger.EmailAttribute" />.
-        /// </remarks>
-        /// <param name="allowTopLevelDomains"><c>true</c>
-        /// if the validator should allow addresses
-        /// at top-level domains; otherwise,
-        /// <c>false</c>.</param>
-        /// <param name="allowInternational"><c>true</c>
-        /// if the validator should allow
-        /// international characters; otherwise,
-        /// <c>false</c>.</param>
-        public EmailAttribute( bool allowTopLevelDomains = false, bool allowInternational = false )
-        {
-            AllowTopLevelDomains = allowTopLevelDomains;
-            AllowInternational = allowInternational;
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Validates the value.
@@ -124,14 +75,14 @@ namespace Badger
         /// <param name="value">
         /// The value to validate.
         /// </param>
-        /// <param name="_context">
+        /// <param name="context">
         /// The validation context.
         /// </param>
-        protected override ValidationResult IsValid( object value, ValidationContext _context )
+        protected override ValidationResult IsValid( object value, ValidationContext context )
         {
             var _memberNames = new[ ]
             {
-                _context?.MemberName ?? nameof( value )
+                context?.MemberName ?? nameof( value )
             };
 
             if( value == null
@@ -160,5 +111,54 @@ namespace Badger
             return value == null || EmailValidator.Validate( ( string )value, AllowTopLevelDomains,
                 AllowInternational );
         }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Instantiates a new instance of
+        /// <see cref="T:Badger.EmailAttribute" />.
+        /// </summary>
+        /// <remarks>
+        /// Creates a new
+        /// <see cref="T:Badger.EmailAttribute" />.
+        /// </remarks>
+        /// <param name="allowTopLevelDomains"><c>true</c>
+        /// if the validator should allow addresses
+        /// at top-level domains; otherwise,
+        /// <c>false</c>.</param>
+        /// <param name="allowInternational"><c>true</c>
+        /// if the validator should allow
+        /// international characters; otherwise,
+        /// <c>false</c>.</param>
+        public EmailAttribute( bool allowTopLevelDomains = false, bool allowInternational = false )
+        {
+            AllowTopLevelDomains = allowTopLevelDomains;
+            AllowInternational = allowInternational;
+        }
+
+        /// <summary>
+        /// Get or set whether or not the validator
+        /// should allow top-level domains.
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether or not the validator
+        /// should allow top-level domains.
+        /// </remarks>
+        /// <value><c>true</c> if top-level domains
+        /// should be allowed;
+        /// otherwise, <c>false</c>.</value>
+        private bool AllowTopLevelDomains { get; set; }
+
+        /// <summary>
+        /// Get or set whether or not the validator s
+        /// should allow international characters.
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether or not the validator
+        /// should allow international characters.
+        /// </remarks>
+        /// <value><c>true</c> if international characters
+        /// should be allowed; otherwise,
+        /// <c>false</c>.</value>
+        private bool AllowInternational { get; set; }
     }
 }

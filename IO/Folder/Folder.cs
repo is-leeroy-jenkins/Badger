@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="Folder.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -45,7 +45,6 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
-    using static System.IO.Directory;
 
     /// <inheritdoc />
     /// <summary>
@@ -62,8 +61,58 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public class Folder : FolderBase
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.Folder" /> class.
+        /// </summary>
+        public Folder( )
+            : base( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.Folder" /> class.
+        /// </summary>
+        /// <param name="input"></param>
+        public Folder( string input )
+            : base( input )
+        {
+            _input = input;
+            _fullPath = input;
+            _folderExists = Directory.Exists( input );
+            _folderName = Path.GetDirectoryName( input );
+            _hasSubFiles = Directory.GetFiles( input )?.Length > 0;
+            _fileCount = Directory.GetFiles( input ).Length;
+            _hasSubFolders = Directory.GetDirectories( input )?.Length > 0;
+            _folderCount = Directory.GetDirectories( input ).Length;
+            _created = Directory.GetCreationTime( input );
+            _modified = Directory.GetLastWriteTime( input );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.Folder" /> class.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        public Folder( Folder folder )
+            : this( )
+        {
+            _input = folder.Input;
+            _fullPath = folder.FullPath;
+            _folderName = folder.FolderName;
+            _hasSubFiles = Directory.GetFiles( folder.FullPath )?.Length > 0;
+            _hasSubFolders = Directory.GetDirectories( folder.FullPath )?.Length > 0;
+            _created = folder.Created;
+            _modified = folder.Modified;
+        }
+
         /// <summary>
         /// Gets the name of the folder.
         /// </summary>
@@ -108,9 +157,13 @@ namespace Badger
             {
                 return _fileCount;
             }
-            private protected set
+            set
             {
-                _fileCount = value;
+                if( _fileCount != value )
+                {
+                    _fileCount = value;
+                    OnPropertyChanged( nameof( FileCount ) );
+                }
             }
         }
 
@@ -126,82 +179,14 @@ namespace Badger
             {
                 return _folderCount;
             }
-            private protected set
+            set
             {
-                _folderCount = value;
+                if( _folderCount != value )
+                {
+                    _folderCount = value;
+                    OnPropertyChanged( nameof( FolderCount ) );
+                }
             }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.Folder" /> class.
-        /// </summary>
-        public Folder( )
-            : base( )
-        {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.Folder" /> class.
-        /// </summary>
-        /// <param name="input"></param>
-        public Folder( string input )
-            : base( input )
-        {
-            _input = input;
-            _fullPath = input;
-            _folderExists = Exists( input );
-            _folderName = Path.GetDirectoryName( input );
-            _hasSubFiles = GetFiles( input )?.Length > 0;
-            _fileCount = GetFiles( input ).Length;
-            _hasSubFolders = GetDirectories( input )?.Length > 0;
-            _folderCount = GetDirectories( input ).Length;
-            _created = GetCreationTime( input );
-            _modified = GetLastWriteTime( input );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.Folder" /> class.
-        /// </summary>
-        /// <param name="folder">The folder.</param>
-        public Folder( Folder folder )
-            : this( )
-        {
-            _input = folder.Input;
-            _fullPath = folder.FullPath;
-            _folderName = folder.FolderName;
-            _hasSubFiles = GetFiles( folder.FullPath )?.Length > 0;
-            _hasSubFolders = GetDirectories( folder.FullPath )?.Length > 0;
-            _created = folder.Created;
-            _modified = folder.Modified;
-        }
-
-        /// <summary>
-        /// Deconstructs the specified buffer.
-        /// </summary>
-        /// <param name="buffer">The buffer.</param>
-        /// <param name="fullPath">The full path.</param>
-        /// <param name="folderName">Name of the file.</param>
-        /// <param name="hasSubFiles"> </param>
-        /// <param name="hasSubFolders"> </param>
-        /// <param name="created">The created.</param>
-        /// <param name="modified">The modified.</param>
-        public void Deconstruct( out string buffer, out string fullPath, out string folderName,
-            out bool hasSubFiles, out bool hasSubFolders, out DateTime created,
-            out DateTime modified )
-        {
-            buffer = _input;
-            fullPath = _fullPath;
-            folderName = _folderName;
-            hasSubFiles = _hasSubFiles;
-            hasSubFolders = _hasSubFolders;
-            created = _created;
-            modified = _modified;
         }
 
         /// <summary>
@@ -236,7 +221,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                return CreateDirectory( filePath );
+                return Directory.CreateDirectory( filePath );
             }
             catch( Exception ex )
             {
@@ -294,7 +279,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( dirPath, nameof( dirPath ) );
-                if( Exists( dirPath ) )
+                if( Directory.Exists( dirPath ) )
                 {
                     var _message = @$"Folder at {dirPath} already exists!";
                     throw new ArgumentException( _message );
@@ -327,7 +312,7 @@ namespace Badger
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
-                if( Exists( destination ) )
+                if( Directory.Exists( destination ) )
                 {
                     var _message = @$"Folder at {destination} already exists!";
                     throw new ArgumentException( _message );
@@ -382,6 +367,29 @@ namespace Badger
             {
                 Fail( ex );
             }
+        }
+
+        /// <summary>
+        /// Deconstructs the specified buffer.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="folderName">Name of the file.</param>
+        /// <param name="hasSubFiles"> </param>
+        /// <param name="hasSubFolders"> </param>
+        /// <param name="created">The created.</param>
+        /// <param name="modified">The modified.</param>
+        public void Deconstruct( out string buffer, out string fullPath, out string folderName,
+            out bool hasSubFiles, out bool hasSubFolders, out DateTime created,
+            out DateTime modified )
+        {
+            buffer = _input;
+            fullPath = _fullPath;
+            folderName = _folderName;
+            hasSubFiles = _hasSubFiles;
+            hasSubFolders = _hasSubFolders;
+            created = _created;
+            modified = _modified;
         }
 
         /// <inheritdoc />

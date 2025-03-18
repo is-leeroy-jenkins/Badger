@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-26-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-26-2025
 // ******************************************************************************************
 // <copyright file="SearchResult.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -73,6 +73,7 @@ namespace Badger
         /// <param name="name">The name.</param>
         /// <param name="content">The content.</param>
         /// <param name="title">The title.</param>
+        /// <param name = "time" > </param>
         public SearchResult( string link, string name, string content,
             string title )
         {
@@ -114,6 +115,7 @@ namespace Badger
 
         /// <inheritdoc />
         /// <summary>
+        /// Gets or sets the link.
         /// </summary>
         /// <value>
         /// The link.

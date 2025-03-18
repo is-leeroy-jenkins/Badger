@@ -1,16 +1,17 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Ninja
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 09-25-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        09-25-2024
 // ******************************************************************************************
 // <copyright file="CalculatorWindow.xaml.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2020-2024 Terry D. Eppler
+//    Ninja is a network toolkit, support iperf, tcp, udp, websocket, mqtt,
+//    sniffer, pcap, port scan, listen, ip scan .etc.
+// 
+//    Copyright ©  2019-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -118,16 +119,16 @@ namespace Badger
         /// <summary>
         /// Clears the callbacks.
         /// </summary>
-        private void ClearCallbacks( )
+        private void ClearCallbacks()
         {
             try
             {
                 CloseButton.MouseLeftButtonDown += OnCloseButtonClick;
                 PictureBox.MouseLeftButtonDown -= OnLeftClick;
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
 
@@ -239,16 +240,16 @@ namespace Badger
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="CancelEventArgs"/>
         /// instance containing the event data.</param>
-        private void OnClosing( object sender, CancelEventArgs e )
+        private void OnClosing(object sender, CancelEventArgs e)
         {
             try
             {
-                SfSkinManager.Dispose( this );
+                SfSkinManager.Dispose(this);
                 ClearCallbacks( );
             }
-            catch( Exception ex )
+            catch(Exception ex)
             {
-                Fail( ex );
+                Fail(ex);
             }
         }
 

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="EmailConfig.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -59,6 +59,132 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class EmailConfig : EmailBase
     {
+        /// <summary>
+        /// Deconstructs the specified sender.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="displayName"> </param>
+        /// <param name="recipients">The recipients.</param>
+        /// <param name="copies">The copies.</param>
+        /// <param name="priority"> </param>
+        public void Deconstruct( out string sender, out string displayName,
+            out IList<string> recipients, out IList<string> copies, out MailPriority priority )
+        {
+            sender = _sender;
+            displayName = _displayName;
+            recipients = _recipients;
+            copies = _copies;
+            priority = _priority;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( _displayName )
+                    ? _displayName
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Adds the attachment.
+        /// </summary>
+        /// <param name="address">The attachment.</param>
+        public void AddCopy( string address )
+        {
+            try
+            {
+                ThrowIf.Null( address, nameof( address ) );
+                if( !_copies.Contains( address ) )
+                {
+                    _copies?.Add( address );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Adds the recipient.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        public void AddRecipient( string address )
+        {
+            try
+            {
+                ThrowIf.Null( address, nameof( address ) );
+                if( !_recipients.Contains( address ) )
+                {
+                    _recipients?.Add( address );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailConfig" /> class.
+        /// </summary>
+        /// <inheritdoc />
+        public EmailConfig( )
+        {
+            _recipients = new List<string>( );
+            _copies = new List<string>( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.EmailConfig" /> class.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="recipients">The recipients.</param>
+        /// <param name="copies">The copies.</param>
+        /// <param name="priority">The priority.</param>
+        public EmailConfig( string sender, IList<string> recipients, IList<string> copies,
+            MailPriority priority = MailPriority.Normal )
+            : this( )
+        {
+            _sender = sender;
+            _displayName = sender;
+            _recipients = recipients;
+            _copies = copies;
+            _priority = priority;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.EmailConfig" /> class.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        public EmailConfig( EmailConfig config )
+        {
+            _sender = config.Sender;
+            _displayName = config.DisplayName;
+            _priority = config.Priority;
+            _recipients = config.Recipients;
+            _copies = config.Copies;
+        }
+
         /// <summary>
         /// Gets the address.
         /// </summary>
@@ -164,132 +290,6 @@ namespace Badger
             private protected set
             {
                 _copies = value;
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailConfig" /> class.
-        /// </summary>
-        /// <inheritdoc />
-        public EmailConfig( )
-        {
-            _recipients = new List<string>( );
-            _copies = new List<string>( );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.EmailConfig" /> class.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="recipients">The recipients.</param>
-        /// <param name="copies">The copies.</param>
-        /// <param name="priority">The priority.</param>
-        public EmailConfig( string sender, IList<string> recipients, IList<string> copies,
-            MailPriority priority = MailPriority.Normal )
-            : this( )
-        {
-            _sender = sender;
-            _displayName = sender;
-            _recipients = recipients;
-            _copies = copies;
-            _priority = priority;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.EmailConfig" /> class.
-        /// </summary>
-        /// <param name="config">The configuration.</param>
-        public EmailConfig( EmailConfig config )
-        {
-            _sender = config.Sender;
-            _displayName = config.DisplayName;
-            _priority = config.Priority;
-            _recipients = config.Recipients;
-            _copies = config.Copies;
-        }
-
-        /// <summary>
-        /// Deconstructs the specified sender.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="displayName"> </param>
-        /// <param name="recipients">The recipients.</param>
-        /// <param name="copies">The copies.</param>
-        /// <param name="priority"> </param>
-        public void Deconstruct( out string sender, out string displayName,
-            out IList<string> recipients, out IList<string> copies, out MailPriority priority )
-        {
-            sender = _sender;
-            displayName = _displayName;
-            recipients = _recipients;
-            copies = _copies;
-            priority = _priority;
-        }
-
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" />
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( _displayName )
-                    ? _displayName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Adds the attachment.
-        /// </summary>
-        /// <param name="address">The attachment.</param>
-        public void AddCopy( string address )
-        {
-            try
-            {
-                ThrowIf.Null( address, nameof( address ) );
-                if( !_copies.Contains( address ) )
-                {
-                    _copies?.Add( address );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Adds the recipient.
-        /// </summary>
-        /// <param name="address">The address.</param>
-        public void AddRecipient( string address )
-        {
-            try
-            {
-                ThrowIf.Null( address, nameof( address ) );
-                if( !_recipients.Contains( address ) )
-                {
-                    _recipients?.Add( address );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
     }

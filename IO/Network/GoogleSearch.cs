@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="GoogleSearch.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -45,10 +45,11 @@ namespace Badger
     using Google.Apis.Services;
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
+    using Properties;
 
     /// <inheritdoc />
     /// <summary>
@@ -63,6 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public class GoogleSearch : WebSearch
     {
         /// <summary>
@@ -83,8 +85,11 @@ namespace Badger
         public GoogleSearch( )
             : base( )
         {
-            _key = ConfigurationManager.AppSettings[ "ApiKey" ];
-            _engineId = ConfigurationManager.AppSettings[ "SearchEngineId" ];
+            _key = SearchEngine.KEY;
+            _engineId = SearchEngine.ID;
+            _projectId = SearchEngine.ProjectID;
+            _projectNumber = SearchEngine.ProjectNumber;
+            _url = SearchEngine.URL;
         }
 
         /// <inheritdoc />
@@ -92,13 +97,13 @@ namespace Badger
         /// Initializes a new instance of the
         /// <see cref="T:Badger.GoogleSearch" /> class.
         /// </summary>
-        /// <param name="keywords">
-        /// The keywords.
+        /// <param name="keyWords">
+        /// The keyWords.
         /// </param>
-        public GoogleSearch( string keywords )
+        public GoogleSearch( string keyWords )
             : this( )
         {
-            _keyWords = keywords;
+            _keyWords = keyWords;
         }
 
         /// <inheritdoc />
@@ -145,7 +150,10 @@ namespace Badger
                     _searchRequest.Q = _keyWords;
                     _searchRequest.Cx = _engineId;
                     _searchRequest.Start = _count;
-                    var _list = _searchRequest.Execute( )?.Items?.ToList( );
+                    var _list = _searchRequest.Execute( )
+                        ?.Items
+                        ?.ToList( );
+
                     if( _list?.Any( ) == true )
                     {
                         for( var _i = 0; _i < _list.Count; _i++ )
@@ -203,7 +211,10 @@ namespace Badger
                     _searchRequest.Q = _keyWords;
                     _searchRequest.Cx = _engineId;
                     _searchRequest.Start = _count;
-                    var _list = _searchRequest.Execute( )?.Items?.ToList( );
+                    var _list = _searchRequest.Execute( )
+                        ?.Items
+                        ?.ToList( );
+
                     if( _list?.Any( ) == true )
                     {
                         for( var _i = 0; _i < _list.Count; _i++ )

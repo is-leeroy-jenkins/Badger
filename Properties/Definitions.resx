@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="After" xml:space="preserve">
+    <value>A cursor for use in pagination. after is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.</value>
+  </data>
+  <data name="Choices" xml:space="preserve">
+    <value>A list of chat completion choices. Can contain more than one elements if n is greater than 1. Can also be empty for the last chunk if you set stream_options: {"include_usage": true}.</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>The Unix timestamp (in seconds) of when the chat completion was created.</value>
+  </data>
+  <data name="Dimensions" xml:space="preserve">
+    <value>The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</value>
+  </data>
+  <data name="Embedding" xml:space="preserve">
+    <value>The embedding vector: a list of floats. </value>
+  </data>
+  <data name="EncodingFormat" xml:space="preserve">
+    <value>The format to return the embeddings in. Can be either float or base64.</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>The File object (not file name) to be uploaded.  Upload a file that can be used across various endpoints. Individual files can be up to 512 MB, and the size of all files uploaded by one organization can be up to 100 GB.  For audio: the audio file object (not file name) to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>The name of the file.</value>
+  </data>
+  <data name="FinishReason" xml:space="preserve">
+    <value>The reason the model stopped generating tokens. This will be stop if the model hit a natural stop point or a provided stop sequence, length if the maximum number of tokens specified in the request was reached, content_filter if content was omitted due to a flag from our content filters, tool_calls if the model called a tool, or function_call (deprecated) if the model called a function.</value>
+  </data>
+  <data name="FrequencyPenalty" xml:space="preserve">
+    <value>Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Input text to embed, encoded as a string or array of tokens. To embed multiple inputs in a single request, pass an array of strings or array of token arrays. The input must not exceed the max input tokens for the model (8192 tokens for text-embedding-ada-002), cannot be an empty string, and any array must be 2048 dimensions or less. Example Python code for counting tokens. Some models may also impose a limit on total number of tokens summed across inputs.</value>
+  </data>
+  <data name="Limit" xml:space="preserve">
+    <value>A limit on the number of objects to be returned. Limit can range between 1 and 10,000, and the default is 10,000.</value>
+  </data>
+  <data name="LogitBias" xml:space="preserve">
+    <value>Modify the likelihood of specified tokens appearing in the completion. Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token.</value>
+  </data>
+  <data name="LogProbs" xml:space="preserve">
+    <value>Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the content of message.</value>
+  </data>
+  <data name="MaxCompletionTokens" xml:space="preserve">
+    <value>An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and reasoning tokens.</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>A list of messages comprising the conversation so far. Depending on the model you use, different message types (modalities) are supported, like text, images, and audio.</value>
+  </data>
+  <data name="MimeType" xml:space="preserve">
+    <value>This must fall within the supported MIME types for your file purpose. See the supported MIME types for assistants and vision.</value>
+  </data>
+  <data name="Modalities" xml:space="preserve">
+    <value>Output types that you would like the model to generate for this request. Most models are capable of generating text, which is the default: ["text"]; To request that this model generate both text and audio responses, you can use: ["text", "audio"]</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>For images: the number of images to generate. Must be between 1 and 10. For dall-e-3, only n=1 is supported.  For text: How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep n as 1 to minimize costs.</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Sort order by the created_at timestamp of the objects. asc for ascending order and desc for descending order.</value>
+  </data>
+  <data name="PresencePenalty" xml:space="preserve">
+    <value>Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>For images: A text description of the desired image(s). The maximum length is 1000 characters.</value>
+  </data>
+  <data name="ReasoningEffort" xml:space="preserve">
+    <value>Constrains effort on reasoning for reasoning models. Currently supported values are low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response.</value>
+  </data>
+  <data name="ResponseFormat" xml:space="preserve">
+    <value>An object specifying the format that the model must output. Setting to { "type": "json_schema", "json_schema": {...} } enables Structured Outputs which ensures the model will match your supplied JSON schema.  Setting to { "type": "json_object" } enables JSON mode, which ensures the message the model generates is valid JSON.  For images: the format in which the generated images are returned. Must be one of url or b64_json. URLs are only valid for 60 minutes after the image has been generated.  For audio: the format to audio in. Supported formats are mp3, opus, aac, flac, wav, and pcm.  For transcriptions/translations: the format of the output, in one of these options: json, text, srt, verbose_json, or vtt.</value>
+  </data>
+  <data name="Seed" xml:space="preserve">
+    <value> If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed, and you should refer to the system_fingerprint response parameter to monitor changes in the backend.</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024 for dall-e-2. Must be one of 1024x1024, 1792x1024, or 1024x1792 for dall-e-3 models.</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Up to 4 sequences where the API will stop generating further tokens.</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>Whether or not to store the output of this chat completion request for use in our model distillation or evals products.</value>
+  </data>
+  <data name="Stream" xml:space="preserve">
+    <value>A true or false value that, if set, partial message deltas will be sent like in ChatGPT. </value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>The style of the generated images. Must be one of vivid or natural. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. This param is only supported for dall-e-3.</value>
+  </data>
+  <data name="Suffix" xml:space="preserve">
+    <value>A string of up to 64 characters that will be added to your fine-tuned model name.</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>A number between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.</value>
+  </data>
+  <data name="TopLogProbs" xml:space="preserve">
+    <value>An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. logprobs must be set to true if this parameter is used.</value>
+  </data>
+  <data name="TopPercent" xml:space="preserve">
+    <value>An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both.</value>
+  </data>
+  <data name="TrainingFile" xml:space="preserve">
+    <value>The ID of an uploaded file that contains training data.  Your dataset must be formatted as a JSONL file. Additionally, you must upload your file with the purpose fine-tune.</value>
+  </data>
+  <data name="ValidationFile" xml:space="preserve">
+    <value>The ID of an uploaded file that contains validation data.</value>
+  </data>
+  <data name="Voice" xml:space="preserve">
+    <value>The voice to use when generating the audio. Supported voices are alloy, ash, coral, echo, fable, onyx, nova, sage and shimmer. </value>
+  </data>
+</root>

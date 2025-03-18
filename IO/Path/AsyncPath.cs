@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="AsyncPath.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -475,18 +475,18 @@ namespace Badger
                 var _foldersep = _path.FolderSeparator;
                 var _root = _path.Drive;
                 var _nl = Environment.NewLine;
-                var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
-                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "Extension: " + _tb
-                    + _extenstion + _nl + _nl + _tb + "Path Root: " + _tb + _root + _nl + _nl + _tb
-                    + "Path Separator: " + _tb + _pathsep + _nl + _nl + _tb + "Drive Separator: "
-                    + _tb + _drivesep + _nl + _nl + _tb + "Folder Separator: " + _tb + _foldersep
-                    + _nl + _nl + _tb + "Length: " + _tb + _len + _nl + _nl + _tb + "Created: "
-                    + _tb + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
+                var Tb = char.ToString( '\t' );
+                var Text = _nl + Tb + "File Name: " + Tb + _name + _nl + _nl + Tb
+                    + "File Path: " + Tb + _filePath + _nl + _nl + Tb + "Extension: " + Tb
+                    + _extenstion + _nl + _nl + Tb + "Path Root: " + Tb + _root + _nl + _nl + Tb
+                    + "Path Separator: " + Tb + _pathsep + _nl + _nl + Tb + "Drive Separator: "
+                    + Tb + _drivesep + _nl + _nl + Tb + "Folder Separator: " + Tb + _foldersep
+                    + _nl + _nl + Tb + "Length: " + Tb + _len + _nl + _nl + Tb + "Created: "
+                    + Tb + _create.ToShortDateString( ) + _nl + _nl + Tb + "Modified: " + Tb
                     + _modify.ToShortDateString( ) + _nl + _nl;
 
-                return !string.IsNullOrEmpty( _text )
-                    ? _text
+                return !string.IsNullOrEmpty( Text )
+                    ? Text
                     : string.Empty;
             }
             catch( IOException ex )

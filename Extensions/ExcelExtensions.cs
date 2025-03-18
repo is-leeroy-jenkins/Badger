@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bocifus
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 10-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        10-31-2024
 // ******************************************************************************************
 // <copyright file="ExcelExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//   Bocifus is an open source windows (wpf) application that interacts with OpenAI GPT-3.5 Turbo API
+//   based on NET6 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -100,10 +100,10 @@ namespace Badger
                 var _result = new DataSet( );
                 foreach( var _worksheet in excelPackage.Workbook.Worksheets )
                 {
-                    var _table = new DataTable( );
+                    var Table = new DataTable( );
                     if( _worksheet?.Name != null )
                     {
-                        _table.TableName = _worksheet?.Name;
+                        Table.TableName = _worksheet?.Name;
                     }
 
                     var _start = 1;
@@ -118,7 +118,7 @@ namespace Badger
                             ? _cell?.Value?.ToString( )
                             : $"Column {_cell?.Start?.Column}" );
 
-                    _table.Columns.AddRange( _columns?.ToArray( ) );
+                    Table.Columns.AddRange( _columns?.ToArray( ) );
                     var _i = header > 0
                         ? _start + 1
                         : _start;
@@ -128,14 +128,14 @@ namespace Badger
                         var _range = _worksheet.Cells[ _index, 1, _index,
                             _worksheet.Dimension.End.Column ];
 
-                        var _row = _table.Rows?.Add( );
+                        var _row = Table.Rows?.Add( );
                         foreach( var _cell in _range )
                         {
                             _row[ _cell.Start.Column - 1 ] = _cell.Value;
                         }
                     }
 
-                    _result.Tables?.Add( _table );
+                    _result.Tables?.Add( Table );
                 }
 
                 return _result;
@@ -214,12 +214,12 @@ namespace Badger
                                 - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
 
                     var _second = width - _first;
-                    var _third = width >= 1.0
+                    var Third = width >= 1.0
                         ? Math.Round( 7.0 * _second - 0.0, 0 ) / 7.0
                         : Math.Round( 12.0 * _second - 0.0, 0 ) / 12.0 + 0.0;
 
                     column.Width = _first > 0.0
-                        ? width + _third
+                        ? width + Third
                         : 0.0;
                 }
                 catch( Exception ex )

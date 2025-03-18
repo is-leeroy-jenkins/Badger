@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="DataFile.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -63,62 +63,9 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public class DataFile : FileBase
     {
-        /// <summary>
-        /// Gets the size.
-        /// </summary>
-        /// <value>
-        /// The size.
-        /// </value>
-        public long Size
-        {
-            get
-            {
-                return _size;
-            }
-            private protected set
-            {
-                _size = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the parent.
-        /// </summary>
-        /// <value>
-        /// The name of the parent.
-        /// </value>
-        public string ParentName
-        {
-            get
-            {
-                return _parentName;
-            }
-            private protected set
-            {
-                _parentName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the parent path.
-        /// </summary>
-        /// <value>
-        /// The parent path.
-        /// </value>
-        public string ParentPath
-        {
-            get
-            {
-                return _parentPath;
-            }
-            private protected set
-            {
-                _parentPath = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -177,6 +124,72 @@ namespace Badger
             _size = file.Size;
         }
 
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <value>
+        /// The size.
+        /// </value>
+        public long Size
+        {
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                if( _size != value )
+                {
+                    _size = value;
+                    OnPropertyChanged( nameof( Size ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the name of the parent.
+        /// </summary>
+        /// <value>
+        /// The name of the parent.
+        /// </value>
+        public string ParentName
+        {
+            get
+            {
+                return _parentName;
+            }
+            set
+            {
+                if( _parentName != value )
+                {
+                    _parentName = value;
+                    OnPropertyChanged( nameof( ParentName ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the parent path.
+        /// </summary>
+        /// <value>
+        /// The parent path.
+        /// </value>
+        public string ParentPath
+        {
+            get
+            {
+                return _parentPath;
+            }
+            set
+            {
+                if( _parentPath != value )
+                {
+                    _parentPath = value;
+                    OnPropertyChanged( nameof( ParentPath ) );
+                }
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Determines whether this instance contains the object.
@@ -197,17 +210,17 @@ namespace Badger
                     using var _reader = new StreamReader( _stream );
                     if( _reader != null )
                     {
-                        var _text = _reader?.ReadLine( );
+                        var Text = _reader?.ReadLine( );
                         var _result = false;
-                        while( !string.IsNullOrEmpty( _text ) )
+                        while( !string.IsNullOrEmpty( Text ) )
                         {
-                            if( Regex.IsMatch( _text, search ) )
+                            if( Regex.IsMatch( Text, search ) )
                             {
                                 _result = true;
                                 break;
                             }
 
-                            _text = _reader.ReadLine( );
+                            Text = _reader.ReadLine( );
                         }
 
                         return _result;
@@ -378,19 +391,19 @@ namespace Badger
                 var _root = _file.Drive;
                 var _nl = Environment.NewLine;
                 var _attrs = _file.FileAttributes;
-                var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
-                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "File Attributes: " + _tb
-                    + _attrs + _nl + _nl + _tb + "Extension: " + _tb + _extenstion + _nl + _nl + _tb
-                    + "Path Root: " + _tb + _root + _nl + _nl + _tb + "Path Separator: " + _tb
-                    + _pathsep + _nl + _nl + _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl
-                    + _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl + _tb + "Length: "
-                    + _tb + _len + _nl + _nl + _tb + "Created: " + _tb
-                    + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
+                var Tb = char.ToString( '\t' );
+                var Text = _nl + Tb + "File Name: " + Tb + _name + _nl + _nl + Tb
+                    + "File Path: " + Tb + _filePath + _nl + _nl + Tb + "File Attributes: " + Tb
+                    + _attrs + _nl + _nl + Tb + "Extension: " + Tb + _extenstion + _nl + _nl + Tb
+                    + "Path Root: " + Tb + _root + _nl + _nl + Tb + "Path Separator: " + Tb
+                    + _pathsep + _nl + _nl + Tb + "Drive Separator: " + Tb + _drivesep + _nl + _nl
+                    + Tb + "Folder Separator: " + Tb + _foldersep + _nl + _nl + Tb + "Length: "
+                    + Tb + _len + _nl + _nl + Tb + "Created: " + Tb
+                    + _create.ToShortDateString( ) + _nl + _nl + Tb + "Modified: " + Tb
                     + _modify.ToShortDateString( ) + _nl + _nl;
 
-                return !string.IsNullOrEmpty( _text )
-                    ? _text
+                return !string.IsNullOrEmpty( Text )
+                    ? Text
                     : string.Empty;
             }
             catch( IOException ex )

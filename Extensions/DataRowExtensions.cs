@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bocifus
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 10-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        10-31-2024
 // ******************************************************************************************
 // <copyright file="DataRowExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//   Bocifus is an open source windows (wpf) application that interacts with OpenAI GPT-3.5 Turbo API
+//   based on NET6 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -57,7 +57,7 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    internal static class DataRowExtensions
+    public static class DataRowExtensions
     {
         /// <summary>
         /// Converts to sql db parameters.
@@ -74,8 +74,8 @@ namespace Badger
                 try
                 {
                     {
-                        var _table = dataRow.Table;
-                        var _columns = _table?.Columns;
+                        var Table = dataRow.Table;
+                        var _columns = Table?.Columns;
                         var _values = dataRow.ItemArray;
                         switch( provider )
                         {

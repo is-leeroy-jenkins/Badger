@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="DataPath.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -61,6 +61,149 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class DataPath : PathBase
     {
+        /// <summary>
+        /// Deconstructs the specified buffer.
+        /// </summary>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="absolutePath">The abs path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="length">The length.</param>
+        /// <param name="extension"> </param>
+        /// <param name="createDate">The created.</param>
+        /// <param name="modifyDate">The modified.</param>
+        public void Deconstruct( out string buffer, out string absolutePath, out string name,
+            out string fullPath, out long length, out string extension,
+            out DateTime createDate, out DateTime modifyDate )
+        {
+            buffer = _input;
+            absolutePath = _absolutePath;
+            name = _fileName;
+            fullPath = _fullPath;
+            extension = _fileExtension;
+            length = _length;
+            createDate = _created;
+            modifyDate = _modified;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                var _path = new DataPath( _input );
+                var _extenstion = _path.Extension ?? string.Empty;
+                var _name = _path.FileName ?? string.Empty;
+                var _filePath = _path.FullPath ?? string.Empty;
+                var _create = _path.Created;
+                var _modify = _path.Modified;
+                var _len = _path.Length.ToString( "N0" ) ?? string.Empty;
+                var _pathsep = _path.PathSeparator;
+                var _drivesep = _path.DriveSeparator;
+                var _foldersep = _path.FolderSeparator;
+                var _root = _path.Drive;
+                var _nl = Environment.NewLine;
+                var _attrs = _path.FileAttributes;
+                var Tb = char.ToString( '\t' );
+                var Text = _nl + Tb + "File Name: " + Tb + _name + _nl + _nl + Tb
+                    + "File Path: " + Tb + _filePath + _nl + _nl + Tb + "File Attributes: " + Tb
+                    + _attrs + _nl + _nl + Tb + "Extension: " + Tb + _extenstion + _nl + _nl + Tb
+                    + "Path Root: " + Tb + _root + _nl + _nl + Tb + "Path Separator: " + Tb
+                    + _pathsep + _nl + _nl + Tb + "Drive Separator: " + Tb + _drivesep + _nl + _nl
+                    + Tb + "Folder Separator: " + Tb + _foldersep + _nl + _nl + Tb + "Length: "
+                    + Tb + _len + _nl + _nl + Tb + "Created: " + Tb
+                    + _create.ToShortDateString( ) + _nl + _nl + Tb + "Modified: " + Tb
+                    + _modify.ToShortDateString( ) + _nl + _nl;
+
+                return !string.IsNullOrEmpty( Text )
+                    ? Text
+                    : string.Empty;
+            }
+            catch( IOException ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataPath"/>
+        /// class.
+        /// </summary>
+        public DataPath( )
+        {
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataPath"/>
+        /// class.
+        /// </summary>
+        /// <param name="input">
+        /// The input.
+        /// </param>
+        public DataPath( string input )
+        {
+            _input = input;
+            _hasExtension = Path.HasExtension( input );
+            _fileExtension = Path.GetExtension( input );
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
+            _isRooted = Path.IsPathRooted( input );
+            _absolutePath = Path.GetFullPath( input );
+            _relativePath = Environment.CurrentDirectory + input;
+            _fileName = Path.GetFileNameWithoutExtension( input );
+            _fullPath = Path.GetFullPath( input );
+            _length = input.Length;
+            _created = File.GetCreationTime( input );
+            _modified = File.GetLastWriteTime( input );
+            _invalidPathChars = Path.GetInvalidPathChars( );
+            _invalidNameChars = Path.GetInvalidFileNameChars( );
+            _pathSeparator = Path.PathSeparator;
+            _folderSeparator = Path.AltDirectorySeparatorChar;
+            _driveSeparator = Path.DirectorySeparatorChar;
+            _drive = Path.GetPathRoot( input );
+            _fileAttributes = File.GetAttributes( input );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataPath"/> class.
+        /// </summary>
+        /// <param name="path">
+        /// The path.
+        /// </param>
+        public DataPath( DataPath path )
+        {
+            _input = path.Input;
+            _hasExtension = Path.HasExtension( path.Input );
+            _fileExtension = path.Extension;
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( path.Input )?.Name );
+            _absolutePath = path.AbsolutePath;
+            _relativePath = path.RelativePath;
+            _fileName = path.FileName;
+            _fullPath = path.FullPath;
+            _length = path.Length;
+            _created = path.Created;
+            _modified = path.Modified;
+            _invalidPathChars = path.InvalidPathChars;
+            _invalidNameChars = path.InvalidNameChars;
+            _pathSeparator = path.PathSeparator;
+            _folderSeparator = path.FolderSeparator;
+            _driveSeparator = path.DriveSeparator;
+            _drive = path.Drive;
+            _fileAttributes = path.FileAttributes;
+        }
+
         /// <summary>
         /// Gets or sets the buffer.
         /// </summary>
@@ -449,149 +592,6 @@ namespace Badger
                     _driveSeparator = value;
                     OnPropertyChanged( nameof( DriveSeparator ) );
                 }
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Ninja.DataPath"/>
-        /// class.
-        /// </summary>
-        public DataPath( )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Ninja.DataPath"/>
-        /// class.
-        /// </summary>
-        /// <param name="input">
-        /// The input.
-        /// </param>
-        public DataPath( string input )
-        {
-            _input = input;
-            _hasExtension = Path.HasExtension( input );
-            _fileExtension = Path.GetExtension( input );
-            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
-            _isRooted = Path.IsPathRooted( input );
-            _absolutePath = Path.GetFullPath( input );
-            _relativePath = Environment.CurrentDirectory + input;
-            _fileName = Path.GetFileNameWithoutExtension( input );
-            _fullPath = Path.GetFullPath( input );
-            _length = input.Length;
-            _created = File.GetCreationTime( input );
-            _modified = File.GetLastWriteTime( input );
-            _invalidPathChars = Path.GetInvalidPathChars( );
-            _invalidNameChars = Path.GetInvalidFileNameChars( );
-            _pathSeparator = Path.PathSeparator;
-            _folderSeparator = Path.AltDirectorySeparatorChar;
-            _driveSeparator = Path.DirectorySeparatorChar;
-            _drive = Path.GetPathRoot( input );
-            _fileAttributes = File.GetAttributes( input );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataPath"/> class.
-        /// </summary>
-        /// <param name="path">
-        /// The path.
-        /// </param>
-        public DataPath( DataPath path )
-        {
-            _input = path.Input;
-            _hasExtension = Path.HasExtension( path.Input );
-            _fileExtension = path.Extension;
-            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( path.Input )?.Name );
-            _absolutePath = path.AbsolutePath;
-            _relativePath = path.RelativePath;
-            _fileName = path.FileName;
-            _fullPath = path.FullPath;
-            _length = path.Length;
-            _created = path.Created;
-            _modified = path.Modified;
-            _invalidPathChars = path.InvalidPathChars;
-            _invalidNameChars = path.InvalidNameChars;
-            _pathSeparator = path.PathSeparator;
-            _folderSeparator = path.FolderSeparator;
-            _driveSeparator = path.DriveSeparator;
-            _drive = path.Drive;
-            _fileAttributes = path.FileAttributes;
-        }
-
-        /// <summary>
-        /// Deconstructs the specified buffer.
-        /// </summary>
-        /// <param name="buffer">The buffer.</param>
-        /// <param name="absolutePath">The abs path.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="fullPath">The full path.</param>
-        /// <param name="length">The length.</param>
-        /// <param name="extension"> </param>
-        /// <param name="createDate">The created.</param>
-        /// <param name="modifyDate">The modified.</param>
-        public void Deconstruct( out string buffer, out string absolutePath, out string name,
-            out string fullPath, out long length, out string extension,
-            out DateTime createDate, out DateTime modifyDate )
-        {
-            buffer = _input;
-            absolutePath = _absolutePath;
-            name = _fileName;
-            fullPath = _fullPath;
-            extension = _fileExtension;
-            length = _length;
-            createDate = _created;
-            modifyDate = _modified;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="T:System.String" />
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                var _path = new DataPath( _input );
-                var _extenstion = _path.Extension ?? string.Empty;
-                var _name = _path.FileName ?? string.Empty;
-                var _filePath = _path.FullPath ?? string.Empty;
-                var _create = _path.Created;
-                var _modify = _path.Modified;
-                var _len = _path.Length.ToString( "N0" ) ?? string.Empty;
-                var _pathsep = _path.PathSeparator;
-                var _drivesep = _path.DriveSeparator;
-                var _foldersep = _path.FolderSeparator;
-                var _root = _path.Drive;
-                var _nl = Environment.NewLine;
-                var _attrs = _path.FileAttributes;
-                var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
-                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "File Attributes: " + _tb
-                    + _attrs + _nl + _nl + _tb + "Extension: " + _tb + _extenstion + _nl + _nl + _tb
-                    + "Path Root: " + _tb + _root + _nl + _nl + _tb + "Path Separator: " + _tb
-                    + _pathsep + _nl + _nl + _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl
-                    + _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl + _tb + "Length: "
-                    + _tb + _len + _nl + _nl + _tb + "Created: " + _tb
-                    + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
-                    + _modify.ToShortDateString( ) + _nl + _nl;
-
-                return !string.IsNullOrEmpty( _text )
-                    ? _text
-                    : string.Empty;
-            }
-            catch( IOException ex )
-            {
-                Fail( ex );
-                return string.Empty;
             }
         }
     }

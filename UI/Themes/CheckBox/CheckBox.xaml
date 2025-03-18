@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger"
+    xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:sync="clr-namespace:Syncfusion.Windows.Tools.Controls;assembly=Syncfusion.Shared.WPF"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:theme="clr-namespace:Syncfusion.Themes.FluentDark.WPF"
+    xmlns:wpf="clr-namespace:Syncfusion.Themes.FluentDark.WPF;assembly=Syncfusion.Themes.FluentDark.WPF">
+
+    <!--  *********************************************** CHECKBOX *****************************************************  -->
+
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="Background" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+        <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="BorderThickness" Value="1" />
+
+    </Style>
+</ResourceDictionary>

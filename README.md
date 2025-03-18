@@ -3,7 +3,7 @@
 
 <div align="left">
   <p>
-    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#-documentation">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Bubba/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a>
+    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#-documentation">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Badger/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a>
   </p>
   <p>
     An open source budget execution & data analysis application for federal analysts developed in C# using WPF and released under the MIT license
@@ -30,7 +30,7 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Providers.png) Database Providers
 > Databases play a critical role in environmental data analysis by providing a structured system to store, organize, and efficiently retrieve large amounts of data, allowing analysts to easily access and manipulate information needed to extract meaningful insights through queries and analysis tools; essentially acting as the central repository for data used in data analysis processes.
-> Bubba provides the following providers to store and analyze data locally.
+> Badger provides the following providers to store and analyze data locally.
 
 - [SQLite](https://sqlite.org/index.html) is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. 
 - [SQL CE](https://www.microsoft.com/en-us/download/details.aspx?id=30709) is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. 
@@ -50,7 +50,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
 - [Compilation Guide](Resources/Github/Compilation.md) - instructions on how to compile Badger.
-- [Configuration Guide](Resources/Github/Configuration.md) - information for the Bubba configuration file. 
+- [Configuration Guide](Resources/Github/Configuration.md) - information for the Badger configuration file. 
 - [Distribution Guide](Resources/Github/Distribution.md) -  distributing Badger
 
 
@@ -59,7 +59,7 @@
 
 
 - [Controls](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Controls) - main UI layer with numerous controls and related functionality.
-- [Styles](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Themes/Styles) - XAML-based styles for the Bubba UI layer.
+- [Styles](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI/Themes/Styles) - XAML-based styles for the Badger UI layer.
 - [Enumerations](https://github.com/is-leeroy-jenkins/Badger/tree/main/Enumerations) - various enumerations used for budgetary accounting.
 - [Extensions](https://github.com/is-leeroy-jenkins/Badger/tree/main/Extensions)- useful extension methods for budget analysis by type.
 - [Clients](https://github.com/is-leeroy-jenkins/Badger/tree/main/Clients) - other tools used and available.
@@ -77,7 +77,7 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
 
 > Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
-> It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
+> It can help improve the execution speed and reduce the training time of your code. Badger provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 
 - #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - #### [Federal Regulations](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
@@ -86,7 +86,7 @@
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
 
 - #### Example gpt-4o-mini run
-## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Bubba.gif)
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/Badger.gif)
 
 > Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
@@ -99,7 +99,7 @@ Users leverage LLMs for rapid information retrieval from vast datasets, automate
 > The tools used in environmental data analysis & buget execution play a crucial role by facilitating the collection, cleaning, organization, analysis,
 > and interpretation of large datasets, allowing users to extract meaningful insights and make informed decisions by transforming raw data
 > into actionable information through features like statistical analysis, data visualization, and machine learning algorithms.
-> Some of the tools offered by Bubba include the following:
+> Some of the tools offered by Badger include the following:
 
 - ##### Datagrids
 - ##### Pivot Tables
@@ -330,7 +330,7 @@ Ctrl+F		| Open search bar (Enter to find next, Esc to close)
 
 ![](https://github.com/is-leeroy-jenkins/Baby/blob/main/Properties/4.png)
 
-## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/chrome.png) CefSharp Requirements
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/master/Resources/Assets/GitHubImages/chrome.png) CefSharp Requirements
 
 #### The binaries directory must contain these required dependencies:
 
@@ -385,11 +385,11 @@ Badger uses the following projects and libraries. Please consider supporting the
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/web.png) Privacy Policy
+## ![](https://github.com/is-leeroy-jenkins/Badger/blob/master/Resources/Assets/GitHubImages/web.png) Privacy Policy
 
 This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
 
-Bubba has integrated the following services for additional functions, which can be enabled or disabled at the first start (in the welcome dialog) or at any time in the settings:
+Badger has integrated the following services for additional functions, which can be enabled or disabled at the first start (in the welcome dialog) or at any time in the settings:
 
 - [api.github.com](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) (Check for program updates)
 - [ipify.org](https://www.ipify.org/) (Retrieve the public IP address used by the client)
@@ -397,6 +397,6 @@ Bubba has integrated the following services for additional functions, which can 
 
 ## 📝 License
 
-Bubba is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/Bubba/blob/main/LICENSE).
+Badger is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/Badger/blob/main/LICENSE).
 
 

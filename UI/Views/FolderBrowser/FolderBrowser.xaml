@@ -1,0 +1,163 @@
+﻿<Window
+    x:Class="Badger.FolderBrowser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    x:Name="BrowserView"
+    Title="Search File System"
+    Width="700"
+    Height="450"
+    Padding="1"
+    sync:SfSkinManager.Theme="{sync:SkinManagerExtension ThemeName=FluentDark}"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BlueBorderBrush}"
+    BorderThickness="1"
+    FontFamily="Roboto"
+    Foreground="{StaticResource FormForeground}"
+    Icon="/Resources/Assets/DialogImages/FolderBrowse.png"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  ******************************************** Resources *********************************************  -->
+
+    <Window.Resources>
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
+        </Style>
+    </Window.Resources>
+
+
+    <!--  ******************************************** Context Menu ******************************************  -->
+
+    <Grid x:Name="BrowserGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*" />
+            <RowDefinition Height="280*" />
+            <RowDefinition Height="123*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*" />
+            <ColumnDefinition Width="265*" />
+            <ColumnDefinition Width="64*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  ******************************************** ListBox ******************************************  -->
+
+        <b:MetroListBox
+            x:Name="ListBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="217"
+            Margin="25,53,256,0"
+            VerticalAlignment="Top"
+            d:ItemsSource="{d:SampleData ItemCount=5}" />
+
+        <!--  ******************************************** Tiles ******************************************  -->
+
+        <b:MetroTile
+            x:Name="SelectButton"
+            Title="  Select"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="85"
+            Height="35"
+            Margin="258,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Header="" />
+        <!--  ********************************* Tile  *************************************  -->
+
+        <b:MetroTile
+            x:Name="BrowseButton"
+            Title="  Browse"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="90"
+            Height="33"
+            Margin="25,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Header="" />
+
+        <!--  ********************************* Tile  *************************************  -->
+
+        <b:MetroTile
+            x:Name="ClearButton"
+            Title="  Clear"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="90"
+            Height="35"
+            Margin="137,72,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Header="" />
+
+        <b:MetroLabel
+            x:Name="DateLabel"
+            Grid.Column="2"
+            Height="26"
+            Margin="16,0,16,0"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Right"
+            Content="Date"
+            FontSize="10" />
+
+        <b:MetroLabel
+            x:Name="DirectoryLabel"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="10,21,346,237"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            Content="Directory:"
+            FontSize="10" />
+
+        <b:MetroLabel
+            x:Name="TimeLabel"
+            Grid.Row="2"
+            Width="102"
+            Margin="0,93,10,8"
+            HorizontalAlignment="Right"
+            Content="Time"
+            FontSize="10" />
+
+        <!--  ********************************* Tile  *************************************  -->
+
+        <b:MetroListBox
+            x:Name="FileListBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="248,53,10,20"
+            d:ItemsSource="{d:SampleData ItemCount=5}" />
+
+        <b:MetroLabel
+            x:Name="SelectedLabel"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="232,21,121,237"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Bottom"
+            Content="Files:"
+            FontSize="10" />
+
+        <b:MetroTile
+            x:Name="CloseButton"
+            Title="   Close"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="86"
+            Height="35"
+            Margin="0,69,10,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Header="" />
+    </Grid>
+</Window>

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="AsyncFile.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -56,72 +56,6 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AsyncFile : AsyncFileBase
     {
-        /// <summary>
-        /// Gets the size.
-        /// </summary>
-        /// <value>
-        /// The size.
-        /// </value>
-        public long Size
-        {
-            get
-            {
-                return _fileExists
-                    ? File.Open( _fullPath, FileMode.Open ).Length
-                    : 0L;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataFile" /> class.
-        /// </summary>
-        public AsyncFile( )
-        {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataFile" /> class.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        public AsyncFile( string input )
-            : base( input )
-        {
-            _input = input;
-            _fileName = Path.GetFileNameWithoutExtension( input );
-            _fileExists = File.Exists( input );
-            _hasExtension = Path.HasExtension( input );
-            _fullPath = Path.GetFullPath( input );
-            _absolutePath = Path.GetFullPath( input );
-            _fileAttributes = File.GetAttributes( input );
-            _created = File.GetCreationTime( input );
-            _modified = File.GetLastWriteTime( input );
-            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Badger.DataFile" /> class.
-        /// </summary>
-        /// <param name="file">The file.</param>
-        public AsyncFile( DataFile file )
-        {
-            _input = file.Input;
-            _fileName = file.FileName;
-            _fileExists = File.Exists( file.FullPath );
-            _hasExtension = Path.HasExtension( file.FullPath );
-            _fullPath = file.FullPath;
-            _absolutePath = file.AbsolutePath;
-            _fileAttributes = file.FileAttributes;
-            _created = file.Created;
-            _modified = file.Modified;
-            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( file.FullPath )?.Name );
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Determines whether this instance contains the object.
@@ -146,17 +80,17 @@ namespace Badger
                     using var _reader = new StreamReader( _stream );
                     if( _reader != null )
                     {
-                        var _text = _reader?.ReadLine( );
+                        var Text = _reader?.ReadLine( );
                         var _result = false;
-                        while( !string.IsNullOrEmpty( _text ) )
+                        while( !string.IsNullOrEmpty( Text ) )
                         {
-                            if( Regex.IsMatch( _text, search ) )
+                            if( Regex.IsMatch( Text, search ) )
                             {
                                 _result = true;
                                 break;
                             }
 
-                            _text = _reader.ReadLine( );
+                            Text = _reader.ReadLine( );
                         }
 
                         _async.SetResult( _result );
@@ -356,25 +290,91 @@ namespace Badger
                 var _root = _file.Drive;
                 var _nl = Environment.NewLine;
                 var _attrs = _file.FileAttributes;
-                var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl + _tb
-                    + "File Path: " + _tb + _filePath + _nl + _nl + _tb + "File Attributes: " + _tb
-                    + _attrs + _nl + _nl + _tb + "Extension: " + _tb + _extenstion + _nl + _nl + _tb
-                    + "Path Root: " + _tb + _root + _nl + _nl + _tb + "Path Separator: " + _tb
-                    + _pathsep + _nl + _nl + _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl
-                    + _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl + _tb + "Length: "
-                    + _tb + _len + _nl + _nl + _tb + "Created: " + _tb
-                    + _create.ToShortDateString( ) + _nl + _nl + _tb + "Modified: " + _tb
+                var Tb = char.ToString( '\t' );
+                var Text = _nl + Tb + "File Name: " + Tb + _name + _nl + _nl + Tb
+                    + "File Path: " + Tb + _filePath + _nl + _nl + Tb + "File Attributes: " + Tb
+                    + _attrs + _nl + _nl + Tb + "Extension: " + Tb + _extenstion + _nl + _nl + Tb
+                    + "Path Root: " + Tb + _root + _nl + _nl + Tb + "Path Separator: " + Tb
+                    + _pathsep + _nl + _nl + Tb + "Drive Separator: " + Tb + _drivesep + _nl + _nl
+                    + Tb + "Folder Separator: " + Tb + _foldersep + _nl + _nl + Tb + "Length: "
+                    + Tb + _len + _nl + _nl + Tb + "Created: " + Tb
+                    + _create.ToShortDateString( ) + _nl + _nl + Tb + "Modified: " + Tb
                     + _modify.ToShortDateString( ) + _nl + _nl;
 
-                return !string.IsNullOrEmpty( _text )
-                    ? _text
+                return !string.IsNullOrEmpty( Text )
+                    ? Text
                     : string.Empty;
             }
             catch( IOException ex )
             {
                 Fail( ex );
                 return string.Empty;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataFile" /> class.
+        /// </summary>
+        public AsyncFile( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataFile" /> class.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public AsyncFile( string input )
+            : base( input )
+        {
+            _input = input;
+            _fileName = Path.GetFileNameWithoutExtension( input );
+            _fileExists = File.Exists( input );
+            _hasExtension = Path.HasExtension( input );
+            _fullPath = Path.GetFullPath( input );
+            _absolutePath = Path.GetFullPath( input );
+            _fileAttributes = File.GetAttributes( input );
+            _created = File.GetCreationTime( input );
+            _modified = File.GetLastWriteTime( input );
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:Badger.DataFile" /> class.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        public AsyncFile( DataFile file )
+        {
+            _input = file.Input;
+            _fileName = file.FileName;
+            _fileExists = File.Exists( file.FullPath );
+            _hasExtension = Path.HasExtension( file.FullPath );
+            _fullPath = file.FullPath;
+            _absolutePath = file.AbsolutePath;
+            _fileAttributes = file.FileAttributes;
+            _created = file.Created;
+            _modified = file.Modified;
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( file.FullPath )?.Name );
+        }
+
+        /// <summary>
+        /// Gets the size.
+        /// </summary>
+        /// <value>
+        /// The size.
+        /// </value>
+        public long Size
+        {
+            get
+            {
+                return _fileExists
+                    ? File.Open( _fullPath, FileMode.Open ).Length
+                    : 0L;
             }
         }
     }

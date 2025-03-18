@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-26-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-26-2025
 // ******************************************************************************************
 // <copyright file="WebSearch.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -44,7 +44,6 @@ namespace Badger
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Net.NetworkInformation;
-    using System.Text;
 
     /// <inheritdoc />
     /// <summary>
@@ -87,6 +86,21 @@ namespace Badger
         /// The title
         /// </summary>
         private protected string _title;
+
+        /// <summary>
+        /// The project identifier
+        /// </summary>
+        private protected string _projectId;
+
+        /// <summary>
+        /// The project number
+        /// </summary>
+        private protected string _projectNumber;
+
+        /// <summary>
+        /// The URL
+        /// </summary>
+        private protected string _url;
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -155,6 +169,72 @@ namespace Badger
                 {
                     _link = value;
                     OnPropertyChanged( nameof( Link ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the project identifier.
+        /// </summary>
+        /// <value>
+        /// The project identifier.
+        /// </value>
+        public virtual string ProjectId
+        {
+            get
+            {
+                return _projectId;
+            }
+            set
+            {
+                if( _link != value )
+                {
+                    _projectId = value;
+                    OnPropertyChanged( nameof( ProjectId ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the project number.
+        /// </summary>
+        /// <value>
+        /// The project number.
+        /// </value>
+        public virtual string ProjectNumber
+        {
+            get
+            {
+                return _projectNumber;
+            }
+            set
+            {
+                if( _projectNumber != value )
+                {
+                    _projectNumber = value;
+                    OnPropertyChanged( nameof( ProjectNumber ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        /// <value>
+        /// The URL.
+        /// </value>
+        public virtual string Url
+        {
+            get
+            {
+                return _url;
+            }
+            set
+            {
+                if( _url != value )
+                {
+                    _url = value;
+                    OnPropertyChanged( nameof( Url ) );
                 }
             }
         }
@@ -234,7 +314,7 @@ namespace Badger
         /// <returns>
         /// bool
         /// </returns>
-        private protected virtual bool PingNetwork( string ipAddress )
+        public virtual bool PingNetwork( string ipAddress )
         {
             var _status = false;
             try
@@ -242,8 +322,8 @@ namespace Badger
                 ThrowIf.Null( ipAddress, nameof( ipAddress ) );
                 using var _ping = new Ping( );
                 var _buffer = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"u8.ToArray( );
-                var _timeout = 5000;// 5sg
-                var _reply = _ping.Send( ipAddress, _timeout, _buffer );
+                var Timeout = 5000;// 5sg
+                var _reply = _ping.Send( ipAddress, Timeout, _buffer );
                 if( _reply != null )
                 {
                     _status = _reply.Status == IPStatus.Success;

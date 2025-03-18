@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="BabySearch.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -49,6 +49,7 @@ namespace Badger
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
+    using Properties;
 
     /// <inheritdoc />
     /// <summary>
@@ -63,6 +64,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public class BabySearch : WebSearch
     {
         /// <summary>
@@ -83,8 +85,8 @@ namespace Badger
         public BabySearch( )
             : base( )
         {
-            _key = ConfigurationManager.AppSettings[ "ApiKey" ];
-            _engineId = ConfigurationManager.AppSettings[ "SearchEngineId" ];
+            _key = Environment.GetEnvironmentVariable( "GOOGLE_API_KEY" );
+            _engineId = SearchEngine.ID;
         }
 
         /// <inheritdoc />

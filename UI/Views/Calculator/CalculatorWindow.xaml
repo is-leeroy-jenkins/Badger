@@ -15,7 +15,7 @@
     Background="{StaticResource BlackBackground}"
     BorderBrush="{StaticResource BlueBorderBrush}"
     Foreground="{StaticResource FormForeground}"
-    BorderThickness="2"
+    BorderThickness="1"
     FontSize="11"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
@@ -53,25 +53,24 @@
             x:Name="PictureBox"
             Canvas.Left="4"
             Canvas.Top="4"
-            Width="22"
-            Height="20"
-            Margin="1"
+            Width="20"
+            Height="16"
+            Margin="5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Source="/Resources/Assets/CalculatorImages/WindowsButton.png"
+            Source="/Resources/Assets/CalculatorImages/WindowsCalculatorButton.png"
             ToolTip="Windows Calculator"
-            Stretch="Uniform" />
+            Stretch="None" />
 
         <Image
             x:Name="CloseButton"
-            Canvas.Left="377"
-            Canvas.Top="7"
-            Width="22"
-            Height="18"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Source="/Resources/Assets/CalculatorImages/CloseButton.png"
+            Canvas.Left="376"
+            Canvas.Top="6"
+            Width="20"
+            Height="16"
+            Margin="5"
+            Source="/Resources/Assets/CalculatorImages/CalculatorCloseButton.png"
             ToolTip="Close Calculator"
-            Stretch="Uniform" />
+            Stretch="None" />
     </Canvas>
 </Window>

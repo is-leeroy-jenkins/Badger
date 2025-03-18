@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-16-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-16-2025
 // ******************************************************************************************
 // <copyright file="CollectionExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -75,9 +75,9 @@ namespace Badger
                     collection.Add( value );
                     return true;
                 }
-                catch( Exception _ex )
+                catch( Exception ex )
                 {
-                    Fail( _ex );
+                    Fail( ex );
                     return false;
                 }
             }
@@ -88,7 +88,7 @@ namespace Badger
         /// <summary>
         /// Adds the range.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">
         /// The collection.
         /// </param>
@@ -117,7 +117,7 @@ namespace Badger
         /// <summary>
         /// Determines whether this instance is empty.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">The collection.</param>
         /// <returns>
         /// <c> true </c>
@@ -141,7 +141,7 @@ namespace Badger
         /// <summary>
         /// Removes if contains.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">The collection.</param>
         /// <param name="value">The value.</param>
         public static void RemoveIfContains<T>( this ICollection<T> collection, T value )
@@ -162,7 +162,7 @@ namespace Badger
         /// <summary>
         /// Removes the range.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">The collection.</param>
         /// <param name="values">The values.</param>
         public static void RemoveRange<T>( this ICollection<T> collection, params T[ ] values )
@@ -186,7 +186,7 @@ namespace Badger
         /// <summary>
         /// Removes the where.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">The collection.</param>
         /// <param name="predicate">The predicate.</param>
         public static void RemoveWhere<T>( this ICollection<T> collection, Predicate<T> predicate )
@@ -231,7 +231,7 @@ namespace Badger
         /// <summary>
         /// Converts to bindinglist.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="collection">The collection.</param>
         /// <returns></returns>
         public static BindingList<T> ToBindingList<T>( this ICollection<T> collection )

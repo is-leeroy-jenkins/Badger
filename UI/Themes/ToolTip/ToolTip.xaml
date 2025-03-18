@@ -1,0 +1,28 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger">
+
+    <!--  *********************************************** TextBox*****************************************************  -->
+
+    <Style TargetType="ToolTip">
+        <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+        <Setter Property="Foreground" Value="{StaticResource BlueBorderBrush}" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="3">
+                        <Grid Margin="5,4">
+                            <ContentPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

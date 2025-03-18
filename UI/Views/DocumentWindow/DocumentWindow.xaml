@@ -1,0 +1,359 @@
+﻿<Window
+    x:Class="Badger.DocumentWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pdf="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.WPF"
+    xmlns:skin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    xmlns:sync="http://schemas.syncfusion.com/wpf"
+    x:Name="DocViewer"
+    Title="Documentation"
+    Width="1120"
+    Height="780"
+    MinWidth="1120"
+    MinHeight="500"
+    MaxWidth="1500"
+    MaxHeight="1000"
+    Padding="1,1,1,3"
+    sync:SfSkinManager.Theme="{skin:SkinManagerExtension ThemeName=FluentDark}"
+    Background="{StaticResource FormBackground}"
+    BorderBrush="{StaticResource BlueBorderBrush}"
+    BorderThickness="1"
+    FontSize="12"
+    Foreground="{StaticResource LightBlueBrush}"
+    Icon="/Resources/Assets/ApplicationImages/Badger.png"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  ******************************************** Resources *********************************************  -->
+
+    <Window.Resources>
+
+        <Style TargetType="ToolTip">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
+        </Style>
+
+    </Window.Resources>
+
+
+    <!--  ******************************************** Context Menu *********************************************  -->
+
+    <Window.ContextMenu>
+
+        <ContextMenu Name="DocumentWindowContextMenu">
+            <sync:MenuItemAdv
+                Click="OnFileMenuOptionClick"
+                Header="File"
+                ToolTip="Browse File System">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FileItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnChatOptionClick"
+                Header="Chat"
+                ToolTip="GPT Mode">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/ToolStripImages/ChatButton.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnWebOptionClick"
+                Header="Web"
+                ToolTip="Web Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/ToolStripImages/WebSearchButton.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Google Chrome"
+                ToolTip="Launch Chrome Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ChromeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="MS Edge"
+                ToolTip="Launch Edge Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/EdgeItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="FireFox"
+                ToolTip="Launch Firefox Browser">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/FirefoxItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCalculatorMenuOptionClick"
+                Header="Calculator"
+                ToolTip="Open Calculator">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CalculatorItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnControlPanelOptionClick"
+                Header="Control Panel"
+                ToolTip="Windows 10 Control Panel">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/ControlPanelItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <sync:MenuItemAdv
+                Click="OnTaskManagerOptionClick"
+                Header="Task Manager"
+                ToolTip="Windows 10 Task Manager">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/TaskManagerItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+            <Separator Background="{StaticResource BlueBorderBrush}" />
+
+            <sync:MenuItemAdv
+                Click="OnCloseOptionClick"
+                Header="Close"
+                ToolTip="Exit Application">
+                <sync:MenuItemAdv.Icon>
+                    <Image Source="/Resources/Assets/MenuImages/CloseItem.png" />
+                </sync:MenuItemAdv.Icon>
+            </sync:MenuItemAdv>
+
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <!--  ***************************** TOOLSTRIP  ***********************************  -->
+
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition />
+            <RowDefinition Height="56" />
+        </Grid.RowDefinitions>
+
+        <Canvas Grid.Row="2">
+            <b:ToolStrip
+                x:Name="DocumentToolStrip"
+                Canvas.Left="6"
+                Width="1090"
+                Height="40"
+                Padding="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BorderThickness="1"
+                OverflowButtonVisibility="Collapsed">
+
+                <b:ToolStripLabel
+                    x:Name="StatusLabel"
+                    Width="90"
+                    Height="35"
+                    Padding="1,1,1,1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Date &amp; Time"
+                    FontSize="9" />
+
+                <sync:MenuItemSeparator
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="{x:Null}" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripFirstButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/FirstButton.png"
+                    ToolTip="First Record" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripPreviousButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/PreviousButton.png"
+                    ToolTip="Previous Record" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripNextButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/NextButton.png"
+                    ToolTip="Next Record" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripLastButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/LastButton.png"
+                    ToolTip="Last Record" />
+
+                <b:ToolStripTextBox
+                    x:Name="ToolStripTextBox"
+                    Width="312"
+                    Height="30"
+                    Padding="10,1,1,1"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center" />
+
+                <sync:MenuItemSeparator
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="{x:Null}" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripGoButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/GoButton.png"
+                    ToolTip="Look Up" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripRefreshButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+                    ToolTip="Refresh" />
+
+                <ProgressBar
+                    x:Name="ToolStripProgressBar"
+                    Width="200"
+                    Height="30"
+                    Margin="5,1,5,1"
+                    Background="{StaticResource FormBackground}"
+                    BorderBrush="{StaticResource FormBackground}" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripBrowseButton"
+                    Width="40"
+                    Height="30"
+                    Margin="5,1,5,1"
+                    ImageSource="/Resources/Assets/ToolStripImages/BrowseButton.png"
+                    ToolTip="Search File  System" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripToggleButton"
+                    Width="40"
+                    Background="{StaticResource FormBackground}"
+                    ImageSource="/Resources/Assets/ToolStripImages/ToggleButton.png"
+                    ToolTip="Show Command Buttons" />
+
+                <b:ToolStripButton
+                    x:Name="ToolStripExitButton"
+                    Height="30"
+                    ImageSource="/Resources/Assets/ToolStripImages/ExitButton.png"
+                    ToolTip="Close Window" />
+
+            </b:ToolStrip>
+        </Canvas>
+
+        <Grid
+            x:Name="HeaderGrid"
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*" />
+                <ColumnDefinition Width="840*" />
+                <ColumnDefinition Width="221*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                x:Name="HeaderLabel"
+                Grid.Column="1"
+                Margin="150,3,30,3"
+                Padding="5,1,1,5"
+                VerticalContentAlignment="Center"
+                Content="PDF Viewer"
+                FontFamily="Roboto"
+                FontSize="16"
+                Foreground="{DynamicResource BlueBorderBrush}" />
+            <Image
+                x:Name="Icon"
+                Margin="5,5,5,5"
+                Source="/Resources/Assets/DemoImages/OpenAI.ico" />
+        </Grid>
+
+        <Grid
+            x:Name="DocumentGrid"
+            Grid.Row="1"
+            Height="670"
+            VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="805*" />
+                <ColumnDefinition Width="321*" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                x:Name="MenuGrid"
+                Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Canvas Grid.Row="3" />
+                <RadioButton
+                    x:Name="AppropriationsRadioButton"
+                    Margin="50,3,126,3"
+                    Content="Appropriations"
+                    Foreground="{DynamicResource FormForeground}"
+                    Tag="Appropriations"
+                    ToolTip="Public Laws" />
+                <RadioButton
+                    x:Name="RegulationsRadioButton"
+                    Grid.Row="1"
+                    Margin="50,3,126,3"
+                    Content="Regulations"
+                    Foreground="{DynamicResource FormForeground}"
+                    Tag="Regulations"
+                    ToolTip="CFRs, etc" />
+                <RadioButton
+                    x:Name="ExplanatoryStatementsRadioButton"
+                    Grid.Row="2"
+                    Margin="50,3,126,3"
+                    Content="Explanatory Statements"
+                    Foreground="{DynamicResource FormForeground}"
+                    Tag="ExplanatoryStatements"
+                    ToolTip="Committee Reports" />
+
+                <ListBox
+                    x:Name="DocumentListBox"
+                    Grid.Row="3"
+                    Width="282"
+                    Margin="0,36,23,10"
+                    HorizontalAlignment="Right"
+                    d:ItemsSource="{d:SampleData ItemCount=5}"
+                    BorderThickness="2,2,2,2" />
+            </Grid>
+            <pdf:PdfViewerControl
+                x:Name="PdfViewer"
+                Width="771"
+                Height="650"
+                Margin="10,0,0,0"
+                Padding="1,1,1,1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderBrush="{DynamicResource BlueBorderBrush}"
+                BorderThickness="2,2,2,2"
+                FontFamily="Roboto" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-23-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-23-2025
 // ******************************************************************************************
 // <copyright file="StringExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -56,6 +56,7 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ReplaceSubstringWithRangeIndexer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public static class StringExtensions
     {
         /// <summary>
@@ -129,7 +130,7 @@ namespace Badger
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( string );
+                return string.Empty;
             }
         }
 
@@ -435,7 +436,7 @@ namespace Badger
 
         /// <summary>
         /// remove space, not line end Useful when parsing user
-        /// input such phone, price int.Parse("1 000
+        /// input such phone, price int.Print("1 000
         /// 000".RemoveSpaces(),.....
         /// </summary>
         /// <param name="text">The text.</param>
@@ -480,6 +481,80 @@ namespace Badger
                 Fail( ex );
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Checks if valid.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="trimAndCheck">if set to <c>true</c> [trim and check].</param>
+        /// <returns></returns>
+        public static bool IsNull( this string text, bool trimAndCheck = false )
+        {
+            return string.IsNullOrEmpty( text );
+        }
+
+        /// <summary>
+        /// Files the not exists.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        public static bool IsFIle( this string path )
+        {
+            try
+            {
+                return !File.Exists( path );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if file path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        public static bool IsFilePath( this string path )
+        {
+            if( path.Length >= 3 )
+            {
+                if( path[ 1 ] == ':' )
+                {
+                    if( path[ 2 ] == '\\' )
+                    {
+                        if( char.IsLetter( path[ 0 ] ) )
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the after last.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="find">The find.</param>
+        /// <param name="returnAll">if set to <c>true</c> [return all].</param>
+        /// <returns></returns>
+        public static string GetAfterLast( this string text, string find, bool returnAll = false )
+        {
+            var _index = text.LastIndexOf( find, StringComparison.Ordinal );
+            if( _index == -1 )
+            {
+                return returnAll
+                    ? text
+                    : "";
+            }
+
+            _index += find.Length;
+            return text.Substring( _index );
         }
 
         /// <summary>

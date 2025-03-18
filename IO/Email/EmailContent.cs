@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-18-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-18-2025
 // ******************************************************************************************
 // <copyright file="EmailContent.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -43,6 +43,7 @@ namespace Badger
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using Exception = System.Exception;
 
     /// <inheritdoc />
@@ -55,17 +56,17 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class EmailContent
+    public class EmailContent : PropertyChangedBase
     {
+        /// <summary>
+        /// The attachments
+        /// </summary>
+        private protected IList<string> _attachments;
+
         /// <summary>
         /// The is HTML
         /// </summary>
         private protected bool _isHtml;
-
-        /// <summary>
-        /// The subject
-        /// </summary>
-        private protected string _subject;
 
         /// <summary>
         /// The message
@@ -73,84 +74,9 @@ namespace Badger
         private protected string _message;
 
         /// <summary>
-        /// The attachments
+        /// The subject
         /// </summary>
-        private protected IList<string> _attachments;
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance is HTML.
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is HTML; otherwise,
-        /// <c> false </c>
-        /// .
-        /// </value>
-        public bool IsHtml
-        {
-            get
-            {
-                return _isHtml;
-            }
-            private protected set
-            {
-                _isHtml = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the subject.
-        /// </summary>
-        /// <value>
-        /// The subject.
-        /// </value>
-        public string Subject
-        {
-            get
-            {
-                return _subject;
-            }
-            private protected set
-            {
-                _subject = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
-        public string Message
-        {
-            get
-            {
-                return _message;
-            }
-            private protected set
-            {
-                _message = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the attachments.
-        /// </summary>
-        /// <value>
-        /// The attachments.
-        /// </value>
-        public IList<string> Attachments
-        {
-            get
-            {
-                return _attachments;
-            }
-            set
-            {
-                _attachments = value;
-            }
-        }
+        private protected string _subject;
 
         /// <inheritdoc />
         /// <summary>
@@ -204,6 +130,20 @@ namespace Badger
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="EmailContent"/> class.
+        /// </summary>
+        /// <param name="subject">The subject.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="isHtml">if set to <c>true</c> [is HTML].</param>
+        public EmailContent( string subject, string message, bool isHtml = false )
+        {
+            _subject = subject;
+            _message = message;
+            _isHtml = isHtml;
+            _attachments = new List<string>( );
+        }
+
+        /// <summary>
         /// Deconstructs the specified is HTML.
         /// </summary>
         /// <param name="subject"> </param>
@@ -217,6 +157,97 @@ namespace Badger
             subject = _subject;
             message = _message;
             attachments = _attachments;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is HTML.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is HTML; otherwise,
+        /// <c> false </c>
+        /// .
+        /// </value>
+        public bool IsHtml
+        {
+            get
+            {
+                return _isHtml;
+            }
+            set
+            {
+                if( _isHtml != value )
+                {
+                    _isHtml = value;
+                    OnPropertyChanged( nameof( IsHtml ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the subject.
+        /// </summary>
+        /// <value>
+        /// The subject.
+        /// </value>
+        public string Subject
+        {
+            get
+            {
+                return _subject;
+            }
+            set
+            {
+                if( _subject != value )
+                {
+                    _subject = value;
+                    OnPropertyChanged( nameof( Subject ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the message.
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            set
+            {
+                if( _message != value )
+                {
+                    _message = value;
+                    OnPropertyChanged( nameof( Message ) );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the attachments.
+        /// </summary>
+        /// <value>
+        /// The attachments.
+        /// </value>
+        public IList<string> Attachments
+        {
+            get
+            {
+                return _attachments;
+            }
+            set
+            {
+                if( _attachments != value )
+                {
+                    _attachments = value;
+                    OnPropertyChanged( nameof( Attachments ) );
+                }
+            }
         }
 
         /// <summary> Converts to string. </summary>
@@ -249,7 +280,10 @@ namespace Badger
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                _attachments.Add( filePath );
+                if( File.Exists( filePath ) )
+                {
+                    _attachments.Add( filePath );
+                }
             }
             catch( Exception ex )
             {

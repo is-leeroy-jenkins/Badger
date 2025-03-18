@@ -1,16 +1,17 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Ninja
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 09-25-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        09-25-2024
 // ******************************************************************************************
 // <copyright file="Notification.xaml.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
 // 
-//    Copyright ©  2020-2024 Terry D. Eppler
+//    Ninja is a network toolkit, support iperf, tcp, udp, websocket, mqtt,
+//    sniffer, pcap, port scan, listen, ip scan .etc.
+// 
+//    Copyright ©  2019-2024 Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -187,11 +188,11 @@ namespace Badger
         {
             get
             {
-                return _text;
+                return Text;
             }
             private set
             {
-                _text = value;
+                Text = value;
             }
         }
 
@@ -222,7 +223,7 @@ namespace Badger
         public Notification( string message )
             : this( )
         {
-            _text = message;
+            Text = message;
         }
 
         /// <summary>
@@ -361,7 +362,7 @@ namespace Badger
             try
             {
                 InitializeLabels( );
-                MessageLabel.Content = _text;
+                MessageLabel.Content = Text;
                 Opacity = 0;
                 FadeInAsync( this );
             }

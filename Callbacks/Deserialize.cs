@@ -1,5 +1,5 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Bubba
+//     Assembly:                Badger
 //     Author:                  Terry D. Eppler
 //     Created:                 11-15-2024
 // 
@@ -7,7 +7,7 @@
 //     Last Modified On:        11-15-2024
 // ******************************************************************************************
 // <copyright file="Deserialize.cs" company="Terry D. Eppler">
-//    Bubba is an open source windows (wpf) application for interacting with OpenAI GPT
+//    Badger is an open source windows (wpf) application for interacting with OpenAI GPT
 //    that is based on NET 7 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler

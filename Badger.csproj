@@ -282,6 +282,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="1.2.0" />
     <PackageReference Include="cef.sdk" Version="133.4.2" />
     <PackageReference Include="CefSharp.Common.NETCore" Version="133.4.21" />
     <PackageReference Include="CefSharp.OffScreen.NETCore" Version="133.4.21" />
@@ -295,9 +296,15 @@
     <PackageReference Include="LiveCharts.Core" Version="0.9.8" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <PackageReference Include="Microsoft.ML" Version="4.0.2" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.3" />
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="PDFsharp" Version="6.1.1" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
     <PackageReference Include="RestoreWindowPlace" Version="3.1.0" />
+    <PackageReference Include="ScottPlot.WPF" Version="5.0.54" />
     <PackageReference Include="SkiaSharp" Version="3.116.1" />
     <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.119" />
     <PackageReference Include="Syncfusion.DocIO.Wpf" Version="24.1.41" />

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="EmailValidator.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -68,7 +68,7 @@ namespace Badger
             {
                 ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.Negative( index, nameof( index ) );
-                if( !SkipSubDomain( text, ref index, allowInternational, out var _type ) )
+                if( !SkipSubDomain( text, ref index, allowInternational, out var Type ) )
                 {
                     return false;
                 }
@@ -84,7 +84,7 @@ namespace Badger
                             return false;
                         }
 
-                        if( !SkipSubDomain( text, ref index, allowInternational, out _type ) )
+                        if( !SkipSubDomain( text, ref index, allowInternational, out Type ) )
                         {
                             return false;
                         }
@@ -97,7 +97,7 @@ namespace Badger
                     return false;
                 }
 
-                return _type != SubDomainType.Numeric;
+                return Type != SubDomainType.Numeric;
             }
             catch( Exception ex )
             {
@@ -223,8 +223,8 @@ namespace Badger
         {
             try
             {
-                var _test = c.ToString( );
-                ThrowIf.Null( _test, nameof( c ) );
+                var Test = c.ToString( );
+                ThrowIf.Null( Test, nameof( c ) );
                 return ( c >= 'A' && c <= 'F' ) || ( c >= 'a' && c <= 'f' )
                     || ( c >= '0' && c <= '9' );
             }

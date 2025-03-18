@@ -1,4 +1,4 @@
-![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/Appropriation.png)
+![](https://github.com/is-leeroy-jenkins/Badger/blob/master/Resources/Assets/GitHubImages/Appropriation.png)
 ## Federal Appropriations
 
 

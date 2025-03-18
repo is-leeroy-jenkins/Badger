@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="Workbook.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -61,6 +61,69 @@ namespace Badger
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class Workbook : SheetConfig
     {
+        /// <inheritdoc />
+        ///  <summary>
+        ///  </summary>
+        protected Workbook( )
+            : base( )
+        {
+        }
+
+        /// <summary>
+        /// Gets or sets the color of the font.
+        /// </summary>
+        /// <value>
+        /// The color of the font.
+        /// </value>
+        public Color FontColor
+        {
+            get
+            {
+                return _fontColor;
+            }
+
+            private protected set
+            {
+                _fontColor = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the font.
+        /// </summary>
+        /// <value>
+        /// The font.
+        /// </value>
+        public Font Font
+        {
+            get
+            {
+                return _font;
+            }
+            set
+            {
+                _font = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the title font.
+        /// </summary>
+        /// <value>
+        /// The title font.
+        /// </value>
+        public Font TitleFont
+        {
+            get
+            {
+                return TitleFont;
+            }
+            set
+            {
+                TitleFont = value;
+            }
+        }
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -276,71 +339,6 @@ namespace Badger
             {
                 Dispose( );
                 Fail( ex );
-            }
-        }
-
-        /// <inheritdoc />
-        ///  <summary>
-        ///  </summary>
-        protected Workbook( )
-            : base( )
-        {
-        }
-
-        /// <summary>
-        /// Gets or sets the color of the font.
-        /// </summary>
-        /// <value>
-        /// The color of the font.
-        /// </value>
-        public Color FontColor
-        {
-            get
-            {
-                return _fontColor;
-            }
-
-            private protected set
-            {
-                _fontColor = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the font.
-        /// </summary>
-        /// <value>
-        /// The font.
-        /// </value>
-        public Font Font
-        {
-            get
-            {
-                return _font;
-            }
-
-            private protected set
-            {
-                _font = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the title font.
-        /// </summary>
-        /// <value>
-        /// The title font.
-        /// </value>
-        public Font TitleFont
-        {
-            get
-            {
-                return _titleFont;
-            }
-
-            private protected set
-            {
-                _titleFont = value;
             }
         }
     }

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-16-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-16-2025
 // ******************************************************************************************
 // <copyright file="OptionExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -42,6 +42,7 @@
 namespace Badger
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -51,12 +52,13 @@ namespace Badger
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PreferConcreteValueOverDefault" ) ]
     public static class OptionExtensions
     {
         /// <summary>
         /// Firsts or none.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="enumerable">The enumerable.</param>
         /// <returns></returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable )
@@ -75,16 +77,15 @@ namespace Badger
         /// <summary>
         /// First or none.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="_"></typeparam>
         /// <param name="enumerable">The enumerable.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns></returns>
-        public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable,
-            Func<T, bool> predicate )
+        public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable, Func<T, bool> predicate )
         {
             try
             {
-                return enumerable.Where( predicate ).FirstOrNone( );
+                return enumerable.Where( predicate ).FirstOrNone<T>( );
             }
             catch( Exception ex )
             {
@@ -101,18 +102,18 @@ namespace Badger
         /// <param name="enumerable">The enumerable.</param>
         /// <param name="map">The map.</param>
         /// <returns></returns>
-        public static IEnumerable<TResult> SelectOptional<T, TResult>(
-            this IEnumerable<T> enumerable, Func<T, Option<TResult>> map )
+        public static IEnumerable<T> SelectOptional<T, TResult>( this IEnumerable<T> enumerable,
+            Func<T, Option<T>> map )
         {
             try
             {
-                return ( IEnumerable<TResult> )enumerable.Select( map ).OfType<Some<TResult>>( )
+                return ( IEnumerable<T> )enumerable.Select( map ).OfType<Some<T>>( )
                     .Select( s => s.IsSome );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IEnumerable<TResult> );
+                return default( IEnumerable<T> );
             }
         }
 
@@ -128,3 +129,4 @@ namespace Badger
         }
     }
 }
+

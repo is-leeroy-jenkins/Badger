@@ -1,0 +1,122 @@
+﻿<Window
+    x:Class="Badger.SearchDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpf="http://schemas.syncfusion.com/wpf"
+    Width="775"
+    Height="145"
+    wpf:SfSkinManager.Theme="{wpf:SkinManager ThemeName=FluentDark}"
+    Background="{StaticResource ControlBackground}"
+    BorderBrush="{StaticResource LightBlueBrush}"
+    BorderThickness="1,1,1,1"
+    FontFamily="Roboto"
+    Foreground="{StaticResource WhiteForeground}"
+    ResizeMode="NoResize"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  *********************************************  RESOURCES *********************************************  -->
+
+    <Window.Resources>
+
+        <Style TargetType="{x:Type ToolTip}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+            <Setter Property="Background" Value="{StaticResource BlackBackground}" />
+            <Setter Property="Foreground" Value="{StaticResource LightBlueBrush}" />
+        </Style>
+
+    </Window.Resources>
+
+
+    <!--  *********************************************  LAYOUT *********************************************  -->
+
+
+    <Canvas>
+        <b:MetroTile
+            x:Name="SearchPanelLookupButton"
+            Title=""
+            Canvas.Left="593"
+            Canvas.Top="56"
+            Width="50"
+            Height="45"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="{StaticResource ControlBackground}"
+            BorderBrush="{StaticResource ControlBackground}"
+            Foreground="{StaticResource FormForeground}"
+            Header=""
+            ImageSource="/Resources/Assets/ToolStripImages/GoButton.png"
+            ToolTip="Begin Search" />
+
+        <b:MetroTile
+            x:Name="SearchPanelRefreshButton"
+            Title=""
+            Canvas.Left="649"
+            Canvas.Top="56"
+            Width="50"
+            Height="45"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="{StaticResource ControlBackground}"
+            BorderBrush="{StaticResource ControlBackground}"
+            Foreground="{StaticResource FormForeground}"
+            Header=""
+            ImageSource="/Resources/Assets/ToolStripImages/RefreshButton.png"
+            ToolTip="Refresh Page" />
+
+        <b:MetroLabel
+            x:Name="SearchPanelQueryLabel"
+            Canvas.Left="25"
+            Canvas.Top="5"
+            Width="560"
+            Height="30"
+            Padding="1,0,1,1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            Content="Key Words: "
+            FontFamily="Roboto"
+            FontSize="16"
+            Foreground="{StaticResource BlueBorderBrush}" />
+
+        <b:MetroTile
+            x:Name="SearchPanelCancelButton"
+            Title=""
+            Canvas.Left="713"
+            Canvas.Top="58"
+            Width="50"
+            Height="44"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="{StaticResource ControlBackground}"
+            BorderBrush="{StaticResource ControlBackground}"
+            Foreground="{StaticResource FormForeground}"
+            Header=""
+            ImageSource="/Resources/Assets/ToolStripImages/StopButton.png"
+            ToolTip="Cancel Search" />
+
+        <b:MetroTextBox
+            x:Name="SearchPanelTextBox"
+            Canvas.Left="25"
+            Canvas.Top="35"
+            Width="560"
+            Height="87"
+            Padding="10,10,1,1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="{StaticResource BlackBackground}"
+            BorderBrush="{StaticResource BlueBorderBrush}"
+            BorderThickness="2"
+            FontFamily="Roboto"
+            FontSize="14"
+            Foreground="{StaticResource WhiteForeground}"
+            ToolTip="Enter Search Key Words" />
+
+    </Canvas>
+</Window>

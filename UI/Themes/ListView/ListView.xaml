@@ -1,0 +1,66 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Badger">
+
+
+    <!--  *********************************************** ListView *****************************************************  -->
+
+    <Style TargetType="{x:Type ListView}">
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BlueBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="15,1,1,1" />
+    </Style>
+
+    <!--  *********************************************** ListViewItem *****************************************************  -->
+
+    <Style TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ControlInteriorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="15,1,1,1" />
+
+        <Style.Triggers>
+
+
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+                <Setter Property="FontWeight" Value="Normal" />
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+                <Setter Property="FontWeight" Value="Normal" />
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="BorderBrush" Value="{StaticResource SteelBlueBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource WhiteForeground}" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="False">
+                <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
+                <Setter Property="Background" Value="{StaticResource ControlInteriorBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource FormForeground}" />
+                <Setter Property="FontWeight" Value="Normal" />
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+</ResourceDictionary>

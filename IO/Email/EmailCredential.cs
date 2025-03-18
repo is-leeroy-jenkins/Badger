@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 01-07-2025
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        01-07-2025
 // ******************************************************************************************
 // <copyright file="EmailCredential.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is a small and simple windows (wpf) application for interacting with the OpenAI API
+//    that's developed in C-Sharp under the MIT license.C#.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -55,16 +55,6 @@ namespace Badger
     public class EmailCredential
     {
         /// <summary>
-        /// The user name
-        /// </summary>
-        private string _userName;
-
-        /// <summary>
-        /// The password
-        /// </summary>
-        private string _password;
-
-        /// <summary>
         /// The first name
         /// </summary>
         private string _firstName;
@@ -73,6 +63,102 @@ namespace Badger
         /// The last name
         /// </summary>
         private string _lastName;
+
+        /// <summary>
+        /// The password
+        /// </summary>
+        private string _password;
+
+        /// <summary>
+        /// The user name
+        /// </summary>
+        private string _userName;
+
+        /// <summary>
+        /// Deconstructs the specified first name.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        public void Deconstruct( out string firstName, out string lastName, out string userName,
+            out string password )
+        {
+            firstName = _firstName;
+            lastName = _lastName;
+            userName = _userName;
+            password = _password;
+        }
+
+        /// <summary> Converts to string. </summary>
+        /// <returns>
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( _userName )
+                    ? _userName
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            var _error = new ErrorWindow( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailCredential"/> class.
+        /// </summary>
+        public EmailCredential( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailCredential"/> class.
+        /// </summary>
+        /// <param name="firstName"> </param>
+        /// <param name="lastName"> </param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        public EmailCredential( string firstName, string lastName, string userName,
+            string password )
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+            _userName = userName;
+            _password = password;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EmailCredential"/> class.
+        /// </summary>
+        /// <param name="credential">The credential.</param>
+        public EmailCredential( EmailCredential credential )
+        {
+            _firstName = credential.FirstName;
+            _lastName = credential.LastName;
+            _userName = credential.UserName;
+            _password = credential.Password;
+        }
 
         /// <summary>
         /// Gets the first name.
@@ -144,92 +230,6 @@ namespace Badger
             {
                 _password = value;
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailCredential"/> class.
-        /// </summary>
-        public EmailCredential( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailCredential"/> class.
-        /// </summary>
-        /// <param name="firstName"> </param>
-        /// <param name="lastName"> </param>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="password">The password.</param>
-        public EmailCredential( string firstName, string lastName, string userName,
-            string password )
-        {
-            _firstName = firstName;
-            _lastName = lastName;
-            _userName = userName;
-            _password = password;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailCredential"/> class.
-        /// </summary>
-        /// <param name="credential">The credential.</param>
-        public EmailCredential( EmailCredential credential )
-        {
-            _firstName = credential.FirstName;
-            _lastName = credential.LastName;
-            _userName = credential.UserName;
-            _password = credential.Password;
-        }
-
-        /// <summary>
-        /// Deconstructs the specified first name.
-        /// </summary>
-        /// <param name="firstName">The first name.</param>
-        /// <param name="lastName">The last name.</param>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="password">The password.</param>
-        public void Deconstruct( out string firstName, out string lastName, out string userName,
-            out string password )
-        {
-            firstName = _firstName;
-            lastName = _lastName;
-            userName = _userName;
-            password = _password;
-        }
-
-        /// <summary> Converts to string. </summary>
-        /// <returns>
-        /// A
-        /// <see cref="System.String"/>
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( _userName )
-                    ? _userName
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            var _error = new ErrorWindow( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

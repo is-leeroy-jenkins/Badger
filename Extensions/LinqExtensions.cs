@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Badger
+//     Assembly:                Bocifus
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 10-31-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        10-31-2024
 // ******************************************************************************************
 // <copyright file="LinqExtensions.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//   Bocifus is an open source windows (wpf) application that interacts with OpenAI GPT-3.5 Turbo API
+//   based on NET6 and written in C-Sharp.
 // 
 //    Copyright ©  2020-2024 Terry D. Eppler
 // 
@@ -58,12 +58,11 @@ namespace Badger
         /// <summary>
         /// The specified predicate.
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns></returns>
-        public static bool None<TSource>( this IEnumerable<TSource> source,
-            Func<TSource, bool> predicate )
+        public static bool None<T>( this IEnumerable<T> source, Func<T, bool> predicate )
         {
             try
             {
@@ -79,7 +78,7 @@ namespace Badger
         /// <summary>
         /// Determines whether [has at least] [the specified minimum count].
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="minCount">The minimum count.</param>
         /// <returns>
@@ -88,7 +87,7 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount )
+        public static bool HasAtLeast<T>( this IEnumerable<T> source, int minCount )
         {
             try
             {
@@ -104,7 +103,7 @@ namespace Badger
         /// <summary>
         /// Determines whether [has at least] [the specified minimum count].
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="minCount">The minimum count.</param>
         /// <param name="predicate">The predicate.</param>
@@ -114,8 +113,8 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount,
-            Func<TSource, bool> predicate )
+        public static bool HasAtLeast<T>( this IEnumerable<T> source, int minCount,
+            Func<T, bool> predicate )
         {
             if( minCount == 0 )
             {
@@ -144,7 +143,7 @@ namespace Badger
         /// <summary>
         /// Determines whether the specified count has exactly.
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="count">The count.</param>
         /// <returns>
@@ -153,7 +152,7 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count )
+        public static bool HasExactly<T>( this IEnumerable<T> source, int count )
         {
             try
             {
@@ -171,7 +170,7 @@ namespace Badger
         /// <summary>
         /// Determines whether the specified count has exactly.
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="count">The count.</param>
         /// <param name="predicate">The predicate.</param>
@@ -181,8 +180,8 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count,
-            Func<TSource, bool> predicate )
+        public static bool HasExactly<T>( this IEnumerable<T> source, int count,
+            Func<T, bool> predicate )
         {
             try
             {
@@ -215,7 +214,7 @@ namespace Badger
         /// <summary>
         /// Determines whether [has at most] [the specified limit].
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="limit">The limit.</param>
         /// <returns>
@@ -224,7 +223,7 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit )
+        public static bool HasAtMost<T>( this IEnumerable<T> source, int limit )
         {
             try
             {
@@ -240,7 +239,7 @@ namespace Badger
         /// <summary>
         /// Determines whether [has at most] [the specified limit].
         /// </summary>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source.</param>
         /// <param name="limit">The limit.</param>
         /// <param name="predicate">The predicate.</param>
@@ -250,8 +249,8 @@ namespace Badger
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit,
-            Func<TSource, bool> predicate )
+        public static bool HasAtMost<T>( this IEnumerable<T> source, int limit,
+            Func<T, bool> predicate )
         {
             try
             {
