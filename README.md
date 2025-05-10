@@ -77,10 +77,13 @@
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/openai.png)  Generative AI
 
 > Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
-> It can help improve the execution speed and reduce the training time of your code. Badger provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
+> It can help improve the execution speed and reduce the training time of your code. Badger provides the following vector stores on the Hugging Face and OpenAI platform to support environmental data analysis with machine-learning
 
-- #### [Federal Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations/embed/viewer/default/train) - vectorized data set of federal appropriations available for fine-tuning learning models
-- #### [Federal Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations/embed/viewer/default/train) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+- #### [Federal Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations/embed/viewer/default/train) - federal appropriations from 1990-2024 available for fine-tuning learning models
+- #### [Federal Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations/embed/viewer/default/train) - federal financial regulations available for fine-tuning learning models
+- #### [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133/embed/viewer/default/train) - report on Budget Execution and Budgetary Resources
+- #### [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances/embed/viewer/default/train) -  U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
+- #### [Outlays](https://huggingface.co/datasets/leeroy-jankins/Outlays/embed/viewer/default/train) -  the actual disbursements of funds by the U.S. federal government
 
 > Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
