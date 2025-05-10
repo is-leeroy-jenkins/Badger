@@ -79,11 +79,11 @@
 > Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 > It can help improve the execution speed and reduce the training time of your code. Badger provides the following vector stores on the Hugging Face and OpenAI platform to support environmental data analysis with machine-learning
 
-- #### [Federal Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - federal appropriations from 1996-2024 available for fine-tuning learning models
-- #### [Federal Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations) - federal financial regulations available for fine-tuning learning models
-- #### [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - report on Budget Execution and Budgetary Resources
+- #### [US Federal Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - Enacted appropriations from 1990-2024 available for fine-tuning learning models
+- #### [Federal Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations) - Collection of federal financial regulations on the use of appropriatied funds available for fine-tuning learning models
+- #### [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - The Report on Budget Execution and Budgetary Resources
 - #### [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances) -  U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
-- #### [Outlays](https://huggingface.co/datasets/leeroy-jankins/Outlays) -  the actual disbursements of funds by the U.S. federal government
+- #### [Outlays](https://huggingface.co/datasets/leeroy-jankins/Outlays) -  The actual disbursements of funds by the U.S. federal government from 1996 to 2025
 
 > Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
