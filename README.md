@@ -17,7 +17,7 @@
 - Mutliple data providers.
 - Datasets can be found on [Kaggle](https://www.kaggle.com/datasets/terryeppler/badger)
 - Charting and reporting.
-- Internal web browser, [Baby](https://github.com/is-leeroy-jenkins/Baby/blob/main/README.md),  with queries optimized for searching .gov domains.
+- Internal web browser, [Baby](https://github.com/is-leeroy-jenkins/Baby/blob/main/README.md](https://github.com/is-leeroy-jenkins/Baby?tab=readme-ov-file#baby),  with queries optimized for searching .gov domains.
 - Pre-defined schema for moret than 100 environmental data models.
 - Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
 - Excel-ish UI on top of a real databases.
