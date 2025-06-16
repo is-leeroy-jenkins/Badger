@@ -1,5 +1,5 @@
 ###### Badger
-<img src="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/analysis.gif" style="width:900px;height:200px">
+<img src="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/analysis.gif" style="width:900px;height:250px">
 
 <div align="left">
   <p>
