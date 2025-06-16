@@ -1,7 +1,6 @@
-#### Badger
-![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/ProjectTemplates.png)
-
+###### Badger
 <img src="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/analysis.gif" style="width:900px;height:200px">
+
 <div align="left">
   <p>
     <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger?tab=readme-ov-file#-documentation">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Badger/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a>
