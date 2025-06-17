@@ -63,7 +63,7 @@
 - [Enumerations](https://github.com/is-leeroy-jenkins/Badger/tree/main/Enumerations) - various enumerations used for budgetary accounting.
 - [Extensions](https://github.com/is-leeroy-jenkins/Badger/tree/main/Extensions)- useful extension methods for budget analysis by type.
 - [Clients](https://github.com/is-leeroy-jenkins/Badger/tree/main/Clients) - other tools used and available.
-- [Ninja](https://github.com/is-leeroy-jenkins/Badger/tree/main/Ninja) - models used in EPA budget data analysis.
+- [Ninja](https://github.com/is-leeroy-jenkins/Badger/tree/main/UI) - models used in EPA budget data analysis.
 - [IO](https://github.com/is-leeroy-jenkins/Badger/tree/main/IO) - input output classes used for networking and the file systemm.
 - [Static](https://github.com/is-leeroy-jenkins/Badger/tree/main/Static) - static types used in the analysis of environmental budget data.
 - [Interfaces](https://github.com/is-leeroy-jenkins/Badger/tree/Interfaces) - abstractions used in the analysis of environmental budget data.
