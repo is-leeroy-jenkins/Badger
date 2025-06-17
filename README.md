@@ -49,9 +49,9 @@
 
 ## ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/documentation.png) Documentation
 
-- [Compilation Guide](Resources/Github/Compilation.md) - instructions on how to compile Badger.
-- [Configuration Guide](Resources/Github/Configuration.md) - information for the Badger configuration file. 
-- [Distribution Guide](Resources/Github/Distribution.md) -  distributing Badger
+- [Compilation Guide]((https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md) - instructions on how to compile Badger.
+- [Configuration Guide](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/UserGuide.md) - information for the Badger configuration file. 
+- [Distribution Guide](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Distribution.md) -  distributing Badger
 
 
 
