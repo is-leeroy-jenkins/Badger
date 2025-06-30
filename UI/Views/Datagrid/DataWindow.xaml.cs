@@ -55,6 +55,7 @@ namespace Badger
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
+    using Syncfusion.UI.Xaml.TextInputLayout;
     using ToastNotifications;
     using ToastNotifications.Lifetime;
     using ToastNotifications.Messages;
@@ -207,7 +208,7 @@ namespace Badger
         /// <summary>
         /// The frames
         /// </summary>
-        private protected IList<MetroTextInput> _frames;
+        private protected IList<SfTextInputLayout> _frames;
 
         /// <summary>
         /// The path
@@ -338,7 +339,7 @@ namespace Badger
 
             // Initialize Collections
             _filter = new Dictionary<string, object>( );
-            _frames = new List<MetroTextInput>( );
+            _frames = new List<SfTextInputLayout>( );
             _columns = new List<string>( );
             _fields = new List<string>( );
             _numerics = new List<string>( );
@@ -739,7 +740,8 @@ namespace Badger
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names}" + $"FROM {_dataTable} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names}" + $"FROM {_dataTable} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
@@ -930,20 +932,17 @@ namespace Badger
         /// <summary>
         /// Populates the edit stack.
         /// </summary>
-        private protected IList<MetroTextInput> CreateFrames( )
+        private protected IList<SfTextInputLayout> CreateFrames( )
         {
             try
             {
-                var _list = new List<MetroTextInput>( );
+                var _list = new List<SfTextInputLayout>( );
                 for( var _index = 0; _index < _dataTable.Columns.Count; _index++ )
                 {
                     var _column = _dataTable.Columns[ _index ].ColumnName;
                     var _name = _column?.SplitPascal( );
-                    var _frame = new MetroTextInput
+                    var _frame = new SfTextInputLayout
                     {
-                        Ordinal = _dataTable.Columns[ _index ].Ordinal,
-                        Caption = _name,
-                        Input = _current.ItemArray[ _index ]?.ToString( )
                     };
 
                     _list.Add( _frame );
@@ -951,12 +950,12 @@ namespace Badger
 
                 return _list?.Any( ) == true
                     ? _list
-                    : default( IList<MetroTextInput> );
+                    : default( IList<SfTextInputLayout> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default( IList<MetroTextInput> );
+                return default( IList<SfTextInputLayout> );
             }
         }
 
