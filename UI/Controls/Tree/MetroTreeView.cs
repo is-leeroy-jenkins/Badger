@@ -1,16 +1,16 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Badger
 //     Author:                  Terry D. Eppler
-//     Created:                 12-07-2024
+//     Created:                 08-01-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-07-2024
+//     Last Modified On:        08-01-2024
 // ******************************************************************************************
 // <copyright file="MetroTreeView.cs" company="Terry D. Eppler">
-//    Badger is a budget execution & data analysis tool for federal budget analysts
-//     with the EPA based on WPF, Net 6, and is written in C#.
+//    Badger is data analysis and reporting tool for EPA Analysts
+//    based on WPF, NET6.0, and written in C-Sharp.
 // 
-//    Copyright ©  2020-2024 Terry D. Eppler
+//    Copyright ©  2024  Terry D. Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -32,7 +32,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MetroTreeView.cs
@@ -62,31 +62,15 @@ namespace Badger
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:Badger.MetroTreeView" /> class.
+        /// <see cref="T:Bubba.MetroTreeView" /> class.
         /// </summary>
         public MetroTreeView( )
             : base( )
         {
             // Control Properties
             SetResourceReference( StyleProperty, typeof( SfTreeView ) );
-            Width = 400;
-            Height = 400;
             FontSize = _theme.FontSize;
             FontFamily = _theme.FontFamily;
-            Background = _theme.Background;
-            Foreground = _theme.Foreground;
-            BorderBrush = _theme.BorderBrush;
-        }
-
-        /// <summary>
-        /// Fails the specified _ex.
-        /// </summary>
-        /// <param name="_ex">The _ex.</param>
-        private protected void Fail( Exception _ex )
-        {
-            var _error = new ErrorWindow( _ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }
