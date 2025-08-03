@@ -65,7 +65,7 @@
 - [Ninja](https://github.com/is-leeroy-jenkins/Badger/tree/main/Data/Models) - models used in EPA budget data analysis.
 - [IO](https://github.com/is-leeroy-jenkins/Badger/tree/main/IO) - input output classes used for networking and the file systemm.
 - [Static](https://github.com/is-leeroy-jenkins/Badger/tree/main/Static) - static types used in the analysis of environmental budget data.
-- [Interfaces](https://github.com/is-leeroy-jenkins/Badger/tree/Interfaces) - abstractions used in the analysis of environmental budget data.
+- [Struct](https://github.com/is-leeroy-jenkins/Badger/tree/main/Structs) - structs used in the app.
 - `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
 - Badger uses CefSharp 106 for Baby Browser and is built on NET 8
 - Badger supports x64 specific builds
