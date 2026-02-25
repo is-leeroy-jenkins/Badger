@@ -208,7 +208,7 @@ Users leverage LLMs for rapid information retrieval from vast datasets, automate
 >EMAP concepts for state and local use, assess the applicability of EMAP indicators at differing spatial scales, and demonstrate the
 >utility of EMAP for resolving issues of importance to EPA Regions and states. REMAP data are available online like EMAP data, but have smaller spatial and temporal scales.
 
-- [EPA STOrage and RETrieval database (STORET)](https://www3.epa.gov/storet/index-.html#:~:text=Welcome%20to%20STORET%2C%20EPA's%20largest,private%20citizens%2C%20and%20many%20others.)
+- [EPA STOrage and RETrieval database (STORET)](https://exchangenetwork.net/data-exchange/wqx/)
 >The STORET Data Warehouse is U.S. EPA's repository of the water quality monitoring data collected by water resource management groups across the country.
 >These organizations, including states, tribes, watershed groups, other federal agencies, volunteer groups and universities, submit datasets to the STORET Warehouse in order to make them publically accessible.
 
