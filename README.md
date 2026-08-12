@@ -3,7 +3,13 @@
 
 <div align="left">
   <p>
-    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  <a href="https://github.com/is-leeroy-jenkins/Badger/tree/main?tab=readme-ov-file#-code">Documentation</a> •<a href="https://github.com/is-leeroy-jenkins/Badger/tree/master/Resources/Github/Compilation.md">Build</a> • <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a>
+    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Github/Compilation.md">Download</a> •  
+    <a href="https://github.com/is-leeroy-jenkins/Badger/tree/main?tab=readme-ov-file#-code">Documentation</a> • 
+    <a href="https://github.com/is-leeroy-jenkins/Badger#--dashboards">Dashboards</a> • 
+    <a href="https://huggingface.co/leeroy-jankins/datasets">Datasets</a> • 
+    <a href="https://github.com/is-leeroy-jenkins/Badger#--generative-ai">AI</a> • 
+    <a href="https://github.com/is-leeroy-jenkins/Badger/tree/master/Resources/Github/Compilation.md">Build</a> • 
+    <a href="https://github.com/is-leeroy-jenkins/Badger/blob/main/Properties/LICENSE.txt">License</a> • 
   </p>
   <p>
     An open source budget execution & data analysis application for federal analysts developed in C# using WPF and released under the MIT license
